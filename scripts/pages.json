@@ -2,5 +2,12 @@
   {
     "name": "home",
     "path": "/"
-  }
+  },
+  { "name": "products", "path": "/products/" },
+  { "name": "custom", "path": "/custom/" },
+  { "name": "about", "path": "/about/" },
+  { "name": "blog", "path": "/blog/" },
+  { "name": "faq", "path": "/faq/" },
+  { "name": "contact", "path": "/contact/" },
+  { "name": "styleguide", "path": "/styleguide/" }
 ]

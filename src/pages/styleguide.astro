@@ -1,0 +1,140 @@
+---
+import BrandIcon from "../components/BrandIcon.astro";
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import QuoteButton from "../components/QuoteButton.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { display, site } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const colors = [
+  { label: "Primary", variable: "--color-primary", swatch: "bg-primary" },
+  { label: "Secondary", variable: "--color-secondary", swatch: "bg-secondary" },
+  { label: "Canvas", variable: "--color-canvas", swatch: "bg-canvas" },
+  { label: "Surface", variable: "--color-surface", swatch: "bg-surface" },
+  { label: "Ink", variable: "--color-ink", swatch: "bg-ink" },
+  { label: "Border", variable: "--color-line", swatch: "bg-line" },
+];
+const panel =
+  "min-w-0 rounded-panel border border-line bg-surface p-5 shadow-panel sm:p-7";
+---
+
+<BaseLayout title="Style Guide" noindex>
+  <Container class="py-11 sm:py-15 lg:py-18">
+    <div class="border-b border-line pb-7 sm:pb-9">
+      <div
+        class="mb-5 h-1 w-10 rounded-full bg-primary"
+        aria-hidden="true"
+      ></div>
+      <SectionHeading title="Style guide" level={1} />
+    </div>
+
+    <div class="mt-7 grid gap-5 lg:grid-cols-2">
+      <section class={panel} aria-labelledby="colors">
+        <SectionHeading title="Colors" id="colors" />
+        <ul class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {colors.map(({ label, variable, swatch }) => (
+            <li class="min-w-0 rounded-control border border-line p-2">
+              <div
+                class:list={["h-13 rounded-sm border border-ink/10", swatch]}
+                aria-hidden="true"
+              ></div>
+              <p class="mt-2 text-sm font-semibold">{label}</p>
+              <p class="text-xs wrap-anywhere text-muted">{variable}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class={panel} aria-labelledby="typography">
+        <SectionHeading title="Typography" id="typography" />
+        <dl class="mt-5 grid gap-4">
+          <div>
+            <dt class="text-xs font-semibold text-muted">
+              Page title · DM Serif Text
+            </dt>
+            <dd class="mt-1 font-display text-page-title tracking-tight">
+              Baking cups
+            </dd>
+          </div>
+          <div class="border-t border-line pt-3">
+            <dt class="text-xs font-semibold text-muted">
+              Section title · DM Serif Text
+            </dt>
+            <dd class="mt-1 font-display text-section-title">Cupcake liners</dd>
+          </div>
+          <div class="border-t border-line pt-3">
+            <dt class="text-xs font-semibold text-muted">Body · DM Sans</dt>
+            <dd class="mt-1 text-base">Cupcake Liners and Baking Cups</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class={panel} aria-labelledby="buttons">
+        <SectionHeading title="Buttons" id="buttons" />
+        <dl class="mt-5 flex flex-wrap items-end gap-x-3 gap-y-4">
+          <div>
+            <dt class="mb-1.5 text-xs font-semibold text-muted">Primary</dt>
+            <dd>
+              <QuoteButton />
+            </dd>
+          </div>
+          <div>
+            <dt class="mb-1.5 text-xs font-semibold text-muted">Secondary</dt>
+            <dd>
+              <Button href="/products/" variant="secondary">
+                View products
+              </Button>
+            </dd>
+          </div>
+          <div>
+            <dt class="mb-1.5 text-xs font-semibold text-muted">Ghost</dt>
+            <dd>
+              <Button href="/contact/" variant="ghost">
+                Contact
+              </Button>
+            </dd>
+          </div>
+        </dl>
+        <div class="mt-5 flex items-center gap-3 border-t border-line pt-4">
+          <span
+            class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary-ink text-white"
+            aria-hidden="true"
+          >
+            <BrandIcon name="whatsapp" class="size-5" />
+          </span>
+          <div class="text-sm wrap-anywhere">
+            <p class="font-semibold">WhatsApp</p>
+            <p class="text-muted">
+              {display(site.whatsappNumber, "WhatsApp number")}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class={panel} aria-labelledby="cards">
+        <SectionHeading title="Cards" id="cards" />
+        <div class="mt-5 grid gap-3 sm:grid-cols-2">
+          <article class="rounded-panel border border-line bg-canvas p-4">
+            <SectionHeading title="Products" level={3} />
+            <a
+              href="/products/"
+              class="mt-3 inline-flex gap-2 rounded-sm text-sm font-bold text-primary hover:underline"
+            >
+              Product categories <span aria-hidden="true">→</span>
+            </a>
+          </article>
+          <article class="rounded-panel border border-secondary-line bg-secondary p-4 text-secondary-ink">
+            <SectionHeading title="Custom/OEM" level={3} />
+            <a
+              href="/custom/"
+              class="mt-3 inline-flex gap-2 rounded-sm text-sm font-bold hover:underline"
+            >
+              Custom and OEM <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </section>
+    </div>
+  </Container>
+</BaseLayout>
