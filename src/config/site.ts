@@ -1,0 +1,25 @@
+export const site = {
+  companyName: "TODO_COMPANY_NAME",
+  shortName: "TODO_COMPANY_SHORT_NAME",
+  domain: "TODO_SITE_DOMAIN",
+  email: "TODO_EMAIL",
+  phone: "TODO_PHONE",
+  whatsappNumber: "TODO_WHATSAPP_NUMBER",
+  whatsappPrefillMessage: "TODO_WHATSAPP_PREFILL_MESSAGE",
+  factoryAddress: "TODO_FACTORY_ADDRESS",
+  foundedYear: "TODO_FOUNDED_YEAR",
+  dailyCapacity: "TODO_DAILY_CAPACITY",
+  exportCountryCount: "TODO_EXPORT_COUNTRY_COUNT",
+  patternCount: "TODO_PATTERN_COUNT",
+  certificates: [
+    { name: "TODO_CERTIFICATE_NAME", imagePath: "TODO_CERTIFICATE_IMAGE_PATH" },
+  ],
+  socialLinks: {
+    youtube: "TODO_YOUTUBE_URL",
+    tiktok: "TODO_TIKTOK_URL",
+    instagram: "TODO_INSTAGRAM_URL",
+    facebook: "TODO_FACEBOOK_URL",
+    pinterest: "TODO_PINTEREST_URL",
+    linkedin: "TODO_LINKEDIN_URL",
+  },
+};

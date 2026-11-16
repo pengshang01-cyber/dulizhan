@@ -1,0 +1,6 @@
+.astro/
+dist/
+/package-lock.json
+/AGENTS.md
+/docs/
+/.github/pull_request_template.md
