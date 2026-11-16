@@ -1,8 +1,8 @@
 # M4c 审核报告：中文站上线与微信联系（M4.6）
 
 - 分支：`m4c-zh`
-- PR：待创建后回填
-- PR 预览地址：无已核实的 PR 预览。
+- PR：[#8](https://github.com/pengshang01-cyber/dulizhan/pull/8)
+- PR 预览地址：无已核实的 PR 预览；自动触发的 Workers Builds 检查失败，尚无部署成功证据。
 - 生产站：[dulizhan.pengshang01.workers.dev](https://dulizhan.pengshang01.workers.dev)，由用户提供；本分支尚未合并，该地址不代表本次 PR 预览。
 - 提交时间：2026-11-16
 - 基线：确认 PR #7 已合并，切回 main 快进到 `5829476`（含用户手工提交的 wrangler.jsonc），再创建本分支。
@@ -25,7 +25,7 @@
 | 12 | 上线前禁止收录 | 完成 | allowIndexing 默认 false，CMS 可编辑；public 源文件默认禁止，build hook 按同一开关生成 robots / _headers，BaseLayout 同步 meta。 |
 | 13 | 工作记录整理 | 完成 | 三份根目录工作记录移至 `docs/notes/history.md`、`status.md`、`decisions.md`；内容保留并更新，AGENTS 说明后续记录位置。 |
 | 14 | 检查与截图 | 完成 | build / check / lint / test 全通过；32 张截图及全站浏览器 QA。 |
-| 15 | 报告及 PR | 完成 | 本报告附截图与英中对照表，最终 PR / CI 在创建后回填。 |
+| 15 | 报告及 PR | 完成 | 本报告附截图与英中对照表，PR #8 已创建，GitHub CI 通过；Workers Builds 失败详情见第 2 节。 |
 
 ## 2. 验收标准自检
 
@@ -56,6 +56,12 @@ English baseline: 15 page main texts unchanged
 ```
 
 收录开关实际构建：临时仅将 allowIndexing 改为 true，构建到独立目录；robots 允许抓取并指向真实 Sitemap，_headers 不含 noindex，中英文普通页移除全站 robots meta；两种 Inquiry 与英文 Styleguide 保留 noindex 且不进入 sitemap。随后按原始字节恢复 site.json，确认 allowIndexing=false，默认 dist 的禁止收录产物逐字节未变。
+
+### 自动检查结果
+
+- GitHub Actions 的 [CI 43859840551](https://github.com/pengshang01-cyber/dulizhan/actions/runs/43859840551) 四项检查通过（实现提交 5f84b78）。
+- [Workers Builds 检查](https://github.com/pengshang01-cyber/dulizhan/pull/8/checks) 返回 failure。GitHub check summary 只有构建 ID `26b2623d-c578-4316-a1ec-cf24024a0f8e` 和控制台链接，无错误说明或 annotations；当前工具无法读取该登录控制台。已请求用户提供首条错误及附近日志，原因尚未确定。
+- main 基线的 Workers Builds 曾成功；本次不能据此推断 PR 部署成功。最终提交的两类检查状态以 PR Checks 为准。
 
 ### Workers 与 404 核验边界
 
@@ -122,7 +128,7 @@ English baseline: 15 page main texts unchanged
 ## 5. 待确认问题
 
 1. 工厂提供真实微信号及二维码后，可在 Pages CMS 填写；当前浮层截图仅用于审核交互。
-2. 合并后请核对 Workers Builds 部署结果；本环境未取得生产域名 HTTP 响应，没有可核实的独立 PR 预览。
+2. 请提供 PR #8 的 Workers Builds 首条错误及附近日志，以便定位失败原因；当前无可核实的独立 PR 预览。
 3. 产品中文仍由工厂按需补充；M8 前保持 allowIndexing=false。
 
 ## 6. 本次新增的 TODO 占位
@@ -142,4 +148,4 @@ English baseline: 15 page main texts unchanged
 - 同步 Workers 部署约定，加入默认禁止收录及单开关输出，迁移工作记录。
 - 浏览器自检修复微信浮层的首尾 Tab 焦点循环，以及语言切换对动态 query / hash 的同步。
 - 四项检查、全站双视口检查、英文基线对比和 32 张截图完成。
-- PR / CI：待创建后回填。
+- PR：[#8](https://github.com/pengshang01-cyber/dulizhan/pull/8)；GitHub CI 通过，Workers Builds 失败且日志待提供。
