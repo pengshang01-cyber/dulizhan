@@ -2,7 +2,7 @@
 
 - 分支：`m4c-zh`
 - PR：[#8](https://github.com/pengshang01-cyber/dulizhan/pull/8)
-- PR 预览地址：无已核实的 PR 预览；自动触发的 Workers Builds 检查失败，尚无部署成功证据。
+- PR 预览地址：预览构建缺少 previews 配置的问题已按审核意见修复；最新结果见 [PR Checks](https://github.com/pengshang01-cyber/dulizhan/pull/8/checks)。
 - 生产站：[dulizhan.pengshang01.workers.dev](https://dulizhan.pengshang01.workers.dev)，由用户提供；本分支尚未合并，该地址不代表本次 PR 预览。
 - 提交时间：2026-11-16
 - 基线：确认 PR #7 已合并，切回 main 快进到 `5829476`（含用户手工提交的 wrangler.jsonc），再创建本分支。
@@ -60,7 +60,7 @@ English baseline: 15 page main texts unchanged
 ### 自动检查结果
 
 - GitHub Actions 的 [CI 43859840551](https://github.com/pengshang01-cyber/dulizhan/actions/runs/43859840551) 四项检查通过（实现提交 5f84b78）。
-- [Workers Builds 检查](https://github.com/pengshang01-cyber/dulizhan/pull/8/checks) 返回 failure。GitHub check summary 只有构建 ID `26b2623d-c578-4316-a1ec-cf24024a0f8e` 和控制台链接，无错误说明或 annotations；当前工具无法读取该登录控制台。已请求用户提供首条错误及附近日志，原因尚未确定。
+- [Workers Builds 检查](https://github.com/pengshang01-cyber/dulizhan/pull/8/checks) 返回 failure。GitHub check summary 只有构建 ID `26b2623d-c578-4316-a1ec-cf24024a0f8e` 和控制台链接，无错误说明或 annotations；当前工具无法读取该登录控制台。用户随后确认预览命令 npx wrangler preview 因缺少 previews 配置失败，修复记录见第 7 节。
 - main 基线的 Workers Builds 曾成功；本次不能据此推断 PR 部署成功。最终提交的两类检查状态以 PR Checks 为准。
 
 ### Workers 与 404 核验边界
@@ -128,7 +128,7 @@ English baseline: 15 page main texts unchanged
 ## 5. 待确认问题
 
 1. 工厂提供真实微信号及二维码后，可在 Pages CMS 填写；当前浮层截图仅用于审核交互。
-2. 请提供 PR #8 的 Workers Builds 首条错误及附近日志，以便定位失败原因；当前无可核实的独立 PR 预览。
+2. 预览失败原因已由用户确认并完成配置修复；最新构建结果见 PR Checks。
 3. 产品中文仍由工厂按需补充；M8 前保持 allowIndexing=false。
 
 ## 6. 本次新增的 TODO 占位
@@ -149,3 +149,11 @@ English baseline: 15 page main texts unchanged
 - 浏览器自检修复微信浮层的首尾 Tab 焦点循环，以及语言切换对动态 query / hash 的同步。
 - 四项检查、全站双视口检查、英文基线对比和 32 张截图完成。
 - PR：[#8](https://github.com/pengshang01-cyber/dulizhan/pull/8)；GitHub CI 通过，Workers Builds 失败且日志待提供。
+
+### 第 2 轮审核修改（2026-11-16）
+
+- 对应预览构建失败：用户确认 Workers Builds 使用 `npx wrangler preview`，报错 “Your Wrangler configuration is missing a `previews` block”。
+- 在 `wrangler.jsonc` 顶层加入 `"previews": {}`，与 name、compatibility_date、assets 同级；其余配置值未改动，保持 Prettier 格式。
+- README 部署章节补充 PR 预览依赖 wrangler.jsonc 中的 previews 配置。
+- 验证：`npm run lint` 通过；`npm run build` 通过，生成 29 页。该修复不改变页面内容，因此保留本轮已有截图。
+- 提交信息：`review-fix: add previews block for Workers preview builds`；推送至 m4c-zh，自动构建结果见 [PR Checks](https://github.com/pengshang01-cyber/dulizhan/pull/8/checks)。

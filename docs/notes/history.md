@@ -19,3 +19,5 @@
 - M4.6 本地实现完成：29 页、410 项界面中文、32 张截图；build / check / lint / 111 项测试通过。全站双视口和共享清单 / 微信交互通过，15 个英文正文与 main 基线一致；allowIndexing=true 实际构建通过后恢复 false。准备提交 PR 审核，未直接部署。
 
 - 已提交 5f84b78 并推送 m4c-zh，创建 PR #8。GitHub Actions CI 43859840551 四项检查通过；Workers Builds 26b2623d-c578-4316-a1ec-cf24024a0f8e 返回 failure，GitHub 无错误详情，已请求用户提供控制台日志。尚未定位或宣称部署成功。
+
+- 2026-11-16 审核修复：用户确认 Workers 预览命令缺少 previews 配置；顶层加入 previews: {}，其余配置未改，README / M4c 报告同步。lint 与 build 均通过，按指定 review-fix 提交信息推送同一分支。

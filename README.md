@@ -33,6 +33,8 @@ The script starts a local preview and saves full-page desktop and mobile PNGs in
 
 The site uses [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) at <https://dulizhan.pengshang01.workers.dev>.
 
+PR previews depend on the `previews` configuration in `wrangler.jsonc`.
+
 1. In the Worker settings, connect this GitHub repository through **Workers Builds**. Use `main` as the production branch and the repository root as the build root.
 2. Set the build command to `npm run build` and the deploy command to `npx wrangler deploy`. The Node.js version is set in `.node-version`.
 3. Keep `assets.directory` in `wrangler.jsonc` set to `./dist`, which is Astro's static build output. Builds from `main` update the deployed Worker; PR preview URLs depend on the configured Workers Builds branch settings and must be verified before sharing.
