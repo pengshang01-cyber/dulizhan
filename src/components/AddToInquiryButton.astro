@@ -1,0 +1,70 @@
+---
+import { display } from "../config/site";
+import type { InquiryProduct } from "../lib/inquiry";
+import Button from "./Button.astro";
+
+interface Props {
+  product: InquiryProduct;
+  class?: string;
+}
+
+const { product, class: className } = Astro.props;
+---
+
+<Button
+  variant="secondary"
+  class={className}
+  data-inquiry-slug={product.slug}
+  data-inquiry-sku={product.sku}
+  data-inquiry-title={product.title}
+  data-inquiry-category={product.category}
+  aria-pressed="false"
+  title={display(product.title, "product name")}
+  disabled
+>
+  <span data-inquiry-label>+ Add to inquiry</span>
+</Button>
+
+<script>
+  import {
+    addItem,
+    getItems,
+    INQUIRY_CHANGE_EVENT,
+    removeItem,
+  } from "../lib/inquiry";
+
+  const buttons = document.querySelectorAll<HTMLButtonElement>(
+    "button[data-inquiry-slug]",
+  );
+
+  function syncButtons() {
+    const selected = new Set(getItems().map(({ slug }) => slug));
+    for (const button of buttons) {
+      const added = selected.has(button.dataset.inquirySlug ?? "");
+      button.setAttribute("aria-pressed", String(added));
+      const label = button.querySelector<HTMLElement>("[data-inquiry-label]");
+      if (label) label.textContent = added ? "✓ Added" : "+ Add to inquiry";
+      button.disabled = false;
+    }
+  }
+
+  for (const button of buttons) {
+    button.addEventListener("click", () => {
+      const slug = button.dataset.inquirySlug ?? "";
+      if (getItems().some((item) => item.slug === slug)) {
+        removeItem(slug);
+      } else {
+        addItem({
+          slug,
+          sku: button.dataset.inquirySku ?? "",
+          title: button.dataset.inquiryTitle ?? "",
+          category: button.dataset.inquiryCategory ?? "",
+        });
+      }
+    });
+  }
+
+  window.addEventListener(INQUIRY_CHANGE_EVENT, syncButtons);
+  window.addEventListener("pageshow", syncButtons);
+  syncButtons();
+</script>

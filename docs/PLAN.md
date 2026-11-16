@@ -7,7 +7,7 @@
 | M0 | 仓库初始化 | `m0-setup` | Astro + Tailwind 项目、脚本、CI、站点配置文件 |
 | M1 | 全站框架与设计系统 | `m1-layout` | 布局、页头页脚、按钮、WhatsApp 悬浮窗、样式规范页 |
 | M2 | 首页 | `m2-homepage` | 完整首页 |
-| M3 | 产品体系 | `m3-products` | 产品数据结构、产品中心、分类页、详情页 |
+| M3 | 产品体系与询价清单 | `m3-products` | 产品数据结构、产品中心、分类页、详情页、前端询价清单 |
 | M4 | 定制 / 关于 / FAQ / 联系 | `m4-pages` | 4 个内容页 |
 | M5 | 询盘表单与后端 | `m5-inquiry` | 表单组件、Pages Function、防垃圾、感谢页 |
 | M6 | SEO 与统计 | `m6-seo` | meta、sitemap、结构化数据、GA4 事件、隐私政策、404 |
@@ -95,20 +95,30 @@
 
 **任务**
 
-1. `src/content/config.ts` 定义 `products` schema（zod）：
-   - `title`、`slug`、`category`（枚举，见下）、`summary`（一句话）、`images`（数组，第一张为主图）、`material`、`gsm`、`sizes`（数组：`{ name, baseDiameterMm, heightMm, topDiameterMm? }`）、`colors` / `patterns`（数组）、`customizable`（布尔）、`moq`、`packaging`、`cartonSpec`、`leadTime`、`faqs`（数组：`{ q, a }`）、`seoTitle?`、`seoDescription?`、`featured`（布尔）、`order`（数字）
+1. `src/content/config.ts` 定义 `products` schema（zod），通过当前 Astro 要求的 `src/content.config.ts` 入口导出：
+   - `sku`（必填型号）、`badge`（可选，默认不填）、`title`、`slug`、`category`（枚举，见下）、`summary`（一句话）、`images`（数组，第一张为主图）、`material`、`gsm`、`sizes`（数组：`{ name, baseDiameterMm, heightMm, topDiameterMm? }`）、`colors` / `patterns`（数组）、`customizable`（布尔）、`moq`、`packaging`、`cartonSpec`、`leadTime`、`faqs`（数组：`{ q, a }`）、`seoTitle?`、`seoDescription?`、`featured`（布尔）、`order`（数字）
    - 分类枚举先用：`standard-liners`、`greaseproof-liners`、`foil-cups`、`tulip-cups`、`muffin-cups`、`hard-baking-cups`（工厂确认后再改，集中定义在 `src/config/categories.ts`，含每类的英文名、简介、封面图）
-2. 写 3 个示例产品 `.md`，参数全部用 `TODO` 占位，正文结构按“产品详情页模板”。
+2. 写 3 个分属不同分类的示例产品 `.md`，参数全部用 `TODO_` 占位，型号使用 `TODO-001` 等明显占位；不填未经确认的 badge。正文包含定制选项、包装与应用场景，具体资料使用占位。
 3. `/products/`：分类入口 + 全部产品网格，支持按分类筛选（纯静态：每个分类一个页面 `/products/<category>/`）。
 4. `/products/<category>/<slug>/` 详情页：图片画廊（缩略图切换，原生 JS）、一句话卖点、参数表（尺寸表渲染成表格）、可选颜色/花色、定制选项、应用场景、该产品 FAQ、Get a Quote 按钮（链接带 `?product=<slug>`，M5 表单自动预填）、相关产品（同分类 4 个）。
-5. 面包屑导航。
+5. 面包屑导航；首页、页脚和 Products 分类入口统一链接到分类页。
+6. 共用 `ProductCard` 用于列表、分类和相关产品，含可选 badge、型号 / 分类名、衬线标题、首个尺寸摘要（待补时显示 `[TODO: size]`）、Ask for pricing 和独立询价按钮。详情标题下显示型号，Get a Quote 旁增加询价按钮。
+
+### 三、询价清单（前端部分）
+
+1. `src/lib/inquiry.ts` 使用 localStorage 键 `inquiry:v1` 保存 `{ slug, sku, title, category, quantity }`；所有存储读写包在 try/catch，存储不可用时退化为仅当前页面内存有效，每次变化派发 `inquiry:change`。
+2. `AddToInquiryButton` 切换加入 / 移出状态，显示 `+ Add to inquiry` / `✓ Added`，同步 `aria-pressed`，页面加载恢复状态。
+3. Header 在 Get a Quote 左侧增加 `/inquiry/` 链接，非空时显示产品条目数；手机可显示图标和数量，375px 无溢出。
+4. `/inquiry/` 为 noindex，标题 Your Inquiry List；包含产品名、型号、详情链接、正整数 pcs 数量、删除、清空。继续按钮链接 `/contact/?from=inquiry#quote`，空状态显示 Browse Products。
+5. 用 Vitest 测试增删、修改数量、存储异常退化，增加 `npm test`。M3 仅实现前端清单，表单提交与邮件接入在 M5 完成。
 
 **验收标准**
 
 - [ ] 新增一个 `.md` 文件后，`npm run build` 自动生成对应详情页和分类列表项
 - [ ] schema 校验：缺必填字段时 build 报错
 - [ ] 详情页参数表在 375px 下可横向滚动而不撑破页面
-- [ ] 截图：`products`、一个分类页、一个详情页
+- [ ] `npm test` 通过，清单跨页面恢复、按钮和角标同步、存储异常时当前页仍可用
+- [ ] 截图：`products`、一个分类页、一个详情页、`inquiry` 空状态及两个产品的状态
 
 ---
 
@@ -144,6 +154,7 @@
 5. 表单放到：`/contact/#quote`、首页底部 CTA、产品详情页底部。
 6. 提交成功时触发 `data-track="generate_lead"` 事件（M6 接 GA4）。
 7. 在 README 写清：Cloudflare Pages 里要配置哪些环境变量、Resend 发件域名验证步骤。
+8. 询盘表单读取询价清单，把每个产品的型号、名称、数量随表单提交，邮件正文以表格列出；提交成功后清空清单。
 
 **验收标准**
 

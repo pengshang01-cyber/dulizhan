@@ -3,11 +3,49 @@
     "name": "home",
     "path": "/"
   },
-  { "name": "products", "path": "/products/" },
-  { "name": "custom", "path": "/custom/" },
-  { "name": "about", "path": "/about/" },
-  { "name": "blog", "path": "/blog/" },
-  { "name": "faq", "path": "/faq/" },
-  { "name": "contact", "path": "/contact/" },
-  { "name": "styleguide", "path": "/styleguide/" }
+  {
+    "name": "products",
+    "path": "/products/"
+  },
+  {
+    "name": "custom",
+    "path": "/custom/"
+  },
+  {
+    "name": "about",
+    "path": "/about/"
+  },
+  {
+    "name": "blog",
+    "path": "/blog/"
+  },
+  {
+    "name": "faq",
+    "path": "/faq/"
+  },
+  {
+    "name": "contact",
+    "path": "/contact/"
+  },
+  {
+    "name": "styleguide",
+    "path": "/styleguide/"
+  },
+  {
+    "name": "product-category",
+    "path": "/products/tulip-cups/"
+  },
+  {
+    "name": "product-detail",
+    "path": "/products/tulip-cups/sample-tulip-cup/"
+  },
+  {
+    "name": "inquiry-empty",
+    "path": "/inquiry/"
+  },
+  {
+    "name": "inquiry-filled",
+    "path": "/inquiry/",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"]
+  }
 ]

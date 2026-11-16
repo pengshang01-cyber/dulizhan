@@ -50,3 +50,13 @@ Copy `.env.example` to `.env` for local service configuration. Set deployment va
 | `RESEND_API_KEY`            | Server-side Resend API key             |
 | `INQUIRY_TO_EMAIL`          | Address that receives inquiries        |
 | `INQUIRY_FROM_EMAIL`        | Verified inquiry sender address        |
+
+## 产品维护与询价清单（M3）
+
+产品位于 `src/content/products/*.md`。复制示例后填写 frontmatter，保持 `slug` 和 `sku` 唯一，`category` 必须属于 `src/config/categories.ts` 的六个分类。产品图片使用本地资源的相对路径，第一张为主图。真实参数未提供时保留 `TODO_`；不要填写未经确认的 badge。
+
+构建时根据 Markdown 自动生成列表、分类页及详情页。Schema 定义保留在 `src/content/config.ts`，由当前 Astro 使用的 `src/content.config.ts` 导出。缺少必填字段会使构建失败。
+
+浏览器询价清单使用 `inquiry:v1` 保存产品和正整数数量；存储不可用时只在当前页面内存中保留。Header 显示产品条目数。清单页面为 `/inquiry/`，后续表单接入按 M5 执行。
+
+运行 `npm test` 检查清单状态逻辑。`npm run screenshots -- M3` 包含空清单及实际加入两个示例产品后的截图，每个截图场景使用独立浏览器上下文。
