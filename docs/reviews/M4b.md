@@ -1,7 +1,7 @@
 # M4b 审核报告：内容后台、分类数据化与双语数据结构（M4.5）
 
 - 分支：`m4b-cms`
-- PR：待创建后回填
+- PR：[#7](https://github.com/pengshang01-cyber/dulizhan/pull/7)
 - 预览地址：未部署。GitHub Deployments 查询结果为 0，尚无可核实的 Cloudflare Pages 预览。
 - 提交时间：2026-11-16
 - 基线：PR #6 已合并的 `main`（`85af7b2`），从最新 main 创建本分支。
@@ -26,7 +26,7 @@
 | 12 | UI 文案集中 | 完成 | 全站固定界面文案集中至 en.json，经 t() 读取；zh.json 同键空翻译。当前均使用英文 locale。 |
 | 13 | Astro i18n | 完成 | defaultLocale 为 en，locales 只有 en，prefixDefaultLocale 为 false；本阶段不生成中文路由。 |
 | 14 | CI 和文档 | 完成 | main push 及 PR 都跑四项检查；新增中文 `docs/CMS.md`，更新 AGENTS 第 3、4 节、PLAN、README 和项目交接记录。 |
-| 15 | 验证、截图和提交 | 完成 | 四项检查通过；生成 30 张截图，含微信独立测试预览。PR / CI 信息在提交后回填。 |
+| 15 | 验证、截图和提交 | 完成 | 四项检查通过；生成 30 张截图，含微信独立测试预览。PR #7 已创建，GitHub CI 四项检查通过。 |
 
 ## 2. 验收标准自检
 
@@ -250,4 +250,4 @@ CMS negative cases: unknown category / missing English correctly fail build
 - 完成 M4.5 迁移、Pages CMS 配置、双语结构、默认英文调用与操作指南。
 - 自检修复 CMS 正小数输入、可选顶径留空及保存时省略空字段与 schema 的一致性，补充回归验证。
 - 对比 M4 英文、检查所有静态页及 375px 布局，生成全部截图；临时内容测试后清理。
-- PR / 最终 CI：待创建后回填。
+- PR：[#7](https://github.com/pengshang01-cyber/dulizhan/pull/7)。实现提交 4df244e 的 [CI](https://github.com/pengshang01-cyber/dulizhan/actions/runs/43852733875) 四项检查通过（31 秒）；文档回填后的最终状态见 [PR Checks](https://github.com/pengshang01-cyber/dulizhan/pull/7/checks)。
