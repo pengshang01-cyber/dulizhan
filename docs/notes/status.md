@@ -7,5 +7,6 @@
 - 本地验证：build31页；check103文件零错误/警告/提示；lint通过；11文件183项测试通过（Worker68项）；42张截图及12组三视口标题无孤字/无溢出。
 - wrangler dev完整流程：英文/中文真实按钮提交各200，实际Siteverify通过2次，独立测试入口捕获2封mock邮件；清单清空、UTM、Reply-To、空数量、成功事件、感谢页、静态noindex及404均验证。浏览器widget为fixture；未真实发信，生产入口无mock开关。
 - 密钥仅环境变量；新增replyTime为TODO，真实Turnstile/Resend与联系资料待工厂配置。
-- 待办：提交推送并开PR，跟进CI/Workers预览构建；详细证据见docs/reviews/M5.md。
+- 提交f10b446；PR #9：https://github.com/pengshang01-cyber/dulizhan/pull/9。GitHub CI已通过；Workers Builds失败，GitHub无错误日志或预览网址，已向用户请求控制台报错。
+- 待办：取得Cloudflare报错后定位；PR待审核，最新状态见PR Checks。完整证据见docs/reviews/M5.md。
 - 保留边界：M6再接GA4与正式404，M8前allowIndexing=false。
