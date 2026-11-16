@@ -1,8 +1,56 @@
 ---
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import Container from "../components/Container.astro";
+import DisplayHeading from "../components/DisplayHeading.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import QuoteButton from "../components/QuoteButton.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { faqs, faqTopics } from "../data/faq";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="FAQ">
-  <PagePlaceholder title="FAQ" />
+<BaseLayout title="Frequently Asked Questions">
+  <Container class="py-12 sm:py-20">
+    <Eyebrow class="mb-5">Before you order</Eyebrow>
+    <DisplayHeading first="Your Questions." second="Our Answers." />
+    <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
+      We help you plan your baking cup order, from choosing a print to reviewing
+      samples and delivery details.
+    </p>
+    <nav aria-label="FAQ topics" class="mt-8 flex flex-wrap gap-2">
+      {faqTopics.map(({ id, label }) => (
+        <a
+          href={`#${id}`}
+          class="rounded-control border border-line bg-white px-4 py-3 text-xs font-bold hover:border-copper hover:text-copper"
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+    <div class="mt-12 grid gap-12 sm:mt-16">
+      {faqTopics.map(({ id, label }) => (
+        <section
+          aria-labelledby={id}
+          class="grid items-start gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12"
+        >
+          <SectionHeading eyebrow="Good to know" title={label} id={id} />
+          <FaqAccordion items={faqs.filter(({ topic }) => topic === label)} />
+        </section>
+      ))}
+    </div>
+  </Container>
+  <section
+    class="dark-surface py-14 sm:py-20"
+    aria-labelledby="faq-quote-title"
+  >
+    <Container class="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:justify-between">
+      <SectionHeading
+        eyebrow="Let's talk"
+        title="Have Another Question?"
+        id="faq-quote-title"
+        description="Tell us what you need, and we'll work through the details with you."
+      />
+      <QuoteButton class="shrink-0" />
+    </Container>
+  </section>
 </BaseLayout>

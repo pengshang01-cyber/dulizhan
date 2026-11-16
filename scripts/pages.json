@@ -47,5 +47,23 @@
     "name": "inquiry-filled",
     "path": "/inquiry/",
     "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"]
+  },
+  {
+    "name": "inquiry-quantities",
+    "path": "/inquiry/",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryQuantities": {
+      "sample-standard-liner": "10,000",
+      "sample-tulip-cup": ""
+    }
+  },
+  {
+    "name": "contact-inquiry",
+    "path": "/contact/?from=inquiry",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryQuantities": {
+      "sample-standard-liner": "10,000",
+      "sample-tulip-cup": ""
+    }
   }
 ]

@@ -17,6 +17,13 @@ export interface SiteConfig {
   whatsappNumber: string;
   whatsappPrefillMessage: string;
   factoryAddress: string;
+  stockMoq: string;
+  customMoq: string;
+  sampleLeadTime: string;
+  productionLeadTime: string;
+  sampleCost: string;
+  paymentTerms: string;
+  shippingMethods: string;
   stats: SiteStat[];
   youtubeVideoId: string;
   certificates: { name: string; imagePath: string }[];
@@ -34,6 +41,13 @@ export const site: SiteConfig = {
   whatsappNumber: "TODO_WHATSAPP_NUMBER",
   whatsappPrefillMessage: "TODO_WHATSAPP_PREFILL_MESSAGE",
   factoryAddress: "TODO_FACTORY_ADDRESS",
+  stockMoq: "TODO_STOCK_MOQ",
+  customMoq: "TODO_CUSTOM_MOQ",
+  sampleLeadTime: "TODO_SAMPLE_LEAD_TIME",
+  productionLeadTime: "TODO_PRODUCTION_LEAD_TIME",
+  sampleCost: "TODO_SAMPLE_COST",
+  paymentTerms: "TODO_PAYMENT_TERMS",
+  shippingMethods: "TODO_SHIPPING_METHODS",
   stats: [
     { value: "TODO_FOUNDED_YEAR", label: "Founded" },
     { value: "TODO_DAILY_CAPACITY", label: "Daily Capacity" },
