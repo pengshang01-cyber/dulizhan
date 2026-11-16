@@ -1,16 +1,133 @@
 ---
-import PagePlaceholder from "../components/PagePlaceholder.astro";
-import { display } from "../config/site";
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import DisplayHeading from "../components/DisplayHeading.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import InquirySummary from "../components/InquirySummary.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { display, getWhatsAppHref, isTodo, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const email = site.email.trim();
+const phone = site.phone.trim();
+const address = site.factoryAddress.trim();
+const contacts = [
+  {
+    label: "Email",
+    value: display(site.email, "email"),
+    href: email && !isTodo(email) ? `mailto:${email}` : undefined,
+  },
+  {
+    label: "Phone",
+    value: display(site.phone, "phone"),
+    href:
+      phone && !isTodo(phone)
+        ? `tel:${phone.replace(/[^+\d]/g, "")}`
+        : undefined,
+  },
+  {
+    label: "WhatsApp",
+    value: display(site.whatsappNumber, "WhatsApp number"),
+    href: getWhatsAppHref(site.whatsappNumber, site.whatsappPrefillMessage),
+  },
+  {
+    label: "Factory Address",
+    value: display(site.factoryAddress, "factory address"),
+    href: undefined,
+  },
+];
+const mapUrl =
+  address && !isTodo(address)
+    ? `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
+    : undefined;
 ---
 
-<BaseLayout title="Contact">
-  <PagePlaceholder title="Contact" headingId="quote">
+<BaseLayout title="Contact Us">
+  <Container class="py-12 sm:py-20">
+    <Eyebrow class="mb-5">Factory direct conversations</Eyebrow>
+    <DisplayHeading first="Let's Plan" second="Your Next Order." />
+    <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
+      Tell us about your cup style, artwork and packaging needs. We can discuss
+      quantities and help you prepare a wholesale or custom order.
+    </p>
+    <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {contacts.map(({ label, value, href }) => (
+        <section class="min-w-0 rounded-panel border border-line bg-white p-6">
+          <h2 class="text-xs font-bold tracking-[0.12em] text-muted uppercase">
+            {label}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed wrap-anywhere">
+            {href ? (
+              <a href={href} class="text-copper hover:text-copper-dark">
+                {value}
+              </a>
+            ) : (
+              value
+            )}
+          </p>
+        </section>
+      ))}
+    </div>
+  </Container>
+
+  <section
+    class="border-y border-line bg-paper py-14 sm:py-20"
+    aria-labelledby="quote-title"
+  >
+    <Container class="max-w-5xl">
+      <InquirySummary />
+      <div
+        id="quote"
+        class="rounded-panel border border-line bg-white p-6 sm:p-10"
+      >
+        <SectionHeading
+          eyebrow="Start a conversation"
+          title="Request a Quote"
+          id="quote-title"
+          description="We can review your product selection, custom artwork and delivery requirements together."
+        />
+        <p
+          data-quote-placeholder
+          class="mt-6 border-l-2 border-copper bg-paper p-4 text-sm leading-relaxed text-ink-soft"
+        >
+          Development placeholder — the inquiry form will be connected in the
+          next stage. No request can be submitted here yet.
+        </p>
+        <Button href="/products/" variant="secondary" class="mt-6">
+          Browse Products
+        </Button>
+      </div>
+    </Container>
+  </section>
+
+  {mapUrl && (
+    <section aria-labelledby="factory-location-title" class="py-14 sm:py-20">
+      <Container>
+        <SectionHeading
+          eyebrow="Find us"
+          title="Factory Location"
+          id="factory-location-title"
+        />
+        <iframe
+          src={mapUrl}
+          title="Factory location on Google Maps"
+          width="1200"
+          height="480"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="mt-8 h-80 w-full rounded-panel border border-line sm:h-[30rem]"
+          allowfullscreen
+        ></iframe>
+      </Container>
+    </section>
+  )}
+
+  <Container class="py-8">
     <p
       id="privacy-policy"
-      class="mt-7 w-fit rounded-control border border-line bg-white px-4 py-3 text-sm text-ink-soft target:border-copper target:bg-paper"
+      class="w-fit rounded-control border border-line bg-white px-4 py-3 text-sm text-ink-soft target:border-copper target:bg-paper"
     >
       {display("TODO_PRIVACY_POLICY", "privacy policy")}
     </p>
-  </PagePlaceholder>
+  </Container>
 </BaseLayout>

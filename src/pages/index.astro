@@ -6,6 +6,8 @@ import CheckList from "../components/CheckList.astro";
 import Container from "../components/Container.astro";
 import DisplayHeading from "../components/DisplayHeading.astro";
 import Eyebrow from "../components/Eyebrow.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import { customizationSteps as steps } from "../data/customization";
 import QuoteButton from "../components/QuoteButton.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import StatsBar from "../components/StatsBar.astro";
@@ -41,25 +43,6 @@ const benefits = [
     description:
       "Print your logo, match your brand colors and choose the size and packaging you need.",
     icon: "m4 16 11-11a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z M13 7l4 4 M13 20h8",
-  },
-];
-const steps = [
-  {
-    title: "Send Design",
-    description: "Share your artwork, cup dimensions, and order details.",
-  },
-  {
-    title: "Mockup",
-    description:
-      "We prepare a digital mockup of your design for your approval.",
-  },
-  {
-    title: "Sample",
-    description: "Review a sample and confirm the specifications.",
-  },
-  {
-    title: "Mass Production",
-    description: "Confirm the approved design, quantity, and schedule.",
   },
 ];
 
@@ -242,33 +225,7 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
         title="Frequently Asked Questions"
         id="home-faq-title"
       />
-      <div class="grid gap-3">
-        {featuredFaqs.map(({ question, answer }, index) => (
-          <details
-            open={index === 0}
-            class="group rounded-control border border-line bg-white"
-          >
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-3 rounded-control px-4 py-4 text-sm leading-relaxed font-bold sm:px-5 [&::-webkit-details-marker]:hidden">
-              {question}
-              <span
-                aria-hidden="true"
-                class="text-xl leading-none text-copper group-open:hidden"
-              >
-                +
-              </span>
-              <span
-                aria-hidden="true"
-                class="hidden text-xl leading-none text-copper group-open:inline"
-              >
-                −
-              </span>
-            </summary>
-            <p class="px-4 pb-5 text-sm leading-relaxed text-ink-soft sm:px-5">
-              {answer}
-            </p>
-          </details>
-        ))}
-      </div>
+      <FaqAccordion items={featuredFaqs} firstOpen />
     </Container>
   </section>
 

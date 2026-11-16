@@ -1,8 +1,276 @@
 ---
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import { Image } from "astro:assets";
+import formingImage from "../assets/images/factory/forming-equipment-placeholder.png";
+import packingImage from "../assets/images/factory/packing-area-placeholder.png";
+import printingImage from "../assets/images/factory/printing-workshop-placeholder.png";
+import qualityImage from "../assets/images/factory/quality-check-placeholder.png";
+import Button from "../components/Button.astro";
+import CheckList from "../components/CheckList.astro";
+import Container from "../components/Container.astro";
+import DisplayHeading from "../components/DisplayHeading.astro";
+import Eyebrow from "../components/Eyebrow.astro";
+import QuoteButton from "../components/QuoteButton.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { display, isTodo, site } from "../config/site";
+import { teamMembers } from "../data/team";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const factoryImages = [
+  { image: printingImage, label: "Printing Workshop" },
+  { image: formingImage, label: "Forming Equipment" },
+  { image: qualityImage, label: "Quality Check Area" },
+  { image: packingImage, label: "Packing Area" },
+];
+const productionSteps = [
+  "Printing",
+  "Forming",
+  "Quality Check",
+  "Packing",
+  "Shipping",
+];
+const qualityNotes = [
+  {
+    title: "Material Documentation",
+    value: "TODO_MATERIAL_DOCUMENTATION",
+    label: "available material documents",
+  },
+  {
+    title: "Quality Checks",
+    value: "TODO_QUALITY_CHECK_PROCESS",
+    label: "quality check process",
+  },
+  {
+    title: "Packing Checks",
+    value: "TODO_PACKING_CHECK_PROCESS",
+    label: "packing check process",
+  },
+];
+const certificates = site.certificates.filter(
+  ({ name, imagePath }) =>
+    name.trim() &&
+    imagePath.trim() &&
+    !isTodo(name.trim()) &&
+    !isTodo(imagePath.trim()),
+);
 ---
 
-<BaseLayout title="About">
-  <PagePlaceholder title="About" />
+<BaseLayout
+  title="About Our Baking Cup Factory"
+  description="We make food-grade paper baking cups for wholesale buyers, with a broad range of prints and custom logo, size, color and packaging options."
+>
+  <section aria-labelledby="about-hero-title" class="border-b border-line">
+    <Container class="grid items-start gap-9 py-12 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div>
+        <Eyebrow class="mb-5">Meet your manufacturing partner</Eyebrow>
+        <DisplayHeading
+          id="about-hero-title"
+          first="Baking Cups,"
+          second="Straight from the Factory."
+        />
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+          We make paper baking cups for wholesale buyers, with a broad range of
+          prints and colors and the option to create your own design.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <QuoteButton />
+          <Button href="/products/" variant="secondary">
+            Browse Products
+          </Button>
+        </div>
+      </div>
+      <div class="rounded-panel border border-line bg-white p-6 shadow-panel sm:p-8">
+        <h2 class="font-display text-card-title font-normal wrap-anywhere">
+          {display(site.companyName, "company name")}
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+          {display(
+            "TODO_FACTORY_INTRODUCTION",
+            "factory introduction and background",
+          )}
+        </p>
+        <CheckList
+          class="mt-6 border-t border-line pt-6 text-sm text-ink-soft"
+          items={[
+            "Food-grade paper",
+            "Factory-direct wholesale pricing",
+            "Custom logo, size, color and packaging",
+          ]}
+        />
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="factory-images-title"
+    class="bg-paper py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow="A look inside"
+        title="Workshop & Equipment"
+        id="factory-images-title"
+      />
+      <div class="mt-8 grid gap-5 sm:grid-cols-2">
+        {factoryImages.map(({ image, label }) => (
+          <figure class="overflow-hidden rounded-panel border border-line bg-white">
+            <Image
+              src={image}
+              alt={`${label} placeholder — actual factory photograph to be supplied`}
+              widths={[384, 648, 960]}
+              sizes="(min-width: 80rem) 35rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+              format="webp"
+              loading="lazy"
+              class="aspect-[3/2] w-full object-cover"
+            />
+            <figcaption class="border-t border-line p-5">
+              <span class="font-display text-card-title">{label}</span>
+              <span class="mt-2 block text-xs tracking-[0.1em] text-muted uppercase">
+                Placeholder image
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="production-title"
+    class="dark-surface py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow="From print to shipment"
+        title="The Production Process"
+        id="production-title"
+      />
+      <ol data-production-steps class="mt-9 grid gap-4 md:grid-cols-5">
+        {productionSteps.map((title, index) => (
+          <li class="flex items-center gap-5 rounded-panel border border-line bg-white p-5 text-ink md:block md:p-6">
+            <span
+              aria-hidden="true"
+              class="font-display text-4xl leading-none text-copper"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 class="font-display text-card-title font-normal md:mt-5">
+              {title}
+            </h3>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="quality-title"
+    class="border-b border-line py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow="Materials & quality"
+        title="Food-Grade Paper, Clear Requirements"
+        id="quality-title"
+        description="We use food-grade, grease-resistant paper. Tell us your market and intended use so we can discuss the material documents you need."
+      />
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {qualityNotes.map(({ title, value, label }) => (
+          <article class="rounded-panel border border-line bg-white p-6 sm:p-7">
+            <h3 class="font-display text-card-title font-normal">{title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+              {display(value, label)}
+            </p>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  {certificates.length > 0 && (
+    <section
+      id="about-certificates"
+      aria-labelledby="about-certificates-title"
+      class="bg-paper py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow="Quality documentation"
+          title="Factory Certificates"
+          id="about-certificates-title"
+        />
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {certificates.map(({ name, imagePath }) => (
+            <li>
+              <figure class="h-full rounded-panel border border-line bg-white p-5">
+                <img
+                  src={imagePath}
+                  alt={name}
+                  width="480"
+                  height="360"
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[4/3] w-full object-contain"
+                />
+                <figcaption class="mt-4 text-sm font-bold">{name}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
+  {teamMembers.length > 0 && (
+    <section
+      id="about-team"
+      aria-labelledby="about-team-title"
+      class="border-b border-line py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow="The people behind your order"
+          title="Meet Our Team"
+          id="about-team-title"
+        />
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {teamMembers.map(({ name, role, image }) => (
+            <li class="overflow-hidden rounded-panel border border-line bg-white">
+              <Image
+                src={image}
+                alt={name}
+                widths={[384, 768]}
+                sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+                format="webp"
+                loading="lazy"
+                class="aspect-[4/3] w-full object-cover"
+              />
+              <div class="p-6">
+                <h3 class="font-display text-card-title font-normal">
+                  {display(name, "team member name")}
+                </h3>
+                <p class="mt-3 text-sm text-ink-soft">
+                  {display(role, "team member role")}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
+  <section
+    aria-labelledby="about-quote-title"
+    class="dark-surface border-b border-sand/20 py-14 sm:py-20"
+  >
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow="Work with us"
+        title="Let's Plan Your Next Order"
+        id="about-quote-title"
+        description="Tell us which cups you need. We will help you explore the styles and custom options."
+      />
+      <QuoteButton class="shrink-0" />
+    </Container>
+  </section>
 </BaseLayout>

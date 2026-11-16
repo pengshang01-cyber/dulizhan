@@ -1,0 +1,108 @@
+---
+import Button from "./Button.astro";
+import SectionHeading from "./SectionHeading.astro";
+---
+
+<section
+  data-inquiry-summary
+  hidden
+  aria-labelledby="inquiry-summary-title"
+  class="mb-10"
+>
+  <SectionHeading
+    id="inquiry-summary-title"
+    eyebrow="Your selected products"
+    title="Your inquiry at a glance"
+    description="Review your selected products below. Quantities left blank are to be discussed."
+  />
+  <p data-inquiry-summary-empty hidden class="mt-5 text-sm text-ink-soft">
+    Your inquiry list is empty. Browse our products to start a new list.
+  </p>
+  <ul
+    data-inquiry-summary-items
+    aria-label="Inquiry product summary"
+    class="mt-6 grid gap-3"
+  ></ul>
+  <Button href="/inquiry/" variant="secondary" class="mt-5">
+    Review Inquiry List
+  </Button>
+</section>
+
+<template id="inquiry-summary-template">
+  <li
+    data-inquiry-summary-item
+    class="grid gap-4 rounded-panel border border-line bg-white p-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:p-6"
+  >
+    <div class="min-w-0">
+      <p
+        data-inquiry-summary-sku
+        class="text-xs tracking-[0.12em] wrap-anywhere text-muted uppercase"
+      ></p>
+      <h3 class="mt-2 font-display text-card-title font-normal wrap-anywhere">
+        <a data-inquiry-summary-product class="hover:text-copper"></a>
+      </h3>
+    </div>
+    <div class="sm:text-right">
+      <p class="text-xs font-bold tracking-[0.06em] uppercase">Quantity</p>
+      <p data-inquiry-summary-quantity class="mt-2 text-sm text-ink-soft"></p>
+    </div>
+  </li>
+</template>
+
+<script>
+  import { display } from "../config/site";
+  import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
+
+  const summary = document.querySelector<HTMLElement>("[data-inquiry-summary]");
+  const list = document.querySelector<HTMLUListElement>(
+    "[data-inquiry-summary-items]",
+  );
+  const empty = document.querySelector<HTMLElement>(
+    "[data-inquiry-summary-empty]",
+  );
+  const template = document.querySelector<HTMLTemplateElement>(
+    "#inquiry-summary-template",
+  );
+
+  function renderSummary() {
+    if (!summary || !list || !empty || !template) return;
+    const requested =
+      new URLSearchParams(window.location.search).get("from") === "inquiry";
+    summary.hidden = !requested;
+    if (!requested) return;
+    const items = getItems();
+    empty.hidden = items.length > 0;
+    list.hidden = items.length === 0;
+    const fragment = document.createDocumentFragment();
+    for (const item of items) {
+      const row = template.content.firstElementChild?.cloneNode(true) as
+        HTMLLIElement | undefined;
+      if (!row) continue;
+      row.dataset.slug = item.slug;
+      const product = row.querySelector<HTMLAnchorElement>(
+        "[data-inquiry-summary-product]",
+      );
+      const sku = row.querySelector<HTMLElement>("[data-inquiry-summary-sku]");
+      const quantity = row.querySelector<HTMLElement>(
+        "[data-inquiry-summary-quantity]",
+      );
+      if (product) {
+        product.textContent = display(item.title, "product name");
+        product.href = `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`;
+      }
+      if (sku) sku.textContent = `SKU ${display(item.sku, "SKU")}`;
+      if (quantity) {
+        quantity.textContent =
+          item.quantity === null
+            ? "To be discussed"
+            : `${item.quantity.toLocaleString("en-US")} pcs`;
+      }
+      fragment.append(row);
+    }
+    list.replaceChildren(fragment);
+  }
+
+  window.addEventListener(INQUIRY_CHANGE_EVENT, renderSummary);
+  window.addEventListener("pageshow", renderSummary);
+  renderSummary();
+</script>

@@ -57,6 +57,14 @@ Copy `.env.example` to `.env` for local service configuration. Set deployment va
 
 构建时根据 Markdown 自动生成列表、分类页及详情页。Schema 定义保留在 `src/content/config.ts`，由当前 Astro 使用的 `src/content.config.ts` 导出。缺少必填字段会使构建失败。
 
-浏览器询价清单使用 `inquiry:v1` 保存产品和正整数数量；存储不可用时只在当前页面内存中保留。Header 显示产品条目数。清单页面为 `/inquiry/`，后续表单接入按 M5 执行。
+浏览器询价清单使用 `inquiry:v1` 保存产品和可选数量（空值 `null` 表示 To be discussed，填写时为正整数）；存储不可用时只在当前页面内存中保留。Header 显示产品条目数。清单页面为 `/inquiry/`，后续表单接入按 M5 执行。
 
 运行 `npm test` 检查清单状态逻辑。`npm run screenshots -- M3` 包含空清单及实际加入两个示例产品后的截图，每个截图场景使用独立浏览器上下文。
+
+## 内容页与可选数量（M4）
+
+`src/config/site.ts` 中维护 MOQ、样品周期 / 政策、生产交期、付款和运输方式；没有工厂确认资料时保留 TODO。FAQ 统一由 `src/data/faq.ts` 维护，首页精选复用同一来源。定制流程由 `src/data/customization.ts` 维护。定制案例 `src/data/cases.ts` 与团队 `src/data/team.ts` 默认为空，未提供真实内容时不显示区块。
+
+询价数量支持留空、正整数及规范千分位（如 `10,000`）。旧存储的合法数量继续保留。`/contact/?from=inquiry` 显示只读清单摘要，当前 quote 区域明确标注开发占位，尚不能提交；M5 接入表单时一并替换该说明与 FAQ 中的阶段说明。
+
+`npm run screenshots -- M4` 覆盖四个内容页、清单留空 / 填写数量、两个产品的联系页摘要及产品详情。

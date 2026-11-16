@@ -74,7 +74,7 @@
 2. 数字条：成立年份、日产能、出口国家数、花色数量（全部来自 `site.ts`）。
 3. 产品分类卡片：读取产品分类（M3 前先用 `src/config/categories.ts` 占位数据，M3 再接真实数据）。
 4. 四大卖点：花色多 / 食品级安全 / 工厂价大批量 / 支持定制，每个配图标和一句说明。
-5. 定制服务简介 + 4 步流程图（Send Design → Free Mockup → Sample → Mass Production）+ 按钮到 `/custom/`。
+5. 定制服务简介 + 4 步流程图（Send Design → Mockup → Sample → Mass Production）+ 按钮到 `/custom/`。
 6. 工厂视频区：嵌入 YouTube（用轻量嵌入：先显示缩略图，点击后再加载 iframe）。视频 ID 来自 `site.ts`，空则隐藏此区块。
 7. 证书墙：读 `site.ts` 证书列表，空则隐藏。
 8. FAQ 精选 3–5 条（数据与 M4 的 FAQ 页共用同一数据文件 `src/data/faq.ts`）。
@@ -109,7 +109,7 @@
 1. `src/lib/inquiry.ts` 使用 localStorage 键 `inquiry:v1` 保存 `{ slug, sku, title, category, quantity }`；所有存储读写包在 try/catch，存储不可用时退化为仅当前页面内存有效，每次变化派发 `inquiry:change`。
 2. `AddToInquiryButton` 切换加入 / 移出状态，显示 `+ Add to inquiry` / `✓ Added`，同步 `aria-pressed`，页面加载恢复状态。
 3. Header 在 Get a Quote 左侧增加 `/inquiry/` 链接，非空时显示产品条目数；手机可显示图标和数量，375px 无溢出。
-4. `/inquiry/` 为 noindex，标题 Your Inquiry List；包含产品名、型号、详情链接、正整数 pcs 数量、删除、清空。继续按钮链接 `/contact/?from=inquiry#quote`，空状态显示 Browse Products。
+4. `/inquiry/` 为 noindex，标题 Your Inquiry List；包含产品名、型号、详情链接、可选 pcs 数量（新项为空，表示 To be discussed；填写时只允许正整数）、删除、清空。继续按钮链接 `/contact/?from=inquiry#quote`，空状态显示 Browse Products。
 5. 用 Vitest 测试增删、修改数量、存储异常退化，增加 `npm test`。M3 仅实现前端清单，表单提交与邮件接入在 M5 完成。
 
 **验收标准**
@@ -129,7 +129,10 @@
 1. `/custom/`：可定制项（logo、尺寸、颜色、图案、包装）、定制流程（与首页 4 步一致，可展开说明）、打样周期和 MOQ 说明（读 `site.ts`，空则 `[TODO]`）、定制案例区（数据 `src/data/cases.ts`，空则隐藏）、CTA。
 2. `/about/`：工厂介绍（正文占位）、车间与设备图片区（占位图网格）、生产流程（印刷 → 成型 → 质检 → 包装 → 发货）、质检说明、证书墙、团队区（空则隐藏）。
 3. `/faq/`：读取 `src/data/faq.ts`，按主题分组（Ordering、Samples、Shipping & Payment、Customization、Quality & Safety），用 `<details>` 折叠。先写约 12 条通用问题，答案里涉及具体数字的一律 `[TODO]`。
-4. `/contact/`：联系方式卡片（邮箱、电话、WhatsApp、地址）、表单占位区块（`id="quote"`，M5 实现）、地图（用 Google Maps 嵌入链接，地址为空则隐藏）。
+4. `/contact/`：联系方式卡片（邮箱、电话、WhatsApp、地址）、表单占位区块（`id="quote"`，M5 实现）、地图（用 Google Maps 嵌入链接，地址为空或 TODO 则隐藏）；`?from=inquiry` 时在表单占位上方显示只读产品摘要。
+5. 完成 M3 审核修改：询价数量可选（空值为 `null`，保留旧合法数量），统一首页 / 产品详情 / FAQ 页的 `FaqAccordion`（+/− 样式，无默认三角）。
+6. `site.ts` 增加 `stockMoq`、`customMoq`、`sampleLeadTime`、`productionLeadTime`、`sampleCost`、`paymentTerms`、`shippingMethods`，均用 TODO 占位；Custom / FAQ 从配置读取。Ordering 增加多产品询价说明，数量可留空。
+7. About 生产流程采用五个编号步骤，桌面横向、手机纵向；车间图片保持明显 Placeholder。
 
 **验收标准**
 
@@ -154,7 +157,7 @@
 5. 表单放到：`/contact/#quote`、首页底部 CTA、产品详情页底部。
 6. 提交成功时触发 `data-track="generate_lead"` 事件（M6 接 GA4）。
 7. 在 README 写清：Cloudflare Pages 里要配置哪些环境变量、Resend 发件域名验证步骤。
-8. 询盘表单读取询价清单，把每个产品的型号、名称、数量随表单提交，邮件正文以表格列出；提交成功后清空清单。
+8. 询盘表单读取询价清单，把每个产品的型号、名称、可选数量随表单提交，邮件正文以表格列出（空数量显示 To be discussed）；提交成功后清空清单。
 
 **验收标准**
 

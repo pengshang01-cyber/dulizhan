@@ -49,13 +49,13 @@ describe("inquiry list", () => {
   it("adds products once, retains quantities, and removes and clears items", async () => {
     const store = await import("./inquiry");
     expect(store.addItem(first)).toBe(true);
-    expect(store.getItems()).toEqual([{ ...first, quantity: 1 }]);
+    expect(store.getItems()).toEqual([{ ...first, quantity: null }]);
     expect(store.setQuantity(first.slug, 250)).toBe(true);
     expect(store.addItem(first)).toBe(false);
     expect(store.getItems()[0]?.quantity).toBe(250);
     store.addItem(second);
     expect(store.removeItem(first.slug)).toBe(true);
-    expect(store.getItems()).toEqual([{ ...second, quantity: 1 }]);
+    expect(store.getItems()).toEqual([{ ...second, quantity: null }]);
     expect(store.clearItems()).toBe(true);
     expect(store.getItems()).toEqual([]);
     expect(JSON.parse(storage.getItem(key) ?? "null")).toEqual([]);
@@ -77,7 +77,7 @@ describe("inquiry list", () => {
       store.addItem(first);
       const saved = storage.getItem(key);
       expect(store.setQuantity(first.slug, quantity)).toBe(false);
-      expect(store.getItems()[0]?.quantity).toBe(1);
+      expect(store.getItems()[0]?.quantity).toBe(null);
       expect(storage.getItem(key)).toBe(saved);
     },
   );
@@ -93,7 +93,7 @@ describe("inquiry list", () => {
     expect(changed).not.toHaveBeenCalled();
     store.addItem(first);
     store.addItem(first);
-    store.setQuantity(first.slug, 1);
+    store.setQuantity(first.slug, null);
     expect(changed).toHaveBeenCalledTimes(1);
     store.setQuantity(first.slug, 2);
     store.removeItem(first.slug);
@@ -106,7 +106,7 @@ describe("inquiry list", () => {
     const exposed = store.getItems();
     exposed[0]!.quantity = 0;
     exposed.length = 0;
-    expect(store.getItems()).toEqual([{ ...first, quantity: 1 }]);
+    expect(store.getItems()).toEqual([{ ...first, quantity: null }]);
   });
 
   it("continues in memory when the localStorage getter throws", async () => {
@@ -132,7 +132,7 @@ describe("inquiry list", () => {
     const store = await import("./inquiry");
     expect(store.getItems()).toEqual([]);
     store.addItem(first);
-    expect(store.getItems()).toEqual([{ ...first, quantity: 1 }]);
+    expect(store.getItems()).toEqual([{ ...first, quantity: null }]);
     expect(storage.setItem).not.toHaveBeenCalled();
   });
 
@@ -147,14 +147,14 @@ describe("inquiry list", () => {
     store.addItem(second);
     expect(store.getItems()).toEqual([
       { ...first, quantity: 7 },
-      { ...second, quantity: 1 },
+      { ...second, quantity: null },
     ]);
     browser.dispatchEvent(
       Object.assign(new Event("pageshow"), { persisted: true }),
     );
     expect(store.getItems()[0]?.quantity).toBe(7);
     store.removeItem(first.slug);
-    expect(store.getItems()).toEqual([{ ...second, quantity: 1 }]);
+    expect(store.getItems()).toEqual([{ ...second, quantity: null }]);
     store.clearItems();
     expect(store.getItems()).toEqual([]);
   });
@@ -165,7 +165,7 @@ describe("inquiry list", () => {
     expect(store.getItems()).toEqual([]);
     store.addItem(first);
     expect(JSON.parse(storage.getItem(key) ?? "null")).toEqual([
-      { ...first, quantity: 1 },
+      { ...first, quantity: null },
     ]);
   });
 
@@ -202,6 +202,47 @@ describe("inquiry list", () => {
     expect(changed).toHaveBeenCalledOnce();
   });
 
+  it("saves a cleared quantity as null and restores it on the next page", async () => {
+    const store = await import("./inquiry");
+    store.addItem(first);
+    store.setQuantity(first.slug, 10000);
+    const changed = vi.fn();
+    browser.addEventListener("inquiry:change", changed);
+    expect(store.setQuantity(first.slug, null)).toBe(true);
+    expect(store.setQuantity(first.slug, null)).toBe(false);
+    expect(changed).toHaveBeenCalledOnce();
+    expect(JSON.parse(storage.getItem(key) ?? "null")).toEqual([
+      { ...first, quantity: null },
+    ]);
+    vi.resetModules();
+    expect((await import("./inquiry")).getItems()).toEqual([
+      { ...first, quantity: null },
+    ]);
+  });
+
+  it("preserves legacy positive quantities including 1 and accepts missing quantities", async () => {
+    storage.setItem(key, JSON.stringify([{ ...first, quantity: 1 }, second]));
+    const store = await import("./inquiry");
+    expect(store.getItems()).toEqual([
+      { ...first, quantity: 1 },
+      { ...second, quantity: null },
+    ]);
+  });
+
+  it("keeps clearing quantities usable when storage writes fail", async () => {
+    storage.setItem(key, JSON.stringify([{ ...first, quantity: 12 }]));
+    storage.setItem.mockImplementation(() => {
+      throw new Error("Quota exceeded");
+    });
+    const store = await import("./inquiry");
+    expect(() => store.setQuantity(first.slug, null)).not.toThrow();
+    expect(store.getItems()).toEqual([{ ...first, quantity: null }]);
+    store.setQuantity(first.slug, 10000);
+    expect(store.getItems()[0]?.quantity).toBe(10000);
+    store.setQuantity(first.slug, null);
+    expect(store.getItems()[0]?.quantity).toBe(null);
+  });
+
   it("imports and reads safely without browser globals", async () => {
     vi.stubGlobal("window", undefined);
     const store = await import("./inquiry");
@@ -210,5 +251,41 @@ describe("inquiry list", () => {
     expect(store.removeItem(first.slug)).toBe(false);
     expect(store.setQuantity(first.slug, 1)).toBe(false);
     expect(store.clearItems()).toBe(false);
+  });
+});
+
+describe("quantity input", () => {
+  it.each([
+    ["", null],
+    ["   ", null],
+    ["1", 1],
+    ["10000", 10000],
+    ["10,000", 10000],
+    ["1,000,000", 1000000],
+    [" 250 ", 250],
+    ["9007199254740991", Number.MAX_SAFE_INTEGER],
+  ])("parses %j as %s", async (input, expected) => {
+    const { parseQuantityInput } = await import("./inquiry");
+    expect(parseQuantityInput(input as string)).toBe(expected);
+  });
+
+  it.each([
+    "0",
+    "-1",
+    "1.5",
+    "1e3",
+    "+1",
+    "NaN",
+    "Infinity",
+    "10,00",
+    "1,00,000",
+    "1000,000",
+    "0,001",
+    "10,",
+    "9,007,199,254,740,992",
+    "9007199254740992",
+  ])("rejects invalid input %j", async (input) => {
+    const { parseQuantityInput } = await import("./inquiry");
+    expect(parseQuantityInput(input)).toBeUndefined();
   });
 });
