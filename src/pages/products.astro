@@ -1,0 +1,23 @@
+---
+import PagePlaceholder from "../components/PagePlaceholder.astro";
+import { productCategories } from "../config/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Products">
+  <PagePlaceholder title="Products">
+    <ul
+      aria-label="Product categories"
+      class="mt-8 grid max-w-3xl gap-2.5 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      {productCategories.map(({ id, label }) => (
+        <li
+          id={id}
+          class="scroll-mt-5 rounded-control border border-line bg-surface px-4 py-3 text-sm font-semibold target:border-primary target:bg-primary-soft"
+        >
+          {label}
+        </li>
+      ))}
+    </ul>
+  </PagePlaceholder>
+</BaseLayout>

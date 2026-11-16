@@ -1,0 +1,44 @@
+---
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faPinterestP,
+  faTiktok,
+  faWhatsapp,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import type { SocialPlatform } from "../config/site";
+
+const icons = {
+  youtube: faYoutube,
+  tiktok: faTiktok,
+  instagram: faInstagram,
+  facebook: faFacebookF,
+  pinterest: faPinterestP,
+  linkedin: faLinkedinIn,
+  whatsapp: faWhatsapp,
+} satisfies Record<SocialPlatform | "whatsapp", typeof faYoutube>;
+
+interface Props {
+  name: keyof typeof icons;
+  class?: string;
+}
+
+const { name, class: className } = Astro.props;
+const [width, height, , , paths] = icons[name].icon;
+const viewBox = ["0", "0", width, height].join(" ");
+---
+
+<!-- Font Awesome Free Brands 图标，CC BY 4.0。https://fontawesome.com/license/free -->
+<svg
+  aria-hidden="true"
+  focusable="false"
+  viewBox={viewBox}
+  fill="currentColor"
+  class={className}
+>
+  {[paths].flat().map((path) => (
+    <path d={path}></path>
+  ))}
+</svg>

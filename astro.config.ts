@@ -1,9 +1,9 @@
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import { site } from "./src/config/site";
+import { isTodo, site } from "./src/config/site";
 
-const siteUrl = site.domain.startsWith("TODO_") ? undefined : site.domain;
+const siteUrl = isTodo(site.domain) ? undefined : site.domain;
 
 export default defineConfig({
   output: "static",

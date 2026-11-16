@@ -1,0 +1,53 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string | URL;
+  og?: {
+    title?: string;
+    description?: string;
+    image?: string;
+    url?: string;
+  };
+  noindex?: boolean;
+}
+
+const { title, description, canonical, og, noindex = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonical && <link rel="canonical" href={canonical.toString()} />}
+    {og?.title && <meta property="og:title" content={og.title} />}
+    {og?.description && (
+      <meta property="og:description" content={og.description} />
+    )}
+    {og?.image && <meta property="og:image" content={og.image} />}
+    {og?.url && <meta property="og:url" content={og.url} />}
+    {noindex && <meta name="robots" content="noindex" />}
+  </head>
+  <body class="flex min-h-screen flex-col bg-canvas font-sans text-ink antialiased">
+    <a
+      href="#main-content"
+      class="sr-only font-semibold focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-40 focus:rounded-control focus:bg-surface focus:px-4 focus:py-3"
+    >
+      Skip to content
+    </a>
+    <Header />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFloat />
+  </body>
+</html>
