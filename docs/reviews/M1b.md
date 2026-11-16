@@ -1,8 +1,8 @@
 # M1b 审核报告：M1.5 风格调整与首页文案优化
 
 - 分支：`m1b-restyle`
-- PR：创建后补充
-- 预览地址：未部署（PR 创建后核验 Cloudflare Pages 状态）
+- PR：[M1.5: Restyle and homepage copy #4](https://github.com/pengshang01-cyber/dulizhan/pull/4)
+- 预览地址：未部署（PR 暂无 Cloudflare Pages 检查、评论或部署记录）
 - 提交时间：2026-11-16
 
 ## 1. 完成情况
@@ -32,6 +32,7 @@
 ## 2. 验收标准自检
 
 - [x] `npm run build` 通过，静态构建 8 页。
+- [x] 实现提交 `11cf4f1` 的 [GitHub Actions CI](https://github.com/pengshang01-cyber/dulizhan/actions/runs/43838276826) 通过（npm ci / build / check / lint）。
 - [x] `npm run check` 通过，32 个文件，0 errors / warnings / hints。
 - [x] `npm run lint` 通过，ESLint 和 Prettier 均通过。
 - [x] `npm run screenshots -- M1b` 通过，8 页各两张，共 16 张；已查看 home、styleguide、contact 桌面及手机布局。
