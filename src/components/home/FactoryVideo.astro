@@ -15,11 +15,15 @@ const embed =
 <section
   id="factory-video"
   aria-labelledby="factory-video-title"
-  class="border-b border-line bg-surface py-14 sm:py-20"
+  class="border-b border-line bg-paper py-14 sm:py-20"
 >
   <Container>
-    <SectionHeading title="Inside the Factory" id="factory-video-title" />
-    <div class="relative isolate mt-7 aspect-video min-h-[200px] max-w-3xl rounded-panel bg-footer shadow-panel">
+    <SectionHeading
+      eyebrow="A closer look"
+      title="Inside the Factory"
+      id="factory-video-title"
+    />
+    <div class="relative isolate mt-7 aspect-video min-h-[200px] w-full max-w-3xl rounded-panel bg-coffee shadow-panel">
       <button
         type="button"
         data-video-embed={embed}
@@ -35,7 +39,7 @@ const embed =
           class="absolute inset-0 -z-10 size-full object-cover opacity-65"
         />
         <span
-          class="grid size-16 place-items-center rounded-full bg-primary transition-colors hover:bg-primary-hover motion-reduce:transition-none"
+          class="grid size-16 place-items-center rounded-control border border-sand bg-coffee transition-colors hover:bg-coffee-2 motion-reduce:transition-none"
           aria-hidden="true"
         >
           <svg viewBox="0 0 24 24" class="size-7" fill="currentColor">

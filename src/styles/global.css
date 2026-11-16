@@ -1,61 +1,82 @@
 @import "@fontsource/dm-sans/latin-400.css";
 @import "@fontsource/dm-sans/latin-600.css";
 @import "@fontsource/dm-sans/latin-700.css";
-@import "@fontsource/dm-serif-text/latin-400.css";
+@import "@fontsource/dm-sans/latin-800.css";
+@import "@fontsource/newsreader/latin-400.css";
+@import "@fontsource/newsreader/latin-400-italic.css";
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #9e3927;
-  --color-primary-hover: #832f20;
-  --color-primary-soft: #f4e3d9;
-  --color-secondary: #e6ede1;
-  --color-secondary-hover: #d9e6d4;
-  --color-secondary-ink: #305440;
-  --color-secondary-line: #cad9c8;
-  --color-canvas: #faf6ee;
-  --color-surface: #fffdf9;
-  --color-ink: #262b24;
-  --color-muted: #5f6056;
-  --color-line: #e3dbcd;
-  --color-footer: #24342c;
-  --color-footer-muted: #d4ddd2;
-  --color-footer-line: #496053;
+  --color-cream: #faf7f1;
+  --color-paper: #f4eee5;
+  --color-sand: #e8ddce;
+  --color-white: #ffffff;
+  --color-ink: #30271f;
+  --color-ink-soft: #50453b;
+  --color-muted: #85786b;
+  --color-line: #e8e1d7;
+  --color-coffee: #36291f;
+  --color-coffee-2: #4b3527;
+  --color-copper: #a55c39;
+  --color-copper-dark: #8e492d;
 
-  --radius-control: 0.625rem;
-  --radius-panel: 1.125rem;
-  --shadow-panel: 0 1px 2px #2b27130a, 0 10px 24px #2b27130b;
+  --radius-control: 2px;
+  --radius-panel: 3px;
+  --shadow-panel: 0 18px 55px rgba(50, 38, 29, 0.11);
 
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "DM Serif Text", ui-serif, Georgia, serif;
-  --text-page-title: clamp(2.375rem, 4.4vw, 3.875rem);
-  --text-page-title--line-height: 1.04;
-  --text-section-title: clamp(1.625rem, 2.4vw, 2rem);
-  --text-section-title--line-height: 1.16;
-  --text-card-title: 1.375rem;
-  --text-card-title--line-height: 1.25;
+  --font-display: "Newsreader", ui-serif, Georgia, serif;
+  --text-page-title: clamp(2.625rem, 5.1vw, 4.625rem);
+  --text-page-title--line-height: 1.05;
+  --text-page-title--letter-spacing: -0.05em;
+  --text-section-title: clamp(2rem, 3.5vw, 3.125rem);
+  --text-section-title--line-height: 1.05;
+  --text-section-title--letter-spacing: -0.045em;
+  --text-card-title: 1.5rem;
+  --text-card-title--line-height: 1.15;
+  --text-card-title--letter-spacing: -0.025em;
 }
 
 @layer base {
-  :where(a, button, summary):focus-visible {
-    outline: 2px solid var(--color-primary);
+  html {
+    scroll-padding-top: 7rem;
+  }
+
+  :where(a, button, summary, input, select, textarea):focus-visible {
+    outline: 2px solid var(--color-copper);
     outline-offset: 3px;
   }
 
-  footer :where(a):focus-visible {
-    outline-color: var(--color-secondary);
+  :where(input, select, textarea) {
+    max-width: 100%;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-control);
+    background-color: var(--color-white);
+    padding: 0.75rem;
+    color: var(--color-ink);
+  }
+
+  footer :where(a):focus-visible,
+  .dark-surface :where(a, button):focus-visible {
+    outline-color: var(--color-sand);
   }
 }
 
 @layer components {
+  .dark-surface {
+    background-color: var(--color-coffee);
+    color: var(--color-cream);
+  }
+
   .brand-mark {
     display: grid;
     width: 2.375rem;
     height: 2.375rem;
     flex: none;
     place-items: center;
+    border: 1px solid var(--color-copper);
     border-radius: var(--radius-control);
-    background-color: var(--color-primary-soft);
-    color: var(--color-primary);
+    color: var(--color-copper);
   }
 
   .brand-mark::before {
@@ -71,4 +92,46 @@
     clip-path: polygon(0 0, 100% 0, 84% 100%, 16% 100%);
     content: "";
   }
+
+  .stats-grid > div:nth-child(even) {
+    border-left: 1px solid var(--color-line);
+  }
+
+  .stats-grid > div:nth-child(n + 3) {
+    border-top: 1px solid var(--color-line);
+  }
+
+  @media (min-width: 64rem) {
+    .stats-grid > div {
+      border-top: 0;
+      border-left: 1px solid var(--color-line);
+    }
+    .stats-grid > div:nth-child(n + 3) {
+      border-top: 0;
+    }
+    .stats-grid > div:nth-child(4n + 1) {
+      border-left: 0;
+    }
+    .stats-grid > div:nth-child(n + 5) {
+      border-top: 1px solid var(--color-line);
+    }
+  }
+}
+
+.dark-surface .section-description {
+  color: var(--color-sand);
+}
+
+.dark-surface .eyebrow {
+  color: var(--color-cream);
+}
+
+.dark-surface .button-primary,
+.dark-surface .button-secondary {
+  border-color: var(--color-sand);
+  color: var(--color-cream);
+}
+
+.dark-surface .button-secondary:hover {
+  background-color: var(--color-coffee-2);
 }

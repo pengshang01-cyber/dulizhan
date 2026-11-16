@@ -26,7 +26,7 @@
 
 ## 3. 硬性规则
 
-1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书、客户案例、联系方式一律从 `src/config/site.ts` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。绝不自己写 “FDA certified”“20 years experience” 之类的具体声明。
+1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书、客户案例、联系方式一律从 `src/config/site.ts` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字、证书名称、客户名称仍必须来自 `site.ts`。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
 2. **所有可配置信息集中在 `src/config/site.ts`**：公司名、邮箱、电话、WhatsApp 号码、地址、社媒链接、核心数字、证书列表。
 3. **密钥不进仓库。** 只用环境变量，并在 `.env.example` 里列出变量名。
 4. **一次只做一个里程碑。** 只做 `docs/PLAN.md` 里当前里程碑的范围，不提前做后面的内容。上一个里程碑的 PR 没合并之前，不开始下一个。
@@ -70,4 +70,14 @@ docs/
 
 ## 6. 设计基调
 
-干净、明亮、有烘焙感；让产品花色当主角。白色 / 浅米色背景，1 个主色 + 1–2 个辅助色（定义在 Tailwind 主题里），英文字体最多 2 种。询盘按钮用最显眼的颜色，全站统一。
+采用温暖、克制的烘焙纸品风格，主题统一定义在 `src/styles/global.css` 的 `@theme` 中：
+
+- 背景使用 cream `#faf7f1`、paper `#f4eee5` 和 sand `#e8ddce`，卡片为 white `#ffffff`；正文使用 ink `#30271f`、ink-soft `#50453b`，弱化信息使用 muted `#85786b`，细边框使用 line `#e8e1d7`。
+- 主按钮、公告条、深色区块和页脚使用 coffee `#36291f`，悬停使用 coffee-2 `#4b3527`；强调色为 copper `#a55c39` 和 copper-dark `#8e492d`。深色背景配 cream / sand 文字，页脚链接悬停为 copper。
+- 只用两种本地 Fontsource 字体：正文 DM Sans，标题 Newsreader 400（常规体及斜体）。H1 字距约 `-0.05em`、H2 约 `-0.045em`，行高约 `1.05`。DisplayHeading 第二段为 copper 斜体。
+- 按钮、卡片和输入框圆角统一为 2–3px；卡片白底细边框。阴影使用 `0 18px 55px rgba(50,38,29,.11)`，不使用大圆角或悬停位移动画。
+- primary 按钮 coffee 底白字，11–12px、字重 800、字距约 `0.06em`，右侧带箭头；secondary 透明底、ink 细边框。深色区块内增加浅色边框和文字对比，悬停只变色。
+- Eyebrow 小号大写、字距约 `0.2em`、copper 色，左侧 24px 细线；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。
+- Header 为 cream 半透明吸顶样式，当前导航为 copper 文字及细下划线；手机导航保持独立的 `Mobile` 标签。TopBar 从 `site.topBarItems` 读取，隐藏 TODO 项，手机仅显示第一条有效项。
+- StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；TODO 数值保留为可见的 `[TODO: …]`。
+- 产品实拍未提供时继续使用带 `Placeholder` 字样的新配色本地占位图，不复制参考站图片，不用 AI 产品图冒充实拍。所有页面保持 375px 下无横向溢出。

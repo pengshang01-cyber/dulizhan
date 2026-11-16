@@ -1,21 +1,23 @@
 export type SocialPlatform =
   "youtube" | "tiktok" | "instagram" | "facebook" | "pinterest" | "linkedin";
 
-type SiteMetric = number | `TODO_${string}`;
+export interface SiteStat {
+  value: string | number;
+  label: string;
+}
 
 export interface SiteConfig {
   companyName: string;
   shortName: string;
+  tagline: string;
+  topBarItems: string[];
   domain: string;
   email: string;
   phone: string;
   whatsappNumber: string;
   whatsappPrefillMessage: string;
   factoryAddress: string;
-  foundedYear: SiteMetric;
-  dailyCapacity: SiteMetric;
-  exportCountryCount: SiteMetric;
-  patternCount: SiteMetric;
+  stats: SiteStat[];
   youtubeVideoId: string;
   certificates: { name: string; imagePath: string }[];
   socialLinks: Record<SocialPlatform, string>;
@@ -24,16 +26,20 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   companyName: "TODO_COMPANY_NAME",
   shortName: "TODO_COMPANY_SHORT_NAME",
+  tagline: "TODO_COMPANY_TAGLINE",
+  topBarItems: ["Factory Direct", "Custom Printing & OEM", "TODO_TOP_BAR_ITEM"],
   domain: "TODO_SITE_DOMAIN",
   email: "TODO_EMAIL",
   phone: "TODO_PHONE",
   whatsappNumber: "TODO_WHATSAPP_NUMBER",
   whatsappPrefillMessage: "TODO_WHATSAPP_PREFILL_MESSAGE",
   factoryAddress: "TODO_FACTORY_ADDRESS",
-  foundedYear: "TODO_FOUNDED_YEAR",
-  dailyCapacity: "TODO_DAILY_CAPACITY",
-  exportCountryCount: "TODO_EXPORT_COUNTRY_COUNT",
-  patternCount: "TODO_PATTERN_COUNT",
+  stats: [
+    { value: "TODO_FOUNDED_YEAR", label: "Founded" },
+    { value: "TODO_DAILY_CAPACITY", label: "Daily Capacity" },
+    { value: "TODO_EXPORT_COUNTRY_COUNT", label: "Export Countries" },
+    { value: "TODO_PATTERN_COUNT", label: "Colors & Patterns" },
+  ],
   youtubeVideoId: "TODO_YOUTUBE_VIDEO_ID",
   certificates: [
     { name: "TODO_CERTIFICATE_NAME", imagePath: "TODO_CERTIFICATE_IMAGE_PATH" },
