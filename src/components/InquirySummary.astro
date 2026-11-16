@@ -1,4 +1,6 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 import Button from "./Button.astro";
 import SectionHeading from "./SectionHeading.astro";
 ---
@@ -11,20 +13,20 @@ import SectionHeading from "./SectionHeading.astro";
 >
   <SectionHeading
     id="inquiry-summary-title"
-    eyebrow="Your selected products"
-    title="Your inquiry at a glance"
-    description="Review your selected products below. Quantities left blank are to be discussed."
+    eyebrow={t("inquiry.summaryEyebrow", locale)}
+    title={t("inquiry.summaryTitle", locale)}
+    description={t("inquiry.summaryDescription", locale)}
   />
   <p data-inquiry-summary-empty hidden class="mt-5 text-sm text-ink-soft">
-    Your inquiry list is empty. Browse our products to start a new list.
+    {t("inquiry.summaryEmpty", locale)}
   </p>
   <ul
     data-inquiry-summary-items
-    aria-label="Inquiry product summary"
+    aria-label={t("inquiry.summaryLabel", locale)}
     class="mt-6 grid gap-3"
   ></ul>
   <Button href="/inquiry/" variant="secondary" class="mt-5">
-    Review Inquiry List
+    {t("inquiry.review", locale)}
   </Button>
 </section>
 
@@ -43,13 +45,17 @@ import SectionHeading from "./SectionHeading.astro";
       </h3>
     </div>
     <div class="sm:text-right">
-      <p class="text-xs font-bold tracking-[0.06em] uppercase">Quantity</p>
+      <p class="text-xs font-bold tracking-[0.06em] uppercase">
+        {t("inquiry.quantity", locale)}
+      </p>
       <p data-inquiry-summary-quantity class="mt-2 text-sm text-ink-soft"></p>
     </div>
   </li>
 </template>
 
 <script>
+  import { t } from "../i18n/utils";
+  const locale = "en";
   import { display } from "../config/site";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
@@ -87,15 +93,25 @@ import SectionHeading from "./SectionHeading.astro";
         "[data-inquiry-summary-quantity]",
       );
       if (product) {
-        product.textContent = display(item.title, "product name");
+        product.textContent = display(
+          item.title,
+          t("inquiry.productName", locale),
+        );
         product.href = `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`;
       }
-      if (sku) sku.textContent = `SKU ${display(item.sku, "SKU")}`;
+      if (sku)
+        sku.textContent = t("inquiry.sku", locale, {
+          sku: display(item.sku, t("inquiry.skuLabel", locale)),
+        });
       if (quantity) {
         quantity.textContent =
           item.quantity === null
-            ? "To be discussed"
-            : `${item.quantity.toLocaleString("en-US")} pcs`;
+            ? t("inquiry.toDiscuss", locale)
+            : t("inquiry.quantityPcs", locale, {
+                quantity: item.quantity.toLocaleString(
+                  { en: "en-US", zh: "zh-CN" }[locale],
+                ),
+              });
       }
       fragment.append(row);
     }

@@ -1,0 +1,13 @@
+{
+  "label": {
+    "en": "Paper Baking Molds",
+    "zh": "纸质烤模"
+  },
+  "summary": {
+    "en": "Paper molds for baking and presenting cakes and breads.",
+    "zh": "适合烘焙及展示蛋糕和面包的纸模。"
+  },
+  "image": "../../assets/images/categories/paper-baking-molds-placeholder.png",
+  "order": 9,
+  "showOnHome": true
+}

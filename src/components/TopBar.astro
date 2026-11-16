@@ -1,9 +1,11 @@
 ---
+import { t, localized } from "../i18n/utils";
+const locale = "en";
 import { isTodo, site } from "../config/site";
 import Container from "./Container.astro";
 
 const items = site.topBarItems
-  .map((item) => item.trim())
+  .map((item) => localized(item, locale).trim())
   .filter((item) => item && !isTodo(item));
 ---
 
@@ -11,7 +13,7 @@ const items = site.topBarItems
   <div data-top-bar class="bg-coffee text-cream">
     <Container>
       <ul
-        aria-label="Factory highlights"
+        aria-label={t("site.highlights", locale)}
         class="flex min-h-8 flex-wrap items-center justify-center gap-x-8 gap-y-2 py-2 text-center text-[0.625rem] leading-relaxed font-semibold tracking-[0.16em] uppercase sm:gap-x-12"
       >
         {items.map((item, index) => (

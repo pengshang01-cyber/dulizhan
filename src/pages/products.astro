@@ -4,26 +4,30 @@ import Container from "../components/Container.astro";
 import ProductCard from "../components/ProductCard.astro";
 import ProductCategoryNav from "../components/ProductCategoryNav.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import { t } from "../i18n/utils";
 import { getProducts } from "../lib/products";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 const products = await getProducts();
+const locale = "en";
 ---
 
 <BaseLayout
-  title="Cupcake Liners & Baking Cups | Products"
-  description="Explore baking cup styles and build an inquiry list for your wholesale or custom printing requirements."
+  title={t("products.pageTitle", locale)}
+  description={t("products.pageDescription", locale)}
 >
   <Container class="py-8 sm:py-12">
     <Breadcrumbs
-      items={[{ label: "Home", href: "/" }, { label: "Products" }]}
+      items={[
+        { label: t("breadcrumbs.home", locale), href: "/" },
+        { label: t("breadcrumbs.products", locale) },
+      ]}
     />
     <div class="mt-8 max-w-3xl">
       <SectionHeading
-        eyebrow="The product collection"
-        title="Cupcake Liners & Baking Cups"
+        eyebrow={t("products.collectionEyebrow", locale)}
+        title={t("products.heading", locale)}
         level={1}
-        description="Find your cup style, then add products to your inquiry list for a factory quote."
+        description={t("products.intro", locale)}
       />
     </div>
     <div class="mt-8 border-y border-line py-5">
@@ -31,7 +35,7 @@ const products = await getProducts();
     </div>
     <div
       class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-      aria-label="All products"
+      aria-label={t("categories.allProducts", locale)}
     >
       {products.map((product) => (
         <ProductCard product={product} />

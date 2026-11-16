@@ -1,62 +1,75 @@
 ---
-import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
-import { productCategories } from "../../config/categories";
+import { localized, t } from "../../i18n/utils";
+import { getCategories, getProducts } from "../../lib/products";
+import { homeCategories } from "../../lib/category-visibility";
+import Button from "../Button.astro";
 import Container from "../Container.astro";
 import SectionHeading from "../SectionHeading.astro";
-
-const covers = import.meta.glob<ImageMetadata>(
-  "/src/assets/images/categories/*.{png,jpg,jpeg,webp,avif}",
-  { eager: true, import: "default" },
+const locale = "en";
+const { categories, hasMore } = homeCategories(
+  await getCategories(),
+  await getProducts(),
 );
-const categories = productCategories.map((category) => {
-  const cover = covers[category.image];
-  if (!cover) throw new Error("缺少分类封面图 " + category.image);
-  return { ...category, cover };
-});
 ---
 
-<section aria-labelledby="categories-title" class="py-14 sm:py-20">
-  <Container>
-    <SectionHeading
-      eyebrow="Find your baking cup"
-      title="Product Categories"
-      id="categories-title"
-    />
-    <ul class="mt-7 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-      {categories.map(({ id, label, summary, cover }) => (
-        <li>
-          <a
-            href={"/products/" + id + "/"}
-            aria-labelledby={"cover-title-" + id}
-            class="group flex h-full flex-col overflow-hidden rounded-panel border border-line bg-white transition-colors hover:border-copper motion-reduce:transition-none"
-          >
-            <Image
-              src={cover}
-              alt={label + " cover placeholder"}
-              widths={[200, 400, 720]}
-              sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 340px) 48vw, calc(100vw - 2.5rem)"
-              format="webp"
-              loading="lazy"
-              class="aspect-[5/3] w-full border-b border-line object-cover"
-            />
-            <div class="flex flex-1 flex-col p-3.5 sm:p-5">
-              <h3
-                id={"cover-title-" + id}
-                class="font-display text-xl leading-tight font-normal wrap-anywhere group-hover:text-copper sm:text-card-title"
-              >
-                {label}
-              </h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-                {summary}
-              </p>
-              <span aria-hidden="true" class="mt-auto pt-3 text-lg text-copper">
-                →
-              </span>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
-  </Container>
-</section>
+{categories.length > 0 && (
+  <section aria-labelledby="categories-title" class="py-14 sm:py-20">
+    <Container>
+      <SectionHeading
+        eyebrow={t("categories.eyebrow", locale)}
+        title={t("categories.heading", locale)}
+        id="categories-title"
+      />
+      <ul class="mt-7 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        {categories.map(({ id, label, summary, image }) => (
+          <li>
+            <a
+              href={"/products/" + id + "/"}
+              aria-labelledby={"cover-title-" + id}
+              class="group flex h-full flex-col overflow-hidden rounded-panel border border-line bg-white transition-colors hover:border-copper motion-reduce:transition-none"
+            >
+              <Image
+                src={image}
+                alt={t(
+                  image.src.includes("placeholder")
+                    ? "categories.coverPlaceholder"
+                    : "categories.cover",
+                  locale,
+                  { label: localized(label, locale) },
+                )}
+                widths={[200, 400, 720]}
+                sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 340px) 48vw, calc(100vw - 2.5rem)"
+                format="webp"
+                loading="lazy"
+                class="aspect-[5/3] w-full border-b border-line object-cover"
+              />
+              <div class="flex flex-1 flex-col p-3.5 sm:p-5">
+                <h3
+                  id={"cover-title-" + id}
+                  class="font-display text-xl leading-tight font-normal wrap-anywhere group-hover:text-copper sm:text-card-title"
+                >
+                  {localized(label, locale)}
+                </h3>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                  {localized(summary, locale)}
+                </p>
+                <span
+                  aria-hidden="true"
+                  class="mt-auto pt-3 text-lg text-copper"
+                >
+                  →
+                </span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {hasMore && (
+        <Button href="/products/" variant="secondary" class="mt-7">
+          {t("categories.viewAll", locale)}
+        </Button>
+      )}
+    </Container>
+  </section>
+)}

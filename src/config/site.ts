@@ -1,72 +1,76 @@
+import { z } from "astro/zod";
+import rawSite from "../data/site.json";
+import { localizedText } from "../lib/content-fields";
+export { localized } from "../i18n/utils";
+
 export type SocialPlatform =
   "youtube" | "tiktok" | "instagram" | "facebook" | "pinterest" | "linkedin";
 
-export interface SiteStat {
-  value: string | number;
-  label: string;
-}
+const optionalImagePath = z.preprocess(
+  (value) => value ?? "",
+  z
+    .string()
+    .refine(
+      (value) =>
+        !value ||
+        /^TODO_.+/.test(value) ||
+        /^\.\.\/assets\/images\/site\/[a-zA-Z0-9_/-]+\.(png|jpe?g|webp|avif)$/i.test(
+          value,
+        ),
+      "图片必须来自网站资料媒体目录",
+    ),
+);
+// Pages CMS 保存时会省略空字符串、空数组和空对象；读取时恢复可选项。
+const optionalString = z.string().default("");
 
-export interface SiteConfig {
-  companyName: string;
-  shortName: string;
-  tagline: string;
-  topBarItems: string[];
-  domain: string;
-  email: string;
-  phone: string;
-  whatsappNumber: string;
-  whatsappPrefillMessage: string;
-  factoryAddress: string;
-  stockMoq: string;
-  customMoq: string;
-  sampleLeadTime: string;
-  productionLeadTime: string;
-  sampleCost: string;
-  paymentTerms: string;
-  shippingMethods: string;
-  stats: SiteStat[];
-  youtubeVideoId: string;
-  certificates: { name: string; imagePath: string }[];
-  socialLinks: Record<SocialPlatform, string>;
-}
+export const siteSchema = z.object({
+  companyName: localizedText,
+  shortName: localizedText,
+  tagline: localizedText,
+  topBarItems: z.array(localizedText).default([]),
+  domain: optionalString,
+  email: optionalString,
+  phone: optionalString,
+  whatsappNumber: optionalString,
+  whatsappPrefillMessage: localizedText,
+  factoryAddress: localizedText,
+  stockMoq: localizedText,
+  customMoq: localizedText,
+  sampleLeadTime: localizedText,
+  productionLeadTime: localizedText,
+  sampleCost: localizedText,
+  paymentTerms: localizedText,
+  shippingMethods: localizedText,
+  stats: z
+    .array(
+      z.object({
+        value: z.union([z.string(), z.number()]),
+        label: localizedText,
+      }),
+    )
+    .default([]),
+  youtubeVideoId: optionalString,
+  certificates: z
+    .array(z.object({ name: localizedText, imagePath: optionalImagePath }))
+    .default([]),
+  socialLinks: z.preprocess(
+    (value) => value ?? {},
+    z.object({
+      youtube: optionalString,
+      tiktok: optionalString,
+      instagram: optionalString,
+      facebook: optionalString,
+      pinterest: optionalString,
+      linkedin: optionalString,
+    }),
+  ),
+  wechatId: optionalString,
+  wechatQr: optionalImagePath,
+});
 
-export const site: SiteConfig = {
-  companyName: "TODO_COMPANY_NAME",
-  shortName: "TODO_COMPANY_SHORT_NAME",
-  tagline: "TODO_COMPANY_TAGLINE",
-  topBarItems: ["Factory Direct", "Custom Printing & OEM", "TODO_TOP_BAR_ITEM"],
-  domain: "TODO_SITE_DOMAIN",
-  email: "TODO_EMAIL",
-  phone: "TODO_PHONE",
-  whatsappNumber: "TODO_WHATSAPP_NUMBER",
-  whatsappPrefillMessage: "TODO_WHATSAPP_PREFILL_MESSAGE",
-  factoryAddress: "TODO_FACTORY_ADDRESS",
-  stockMoq: "TODO_STOCK_MOQ",
-  customMoq: "TODO_CUSTOM_MOQ",
-  sampleLeadTime: "TODO_SAMPLE_LEAD_TIME",
-  productionLeadTime: "TODO_PRODUCTION_LEAD_TIME",
-  sampleCost: "TODO_SAMPLE_COST",
-  paymentTerms: "TODO_PAYMENT_TERMS",
-  shippingMethods: "TODO_SHIPPING_METHODS",
-  stats: [
-    { value: "TODO_FOUNDED_YEAR", label: "Founded" },
-    { value: "TODO_DAILY_CAPACITY", label: "Daily Capacity" },
-    { value: "TODO_EXPORT_COUNTRY_COUNT", label: "Export Countries" },
-    { value: "TODO_PATTERN_COUNT", label: "Colors & Patterns" },
-  ],
-  youtubeVideoId: "TODO_YOUTUBE_VIDEO_ID",
-  certificates: [
-    { name: "TODO_CERTIFICATE_NAME", imagePath: "TODO_CERTIFICATE_IMAGE_PATH" },
-  ],
-  socialLinks: {
-    youtube: "TODO_YOUTUBE_URL",
-    tiktok: "TODO_TIKTOK_URL",
-    instagram: "TODO_INSTAGRAM_URL",
-    facebook: "TODO_FACEBOOK_URL",
-    pinterest: "TODO_PINTEREST_URL",
-    linkedin: "TODO_LINKEDIN_URL",
-  },
-};
+export type SiteConfig = z.infer<typeof siteSchema>;
+export type SiteStat = SiteConfig["stats"][number];
+export const site: SiteConfig = siteSchema.parse(rawSite);
 
 export function isTodo(value: unknown): value is `TODO_${string}` {
   return typeof value === "string" && value.startsWith("TODO_");
@@ -81,21 +85,19 @@ export function display<T extends string | number>(
 
 export function getWhatsAppHref(number: string, message: string) {
   if (isTodo(number)) return undefined;
-
   const digits = number.replace(/\D/g, "");
   if (!digits) return undefined;
-
   const text =
     message && !isTodo(message) ? `?text=${encodeURIComponent(message)}` : "";
   return `https://wa.me/${digits}${text}`;
 }
 
 export const navigation = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products/" },
-  { label: "Custom/OEM", href: "/custom/" },
-  { label: "About", href: "/about/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "FAQ", href: "/faq/" },
-  { label: "Contact", href: "/contact/" },
+  { key: "nav.home", href: "/" },
+  { key: "nav.products", href: "/products/" },
+  { key: "nav.custom", href: "/custom/" },
+  { key: "nav.about", href: "/about/" },
+  { key: "nav.blog", href: "/blog/" },
+  { key: "nav.faq", href: "/faq/" },
+  { key: "nav.contact", href: "/contact/" },
 ] as const;

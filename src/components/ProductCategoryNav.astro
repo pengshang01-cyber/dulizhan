@@ -1,27 +1,36 @@
 ---
-import { productCategories } from "../config/categories";
+import { getVisibleCategories } from "../lib/products";
+import { localized, t } from "../i18n/utils";
 interface Props {
   current?: string;
 }
 const { current } = Astro.props;
+const locale = "en";
 const links = [
-  { label: "All products", href: "/products/", id: undefined },
-  ...productCategories.map(({ id, label }) => ({
+  {
+    label: t("categories.allProducts", locale),
+    href: "/products/",
+    id: undefined,
+  },
+  ...(await getVisibleCategories()).map(({ id, label }) => ({
     id,
-    label,
+    label: localized(label, locale),
     href: "/products/" + id + "/",
   })),
 ];
 ---
 
-<nav aria-label="Product categories">
-  <ul class="flex flex-wrap gap-2">
+<nav
+  aria-label={t("categories.navigation", locale)}
+  class="max-w-full overflow-x-auto"
+>
+  <ul class="flex w-max min-w-full flex-nowrap gap-2 pb-1 sm:w-auto sm:flex-wrap">
     {links.map(({ id, label, href }) => (
-      <li>
+      <li class="shrink-0">
         <a
           href={href}
           aria-current={current === id ? "page" : undefined}
-          class="inline-flex min-h-11 items-center rounded-control border border-line bg-white px-3 py-2 text-xs font-semibold text-ink-soft transition-colors hover:border-copper hover:text-copper aria-[current=page]:border-coffee aria-[current=page]:bg-coffee aria-[current=page]:text-white"
+          class="inline-flex min-h-11 items-center rounded-control border border-line bg-white px-3 py-2 text-xs font-semibold whitespace-nowrap text-ink-soft transition-colors hover:border-copper hover:text-copper aria-[current=page]:border-coffee aria-[current=page]:bg-coffee aria-[current=page]:text-white"
         >
           {label}
         </a>

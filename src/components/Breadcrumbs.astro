@@ -1,11 +1,16 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 interface Props {
   items: { label: string; href?: string }[];
 }
 const { items } = Astro.props;
 ---
 
-<nav aria-label="Breadcrumb" class="text-xs leading-relaxed text-ink-soft">
+<nav
+  aria-label={t("breadcrumbs.navigation", locale)}
+  class="text-xs leading-relaxed text-ink-soft"
+>
   <ol class="flex flex-wrap items-center gap-x-2 gap-y-1">
     {items.map(({ label, href }, index) => (
       <li class="flex min-w-0 items-center gap-2">

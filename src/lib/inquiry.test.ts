@@ -175,7 +175,7 @@ describe("inquiry list", () => {
       JSON.stringify([
         null,
         { ...first, slug: "../unsafe", quantity: 1 },
-        { ...first, category: "unknown", quantity: 1 },
+        { ...first, category: "../invalid", quantity: 1 },
         { ...first, title: "", quantity: 1 },
         { ...first, sku: "", quantity: 1 },
         { ...first, quantity: "2" },
@@ -186,7 +186,7 @@ describe("inquiry list", () => {
     );
     const store = await import("./inquiry");
     expect(store.getItems()).toEqual([{ ...first, quantity: 3 }]);
-    expect(store.addItem({ ...second, category: "unknown" })).toBe(false);
+    expect(store.addItem({ ...second, category: "../invalid" })).toBe(false);
   });
 
   it("restores fresh storage when returning through the browser back cache", async () => {
@@ -251,6 +251,29 @@ describe("inquiry list", () => {
     expect(store.removeItem(first.slug)).toBe(false);
     expect(store.setQuantity(first.slug, 1)).toBe(false);
     expect(store.clearItems()).toBe(false);
+  });
+});
+
+describe("dynamic category ids", () => {
+  it("accepts a newly created category without a bundled category list", async () => {
+    const store = await import("./inquiry");
+    expect(
+      store.addItem({ ...first, category: "cms-added-category-2026" }),
+    ).toBe(true);
+    expect(store.getItems()[0]?.category).toBe("cms-added-category-2026");
+  });
+
+  it.each([
+    "",
+    "Upper-Case",
+    "../category",
+    "category.json",
+    "category/child",
+    "category_",
+  ])("rejects unsafe category id %j", async (category) => {
+    const store = await import("./inquiry");
+    expect(store.addItem({ ...first, category })).toBe(false);
+    expect(store.getItems()).toEqual([]);
   });
 });
 

@@ -1,4 +1,6 @@
 ---
+const locale = "en";
+import { t } from "../i18n/utils";
 import BrandIcon from "../components/BrandIcon.astro";
 import Button from "../components/Button.astro";
 import CheckList from "../components/CheckList.astro";
@@ -13,35 +15,94 @@ import { display, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const colors = [
-  { label: "Cream", hex: "#faf7f1", swatch: "bg-cream" },
-  { label: "Paper", hex: "#f4eee5", swatch: "bg-paper" },
-  { label: "Sand", hex: "#e8ddce", swatch: "bg-sand" },
-  { label: "White", hex: "#ffffff", swatch: "bg-white" },
-  { label: "Ink", hex: "#30271f", swatch: "bg-ink" },
-  { label: "Ink soft", hex: "#50453b", swatch: "bg-ink-soft" },
-  { label: "Muted", hex: "#85786b", swatch: "bg-muted" },
-  { label: "Line", hex: "#e8e1d7", swatch: "bg-line" },
-  { label: "Coffee", hex: "#36291f", swatch: "bg-coffee" },
-  { label: "Coffee 2", hex: "#4b3527", swatch: "bg-coffee-2" },
-  { label: "Copper", hex: "#a55c39", swatch: "bg-copper" },
-  { label: "Copper dark", hex: "#8e492d", swatch: "bg-copper-dark" },
+  {
+    label: t("pages.styleguide.cream", locale),
+    hex: "#faf7f1",
+    swatch: "bg-cream",
+  },
+  {
+    label: t("pages.styleguide.paper", locale),
+    hex: "#f4eee5",
+    swatch: "bg-paper",
+  },
+  {
+    label: t("pages.styleguide.sand", locale),
+    hex: "#e8ddce",
+    swatch: "bg-sand",
+  },
+  {
+    label: t("pages.styleguide.white", locale),
+    hex: "#ffffff",
+    swatch: "bg-white",
+  },
+  {
+    label: t("pages.styleguide.ink", locale),
+    hex: "#30271f",
+    swatch: "bg-ink",
+  },
+  {
+    label: t("pages.styleguide.ink_soft", locale),
+    hex: "#50453b",
+    swatch: "bg-ink-soft",
+  },
+  {
+    label: t("pages.styleguide.muted", locale),
+    hex: "#85786b",
+    swatch: "bg-muted",
+  },
+  {
+    label: t("pages.styleguide.line", locale),
+    hex: "#e8e1d7",
+    swatch: "bg-line",
+  },
+  {
+    label: t("pages.styleguide.coffee", locale),
+    hex: "#36291f",
+    swatch: "bg-coffee",
+  },
+  {
+    label: t("pages.styleguide.coffee_2", locale),
+    hex: "#4b3527",
+    swatch: "bg-coffee-2",
+  },
+  {
+    label: t("pages.styleguide.copper", locale),
+    hex: "#a55c39",
+    swatch: "bg-copper",
+  },
+  {
+    label: t("pages.styleguide.copper_dark", locale),
+    hex: "#8e492d",
+    swatch: "bg-copper-dark",
+  },
 ];
 const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
 ---
 
-<BaseLayout title="Style Guide" noindex>
+<BaseLayout title={t("pages.styleguide.style_guide_2", locale)} noindex>
   <Container class="py-12 sm:py-16">
     <div class="border-b border-line pb-9">
-      <Eyebrow class="mb-5">Design system · M1.5</Eyebrow>
-      <DisplayHeading first="Style guide." second="Warmth in the details." />
+      <Eyebrow class="mb-5">
+        {t("pages.styleguide.design_system_m1_5", locale)}
+      </Eyebrow>
+      <DisplayHeading
+        first={t("pages.styleguide.style_guide", locale)}
+        second={t("pages.styleguide.warmth_in_the_details", locale)}
+      />
       <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
-        Cream, coffee, and copper. Local fonts, fine borders, and shared
-        components for every page.
+        {t(
+          "pages.styleguide.cream_coffee_and_copper_local_fonts_fine_borders",
+          locale,
+        )}
       </p>
     </div>
 
     <section class="mt-10" aria-labelledby="colors">
-      <SectionHeading eyebrow="The palette" title="Colors" id="colors" />
+      <SectionHeading
+        eyebrow={t("pages.styleguide.the_palette", locale)}
+        title={t("pages.styleguide.colors", locale)}
+        id="colors"
+      />
       <ul class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         {colors.map(({ label, hex, swatch }) => (
           <li class="min-w-0 rounded-panel border border-line bg-white p-2.5">
@@ -59,40 +120,50 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
     <div class="mt-10 grid gap-6 lg:grid-cols-2">
       <section class={panel} aria-labelledby="typography">
         <SectionHeading
-          eyebrow="Local typography"
-          title="Typography"
+          eyebrow={t("pages.styleguide.local_typography", locale)}
+          title={t("pages.styleguide.typography", locale)}
           id="typography"
         />
         <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-          Newsreader 400 regular and italic. DM Sans 400, 600, 700, and 800.
+          {t(
+            "pages.styleguide.newsreader_400_regular_and_italic_dm_sans_400",
+            locale,
+          )}
         </p>
         <dl class="mt-6 grid gap-5">
           <div>
             <dt class="text-xs font-semibold text-ink-soft">
-              H1 · −0.05em · 1.05 line height
+              {t("pages.styleguide.h1_0_05em_1_05_line_height", locale)}
             </dt>
             <dd class="mt-3 font-display text-page-title font-normal">
-              Baking cups
+              {t("pages.styleguide.baking_cups", locale)}
             </dd>
           </div>
           <div class="border-t border-line pt-4">
             <dt class="text-xs font-semibold text-ink-soft">
-              H2 · −0.045em · 1.05 line height
+              {t("pages.styleguide.h2_0_045em_1_05_line_height", locale)}
             </dt>
             <dd class="mt-3 font-display text-section-title font-normal italic text-copper">
-              Made for your brand.
+              {t("pages.styleguide.made_for_your_brand", locale)}
             </dd>
           </div>
           <div class="border-t border-line pt-4">
             <dt class="text-xs font-semibold text-ink-soft">
-              Card title · Newsreader 400
+              {t("pages.styleguide.card_title_newsreader_400", locale)}
             </dt>
-            <dd class="mt-3 font-display text-card-title">Cupcake liners</dd>
+            <dd class="mt-3 font-display text-card-title">
+              {t("pages.styleguide.cupcake_liners", locale)}
+            </dd>
           </div>
           <div class="border-t border-line pt-4">
-            <dt class="text-xs font-semibold text-ink-soft">Body · DM Sans</dt>
+            <dt class="text-xs font-semibold text-ink-soft">
+              {t("pages.styleguide.body_dm_sans", locale)}
+            </dt>
             <dd class="mt-3 text-base leading-relaxed">
-              Cupcake liners and baking cups, made factory direct.
+              {t(
+                "pages.styleguide.cupcake_liners_and_baking_cups_made_factory_direct",
+                locale,
+              )}
             </dd>
           </div>
         </dl>
@@ -100,54 +171,64 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
 
       <section class={panel} aria-labelledby="buttons">
         <SectionHeading
-          eyebrow="Actions & controls"
-          title="Buttons & Inputs"
+          eyebrow={t("pages.styleguide.actions_controls", locale)}
+          title={t("pages.styleguide.buttons_inputs", locale)}
           id="buttons"
         />
         <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-          2px corners. Buttons use 11–12px text, weight 800, and 0.06em
-          tracking. Hover changes color only.
+          {t(
+            "pages.styleguide.2px_corners_buttons_use_11_12px_text_weight",
+            locale,
+          )}
         </p>
         <dl class="mt-6 flex flex-wrap items-end gap-x-3 gap-y-5">
           <div>
             <dt class="mb-2 text-xs font-semibold text-ink-soft">
-              Primary / QuoteButton
+              {t("pages.styleguide.primary_quotebutton", locale)}
             </dt>
             <dd>
               <QuoteButton />
             </dd>
           </div>
           <div>
-            <dt class="mb-2 text-xs font-semibold text-ink-soft">Secondary</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">
+              {t("pages.styleguide.secondary", locale)}
+            </dt>
             <dd>
               <Button href="/products/" variant="secondary">
-                View Products
+                {t("pages.styleguide.view_products", locale)}
               </Button>
             </dd>
           </div>
           <div>
-            <dt class="mb-2 text-xs font-semibold text-ink-soft">Ghost</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">
+              {t("pages.styleguide.ghost", locale)}
+            </dt>
             <dd>
               <Button href="/contact/" variant="ghost">
-                Contact
+                {t("pages.styleguide.contact", locale)}
               </Button>
             </dd>
           </div>
           <div>
-            <dt class="mb-2 text-xs font-semibold text-ink-soft">Disabled</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">
+              {t("pages.styleguide.disabled", locale)}
+            </dt>
             <dd>
-              <Button disabled>Unavailable</Button>
+              <Button disabled>
+                {t("pages.styleguide.unavailable", locale)}
+              </Button>
             </dd>
           </div>
         </dl>
         <div class="mt-7 border-t border-line pt-5">
           <label for="sample-input" class="block text-sm font-semibold">
-            Input example
+            {t("pages.styleguide.input_example", locale)}
           </label>
           <input
             id="sample-input"
             type="text"
-            placeholder="Cup style"
+            placeholder={t("pages.styleguide.cup_style", locale)}
             class="mt-2 w-full"
           />
         </div>
@@ -159,22 +240,28 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
             <BrandIcon name="whatsapp" class="size-5" />
           </span>
           <p class="text-sm wrap-anywhere text-ink-soft">
-            WhatsAppFloat · {display(site.whatsappNumber, "WhatsApp number")}
+            {t("pages.styleguide.whatsappfloat", locale)}{" "}
+            {display(
+              site.whatsappNumber,
+              t("pages.styleguide.whatsapp_number", locale),
+            )}
           </p>
         </div>
       </section>
 
       <section class={panel} aria-labelledby="headings">
         <SectionHeading
-          eyebrow="Eyebrow & DisplayHeading"
-          title="Headings"
+          eyebrow={t("pages.styleguide.eyebrow_displayheading", locale)}
+          title={t("pages.styleguide.headings", locale)}
           id="headings"
         />
         <div class="mt-6 border-t border-line pt-6">
-          <Eyebrow class="mb-4">Wholesale baking essentials</Eyebrow>
+          <Eyebrow class="mb-4">
+            {t("pages.styleguide.wholesale_baking_essentials", locale)}
+          </Eyebrow>
           <DisplayHeading
-            first="Cupcake Liners & Baking Cups"
-            second="Made Factory Direct."
+            first={t("pages.styleguide.cupcake_liners_baking_cups", locale)}
+            second={t("pages.styleguide.made_factory_direct", locale)}
             level={2}
           />
         </div>
@@ -182,16 +269,16 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
 
       <section class={panel} aria-labelledby="checklist">
         <SectionHeading
-          eyebrow="Details that matter"
-          title="CheckList"
+          eyebrow={t("pages.styleguide.details_that_matter", locale)}
+          title={t("pages.styleguide.checklist", locale)}
           id="checklist"
         />
         <CheckList
           items={[
-            "A wide range of prints and colors",
-            "Food-grade paper",
-            "Factory-direct wholesale pricing",
-            "Custom logo, size, and color",
+            t("pages.styleguide.a_wide_range_of_prints_and_colors", locale),
+            t("pages.styleguide.food_grade_paper", locale),
+            t("pages.styleguide.factory_direct_wholesale_pricing", locale),
+            t("pages.styleguide.custom_logo_size_and_color", locale),
           ]}
           class="mt-6 text-ink-soft"
         />
@@ -200,25 +287,31 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
 
     <section class="mt-10" aria-labelledby="cards">
       <SectionHeading
-        eyebrow="Surfaces & borders"
-        title="Cards, Steps & FAQ"
+        eyebrow={t("pages.styleguide.surfaces_borders", locale)}
+        title={t("pages.styleguide.cards_steps_faq", locale)}
         id="cards"
       />
       <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-        White cards, fine borders, and 2–3px corners. The product card
-        demonstrates the shared soft shadow.
+        {t(
+          "pages.styleguide.white_cards_fine_borders_and_2_3px_corners",
+          locale,
+        )}
       </p>
       <div class="mt-6 grid items-start gap-5 lg:grid-cols-3">
         <article class={panel + " shadow-panel"}>
-          <SectionHeading title="Products" level={3} />
+          <SectionHeading
+            title={t("pages.styleguide.products", locale)}
+            level={3}
+          />
           <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-            Explore baking cup styles.
+            {t("pages.styleguide.explore_baking_cup_styles", locale)}
           </p>
           <a
             href="/products/"
             class="mt-5 inline-flex items-center gap-3 text-xs font-extrabold tracking-[0.06em] text-copper uppercase hover:text-copper-dark"
           >
-            Product categories <span aria-hidden="true">→</span>
+            {t("pages.styleguide.product_categories", locale)}{" "}
+            <span aria-hidden="true">→</span>
           </a>
         </article>
         <article class={panel}>
@@ -226,15 +319,18 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
             02
           </span>
           <h3 class="mt-4 font-display text-xl font-normal sm:text-card-title">
-            Mockup
+            {t("pages.styleguide.mockup", locale)}
           </h3>
           <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-            We prepare a digital mockup of your design for your approval.
+            {t(
+              "pages.styleguide.we_prepare_a_digital_mockup_of_your_design",
+              locale,
+            )}
           </p>
         </article>
         <details open class="group rounded-control border border-line bg-white">
           <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-sm font-bold [&::-webkit-details-marker]:hidden">
-            Can I use my own artwork?
+            {t("pages.styleguide.can_i_use_my_own_artwork", locale)}
             <span
               aria-hidden="true"
               class="text-xl text-copper group-open:hidden"
@@ -249,8 +345,10 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
             </span>
           </summary>
           <p class="px-5 pb-5 text-sm leading-relaxed text-ink-soft">
-            Yes. Send us your artwork, cup style and size, and we'll check the
-            fit and send a mockup.
+            {t(
+              "pages.styleguide.yes_send_us_your_artwork_cup_style_and",
+              locale,
+            )}
           </p>
         </details>
       </div>
@@ -260,13 +358,15 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
   <section aria-labelledby="stats-example">
     <Container class="pb-6">
       <SectionHeading
-        eyebrow="Site configuration"
-        title="StatsBar"
+        eyebrow={t("pages.styleguide.site_configuration", locale)}
+        title={t("pages.styleguide.statsbar", locale)}
         id="stats-example"
       />
       <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-        Figures and labels come from the stats array. Pending values stay
-        visible.
+        {t(
+          "pages.styleguide.figures_and_labels_come_from_the_stats_array",
+          locale,
+        )}
       </p>
     </Container>
     <StatsBar />
@@ -275,12 +375,15 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
   <section aria-labelledby="topbar-example" class="py-12">
     <Container class="pb-6">
       <SectionHeading
-        eyebrow="Shared announcement"
-        title="TopBar"
+        eyebrow={t("pages.styleguide.shared_announcement", locale)}
+        title={t("pages.styleguide.topbar", locale)}
         id="topbar-example"
       />
       <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-        Pending items are hidden. Mobile shows the first available item.
+        {t(
+          "pages.styleguide.pending_items_are_hidden_mobile_shows_the_first",
+          locale,
+        )}
       </p>
     </Container>
     <TopBar />
@@ -289,15 +392,18 @@ const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
   <section class="dark-surface py-12 sm:py-16" aria-labelledby="dark-example">
     <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
       <SectionHeading
-        eyebrow="Coffee & cream"
-        title="Dark Surfaces"
+        eyebrow={t("pages.styleguide.coffee_cream", locale)}
+        title={t("pages.styleguide.dark_surfaces", locale)}
         id="dark-example"
-        description="Shared headings and buttons remain readable on coffee. The sticky Header and Footer frame this page."
+        description={t(
+          "pages.styleguide.shared_headings_and_buttons_remain_readable_on_coffee",
+          locale,
+        )}
       />
       <div class="flex flex-wrap gap-3">
         <QuoteButton />
         <Button href="/custom/" variant="secondary">
-          Custom/OEM
+          {t("pages.styleguide.custom_oem", locale)}
         </Button>
       </div>
     </Container>

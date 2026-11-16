@@ -5,20 +5,33 @@ import Eyebrow from "../components/Eyebrow.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import QuoteButton from "../components/QuoteButton.astro";
 import SectionHeading from "../components/SectionHeading.astro";
-import { faqs, faqTopics } from "../data/faq";
+import { getFaqs, faqTopics } from "../lib/faq";
+import { t } from "../i18n/utils";
+const locale = "en";
+const faqs = getFaqs(locale);
+const topics = faqTopics.map(({ id, topic, key }) => ({
+  id,
+  topic,
+  label: t(key, locale),
+}));
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Frequently Asked Questions">
+<BaseLayout title={t("pages.faq.frequently_asked_questions", locale)}>
   <Container class="py-12 sm:py-20">
-    <Eyebrow class="mb-5">Before you order</Eyebrow>
-    <DisplayHeading first="Your Questions." second="Our Answers." />
+    <Eyebrow class="mb-5">{t("pages.faq.before_you_order", locale)}</Eyebrow>
+    <DisplayHeading
+      first={t("pages.faq.your_questions", locale)}
+      second={t("pages.faq.our_answers", locale)}
+    />
     <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
-      We help you plan your baking cup order, from choosing a print to reviewing
-      samples and delivery details.
+      {t("pages.faq.we_help_you_plan_your_baking_cup_order", locale)}
     </p>
-    <nav aria-label="FAQ topics" class="mt-8 flex flex-wrap gap-2">
-      {faqTopics.map(({ id, label }) => (
+    <nav
+      aria-label={t("pages.faq.faq_topics", locale)}
+      class="mt-8 flex flex-wrap gap-2"
+    >
+      {topics.map(({ id, label }) => (
         <a
           href={`#${id}`}
           class="rounded-control border border-line bg-white px-4 py-3 text-xs font-bold hover:border-copper hover:text-copper"
@@ -28,13 +41,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       ))}
     </nav>
     <div class="mt-12 grid gap-12 sm:mt-16">
-      {faqTopics.map(({ id, label }) => (
+      {topics.map(({ id, topic: group, label }) => (
         <section
           aria-labelledby={id}
           class="grid items-start gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-12"
         >
-          <SectionHeading eyebrow="Good to know" title={label} id={id} />
-          <FaqAccordion items={faqs.filter(({ topic }) => topic === label)} />
+          <SectionHeading
+            eyebrow={t("pages.faq.good_to_know", locale)}
+            title={label}
+            id={id}
+          />
+          <FaqAccordion items={faqs.filter(({ topic }) => topic === group)} />
         </section>
       ))}
     </div>
@@ -45,10 +62,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   >
     <Container class="flex flex-col items-start gap-7 sm:flex-row sm:items-center sm:justify-between">
       <SectionHeading
-        eyebrow="Let's talk"
-        title="Have Another Question?"
+        eyebrow={t("pages.faq.let_s_talk", locale)}
+        title={t("pages.faq.have_another_question", locale)}
         id="faq-quote-title"
-        description="Tell us what you need, and we'll work through the details with you."
+        description={t("pages.faq.tell_us_what_you_need_and_we_ll", locale)}
       />
       <QuoteButton class="shrink-0" />
     </Container>

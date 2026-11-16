@@ -1,4 +1,6 @@
 ---
+const locale = "en";
+import { t } from "../i18n/utils";
 import Container from "./Container.astro";
 import SectionHeading from "./SectionHeading.astro";
 
@@ -14,7 +16,7 @@ const { title, description, headingId } = Astro.props;
 <section class="py-14 sm:py-20 lg:py-24">
   <Container>
     <SectionHeading
-      eyebrow="Factory direct"
+      eyebrow={t("pages.pageplaceholder.factory_direct", locale)}
       title={title}
       description={description}
       id={headingId}

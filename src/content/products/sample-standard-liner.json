@@ -1,0 +1,98 @@
+{
+  "title": {
+    "en": "Sample Standard Liner",
+    "zh": ""
+  },
+  "slug": "sample-standard-liner",
+  "sku": "TODO-001",
+  "category": "standard-cupcake-liners.json",
+  "summary": {
+    "en": "TODO_PRODUCT_SUMMARY",
+    "zh": ""
+  },
+  "images": [
+    "../../assets/images/products/sample-standard-liner-placeholder.png",
+    "../../assets/images/products/sample-standard-liner-detail-placeholder.png"
+  ],
+  "material": {
+    "en": "TODO_MATERIAL",
+    "zh": ""
+  },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": {
+        "en": "TODO_SIZE_NAME",
+        "zh": ""
+      },
+      "baseDiameterMm": "TODO_BASE_DIAMETER_MM",
+      "heightMm": "TODO_HEIGHT_MM",
+      "topDiameterMm": "TODO_TOP_DIAMETER_MM"
+    }
+  ],
+  "colors": [
+    {
+      "en": "TODO_COLORS",
+      "zh": ""
+    }
+  ],
+  "patterns": [
+    {
+      "en": "TODO_PATTERNS",
+      "zh": ""
+    }
+  ],
+  "customizable": "TODO_CUSTOMIZATION_OPTIONS",
+  "moq": {
+    "en": "TODO_MOQ",
+    "zh": ""
+  },
+  "packaging": {
+    "en": "TODO_PACKAGING",
+    "zh": ""
+  },
+  "cartonSpec": {
+    "en": "TODO_CARTON_SPEC",
+    "zh": ""
+  },
+  "leadTime": {
+    "en": "TODO_LEAD_TIME",
+    "zh": ""
+  },
+  "faqs": [
+    {
+      "q": {
+        "en": "Which specifications are available for this product?",
+        "zh": ""
+      },
+      "a": {
+        "en": "TODO_PRODUCT_SPECIFICATIONS_ANSWER",
+        "zh": ""
+      }
+    },
+    {
+      "q": {
+        "en": "What should I confirm before placing an order?",
+        "zh": ""
+      },
+      "a": {
+        "en": "TODO_ORDER_REQUIREMENTS_ANSWER",
+        "zh": ""
+      }
+    }
+  ],
+  "featured": false,
+  "order": 1,
+  "customOptions": {
+    "en": "TODO_PRODUCT_CUSTOM_OPTIONS",
+    "zh": ""
+  },
+  "packagingDetails": {
+    "en": "TODO_PRODUCT_PACKAGING_DETAILS",
+    "zh": ""
+  },
+  "applications": {
+    "en": "TODO_PRODUCT_APPLICATIONS",
+    "zh": ""
+  }
+}

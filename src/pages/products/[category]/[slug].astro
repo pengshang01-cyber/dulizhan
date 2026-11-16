@@ -1,7 +1,6 @@
 ---
 import FaqAccordion from "../../../components/FaqAccordion.astro";
 import type { GetStaticPaths } from "astro";
-import { render } from "astro:content";
 import AddToInquiryButton from "../../../components/AddToInquiryButton.astro";
 import Breadcrumbs from "../../../components/Breadcrumbs.astro";
 import Button from "../../../components/Button.astro";
@@ -11,6 +10,7 @@ import ProductCard from "../../../components/ProductCard.astro";
 import ProductGallery from "../../../components/ProductGallery.astro";
 import SectionHeading from "../../../components/SectionHeading.astro";
 import { display } from "../../../config/site";
+import { localized, t } from "../../../i18n/utils";
 import {
   getProducts,
   getProductCategory,
@@ -18,7 +18,6 @@ import {
   type Product,
 } from "../../../lib/products";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-
 export const getStaticPaths = (async () => {
   const products = await getProducts();
   return products.map((product) => ({
@@ -35,50 +34,114 @@ export const getStaticPaths = (async () => {
     },
   }));
 }) satisfies GetStaticPaths;
-
 interface Props {
   product: Product;
   related: Product[];
 }
 const { product, related } = Astro.props;
 const { data } = product;
-const { Content } = await render(product);
-const category = getProductCategory(data.category);
-const title = String(display(data.title, "product name"));
-const summary = String(display(data.summary, "product summary"));
+const locale = "en";
+const category = await getProductCategory(data.category);
+const categoryLabel = localized(category.label, locale);
+const title = display(
+  localized(data.title, locale),
+  t("products.todo.name", locale),
+);
+const summary = display(
+  localized(data.summary, locale),
+  t("products.todo.summary", locale),
+);
 const specificationRows = [
-  ["Material", display(data.material, "material")],
   [
-    "Paper weight",
-    typeof data.gsm === "number"
-      ? data.gsm + " gsm"
-      : display(data.gsm, "paper weight"),
+    t("products.material", locale),
+    display(
+      localized(data.material, locale),
+      t("products.todo.material", locale),
+    ),
   ],
-  ["Minimum order", display(data.moq, "minimum order quantity")],
-  ["Packaging", display(data.packaging, "packaging")],
-  ["Carton specification", display(data.cartonSpec, "carton specification")],
-  ["Lead time", display(data.leadTime, "lead time")],
+  [
+    t("products.paperWeight", locale),
+    typeof data.gsm === "number"
+      ? t("products.weightValue", locale, { value: data.gsm })
+      : display(data.gsm, t("products.todo.paperWeight", locale)),
+  ],
+  [
+    t("products.minimumOrder", locale),
+    display(
+      localized(data.moq, locale),
+      t("products.todo.minimumOrder", locale),
+    ),
+  ],
+  [
+    t("products.packaging", locale),
+    display(
+      localized(data.packaging, locale),
+      t("products.todo.packaging", locale),
+    ),
+  ],
+  [
+    t("products.cartonSpecification", locale),
+    display(
+      localized(data.cartonSpec, locale),
+      t("products.todo.cartonSpecification", locale),
+    ),
+  ],
+  [
+    t("products.leadTime", locale),
+    display(
+      localized(data.leadTime, locale),
+      t("products.todo.leadTime", locale),
+    ),
+  ],
 ];
 const customization =
   typeof data.customizable === "boolean"
-    ? data.customizable
-      ? "Customization available"
-      : "Customization unavailable"
-    : display(data.customizable, "customization options");
+    ? t(
+        data.customizable
+          ? "products.customizationAvailable"
+          : "products.customizationUnavailable",
+        locale,
+      )
+    : display(data.customizable, t("products.todo.customization", locale));
+const bodySections = [
+  {
+    heading: t("products.customOptions", locale),
+    value: data.customOptions,
+    label: t("products.todo.customOptions", locale),
+  },
+  {
+    heading: t("products.packaging", locale),
+    value: data.packagingDetails,
+    label: t("products.todo.packagingDetails", locale),
+  },
+  {
+    heading: t("products.applications", locale),
+    value: data.applications,
+    label: t("products.todo.applications", locale),
+  },
+].filter(({ value }) => value && String(localized(value, locale)).trim());
 ---
 
 <BaseLayout
-  title={String(display(data.seoTitle ?? data.title, "product title"))}
+  title={String(
+    display(
+      localized(data.seoTitle ?? data.title, locale),
+      t("products.todo.title", locale),
+    ),
+  )}
   description={String(
-    display(data.seoDescription ?? data.summary, "product description"),
+    display(
+      localized(data.seoDescription ?? data.summary, locale),
+      t("products.todo.description", locale),
+    ),
   )}
 >
   <Container class="py-8 sm:py-12">
     <Breadcrumbs
       items={[
-        { label: "Home", href: "/" },
-        { label: "Products", href: "/products/" },
-        { label: category.label, href: "/products/" + category.id + "/" },
+        { label: t("breadcrumbs.home", locale), href: "/" },
+        { label: t("breadcrumbs.products", locale), href: "/products/" },
+        { label: categoryLabel, href: "/products/" + category.id + "/" },
         { label: title },
       ]}
     />
@@ -89,7 +152,7 @@ const customization =
     >
       <ProductGallery images={data.images} title={title} />
       <div class="min-w-0 lg:py-3">
-        <Eyebrow>{category.label}</Eyebrow>
+        <Eyebrow>{categoryLabel}</Eyebrow>
         <h1
           id="product-title"
           class="mt-5 font-display text-page-title font-normal wrap-anywhere"
@@ -97,11 +160,12 @@ const customization =
           {title}
         </h1>
         <p class="mt-4 text-xs font-semibold tracking-[0.12em] wrap-anywhere text-muted uppercase">
-          SKU / {display(data.sku, "SKU")}
+          {t("products.skuPrefix", locale)}{" "}
+          {display(data.sku, t("products.sku", locale))}
         </p>
         <p class="mt-6 text-base leading-relaxed text-ink-soft">{summary}</p>
         <p class="mt-7 text-xs font-extrabold tracking-[0.14em] text-copper uppercase">
-          Ask for pricing
+          {t("products.askPricing", locale)}
         </p>
         <div class="mt-5 flex flex-wrap gap-3">
           <Button
@@ -109,21 +173,20 @@ const customization =
               "/contact/?product=" + encodeURIComponent(data.slug) + "#quote"
             }
           >
-            Get a Quote
+            {t("products.getQuote", locale)}
           </Button>
           <AddToInquiryButton
             product={{
               slug: data.slug,
               sku: data.sku,
-              title: data.title,
+              title: localized(data.title, locale),
               category: data.category,
             }}
             class="min-h-12 px-5"
           />
         </div>
         <p class="mt-5 text-sm leading-relaxed text-ink-soft">
-          Add this product to your inquiry list to request a quote for several
-          styles together.
+          {t("products.inquiryHelp", locale)}
         </p>
       </div>
     </section>
@@ -133,8 +196,8 @@ const customization =
       aria-labelledby="specifications-title"
     >
       <SectionHeading
-        eyebrow="Product details"
-        title="Specifications"
+        eyebrow={t("products.detailsEyebrow", locale)}
+        title={t("products.specifications", locale)}
         id="specifications-title"
       />
       <dl class="mt-7 grid gap-px overflow-hidden rounded-panel border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
@@ -147,29 +210,33 @@ const customization =
           </div>
         ))}
       </dl>
-      <h3 class="mt-8 font-display text-card-title font-normal">Sizes</h3>
+      <h3 class="mt-8 font-display text-card-title font-normal">
+        {t("products.sizes", locale)}
+      </h3>
       <div
         data-size-table
         role="region"
-        aria-label="Product sizes"
+        aria-label={t("products.sizeRegion", locale)}
         tabindex="0"
         class="mt-4 max-w-full overflow-x-auto rounded-panel border border-line bg-white"
       >
         <table class="w-full min-w-[42rem] border-collapse text-left text-sm">
-          <caption class="sr-only">Product dimensions in millimeters</caption>
+          <caption class="sr-only">
+            {t("products.dimensionsCaption", locale)}
+          </caption>
           <thead class="border-b border-line bg-paper text-xs text-ink-soft">
             <tr>
               <th scope="col" class="px-5 py-4 font-bold">
-                Size
+                {t("products.size", locale)}
               </th>
               <th scope="col" class="px-5 py-4 font-bold">
-                Base diameter
+                {t("products.baseDiameter", locale)}
               </th>
               <th scope="col" class="px-5 py-4 font-bold">
-                Height
+                {t("products.height", locale)}
               </th>
               <th scope="col" class="px-5 py-4 font-bold">
-                Top diameter
+                {t("products.topDiameter", locale)}
               </th>
             </tr>
           </thead>
@@ -177,16 +244,31 @@ const customization =
             {data.sizes.map((size) => (
               <tr class="border-b border-line last:border-b-0">
                 <th scope="row" class="px-5 py-4 font-semibold">
-                  {display(size.name, "size name")}
+                  {display(
+                    localized(size.name, locale),
+                    t("products.todo.sizeName", locale),
+                  )}
                 </th>
                 <td class="px-5 py-4">
-                  {measurementLabel(size.baseDiameterMm, "base diameter")}
+                  {measurementLabel(
+                    size.baseDiameterMm,
+                    t("products.todo.baseDiameter", locale),
+                    locale,
+                  )}
                 </td>
                 <td class="px-5 py-4">
-                  {measurementLabel(size.heightMm, "height")}
+                  {measurementLabel(
+                    size.heightMm,
+                    t("products.todo.height", locale),
+                    locale,
+                  )}
                 </td>
                 <td class="px-5 py-4">
-                  {measurementLabel(size.topDiameterMm, "top diameter")}
+                  {measurementLabel(
+                    size.topDiameterMm,
+                    t("products.todo.topDiameter", locale),
+                    locale,
+                  )}
                 </td>
               </tr>
             ))}
@@ -197,35 +279,60 @@ const customization =
 
     <section
       class="mt-10 grid gap-5 sm:grid-cols-3"
-      aria-label="Available options"
+      aria-label={t("products.availableOptions", locale)}
     >
       <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">Colors</h2>
+        <h2 class="font-display text-card-title font-normal">
+          {t("products.colors", locale)}
+        </h2>
         <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
           {data.colors.map((color) => (
-            <li>{display(color, "available colors")}</li>
+            <li>
+              {display(
+                localized(color, locale),
+                t("products.todo.colors", locale),
+              )}
+            </li>
           ))}
         </ul>
       </div>
       <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">Patterns</h2>
+        <h2 class="font-display text-card-title font-normal">
+          {t("products.patterns", locale)}
+        </h2>
         <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
           {data.patterns.map((pattern) => (
-            <li>{display(pattern, "available patterns")}</li>
+            <li>
+              {display(
+                localized(pattern, locale),
+                t("products.todo.patterns", locale),
+              )}
+            </li>
           ))}
         </ul>
       </div>
       <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">Customization</h2>
+        <h2 class="font-display text-card-title font-normal">
+          {t("products.customization", locale)}
+        </h2>
         <p class="mt-3 text-sm leading-relaxed text-ink-soft">
           {customization}
         </p>
       </div>
     </section>
 
-    <div class="product-body mt-10 max-w-3xl border-t border-line pt-2">
-      <Content />
-    </div>
+    {bodySections.length > 0 && (
+      <div class="product-body mt-10 max-w-3xl border-t border-line pt-2">
+        {bodySections.map(({ heading, value, label }) => (
+          <section>
+            <h2>{heading}</h2>
+            <p class="whitespace-pre-line">
+              {display(localized(value!, locale), label)}
+            </p>
+          </section>
+        ))}
+      </div>
+    )}
 
     {data.faqs.length > 0 && (
       <section
@@ -233,15 +340,21 @@ const customization =
         aria-labelledby="product-faq-title"
       >
         <SectionHeading
-          eyebrow="Before you order"
-          title="Product Questions"
+          eyebrow={t("products.beforeOrder", locale)}
+          title={t("products.questions", locale)}
           id="product-faq-title"
         />
         <FaqAccordion
           class="mt-7"
           items={data.faqs.map(({ q, a }) => ({
-            question: display(q, "product question"),
-            answer: display(a, "product answer"),
+            question: display(
+              localized(q, locale),
+              t("products.todo.question", locale),
+            ),
+            answer: display(
+              localized(a, locale),
+              t("products.todo.answer", locale),
+            ),
           }))}
         />
       </section>
@@ -253,8 +366,8 @@ const customization =
         aria-labelledby="related-title"
       >
         <SectionHeading
-          eyebrow="Explore the collection"
-          title="Related Products"
+          eyebrow={t("products.relatedEyebrow", locale)}
+          title={t("products.related", locale)}
           id="related-title"
         />
         <div class="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

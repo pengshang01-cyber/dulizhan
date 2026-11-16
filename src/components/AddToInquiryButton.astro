@@ -1,4 +1,6 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 import { display } from "../config/site";
 import type { InquiryProduct } from "../lib/inquiry";
 import Button from "./Button.astro";
@@ -19,13 +21,15 @@ const { product, class: className } = Astro.props;
   data-inquiry-title={product.title}
   data-inquiry-category={product.category}
   aria-pressed="false"
-  title={display(product.title, "product name")}
+  title={display(product.title, t("inquiry.productName", locale))}
   disabled
 >
-  <span data-inquiry-label>+ Add to inquiry</span>
+  <span data-inquiry-label>{t("inquiry.add", locale)}</span>
 </Button>
 
 <script>
+  import { t } from "../i18n/utils";
+  const locale = "en";
   import {
     addItem,
     getItems,
@@ -43,7 +47,10 @@ const { product, class: className } = Astro.props;
       const added = selected.has(button.dataset.inquirySlug ?? "");
       button.setAttribute("aria-pressed", String(added));
       const label = button.querySelector<HTMLElement>("[data-inquiry-label]");
-      if (label) label.textContent = added ? "✓ Added" : "+ Add to inquiry";
+      if (label)
+        label.textContent = added
+          ? t("inquiry.added", locale)
+          : t("inquiry.add", locale);
       button.disabled = false;
     }
   }

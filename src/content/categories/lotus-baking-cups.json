@@ -1,0 +1,13 @@
+{
+  "label": {
+    "en": "Lotus Baking Cups",
+    "zh": "荷花杯"
+  },
+  "summary": {
+    "en": "Petal-shaped paper cups for individual baked treats.",
+    "zh": "花瓣造型纸杯，适合单份烘焙点心。"
+  },
+  "image": "../../assets/images/categories/lotus-baking-cups-placeholder.png",
+  "order": 5,
+  "showOnHome": true
+}

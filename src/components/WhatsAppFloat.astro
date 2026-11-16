@@ -1,8 +1,13 @@
 ---
+import { t, localized } from "../i18n/utils";
+const locale = "en";
 import { getWhatsAppHref, site } from "../config/site";
 import BrandIcon from "./BrandIcon.astro";
 
-const href = getWhatsAppHref(site.whatsappNumber, site.whatsappPrefillMessage);
+const href = getWhatsAppHref(
+  site.whatsappNumber,
+  localized(site.whatsappPrefillMessage, locale),
+);
 ---
 
 {href && (
@@ -10,7 +15,7 @@ const href = getWhatsAppHref(site.whatsappNumber, site.whatsappPrefillMessage);
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label="Chat on WhatsApp"
+    aria-label={t("site.whatsappChat", locale)}
     data-track="whatsapp_click"
     class="fixed right-4 bottom-4 z-30 grid size-13 place-items-center rounded-control bg-coffee text-white shadow-panel transition-colors hover:bg-coffee-2 motion-reduce:transition-none sm:right-6 sm:bottom-6"
   >

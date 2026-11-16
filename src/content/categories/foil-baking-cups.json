@@ -1,0 +1,13 @@
+{
+  "label": {
+    "en": "Foil Baking Cups",
+    "zh": "铝箔杯"
+  },
+  "summary": {
+    "en": "Baking cups with a metallic finish for display and presentation.",
+    "zh": "带金属质感，适合烘焙成品展示。"
+  },
+  "image": "../../assets/images/categories/foil-baking-cups-placeholder.png",
+  "order": 3,
+  "showOnHome": true
+}

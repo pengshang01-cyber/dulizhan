@@ -1,4 +1,6 @@
 ---
+const locale = "en";
+import { t } from "../i18n/utils";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import TopBar from "../components/TopBar.astro";
@@ -42,7 +44,7 @@ const { title, description, canonical, og, noindex = false } = Astro.props;
       href="#main-content"
       class="sr-only font-semibold focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-40 focus:rounded-control focus:bg-white focus:px-4 focus:py-3"
     >
-      Skip to content
+      {t("pages.baselayout.skip_to_content", locale)}
     </a>
     <TopBar />
     <Header />

@@ -1,8 +1,10 @@
 ---
+const locale = "en";
+import { t } from "../i18n/utils";
 import PagePlaceholder from "../components/PagePlaceholder.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Blog">
-  <PagePlaceholder title="Blog" />
+<BaseLayout title={t("pages.blog.blog", locale)}>
+  <PagePlaceholder title={t("pages.blog.blog", locale)} />
 </BaseLayout>

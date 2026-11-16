@@ -1,0 +1,158 @@
+[
+  {
+    "topic": "Ordering",
+    "q": {
+      "en": "What should I include in a quote request?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We need your cup style, dimensions, delivery destination, and any print or packaging requirements. Share an estimated quantity if you have one, or we can discuss it with you.",
+      "zh": ""
+    },
+    "featured": true
+  },
+  {
+    "topic": "Ordering",
+    "q": {
+      "en": "What is your minimum order quantity?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We quote stock and custom orders separately. Stock MOQ: {{site.stockMoq}}. Custom MOQ: {{site.customMoq}}.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Ordering",
+    "q": {
+      "en": "How do I request a quote for several products?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We can review several products together. Click \"+ Add to inquiry\" on each product card, then open Inquiry. Enter quantities if known, or leave them blank for discussion, and choose \"Continue to Quote Form\". Your selected products will appear together on the contact page. Form submission will be available in the next stage.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Samples",
+    "q": {
+      "en": "Can I request a sample before placing a bulk order?",
+      "zh": ""
+    },
+    "a": {
+      "en": "Yes. Tell us the cup style and your shipping destination. We'll confirm sample availability and delivery details.",
+      "zh": ""
+    },
+    "featured": true
+  },
+  {
+    "topic": "Samples",
+    "q": {
+      "en": "How long does sampling take, and what does it cost?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We confirm sample timing and costs for your request. Sample lead time: {{site.sampleLeadTime}}. Sample policy: {{site.sampleCost}}.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Shipping & Payment",
+    "q": {
+      "en": "What is the production lead time?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We confirm the production schedule with your order specifications. Production lead time: {{site.productionLeadTime}}.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Shipping & Payment",
+    "q": {
+      "en": "Which shipping methods do you offer?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We review delivery options for your destination. Shipping methods: {{site.shippingMethods}}.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Shipping & Payment",
+    "q": {
+      "en": "What are your payment terms?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We confirm payment arrangements in your quotation. Payment terms: {{site.paymentTerms}}.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Customization",
+    "q": {
+      "en": "Can I use my own artwork?",
+      "zh": ""
+    },
+    "a": {
+      "en": "Yes. Send us your artwork, cup style and size, and we'll check the fit and send a mockup.",
+      "zh": ""
+    },
+    "featured": true
+  },
+  {
+    "topic": "Customization",
+    "q": {
+      "en": "Can you customize sizes, colors and packaging?",
+      "zh": ""
+    },
+    "a": {
+      "en": "Yes. We customize logos, sizes, colors, patterns and packaging. Share your requirements so we can check the details together.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Customization",
+    "q": {
+      "en": "Can I choose from existing prints?",
+      "zh": ""
+    },
+    "a": {
+      "en": "Yes. We offer a broad range of patterns, solid colors and seasonal designs. Tell us your preferred style so we can discuss suitable options.",
+      "zh": ""
+    },
+    "featured": false
+  },
+  {
+    "topic": "Quality & Safety",
+    "q": {
+      "en": "How can I check food-contact requirements?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We use food-grade, grease-resistant paper. Tell us your market and intended use, and we'll share the relevant material documents.",
+      "zh": ""
+    },
+    "featured": true
+  },
+  {
+    "topic": "Quality & Safety",
+    "q": {
+      "en": "Can I review your certificates?",
+      "zh": ""
+    },
+    "a": {
+      "en": "We can discuss documentation for your market. Certificate information: {{site.certificates}}.",
+      "zh": ""
+    },
+    "featured": false
+  }
+]

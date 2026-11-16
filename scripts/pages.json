@@ -33,11 +33,11 @@
   },
   {
     "name": "product-category",
-    "path": "/products/tulip-cups/"
+    "path": "/products/tulip-baking-cups/"
   },
   {
     "name": "product-detail",
-    "path": "/products/tulip-cups/sample-tulip-cup/"
+    "path": "/products/tulip-baking-cups/sample-tulip-cup/"
   },
   {
     "name": "inquiry-empty",

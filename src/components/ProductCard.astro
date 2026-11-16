@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { display, isTodo } from "../config/site";
+import { localized, t } from "../i18n/utils";
 import {
   getProductCategory,
   productHref,
@@ -8,15 +9,19 @@ import {
   type Product,
 } from "../lib/products";
 import AddToInquiryButton from "./AddToInquiryButton.astro";
-
 interface Props {
   product: Product;
 }
 const { product } = Astro.props;
 const { data } = product;
-const category = getProductCategory(data.category);
+const locale = "en";
+const category = await getProductCategory(data.category);
 const cover = data.images[0]!;
-const title = display(data.title, "product name");
+const title = display(
+  localized(data.title, locale),
+  t("products.todo.name", locale),
+);
+const badge = data.badge ? localized(data.badge, locale) : "";
 ---
 
 <article
@@ -26,30 +31,32 @@ const title = display(data.title, "product name");
   <div class="relative border-b border-line bg-paper">
     <Image
       src={cover}
-      alt={
-        title +
-        (cover.src.includes("placeholder")
-          ? " image placeholder"
-          : " product image")
-      }
+      alt={t(
+        cover.src.includes("placeholder")
+          ? "products.imagePlaceholder"
+          : "products.image",
+        locale,
+        { title },
+      )}
       widths={[320, 640, 960]}
       sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)"
       format="webp"
       loading="lazy"
       class="aspect-[5/4] w-full rounded-t-panel object-cover"
     />
-    {data.badge && !isTodo(data.badge) && (
+    {badge && !isTodo(badge) && (
       <span
         data-product-badge
         class="pointer-events-none absolute top-3 left-3 z-20 max-w-[calc(100%-1.5rem)] rounded-control bg-coffee px-2.5 py-1.5 text-[0.625rem] font-bold tracking-[0.08em] wrap-anywhere text-cream uppercase"
       >
-        {data.badge}
+        {badge}
       </span>
     )}
   </div>
   <div class="flex flex-1 flex-col p-5 sm:p-6">
     <p class="text-[0.625rem] leading-relaxed font-semibold tracking-[0.12em] wrap-anywhere text-muted uppercase">
-      {display(data.sku, "SKU")} / {category.label}
+      {display(data.sku, t("products.sku", locale))} /{" "}
+      {localized(category.label, locale)}
     </p>
     <h2 class="mt-3 font-display text-card-title font-normal wrap-anywhere">
       <a
@@ -60,17 +67,17 @@ const title = display(data.title, "product name");
       </a>
     </h2>
     <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-      {sizeSummary(data.sizes)}
+      {sizeSummary(data.sizes, locale)}
     </p>
     <p class="mt-5 text-[0.625rem] font-extrabold tracking-[0.14em] text-copper uppercase">
-      Ask for pricing
+      {t("products.askPricing", locale)}
     </p>
     <div class="mt-auto pt-5">
       <AddToInquiryButton
         product={{
           slug: data.slug,
           sku: data.sku,
-          title: data.title,
+          title: localized(data.title, locale),
           category: data.category,
         }}
         class="relative z-20 w-full"
