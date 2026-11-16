@@ -1,23 +1,41 @@
 ---
-import PagePlaceholder from "../components/PagePlaceholder.astro";
-import { productCategories } from "../config/categories";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Container from "../components/Container.astro";
+import ProductCard from "../components/ProductCard.astro";
+import ProductCategoryNav from "../components/ProductCategoryNav.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { getProducts } from "../lib/products";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const products = await getProducts();
 ---
 
-<BaseLayout title="Products">
-  <PagePlaceholder title="Products">
-    <ul
-      aria-label="Product categories"
-      class="mt-8 grid max-w-3xl gap-2.5 sm:grid-cols-2 lg:grid-cols-3"
+<BaseLayout
+  title="Cupcake Liners & Baking Cups | Products"
+  description="Explore baking cup styles and build an inquiry list for your wholesale or custom printing requirements."
+>
+  <Container class="py-8 sm:py-12">
+    <Breadcrumbs
+      items={[{ label: "Home", href: "/" }, { label: "Products" }]}
+    />
+    <div class="mt-8 max-w-3xl">
+      <SectionHeading
+        eyebrow="The product collection"
+        title="Cupcake Liners & Baking Cups"
+        level={1}
+        description="Find your cup style, then add products to your inquiry list for a factory quote."
+      />
+    </div>
+    <div class="mt-8 border-y border-line py-5">
+      <ProductCategoryNav />
+    </div>
+    <div
+      class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label="All products"
     >
-      {productCategories.map(({ id, label }) => (
-        <li
-          id={id}
-          class="rounded-control border border-line bg-white px-4 py-3 text-sm font-semibold target:border-copper target:bg-paper"
-        >
-          {label}
-        </li>
+      {products.map((product) => (
+        <ProductCard product={product} />
       ))}
-    </ul>
-  </PagePlaceholder>
+    </div>
+  </Container>
 </BaseLayout>

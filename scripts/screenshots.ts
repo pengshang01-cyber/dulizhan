@@ -12,9 +12,8 @@ if (
   throw new Error("用法：npm run screenshots -- M0（或 M1b 等补充里程碑）");
 }
 
-const pages: { name: string; path: string }[] = JSON.parse(
-  await readFile(new URL("./pages.json", import.meta.url), "utf8"),
-);
+const pages: { name: string; path: string; inquiryProducts?: string[] }[] =
+  JSON.parse(await readFile(new URL("./pages.json", import.meta.url), "utf8"));
 const destination = new URL(`../docs/reviews/${milestone}/`, import.meta.url);
 const sizes = [
   { name: "desktop", width: 1440, height: 900, isMobile: false },
@@ -36,27 +35,45 @@ const server = await preview({
 });
 try {
   const origin = `http://127.0.0.1:${server.port}`;
-  const routes = pages.map(({ name, path }) => {
+  const routes = pages.map(({ name, path, inquiryProducts }) => {
     const url = new URL(path, origin);
     if (
       !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ||
       !path.startsWith("/") ||
-      url.origin !== origin
+      url.origin !== origin ||
+      (inquiryProducts &&
+        !inquiryProducts.every((slug) =>
+          /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug),
+        ))
     ) {
       throw new Error(`scripts/pages.json 中的截图配置无效：${name}`);
     }
-    return { name, path, url: url.href };
+    return { name, path, url: url.href, inquiryProducts };
   });
   const browser = await chromium.launch();
   try {
     await mkdir(destination, { recursive: true });
     for (const { name: size, width, height, isMobile } of sizes) {
-      const page = await browser.newPage({
-        viewport: { width, height },
-        isMobile,
-        hasTouch: isMobile,
-      });
       for (const route of routes) {
+        const page = await browser.newPage({
+          viewport: { width, height },
+          isMobile,
+          hasTouch: isMobile,
+        });
+        if (route.inquiryProducts?.length) {
+          await page.goto(origin + "/products/");
+          for (const slug of route.inquiryProducts) {
+            const button = page.locator(`[data-inquiry-slug="${slug}"]`);
+            await button.click();
+            await page.waitForFunction(
+              (slug) =>
+                document
+                  .querySelector(`[data-inquiry-slug="${slug}"]`)
+                  ?.getAttribute("aria-pressed") === "true",
+              slug,
+            );
+          }
+        }
         const response = await page.goto(route.url);
         if (!response?.ok()) {
           throw new Error(
@@ -72,8 +89,8 @@ try {
           path: fileURLToPath(new URL(filename, destination)),
         });
         console.log(`docs/reviews/${milestone}/${filename}`);
+        await page.close();
       }
-      await page.close();
     }
   } finally {
     await browser.close();

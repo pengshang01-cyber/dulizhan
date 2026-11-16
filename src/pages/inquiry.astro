@@ -1,0 +1,235 @@
+---
+import Button from "../components/Button.astro";
+import Container from "../components/Container.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Your Inquiry List" noindex>
+  <Container class="py-12 sm:py-16">
+    <SectionHeading
+      eyebrow="Plan your wholesale order"
+      title="Your Inquiry List"
+      level={1}
+      description="Collect the products you are interested in and tell us the quantities you need."
+    />
+    <p
+      data-inquiry-status
+      aria-live="polite"
+      class="mt-6 text-sm text-ink-soft"
+    ></p>
+
+    <section
+      data-inquiry-empty
+      class="mt-6 rounded-panel border border-line bg-white px-6 py-12 text-center sm:py-16"
+      aria-labelledby="empty-inquiry-title"
+    >
+      <h2
+        id="empty-inquiry-title"
+        class="font-display text-section-title font-normal"
+      >
+        Your list is empty.
+      </h2>
+      <p class="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
+        Browse our baking cups and add the products you would like us to quote.
+      </p>
+      <Button href="/products/" class="mt-6">
+        Browse Products
+      </Button>
+    </section>
+
+    <div data-inquiry-filled hidden class="mt-6">
+      <div class="mb-5 text-right">
+        <Button variant="secondary" data-inquiry-clear>
+          Clear all
+        </Button>
+      </div>
+      <ul
+        data-inquiry-items
+        aria-label="Selected products"
+        class="grid gap-4"
+      ></ul>
+      <div class="mt-8 border-t border-line pt-7">
+        <Button href="/contact/?from=inquiry#quote">
+          Continue to Quote Form
+        </Button>
+      </div>
+    </div>
+
+    <noscript>
+      <p class="mt-5 text-sm text-ink-soft">
+        Enable JavaScript to build and view your inquiry list.
+      </p>
+    </noscript>
+
+    <template id="inquiry-item-template">
+      <li
+        data-inquiry-item
+        class="grid items-start gap-6 rounded-panel border border-line bg-white p-5 sm:p-7 md:grid-cols-[minmax(0,1fr)_14rem_auto]"
+      >
+        <div class="min-w-0">
+          <p
+            data-inquiry-sku
+            class="text-xs leading-relaxed tracking-[0.12em] wrap-anywhere text-muted uppercase"
+          ></p>
+          <h2 class="mt-3 font-display text-card-title font-normal wrap-anywhere">
+            <a data-inquiry-product class="hover:text-copper"></a>
+          </h2>
+        </div>
+        <div class="min-w-0">
+          <label
+            data-inquiry-quantity-label
+            class="block text-xs font-bold tracking-[0.06em] uppercase"
+          >
+            Quantity
+          </label>
+          <div class="mt-2 flex items-center gap-3">
+            <input
+              data-inquiry-quantity
+              type="number"
+              min="1"
+              max="9007199254740991"
+              step="1"
+              inputmode="numeric"
+              required
+              class="w-32 text-sm"
+            />
+            <span class="text-sm text-ink-soft">pcs</span>
+          </div>
+          <p
+            data-inquiry-quantity-error
+            hidden
+            class="mt-2 text-sm text-copper-dark"
+          >
+            Enter a positive whole number.
+          </p>
+        </div>
+        <Button
+          variant="ghost"
+          data-inquiry-remove
+          class="justify-self-start md:justify-self-end"
+        >
+          Remove
+        </Button>
+      </li>
+    </template>
+  </Container>
+</BaseLayout>
+
+<script>
+  import { display } from "../config/site";
+  import {
+    clearItems,
+    getItems,
+    INQUIRY_CHANGE_EVENT,
+    removeItem,
+    setQuantity,
+    type InquiryItem,
+  } from "../lib/inquiry";
+
+  const empty = document.querySelector<HTMLElement>("[data-inquiry-empty]");
+  const filled = document.querySelector<HTMLElement>("[data-inquiry-filled]");
+  const list = document.querySelector<HTMLUListElement>("[data-inquiry-items]");
+  const status = document.querySelector<HTMLElement>("[data-inquiry-status]");
+  const template = document.querySelector<HTMLTemplateElement>(
+    "#inquiry-item-template",
+  );
+
+  function createRow(item: InquiryItem): HTMLLIElement | undefined {
+    const row = template?.content.firstElementChild?.cloneNode(true) as
+      HTMLLIElement | undefined;
+    if (!row) return;
+    row.dataset.slug = item.slug;
+    const input = row.querySelector<HTMLInputElement>(
+      "[data-inquiry-quantity]",
+    );
+    const label = row.querySelector<HTMLLabelElement>(
+      "[data-inquiry-quantity-label]",
+    );
+    const error = row.querySelector<HTMLElement>(
+      "[data-inquiry-quantity-error]",
+    );
+    if (input && label && error) {
+      input.id = `inquiry-quantity-${item.slug}`;
+      label.htmlFor = input.id;
+      error.id = `${input.id}-error`;
+      input.setAttribute("aria-describedby", error.id);
+      input.addEventListener("input", () => {
+        const quantity = Number(input.value);
+        const valid =
+          /^\d+$/.test(input.value) &&
+          Number.isSafeInteger(quantity) &&
+          quantity > 0;
+        input.setCustomValidity(valid ? "" : "Enter a positive whole number.");
+        input.setAttribute("aria-invalid", String(!valid));
+        error.hidden = valid;
+        if (valid) setQuantity(item.slug, quantity);
+      });
+    }
+    const remove = row.querySelector<HTMLButtonElement>(
+      "[data-inquiry-remove]",
+    );
+    remove?.setAttribute(
+      "aria-label",
+      `Remove ${display(item.title, "product name")}`,
+    );
+    remove?.addEventListener("click", () => removeItem(item.slug));
+    return row;
+  }
+
+  function renderInquiry() {
+    if (!list || !empty || !filled) return;
+    const items = getItems();
+    empty.hidden = items.length > 0;
+    filled.hidden = items.length === 0;
+    if (status) {
+      const text = items.length
+        ? `${items.length} ${items.length === 1 ? "product" : "products"} in your list`
+        : "";
+      if (status.textContent !== text) status.textContent = text;
+    }
+    const existing = new Map(
+      [...list.querySelectorAll<HTMLLIElement>("[data-inquiry-item]")].map(
+        (row) => [row.dataset.slug, row],
+      ),
+    );
+    const selected = new Set(items.map(({ slug }) => slug));
+    for (const [slug, row] of existing) {
+      if (!slug || !selected.has(slug)) row.remove();
+    }
+    for (const item of items) {
+      const row = existing.get(item.slug) ?? createRow(item);
+      if (!row) continue;
+      const title = row.querySelector<HTMLAnchorElement>(
+        "[data-inquiry-product]",
+      );
+      const sku = row.querySelector<HTMLElement>("[data-inquiry-sku]");
+      const input = row.querySelector<HTMLInputElement>(
+        "[data-inquiry-quantity]",
+      );
+      if (title) {
+        title.textContent = display(item.title, "product name");
+        title.href = `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`;
+      }
+      if (sku) sku.textContent = `SKU ${display(item.sku, "SKU")}`;
+      // 数量变化保留已有行及当前输入焦点，不整体重建 DOM。
+      if (input && document.activeElement !== input) {
+        input.value = String(item.quantity);
+        input.setCustomValidity("");
+        input.setAttribute("aria-invalid", "false");
+        const error = row.querySelector<HTMLElement>(
+          "[data-inquiry-quantity-error]",
+        );
+        if (error) error.hidden = true;
+      }
+      if (!row.isConnected) list.append(row);
+    }
+  }
+
+  document
+    .querySelector<HTMLButtonElement>("[data-inquiry-clear]")
+    ?.addEventListener("click", clearItems);
+  window.addEventListener(INQUIRY_CHANGE_EVENT, renderInquiry);
+  window.addEventListener("pageshow", renderInquiry);
+  renderInquiry();
+</script>
