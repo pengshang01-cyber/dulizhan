@@ -41,8 +41,12 @@ const server = await preview({
 });
 try {
   const origin = `http://127.0.0.1:${server.port}`;
-  const routes = pages.map(
-    ({ name, path, inquiryProducts, inquiryQuantities }) => {
+  const routes = pages
+    .filter(
+      ({ name }) =>
+        milestone !== "M4c" || name === "home" || name.startsWith("zh-"),
+    )
+    .map(({ name, path, inquiryProducts, inquiryQuantities }) => {
       const url = new URL(path, origin);
       if (
         !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ||
@@ -61,8 +65,7 @@ try {
         throw new Error(`scripts/pages.json 中的截图配置无效：${name}`);
       }
       return { name, path, url: url.href, inquiryProducts, inquiryQuantities };
-    },
-  );
+    });
   const browser = await chromium.launch();
   try {
     await mkdir(destination, { recursive: true });
@@ -110,7 +113,7 @@ try {
         }
 
         if (
-          new URL(route.url).pathname === "/inquiry/" &&
+          /^\/(?:zh\/)?inquiry\/$/.test(new URL(route.url).pathname) &&
           route.inquiryProducts?.length
         ) {
           await page.waitForFunction(
@@ -162,7 +165,7 @@ try {
   await closed;
 }
 
-if (milestone === "M4b") {
+if (milestone === "M4b" || milestone === "M4c") {
   const { captureWechatPreview } = await import("./wechat-preview.ts");
-  await captureWechatPreview(destination);
+  await captureWechatPreview(destination, milestone);
 }

@@ -65,5 +65,68 @@
       "sample-standard-liner": "10,000",
       "sample-tulip-cup": ""
     }
+  },
+  {
+    "name": "zh-home",
+    "path": "/zh/"
+  },
+  {
+    "name": "zh-products",
+    "path": "/zh/products/"
+  },
+  {
+    "name": "zh-custom",
+    "path": "/zh/custom/"
+  },
+  {
+    "name": "zh-about",
+    "path": "/zh/about/"
+  },
+  {
+    "name": "zh-blog",
+    "path": "/zh/blog/"
+  },
+  {
+    "name": "zh-faq",
+    "path": "/zh/faq/"
+  },
+  {
+    "name": "zh-contact",
+    "path": "/zh/contact/"
+  },
+  {
+    "name": "zh-product-category",
+    "path": "/zh/products/tulip-baking-cups/"
+  },
+  {
+    "name": "zh-product-detail",
+    "path": "/zh/products/tulip-baking-cups/sample-tulip-cup/"
+  },
+  {
+    "name": "zh-inquiry-empty",
+    "path": "/zh/inquiry/"
+  },
+  {
+    "name": "zh-inquiry-filled",
+    "path": "/zh/inquiry/",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"]
+  },
+  {
+    "name": "zh-inquiry-quantities",
+    "path": "/zh/inquiry/",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryQuantities": {
+      "sample-standard-liner": "10,000",
+      "sample-tulip-cup": ""
+    }
+  },
+  {
+    "name": "zh-contact-inquiry",
+    "path": "/zh/contact/?from=inquiry",
+    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryQuantities": {
+      "sample-standard-liner": "10,000",
+      "sample-tulip-cup": ""
+    }
   }
 ]

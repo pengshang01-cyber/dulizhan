@@ -4,7 +4,7 @@
 
 ## 1. 项目是什么
 
-- 一个英文 B2B 外贸询盘站，卖家是一家蛋糕纸杯 / 纸托（cupcake liners / baking cups）源头工厂。
+- 一个中英双语 B2B 工厂询盘站，英文默认面向海外采购，中文面向国内批发商；卖家是一家蛋糕纸杯 / 纸托（cupcake liners / baking cups）源头工厂。
 - 目标：让海外批发商、烘焙品牌、电商卖家找到工厂并发来询价（表单 / WhatsApp / 邮件）。
 - 不做购物车、不做在线支付（第一期）。
 
@@ -16,8 +16,8 @@
 | 样式 | Tailwind CSS |
 | 内容 | Astro Content Collections：`src/content/products/`、`src/content/blog/` |
 | 图片 | `astro:assets`（自动出 WebP、懒加载） |
-| 表单后端 | Cloudflare Pages Functions（`functions/api/inquiry.ts`）+ Cloudflare Turnstile 防垃圾 + Resend 发邮件 |
-| 部署 | Cloudflare Pages（每个 PR 自动生成预览地址） |
+| 表单后端 | M5 接入 Worker 脚本处理 `/api/inquiry`；`wrangler.jsonc` 配置 main 入口和 ASSETS 绑定，仅 `/api/*` 先走 Worker；Cloudflare Turnstile 防垃圾 + Resend 发邮件 |
+| 部署 | Cloudflare Workers 静态资源；Workers Builds 从 GitHub main 自动构建，构建命令 `npm run build`，部署命令 `npx wrangler deploy` |
 | 统计 | GA4（ID 从环境变量读取） |
 | SEO | `@astrojs/sitemap`、每页 meta、JSON-LD 结构化数据 |
 | 语言 | Node 20+，TypeScript strict |
@@ -34,8 +34,9 @@
 6. **提交审核前必须通过：** `npm run build`、`npm run check`（astro check）、`npm run lint`。任何一个失败都不能提交审核。
 7. **每个里程碑结束时写审核报告** `docs/reviews/M<编号>.md`，格式按 `docs/reviews/TEMPLATE.md`。PR 描述里贴报告的摘要。
 8. **按审核意见修改时：** 在同一分支上提交，提交信息以 `review-fix:` 开头，并在报告末尾的“修改记录”追加本轮改了什么。
-9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码英文。M4.5 只输出英文路由（美式英语），中文页面在 M4.6 实现；代码注释和审核报告用中文。
+9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码访客文案。英文位于根路径，中文位于 `/zh/`，共用接收 locale 的页面组件和同一询价存储；站内链接随语言生成。代码注释和审核报告用中文。
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
+11. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 确认正式上线后才改为 true；不得只修改其中一个输出绕过开关。
 
 ## 4. 目录约定
 
@@ -48,7 +49,7 @@ src/
   data/cases.json         # 真实案例；空数组时隐藏
   data/team.json          # 真实团队；空数组时隐藏
   i18n/en.json            # 英文界面字典
-  i18n/zh.json            # 中文界面字典（M4.5 先留空翻译）
+  i18n/zh.json            # 中文界面字典
   i18n/utils.ts           # localized / t 与回退
   components/             # 可复用组件（Header, Footer, QuoteButton, WhatsAppFloat, ProductCard...）
   layouts/BaseLayout.astro
@@ -59,18 +60,24 @@ src/
     products/*.json      # 结构化双语产品，不再用 Markdown 正文
     blog/*.md
   assets/images/          # 需要优化的图片
-public/                   # favicon、robots.txt 等原样输出的文件
-functions/api/inquiry.ts  # 表单后端
+public/                   # favicon、默认禁止收录的 robots.txt / _headers
+scripts/indexing.ts       # 构建后按 allowIndexing 生成最终收录配置
+wrangler.jsonc            # Workers 静态资源部署；M5 再配置 API 入口和 ASSETS 绑定
 .pages.yml               # Pages CMS 后台配置
 docs/
   PLAN.md
   CMS.md                 # 工厂人员内容维护指南
+  notes/status.md         # 当前状态；默认读取并覆盖维护
+  notes/history.md        # 历史事件；只追加，按需检索
+  notes/decisions.md      # 项目规则与关键决策
   reviews/TEMPLATE.md
   reviews/M<编号>.md
   reviews/M<编号>/        # 本里程碑的截图
 ```
 
 分类、产品通过 Astro Content Collections 读取并校验。CMS 引用字段保存 `<id>.json`，schema 统一转换为 id；没有产品的分类不展示、不生成页面。首页只展示 showOnHome 且有产品的分类，最多 6 个。上传图片路径相对 JSON 文件，按 `.pages.yml` 与 `docs/CMS.md` 维护，不用外部图片冒充实拍。
+
+工作记录一律放在 `docs/notes/`，文件名使用英文，内容可以用中文；根目录不再放历史事件、当前状态或项目关键决策文件。开始任务时读取 `docs/notes/status.md`、`docs/notes/decisions.md`；历史只按需检索，不重写历史。
 
 ## 5. 截图规则（审核用）
 
@@ -88,6 +95,7 @@ docs/
 - 背景使用 cream `#faf7f1`、paper `#f4eee5` 和 sand `#e8ddce`，卡片为 white `#ffffff`；正文使用 ink `#30271f`、ink-soft `#50453b`，弱化信息使用 muted `#85786b`，细边框使用 line `#e8e1d7`。
 - 主按钮、公告条、深色区块和页脚使用 coffee `#36291f`，悬停使用 coffee-2 `#4b3527`；强调色为 copper `#a55c39` 和 copper-dark `#8e492d`。深色背景配 cream / sand 文字，页脚链接悬停为 copper。
 - 只用两种本地 Fontsource 字体：正文 DM Sans，标题 Newsreader 400（常规体及斜体）。H1 字距约 `-0.05em`、H2 约 `-0.045em`，行高约 `1.05`。DisplayHeading 第二段为 copper 斜体。
+- 中文不下载或自托管字体：中文标题使用系统衬线栈，正文使用系统无衬线栈；英文和数字继续使用 Newsreader / DM Sans。中文标题取消负字距，行高约 1.25–1.35；copper 强调保留颜色但使用正体，不使用伪斜体。
 - 按钮、卡片和输入框圆角统一为 2–3px；卡片白底细边框。阴影使用 `0 18px 55px rgba(50,38,29,.11)`，不使用大圆角或悬停位移动画。
 - primary 按钮 coffee 底白字，11–12px、字重 800、字距约 `0.06em`，右侧带箭头；secondary 透明底、ink 细边框。深色区块内增加浅色边框和文字对比，悬停只变色。
 - Eyebrow 小号大写、字距约 `0.2em`、copper 色，左侧 24px 细线；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。

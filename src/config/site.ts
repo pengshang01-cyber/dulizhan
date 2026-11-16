@@ -29,6 +29,7 @@ export const siteSchema = z.object({
   tagline: localizedText,
   topBarItems: z.array(localizedText).default([]),
   domain: optionalString,
+  allowIndexing: z.boolean().default(false),
   email: optionalString,
   phone: optionalString,
   whatsappNumber: optionalString,

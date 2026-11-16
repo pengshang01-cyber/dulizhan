@@ -1,3 +1,4 @@
+import { localePath } from "../i18n/routing";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { display, isTodo } from "../config/site";
 import { localized, t, type Locale } from "../i18n/utils";
@@ -53,8 +54,14 @@ export async function getProductCategory(id: string): Promise<ProductCategory> {
   return category;
 }
 
-export function productHref(product: Pick<ProductData, "category" | "slug">) {
-  return "/products/" + product.category + "/" + product.slug + "/";
+export function productHref(
+  product: Pick<ProductData, "category" | "slug">,
+  locale: Locale = "en",
+) {
+  return localePath(
+    "/products/" + product.category + "/" + product.slug + "/",
+    locale,
+  );
 }
 export function sizeSummary(
   sizes: ProductData["sizes"],

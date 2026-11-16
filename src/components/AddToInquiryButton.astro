@@ -1,11 +1,13 @@
 ---
+import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
-const locale = "en";
+const { locale = "en" } = Astro.props;
 import { display } from "../config/site";
 import type { InquiryProduct } from "../lib/inquiry";
 import Button from "./Button.astro";
 
 interface Props {
+  locale?: Locale;
   product: InquiryProduct;
   class?: string;
 }
@@ -29,7 +31,7 @@ const { product, class: className } = Astro.props;
 
 <script>
   import { t } from "../i18n/utils";
-  const locale = "en";
+  const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
   import {
     addItem,
     getItems,

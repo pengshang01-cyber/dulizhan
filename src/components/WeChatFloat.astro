@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+import { isTodo, site } from "../config/site";
+import { t, type Locale } from "../i18n/utils";
+import { resolveSiteImage } from "../lib/site-images";
+import BrandIcon from "./BrandIcon.astro";
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = "zh" } = Astro.props;
+const wechatId = site.wechatId.trim();
+const hasWeChat = Boolean(wechatId && !isTodo(wechatId));
+const qr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
+---
+
+{hasWeChat && (
+  <div data-wechat-contact>
+    <button
+      type="button"
+      aria-label={t("wechat.open", locale)}
+      aria-haspopup="dialog"
+      aria-controls="wechat-contact-dialog"
+      aria-expanded="false"
+      data-wechat-open
+      data-track="wechat_click"
+      class="fixed right-4 bottom-4 z-30 grid size-13 place-items-center rounded-control bg-coffee text-white shadow-panel transition-colors hover:bg-coffee-2 motion-reduce:transition-none sm:right-6 sm:bottom-6"
+    >
+      <BrandIcon name="wechat" class="size-6" />
+    </button>
+    <dialog
+      id="wechat-contact-dialog"
+      aria-labelledby="wechat-contact-title"
+      aria-describedby="wechat-contact-instructions"
+      class="wechat-dialog border border-line bg-white p-6 text-ink shadow-panel"
+      data-wechat-dialog
+    >
+      <div class="flex items-center justify-between gap-4">
+        <h2
+          id="wechat-contact-title"
+          class="font-display text-card-title font-normal"
+        >
+          {t("wechat.title", locale)}
+        </h2>
+        <button
+          type="button"
+          aria-label={t("wechat.close", locale)}
+          data-wechat-close
+          class="grid size-10 shrink-0 place-items-center rounded-control border border-line text-xl hover:bg-paper"
+        >
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      {qr ? (
+        <Image
+          src={qr}
+          alt={t("contact.wechatQr", locale)}
+          width={300}
+          format="webp"
+          loading="eager"
+          class="mx-auto mt-5 h-auto w-60 max-w-full select-auto"
+          data-wechat-qr
+        />
+      ) : (
+        <p class="mt-5 border border-line bg-paper p-4 text-sm text-ink-soft">
+          {t("wechat.qrUnavailable", locale)}
+        </p>
+      )}
+      <p
+        id="wechat-contact-instructions"
+        class="mt-4 text-center text-sm text-ink-soft"
+      >
+        <span class="sm:hidden">
+          {t(qr ? "wechat.scanMobile" : "wechat.copyHint", locale)}
+        </span>
+        <span class="hidden sm:inline">
+          {t(qr ? "wechat.scanDesktop" : "wechat.copyHint", locale)}
+        </span>
+      </p>
+      <p class="mt-4 text-center text-sm leading-relaxed">
+        <span class="font-semibold">{t("wechat.id", locale)}</span>
+        <span class="block select-all wrap-anywhere" data-wechat-id>
+          {wechatId}
+        </span>
+      </p>
+      <button
+        type="button"
+        data-wechat-copy
+        data-copy-label={t("wechat.copy", locale)}
+        data-copied-label={t("wechat.copied", locale)}
+        data-error-label={t("wechat.copyFailed", locale)}
+        class="mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-control border border-coffee bg-coffee px-4 py-3 text-sm font-bold text-white hover:border-coffee-2 hover:bg-coffee-2"
+      >
+        {t("wechat.copy", locale)}
+      </button>
+      <p
+        data-wechat-status
+        role="status"
+        aria-live="polite"
+        class="mt-3 min-h-5 text-center text-sm text-ink-soft"
+      ></p>
+    </dialog>
+  </div>
+)}
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-wechat-contact]")
+    .forEach((contact) => {
+      const open =
+        contact.querySelector<HTMLButtonElement>("[data-wechat-open]");
+      const dialog = contact.querySelector<HTMLDialogElement>(
+        "[data-wechat-dialog]",
+      );
+      const close = contact.querySelector<HTMLButtonElement>(
+        "[data-wechat-close]",
+      );
+      const copy =
+        contact.querySelector<HTMLButtonElement>("[data-wechat-copy]");
+      const status = contact.querySelector<HTMLElement>("[data-wechat-status]");
+      const id = contact
+        .querySelector<HTMLElement>("[data-wechat-id]")
+        ?.textContent?.trim();
+      if (!open || !dialog || !close || !copy || !status || !id) return;
+      let previousOverflow = "";
+      let resetTimer: number | undefined;
+
+      open.addEventListener("click", () => {
+        previousOverflow = document.documentElement.style.overflow;
+        document.documentElement.style.overflow = "hidden";
+        copy.textContent = copy.dataset.copyLabel ?? "";
+        status.textContent = "";
+        dialog.showModal();
+        open.setAttribute("aria-expanded", "true");
+        close.focus();
+      });
+      close.addEventListener("click", () => dialog.close());
+      dialog.addEventListener("keydown", (event) => {
+        if (event.key !== "Tab") return;
+        const controls = [
+          ...dialog.querySelectorAll<HTMLElement>(
+            'button:not([disabled]), a[href], input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+          ),
+        ].filter((control) => control.getClientRects().length > 0);
+        const first = controls[0];
+        const last = controls.at(-1);
+        if (!first || !last) return;
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+      // 原生 dialog 隔离背景并支持 Esc；关闭后归还焦点。
+      dialog.addEventListener("close", () => {
+        document.documentElement.style.overflow = previousOverflow;
+        open.setAttribute("aria-expanded", "false");
+        window.clearTimeout(resetTimer);
+        open.focus();
+      });
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const bounds = dialog.getBoundingClientRect();
+        if (
+          event.clientX < bounds.left ||
+          event.clientX > bounds.right ||
+          event.clientY < bounds.top ||
+          event.clientY > bounds.bottom
+        )
+          dialog.close();
+      });
+      copy.addEventListener("click", async () => {
+        try {
+          if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+          await navigator.clipboard.writeText(id);
+          copy.textContent = copy.dataset.copiedLabel ?? "";
+          status.textContent = copy.dataset.copiedLabel ?? "";
+          window.clearTimeout(resetTimer);
+          resetTimer = window.setTimeout(() => {
+            copy.textContent = copy.dataset.copyLabel ?? "";
+          }, 2500);
+        } catch {
+          status.textContent = copy.dataset.errorLabel ?? "";
+        }
+      });
+    });
+</script>

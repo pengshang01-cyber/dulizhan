@@ -1,0 +1,65 @@
+---
+import { t, type Locale } from "../i18n/utils";
+import { localePath, unlocalizedPath } from "../i18n/routing";
+
+interface Props {
+  locale?: Locale;
+  class?: string;
+}
+const { locale = "en", class: className } = Astro.props;
+const currentPath = unlocalizedPath(Astro.url.pathname);
+const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
+---
+
+{hasTranslation && (
+  <nav
+    aria-label={t("language.switch", locale)}
+    class:list={[
+      "flex items-center gap-2 text-xs font-semibold whitespace-nowrap",
+      className,
+    ]}
+    data-language-switch
+  >
+    <a
+      href={localePath(currentPath, "en")}
+      lang="en"
+      hreflang="en"
+      aria-current={locale === "en" ? "page" : undefined}
+      class="rounded-control py-2 text-ink-soft hover:text-copper aria-[current=page]:text-copper"
+    >
+      {t("language.en", locale)}
+    </a>
+    <span aria-hidden="true" class="text-muted">
+      /
+    </span>
+    <a
+      href={localePath(currentPath, "zh")}
+      lang="zh-CN"
+      hreflang="zh-CN"
+      aria-current={locale === "zh" ? "page" : undefined}
+      class="rounded-control py-2 text-ink-soft hover:text-copper aria-[current=page]:text-copper"
+    >
+      {t("language.zh", locale)}
+    </a>
+  </nav>
+)}
+
+<script>
+  // 保留初始地址及页面内后续变化的查询参数、FAQ 锚点。
+  const links = document.querySelectorAll<HTMLAnchorElement>(
+    "[data-language-switch] a",
+  );
+  function syncLanguageLinks() {
+    for (const link of links) {
+      const url = new URL(link.href);
+      url.search = location.search;
+      url.hash = location.hash;
+      link.href = url.href;
+    }
+  }
+  syncLanguageLinks();
+  window.addEventListener("hashchange", syncLanguageLinks);
+  window.addEventListener("popstate", syncLanguageLinks);
+  // pushState 不会触发 popstate；点击时再同步一次，保留最新的 query。
+  links.forEach((link) => link.addEventListener("click", syncLanguageLinks));
+</script>

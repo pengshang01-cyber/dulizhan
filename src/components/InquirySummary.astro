@@ -1,8 +1,21 @@
 ---
+import { getProducts } from "../lib/products";
+import { localized } from "../i18n/utils";
+import { localePath } from "../i18n/routing";
+import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
-const locale = "en";
+const { locale = "en" } = Astro.props;
 import Button from "./Button.astro";
 import SectionHeading from "./SectionHeading.astro";
+const catalog = (await getProducts()).map(({ data }) => ({
+  slug: data.slug,
+  sku: data.sku,
+  title: localized(data.title, locale),
+  category: data.category,
+}));
+interface Props {
+  locale?: Locale;
+}
 ---
 
 <section
@@ -22,10 +35,15 @@ import SectionHeading from "./SectionHeading.astro";
   </p>
   <ul
     data-inquiry-summary-items
+    data-inquiry-catalog={JSON.stringify(catalog)}
     aria-label={t("inquiry.summaryLabel", locale)}
     class="mt-6 grid gap-3"
   ></ul>
-  <Button href="/inquiry/" variant="secondary" class="mt-5">
+  <Button
+    href={localePath("/inquiry/", locale)}
+    variant="secondary"
+    class="mt-5"
+  >
     {t("inquiry.review", locale)}
   </Button>
 </section>
@@ -54,8 +72,10 @@ import SectionHeading from "./SectionHeading.astro";
 </template>
 
 <script>
+  import { localePath } from "../i18n/routing";
+  import { readInquiryCatalog, inquiryDisplayItem } from "../lib/inquiry-view";
   import { t } from "../i18n/utils";
-  const locale = "en";
+  const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
   import { display } from "../config/site";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
@@ -70,13 +90,15 @@ import SectionHeading from "./SectionHeading.astro";
     "#inquiry-summary-template",
   );
 
+  const catalog = readInquiryCatalog(list?.dataset.inquiryCatalog);
+
   function renderSummary() {
     if (!summary || !list || !empty || !template) return;
     const requested =
       new URLSearchParams(window.location.search).get("from") === "inquiry";
     summary.hidden = !requested;
     if (!requested) return;
-    const items = getItems();
+    const items = getItems().map((item) => inquiryDisplayItem(item, catalog));
     empty.hidden = items.length > 0;
     list.hidden = items.length === 0;
     const fragment = document.createDocumentFragment();
@@ -97,7 +119,10 @@ import SectionHeading from "./SectionHeading.astro";
           item.title,
           t("inquiry.productName", locale),
         );
-        product.href = `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`;
+        product.href = localePath(
+          `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`,
+          locale,
+        );
       }
       if (sku)
         sku.textContent = t("inquiry.sku", locale, {

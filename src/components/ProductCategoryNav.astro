@@ -1,11 +1,14 @@
 ---
+import { localePath } from "../i18n/routing";
+import type { Locale } from "../i18n/utils";
 import { getVisibleCategories } from "../lib/products";
 import { localized, t } from "../i18n/utils";
 interface Props {
+  locale?: Locale;
   current?: string;
 }
 const { current } = Astro.props;
-const locale = "en";
+const { locale = "en" } = Astro.props;
 const links = [
   {
     label: t("categories.allProducts", locale),
@@ -28,7 +31,7 @@ const links = [
     {links.map(({ id, label, href }) => (
       <li class="shrink-0">
         <a
-          href={href}
+          href={localePath(href, locale)}
           aria-current={current === id ? "page" : undefined}
           class="inline-flex min-h-11 items-center rounded-control border border-line bg-white px-3 py-2 text-xs font-semibold whitespace-nowrap text-ink-soft transition-colors hover:border-copper hover:text-copper aria-[current=page]:border-coffee aria-[current=page]:bg-coffee aria-[current=page]:text-white"
         >

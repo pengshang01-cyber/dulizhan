@@ -1,6 +1,9 @@
 ---
-import { t, localized } from "../i18n/utils";
-const locale = "en";
+import { t, localized, type Locale } from "../i18n/utils";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "en" } = Astro.props;
 import { getWhatsAppHref, site } from "../config/site";
 import BrandIcon from "./BrandIcon.astro";
 

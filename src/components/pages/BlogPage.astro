@@ -1,0 +1,14 @@
+---
+import type { Locale } from "../../i18n/utils";
+const { locale = "en" } = Astro.props;
+import { t } from "../../i18n/utils";
+import PagePlaceholder from "../PagePlaceholder.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+interface Props {
+  locale?: Locale;
+}
+---
+
+<BaseLayout locale={locale} title={t("pages.blog.blog", locale)}>
+  <PagePlaceholder locale={locale} title={t("pages.blog.blog", locale)} />
+</BaseLayout>

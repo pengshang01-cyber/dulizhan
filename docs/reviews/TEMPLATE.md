@@ -2,7 +2,7 @@
 
 - 分支：`m<编号>-<短名>`
 - PR：<PR 链接>
-- 预览地址：<Cloudflare Pages 预览 URL，没有则写“未部署”>
+- 预览地址：<已核实的 Cloudflare Workers PR 预览 URL；没有则写“无 PR 预览”，生产站另列>
 - 提交时间：YYYY-MM-DD
 
 ## 1. 完成情况

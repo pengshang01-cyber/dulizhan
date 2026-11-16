@@ -603,6 +603,11 @@ content:
         description: 填写已确认的完整网站地址；未配置时保留 TODO_ 占位或留空。
         type: string
         default: ""
+      - name: allowIndexing
+        label: 允许搜索引擎收录
+        description: 正式上线前保持关闭；M8 确认上线后开启并等待构建部署成功，才会恢复 robots 与收录响应头。
+        type: boolean
+        default: false
       - name: email
         label: 联系邮箱
         description: 填写工厂公开的联系邮箱；未确认时保留 TODO_ 占位或留空。
