@@ -11,7 +11,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       eyebrow="Plan your wholesale order"
       title="Your Inquiry List"
       level={1}
-      description="Collect the products you are interested in and tell us the quantities you need."
+      description="Collect the products you are interested in. Add quantities if you know them, or leave them blank for us to discuss."
     />
     <p
       data-inquiry-status
@@ -50,7 +50,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         class="grid gap-4"
       ></ul>
       <div class="mt-8 border-t border-line pt-7">
-        <Button href="/contact/?from=inquiry#quote">
+        <Button href="/contact/?from=inquiry#quote" data-inquiry-continue>
           Continue to Quote Form
         </Button>
       </div>
@@ -81,27 +81,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             data-inquiry-quantity-label
             class="block text-xs font-bold tracking-[0.06em] uppercase"
           >
-            Quantity
+            Quantity (optional)
           </label>
           <div class="mt-2 flex items-center gap-3">
             <input
               data-inquiry-quantity
-              type="number"
-              min="1"
-              max="9007199254740991"
-              step="1"
+              type="text"
               inputmode="numeric"
-              required
+              placeholder="e.g. 10,000"
               class="w-32 text-sm"
             />
             <span class="text-sm text-ink-soft">pcs</span>
           </div>
+          <p data-inquiry-quantity-note class="mt-2 text-sm text-ink-soft">
+            To be discussed
+          </p>
           <p
             data-inquiry-quantity-error
             hidden
             class="mt-2 text-sm text-copper-dark"
           >
-            Enter a positive whole number.
+            Enter a positive whole number, or leave blank.
           </p>
         </div>
         <Button
@@ -122,6 +122,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     clearItems,
     getItems,
     INQUIRY_CHANGE_EVENT,
+    parseQuantityInput,
     removeItem,
     setQuantity,
     type InquiryItem,
@@ -149,21 +150,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     const error = row.querySelector<HTMLElement>(
       "[data-inquiry-quantity-error]",
     );
-    if (input && label && error) {
+    const note = row.querySelector<HTMLElement>("[data-inquiry-quantity-note]");
+    if (input && label && error && note) {
       input.id = `inquiry-quantity-${item.slug}`;
       label.htmlFor = input.id;
       error.id = `${input.id}-error`;
-      input.setAttribute("aria-describedby", error.id);
+      note.id = `${input.id}-note`;
+      input.setAttribute("aria-describedby", `${note.id} ${error.id}`);
       input.addEventListener("input", () => {
-        const quantity = Number(input.value);
-        const valid =
-          /^\d+$/.test(input.value) &&
-          Number.isSafeInteger(quantity) &&
-          quantity > 0;
-        input.setCustomValidity(valid ? "" : "Enter a positive whole number.");
+        const quantity = parseQuantityInput(input.value);
+        const valid = quantity !== undefined;
+        input.setCustomValidity(
+          valid ? "" : "Enter a positive whole number, or leave blank.",
+        );
         input.setAttribute("aria-invalid", String(!valid));
         error.hidden = valid;
-        if (valid) setQuantity(item.slug, quantity);
+        note.hidden = quantity !== null;
+        if (quantity !== undefined) setQuantity(item.slug, quantity);
       });
     }
     const remove = row.querySelector<HTMLButtonElement>(
@@ -214,13 +217,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       if (sku) sku.textContent = `SKU ${display(item.sku, "SKU")}`;
       // 数量变化保留已有行及当前输入焦点，不整体重建 DOM。
       if (input && document.activeElement !== input) {
-        input.value = String(item.quantity);
+        input.value = item.quantity === null ? "" : String(item.quantity);
         input.setCustomValidity("");
         input.setAttribute("aria-invalid", "false");
         const error = row.querySelector<HTMLElement>(
           "[data-inquiry-quantity-error]",
         );
         if (error) error.hidden = true;
+        const note = row.querySelector<HTMLElement>(
+          "[data-inquiry-quantity-note]",
+        );
+        if (note) note.hidden = item.quantity !== null;
       }
       if (!row.isConnected) list.append(row);
     }
@@ -229,6 +236,20 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   document
     .querySelector<HTMLButtonElement>("[data-inquiry-clear]")
     ?.addEventListener("click", clearItems);
+  document
+    .querySelector<HTMLAnchorElement>("[data-inquiry-continue]")
+    ?.addEventListener("click", (event) => {
+      const invalid = [
+        ...document.querySelectorAll<HTMLInputElement>(
+          "[data-inquiry-quantity]",
+        ),
+      ].find((input) => !input.checkValidity());
+      if (!invalid) return;
+      // 先修正本页未保存的输入，避免联系页摘要展示上一次的数量。
+      event.preventDefault();
+      invalid.reportValidity();
+      invalid.focus();
+    });
   window.addEventListener(INQUIRY_CHANGE_EVENT, renderInquiry);
   window.addEventListener("pageshow", renderInquiry);
   renderInquiry();

@@ -1,4 +1,5 @@
 ---
+import FaqAccordion from "../../../components/FaqAccordion.astro";
 import type { GetStaticPaths } from "astro";
 import { render } from "astro:content";
 import AddToInquiryButton from "../../../components/AddToInquiryButton.astro";
@@ -236,18 +237,13 @@ const customization =
           title="Product Questions"
           id="product-faq-title"
         />
-        <div class="mt-7 grid gap-3">
-          {data.faqs.map(({ q, a }) => (
-            <details class="rounded-control border border-line bg-white">
-              <summary class="cursor-pointer px-5 py-4 text-sm leading-relaxed font-semibold">
-                {display(q, "product question")}
-              </summary>
-              <p class="px-5 pb-5 text-sm leading-relaxed text-ink-soft">
-                {display(a, "product answer")}
-              </p>
-            </details>
-          ))}
-        </div>
+        <FaqAccordion
+          class="mt-7"
+          items={data.faqs.map(({ q, a }) => ({
+            question: display(q, "product question"),
+            answer: display(a, "product answer"),
+          }))}
+        />
       </section>
     )}
 

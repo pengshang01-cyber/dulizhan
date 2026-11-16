@@ -8,7 +8,7 @@ export interface InquiryProduct {
 }
 
 export interface InquiryItem extends InquiryProduct {
-  quantity: number;
+  quantity: number | null;
 }
 
 export const INQUIRY_STORAGE_KEY = "inquiry:v1";
@@ -38,15 +38,32 @@ function isQuantity(value: unknown): value is number {
   return typeof value === "number" && Number.isSafeInteger(value) && value > 0;
 }
 
+// 空值表示待商议；输入框允许规范千分位，存储中只保留数值或 null。
+export function parseQuantityInput(value: string): number | null | undefined {
+  const input = value.trim();
+  if (!input) return null;
+  if (!/^\d+$/.test(input) && !/^[1-9]\d{0,2}(,\d{3})+$/.test(input)) {
+    return undefined;
+  }
+  const quantity = Number(input.replaceAll(",", ""));
+  return isQuantity(quantity) ? quantity : undefined;
+}
+
 function normalize(value: unknown): InquiryItem[] {
   if (!Array.isArray(value)) return [];
   const seen = new Set<string>();
   const result: InquiryItem[] = [];
   for (const candidate of value) {
     if (!isProduct(candidate)) continue;
-    const quantity = (candidate as InquiryProduct & { quantity?: unknown })
-      .quantity;
-    if (!isQuantity(quantity) || seen.has(candidate.slug)) continue;
+    // 保留旧版本的正整数数量；缺少字段和显式 null 都归一为待商议。
+    const quantity =
+      (candidate as InquiryProduct & { quantity?: unknown }).quantity ?? null;
+    if (
+      (quantity !== null && !isQuantity(quantity)) ||
+      seen.has(candidate.slug)
+    ) {
+      continue;
+    }
     const { slug, sku, title, category } = candidate;
     result.push({ slug, sku, title, category, quantity });
     seen.add(slug);
@@ -117,7 +134,7 @@ export function addItem(product: InquiryProduct): boolean {
     return false;
   }
   const { slug, sku, title, category } = product;
-  save([...items, { slug, sku, title, category, quantity: 1 }]);
+  save([...items, { slug, sku, title, category, quantity: null }]);
   return true;
 }
 
@@ -130,9 +147,13 @@ export function removeItem(slug: string): boolean {
   return true;
 }
 
-export function setQuantity(slug: string, quantity: number): boolean {
+export function setQuantity(slug: string, quantity: number | null): boolean {
   initialize();
-  if (typeof window === "undefined" || !isQuantity(quantity)) return false;
+  if (
+    typeof window === "undefined" ||
+    (quantity !== null && !isQuantity(quantity))
+  )
+    return false;
   const item = items.find((item) => item.slug === slug);
   if (!item || item.quantity === quantity) return false;
   save(
