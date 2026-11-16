@@ -1,0 +1,1087 @@
+# Pages CMS 官方配置：https://pagescms.org/docs/configuration/
+# 分类 reference 保存文件名（含 .json），产品 schema 统一转换为分类 id。
+media:
+  - name: products
+    label: 产品图片
+    input: src/assets/images/products
+    output: ../../assets/images/products
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - avif
+    rename: safe
+  - name: categories
+    label: 分类封面
+    input: src/assets/images/categories
+    output: ../../assets/images/categories
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - avif
+    rename: safe
+  - name: site
+    label: 网站资料图片
+    input: src/assets/images/site
+    output: ../assets/images/site
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - avif
+    rename: safe
+content:
+  - name: products
+    label: 产品
+    type: collection
+    path: src/content/products
+    format: json
+    subfolders: false
+    filename: "{fields.slug}.json"
+    view:
+      primary: title.en
+      fields:
+        - title.en
+        - order
+      sort:
+        - order
+        - title.en
+      search:
+        - title.en
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: slug
+        label: 产品网址片段
+        description: 必填；仅用小写英文字母、数字和单个连字符。保存后不要随意修改；文件名自动使用此值。
+        type: string
+        required: true
+        pattern:
+          regex: ^[a-z0-9]+(?:-[a-z0-9]+)*$
+          message: 例如 tulip-cup-example；不要填中文、空格或斜杠。
+      - name: sku
+        label: 产品型号
+        description: 填写真实型号；示例占位型号使用 TODO-001 这样的形式。
+        type: string
+        required: true
+      - name: category
+        label: 所属分类
+        description: 先在“分类”保存分类，再从这里选择；选项会自动更新，不需要改代码。
+        type: reference
+        required: true
+        options:
+          collection: categories
+          value: "{name}"
+          label: "{fields.label.en}"
+          search: name,label.en,label.zh
+      - name: title
+        label: 产品名称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 产品名称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 产品名称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: badge
+        label: 角标文字
+        description: 选填；只有工厂已确认时才填写，例如真实的销售标记。整组留空则不显示。
+        type: object
+        fields:
+          - name: en
+            label: 角标文字（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 角标文字（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: summary
+        label: 产品简介
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 产品简介（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 产品简介（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: images
+        label: 产品图片
+        description: 上传或选择多张真实产品图片；至少一张，第一张用作封面。
+        type: image
+        required: true
+        options:
+          media: products
+          multiple: true
+          unique: true
+      - name: material
+        label: 材质
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 材质（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 材质（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: gsm
+        label: 纸张克重（g/m²）
+        description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+        type: string
+        required: true
+        pattern:
+          regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+          message: 请填写大于 0 的数字或 TODO_ 占位值。
+      - name: sizes
+        label: 尺寸规格
+        description: 至少填写一组；数字两种语言共用，单位为毫米。
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{name.en}"
+        required: true
+        fields:
+          - name: name
+            label: 规格名称
+            description: 英文必填；中文选填，留空时中文页面使用英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 规格名称（英文）
+                description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+                type: string
+                required: true
+              - name: zh
+                label: 规格名称（中文）
+                description: 选填；中文留空时回退显示英文。
+                type: string
+                default: ""
+          - name: baseDiameterMm
+            label: 底部直径（mm）
+            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+            type: string
+            required: true
+            pattern:
+              regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数字或 TODO_ 占位值。
+          - name: heightMm
+            label: 高度（mm）
+            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+            type: string
+            required: true
+            pattern:
+              regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数字或 TODO_ 占位值。
+          - name: topDiameterMm
+            label: 顶部直径（mm，可选）
+            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数字或 TODO_ 占位值。
+      - name: colors
+        label: 颜色
+        description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{en}"
+        default: []
+        fields:
+          - name: en
+            label: 颜色（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 颜色（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: patterns
+        label: 图案
+        description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{en}"
+        default: []
+        fields:
+          - name: en
+            label: 图案（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 图案（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: customizable
+        label: 是否支持定制
+        description: 按该产品实际情况选择；尚未确认时保留待确认选项。
+        type: select
+        required: true
+        default: TODO_CUSTOMIZATION_OPTIONS
+        options:
+          values:
+            - name: "true"
+              label: 支持定制
+            - name: "false"
+              label: 不支持定制
+            - name: TODO_CUSTOMIZATION_OPTIONS
+              label: 待工厂确认
+      - name: moq
+        label: 最小起订量
+        description: 可填数量、英文说明或 TODO_ 占位；纯数字只在英文栏填一次，中文留空即可共用。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 最小起订量（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 最小起订量（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: packaging
+        label: 包装方式
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 包装方式（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 包装方式（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: cartonSpec
+        label: 外箱规格
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 外箱规格（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 外箱规格（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: leadTime
+        label: 生产交期
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 生产交期（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 生产交期（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: faqs
+        label: 产品问答
+        description: 可为空；新增问答时问题和回答的英文都必填。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{q.en}"
+        default: []
+        fields:
+          - name: q
+            label: 问题
+            description: 英文必填；中文选填，留空时中文页面使用英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 问题（英文）
+                description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+                type: string
+                required: true
+              - name: zh
+                label: 问题（中文）
+                description: 选填；中文留空时回退显示英文。
+                type: string
+                default: ""
+          - name: a
+            label: 回答
+            description: 英文必填；中文选填，留空时中文页面使用英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 回答（英文）
+                description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+                type: text
+                required: true
+              - name: zh
+                label: 回答（中文）
+                description: 选填；中文留空时回退显示英文。
+                type: text
+                default: ""
+      - name: customOptions
+        label: 定制选项详情
+        description: 选填的多行文字，不需要写代码或 Markdown；整组为空时隐藏该区块。
+        type: object
+        fields:
+          - name: en
+            label: 定制选项详情（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 定制选项详情（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: packagingDetails
+        label: 包装详情
+        description: 选填的多行文字；整组为空时隐藏该区块。
+        type: object
+        fields:
+          - name: en
+            label: 包装详情（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 包装详情（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: applications
+        label: 适用场景
+        description: 选填的多行文字；整组为空时隐藏该区块。
+        type: object
+        fields:
+          - name: en
+            label: 适用场景（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 适用场景（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: seoTitle
+        label: 搜索结果标题
+        description: 选填；为空时网站使用产品名称。
+        type: object
+        fields:
+          - name: en
+            label: 搜索结果标题（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 搜索结果标题（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: seoDescription
+        label: 搜索结果简介
+        description: 选填；为空时网站使用产品简介。
+        type: object
+        fields:
+          - name: en
+            label: 搜索结果简介（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 搜索结果简介（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: featured
+        label: 精选产品
+        description: 勾选后标记为精选；是否展示由对应页面决定。
+        type: boolean
+        default: false
+      - &a1
+        name: order
+        label: 排序
+        description: 填写整数；数字越小越靠前。
+        type: number
+        required: true
+        default: 0
+  - name: categories
+    label: 分类
+    type: collection
+    path: src/content/categories
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: create
+    view:
+      primary: label.en
+      fields:
+        - label.en
+        - order
+      sort:
+        - order
+        - label.en
+      search:
+        - label.en
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: label
+        label: 分类名称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 分类名称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 分类名称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: summary
+        label: 分类简介
+        description: 用一句简短文字介绍分类；英文必填，中文选填。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 分类简介（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 分类简介（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: image
+        label: 分类封面
+        description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+        type: image
+        required: true
+        options:
+          media: categories
+      - *a1
+      - name: showOnHome
+        label: 显示在首页
+        description: 有产品且勾选后可进入首页分类区；首页最多显示六类。
+        type: boolean
+        default: true
+  - name: site
+    label: 网站设置
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: companyName
+        label: 公司全称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 公司全称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 公司全称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: shortName
+        label: 公司简称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 公司简称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 公司简称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: tagline
+        label: 品牌副标题
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 品牌副标题（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 品牌副标题（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: topBarItems
+        label: 顶部公告
+        description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{en}"
+        default: []
+        fields:
+          - name: en
+            label: 顶部公告（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 顶部公告（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: domain
+        label: 网站域名
+        description: 填写已确认的完整网站地址；未配置时保留 TODO_ 占位或留空。
+        type: string
+        default: ""
+      - name: email
+        label: 联系邮箱
+        description: 填写工厂公开的联系邮箱；未确认时保留 TODO_ 占位或留空。
+        type: string
+        default: ""
+      - name: phone
+        label: 联系电话
+        description: 填写工厂公开的电话号码；未确认时保留 TODO_ 占位或留空。
+        type: string
+        default: ""
+      - name: whatsappNumber
+        label: WhatsApp 号码
+        description: 使用含国家区号的真实号码；TODO_ 占位或留空时隐藏 WhatsApp 入口。
+        type: string
+        default: ""
+      - name: whatsappPrefillMessage
+        label: WhatsApp 默认消息
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: WhatsApp 默认消息（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: WhatsApp 默认消息（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: wechatId
+        label: 微信号
+        description: 填写对外联系的微信号；TODO_ 占位或留空时不显示。
+        type: string
+        default: ""
+      - name: wechatQr
+        label: 微信二维码
+        description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+        type: image
+        options:
+          media: site
+      - name: factoryAddress
+        label: 工厂地址
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 工厂地址（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 工厂地址（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: stockMoq
+        label: 现货起订量
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 现货起订量（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 现货起订量（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: customMoq
+        label: 定制起订量
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 定制起订量（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 定制起订量（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: sampleLeadTime
+        label: 打样时间
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 打样时间（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 打样时间（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: productionLeadTime
+        label: 生产交期
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 生产交期（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 生产交期（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: sampleCost
+        label: 样品政策
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 样品政策（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 样品政策（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: paymentTerms
+        label: 付款方式
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 付款方式（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 付款方式（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: shippingMethods
+        label: 运输方式
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 运输方式（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 运输方式（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: stats
+        label: 首页数字条
+        description: 按显示顺序增删指标；数值共用，名称分中英文。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{label.en}"
+        default: []
+        fields:
+          - name: value
+            label: 数字或数值文字
+            description: 两种语言共用，只填工厂确认的数值；未知时保留 TODO_ 占位。
+            type: string
+            required: true
+          - name: label
+            label: 指标名称
+            description: 英文必填；中文选填，留空时中文页面使用英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 指标名称（英文）
+                description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+                type: string
+                required: true
+              - name: zh
+                label: 指标名称（中文）
+                description: 选填；中文留空时回退显示英文。
+                type: string
+                default: ""
+      - name: youtubeVideoId
+        label: YouTube 视频编号
+        description: 只填视频编号，不填整个网址；TODO_ 占位或留空时隐藏视频区块。
+        type: string
+        default: ""
+      - name: certificates
+        label: 证书
+        description: 只填写工厂真实持有且可公开的证书；没有名称或图片时不展示证书卡片。
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name.en}"
+        default: []
+        fields:
+          - name: name
+            label: 证书名称
+            description: 英文必填；中文选填，留空时中文页面使用英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 证书名称（英文）
+                description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+                type: string
+                required: true
+              - name: zh
+                label: 证书名称（中文）
+                description: 选填；中文留空时回退显示英文。
+                type: string
+                default: ""
+          - name: imagePath
+            label: 证书图片
+            description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+            type: image
+            options:
+              media: site
+      - name: socialLinks
+        label: 社交平台链接
+        description: 填写已确认的公开主页地址；无需展示的平台可留空或保留 TODO_ 占位。
+        type: object
+        required: true
+        fields:
+          - name: youtube
+            label: YouTube 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+          - name: tiktok
+            label: TikTok 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+          - name: instagram
+            label: Instagram 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+          - name: facebook
+            label: Facebook 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+          - name: pinterest
+            label: Pinterest 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+          - name: linkedin
+            label: LinkedIn 主页
+            description: 填写完整主页网址；留空或 TODO_ 占位时不显示。
+            type: string
+            default: ""
+  - name: faq
+    label: 常见问题
+    type: file
+    path: src/data/faq.json
+    format: json
+    list: true
+    fields:
+      - name: topic
+        label: 问题分组
+        description: 选择网站现有的一个分组。
+        type: select
+        required: true
+        options:
+          values:
+            - name: Ordering
+              label: 下单
+            - name: Samples
+              label: 样品
+            - name: Shipping & Payment
+              label: 运输与付款
+            - name: Customization
+              label: 定制
+            - name: Quality & Safety
+              label: 质量与安全
+      - name: q
+        label: 问题
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 问题（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 问题（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: a
+        label: 回答
+        description: 使用第一人称 we。保留 {{site.stockMoq}} 等变量会自动读取网站设置；具体数字必须经工厂确认。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 回答（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 回答（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: featured
+        label: 首页精选问题
+        description: 勾选后也在首页精选问答中显示。
+        type: boolean
+        default: false
+  - name: customization
+    label: 定制服务内容
+    type: file
+    path: src/data/customization.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: 步骤名称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 步骤名称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 步骤名称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: description
+        label: 步骤说明
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 步骤说明（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 步骤说明（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+  - name: team
+    label: 团队
+    type: file
+    path: src/data/team.json
+    format: json
+    list: true
+    fields:
+      - name: name
+        label: 成员姓名
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 成员姓名（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 成员姓名（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: role
+        label: 成员职务
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 成员职务（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 成员职务（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: image
+        label: 成员照片
+        description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+        type: image
+        required: true
+        options:
+          media: site
+  - name: cases
+    label: 案例
+    type: file
+    path: src/data/cases.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: 案例名称
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 案例名称（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 案例名称（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""
+      - name: summary
+        label: 案例简介
+        description: 英文必填；中文选填，留空时中文页面使用英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 案例简介（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: text
+            required: true
+          - name: zh
+            label: 案例简介（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: text
+            default: ""
+      - name: image
+        label: 案例图片
+        description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+        type: image
+        required: true
+        options:
+          media: site
+      - name: imageAlt
+        label: 图片说明
+        description: 描述图片内容，供看不到图片的访客使用；不要堆砌关键词。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 图片说明（英文）
+            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            type: string
+            required: true
+          - name: zh
+            label: 图片说明（中文）
+            description: 选填；中文留空时回退显示英文。
+            type: string
+            default: ""

@@ -1,4 +1,6 @@
 ---
+import { t, localized } from "../i18n/utils";
+const locale = "en";
 import { display, isTodo, site, type SiteStat } from "../config/site";
 import Container from "./Container.astro";
 
@@ -9,13 +11,16 @@ interface Props {
 const { stats = site.stats } = Astro.props;
 ---
 
-<section aria-label="Factory figures" class="border-y border-line bg-white">
+<section
+  aria-label={t("site.figures", locale)}
+  class="border-y border-line bg-white"
+>
   <Container>
     <dl class="stats-grid grid grid-cols-2 lg:grid-cols-4">
       {stats.map(({ value, label }) => (
         <div class="flex min-w-0 flex-col justify-center gap-3 px-3 py-7 text-center sm:px-6 sm:py-9">
           <dt class="order-2 text-[0.625rem] leading-relaxed font-bold tracking-[0.12em] text-ink-soft uppercase sm:text-[0.6875rem]">
-            {label}
+            {localized(label, locale)}
           </dt>
           <dd
             class:list={[
@@ -25,7 +30,7 @@ const { stats = site.stats } = Astro.props;
                 : "text-4xl sm:text-5xl",
             ]}
           >
-            {display(value, label)}
+            {display(value, localized(label, locale))}
           </dd>
         </div>
       ))}

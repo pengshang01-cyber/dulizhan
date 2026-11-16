@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-共 9 个里程碑（M0–M8）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（本轮）与后续 M4.6（中文页面）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -9,6 +9,7 @@
 | M2 | 首页 | `m2-homepage` | 完整首页 |
 | M3 | 产品体系与询价清单 | `m3-products` | 产品数据结构、产品中心、分类页、详情页、前端询价清单 |
 | M4 | 定制 / 关于 / FAQ / 联系 | `m4-pages` | 4 个内容页 |
+| M4.5 | 内容后台、分类数据化与双语数据 | `m4b-cms` | Pages CMS、JSON 内容、双语字段与界面字典 |
 | M5 | 询盘表单与后端 | `m5-inquiry` | 表单组件、Pages Function、防垃圾、感谢页 |
 | M6 | SEO 与统计 | `m6-seo` | meta、sitemap、结构化数据、GA4 事件、隐私政策、404 |
 | M7 | 博客与性能 | `m7-blog-perf` | 博客系统、示例文章、性能优化、上线检查 |
@@ -139,6 +140,22 @@
 - [ ] 四个页面内容完整、无编造事实
 - [ ] FAQ 数据与首页精选共用一个来源
 - [ ] 截图：`custom`、`about`、`faq`、`contact`
+
+---
+
+## M4.5 内容后台、分类数据化与双语数据结构
+
+**目标：** 工厂人员通过 Pages CMS 管理内容；英文为默认，本轮仅建立双语结构，中文页面在 M4.6 实现。此前 M3 / M4 中的 Markdown 产品、TS 静态数据约定由本节替代。
+
+1. 分类与产品采用 JSON collections；分类文件名即 id，产品文件名与 slug 一致。预置指定的 12 类、迁移 3 个占位产品，产品正文改为可选的 customOptions / packagingDetails / applications 双语多行文本。
+2. 所有访客内容使用 `{ en, zh }`，英文必填、中文缺失回退；公共数字 / 尺寸 / 图片 / sku / slug 不重复。localized 统一取值，固定文案从 en.json / zh.json 经 t 读取。
+3. 所有分类入口只显示有产品的分类，无产品不生成分类页；首页 showOnHome 且有产品最多 6 类，更多时显示入口；手机筛选横向滚动。
+4. site.json、faq.json、customization.json、cases.json、team.json 为唯一编辑源，读取时校验；微信号与二维码为空或 TODO 时隐藏，有效资料在 Contact 展示，悬浮入口仍为 WhatsApp。
+5. 根目录 .pages.yml 使用官方 object / reference / image / list 等类型，七个内容入口和字段为中文说明；三组媒体路径对应产品、分类、网站资料。动态引用保存分类文件名，schema 归一为 id。
+6. Astro i18n 仅启用 en，prefixDefaultLocale=false；CI 增加 main push；更新 AGENTS、README 与工厂向 docs/CMS.md。
+7. 实际创建并清理一个双语产品和分类，报告附格式样例；验证图片路径、无效分类、必填英文和空正文。微信截图用明确的临时测试资料，恢复生产 TODO 后不保留假联系方式。
+
+**验收：** build / check / lint / test 全通过；补 localized 与分类隐藏测试；screenshots -- M4b 覆盖指定页面和手机视口；报告 M4b.md 与 PR “M4.5: Content admin, data-driven categories and bilingual data”。
 
 ---
 

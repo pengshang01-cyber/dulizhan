@@ -1,4 +1,6 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 import Button from "./Button.astro";
 
 interface Props {
@@ -9,5 +11,5 @@ const { class: className } = Astro.props;
 ---
 
 <Button href="/contact/#quote" class={className}>
-  Get a Quote
+  {t("site.getQuote", locale)}
 </Button>

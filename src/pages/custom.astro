@@ -1,4 +1,6 @@
 ---
+const locale = "en";
+import { t } from "../i18n/utils";
 import { Image } from "astro:assets";
 import Button from "../components/Button.astro";
 import CheckList from "../components/CheckList.astro";
@@ -9,90 +11,111 @@ import FaqAccordion from "../components/FaqAccordion.astro";
 import QuoteButton from "../components/QuoteButton.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import { display, site } from "../config/site";
-import { customizationCases } from "../data/cases";
-import { customizationSteps } from "../data/customization";
+import { customizationCases, customizationSteps } from "../lib/content-data";
+import { localized } from "../i18n/utils";
+import { resolveSiteImage } from "../lib/site-images";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const options = [
   {
-    title: "Your Logo",
-    description:
-      "We print your logo on baking cups. Send us your artwork to start the design review.",
+    title: t("pages.custom.your_logo", locale),
+    description: t(
+      "pages.custom.we_print_your_logo_on_baking_cups_send",
+      locale,
+    ),
   },
   {
-    title: "Cup Size",
-    description:
-      "We support custom sizing. Share your base diameter, height and preferred cup style.",
+    title: t("pages.custom.cup_size", locale),
+    description: t(
+      "pages.custom.we_support_custom_sizing_share_your_base_diameter",
+      locale,
+    ),
   },
   {
-    title: "Brand Colors",
-    description:
-      "We work with your brand colors. Share your color references so we can review them together.",
+    title: t("pages.custom.brand_colors", locale),
+    description: t(
+      "pages.custom.we_work_with_your_brand_colors_share_your",
+      locale,
+    ),
   },
   {
-    title: "Prints & Patterns",
-    description:
-      "We offer a broad range of prints and seasonal designs, and we can work with your own pattern.",
+    title: t("pages.custom.prints_patterns", locale),
+    description: t("pages.custom.we_offer_a_broad_range_of_prints_and", locale),
   },
   {
-    title: "Packaging",
-    description:
-      "We support custom packaging. Tell us how you want your cups packed and presented.",
+    title: t("pages.custom.packaging", locale),
+    description: t(
+      "pages.custom.we_support_custom_packaging_tell_us_how_you",
+      locale,
+    ),
   },
 ];
 const policies = [
-  { label: "Stock MOQ", value: site.stockMoq },
-  { label: "Custom MOQ", value: site.customMoq },
-  { label: "Sample Lead Time", value: site.sampleLeadTime },
-  { label: "Production Lead Time", value: site.productionLeadTime },
-  { label: "Sample Policy", value: site.sampleCost },
-  { label: "Payment Terms", value: site.paymentTerms },
-  { label: "Shipping Methods", value: site.shippingMethods },
+  { label: t("pages.custom.stock_moq", locale), value: site.stockMoq },
+  { label: t("pages.custom.custom_moq", locale), value: site.customMoq },
+  {
+    label: t("pages.custom.sample_lead_time", locale),
+    value: site.sampleLeadTime,
+  },
+  {
+    label: t("pages.custom.production_lead_time", locale),
+    value: site.productionLeadTime,
+  },
+  { label: t("pages.custom.sample_policy", locale), value: site.sampleCost },
+  { label: t("pages.custom.payment_terms", locale), value: site.paymentTerms },
+  {
+    label: t("pages.custom.shipping_methods", locale),
+    value: site.shippingMethods,
+  },
 ];
 const process = customizationSteps.map(({ title, description }, index) => ({
-  question: `${String(index + 1).padStart(2, "0")} / ${title}`,
-  answer: description,
+  question: `${String(index + 1).padStart(2, "0")} / ${localized(title, "en")}`,
+  answer: localized(description, "en"),
 }));
 ---
 
 <BaseLayout
-  title="Custom Printed Baking Cups & OEM"
-  description="We customize baking cups with your logo, size, colors, patterns and packaging. Explore the process and plan your wholesale order."
+  title={t("pages.custom.custom_printed_baking_cups_oem", locale)}
+  description={t(
+    "pages.custom.we_customize_baking_cups_with_your_logo_size",
+    locale,
+  )}
 >
   <section aria-labelledby="custom-hero-title" class="border-b border-line">
     <Container class="grid items-center gap-9 py-12 sm:py-20 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
       <div>
-        <Eyebrow class="mb-5">Custom printing & OEM</Eyebrow>
+        <Eyebrow class="mb-5">
+          {t("pages.custom.custom_printing_oem", locale)}
+        </Eyebrow>
         <DisplayHeading
           id="custom-hero-title"
-          first="Baking Cups,"
-          second="Made for Your Brand."
+          first={t("pages.custom.baking_cups", locale)}
+          second={t("pages.custom.made_for_your_brand", locale)}
         />
         <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
-          We bring your logo, colors and ideas to food-grade paper baking cups,
-          with factory-direct pricing for wholesale orders.
+          {t("pages.custom.we_bring_your_logo_colors_and_ideas_to", locale)}
         </p>
         <div class="mt-7 flex flex-wrap gap-3">
           <QuoteButton />
           <Button href="/products/" variant="secondary">
-            Explore Cup Styles
+            {t("pages.custom.explore_cup_styles", locale)}
           </Button>
         </div>
       </div>
       <aside class="rounded-panel border border-line bg-white p-6 shadow-panel sm:p-8">
         <p class="text-xs font-bold tracking-[0.14em] text-copper uppercase">
-          Start with your idea
+          {t("pages.custom.start_with_your_idea", locale)}
         </p>
         <h2 class="mt-4 font-display text-card-title font-normal">
-          What would you like to create?
+          {t("pages.custom.what_would_you_like_to_create", locale)}
         </h2>
         <CheckList
           class="mt-6 text-sm text-ink-soft"
           items={[
-            "Your logo or artwork",
-            "Cup style and dimensions",
-            "Preferred colors and packaging",
-            "Quantity, if known, and destination",
+            t("pages.custom.your_logo_or_artwork", locale),
+            t("pages.custom.cup_style_and_dimensions", locale),
+            t("pages.custom.preferred_colors_and_packaging", locale),
+            t("pages.custom.quantity_if_known_and_destination", locale),
           ]}
         />
       </aside>
@@ -105,10 +128,13 @@ const process = customizationSteps.map(({ title, description }, index) => ({
   >
     <Container>
       <SectionHeading
-        eyebrow="Your brand, your details"
-        title="What We Can Customize"
+        eyebrow={t("pages.custom.your_brand_your_details", locale)}
+        title={t("pages.custom.what_we_can_customize", locale)}
         id="custom-options-title"
-        description="We help you bring the individual details together in a baking cup that fits your brand."
+        description={t(
+          "pages.custom.we_help_you_bring_the_individual_details_together",
+          locale,
+        )}
       />
       <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {options.map(({ title, description }, index) => (
@@ -137,10 +163,13 @@ const process = customizationSteps.map(({ title, description }, index) => ({
   >
     <Container class="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
       <SectionHeading
-        eyebrow="From artwork to order"
-        title="The Custom Process"
+        eyebrow={t("pages.custom.from_artwork_to_order", locale)}
+        title={t("pages.custom.the_custom_process", locale)}
         id="custom-process-title"
-        description="We work through your design and sample with you before you confirm the production order. Open each step for the details."
+        description={t(
+          "pages.custom.we_work_through_your_design_and_sample_with",
+          locale,
+        )}
       />
       <div class="text-ink">
         <FaqAccordion items={process} firstOpen />
@@ -154,10 +183,13 @@ const process = customizationSteps.map(({ title, description }, index) => ({
   >
     <Container>
       <SectionHeading
-        eyebrow="Plan your order"
-        title="Samples, Quantities & Timing"
+        eyebrow={t("pages.custom.plan_your_order", locale)}
+        title={t("pages.custom.samples_quantities_timing", locale)}
         id="custom-policies-title"
-        description="We will review the requirements for your selected cup style and artwork with you."
+        description={t(
+          "pages.custom.we_will_review_the_requirements_for_your_selected",
+          locale,
+        )}
       />
       <dl class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {policies.map(({ label, value }) => (
@@ -166,7 +198,7 @@ const process = customizationSteps.map(({ title, description }, index) => ({
               {label}
             </dt>
             <dd class="mt-4 text-base leading-relaxed wrap-anywhere text-ink-soft">
-              {display(value, label.toLowerCase())}
+              {display(localized(value, "en"), label.toLowerCase())}
             </dd>
           </div>
         ))}
@@ -182,16 +214,16 @@ const process = customizationSteps.map(({ title, description }, index) => ({
     >
       <Container>
         <SectionHeading
-          eyebrow="Custom projects"
-          title="Made to Order"
+          eyebrow={t("pages.custom.custom_projects", locale)}
+          title={t("pages.custom.made_to_order", locale)}
           id="custom-cases-title"
         />
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {customizationCases.map(({ title, summary, image, imageAlt }) => (
             <article class="overflow-hidden rounded-panel border border-line bg-white">
               <Image
-                src={image}
-                alt={imageAlt}
+                src={resolveSiteImage(image)!}
+                alt={localized(imageAlt, "en")}
                 widths={[384, 768]}
                 sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
                 format="webp"
@@ -200,10 +232,16 @@ const process = customizationSteps.map(({ title, description }, index) => ({
               />
               <div class="p-6">
                 <h3 class="font-display text-card-title font-normal">
-                  {display(title, "case title")}
+                  {display(
+                    localized(title, "en"),
+                    t("pages.custom.case_title", locale),
+                  )}
                 </h3>
                 <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {display(summary, "case description")}
+                  {display(
+                    localized(summary, "en"),
+                    t("pages.custom.case_description", locale),
+                  )}
                 </p>
               </div>
             </article>
@@ -219,10 +257,13 @@ const process = customizationSteps.map(({ title, description }, index) => ({
   >
     <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
       <SectionHeading
-        eyebrow="Let's make it yours"
-        title="Tell Us About Your Project"
+        eyebrow={t("pages.custom.let_s_make_it_yours", locale)}
+        title={t("pages.custom.tell_us_about_your_project", locale)}
         id="custom-quote-title"
-        description="Share your artwork and preferred cup style. We will help you work through the details."
+        description={t(
+          "pages.custom.share_your_artwork_and_preferred_cup_style_we",
+          locale,
+        )}
       />
       <QuoteButton class="shrink-0" />
     </Container>

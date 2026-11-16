@@ -1,0 +1,13 @@
+{
+  "label": {
+    "en": "Kraft Trays & Boxes",
+    "zh": "牛皮纸托盘与盒"
+  },
+  "summary": {
+    "en": "Kraft paper trays and boxes for bakery packaging.",
+    "zh": "适合烘焙包装的牛皮纸托盘与纸盒。"
+  },
+  "image": "../../assets/images/categories/kraft-trays-boxes-placeholder.png",
+  "order": 10,
+  "showOnHome": true
+}

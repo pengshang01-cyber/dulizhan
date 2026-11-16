@@ -1,11 +1,13 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 const current = Astro.url.pathname.replace(/\/?$/, "/") === "/inquiry/";
 ---
 
 <a
   href="/inquiry/"
   data-inquiry-link
-  aria-label="Your inquiry list"
+  aria-label={t("inquiry.linkLabel", locale)}
   aria-current={current ? "page" : undefined}
   class="relative inline-flex size-11 shrink-0 items-center justify-center gap-1.5 rounded-control border border-transparent text-ink-soft hover:text-copper aria-[current=page]:border-copper aria-[current=page]:text-copper lg:w-auto lg:px-2"
 >
@@ -23,7 +25,9 @@ const current = Astro.url.pathname.replace(/\/?$/, "/") === "/inquiry/";
       stroke-linejoin="round"
     ></path>
   </svg>
-  <span class="sr-only text-xs font-semibold lg:not-sr-only">Inquiry</span>
+  <span class="sr-only text-xs font-semibold lg:not-sr-only">
+    {t("inquiry.link", locale)}
+  </span>
   <span
     hidden
     data-inquiry-count
@@ -33,6 +37,8 @@ const current = Astro.url.pathname.replace(/\/?$/, "/") === "/inquiry/";
 </a>
 
 <script>
+  import { t } from "../i18n/utils";
+  const locale = "en";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
   function syncInquiryLinks() {
@@ -43,8 +49,12 @@ const current = Astro.url.pathname.replace(/\/?$/, "/") === "/inquiry/";
       link.setAttribute(
         "aria-label",
         count
-          ? `Your inquiry list, ${count} ${count === 1 ? "product" : "products"}`
-          : "Your inquiry list",
+          ? t(
+              count === 1 ? "inquiry.linkCountOne" : "inquiry.linkCountMany",
+              locale,
+              { count },
+            )
+          : t("inquiry.linkLabel", locale),
       );
       const badge = link.querySelector<HTMLElement>("[data-inquiry-count]");
       if (badge) {

@@ -26,38 +26,51 @@
 
 ## 3. 硬性规则
 
-1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书、客户案例、联系方式一律从 `src/config/site.ts` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字、证书名称、客户名称仍必须来自 `site.ts`。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
-2. **所有可配置信息集中在 `src/config/site.ts`**：公司名、邮箱、电话、WhatsApp 号码、地址、社媒链接、核心数字、证书列表。
+1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书与联系方式一律从 `src/data/site.json` 读取，客户案例只从 `src/data/cases.json` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字与证书名称仍必须来自 `site.json` 或产品数据，客户名称必须来自经确认的案例数据。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
+2. **内容唯一来源。** 分类只在 `src/content/categories/*.json`（文件名即 id），产品只在 `src/content/products/*.json`（文件名与 slug 一致），网站设置只在 `src/data/site.json`，FAQ 只在 `src/data/faq.json`。定制流程、案例、团队分别在 `src/data/customization.json`、`cases.json`、`team.json`。`src/config/site.ts` 只保留类型、校验与工具，不再存配置值；禁止复制另一份分类枚举或政策文字。
 3. **密钥不进仓库。** 只用环境变量，并在 `.env.example` 里列出变量名。
 4. **一次只做一个里程碑。** 只做 `docs/PLAN.md` 里当前里程碑的范围，不提前做后面的内容。上一个里程碑的 PR 没合并之前，不开始下一个。
 5. **分支与 PR：** 每个里程碑一个分支 `m<编号>-<短名>`（如 `m2-homepage`），完成后向 `main` 开 PR，标题 `M<编号>: <名称>`。
 6. **提交审核前必须通过：** `npm run build`、`npm run check`（astro check）、`npm run lint`。任何一个失败都不能提交审核。
 7. **每个里程碑结束时写审核报告** `docs/reviews/M<编号>.md`，格式按 `docs/reviews/TEMPLATE.md`。PR 描述里贴报告的摘要。
 8. **按审核意见修改时：** 在同一分支上提交，提交信息以 `review-fix:` 开头，并在报告末尾的“修改记录”追加本轮改了什么。
-9. 网站文案用美式英语；代码注释和审核报告用中文。
+9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码英文。M4.5 只输出英文路由（美式英语），中文页面在 M4.6 实现；代码注释和审核报告用中文。
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
 
 ## 4. 目录约定
 
 ```
 src/
-  config/site.ts          # 全站可配置信息（唯一来源）
+  config/site.ts          # 网站设置类型、校验、TODO / localized 工具
+  data/site.json          # 网站设置唯一来源（双语内容）
+  data/faq.json           # FAQ 唯一来源
+  data/customization.json # 定制流程
+  data/cases.json         # 真实案例；空数组时隐藏
+  data/team.json          # 真实团队；空数组时隐藏
+  i18n/en.json            # 英文界面字典
+  i18n/zh.json            # 中文界面字典（M4.5 先留空翻译）
+  i18n/utils.ts           # localized / t 与回退
   components/             # 可复用组件（Header, Footer, QuoteButton, WhatsAppFloat, ProductCard...）
   layouts/BaseLayout.astro
   pages/                  # 路由
   content/
     config.ts             # collection schema
-    products/*.md
+    categories/*.json    # 分类 id 由文件名生成
+    products/*.json      # 结构化双语产品，不再用 Markdown 正文
     blog/*.md
   assets/images/          # 需要优化的图片
 public/                   # favicon、robots.txt 等原样输出的文件
 functions/api/inquiry.ts  # 表单后端
+.pages.yml               # Pages CMS 后台配置
 docs/
   PLAN.md
+  CMS.md                 # 工厂人员内容维护指南
   reviews/TEMPLATE.md
   reviews/M<编号>.md
   reviews/M<编号>/        # 本里程碑的截图
 ```
+
+分类、产品通过 Astro Content Collections 读取并校验。CMS 引用字段保存 `<id>.json`，schema 统一转换为 id；没有产品的分类不展示、不生成页面。首页只展示 showOnHome 且有产品的分类，最多 6 个。上传图片路径相对 JSON 文件，按 `.pages.yml` 与 `docs/CMS.md` 维护，不用外部图片冒充实拍。
 
 ## 5. 截图规则（审核用）
 

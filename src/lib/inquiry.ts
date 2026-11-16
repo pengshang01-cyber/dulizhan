@@ -1,5 +1,3 @@
-import { productCategories } from "../config/categories";
-
 export interface InquiryProduct {
   slug: string;
   sku: string;
@@ -14,7 +12,6 @@ export interface InquiryItem extends InquiryProduct {
 export const INQUIRY_STORAGE_KEY = "inquiry:v1";
 export const INQUIRY_CHANGE_EVENT = "inquiry:change";
 
-const categories = new Set<string>(productCategories.map(({ id }) => id));
 let items: InquiryItem[] = [];
 let initialized = false;
 let storage: Storage | null = null;
@@ -30,7 +27,7 @@ function isProduct(value: unknown): value is InquiryProduct {
     typeof product.title === "string" &&
     product.title.trim().length > 0 &&
     typeof product.category === "string" &&
-    categories.has(product.category)
+    /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.category)
   );
 }
 

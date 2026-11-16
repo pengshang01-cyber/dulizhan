@@ -1,17 +1,19 @@
 ---
+import { t } from "../i18n/utils";
+const locale = "en";
 import Button from "../components/Button.astro";
 import Container from "../components/Container.astro";
 import SectionHeading from "../components/SectionHeading.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Your Inquiry List" noindex>
+<BaseLayout title={t("inquiry.title", locale)} noindex>
   <Container class="py-12 sm:py-16">
     <SectionHeading
-      eyebrow="Plan your wholesale order"
-      title="Your Inquiry List"
+      eyebrow={t("inquiry.eyebrow", locale)}
+      title={t("inquiry.title", locale)}
       level={1}
-      description="Collect the products you are interested in. Add quantities if you know them, or leave them blank for us to discuss."
+      description={t("inquiry.description", locale)}
     />
     <p
       data-inquiry-status
@@ -28,38 +30,36 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         id="empty-inquiry-title"
         class="font-display text-section-title font-normal"
       >
-        Your list is empty.
+        {t("inquiry.emptyTitle", locale)}
       </h2>
       <p class="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-ink-soft">
-        Browse our baking cups and add the products you would like us to quote.
+        {t("inquiry.emptyDescription", locale)}
       </p>
       <Button href="/products/" class="mt-6">
-        Browse Products
+        {t("inquiry.browse", locale)}
       </Button>
     </section>
 
     <div data-inquiry-filled hidden class="mt-6">
       <div class="mb-5 text-right">
         <Button variant="secondary" data-inquiry-clear>
-          Clear all
+          {t("inquiry.clear", locale)}
         </Button>
       </div>
       <ul
         data-inquiry-items
-        aria-label="Selected products"
+        aria-label={t("inquiry.selected", locale)}
         class="grid gap-4"
       ></ul>
       <div class="mt-8 border-t border-line pt-7">
         <Button href="/contact/?from=inquiry#quote" data-inquiry-continue>
-          Continue to Quote Form
+          {t("inquiry.continue", locale)}
         </Button>
       </div>
     </div>
 
     <noscript>
-      <p class="mt-5 text-sm text-ink-soft">
-        Enable JavaScript to build and view your inquiry list.
-      </p>
+      <p class="mt-5 text-sm text-ink-soft">{t("inquiry.noscript", locale)}</p>
     </noscript>
 
     <template id="inquiry-item-template">
@@ -81,27 +81,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             data-inquiry-quantity-label
             class="block text-xs font-bold tracking-[0.06em] uppercase"
           >
-            Quantity (optional)
+            {t("inquiry.quantityOptional", locale)}
           </label>
           <div class="mt-2 flex items-center gap-3">
             <input
               data-inquiry-quantity
               type="text"
               inputmode="numeric"
-              placeholder="e.g. 10,000"
+              placeholder={t("inquiry.quantityPlaceholder", locale)}
               class="w-32 text-sm"
             />
-            <span class="text-sm text-ink-soft">pcs</span>
+            <span class="text-sm text-ink-soft">
+              {t("inquiry.pcs", locale)}
+            </span>
           </div>
           <p data-inquiry-quantity-note class="mt-2 text-sm text-ink-soft">
-            To be discussed
+            {t("inquiry.toDiscuss", locale)}
           </p>
           <p
             data-inquiry-quantity-error
             hidden
             class="mt-2 text-sm text-copper-dark"
           >
-            Enter a positive whole number, or leave blank.
+            {t("inquiry.quantityError", locale)}
           </p>
         </div>
         <Button
@@ -109,7 +111,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           data-inquiry-remove
           class="justify-self-start md:justify-self-end"
         >
-          Remove
+          {t("inquiry.remove", locale)}
         </Button>
       </li>
     </template>
@@ -117,6 +119,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 </BaseLayout>
 
 <script>
+  import { t } from "../i18n/utils";
+  const locale = "en";
   import { display } from "../config/site";
   import {
     clearItems,
@@ -161,7 +165,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         const quantity = parseQuantityInput(input.value);
         const valid = quantity !== undefined;
         input.setCustomValidity(
-          valid ? "" : "Enter a positive whole number, or leave blank.",
+          valid ? "" : t("inquiry.quantityError", locale),
         );
         input.setAttribute("aria-invalid", String(!valid));
         error.hidden = valid;
@@ -174,7 +178,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     );
     remove?.setAttribute(
       "aria-label",
-      `Remove ${display(item.title, "product name")}`,
+      t("inquiry.removeProduct", locale, {
+        title: display(item.title, t("inquiry.productName", locale)),
+      }),
     );
     remove?.addEventListener("click", () => removeItem(item.slug));
     return row;
@@ -187,7 +193,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     filled.hidden = items.length === 0;
     if (status) {
       const text = items.length
-        ? `${items.length} ${items.length === 1 ? "product" : "products"} in your list`
+        ? t(
+            items.length === 1 ? "inquiry.countOne" : "inquiry.countMany",
+            locale,
+            { count: items.length },
+          )
         : "";
       if (status.textContent !== text) status.textContent = text;
     }
@@ -211,10 +221,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         "[data-inquiry-quantity]",
       );
       if (title) {
-        title.textContent = display(item.title, "product name");
+        title.textContent = display(
+          item.title,
+          t("inquiry.productName", locale),
+        );
         title.href = `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`;
       }
-      if (sku) sku.textContent = `SKU ${display(item.sku, "SKU")}`;
+      if (sku)
+        sku.textContent = t("inquiry.sku", locale, {
+          sku: display(item.sku, t("inquiry.skuLabel", locale)),
+        });
       // 数量变化保留已有行及当前输入焦点，不整体重建 DOM。
       if (input && document.activeElement !== input) {
         input.value = item.quantity === null ? "" : String(item.quantity);

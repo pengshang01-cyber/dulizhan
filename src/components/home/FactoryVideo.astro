@@ -1,4 +1,6 @@
 ---
+const locale = "en";
+import { t } from "../../i18n/utils";
 import Container from "../Container.astro";
 import SectionHeading from "../SectionHeading.astro";
 
@@ -19,14 +21,15 @@ const embed =
 >
   <Container>
     <SectionHeading
-      eyebrow="A closer look"
-      title="Inside the Factory"
+      eyebrow={t("pages.factoryvideo.a_closer_look", locale)}
+      title={t("pages.factoryvideo.inside_the_factory", locale)}
       id="factory-video-title"
     />
     <div class="relative isolate mt-7 aspect-video min-h-[200px] w-full max-w-3xl rounded-panel bg-coffee shadow-panel">
       <button
         type="button"
         data-video-embed={embed}
+        data-video-title={t("video.playerTitle", locale)}
         class="relative isolate grid size-full cursor-pointer place-items-center overflow-hidden rounded-panel text-white"
       >
         <img
@@ -46,7 +49,9 @@ const embed =
             <path d="M8 4.9v14.2a.75.75 0 0 0 1.16.63l10.65-7.1a.75.75 0 0 0 0-1.26L9.16 4.27A.75.75 0 0 0 8 4.9Z"></path>
           </svg>
         </span>
-        <span class="sr-only">Play factory video</span>
+        <span class="sr-only">
+          {t("pages.factoryvideo.play_factory_video", locale)}
+        </span>
       </button>
       <script is:inline>
         (() => {
@@ -61,7 +66,7 @@ const embed =
             () => {
               const player = document.createElement("iframe");
               player.src = button.dataset.videoEmbed;
-              player.title = "Factory video";
+              player.title = button.dataset.videoTitle ?? "";
               player.className = "absolute inset-0 size-full rounded-panel";
               player.allow = "autoplay; encrypted-media; picture-in-picture";
               player.allowFullscreen = true;

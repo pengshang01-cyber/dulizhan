@@ -1,0 +1,13 @@
+{
+  "label": {
+    "en": "Specialty Packaging",
+    "zh": "特殊包装"
+  },
+  "summary": {
+    "en": "Paper packaging formats for specialized bakery needs.",
+    "zh": "满足特殊烘焙需求的纸质包装形式。"
+  },
+  "image": "../../assets/images/categories/specialty-packaging-placeholder.png",
+  "order": 12,
+  "showOnHome": true
+}

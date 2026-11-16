@@ -1,0 +1,42 @@
+[
+  {
+    "title": {
+      "en": "Send Design",
+      "zh": ""
+    },
+    "description": {
+      "en": "Share your artwork, cup dimensions, and order details.",
+      "zh": ""
+    }
+  },
+  {
+    "title": {
+      "en": "Mockup",
+      "zh": ""
+    },
+    "description": {
+      "en": "We prepare a digital mockup of your design for your approval.",
+      "zh": ""
+    }
+  },
+  {
+    "title": {
+      "en": "Sample",
+      "zh": ""
+    },
+    "description": {
+      "en": "Review a sample and confirm the specifications.",
+      "zh": ""
+    }
+  },
+  {
+    "title": {
+      "en": "Mass Production",
+      "zh": ""
+    },
+    "description": {
+      "en": "Confirm the approved design, quantity, and schedule.",
+      "zh": ""
+    }
+  }
+]

@@ -1,0 +1,118 @@
+{
+  "companyName": {
+    "en": "TODO_COMPANY_NAME",
+    "zh": ""
+  },
+  "shortName": {
+    "en": "TODO_COMPANY_SHORT_NAME",
+    "zh": ""
+  },
+  "tagline": {
+    "en": "TODO_COMPANY_TAGLINE",
+    "zh": ""
+  },
+  "topBarItems": [
+    {
+      "en": "Factory Direct",
+      "zh": ""
+    },
+    {
+      "en": "Custom Printing & OEM",
+      "zh": ""
+    },
+    {
+      "en": "TODO_TOP_BAR_ITEM",
+      "zh": ""
+    }
+  ],
+  "domain": "TODO_SITE_DOMAIN",
+  "email": "TODO_EMAIL",
+  "phone": "TODO_PHONE",
+  "whatsappNumber": "TODO_WHATSAPP_NUMBER",
+  "whatsappPrefillMessage": {
+    "en": "TODO_WHATSAPP_PREFILL_MESSAGE",
+    "zh": ""
+  },
+  "factoryAddress": {
+    "en": "TODO_FACTORY_ADDRESS",
+    "zh": ""
+  },
+  "stockMoq": {
+    "en": "TODO_STOCK_MOQ",
+    "zh": ""
+  },
+  "customMoq": {
+    "en": "TODO_CUSTOM_MOQ",
+    "zh": ""
+  },
+  "sampleLeadTime": {
+    "en": "TODO_SAMPLE_LEAD_TIME",
+    "zh": ""
+  },
+  "productionLeadTime": {
+    "en": "TODO_PRODUCTION_LEAD_TIME",
+    "zh": ""
+  },
+  "sampleCost": {
+    "en": "TODO_SAMPLE_COST",
+    "zh": ""
+  },
+  "paymentTerms": {
+    "en": "TODO_PAYMENT_TERMS",
+    "zh": ""
+  },
+  "shippingMethods": {
+    "en": "TODO_SHIPPING_METHODS",
+    "zh": ""
+  },
+  "stats": [
+    {
+      "value": "TODO_FOUNDED_YEAR",
+      "label": {
+        "en": "Founded",
+        "zh": ""
+      }
+    },
+    {
+      "value": "TODO_DAILY_CAPACITY",
+      "label": {
+        "en": "Daily Capacity",
+        "zh": ""
+      }
+    },
+    {
+      "value": "TODO_EXPORT_COUNTRY_COUNT",
+      "label": {
+        "en": "Export Countries",
+        "zh": ""
+      }
+    },
+    {
+      "value": "TODO_PATTERN_COUNT",
+      "label": {
+        "en": "Colors & Patterns",
+        "zh": ""
+      }
+    }
+  ],
+  "youtubeVideoId": "TODO_YOUTUBE_VIDEO_ID",
+  "certificates": [
+    {
+      "name": {
+        "en": "TODO_CERTIFICATE_NAME",
+        "zh": ""
+      },
+      "imagePath": ""
+    }
+  ],
+  "socialLinks": {
+    "youtube": "TODO_YOUTUBE_URL",
+    "tiktok": "TODO_TIKTOK_URL",
+    "instagram": "TODO_INSTAGRAM_URL",
+    "facebook": "TODO_FACEBOOK_URL",
+    "pinterest": "TODO_PINTEREST_URL",
+    "linkedin": "TODO_LINKEDIN_URL"
+  },
+  "wechatId": "TODO_WECHAT_ID",
+  "wechatQr": ""
+}

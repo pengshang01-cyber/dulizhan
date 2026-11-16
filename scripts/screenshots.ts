@@ -161,3 +161,8 @@ try {
   await server.stop();
   await closed;
 }
+
+if (milestone === "M4b") {
+  const { captureWechatPreview } = await import("./wechat-preview.ts");
+  await captureWechatPreview(destination);
+}
