@@ -1,7 +1,10 @@
 ---
+import { localePath } from "../i18n/routing";
+import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
-const locale = "en";
+const { locale = "en" } = Astro.props;
 interface Props {
+  locale?: Locale;
   items: { label: string; href?: string }[];
 }
 const { items } = Astro.props;
@@ -20,7 +23,10 @@ const { items } = Astro.props;
           </span>
         )}
         {href ? (
-          <a href={href} class="wrap-anywhere hover:text-copper">
+          <a
+            href={localePath(href, locale)}
+            class="wrap-anywhere hover:text-copper"
+          >
             {label}
           </a>
         ) : (

@@ -135,3 +135,55 @@
 .dark-surface .button-secondary:hover {
   background-color: var(--color-coffee-2);
 }
+
+/* 中文只调用系统字体；拉丁字符和数字仍优先使用现有本地字体。 */
+html[lang="zh-CN"] {
+  --font-sans:
+    "DM Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans SC", sans-serif;
+  --font-display:
+    "Newsreader", "Noto Serif SC", "Source Han Serif SC", "Songti SC", "STSong",
+    serif;
+  --text-page-title--line-height: 1.3;
+  --text-page-title--letter-spacing: 0;
+  --text-section-title--line-height: 1.3;
+  --text-section-title--letter-spacing: 0;
+  --text-card-title--line-height: 1.3;
+  --text-card-title--letter-spacing: 0;
+}
+
+html[lang="zh-CN"] :is(h1, h2, h3, h4, h5, h6, .font-display) {
+  letter-spacing: 0;
+  line-height: 1.3;
+  font-synthesis-style: none;
+}
+
+html[lang="zh-CN"] .font-display em {
+  font-style: normal;
+}
+
+.wechat-dialog {
+  position: fixed;
+  inset: auto 0 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  max-height: 85dvh;
+  overflow-y: auto;
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+.wechat-dialog::backdrop {
+  background: rgb(48 39 31 / 35%);
+}
+
+@media (min-width: 40rem) {
+  .wechat-dialog {
+    inset: auto 1.5rem 5.5rem auto;
+    width: 22rem;
+    max-height: calc(100dvh - 7rem);
+    border-radius: var(--radius-panel);
+    padding-bottom: 1.5rem;
+  }
+}

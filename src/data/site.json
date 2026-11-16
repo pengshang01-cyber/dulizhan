@@ -14,18 +14,19 @@
   "topBarItems": [
     {
       "en": "Factory Direct",
-      "zh": ""
+      "zh": "源头工厂"
     },
     {
       "en": "Custom Printing & OEM",
-      "zh": ""
+      "zh": "印刷定制与 OEM"
     },
     {
       "en": "TODO_TOP_BAR_ITEM",
       "zh": ""
     }
   ],
-  "domain": "TODO_SITE_DOMAIN",
+  "domain": "https://dulizhan.pengshang01.workers.dev",
+  "allowIndexing": false,
   "email": "TODO_EMAIL",
   "phone": "TODO_PHONE",
   "whatsappNumber": "TODO_WHATSAPP_NUMBER",
@@ -70,28 +71,28 @@
       "value": "TODO_FOUNDED_YEAR",
       "label": {
         "en": "Founded",
-        "zh": ""
+        "zh": "成立年份"
       }
     },
     {
       "value": "TODO_DAILY_CAPACITY",
       "label": {
         "en": "Daily Capacity",
-        "zh": ""
+        "zh": "日产能"
       }
     },
     {
       "value": "TODO_EXPORT_COUNTRY_COUNT",
       "label": {
         "en": "Export Countries",
-        "zh": ""
+        "zh": "出口国家"
       }
     },
     {
       "value": "TODO_PATTERN_COUNT",
       "label": {
         "en": "Colors & Patterns",
-        "zh": ""
+        "zh": "花色款式"
       }
     }
   ],

@@ -16,6 +16,16 @@ function cmsSettings(): Record<string, unknown> {
 }
 
 describe("website settings saved by Pages CMS", () => {
+  it("defaults to no indexing and requires an actual boolean to enable it", () => {
+    const input = cmsSettings();
+    delete input.allowIndexing;
+    expect(siteSchema.parse(input).allowIndexing).toBe(false);
+    input.allowIndexing = true;
+    expect(siteSchema.parse(input).allowIndexing).toBe(true);
+    input.allowIndexing = "true";
+    expect(siteSchema.safeParse(input).success).toBe(false);
+  });
+
   it("restores optional text and image fields omitted after clearing them", () => {
     const input = cmsSettings();
     const fields = [

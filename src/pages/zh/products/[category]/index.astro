@@ -1,0 +1,7 @@
+---
+import Page from "../../../../components/pages/CategoryPage.astro";
+import { getCategoryPaths } from "../../../../lib/product-paths";
+export const getStaticPaths = getCategoryPaths;
+---
+
+<Page locale="zh" {...Astro.props} />

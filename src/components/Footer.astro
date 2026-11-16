@@ -1,6 +1,10 @@
 ---
-import { t, localized } from "../i18n/utils";
-const locale = "en";
+import { t, localized, type Locale } from "../i18n/utils";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "en" } = Astro.props;
+import { localePath } from "../i18n/routing";
 import { getVisibleCategories } from "../lib/products";
 const productCategories = await getVisibleCategories();
 import {
@@ -37,27 +41,38 @@ const socials = Object.entries(labels).map(([platform, label]) => {
   };
 });
 const phone = site.phone.replace(/[^\d+]/g, "");
-const contacts = [
-  {
-    label: t("site.email", locale),
-    value: display(site.email, t("site.emailLabel", locale)),
-    href:
-      site.email && !isTodo(site.email) ? "mailto:" + site.email : undefined,
-  },
-  {
-    label: t("site.phone", locale),
-    value: display(site.phone, t("site.phoneLabel", locale)),
-    href: phone && !isTodo(site.phone) ? "tel:" + phone : undefined,
-  },
-  {
-    label: t("site.whatsapp", locale),
-    value: display(site.whatsappNumber, t("site.whatsappNumberLabel", locale)),
-    href: getWhatsAppHref(
-      site.whatsappNumber,
-      localized(site.whatsappPrefillMessage, locale),
-    ),
-  },
-];
+const emailContact = {
+  label: t("site.email", locale),
+  value: display(site.email, t("site.emailLabel", locale)),
+  href: site.email && !isTodo(site.email) ? "mailto:" + site.email : undefined,
+};
+const phoneContact = {
+  label: t("site.phone", locale),
+  value: display(site.phone, t("site.phoneLabel", locale)),
+  href: phone && !isTodo(site.phone) ? "tel:" + phone : undefined,
+};
+const whatsappContact = {
+  label: t("site.whatsapp", locale),
+  value: display(site.whatsappNumber, t("site.whatsappNumberLabel", locale)),
+  href: getWhatsAppHref(
+    site.whatsappNumber,
+    localized(site.whatsappPrefillMessage, locale),
+  ),
+};
+const wechatContact =
+  site.wechatId.trim() && !isTodo(site.wechatId.trim())
+    ? [
+        {
+          label: t("contact.wechat", locale),
+          value: site.wechatId,
+          href: undefined,
+        },
+      ]
+    : [];
+const contacts =
+  locale === "zh"
+    ? [...wechatContact, phoneContact, emailContact]
+    : [emailContact, phoneContact, whatsappContact, ...wechatContact];
 const linkClass = "rounded-control hover:text-copper";
 const socialClass =
   "grid size-9 place-items-center rounded-control border border-sand/20";
@@ -67,7 +82,7 @@ const socialClass =
   <Container class="grid grid-cols-2 gap-x-5 gap-y-8 pt-11 pb-10 lg:grid-cols-[1.25fr_0.7fr_1fr_1fr] lg:gap-x-8 lg:pt-14 lg:pb-12">
     <div class="col-span-2 min-w-0 lg:col-span-1">
       <a
-        href="/"
+        href={localePath("/", locale)}
         class="rounded-control font-display text-card-title wrap-anywhere text-cream hover:text-copper"
       >
         {company}
@@ -119,7 +134,7 @@ const socialClass =
       <ul class="mt-3.5 grid gap-2.5 text-sm">
         {navigation.map(({ key, href }) => (
           <li>
-            <a href={href} class={linkClass}>
+            <a href={localePath(href, locale)} class={linkClass}>
               {t(key, locale)}
             </a>
           </li>
@@ -134,7 +149,10 @@ const socialClass =
       <ul class="mt-3.5 grid gap-2.5 text-sm">
         {productCategories.map(({ id, label }) => (
           <li>
-            <a href={"/products/" + id + "/"} class={linkClass}>
+            <a
+              href={localePath("/products/" + id + "/", locale)}
+              class={linkClass}
+            >
               {localized(label, locale)}
             </a>
           </li>
@@ -172,7 +190,10 @@ const socialClass =
       <p class="wrap-anywhere">
         © {new Date().getUTCFullYear()} {company}
       </p>
-      <a href="/contact/#privacy-policy" class={linkClass}>
+      <a
+        href={localePath("/contact/#privacy-policy", locale)}
+        class={linkClass}
+      >
         {t("site.privacyPolicy", locale)}
       </a>
     </Container>

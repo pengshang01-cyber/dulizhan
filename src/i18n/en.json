@@ -394,5 +394,19 @@
   "products.galleryPlaceholder": "{title} image placeholder {index}",
   "products.galleryView": "{title} product view {index}",
   "products.galleryViews": "Product image views",
-  "products.showImage": "Show product image {index}"
+  "products.showImage": "Show product image {index}",
+  "language.switch": "Language",
+  "language.en": "EN",
+  "language.zh": "中文",
+  "wechat.open": "Contact us on WeChat",
+  "wechat.title": "Contact us on WeChat",
+  "wechat.close": "Close WeChat contact",
+  "wechat.scanDesktop": "Scan the QR code with WeChat.",
+  "wechat.scanMobile": "Press and hold to recognize the QR code.",
+  "wechat.id": "WeChat ID",
+  "wechat.copy": "Copy WeChat ID",
+  "wechat.copied": "Copied",
+  "wechat.copyFailed": "Copy failed. Select and copy the WeChat ID above.",
+  "wechat.qrUnavailable": "The QR code is not available yet. Add us using the WeChat ID below.",
+  "wechat.copyHint": "Copy the WeChat ID below to add us."
 }

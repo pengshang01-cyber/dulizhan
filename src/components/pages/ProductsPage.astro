@@ -1,0 +1,51 @@
+---
+import type { Locale } from "../../i18n/utils";
+import Breadcrumbs from "../Breadcrumbs.astro";
+import Container from "../Container.astro";
+import ProductCard from "../ProductCard.astro";
+import ProductCategoryNav from "../ProductCategoryNav.astro";
+import SectionHeading from "../SectionHeading.astro";
+import { t } from "../../i18n/utils";
+import { getProducts } from "../../lib/products";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const products = await getProducts();
+const { locale = "en" } = Astro.props;
+interface Props {
+  locale?: Locale;
+}
+---
+
+<BaseLayout
+  locale={locale}
+  title={t("products.pageTitle", locale)}
+  description={t("products.pageDescription", locale)}
+>
+  <Container class="py-8 sm:py-12">
+    <Breadcrumbs
+      locale={locale}
+      items={[
+        { label: t("breadcrumbs.home", locale), href: "/" },
+        { label: t("breadcrumbs.products", locale) },
+      ]}
+    />
+    <div class="mt-8 max-w-3xl">
+      <SectionHeading
+        eyebrow={t("products.collectionEyebrow", locale)}
+        title={t("products.heading", locale)}
+        level={1}
+        description={t("products.intro", locale)}
+      />
+    </div>
+    <div class="mt-8 border-y border-line py-5">
+      <ProductCategoryNav locale={locale} />
+    </div>
+    <div
+      class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label={t("categories.allProducts", locale)}
+    >
+      {products.map((product) => (
+        <ProductCard locale={locale} product={product} />
+      ))}
+    </div>
+  </Container>
+</BaseLayout>

@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（本轮）与后续 M4.6（中文页面）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（本轮中文站）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -10,7 +10,8 @@
 | M3 | 产品体系与询价清单 | `m3-products` | 产品数据结构、产品中心、分类页、详情页、前端询价清单 |
 | M4 | 定制 / 关于 / FAQ / 联系 | `m4-pages` | 4 个内容页 |
 | M4.5 | 内容后台、分类数据化与双语数据 | `m4b-cms` | Pages CMS、JSON 内容、双语字段与界面字典 |
-| M5 | 询盘表单与后端 | `m5-inquiry` | 表单组件、Pages Function、防垃圾、感谢页 |
+| M4.6 | 中文站与微信联系 | `m4c-zh` | 共用页面双语路由、中文内容、微信浮层、Workers 部署与收录开关 |
+| M5 | 询盘表单与后端 | `m5-inquiry` | 表单组件、Worker API、防垃圾、感谢页 |
 | M6 | SEO 与统计 | `m6-seo` | meta、sitemap、结构化数据、GA4 事件、隐私政策、404 |
 | M7 | 博客与性能 | `m7-blog-perf` | 博客系统、示例文章、性能优化、上线检查 |
 | M8 | 正式上线 | `m8-launch` | 绑定域名、生产环境变量、上线后检查 |
@@ -30,7 +31,7 @@
 5. 建 `.env.example`：`PUBLIC_GA_ID`、`PUBLIC_TURNSTILE_SITE_KEY`、`TURNSTILE_SECRET_KEY`、`RESEND_API_KEY`、`INQUIRY_TO_EMAIL`、`INQUIRY_FROM_EMAIL`。
 6. GitHub Actions：PR 时运行 `npm ci`、`build`、`check`、`lint`。
 7. 复制 `docs/reviews/TEMPLATE.md` 和 `.github/pull_request_template.md`（已在仓库中则保留）。
-8. `README.md`：本地运行、部署到 Cloudflare Pages 的步骤（构建命令 `npm run build`，输出目录 `dist`）、环境变量说明。
+8. `README.md`：本地运行、部署到 Cloudflare Workers 的步骤（Workers Builds 从 GitHub main 自动构建；构建命令 `npm run build`，部署命令 `npx wrangler deploy`，静态资源目录 `./dist`）、环境变量说明。
 
 **验收标准**
 
@@ -159,27 +160,53 @@
 
 ---
 
+## M4.6 中文站上线
+
+**目标：** 英文原网址保持不变，中文站在 `/zh/` 上线；复用同一套页面组件和业务数据。部署采用 Cloudflare Workers 静态资源，M8 前禁止搜索引擎收录。
+
+**任务**
+
+1. Astro i18n 启用 en / zh，英文根路径，中文生成首页、产品中心、分类 / 详情、定制、关于、博客占位、FAQ、联系及询价单；Styleguide 仅英文。分类 id / 产品 slug 共用，页面组件接收 locale，不复制两套页面实现。
+2. Header 和手机菜单支持 EN / 中文同页切换；站内链接随当前语言生成。中文 html lang 为 zh-CN，页面输出 en、zh-CN、x-default 的 hreflang（x-default 指向英文）；无中文版本的 Styleguide 不生成不存在的 alternate。
+3. 补齐 zh.json 界面文字、13 条 FAQ、定制流程及其他非产品中文内容，使用面向国内批发采购的商务中文；产品 zh 留给工厂在 CMS 填写，为空时回退英文，保留 TODO 和事实约束。
+4. 中文标题 / 正文使用系统字体栈，不下载中文字体；英文与数字继续 Newsreader / DM Sans。中文标题取消负字距，行高 1.25–1.35，copper 强调使用正体。
+5. 中文站优先微信悬浮入口：桌面浮层、手机底部面板，微信号 / 二维码、复制反馈、键盘与 Esc 关闭；微信未设时回退 WhatsApp。中文 Contact 顺序为微信、电话、WhatsApp、邮箱、地址；页脚按语言显示相应联系方式。
+6. 询价存储共用 inquiry:v1，文字和详情链接随语言显示；中文继续按钮到 `/zh/contact/?from=inquiry#quote`，表单仍在 M5 接入。
+7. 保留 main 的 wrangler.jsonc 含义，仅按 lint 格式化；验证 assets.directory 为 ./dist、404-page 的近邻 404.html 机制，正式 404 页面留至 M6。同步 Workers 部署及 M5 Worker API 计划，不实现 API。
+8. site.json 增 allowIndexing=false；public/_headers 默认全路径 noindex,nofollow，robots.txt 默认 Disallow: /。构建按同一个开关生成最终文件，M8 开启后允许抓取、指向 sitemap 并去掉全站 noindex 响应头，页面 meta 同步。
+9. 工作记录移至 docs/notes/history.md、status.md、decisions.md，后续工作记录不放根目录；更新 AGENTS、README、CMS 指南和相关说明。
+
+**验收标准**
+
+- [ ] build / check / lint / test 全部通过；验证对应语言链接、共享询价清单、回退及收录开关两种状态
+- [ ] 375px 无页面横向溢出；微信浮层 / 面板可键盘操作并 Esc 关闭
+- [ ] screenshots -- M4c 包含指定中文页面、微信桌面 / 手机状态及英文首页；未配置微信时使用独立明确的测试配置，不写入假联系方式
+- [ ] 按模板写 M4c.md，附英文 → 中文界面文字对照表，并向 main 开 PR “M4.6: Chinese site and WeChat contact”
+
+---
+
 ## M5 询盘表单与后端
 
 **任务**
 
 1. `InquiryForm` 组件，字段：Name*、Email*、Company、Country*（下拉）、WhatsApp/Phone、Product Interest（下拉，选项来自产品分类，可被 `?product=` 预填）、Quantity（下拉区间）、Message*、勾选“I'd like to request samples”。前端校验 + 提交中状态 + 错误提示。
 2. 接 Cloudflare Turnstile（site key 来自环境变量；本地无 key 时用 Turnstile 官方测试 key）。
-3. `functions/api/inquiry.ts`：
+3. Worker 脚本处理 `/api/inquiry`：在 `wrangler.jsonc` 配置 `main` 入口和 `assets.binding: "ASSETS"`，用 `assets.run_worker_first: ["/api/*"]` 仅让 API 路径先走 Worker，其余路径继续静态资源优先；具体脚本在本阶段实现：
    - 只接受 POST；校验字段；服务端验证 Turnstile token
    - 简单蜜罐字段（隐藏 input，有值则静默丢弃）
    - 用 Resend 发邮件到 `INQUIRY_TO_EMAIL`，主题 `New Inquiry: <Company/Name> - <Country> - <Product>`，正文含全部字段、来源页面 URL、UTM 参数（前端从 URL 读取并随表单提交）
    - 成功返回 JSON，前端跳转 `/thank-you/`
+   - Worker 自己返回的响应按 allowIndexing 设置 X-Robots-Tag；静态 `_headers` 不会自动应用到 API 响应
 4. `/thank-you/`（`noindex`）：感谢语、预计回复时间、WhatsApp 按钮、推荐产品。
 5. 表单放到：`/contact/#quote`、首页底部 CTA、产品详情页底部。
 6. 提交成功时触发 `data-track="generate_lead"` 事件（M6 接 GA4）。
-7. 在 README 写清：Cloudflare Pages 里要配置哪些环境变量、Resend 发件域名验证步骤。
+7. 在 README 写清：Cloudflare Workers 里要配置哪些环境变量与 secrets、Resend 发件域名验证步骤。
 8. 询盘表单读取询价清单，把每个产品的型号、名称、可选数量随表单提交，邮件正文以表格列出（空数量显示 To be discussed）；提交成功后清空清单。
 
 **验收标准**
 
-- [ ] 用 `wrangler pages dev` 本地跑通：缺字段返回 400，蜜罐有值不发信，Turnstile 失败返回 403
-- [ ] 为 `functions/api/inquiry.ts` 写单元测试（Vitest，mock Resend 和 Turnstile），`npm test` 通过
+- [ ] 用 `wrangler dev` 本地跑通：缺字段返回 400，蜜罐有值不发信，Turnstile 失败返回 403
+- [ ] 为 Worker 的 `/api/inquiry` 处理逻辑写单元测试（Vitest，mock Resend 和 Turnstile），`npm test` 通过
 - [ ] 没有任何密钥写进代码
 - [ ] 截图：`contact`（含表单）、`thank-you`、表单报错状态
 
@@ -191,7 +218,7 @@
 
 1. 每页唯一的 title（≤60 字符）和 description（≤155 字符）；产品页用 `seoTitle` / `seoDescription`，没有则自动生成。
 2. canonical、OG / Twitter 卡片（默认分享图 `public/og-default.jpg` 占位）。
-3. `@astrojs/sitemap` 生成 sitemap，排除 `noindex` 页面；`public/robots.txt` 指向 sitemap。
+3. `@astrojs/sitemap` 生成 sitemap，排除 `noindex` 页面；收录配置继续由 allowIndexing 控制，M8 前保持禁止抓取，正式开启后生成的 robots.txt 指向 sitemap。
 4. JSON-LD：全站 `Organization`；产品页 `Product`（不含价格和评分，不编造评论）；FAQ 页 `FAQPage`；面包屑 `BreadcrumbList`。
 5. GA4：`PUBLIC_GA_ID` 存在时才加载；把 `data-track` 元素点击转成 GA4 事件：`whatsapp_click`、`email_click`、`phone_click`、`quote_button_click`、`generate_lead`。
 6. Cookie 同意横幅（简单版：同意前不加载 GA4，选择存 localStorage，读写包 try/catch）。
@@ -234,10 +261,11 @@
 
 **任务**
 
-1. 生成 `docs/LAUNCH.md`：Cloudflare Pages 绑定自定义域名、配置生产环境变量、Resend 域名验证（SPF / DKIM）、Turnstile 正式 key、GA4 属性和转化事件标记、Google Search Console 验证与提交 sitemap 的逐步操作。
+1. 生成 `docs/LAUNCH.md`：Cloudflare Workers 绑定自定义域名、配置生产环境变量与 secrets、Resend 域名验证（SPF / DKIM）、Turnstile 正式 key、GA4 属性和转化事件标记、Google Search Console 验证与提交 sitemap 的逐步操作。
 2. 根据 M7 报告的 `TODO` 清单，确认 `site.ts` 和内容文件已被工厂真实资料替换（未替换的列出来）。
 3. 把示例博客中工厂已确认的文章去掉 `draft`。
 4. 上线后自检：生产域名下表单真实发信一次、WhatsApp 跳转、sitemap 可访问、`robots.txt` 正确。
+5. 确认真实域名和资料后，把 `src/data/site.json` 的 `allowIndexing` 改为 true 并重新构建部署；核验 robots.txt 允许抓取且 Sitemap 正确、页面及静态响应不再有全站 noindex，Inquiry / Styleguide 等本就不收录页面继续 noindex。
 
 **验收标准**
 

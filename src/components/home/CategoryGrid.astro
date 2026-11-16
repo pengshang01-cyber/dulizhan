@@ -1,4 +1,6 @@
 ---
+import { localePath } from "../../i18n/routing";
+import type { Locale } from "../../i18n/utils";
 import { Image } from "astro:assets";
 import { localized, t } from "../../i18n/utils";
 import { getCategories, getProducts } from "../../lib/products";
@@ -6,11 +8,14 @@ import { homeCategories } from "../../lib/category-visibility";
 import Button from "../Button.astro";
 import Container from "../Container.astro";
 import SectionHeading from "../SectionHeading.astro";
-const locale = "en";
+const { locale = "en" } = Astro.props;
 const { categories, hasMore } = homeCategories(
   await getCategories(),
   await getProducts(),
 );
+interface Props {
+  locale?: Locale;
+}
 ---
 
 {categories.length > 0 && (
@@ -25,7 +30,7 @@ const { categories, hasMore } = homeCategories(
         {categories.map(({ id, label, summary, image }) => (
           <li>
             <a
-              href={"/products/" + id + "/"}
+              href={localePath("/products/" + id + "/", locale)}
               aria-labelledby={"cover-title-" + id}
               class="group flex h-full flex-col overflow-hidden rounded-panel border border-line bg-white transition-colors hover:border-copper motion-reduce:transition-none"
             >
@@ -66,7 +71,11 @@ const { categories, hasMore } = homeCategories(
         ))}
       </ul>
       {hasMore && (
-        <Button href="/products/" variant="secondary" class="mt-7">
+        <Button
+          href={localePath("/products/", locale)}
+          variant="secondary"
+          class="mt-7"
+        >
           {t("categories.viewAll", locale)}
         </Button>
       )}

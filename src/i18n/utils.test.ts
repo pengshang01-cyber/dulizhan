@@ -1,5 +1,10 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { localized, t } from "./utils";
+
+vi.mock("./zh.json", async (importOriginal) => {
+  const actual = await importOriginal<{ default: Record<string, string> }>();
+  return { default: { ...actual.default, "about.factoryImageAlt": "" } };
+});
 
 describe("localized content", () => {
   it("uses English on the English site even when Chinese is available", () => {

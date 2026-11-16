@@ -4,7 +4,10 @@ import { build, preview } from "astro";
 import { chromium } from "playwright";
 
 // 仅在独立截图构建的内存中替换资料，生产 JSON 和默认 dist 始终保持原值。
-export async function captureWechatPreview(destination: URL) {
+export async function captureWechatPreview(
+  destination: URL,
+  milestone = "M4b",
+) {
   const root = new URL("../", import.meta.url);
   const outDir = new URL("../.astro/wechat-preview/", import.meta.url);
   const rawSite = JSON.parse(
@@ -48,7 +51,9 @@ export async function captureWechatPreview(destination: URL) {
         isMobile: viewport.name === "mobile",
         hasTouch: viewport.name === "mobile",
       });
-      await page.goto(`http://127.0.0.1:${server.port}/contact/`);
+      await page.goto(
+        `http://127.0.0.1:${server.port}/${milestone === "M4c" ? "zh/" : ""}contact/`,
+      );
       const card = page.locator("[data-wechat-card]");
       await card.waitFor({ state: "visible" });
       if (!(await card.innerText()).includes(fixture.wechatId))
@@ -68,12 +73,23 @@ export async function captureWechatPreview(destination: URL) {
         () => document.documentElement.scrollWidth > innerWidth,
       );
       if (overflow) throw new Error("微信截图页面横向溢出");
-      const filename = `contact-wechat-preview-${viewport.name}.png`;
+      const filename = `${milestone === "M4c" ? "zh-" : ""}contact-wechat-preview-${viewport.name}.png`;
       await page.screenshot({
         fullPage: true,
         path: fileURLToPath(new URL(filename, destination)),
       });
-      console.log(`docs/reviews/M4b/${filename}`);
+      console.log(`docs/reviews/${milestone}/${filename}`);
+      if (milestone === "M4c") {
+        await page.locator("[data-wechat-open]").click();
+        await page
+          .locator("dialog[data-wechat-dialog]")
+          .waitFor({ state: "visible" });
+        const dialogFile = `zh-wechat-dialog-${viewport.name}.png`;
+        await page.screenshot({
+          path: fileURLToPath(new URL(dialogFile, destination)),
+        });
+        console.log(`docs/reviews/${milestone}/${dialogFile}`);
+      }
       await page.close();
     }
   } finally {

@@ -1,0 +1,277 @@
+---
+import { localePath } from "../../i18n/routing";
+import type { Locale } from "../../i18n/utils";
+const { locale = "en" } = Astro.props;
+import { t } from "../../i18n/utils";
+import { Image } from "astro:assets";
+import Button from "../Button.astro";
+import CheckList from "../CheckList.astro";
+import Container from "../Container.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import Eyebrow from "../Eyebrow.astro";
+import FaqAccordion from "../FaqAccordion.astro";
+import QuoteButton from "../QuoteButton.astro";
+import SectionHeading from "../SectionHeading.astro";
+import { display, site } from "../../config/site";
+import { customizationCases, customizationSteps } from "../../lib/content-data";
+import { localized } from "../../i18n/utils";
+import { resolveSiteImage } from "../../lib/site-images";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const options = [
+  {
+    title: t("pages.custom.your_logo", locale),
+    description: t(
+      "pages.custom.we_print_your_logo_on_baking_cups_send",
+      locale,
+    ),
+  },
+  {
+    title: t("pages.custom.cup_size", locale),
+    description: t(
+      "pages.custom.we_support_custom_sizing_share_your_base_diameter",
+      locale,
+    ),
+  },
+  {
+    title: t("pages.custom.brand_colors", locale),
+    description: t(
+      "pages.custom.we_work_with_your_brand_colors_share_your",
+      locale,
+    ),
+  },
+  {
+    title: t("pages.custom.prints_patterns", locale),
+    description: t("pages.custom.we_offer_a_broad_range_of_prints_and", locale),
+  },
+  {
+    title: t("pages.custom.packaging", locale),
+    description: t(
+      "pages.custom.we_support_custom_packaging_tell_us_how_you",
+      locale,
+    ),
+  },
+];
+const policies = [
+  { label: t("pages.custom.stock_moq", locale), value: site.stockMoq },
+  { label: t("pages.custom.custom_moq", locale), value: site.customMoq },
+  {
+    label: t("pages.custom.sample_lead_time", locale),
+    value: site.sampleLeadTime,
+  },
+  {
+    label: t("pages.custom.production_lead_time", locale),
+    value: site.productionLeadTime,
+  },
+  { label: t("pages.custom.sample_policy", locale), value: site.sampleCost },
+  { label: t("pages.custom.payment_terms", locale), value: site.paymentTerms },
+  {
+    label: t("pages.custom.shipping_methods", locale),
+    value: site.shippingMethods,
+  },
+];
+const process = customizationSteps.map(({ title, description }, index) => ({
+  question: `${String(index + 1).padStart(2, "0")} / ${localized(title, locale)}`,
+  answer: localized(description, locale),
+}));
+interface Props {
+  locale?: Locale;
+}
+---
+
+<BaseLayout
+  locale={locale}
+  title={t("pages.custom.custom_printed_baking_cups_oem", locale)}
+  description={t(
+    "pages.custom.we_customize_baking_cups_with_your_logo_size",
+    locale,
+  )}
+>
+  <section aria-labelledby="custom-hero-title" class="border-b border-line">
+    <Container class="grid items-center gap-9 py-12 sm:py-20 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+      <div>
+        <Eyebrow class="mb-5">
+          {t("pages.custom.custom_printing_oem", locale)}
+        </Eyebrow>
+        <DisplayHeading
+          id="custom-hero-title"
+          first={t("pages.custom.baking_cups", locale)}
+          second={t("pages.custom.made_for_your_brand", locale)}
+        />
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+          {t("pages.custom.we_bring_your_logo_colors_and_ideas_to", locale)}
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <QuoteButton locale={locale} />
+          <Button href={localePath("/products/", locale)} variant="secondary">
+            {t("pages.custom.explore_cup_styles", locale)}
+          </Button>
+        </div>
+      </div>
+      <aside class="rounded-panel border border-line bg-white p-6 shadow-panel sm:p-8">
+        <p class="text-xs font-bold tracking-[0.14em] text-copper uppercase">
+          {t("pages.custom.start_with_your_idea", locale)}
+        </p>
+        <h2 class="mt-4 font-display text-card-title font-normal">
+          {t("pages.custom.what_would_you_like_to_create", locale)}
+        </h2>
+        <CheckList
+          class="mt-6 text-sm text-ink-soft"
+          items={[
+            t("pages.custom.your_logo_or_artwork", locale),
+            t("pages.custom.cup_style_and_dimensions", locale),
+            t("pages.custom.preferred_colors_and_packaging", locale),
+            t("pages.custom.quantity_if_known_and_destination", locale),
+          ]}
+        />
+      </aside>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="custom-options-title"
+    class="bg-paper py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.custom.your_brand_your_details", locale)}
+        title={t("pages.custom.what_we_can_customize", locale)}
+        id="custom-options-title"
+        description={t(
+          "pages.custom.we_help_you_bring_the_individual_details_together",
+          locale,
+        )}
+      />
+      <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {options.map(({ title, description }, index) => (
+          <li class="rounded-panel border border-line bg-white p-6 sm:p-7">
+            <span
+              aria-hidden="true"
+              class="grid size-10 place-items-center rounded-control border border-copper font-display text-xl text-copper"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-5 font-display text-card-title font-normal">
+              {title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {description}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="custom-process-title"
+    class="dark-surface py-14 sm:py-20"
+  >
+    <Container class="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+      <SectionHeading
+        eyebrow={t("pages.custom.from_artwork_to_order", locale)}
+        title={t("pages.custom.the_custom_process", locale)}
+        id="custom-process-title"
+        description={t(
+          "pages.custom.we_work_through_your_design_and_sample_with",
+          locale,
+        )}
+      />
+      <div class="text-ink">
+        <FaqAccordion items={process} firstOpen />
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="custom-policies-title"
+    class="border-b border-line py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.custom.plan_your_order", locale)}
+        title={t("pages.custom.samples_quantities_timing", locale)}
+        id="custom-policies-title"
+        description={t(
+          "pages.custom.we_will_review_the_requirements_for_your_selected",
+          locale,
+        )}
+      />
+      <dl class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {policies.map(({ label, value }) => (
+          <div class="rounded-panel border border-line bg-white p-6">
+            <dt class="text-xs font-bold tracking-[0.12em] text-muted uppercase">
+              {label}
+            </dt>
+            <dd class="mt-4 text-base leading-relaxed wrap-anywhere text-ink-soft">
+              {display(localized(value, locale), label.toLowerCase())}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Container>
+  </section>
+
+  {customizationCases.length > 0 && (
+    <section
+      id="custom-cases"
+      aria-labelledby="custom-cases-title"
+      class="bg-paper py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.custom.custom_projects", locale)}
+          title={t("pages.custom.made_to_order", locale)}
+          id="custom-cases-title"
+        />
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {customizationCases.map(({ title, summary, image, imageAlt }) => (
+            <article class="overflow-hidden rounded-panel border border-line bg-white">
+              <Image
+                src={resolveSiteImage(image)!}
+                alt={localized(imageAlt, locale)}
+                widths={[384, 768]}
+                sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+                format="webp"
+                loading="lazy"
+                class="aspect-[3/2] w-full object-cover"
+              />
+              <div class="p-6">
+                <h3 class="font-display text-card-title font-normal">
+                  {display(
+                    localized(title, locale),
+                    t("pages.custom.case_title", locale),
+                  )}
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {display(
+                    localized(summary, locale),
+                    t("pages.custom.case_description", locale),
+                  )}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
+
+  <section
+    aria-labelledby="custom-quote-title"
+    class="dark-surface border-b border-sand/20 py-14 sm:py-20"
+  >
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow={t("pages.custom.let_s_make_it_yours", locale)}
+        title={t("pages.custom.tell_us_about_your_project", locale)}
+        id="custom-quote-title"
+        description={t(
+          "pages.custom.share_your_artwork_and_preferred_cup_style_we",
+          locale,
+        )}
+      />
+      <QuoteButton locale={locale} class="shrink-0" />
+    </Container>
+  </section>
+</BaseLayout>

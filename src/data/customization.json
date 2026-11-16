@@ -2,41 +2,41 @@
   {
     "title": {
       "en": "Send Design",
-      "zh": ""
+      "zh": "提交设计需求"
     },
     "description": {
       "en": "Share your artwork, cup dimensions, and order details.",
-      "zh": ""
+      "zh": "请提供设计稿、纸杯尺寸及订单要求。"
     }
   },
   {
     "title": {
       "en": "Mockup",
-      "zh": ""
+      "zh": "确认效果图"
     },
     "description": {
       "en": "We prepare a digital mockup of your design for your approval.",
-      "zh": ""
+      "zh": "我们根据您的设计制作电子效果图，供您确认。"
     }
   },
   {
     "title": {
       "en": "Sample",
-      "zh": ""
+      "zh": "确认样品"
     },
     "description": {
       "en": "Review a sample and confirm the specifications.",
-      "zh": ""
+      "zh": "查看样品并确认产品规格。"
     }
   },
   {
     "title": {
       "en": "Mass Production",
-      "zh": ""
+      "zh": "批量生产"
     },
     "description": {
       "en": "Confirm the approved design, quantity, and schedule.",
-      "zh": ""
+      "zh": "确认最终设计、数量及生产安排。"
     }
   }
 ]

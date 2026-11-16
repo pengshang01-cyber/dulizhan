@@ -1,0 +1,288 @@
+---
+import { localePath } from "../../i18n/routing";
+import type { Locale } from "../../i18n/utils";
+const { locale = "en" } = Astro.props;
+import { t } from "../../i18n/utils";
+import { Image } from "astro:assets";
+import heroPlaceholder from "../../assets/images/home/hero-placeholder.png";
+import Button from "../Button.astro";
+import CheckList from "../CheckList.astro";
+import Container from "../Container.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import Eyebrow from "../Eyebrow.astro";
+import FaqAccordion from "../FaqAccordion.astro";
+import { customizationSteps as steps } from "../../lib/content-data";
+import QuoteButton from "../QuoteButton.astro";
+import SectionHeading from "../SectionHeading.astro";
+import StatsBar from "../StatsBar.astro";
+import CategoryGrid from "../home/CategoryGrid.astro";
+import FactoryVideo from "../home/FactoryVideo.astro";
+import { isTodo, site } from "../../config/site";
+import { getFaqs } from "../../lib/faq";
+import { localized } from "../../i18n/utils";
+import { resolveSiteImage } from "../../lib/site-images";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const intro = t(
+  "pages.index.bulk_orders_and_custom_printing_for_bakeries_packaging",
+  locale,
+);
+const benefits = [
+  {
+    title: t("pages.index.wide_range_of_prints_colors", locale),
+    description: t(
+      "pages.index.choose_from_a_broad_library_of_patterns_solid",
+      locale,
+    ),
+    icon: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",
+  },
+  {
+    title: t("pages.index.food_grade_paper", locale),
+    description: t(
+      "pages.index.made_from_food_grade_grease_resistant_paper_material",
+      locale,
+    ),
+    icon: "m12 3 7 3v5c0 4-2.6 7.4-7 10-4.4-2.6-7-6-7-10V6l7-3Z M9 12l2 2 4-4",
+  },
+  {
+    title: t("pages.index.factory_direct_pricing", locale),
+    description: t(
+      "pages.index.buy_straight_from_the_production_line_with_pricing",
+      locale,
+    ),
+    icon: "M4 8h16v12H4z M3 4h18v4H3z M9 12h6",
+  },
+  {
+    title: t("pages.index.custom_logo_size_color", locale),
+    description: t(
+      "pages.index.print_your_logo_match_your_brand_colors_and",
+      locale,
+    ),
+    icon: "m4 16 11-11a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z M13 7l4 4 M13 20h8",
+  },
+];
+
+const videoId = site.youtubeVideoId.trim();
+const hasVideo = !isTodo(videoId) && /^[A-Za-z0-9_-]{11}$/.test(videoId);
+const certificates = site.certificates
+  .map((item) => ({
+    name: localized(item.name, locale),
+    imagePath: item.imagePath,
+  }))
+  .filter(
+    ({ name, imagePath }) =>
+      name.trim() &&
+      imagePath?.trim() &&
+      !isTodo(name.trim()) &&
+      !isTodo(imagePath.trim()),
+  );
+const featuredFaqs = getFaqs(locale).filter(({ featured }) => featured);
+interface Props {
+  locale?: Locale;
+}
+---
+
+<BaseLayout
+  locale={locale}
+  title={t("pages.index.cupcake_liners_baking_cups_manufacturer", locale)}
+  description={intro}
+>
+  <section id="home-hero" aria-labelledby="hero-title">
+    <Container class="grid items-center gap-8 py-10 sm:gap-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20">
+      <div class="min-w-0">
+        <Eyebrow class="mb-5">
+          {t("pages.index.wholesale_baking_essentials", locale)}
+        </Eyebrow>
+        <DisplayHeading
+          id="hero-title"
+          first={t("pages.index.cupcake_liners_baking_cups", locale)}
+          second={t("pages.index.made_factory_direct", locale)}
+        />
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-ink-soft sm:mt-6 sm:text-lg">
+          {intro}
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3 sm:mt-8">
+          <QuoteButton locale={locale} />
+          <Button href={localePath("/products/", locale)} variant="secondary">
+            {t("pages.index.view_products", locale)}
+          </Button>
+        </div>
+        <CheckList
+          items={[
+            t("pages.index.food_grade_paper_2", locale),
+            t("pages.index.custom_printing_oem", locale),
+          ]}
+          class="mt-6 text-ink-soft sm:flex sm:flex-wrap sm:gap-x-6"
+        />
+      </div>
+      <div class="rounded-panel border border-line bg-paper p-2 shadow-panel sm:p-3">
+        <Image
+          src={heroPlaceholder}
+          alt={t("pages.index.hero_product_image_placeholder", locale)}
+          widths={[384, 648, 960, 1200]}
+          sizes="(min-width: 80rem) 35rem, (min-width: 64rem) 46vw, calc(100vw - 2.5rem)"
+          format="webp"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-[4/3] w-full rounded-control object-cover"
+        />
+      </div>
+    </Container>
+  </section>
+
+  <StatsBar locale={locale} />
+  <CategoryGrid locale={locale} />
+
+  <section
+    aria-labelledby="benefits-title"
+    class="border-y border-line bg-paper py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.index.the_factory_advantage", locale)}
+        title={t("pages.index.why_buyers_choose_us", locale)}
+        id="benefits-title"
+      />
+      <ul class="mt-8 grid gap-x-5 gap-y-8 min-[340px]:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
+        {benefits.map(({ title, description, icon }) => (
+          <li class="border-t border-line pt-6">
+            <span
+              aria-hidden="true"
+              class="grid size-11 place-items-center rounded-control border border-copper text-copper"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="size-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d={icon}></path>
+              </svg>
+            </span>
+            <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
+              {title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {description}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </section>
+
+  <section aria-labelledby="custom-title" class="dark-surface py-14 sm:py-20">
+    <Container>
+      <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <SectionHeading
+          eyebrow={t("pages.index.custom_printing_oem", locale)}
+          title={t("pages.index.custom_printing", locale)}
+          id="custom-title"
+          description={t(
+            "pages.index.work_through_the_design_and_sample_before_confirming",
+            locale,
+          )}
+        />
+        <Button
+          href={localePath("/custom/", locale)}
+          variant="secondary"
+          class="shrink-0"
+        >
+          {t("pages.index.explore_custom_oem", locale)}{" "}
+          <span aria-hidden="true">→</span>
+        </Button>
+      </div>
+      <ol class="mt-9 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+        {steps.map(({ title, description }, index) => (
+          <li class="rounded-panel border border-line bg-white p-4 text-ink sm:p-6">
+            <span
+              aria-hidden="true"
+              class="font-display text-3xl leading-none text-copper"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
+              {localized(title, locale)}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {localized(description, locale)}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  {hasVideo && <FactoryVideo locale={locale} videoId={videoId} />}
+
+  {certificates.length > 0 && (
+    <section
+      id="certificates"
+      aria-labelledby="certificates-title"
+      class="border-b border-line py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.index.quality_documentation", locale)}
+          title={t("pages.index.factory_certificates", locale)}
+          id="certificates-title"
+        />
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {certificates.map(({ name, imagePath }) => (
+            <li>
+              <figure class="h-full rounded-panel border border-line bg-white p-4">
+                <Image
+                  src={resolveSiteImage(imagePath)!}
+                  alt={name}
+                  width={480}
+                  height={360}
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[4/3] w-full object-contain"
+                />
+                <figcaption class="mt-3 text-sm font-bold">{name}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
+  <section
+    id="home-faq"
+    aria-labelledby="home-faq-title"
+    class="border-b border-line py-14 sm:py-20"
+  >
+    <Container class="grid items-start gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+      <SectionHeading
+        eyebrow={t("pages.index.before_you_order", locale)}
+        title={t("pages.index.frequently_asked_questions", locale)}
+        id="home-faq-title"
+      />
+      <FaqAccordion items={featuredFaqs} firstOpen />
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="home-quote-title"
+    class="dark-surface border-b border-sand/20 py-14 sm:py-20"
+  >
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow={t("pages.index.let_s_talk_about_your_next_order", locale)}
+        title={t("pages.index.request_a_factory_quote", locale)}
+        id="home-quote-title"
+        description={t(
+          "pages.index.send_your_preferred_cup_style_dimensions_order_quantity",
+          locale,
+        )}
+      />
+      <QuoteButton locale={locale} class="shrink-0" />
+    </Container>
+  </section>
+</BaseLayout>

@@ -4,7 +4,7 @@
 
 1. 在 GitHub 新建一个仓库（私有即可），把本压缩包里的文件放到仓库根目录，提交到 `main`。
 2. 在 Codex 里连接这个仓库。
-3. （推荐）在 Cloudflare Pages 连接同一个仓库：构建命令 `npm run build`，输出目录 `dist`。之后每个 PR 都会自动生成预览网址，审核时可以直接打开看。
+3. 在 Cloudflare Workers 的 Workers Builds 连接同一个仓库，生产分支为 main，构建命令 `npm run build`，部署命令 `npx wrangler deploy`；wrangler.jsonc 的静态资源目录为 ./dist。PR 是否有预览取决于 Workers Builds 的分支配置，只填写已核实的 URL；没有 PR 预览时附本地截图，生产站不等于本次 PR 预览。
 
 ## 每个里程碑的循环
 
@@ -34,7 +34,7 @@
 
 ```
 审核 M2：https://github.com/<你的账号>/<仓库>/pull/3
-预览：https://<预览地址>.pages.dev   （有就附上）
+预览：<已核实的 Cloudflare Workers 预览 URL>   （有就附上）
 ```
 
 Claude 能直接读取仓库的代码、报告和截图。第一次需要你在对话里同意 Claude 访问这个仓库。
@@ -75,4 +75,4 @@ Claude 会这样回复：
 
 ## 需要你本人回答的问题
 
-Codex 报告里的“待确认问题”和“TODO 占位”需要工厂提供真实资料（产能、证书、联系方式、产品参数等）。可以随时把资料发给 Claude，Claude 会整理成一段指令让 Codex 填进 `site.ts` 和产品文件。
+Codex 报告里的“待确认问题”和“TODO 占位”需要工厂提供真实资料（产能、证书、联系方式、产品参数等）。可以随时把资料发给 Claude，Claude 会整理成一段指令让 Codex 填进 `src/data/site.json` 和产品文件；工厂也可以按 `docs/CMS.md` 通过 Pages CMS 维护。

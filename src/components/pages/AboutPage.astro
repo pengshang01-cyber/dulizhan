@@ -1,0 +1,314 @@
+---
+import { localePath } from "../../i18n/routing";
+import type { Locale } from "../../i18n/utils";
+const { locale = "en" } = Astro.props;
+import { t } from "../../i18n/utils";
+import { Image } from "astro:assets";
+import formingImage from "../../assets/images/factory/forming-equipment-placeholder.png";
+import packingImage from "../../assets/images/factory/packing-area-placeholder.png";
+import printingImage from "../../assets/images/factory/printing-workshop-placeholder.png";
+import qualityImage from "../../assets/images/factory/quality-check-placeholder.png";
+import Button from "../Button.astro";
+import CheckList from "../CheckList.astro";
+import Container from "../Container.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import Eyebrow from "../Eyebrow.astro";
+import QuoteButton from "../QuoteButton.astro";
+import SectionHeading from "../SectionHeading.astro";
+import { display, isTodo, site } from "../../config/site";
+import { teamMembers } from "../../lib/content-data";
+import { localized } from "../../i18n/utils";
+import { resolveSiteImage } from "../../lib/site-images";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const factoryImages = [
+  { image: printingImage, label: t("pages.about.printing_workshop", locale) },
+  { image: formingImage, label: t("pages.about.forming_equipment", locale) },
+  { image: qualityImage, label: t("pages.about.quality_check_area", locale) },
+  { image: packingImage, label: t("pages.about.packing_area", locale) },
+];
+const productionSteps = [
+  t("pages.about.printing", locale),
+  t("pages.about.forming", locale),
+  t("pages.about.quality_check", locale),
+  t("pages.about.packing", locale),
+  t("pages.about.shipping", locale),
+];
+const qualityNotes = [
+  {
+    title: t("pages.about.material_documentation", locale),
+    value: "TODO_MATERIAL_DOCUMENTATION",
+    label: t("pages.about.available_material_documents", locale),
+  },
+  {
+    title: t("pages.about.quality_checks", locale),
+    value: "TODO_QUALITY_CHECK_PROCESS",
+    label: t("pages.about.quality_check_process", locale),
+  },
+  {
+    title: t("pages.about.packing_checks", locale),
+    value: "TODO_PACKING_CHECK_PROCESS",
+    label: t("pages.about.packing_check_process", locale),
+  },
+];
+const certificates = site.certificates
+  .map((item) => ({
+    name: localized(item.name, locale),
+    imagePath: item.imagePath,
+  }))
+  .filter(
+    ({ name, imagePath }) =>
+      name.trim() &&
+      imagePath?.trim() &&
+      !isTodo(name.trim()) &&
+      !isTodo(imagePath.trim()),
+  );
+interface Props {
+  locale?: Locale;
+}
+---
+
+<BaseLayout
+  locale={locale}
+  title={t("pages.about.about_our_baking_cup_factory", locale)}
+  description={t(
+    "pages.about.we_make_food_grade_paper_baking_cups_for",
+    locale,
+  )}
+>
+  <section aria-labelledby="about-hero-title" class="border-b border-line">
+    <Container class="grid items-start gap-9 py-12 sm:py-20 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div>
+        <Eyebrow class="mb-5">
+          {t("pages.about.meet_your_manufacturing_partner", locale)}
+        </Eyebrow>
+        <DisplayHeading
+          id="about-hero-title"
+          first={t("pages.about.baking_cups", locale)}
+          second={t("pages.about.straight_from_the_factory", locale)}
+        />
+        <p class="mt-6 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+          {t(
+            "pages.about.we_make_paper_baking_cups_for_wholesale_buyers",
+            locale,
+          )}
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <QuoteButton locale={locale} />
+          <Button href={localePath("/products/", locale)} variant="secondary">
+            {t("pages.about.browse_products", locale)}
+          </Button>
+        </div>
+      </div>
+      <div class="rounded-panel border border-line bg-white p-6 shadow-panel sm:p-8">
+        <h2 class="font-display text-card-title font-normal wrap-anywhere">
+          {display(
+            localized(site.companyName, locale),
+            t("pages.about.company_name", locale),
+          )}
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+          {display(
+            "TODO_FACTORY_INTRODUCTION",
+            t("pages.about.factory_introduction_and_background", locale),
+          )}
+        </p>
+        <CheckList
+          class="mt-6 border-t border-line pt-6 text-sm text-ink-soft"
+          items={[
+            t("pages.about.food_grade_paper", locale),
+            t("pages.about.factory_direct_wholesale_pricing", locale),
+            t("pages.about.custom_logo_size_color_and_packaging", locale),
+          ]}
+        />
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="factory-images-title"
+    class="bg-paper py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.about.a_look_inside", locale)}
+        title={t("pages.about.workshop_equipment", locale)}
+        id="factory-images-title"
+      />
+      <div class="mt-8 grid gap-5 sm:grid-cols-2">
+        {factoryImages.map(({ image, label }) => (
+          <figure class="overflow-hidden rounded-panel border border-line bg-white">
+            <Image
+              src={image}
+              alt={t("about.factoryImageAlt", locale, { label })}
+              widths={[384, 648, 960]}
+              sizes="(min-width: 80rem) 35rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+              format="webp"
+              loading="lazy"
+              class="aspect-[3/2] w-full object-cover"
+            />
+            <figcaption class="border-t border-line p-5">
+              <span class="font-display text-card-title">{label}</span>
+              <span class="mt-2 block text-xs tracking-[0.1em] text-muted uppercase">
+                {t("pages.about.placeholder_image", locale)}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="production-title"
+    class="dark-surface py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.about.from_print_to_shipment", locale)}
+        title={t("pages.about.the_production_process", locale)}
+        id="production-title"
+      />
+      <ol data-production-steps class="mt-9 grid gap-4 md:grid-cols-5">
+        {productionSteps.map((title, index) => (
+          <li class="flex items-center gap-5 rounded-panel border border-line bg-white p-5 text-ink md:block md:p-6">
+            <span
+              aria-hidden="true"
+              class="font-display text-4xl leading-none text-copper"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 class="font-display text-card-title font-normal md:mt-5">
+              {title}
+            </h3>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  <section
+    aria-labelledby="quality-title"
+    class="border-b border-line py-14 sm:py-20"
+  >
+    <Container>
+      <SectionHeading
+        eyebrow={t("pages.about.materials_quality", locale)}
+        title={t("pages.about.food_grade_paper_clear_requirements", locale)}
+        id="quality-title"
+        description={t(
+          "pages.about.we_use_food_grade_grease_resistant_paper_tell",
+          locale,
+        )}
+      />
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
+        {qualityNotes.map(({ title, value, label }) => (
+          <article class="rounded-panel border border-line bg-white p-6 sm:p-7">
+            <h3 class="font-display text-card-title font-normal">{title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+              {display(value, label)}
+            </p>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  {certificates.length > 0 && (
+    <section
+      id="about-certificates"
+      aria-labelledby="about-certificates-title"
+      class="bg-paper py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.about.quality_documentation", locale)}
+          title={t("pages.about.factory_certificates", locale)}
+          id="about-certificates-title"
+        />
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {certificates.map(({ name, imagePath }) => (
+            <li>
+              <figure class="h-full rounded-panel border border-line bg-white p-5">
+                <Image
+                  src={resolveSiteImage(imagePath)!}
+                  alt={name}
+                  width={480}
+                  height={360}
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[4/3] w-full object-contain"
+                />
+                <figcaption class="mt-4 text-sm font-bold">{name}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
+  {teamMembers.length > 0 && (
+    <section
+      id="about-team"
+      aria-labelledby="about-team-title"
+      class="border-b border-line py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.about.the_people_behind_your_order", locale)}
+          title={t("pages.about.meet_our_team", locale)}
+          id="about-team-title"
+        />
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {teamMembers.map(({ name, role, image }) => (
+            <li class="overflow-hidden rounded-panel border border-line bg-white">
+              <Image
+                src={resolveSiteImage(image)!}
+                alt={localized(name, locale)}
+                widths={[384, 768]}
+                sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+                format="webp"
+                loading="lazy"
+                class="aspect-[4/3] w-full object-cover"
+              />
+              <div class="p-6">
+                <h3 class="font-display text-card-title font-normal">
+                  {display(
+                    localized(name, locale),
+                    t("pages.about.team_member_name", locale),
+                  )}
+                </h3>
+                <p class="mt-3 text-sm text-ink-soft">
+                  {display(
+                    localized(role, locale),
+                    t("pages.about.team_member_role", locale),
+                  )}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
+  <section
+    aria-labelledby="about-quote-title"
+    class="dark-surface border-b border-sand/20 py-14 sm:py-20"
+  >
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow={t("pages.about.work_with_us", locale)}
+        title={t("pages.about.let_s_plan_your_next_order", locale)}
+        id="about-quote-title"
+        description={t(
+          "pages.about.tell_us_which_cups_you_need_we_will",
+          locale,
+        )}
+      />
+      <QuoteButton locale={locale} class="shrink-0" />
+    </Container>
+  </section>
+</BaseLayout>

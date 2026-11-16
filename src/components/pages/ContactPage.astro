@@ -1,0 +1,186 @@
+---
+import { t, localized, type Locale } from "../../i18n/utils";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "en" } = Astro.props;
+import { localePath } from "../../i18n/routing";
+import { Image } from "astro:assets";
+import { resolveSiteImage } from "../../lib/site-images";
+import Button from "../Button.astro";
+import Container from "../Container.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import Eyebrow from "../Eyebrow.astro";
+import InquirySummary from "../InquirySummary.astro";
+import SectionHeading from "../SectionHeading.astro";
+import { display, getWhatsAppHref, isTodo, site } from "../../config/site";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const email = site.email.trim();
+const phone = site.phone.trim();
+const address = localized(site.factoryAddress, locale).trim();
+const wechatId = site.wechatId.trim();
+const hasWeChat = Boolean(wechatId && !isTodo(wechatId));
+const wechatQr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
+const contactCards = {
+  email: {
+    key: "email",
+    label: t("site.email", locale),
+    value: display(site.email, t("site.emailLabel", locale)),
+    href: email && !isTodo(email) ? "mailto:" + email : undefined,
+  },
+  phone: {
+    key: "phone",
+    label: t("site.phone", locale),
+    value: display(site.phone, t("site.phoneLabel", locale)),
+    href:
+      phone && !isTodo(phone)
+        ? "tel:" + phone.replace(/[^+\d]/g, "")
+        : undefined,
+  },
+  whatsapp: {
+    key: "whatsapp",
+    label: t("site.whatsapp", locale),
+    value: display(site.whatsappNumber, t("site.whatsappNumberLabel", locale)),
+    href: getWhatsAppHref(
+      site.whatsappNumber,
+      localized(site.whatsappPrefillMessage, locale),
+    ),
+  },
+  address: {
+    key: "address",
+    label: t("contact.address", locale),
+    value: display(
+      localized(site.factoryAddress, locale),
+      t("site.addressLabel", locale),
+    ),
+    href: undefined,
+  },
+  wechat: {
+    key: "wechat",
+    label: t("contact.wechat", locale),
+    value: wechatId,
+    href: undefined,
+  },
+};
+const order =
+  locale === "zh"
+    ? (["wechat", "phone", "whatsapp", "email", "address"] as const)
+    : (["email", "phone", "whatsapp", "address", "wechat"] as const);
+const contacts = order
+  .filter((key) => key !== "wechat" || hasWeChat)
+  .map((key) => contactCards[key]);
+const mapUrl =
+  address && !isTodo(address)
+    ? `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
+    : undefined;
+---
+
+<BaseLayout locale={locale} title={t("contact.pageTitle", locale)}>
+  <Container class="py-12 sm:py-20">
+    <Eyebrow class="mb-5">{t("contact.eyebrow", locale)}</Eyebrow>
+    <DisplayHeading
+      first={t("contact.first", locale)}
+      second={t("contact.second", locale)}
+    />
+    <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
+      {t("contact.intro", locale)}
+    </p>
+    <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {contacts.map(({ key, label, value, href }) => (
+        <section
+          data-contact-method={key}
+          data-wechat-card={key === "wechat" || undefined}
+          class="min-w-0 rounded-panel border border-line bg-white p-6"
+        >
+          <h2 class="text-xs font-bold tracking-[0.12em] text-muted uppercase">
+            {label}
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed wrap-anywhere">
+            {href ? (
+              <a href={href} class="text-copper hover:text-copper-dark">
+                {value}
+              </a>
+            ) : (
+              value
+            )}
+          </p>
+          {key === "wechat" && wechatQr && (
+            <Image
+              src={wechatQr}
+              alt={t("contact.wechatQr", locale)}
+              width={240}
+              format="webp"
+              loading="lazy"
+              class="mt-4 h-auto w-48 max-w-full"
+            />
+          )}
+        </section>
+      ))}
+    </div>
+  </Container>
+
+  <section
+    class="border-y border-line bg-paper py-14 sm:py-20"
+    aria-labelledby="quote-title"
+  >
+    <Container class="max-w-5xl">
+      <InquirySummary locale={locale} />
+      <div
+        id="quote"
+        class="rounded-panel border border-line bg-white p-6 sm:p-10"
+      >
+        <SectionHeading
+          eyebrow={t("contact.quoteEyebrow", locale)}
+          title={t("contact.quoteTitle", locale)}
+          id="quote-title"
+          description={t("contact.quoteDescription", locale)}
+        />
+        <p
+          data-quote-placeholder
+          class="mt-6 border-l-2 border-copper bg-paper p-4 text-sm leading-relaxed text-ink-soft"
+        >
+          {t("contact.placeholder", locale)}
+        </p>
+        <Button
+          href={localePath("/products/", locale)}
+          variant="secondary"
+          class="mt-6"
+        >
+          {t("inquiry.browse", locale)}
+        </Button>
+      </div>
+    </Container>
+  </section>
+
+  {mapUrl && (
+    <section aria-labelledby="factory-location-title" class="py-14 sm:py-20">
+      <Container>
+        <SectionHeading
+          eyebrow={t("contact.mapEyebrow", locale)}
+          title={t("contact.mapTitle", locale)}
+          id="factory-location-title"
+        />
+        <iframe
+          src={mapUrl}
+          title={t("contact.mapAlt", locale)}
+          width="1200"
+          height="480"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="mt-8 h-80 w-full rounded-panel border border-line sm:h-[30rem]"
+          allowfullscreen
+        ></iframe>
+      </Container>
+    </section>
+  )}
+
+  <Container class="py-8">
+    <p
+      id="privacy-policy"
+      class="w-fit rounded-control border border-line bg-white px-4 py-3 text-sm text-ink-soft target:border-copper target:bg-paper"
+    >
+      {display("TODO_PRIVACY_POLICY", t("site.privacyPolicyLabel", locale))}
+    </p>
+  </Container>
+</BaseLayout>

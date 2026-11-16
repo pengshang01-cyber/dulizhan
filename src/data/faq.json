@@ -3,11 +3,11 @@
     "topic": "Ordering",
     "q": {
       "en": "What should I include in a quote request?",
-      "zh": ""
+      "zh": "询价时需要提供哪些信息？"
     },
     "a": {
       "en": "We need your cup style, dimensions, delivery destination, and any print or packaging requirements. Share an estimated quantity if you have one, or we can discuss it with you.",
-      "zh": ""
+      "zh": "请提供杯型、尺寸、收货地点，以及印刷或包装要求。如果已有预估数量，也请一并告知；暂未确定时，我们可以继续沟通。"
     },
     "featured": true
   },
@@ -15,11 +15,11 @@
     "topic": "Ordering",
     "q": {
       "en": "What is your minimum order quantity?",
-      "zh": ""
+      "zh": "起订量是多少？"
     },
     "a": {
       "en": "We quote stock and custom orders separately. Stock MOQ: {{site.stockMoq}}. Custom MOQ: {{site.customMoq}}.",
-      "zh": ""
+      "zh": "我们会分别确认现货与定制订单的要求。现货起订量：{{site.stockMoq}}。定制起订量：{{site.customMoq}}。"
     },
     "featured": false
   },
@@ -27,11 +27,11 @@
     "topic": "Ordering",
     "q": {
       "en": "How do I request a quote for several products?",
-      "zh": ""
+      "zh": "如何一次询价多款产品？"
     },
     "a": {
       "en": "We can review several products together. Click \"+ Add to inquiry\" on each product card, then open Inquiry. Enter quantities if known, or leave them blank for discussion, and choose \"Continue to Quote Form\". Your selected products will appear together on the contact page. Form submission will be available in the next stage.",
-      "zh": ""
+      "zh": "我们可以为多款产品统一确认报价。请在各产品卡片上点击“+ 加入询价单”，再打开“询价单”。数量已确定时可填写，未确定可留空，之后点击“继续填写询价表单”。所选产品会汇总显示在联系页，表单提交功能将在下一阶段接入。"
     },
     "featured": false
   },
@@ -39,11 +39,11 @@
     "topic": "Samples",
     "q": {
       "en": "Can I request a sample before placing a bulk order?",
-      "zh": ""
+      "zh": "批量订购前可以先申请样品吗？"
     },
     "a": {
       "en": "Yes. Tell us the cup style and your shipping destination. We'll confirm sample availability and delivery details.",
-      "zh": ""
+      "zh": "可以。请告诉我们所需杯型和收货地点，我们会与您确认样品供应及寄送安排。"
     },
     "featured": true
   },
@@ -51,11 +51,11 @@
     "topic": "Samples",
     "q": {
       "en": "How long does sampling take, and what does it cost?",
-      "zh": ""
+      "zh": "打样需要多久？费用如何？"
     },
     "a": {
       "en": "We confirm sample timing and costs for your request. Sample lead time: {{site.sampleLeadTime}}. Sample policy: {{site.sampleCost}}.",
-      "zh": ""
+      "zh": "我们会根据您的需求确认打样周期和费用。打样周期：{{site.sampleLeadTime}}。样品政策：{{site.sampleCost}}。"
     },
     "featured": false
   },
@@ -63,11 +63,11 @@
     "topic": "Shipping & Payment",
     "q": {
       "en": "What is the production lead time?",
-      "zh": ""
+      "zh": "生产交期是多久？"
     },
     "a": {
       "en": "We confirm the production schedule with your order specifications. Production lead time: {{site.productionLeadTime}}.",
-      "zh": ""
+      "zh": "我们会根据订单规格与您确认生产安排。生产交期：{{site.productionLeadTime}}。"
     },
     "featured": false
   },
@@ -75,11 +75,11 @@
     "topic": "Shipping & Payment",
     "q": {
       "en": "Which shipping methods do you offer?",
-      "zh": ""
+      "zh": "可以选择哪些运输方式？"
     },
     "a": {
       "en": "We review delivery options for your destination. Shipping methods: {{site.shippingMethods}}.",
-      "zh": ""
+      "zh": "我们会根据收货地点与您确认配送方案。运输方式：{{site.shippingMethods}}。"
     },
     "featured": false
   },
@@ -87,11 +87,11 @@
     "topic": "Shipping & Payment",
     "q": {
       "en": "What are your payment terms?",
-      "zh": ""
+      "zh": "付款方式是什么？"
     },
     "a": {
       "en": "We confirm payment arrangements in your quotation. Payment terms: {{site.paymentTerms}}.",
-      "zh": ""
+      "zh": "我们会在报价时与您确认付款安排。付款方式：{{site.paymentTerms}}。"
     },
     "featured": false
   },
@@ -99,11 +99,11 @@
     "topic": "Customization",
     "q": {
       "en": "Can I use my own artwork?",
-      "zh": ""
+      "zh": "可以使用我们自己的设计稿吗？"
     },
     "a": {
       "en": "Yes. Send us your artwork, cup style and size, and we'll check the fit and send a mockup.",
-      "zh": ""
+      "zh": "可以。请发送设计稿、杯型和尺寸，我们会核对适配情况，并提供效果图供您确认。"
     },
     "featured": true
   },
@@ -111,11 +111,11 @@
     "topic": "Customization",
     "q": {
       "en": "Can you customize sizes, colors and packaging?",
-      "zh": ""
+      "zh": "可以定制尺寸、颜色和包装吗？"
     },
     "a": {
       "en": "Yes. We customize logos, sizes, colors, patterns and packaging. Share your requirements so we can check the details together.",
-      "zh": ""
+      "zh": "可以。我们支持标志、尺寸、颜色、图案和包装定制。请提供需求，我们会与您逐项确认。"
     },
     "featured": false
   },
@@ -123,11 +123,11 @@
     "topic": "Customization",
     "q": {
       "en": "Can I choose from existing prints?",
-      "zh": ""
+      "zh": "可以选择现有花色吗？"
     },
     "a": {
       "en": "Yes. We offer a broad range of patterns, solid colors and seasonal designs. Tell us your preferred style so we can discuss suitable options.",
-      "zh": ""
+      "zh": "可以。我们提供丰富的花纹、纯色与节日主题设计。请告诉我们您偏好的风格，我们会协助您选择合适款式。"
     },
     "featured": false
   },
@@ -135,11 +135,11 @@
     "topic": "Quality & Safety",
     "q": {
       "en": "How can I check food-contact requirements?",
-      "zh": ""
+      "zh": "如何确认食品接触相关要求？"
     },
     "a": {
       "en": "We use food-grade, grease-resistant paper. Tell us your market and intended use, and we'll share the relevant material documents.",
-      "zh": ""
+      "zh": "我们采用食品级防油纸。请告诉我们销售市场和产品用途，我们会提供相关材质资料。"
     },
     "featured": true
   },
@@ -147,11 +147,11 @@
     "topic": "Quality & Safety",
     "q": {
       "en": "Can I review your certificates?",
-      "zh": ""
+      "zh": "可以查看证书资料吗？"
     },
     "a": {
       "en": "We can discuss documentation for your market. Certificate information: {{site.certificates}}.",
-      "zh": ""
+      "zh": "我们可以根据您的销售市场沟通所需资料。证书信息：{{site.certificates}}。"
     },
     "featured": false
   }
