@@ -1,140 +1,305 @@
 ---
 import BrandIcon from "../components/BrandIcon.astro";
 import Button from "../components/Button.astro";
+import CheckList from "../components/CheckList.astro";
 import Container from "../components/Container.astro";
+import DisplayHeading from "../components/DisplayHeading.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 import QuoteButton from "../components/QuoteButton.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import StatsBar from "../components/StatsBar.astro";
+import TopBar from "../components/TopBar.astro";
 import { display, site } from "../config/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const colors = [
-  { label: "Primary", variable: "--color-primary", swatch: "bg-primary" },
-  { label: "Secondary", variable: "--color-secondary", swatch: "bg-secondary" },
-  { label: "Canvas", variable: "--color-canvas", swatch: "bg-canvas" },
-  { label: "Surface", variable: "--color-surface", swatch: "bg-surface" },
-  { label: "Ink", variable: "--color-ink", swatch: "bg-ink" },
-  { label: "Border", variable: "--color-line", swatch: "bg-line" },
+  { label: "Cream", hex: "#faf7f1", swatch: "bg-cream" },
+  { label: "Paper", hex: "#f4eee5", swatch: "bg-paper" },
+  { label: "Sand", hex: "#e8ddce", swatch: "bg-sand" },
+  { label: "White", hex: "#ffffff", swatch: "bg-white" },
+  { label: "Ink", hex: "#30271f", swatch: "bg-ink" },
+  { label: "Ink soft", hex: "#50453b", swatch: "bg-ink-soft" },
+  { label: "Muted", hex: "#85786b", swatch: "bg-muted" },
+  { label: "Line", hex: "#e8e1d7", swatch: "bg-line" },
+  { label: "Coffee", hex: "#36291f", swatch: "bg-coffee" },
+  { label: "Coffee 2", hex: "#4b3527", swatch: "bg-coffee-2" },
+  { label: "Copper", hex: "#a55c39", swatch: "bg-copper" },
+  { label: "Copper dark", hex: "#8e492d", swatch: "bg-copper-dark" },
 ];
-const panel =
-  "min-w-0 rounded-panel border border-line bg-surface p-5 shadow-panel sm:p-7";
+const panel = "min-w-0 rounded-panel border border-line bg-white p-5 sm:p-7";
 ---
 
 <BaseLayout title="Style Guide" noindex>
-  <Container class="py-11 sm:py-15 lg:py-18">
-    <div class="border-b border-line pb-7 sm:pb-9">
-      <div
-        class="mb-5 h-1 w-10 rounded-full bg-primary"
-        aria-hidden="true"
-      ></div>
-      <SectionHeading title="Style guide" level={1} />
+  <Container class="py-12 sm:py-16">
+    <div class="border-b border-line pb-9">
+      <Eyebrow class="mb-5">Design system · M1.5</Eyebrow>
+      <DisplayHeading first="Style guide." second="Warmth in the details." />
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft">
+        Cream, coffee, and copper. Local fonts, fine borders, and shared
+        components for every page.
+      </p>
     </div>
 
-    <div class="mt-7 grid gap-5 lg:grid-cols-2">
-      <section class={panel} aria-labelledby="colors">
-        <SectionHeading title="Colors" id="colors" />
-        <ul class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {colors.map(({ label, variable, swatch }) => (
-            <li class="min-w-0 rounded-control border border-line p-2">
-              <div
-                class:list={["h-13 rounded-sm border border-ink/10", swatch]}
-                aria-hidden="true"
-              ></div>
-              <p class="mt-2 text-sm font-semibold">{label}</p>
-              <p class="text-xs wrap-anywhere text-muted">{variable}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+    <section class="mt-10" aria-labelledby="colors">
+      <SectionHeading eyebrow="The palette" title="Colors" id="colors" />
+      <ul class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {colors.map(({ label, hex, swatch }) => (
+          <li class="min-w-0 rounded-panel border border-line bg-white p-2.5">
+            <div
+              class:list={["h-20 rounded-control border border-ink/10", swatch]}
+              aria-hidden="true"
+            ></div>
+            <p class="mt-3 text-sm font-semibold">{label}</p>
+            <p class="mt-1 text-xs text-ink-soft">{hex}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
 
+    <div class="mt-10 grid gap-6 lg:grid-cols-2">
       <section class={panel} aria-labelledby="typography">
-        <SectionHeading title="Typography" id="typography" />
-        <dl class="mt-5 grid gap-4">
+        <SectionHeading
+          eyebrow="Local typography"
+          title="Typography"
+          id="typography"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+          Newsreader 400 regular and italic. DM Sans 400, 600, 700, and 800.
+        </p>
+        <dl class="mt-6 grid gap-5">
           <div>
-            <dt class="text-xs font-semibold text-muted">
-              Page title · DM Serif Text
+            <dt class="text-xs font-semibold text-ink-soft">
+              H1 · −0.05em · 1.05 line height
             </dt>
-            <dd class="mt-1 font-display text-page-title tracking-tight">
+            <dd class="mt-3 font-display text-page-title font-normal">
               Baking cups
             </dd>
           </div>
-          <div class="border-t border-line pt-3">
-            <dt class="text-xs font-semibold text-muted">
-              Section title · DM Serif Text
+          <div class="border-t border-line pt-4">
+            <dt class="text-xs font-semibold text-ink-soft">
+              H2 · −0.045em · 1.05 line height
             </dt>
-            <dd class="mt-1 font-display text-section-title">Cupcake liners</dd>
+            <dd class="mt-3 font-display text-section-title font-normal italic text-copper">
+              Made for your brand.
+            </dd>
           </div>
-          <div class="border-t border-line pt-3">
-            <dt class="text-xs font-semibold text-muted">Body · DM Sans</dt>
-            <dd class="mt-1 text-base">Cupcake Liners and Baking Cups</dd>
+          <div class="border-t border-line pt-4">
+            <dt class="text-xs font-semibold text-ink-soft">
+              Card title · Newsreader 400
+            </dt>
+            <dd class="mt-3 font-display text-card-title">Cupcake liners</dd>
+          </div>
+          <div class="border-t border-line pt-4">
+            <dt class="text-xs font-semibold text-ink-soft">Body · DM Sans</dt>
+            <dd class="mt-3 text-base leading-relaxed">
+              Cupcake liners and baking cups, made factory direct.
+            </dd>
           </div>
         </dl>
       </section>
 
       <section class={panel} aria-labelledby="buttons">
-        <SectionHeading title="Buttons" id="buttons" />
-        <dl class="mt-5 flex flex-wrap items-end gap-x-3 gap-y-4">
+        <SectionHeading
+          eyebrow="Actions & controls"
+          title="Buttons & Inputs"
+          id="buttons"
+        />
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+          2px corners. Buttons use 11–12px text, weight 800, and 0.06em
+          tracking. Hover changes color only.
+        </p>
+        <dl class="mt-6 flex flex-wrap items-end gap-x-3 gap-y-5">
           <div>
-            <dt class="mb-1.5 text-xs font-semibold text-muted">Primary</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">
+              Primary / QuoteButton
+            </dt>
             <dd>
               <QuoteButton />
             </dd>
           </div>
           <div>
-            <dt class="mb-1.5 text-xs font-semibold text-muted">Secondary</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">Secondary</dt>
             <dd>
               <Button href="/products/" variant="secondary">
-                View products
+                View Products
               </Button>
             </dd>
           </div>
           <div>
-            <dt class="mb-1.5 text-xs font-semibold text-muted">Ghost</dt>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">Ghost</dt>
             <dd>
               <Button href="/contact/" variant="ghost">
                 Contact
               </Button>
             </dd>
           </div>
+          <div>
+            <dt class="mb-2 text-xs font-semibold text-ink-soft">Disabled</dt>
+            <dd>
+              <Button disabled>Unavailable</Button>
+            </dd>
+          </div>
         </dl>
-        <div class="mt-5 flex items-center gap-3 border-t border-line pt-4">
+        <div class="mt-7 border-t border-line pt-5">
+          <label for="sample-input" class="block text-sm font-semibold">
+            Input example
+          </label>
+          <input
+            id="sample-input"
+            type="text"
+            placeholder="Cup style"
+            class="mt-2 w-full"
+          />
+        </div>
+        <div class="mt-6 flex items-center gap-3">
           <span
-            class="grid size-10 shrink-0 place-items-center rounded-full bg-secondary-ink text-white"
+            class="grid size-11 shrink-0 place-items-center rounded-control bg-coffee text-white"
             aria-hidden="true"
           >
             <BrandIcon name="whatsapp" class="size-5" />
           </span>
-          <div class="text-sm wrap-anywhere">
-            <p class="font-semibold">WhatsApp</p>
-            <p class="text-muted">
-              {display(site.whatsappNumber, "WhatsApp number")}
-            </p>
-          </div>
+          <p class="text-sm wrap-anywhere text-ink-soft">
+            WhatsAppFloat · {display(site.whatsappNumber, "WhatsApp number")}
+          </p>
         </div>
       </section>
 
-      <section class={panel} aria-labelledby="cards">
-        <SectionHeading title="Cards" id="cards" />
-        <div class="mt-5 grid gap-3 sm:grid-cols-2">
-          <article class="rounded-panel border border-line bg-canvas p-4">
-            <SectionHeading title="Products" level={3} />
-            <a
-              href="/products/"
-              class="mt-3 inline-flex gap-2 rounded-sm text-sm font-bold text-primary hover:underline"
-            >
-              Product categories <span aria-hidden="true">→</span>
-            </a>
-          </article>
-          <article class="rounded-panel border border-secondary-line bg-secondary p-4 text-secondary-ink">
-            <SectionHeading title="Custom/OEM" level={3} />
-            <a
-              href="/custom/"
-              class="mt-3 inline-flex gap-2 rounded-sm text-sm font-bold hover:underline"
-            >
-              Custom and OEM <span aria-hidden="true">→</span>
-            </a>
-          </article>
+      <section class={panel} aria-labelledby="headings">
+        <SectionHeading
+          eyebrow="Eyebrow & DisplayHeading"
+          title="Headings"
+          id="headings"
+        />
+        <div class="mt-6 border-t border-line pt-6">
+          <Eyebrow class="mb-4">Wholesale baking essentials</Eyebrow>
+          <DisplayHeading
+            first="Cupcake Liners & Baking Cups"
+            second="Made Factory Direct."
+            level={2}
+          />
         </div>
       </section>
+
+      <section class={panel} aria-labelledby="checklist">
+        <SectionHeading
+          eyebrow="Details that matter"
+          title="CheckList"
+          id="checklist"
+        />
+        <CheckList
+          items={[
+            "A wide range of prints and colors",
+            "Food-grade paper",
+            "Factory-direct wholesale pricing",
+            "Custom logo, size, and color",
+          ]}
+          class="mt-6 text-ink-soft"
+        />
+      </section>
     </div>
+
+    <section class="mt-10" aria-labelledby="cards">
+      <SectionHeading
+        eyebrow="Surfaces & borders"
+        title="Cards, Steps & FAQ"
+        id="cards"
+      />
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+        White cards, fine borders, and 2–3px corners. The product card
+        demonstrates the shared soft shadow.
+      </p>
+      <div class="mt-6 grid items-start gap-5 lg:grid-cols-3">
+        <article class={panel + " shadow-panel"}>
+          <SectionHeading title="Products" level={3} />
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            Explore baking cup styles.
+          </p>
+          <a
+            href="/products/"
+            class="mt-5 inline-flex items-center gap-3 text-xs font-extrabold tracking-[0.06em] text-copper uppercase hover:text-copper-dark"
+          >
+            Product categories <span aria-hidden="true">→</span>
+          </a>
+        </article>
+        <article class={panel}>
+          <span aria-hidden="true" class="font-display text-3xl text-copper">
+            02
+          </span>
+          <h3 class="mt-4 font-display text-xl font-normal sm:text-card-title">
+            Mockup
+          </h3>
+          <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+            We prepare a digital mockup of your design for your approval.
+          </p>
+        </article>
+        <details open class="group rounded-control border border-line bg-white">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4 text-sm font-bold [&::-webkit-details-marker]:hidden">
+            Can I use my own artwork?
+            <span
+              aria-hidden="true"
+              class="text-xl text-copper group-open:hidden"
+            >
+              +
+            </span>
+            <span
+              aria-hidden="true"
+              class="hidden text-xl text-copper group-open:inline"
+            >
+              −
+            </span>
+          </summary>
+          <p class="px-5 pb-5 text-sm leading-relaxed text-ink-soft">
+            Yes. Send us your artwork, cup style and size, and we'll check the
+            fit and send a mockup.
+          </p>
+        </details>
+      </div>
+    </section>
   </Container>
+
+  <section aria-labelledby="stats-example">
+    <Container class="pb-6">
+      <SectionHeading
+        eyebrow="Site configuration"
+        title="StatsBar"
+        id="stats-example"
+      />
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+        Figures and labels come from the stats array. Pending values stay
+        visible.
+      </p>
+    </Container>
+    <StatsBar />
+  </section>
+
+  <section aria-labelledby="topbar-example" class="py-12">
+    <Container class="pb-6">
+      <SectionHeading
+        eyebrow="Shared announcement"
+        title="TopBar"
+        id="topbar-example"
+      />
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+        Pending items are hidden. Mobile shows the first available item.
+      </p>
+    </Container>
+    <TopBar />
+  </section>
+
+  <section class="dark-surface py-12 sm:py-16" aria-labelledby="dark-example">
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow="Coffee & cream"
+        title="Dark Surfaces"
+        id="dark-example"
+        description="Shared headings and buttons remain readable on coffee. The sticky Header and Footer frame this page."
+      />
+      <div class="flex flex-wrap gap-3">
+        <QuoteButton />
+        <Button href="/custom/" variant="secondary">
+          Custom/OEM
+        </Button>
+      </div>
+    </Container>
+  </section>
 </BaseLayout>

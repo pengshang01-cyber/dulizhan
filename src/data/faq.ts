@@ -3,28 +3,28 @@ export const faqs = [
     topic: "Ordering",
     question: "What should I include in a quote request?",
     answer:
-      "Share the type of baking cup, its dimensions, the quantity you need, your delivery destination, and any print or packaging requirements.",
+      "We need your cup style, dimensions, quantity, delivery destination, and any print or packaging requirements to prepare your quote.",
     featured: true,
   },
   {
     topic: "Customization",
     question: "Can I use my own artwork?",
     answer:
-      "Send your artwork with the cup style and dimensions. The factory can review how the design fits the cup and discuss the next step with you.",
+      "Yes. Send us your artwork, cup style and size, and we'll check the fit and send a mockup.",
     featured: true,
   },
   {
     topic: "Samples",
     question: "Can I request a sample before placing a bulk order?",
     answer:
-      "Include a sample request and your shipping destination in your inquiry. The factory can confirm which samples are available and how to arrange delivery.",
+      "Yes. Tell us the cup style and your shipping destination. We'll confirm sample availability and delivery details.",
     featured: true,
   },
   {
     topic: "Quality & Safety",
     question: "How can I check food-contact requirements?",
     answer:
-      "Tell the factory where the cups will be sold and how they will be used. Request the material specifications and any applicable documents for the product you are considering.",
+      "We use food-grade, grease-resistant paper. Tell us your market and intended use, and we'll share the relevant material documents.",
     featured: true,
   },
 ] as const;

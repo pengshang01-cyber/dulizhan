@@ -4,8 +4,12 @@ import { preview } from "astro";
 import { chromium } from "playwright";
 
 const milestone = process.argv[2];
-if (!milestone || !/^M\d+$/.test(milestone) || process.argv.length !== 3) {
-  throw new Error("用法：npm run screenshots -- M0");
+if (
+  !milestone ||
+  !/^M\d+[a-z]?$/.test(milestone) ||
+  process.argv.length !== 3
+) {
+  throw new Error("用法：npm run screenshots -- M0（或 M1b 等补充里程碑）");
 }
 
 const pages: { name: string; path: string }[] = JSON.parse(
@@ -59,6 +63,8 @@ try {
             `无法截取 ${route.path}（${response?.status() ?? "无响应"}）`,
           );
         }
+
+        await page.evaluate(() => document.fonts.ready.then(() => true));
 
         const filename = `${route.name}-${size}.png`;
         await page.screenshot({

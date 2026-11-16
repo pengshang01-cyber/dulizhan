@@ -1,0 +1,24 @@
+---
+interface Props {
+  first: string;
+  second: string;
+  level?: 1 | 2;
+  id?: string;
+  class?: string;
+}
+
+const { first, second, level = 1, id, class: className } = Astro.props;
+const Heading = level === 1 ? "h1" : "h2";
+---
+
+<Heading
+  id={id}
+  class:list={[
+    "font-display font-normal wrap-anywhere",
+    level === 1 ? "text-page-title" : "text-section-title",
+    className,
+  ]}
+>
+  <span class="block">{first}</span>
+  <em class="block font-normal text-copper">{second}</em>
+</Heading>

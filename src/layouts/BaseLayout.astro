@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import TopBar from "../components/TopBar.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import "../styles/global.css";
 
@@ -36,13 +37,14 @@ const { title, description, canonical, og, noindex = false } = Astro.props;
     {og?.url && <meta property="og:url" content={og.url} />}
     {noindex && <meta name="robots" content="noindex" />}
   </head>
-  <body class="flex min-h-screen flex-col bg-canvas font-sans text-ink antialiased">
+  <body class="flex min-h-screen flex-col bg-cream font-sans text-ink antialiased">
     <a
       href="#main-content"
-      class="sr-only font-semibold focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-40 focus:rounded-control focus:bg-surface focus:px-4 focus:py-3"
+      class="sr-only font-semibold focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-40 focus:rounded-control focus:bg-white focus:px-4 focus:py-3"
     >
       Skip to content
     </a>
+    <TopBar />
     <Header />
     <main id="main-content" class="flex-1">
       <slot />

@@ -18,14 +18,18 @@ const categories = productCategories.map((category) => {
 
 <section aria-labelledby="categories-title" class="py-14 sm:py-20">
   <Container>
-    <SectionHeading title="Product Categories" id="categories-title" />
+    <SectionHeading
+      eyebrow="Find your baking cup"
+      title="Product Categories"
+      id="categories-title"
+    />
     <ul class="mt-7 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
       {categories.map(({ id, label, summary, cover }) => (
         <li>
           <a
             href={"/products/#" + id}
             aria-labelledby={"cover-title-" + id}
-            class="group flex h-full flex-col overflow-hidden rounded-panel border border-line bg-surface shadow-panel transition-colors hover:border-primary motion-reduce:transition-none"
+            class="group flex h-full flex-col overflow-hidden rounded-panel border border-line bg-white transition-colors hover:border-copper motion-reduce:transition-none"
           >
             <Image
               src={cover}
@@ -39,15 +43,14 @@ const categories = productCategories.map((category) => {
             <div class="flex flex-1 flex-col p-3.5 sm:p-5">
               <h3
                 id={"cover-title-" + id}
-                class="font-display text-lg leading-tight wrap-anywhere group-hover:text-primary sm:text-card-title"
+                class="font-display text-xl leading-tight font-normal wrap-anywhere group-hover:text-copper sm:text-card-title"
               >
                 {label}
               </h3>
-              <p class="mt-2 text-sm leading-relaxed text-muted">{summary}</p>
-              <span
-                aria-hidden="true"
-                class="mt-auto pt-2 text-lg font-bold text-primary"
-              >
+              <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                {summary}
+              </p>
+              <span aria-hidden="true" class="mt-auto pt-3 text-lg text-copper">
                 →
               </span>
             </div>

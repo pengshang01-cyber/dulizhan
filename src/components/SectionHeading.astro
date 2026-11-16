@@ -1,12 +1,15 @@
 ---
+import Eyebrow from "./Eyebrow.astro";
+
 interface Props {
   title: string;
   description?: string;
   level?: 1 | 2 | 3;
   id?: string;
+  eyebrow?: string;
 }
 
-const { title, description, level = 2, id } = Astro.props;
+const { title, description, level = 2, id, eyebrow } = Astro.props;
 const Heading = { 1: "h1", 2: "h2", 3: "h3" }[level] as "h1" | "h2" | "h3";
 const size = {
   1: "text-page-title",
@@ -15,14 +18,17 @@ const size = {
 }[level];
 ---
 
-<Heading
-  id={id}
-  class:list={["font-display font-normal tracking-tight wrap-anywhere", size]}
->
-  {title}
-</Heading>
-{description && (
-  <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-    {description}
-  </p>
-)}
+<div class="min-w-0">
+  {eyebrow && <Eyebrow class="mb-4">{eyebrow}</Eyebrow>}
+  <Heading
+    id={id}
+    class:list={["font-display font-normal wrap-anywhere", size]}
+  >
+    {title}
+  </Heading>
+  {description && (
+    <p class="section-description mt-4 max-w-2xl text-base leading-relaxed text-ink-soft sm:text-lg">
+      {description}
+    </p>
+  )}
+</div>

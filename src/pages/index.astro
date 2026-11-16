@@ -2,57 +2,44 @@
 import { Image } from "astro:assets";
 import heroPlaceholder from "../assets/images/home/hero-placeholder.png";
 import Button from "../components/Button.astro";
+import CheckList from "../components/CheckList.astro";
 import Container from "../components/Container.astro";
+import DisplayHeading from "../components/DisplayHeading.astro";
+import Eyebrow from "../components/Eyebrow.astro";
 import QuoteButton from "../components/QuoteButton.astro";
 import SectionHeading from "../components/SectionHeading.astro";
+import StatsBar from "../components/StatsBar.astro";
 import CategoryGrid from "../components/home/CategoryGrid.astro";
 import FactoryVideo from "../components/home/FactoryVideo.astro";
-import { display, isTodo, site } from "../config/site";
+import { isTodo, site } from "../config/site";
 import { faqs } from "../data/faq";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const intro =
   "Bulk orders and custom printing for bakeries, packaging distributors, and food brands.";
-const metrics = [
-  { name: "Founded", placeholder: "founding year", value: site.foundedYear },
-  {
-    name: "Daily Capacity",
-    placeholder: "daily capacity",
-    value: site.dailyCapacity,
-  },
-  {
-    name: "Export Countries",
-    placeholder: "export country count",
-    value: site.exportCountryCount,
-  },
-  {
-    name: "Colors & Patterns",
-    placeholder: "pattern count",
-    value: site.patternCount,
-  },
-];
 const benefits = [
   {
-    title: "Colors & Patterns",
-    description: "Share the colors or patterns you need for your packaging.",
+    title: "Wide Range of Prints & Colors",
+    description:
+      "Choose from a broad library of patterns, solid colors and seasonal designs, or bring your own artwork.",
     icon: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",
   },
   {
-    title: "Food-Contact Requirements",
+    title: "Food-Grade Paper",
     description:
-      "Discuss the intended use and request the relevant material documentation.",
+      "Made from food-grade, grease-resistant paper. Material documents are available on request.",
     icon: "m12 3 7 3v5c0 4-2.6 7.4-7 10-4.4-2.6-7-6-7-10V6l7-3Z M9 12l2 2 4-4",
   },
   {
-    title: "Factory-Direct Bulk Orders",
+    title: "Factory-Direct Pricing",
     description:
-      "Send your quantities and delivery destination for a factory quote.",
+      "Buy straight from the production line with pricing built for wholesale volumes.",
     icon: "M4 8h16v12H4z M3 4h18v4H3z M9 12h6",
   },
   {
-    title: "Custom Printing",
+    title: "Custom Logo, Size & Color",
     description:
-      "Share your artwork and cup dimensions to discuss a custom print.",
+      "Print your logo, match your brand colors and choose the size and packaging you need.",
     icon: "m4 16 11-11a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z M13 7l4 4 M13 20h8",
   },
 ];
@@ -62,8 +49,9 @@ const steps = [
     description: "Share your artwork, cup dimensions, and order details.",
   },
   {
-    title: "Free Mockup",
-    description: "Ask if a free mockup is available for your design.",
+    title: "Mockup",
+    description:
+      "We prepare a digital mockup of your design for your approval.",
   },
   {
     title: "Sample",
@@ -91,21 +79,16 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
   title="Cupcake Liners & Baking Cups Manufacturer"
   description={intro}
 >
-  <section id="home-hero" aria-labelledby="hero-title" class="bg-surface">
-    <Container class="grid items-center gap-8 pt-11 pb-9 sm:gap-10 sm:pt-16 sm:pb-14 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:py-19">
+  <section id="home-hero" aria-labelledby="hero-title">
+    <Container class="grid items-center gap-8 py-10 sm:gap-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20">
       <div class="min-w-0">
-        <div
-          aria-hidden="true"
-          class="mb-5 h-1 w-10 rounded-full bg-primary sm:mb-7"
-        ></div>
-        <h1
+        <Eyebrow class="mb-5">Wholesale baking essentials</Eyebrow>
+        <DisplayHeading
           id="hero-title"
-          class="font-display text-[clamp(2.55rem,4.7vw,4.65rem)] leading-[1.02] tracking-[-0.035em] wrap-anywhere"
-        >
-          Cupcake Liners &amp; Baking Cups
-          <span class="mt-1.5 block text-primary">Factory Direct</span>
-        </h1>
-        <p class="mt-5 max-w-lg text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+          first="Cupcake Liners & Baking Cups"
+          second="Made Factory Direct."
+        />
+        <p class="mt-5 max-w-lg text-base leading-relaxed text-ink-soft sm:mt-6 sm:text-lg">
           {intro}
         </p>
         <div class="mt-6 flex flex-wrap gap-3 sm:mt-8">
@@ -114,8 +97,12 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
             View Products
           </Button>
         </div>
+        <CheckList
+          items={["Food-grade paper", "Custom printing & OEM"]}
+          class="mt-6 text-ink-soft sm:flex sm:flex-wrap sm:gap-x-6"
+        />
       </div>
-      <div class="rounded-panel border border-line bg-canvas p-2 shadow-panel sm:p-3">
+      <div class="rounded-panel border border-line bg-paper p-2 shadow-panel sm:p-3">
         <Image
           src={heroPlaceholder}
           alt="Hero product image placeholder"
@@ -130,50 +117,25 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
     </Container>
   </section>
 
-  <section
-    aria-label="Factory figures"
-    class="border-y border-secondary-line bg-secondary"
-  >
-    <Container>
-      <dl class="grid grid-cols-2 gap-px bg-secondary-line lg:grid-cols-4">
-        {metrics.map(({ name, value, placeholder }) => (
-          <div class="min-w-0 bg-secondary px-3.5 py-4 sm:px-6 sm:py-5">
-            <dt class="text-xs font-bold text-secondary-ink sm:text-sm">
-              {name}
-            </dt>
-            <dd
-              class:list={[
-                "mt-1.5 leading-tight wrap-anywhere text-ink",
-                isTodo(value)
-                  ? "text-sm font-semibold sm:text-base"
-                  : "font-display text-[clamp(1.35rem,2.4vw,2rem)]",
-              ]}
-            >
-              {display(value, placeholder)}
-            </dd>
-          </div>
-        ))}
-      </dl>
-    </Container>
-  </section>
-
+  <StatsBar />
   <CategoryGrid />
 
   <section
     aria-labelledby="benefits-title"
-    class="border-y border-line bg-surface py-14 sm:py-20"
+    class="border-y border-line bg-paper py-14 sm:py-20"
   >
     <Container>
       <SectionHeading
-        title="Work Directly With the Factory"
+        eyebrow="The factory advantage"
+        title="Why Buyers Choose Us"
         id="benefits-title"
       />
-      <ul class="mt-7 grid gap-x-5 gap-y-6 sm:gap-x-7 sm:gap-y-8 min-[340px]:grid-cols-2 lg:grid-cols-4">
+      <ul class="mt-8 grid gap-x-5 gap-y-8 min-[340px]:grid-cols-2 sm:gap-x-8 lg:grid-cols-4">
         {benefits.map(({ title, description, icon }) => (
-          <li class="border-t border-line pt-5">
+          <li class="border-t border-line pt-6">
             <span
               aria-hidden="true"
-              class="grid size-11 place-items-center rounded-control bg-primary-soft text-primary"
+              class="grid size-11 place-items-center rounded-control border border-copper text-copper"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -187,42 +149,46 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
                 <path d={icon}></path>
               </svg>
             </span>
-            <h3 class="mt-3 text-base leading-tight font-bold">{title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+            <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
+              {title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {description}
+            </p>
           </li>
         ))}
       </ul>
     </Container>
   </section>
 
-  <section
-    aria-labelledby="custom-title"
-    class="border-b border-secondary-line bg-secondary py-14 sm:py-20"
-  >
+  <section aria-labelledby="custom-title" class="dark-surface py-14 sm:py-20">
     <Container>
-      <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between">
-        <div class="min-w-0">
-          <SectionHeading
-            title="Custom Printing"
-            id="custom-title"
-            description="Work through the design and sample before confirming your production order."
-          />
-        </div>
-        <Button href="/custom/" variant="ghost" class="shrink-0">
+      <div class="flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <SectionHeading
+          eyebrow="Custom printing & OEM"
+          title="Custom Printing"
+          id="custom-title"
+          description="Work through the design and sample before confirming your production order."
+        />
+        <Button href="/custom/" variant="secondary" class="shrink-0">
           Explore Custom/OEM <span aria-hidden="true">→</span>
         </Button>
       </div>
-      <ol class="mt-8 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+      <ol class="mt-9 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
         {steps.map(({ title, description }, index) => (
-          <li class="rounded-panel border border-secondary-line bg-surface p-4 sm:p-5">
+          <li class="rounded-panel border border-line bg-white p-4 text-ink sm:p-6">
             <span
               aria-hidden="true"
-              class="grid size-8 place-items-center rounded-full bg-secondary text-sm font-bold text-secondary-ink"
+              class="font-display text-3xl leading-none text-copper"
             >
-              {index + 1}
+              {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 class="mt-3 text-base leading-tight font-bold">{title}</h3>
-            <p class="mt-2 text-sm leading-relaxed text-muted">{description}</p>
+            <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
+              {title}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {description}
+            </p>
           </li>
         ))}
       </ol>
@@ -238,11 +204,15 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
       class="border-b border-line py-14 sm:py-20"
     >
       <Container>
-        <SectionHeading title="Factory Certificates" id="certificates-title" />
-        <ul class="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <SectionHeading
+          eyebrow="Quality documentation"
+          title="Factory Certificates"
+          id="certificates-title"
+        />
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {certificates.map(({ name, imagePath }) => (
             <li>
-              <figure class="h-full rounded-panel border border-line bg-surface p-4">
+              <figure class="h-full rounded-panel border border-line bg-white p-4">
                 <img
                   src={imagePath}
                   alt={name}
@@ -264,32 +234,36 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
   <section
     id="home-faq"
     aria-labelledby="home-faq-title"
-    class="border-b border-line bg-surface py-14 sm:py-20"
+    class="border-b border-line py-14 sm:py-20"
   >
-    <Container class="grid items-start gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-      <SectionHeading title="Frequently Asked Questions" id="home-faq-title" />
-      <div class="grid gap-2.5">
+    <Container class="grid items-start gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+      <SectionHeading
+        eyebrow="Before you order"
+        title="Frequently Asked Questions"
+        id="home-faq-title"
+      />
+      <div class="grid gap-3">
         {featuredFaqs.map(({ question, answer }, index) => (
           <details
             open={index === 0}
-            class="group rounded-control border border-line bg-canvas"
+            class="group rounded-control border border-line bg-white"
           >
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-3 rounded-control px-4 py-3.5 text-sm font-bold sm:px-5 sm:text-base [&::-webkit-details-marker]:hidden">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-3 rounded-control px-4 py-4 text-sm leading-relaxed font-bold sm:px-5 [&::-webkit-details-marker]:hidden">
               {question}
               <span
                 aria-hidden="true"
-                class="text-xl leading-none text-primary group-open:hidden"
+                class="text-xl leading-none text-copper group-open:hidden"
               >
                 +
               </span>
               <span
                 aria-hidden="true"
-                class="hidden text-xl leading-none text-primary group-open:inline"
+                class="hidden text-xl leading-none text-copper group-open:inline"
               >
                 −
               </span>
             </summary>
-            <p class="px-4 pb-4 text-sm leading-relaxed text-muted sm:px-5">
+            <p class="px-4 pb-5 text-sm leading-relaxed text-ink-soft sm:px-5">
               {answer}
             </p>
           </details>
@@ -298,18 +272,18 @@ const featuredFaqs = faqs.filter(({ featured }) => featured);
     </Container>
   </section>
 
-  <section aria-labelledby="home-quote-title" class="py-12 sm:py-16">
-    <Container>
-      <div class="flex flex-col items-start gap-6 rounded-panel border border-line bg-primary-soft p-6 sm:p-9 lg:flex-row lg:items-center lg:justify-between lg:px-12 lg:py-10">
-        <div class="min-w-0">
-          <SectionHeading
-            title="Request a Factory Quote"
-            id="home-quote-title"
-            description="Send your preferred cup style, dimensions, order quantity, and print requirements."
-          />
-        </div>
-        <QuoteButton class="shrink-0" />
-      </div>
+  <section
+    aria-labelledby="home-quote-title"
+    class="dark-surface border-b border-sand/20 py-14 sm:py-20"
+  >
+    <Container class="flex flex-col items-start gap-7 lg:flex-row lg:items-center lg:justify-between">
+      <SectionHeading
+        eyebrow="Let's talk about your next order"
+        title="Request a Factory Quote"
+        id="home-quote-title"
+        description="Send your preferred cup style, dimensions, order quantity, and print requirements."
+      />
+      <QuoteButton class="shrink-0" />
     </Container>
   </section>
 </BaseLayout>
