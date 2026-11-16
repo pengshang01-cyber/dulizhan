@@ -16,6 +16,7 @@ export interface SiteConfig {
   dailyCapacity: SiteMetric;
   exportCountryCount: SiteMetric;
   patternCount: SiteMetric;
+  youtubeVideoId: string;
   certificates: { name: string; imagePath: string }[];
   socialLinks: Record<SocialPlatform, string>;
 }
@@ -33,6 +34,7 @@ export const site: SiteConfig = {
   dailyCapacity: "TODO_DAILY_CAPACITY",
   exportCountryCount: "TODO_EXPORT_COUNTRY_COUNT",
   patternCount: "TODO_PATTERN_COUNT",
+  youtubeVideoId: "TODO_YOUTUBE_VIDEO_ID",
   certificates: [
     { name: "TODO_CERTIFICATE_NAME", imagePath: "TODO_CERTIFICATE_IMAGE_PATH" },
   ],
@@ -76,13 +78,4 @@ export const navigation = [
   { label: "Blog", href: "/blog/" },
   { label: "FAQ", href: "/faq/" },
   { label: "Contact", href: "/contact/" },
-] as const;
-
-export const productCategories = [
-  { id: "standard-liners", label: "Standard liners" },
-  { id: "greaseproof-liners", label: "Greaseproof liners" },
-  { id: "foil-cups", label: "Foil cups" },
-  { id: "tulip-cups", label: "Tulip cups" },
-  { id: "muffin-cups", label: "Muffin cups" },
-  { id: "hard-baking-cups", label: "Hard baking cups" },
 ] as const;

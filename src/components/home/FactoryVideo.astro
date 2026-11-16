@@ -1,0 +1,74 @@
+---
+import Container from "../Container.astro";
+import SectionHeading from "../SectionHeading.astro";
+
+interface Props {
+  videoId: string;
+}
+
+const { videoId } = Astro.props;
+const thumbnail = "https://i.ytimg.com/vi/" + videoId + "/hqdefault.jpg";
+const embed =
+  "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1";
+---
+
+<section
+  id="factory-video"
+  aria-labelledby="factory-video-title"
+  class="border-b border-line bg-surface py-14 sm:py-20"
+>
+  <Container>
+    <SectionHeading title="Inside the Factory" id="factory-video-title" />
+    <div class="relative isolate mt-7 aspect-video min-h-[200px] max-w-3xl rounded-panel bg-footer shadow-panel">
+      <button
+        type="button"
+        data-video-embed={embed}
+        class="relative isolate grid size-full cursor-pointer place-items-center overflow-hidden rounded-panel text-white"
+      >
+        <img
+          src={thumbnail}
+          alt=""
+          width="480"
+          height="360"
+          loading="lazy"
+          decoding="async"
+          class="absolute inset-0 -z-10 size-full object-cover opacity-65"
+        />
+        <span
+          class="grid size-16 place-items-center rounded-full bg-primary transition-colors hover:bg-primary-hover motion-reduce:transition-none"
+          aria-hidden="true"
+        >
+          <svg viewBox="0 0 24 24" class="size-7" fill="currentColor">
+            <path d="M8 4.9v14.2a.75.75 0 0 0 1.16.63l10.65-7.1a.75.75 0 0 0 0-1.26L9.16 4.27A.75.75 0 0 0 8 4.9Z"></path>
+          </svg>
+        </span>
+        <span class="sr-only">Play factory video</span>
+      </button>
+      <script is:inline>
+        (() => {
+          const button = document.currentScript?.previousElementSibling;
+          if (
+            !(button instanceof HTMLButtonElement) ||
+            !button.dataset.videoEmbed
+          )
+            return;
+          button.addEventListener(
+            "click",
+            () => {
+              const player = document.createElement("iframe");
+              player.src = button.dataset.videoEmbed;
+              player.title = "Factory video";
+              player.className = "absolute inset-0 size-full rounded-panel";
+              player.allow = "autoplay; encrypted-media; picture-in-picture";
+              player.allowFullscreen = true;
+              player.referrerPolicy = "strict-origin-when-cross-origin";
+              button.replaceWith(player);
+              player.focus();
+            },
+            { once: true },
+          );
+        })();
+      </script>
+    </div>
+  </Container>
+</section>
