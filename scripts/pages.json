@@ -128,5 +128,39 @@
       "sample-standard-liner": "10,000",
       "sample-tulip-cup": ""
     }
+  },
+  {
+    "name": "thank-you",
+    "path": "/thank-you/",
+    "milestones": ["M5"]
+  },
+  {
+    "name": "zh-thank-you",
+    "path": "/zh/thank-you/",
+    "milestones": ["M5"]
+  },
+  {
+    "name": "contact-validation",
+    "path": "/contact/",
+    "formState": "validation",
+    "milestones": ["M5"]
+  },
+  {
+    "name": "zh-contact-validation",
+    "path": "/zh/contact/",
+    "formState": "validation",
+    "milestones": ["M5"]
+  },
+  {
+    "name": "contact-unavailable",
+    "path": "/contact/",
+    "formState": "unavailable",
+    "milestones": ["M5"]
+  },
+  {
+    "name": "zh-contact-unavailable",
+    "path": "/zh/contact/",
+    "formState": "unavailable",
+    "milestones": ["M5"]
   }
 ]

@@ -16,13 +16,15 @@
 | 样式 | Tailwind CSS |
 | 内容 | Astro Content Collections：`src/content/products/`、`src/content/blog/` |
 | 图片 | `astro:assets`（自动出 WebP、懒加载） |
-| 表单后端 | M5 接入 Worker 脚本处理 `/api/inquiry`；`wrangler.jsonc` 配置 main 入口和 ASSETS 绑定，仅 `/api/*` 先走 Worker；Cloudflare Turnstile 防垃圾 + Resend 发邮件 |
+| 表单后端 | `src/worker/index.ts` 处理 POST `/api/inquiry`；`wrangler.jsonc` 配置 main 入口和 ASSETS 绑定，仅 `/api/*` 先走 Worker，其余交给静态资源；Cloudflare Turnstile + 蜜罐防垃圾，Resend 发送双语询盘邮件 |
 | 部署 | Cloudflare Workers 静态资源；Workers Builds 从 GitHub main 自动构建，构建命令 `npm run build`，部署命令 `npx wrangler deploy` |
 | 统计 | GA4（ID 从环境变量读取） |
 | SEO | `@astrojs/sitemap`、每页 meta、JSON-LD 结构化数据 |
 | 语言 | Node 20+，TypeScript strict |
 
 如果确实需要新增依赖，在审核报告的“偏离与新增依赖”里写明理由。
+
+询盘 API 的运行时密钥只从 Worker 的 `env` 读取：线上在 Variables and Secrets 配置，本地在已忽略的 `.dev.vars` 配置。`PUBLIC_` 构建变量会进入浏览器，不能存放密钥。缺少运行时配置返回 503 并提示其他联系方式。测试发信替身只用于独立测试入口，生产入口不得提供跳过 Turnstile 或模拟发信成功的开关。API 自身生成的响应须按 `allowIndexing` 设置收录响应头；静态 `_headers` 不自动应用到 API。
 
 ## 3. 硬性规则
 
@@ -54,6 +56,7 @@ src/
   components/             # 可复用组件（Header, Footer, QuoteButton, WhatsAppFloat, ProductCard...）
   layouts/BaseLayout.astro
   pages/                  # 路由
+  worker/index.ts         # Worker 入口；询盘 API 与静态资源回退
   content/
     config.ts             # collection schema
     categories/*.json    # 分类 id 由文件名生成
@@ -62,7 +65,7 @@ src/
   assets/images/          # 需要优化的图片
 public/                   # favicon、默认禁止收录的 robots.txt / _headers
 scripts/indexing.ts       # 构建后按 allowIndexing 生成最终收录配置
-wrangler.jsonc            # Workers 静态资源部署；M5 再配置 API 入口和 ASSETS 绑定
+wrangler.jsonc            # Workers API 入口、ASSETS 绑定与 previews；仅 /api/* 优先执行 Worker
 .pages.yml               # Pages CMS 后台配置
 docs/
   PLAN.md

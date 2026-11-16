@@ -4,7 +4,7 @@ import astro from "eslint-plugin-astro";
 import tseslint from "typescript-eslint";
 
 export default defineConfig(
-  globalIgnores([".astro/", "dist/"]),
+  globalIgnores([".astro/", ".wrangler/", "dist/"]),
   { files: ["**/*.{js,mjs,cjs}"], extends: [js.configs.recommended] },
   { files: ["**/*.ts"], extends: [tseslint.configs.recommended] },
   astro.configs.recommended,

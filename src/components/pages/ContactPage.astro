@@ -4,14 +4,12 @@ interface Props {
   locale?: Locale;
 }
 const { locale = "en" } = Astro.props;
-import { localePath } from "../../i18n/routing";
 import { Image } from "astro:assets";
 import { resolveSiteImage } from "../../lib/site-images";
-import Button from "../Button.astro";
 import Container from "../Container.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
-import InquirySummary from "../InquirySummary.astro";
+import InquiryForm from "../InquiryForm.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { display, getWhatsAppHref, isTodo, site } from "../../config/site";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -125,7 +123,6 @@ const mapUrl =
     aria-labelledby="quote-title"
   >
     <Container class="max-w-5xl">
-      <InquirySummary locale={locale} />
       <div
         id="quote"
         class="rounded-panel border border-line bg-white p-6 sm:p-10"
@@ -136,19 +133,7 @@ const mapUrl =
           id="quote-title"
           description={t("contact.quoteDescription", locale)}
         />
-        <p
-          data-quote-placeholder
-          class="mt-6 border-l-2 border-copper bg-paper p-4 text-sm leading-relaxed text-ink-soft"
-        >
-          {t("contact.placeholder", locale)}
-        </p>
-        <Button
-          href={localePath("/products/", locale)}
-          variant="secondary"
-          class="mt-6"
-        >
-          {t("inquiry.browse", locale)}
-        </Button>
+        <InquiryForm locale={locale} />
       </div>
     </Container>
   </section>

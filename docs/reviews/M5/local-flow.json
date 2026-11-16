@@ -1,0 +1,29 @@
+{
+  "browser": [
+    {
+      "locale": "en",
+      "realWidget": false,
+      "status": 200,
+      "listCleared": true,
+      "leadEvent": true,
+      "productPrefill": true,
+      "validation": true,
+      "thanksNoindex": true
+    },
+    {
+      "locale": "zh",
+      "realWidget": false,
+      "status": 200,
+      "listCleared": true,
+      "leadEvent": true,
+      "productPrefill": true,
+      "validation": true,
+      "thanksNoindex": true
+    }
+  ],
+  "realSiteverifySuccesses": 2,
+  "mockedEmails": 2,
+  "staticHeaders": true,
+  "missingRoute404": true,
+  "method405": true
+}

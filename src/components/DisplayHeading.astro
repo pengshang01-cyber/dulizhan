@@ -14,11 +14,11 @@ const Heading = level === 1 ? "h1" : "h2";
 <Heading
   id={id}
   class:list={[
-    "font-display font-normal wrap-anywhere",
+    "display-heading font-display font-normal wrap-anywhere",
     level === 1 ? "text-page-title" : "text-section-title",
     className,
   ]}
 >
-  <span class="block">{first}</span>
-  <em class="block font-normal text-copper">{second}</em>
+  <span class="display-heading-phrase block">{first}</span>
+  <em class="display-heading-phrase block font-normal text-copper">{second}</em>
 </Heading>

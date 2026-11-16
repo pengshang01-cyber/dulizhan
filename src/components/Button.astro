@@ -10,7 +10,13 @@ type Props = ButtonStyle &
     | (HTMLAttributes<"button"> & { href?: undefined })
   );
 
-const { variant = "primary", class: className, ...attributes } = Astro.props;
+const {
+  variant = "primary",
+  class: className,
+  type,
+  ...attributes
+} = Astro.props;
+const buttonType = type === "submit" || type === "reset" ? type : "button";
 const variants = {
   primary:
     "button-primary border-coffee bg-coffee text-white hover:bg-coffee-2 hover:border-coffee-2",
@@ -26,12 +32,12 @@ const classes = [
 ---
 
 {attributes.href !== undefined ? (
-  <a {...attributes} class:list={classes}>
+  <a {...attributes} type={type} class:list={classes}>
     <slot />
     {variant === "primary" && <span aria-hidden="true">→</span>}
   </a>
 ) : (
-  <button type="button" {...attributes} class:list={classes}>
+  <button type={buttonType} {...attributes} class:list={classes}>
     <slot />
     {variant === "primary" && <span aria-hidden="true">→</span>}
   </button>

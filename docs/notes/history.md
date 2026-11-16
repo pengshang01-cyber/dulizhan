@@ -21,3 +21,5 @@
 - 已提交 5f84b78 并推送 m4c-zh，创建 PR #8。GitHub Actions CI 43859840551 四项检查通过；Workers Builds 26b2623d-c578-4316-a1ec-cf24024a0f8e 返回 failure，GitHub 无错误详情，已请求用户提供控制台日志。尚未定位或宣称部署成功。
 
 - 2026-11-16 审核修复：用户确认 Workers 预览命令缺少 previews 配置；顶层加入 previews: {}，其余配置未改，README / M4c 报告同步。lint 与 build 均通过，按指定 review-fix 提交信息推送同一分支。
+
+- 2026-11-16：按用户确认计划，从已合并PR #8的main c38401a创建m5-inquiry；完成双语询盘表单/感谢页、Worker API及邮件、防垃圾、中文标题修复。四项检查通过，183 tests、42截图；本地Wrangler真实Siteverify两次+mock邮件两封，未实际发信。报告docs/reviews/M5.md。

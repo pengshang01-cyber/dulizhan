@@ -30,8 +30,8 @@
       "zh": "如何一次询价多款产品？"
     },
     "a": {
-      "en": "We can review several products together. Click \"+ Add to inquiry\" on each product card, then open Inquiry. Enter quantities if known, or leave them blank for discussion, and choose \"Continue to Quote Form\". Your selected products will appear together on the contact page. Form submission will be available in the next stage.",
-      "zh": "我们可以为多款产品统一确认报价。请在各产品卡片上点击“+ 加入询价单”，再打开“询价单”。数量已确定时可填写，未确定可留空，之后点击“继续填写询价表单”。所选产品会汇总显示在联系页，表单提交功能将在下一阶段接入。"
+      "en": "We can review several products together. Click \"+ Add to inquiry\" on each product card, then open Inquiry. Enter quantities if known, or leave them blank for discussion, and choose \"Continue to Quote Form\". Complete the form to send all selected products together.",
+      "zh": "我们可以为多款产品统一确认报价。请在各产品卡片上点击“+ 加入询价单”，再打开“询价单”。数量已确定时可填写，未确定可留空，之后点击“继续填写询价表单”，填写并提交表单即可统一发送所选产品。"
     },
     "featured": false
   },

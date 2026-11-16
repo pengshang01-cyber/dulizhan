@@ -1,4 +1,5 @@
 .astro/
+.wrangler/
 dist/
 /package-lock.json
 /AGENTS.md
