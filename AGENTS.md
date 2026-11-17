@@ -106,7 +106,7 @@ docs/
 - 中文不下载或自托管字体：中文标题使用系统衬线栈，正文使用系统无衬线栈；英文和数字继续使用 Newsreader / DM Sans。中文标题取消负字距，行高约 1.25–1.35；copper 强调保留颜色但使用正体，不使用伪斜体。
 - 按钮、卡片和输入框圆角统一为 2–3px；卡片白底细边框。阴影使用 `0 18px 55px rgba(50,38,29,.11)`，不使用大圆角或悬停位移动画。
 - primary 按钮 coffee 底白字，11–12px、字重 800、字距约 `0.06em`，右侧带箭头；secondary 透明底、ink 细边框。深色区块内增加浅色边框和文字对比，悬停只变色。
-- Eyebrow 小号大写、字距约 `0.2em`、copper 色，左侧 24px 细线；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。
+- Eyebrow 小号大写、字距约 `0.2em`；小字用 copper-dark 保证 paper 背景下对比度，左侧 24px 细线用 copper；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。
 - Header 为 cream 半透明吸顶样式，当前导航为 copper 文字及细下划线；手机导航保持独立的 `Mobile` 标签。TopBar 从 `site.topBarItems` 读取，隐藏 TODO 项，手机仅显示第一条有效项。
 - StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；TODO 数值保留为可见的 `[TODO: …]`。
 - 产品实拍未提供时继续使用带 `Placeholder` 字样的新配色本地占位图，不复制参考站图片，不用 AI 产品图冒充实拍。所有页面保持 375px 下无横向溢出。

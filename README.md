@@ -149,7 +149,7 @@ M8 确认上线后，只需在 CMS 开启“允许搜索引擎收录”（或将
 
 隐私政策位于 /privacy-policy/ 与 /zh/privacy-policy/，顶部明确标注模板；M8 前核对实际运营主体、邮箱、服务使用情况和资料保存安排。表单提交处及页脚均链接当前语言政策。
 
-运行 `npm run screenshots -- M6` 生成双语 Cookie、隐私政策、404 与联系页声明截图，并运行独立浏览器统计验证。Workers 本地路由用 `npx wrangler dev` 验证；部署后分别访问一个不存在的英文路径和 /zh/ 路径，确认 HTTP 404 与页面语言。回退依据 [Workers 就近 404 规则](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/#custom-404-pages)。
+M6 的双语 Cookie、隐私政策、404 与联系页声明历史截图保留于 docs/reviews/M6/。当前运行 `npm run screenshots -- M7`，验证无 GA 配置时隐藏入口，并使用隔离配置回归有效 ID 的统计同意流程。Workers 本地路由用 `npx wrangler dev` 验证；部署后分别访问一个不存在的英文路径和 /zh/ 路径，确认 HTTP 404 与页面语言。回退依据 [Workers 就近 404 规则](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/#custom-404-pages)。
 
 ## 工作记录
 
