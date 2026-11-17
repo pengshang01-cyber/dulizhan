@@ -1,3 +1,4 @@
+import { blogFields } from "../lib/blog-schema";
 import { readdirSync } from "node:fs";
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
@@ -82,4 +83,14 @@ const products = defineCollection({
       order: z.number().int(),
     }),
 });
-export const collections = { categories, products };
+const blog = defineCollection({
+  loader: glob({ pattern: "*.json", base: "./src/content/blog" }),
+  schema: ({ image }) =>
+    blogFields
+      .extend({ cover: image() })
+      .refine((data) => !data.updated || data.updated >= data.date, {
+        message: "更新日期不能早于发布日期",
+        path: ["updated"],
+      }),
+});
+export const collections = { categories, products, blog };

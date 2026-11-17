@@ -1,14 +1,107 @@
 ---
-import type { Locale } from "../../i18n/utils";
-const { locale = "en" } = Astro.props;
-import { t } from "../../i18n/utils";
-import PagePlaceholder from "../PagePlaceholder.astro";
+import { t, type Locale } from "../../i18n/utils";
+import { getBlogPosts } from "../../lib/blog";
+import { blogPageCount, blogPageHref, pagePosts } from "../../lib/blog-rules";
+import { localePath } from "../../i18n/routing";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../Container.astro";
+import Eyebrow from "../Eyebrow.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import BlogCard from "../BlogCard.astro";
+import Button from "../Button.astro";
+import QuoteButton from "../QuoteButton.astro";
 interface Props {
   locale?: Locale;
+  page?: number;
 }
+const { locale = "en", page = 1 } = Astro.props;
+const posts = await getBlogPosts(locale);
+const total = blogPageCount(posts.length);
+const other = locale === "en" ? "zh" : "en";
+const otherTotal = blogPageCount((await getBlogPosts(other)).length);
+const languagePaths = {
+  en: blogPageHref(page, "en"),
+  ...(page <= (locale === "zh" ? total : otherTotal) && {
+    zh: blogPageHref(page, "zh"),
+  }),
+};
 ---
 
-<BaseLayout locale={locale}>
-  <PagePlaceholder locale={locale} title={t("pages.blog.blog", locale)} />
+<BaseLayout
+  locale={locale}
+  languagePaths={languagePaths}
+  title={page > 1 ? t("blog.pagedTitle", locale, { page }) : undefined}
+  description={
+    page > 1 ? t("blog.pagedDescription", locale, { page }) : undefined
+  }
+>
+  <section class="border-b border-line bg-paper py-12 sm:py-20">
+    <Container>
+      <Eyebrow class="mb-5">{t("blog.eyebrow", locale)}</Eyebrow>
+      <DisplayHeading
+        first={t("blog.first", locale)}
+        second={t("blog.second", locale)}
+      />
+      <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
+        {t("blog.intro", locale)}
+      </p>
+    </Container>
+  </section>
+  <Container class="py-12 sm:py-16">
+    {posts.length ? (
+      <>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {pagePosts(posts, page).map((post) => (
+            <BlogCard post={post} locale={locale} />
+          ))}
+        </div>
+        {total > 1 && (
+          <nav
+            aria-label={t("blog.pagination", locale)}
+            class="mt-10 flex flex-wrap items-center justify-center gap-5"
+          >
+            {page > 1 && (
+              <Button
+                href={blogPageHref(page - 1, locale)}
+                variant="secondary"
+                rel="prev"
+              >
+                {t("blog.previousPage", locale)}
+              </Button>
+            )}
+            <p class="text-sm text-ink-soft">
+              {t("blog.page", locale, { page, total })}
+            </p>
+            {page < total && (
+              <Button
+                href={blogPageHref(page + 1, locale)}
+                variant="secondary"
+                rel="next"
+              >
+                {t("blog.nextPage", locale)}
+              </Button>
+            )}
+          </nav>
+        )}
+      </>
+    ) : (
+      <section
+        class="rounded-panel border border-line bg-white p-8 sm:p-12"
+        data-blog-empty
+      >
+        <h2 class="font-display text-section-title font-normal">
+          {t("blog.emptyTitle", locale)}
+        </h2>
+        <p class="mt-4 max-w-2xl leading-relaxed text-ink-soft">
+          {t("blog.emptyText", locale)}
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3">
+          <QuoteButton locale={locale} />
+          <Button href={localePath("/products/", locale)} variant="secondary">
+            {t("blog.browse", locale)}
+          </Button>
+        </div>
+      </section>
+    )}
+  </Container>
 </BaseLayout>

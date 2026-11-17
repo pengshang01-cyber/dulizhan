@@ -1,0 +1,128 @@
+{
+  "htmlPages": 35,
+  "imageCount": 58,
+  "imgErrors": [],
+  "scriptDuplicates": [],
+  "fonts": [
+    {
+      "name": "dm-sans-latin-400-normal.CW0RaeGs.woff2",
+      "bytes": 14200
+    },
+    {
+      "name": "dm-sans-latin-600-normal.Aqo67rzb.woff2",
+      "bytes": 14144
+    },
+    {
+      "name": "dm-sans-latin-700-normal.DvUfVpUG.woff2",
+      "bytes": 14348
+    },
+    {
+      "name": "dm-sans-latin-800-normal.C2H8778U.woff2",
+      "bytes": 14404
+    },
+    {
+      "name": "newsreader-latin-400-italic.CEihAR-f.woff2",
+      "bytes": 24340
+    },
+    {
+      "name": "newsreader-latin-400-normal.BFBkh4jY.woff2",
+      "bytes": 22480
+    }
+  ],
+  "totalFontBytes": 103916,
+  "network": [
+    {
+      "name": "en-home",
+      "scripts": [
+        {
+          "url": "/_astro/InquiryLink.astro_astro_type_script_index_0_lang.Bpahm3af.js",
+          "bytes": 443
+        },
+        {
+          "url": "/_astro/inquiry.Dhlpxfs9.js",
+          "bytes": 1996
+        }
+      ],
+      "googleRequests": 0
+    },
+    {
+      "name": "zh-home",
+      "scripts": [
+        {
+          "url": "/_astro/InquiryLink.astro_astro_type_script_index_0_lang.Bpahm3af.js",
+          "bytes": 443
+        },
+        {
+          "url": "/_astro/inquiry.Dhlpxfs9.js",
+          "bytes": 1996
+        }
+      ],
+      "googleRequests": 0
+    },
+    {
+      "name": "product",
+      "scripts": [
+        {
+          "url": "/_astro/InquiryLink.astro_astro_type_script_index_0_lang.Bpahm3af.js",
+          "bytes": 443
+        },
+        {
+          "url": "/_astro/AddToInquiryButton.astro_astro_type_script_index_0_lang.CXYQSk-m.js",
+          "bytes": 757
+        },
+        {
+          "url": "/_astro/InquiryForm.astro_astro_type_script_index_0_lang.Dsr4xgB5.js",
+          "bytes": 9568
+        },
+        {
+          "url": "/_astro/inquiry.Dhlpxfs9.js",
+          "bytes": 1996
+        },
+        {
+          "url": "/_astro/analytics.BlEglPhl.js",
+          "bytes": 1044
+        },
+        {
+          "url": "/_astro/inquiry-view.mZmZ-Ow-.js",
+          "bytes": 672
+        },
+        {
+          "url": "/_astro/utils.Bwdl433F.js",
+          "bytes": 81858
+        }
+      ],
+      "googleRequests": 0
+    },
+    {
+      "name": "contact",
+      "scripts": [
+        {
+          "url": "/_astro/InquiryLink.astro_astro_type_script_index_0_lang.Bpahm3af.js",
+          "bytes": 443
+        },
+        {
+          "url": "/_astro/InquiryForm.astro_astro_type_script_index_0_lang.Dsr4xgB5.js",
+          "bytes": 9568
+        },
+        {
+          "url": "/_astro/inquiry.Dhlpxfs9.js",
+          "bytes": 1996
+        },
+        {
+          "url": "/_astro/inquiry-view.mZmZ-Ow-.js",
+          "bytes": 672
+        },
+        {
+          "url": "/_astro/utils.Bwdl433F.js",
+          "bytes": 81858
+        }
+      ],
+      "googleRequests": 0
+    }
+  ],
+  "removedBrowserConfigChunk": {
+    "beforeBytes": 87830,
+    "afterBytes": 672
+  },
+  "scope": "Production draft build; raw resource sizes, not compressed transfer size; images through Astro; no Google requests"
+}

@@ -34,6 +34,12 @@ media:
       - webp
       - avif
     rename: safe
+  - name: blog
+    label: 资讯文章图片
+    input: src/assets/images/blog
+    output: ../../assets/images/blog
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
 content:
   - name: products
     label: 产品
@@ -524,6 +530,122 @@ content:
         description: 有产品且勾选后可进入首页分类区；首页最多显示六类。
         type: boolean
         default: true
+  - name: blog
+    label: 资讯文章
+    type: collection
+    path: src/content/blog
+    format: json
+    subfolders: false
+    filename:
+      template: "{primary}.json"
+      field: create
+    view:
+      primary: title.en
+      fields: [title.en, date, draft]
+      sort: [date, title.en]
+      search: [title.en, title.zh]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: 文章标题
+        description: 英文必填；中文选填。正文有中文时，未填的中文标题或简介回退英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 文章标题（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 文章标题（中文）
+            type: string
+            default: ""
+      - name: description
+        label: 文章简介
+        description: 英文必填；中文选填。正文有中文时，未填的中文标题或简介回退英文。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 文章简介（英文）
+            type: text
+            required: true
+          - name: zh
+            label: 文章简介（中文）
+            type: text
+            default: ""
+      - name: date
+        label: 发布日期
+        description: 必填，格式 YYYY-MM-DD；列表按此日期从新到旧排序。关闭草稿后即发布，不是定时发布。
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: updated
+        label: 更新日期
+        default: ""
+        description: 选填，不能早于发布日期；没有修订时留空。
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: cover
+        label: 文章封面
+        description: 上传经确认的图片，建议 1600 × 900；不要用示例 Placeholder 作为正式封面。
+        type: image
+        required: true
+        options:
+          media: blog
+      - name: tags
+        label: 文章标签
+        description: 可添加多个标签，英文必填，中文选填；中文缺失时回退英文。
+        type: object
+        list: true
+        default: []
+        fields:
+          - name: en
+            label: 标签（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 标签（中文）
+            type: string
+            default: ""
+      - name: relatedProducts
+        default: []
+        label: 相关产品
+        description: 可多选，文章底部显示产品卡片；删除产品前请先移除文章中的引用。
+        type: reference
+        options:
+          collection: products
+          multiple: true
+          value: "{fields.slug}"
+          label: "{fields.title.en} ({fields.sku})"
+          search: title.en,title.zh,sku,slug
+      - name: draft
+        label: 草稿（不上线）
+        description: 默认开启；核对图文和参数后再关闭。草稿不会生成页面，也不会进入列表或 sitemap。
+        type: boolean
+        default: true
+        required: true
+      - name: bodyEn
+        label: 正文（英文）
+        description: 必填。用二级、三级标题生成目录；可插入博客媒体库图片。具体数字须核实，未确认用 [TODO]。
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: blog
+          switcher: true
+      - name: bodyZh
+        label: 正文（中文）
+        description: 选填；留空时不生成中文文章，不把英文正文放进中文站。
+        type: rich-text
+        options:
+          format: markdown
+          media: blog
+          switcher: true
   - name: site
     label: 网站设置
     type: file

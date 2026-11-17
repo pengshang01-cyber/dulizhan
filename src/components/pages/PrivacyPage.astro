@@ -1,4 +1,5 @@
 ---
+import { measurementId } from "../../lib/analytics";
 import { display, isTodo, site } from "../../config/site";
 import { localized, t, type Locale } from "../../i18n/utils";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -46,15 +47,16 @@ const sections = [
           <p class="mt-4 leading-relaxed text-ink-soft">
             {t(`privacy.${section}.text`, locale)}
           </p>
-          {section === "choice" && (
-            <button
-              type="button"
-              data-cookie-settings
-              class="mt-5 rounded-control border border-ink px-4 py-3 text-sm font-bold hover:bg-paper"
-            >
-              {t("cookie.settings", locale)}
-            </button>
-          )}
+          {section === "choice" &&
+            measurementId(site.analytics.gaMeasurementId) && (
+              <button
+                type="button"
+                data-cookie-settings
+                class="mt-5 rounded-control border border-ink px-4 py-3 text-sm font-bold hover:bg-paper"
+              >
+                {t("cookie.settings", locale)}
+              </button>
+            )}
         </section>
       ))}
       <section class="dark-surface rounded-panel p-6 sm:p-8">

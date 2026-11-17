@@ -1,0 +1,26 @@
+{
+  "title": {
+    "en": "Cupcake Liner Sizes Chart: How to Choose the Right Baking Cup",
+    "zh": "蛋糕纸托尺寸对照表：如何选择合适的烘焙纸杯"
+  },
+  "description": {
+    "en": "A buyer’s outline for comparing liner dimensions, checking tray fit and preparing a size specification for a wholesale inquiry.",
+    "zh": "从底径、高度、口径和烤盘适配入手，整理适合批量采购的纸托尺寸需求。"
+  },
+  "date": "2026-11-17",
+  "cover": "../../assets/images/blog/blog-cover-placeholder.png",
+  "tags": [
+    {
+      "en": "Buying guide",
+      "zh": "采购指南"
+    },
+    {
+      "en": "Sizes",
+      "zh": "尺寸选择"
+    }
+  ],
+  "relatedProducts": ["sample-standard-liner", "sample-muffin-cup"],
+  "draft": true,
+  "bodyEn": "## Start with the finished product\n\nWriting outline: identify what you bake, how it will be displayed, and whether you use a supporting tray. Describe the intended use before comparing liner sizes.\n\nDraft paragraph: We offer a wide range of prints and colors and support custom requirements. Confirm the exact cup and tray combination with a physical sample before placing an order.\n\n## Measure the liner and the tray\n\n### Base diameter\n\nOutline: show how to measure the inside base of the tray cavity and the base of an opened liner. Add a verified measurement diagram here: [TODO].\n\n### Height and top diameter\n\nOutline: explain the measuring points and how the rim is defined for each cup style. Confirm usable dimensions with the factory: [TODO].\n\n## Build your size comparison chart\n\nReplace the placeholders only after checking the actual product specifications.\n\n| Cup style | Base diameter | Height | Top diameter | Tray reference |\n| --- | --- | --- | --- | --- |\n| Standard cupcake liner | [TODO] | [TODO] | [TODO] | [TODO] |\n| Muffin cup | [TODO] | [TODO] | [TODO] | [TODO] |\n\n## Check fit with a sample\n\nOutline: record the tray reference, expected fill level, baking conditions and the result of your sample trial. Do not assume different cup styles share the same dimensions.\n\nDraft paragraph: Send us your tray measurements and the product you want to pack. We can discuss the suitable cup style and the information needed for a sample. Sample cost and lead time: [TODO].\n\n## Prepare a clear size inquiry\n\n- Cup style and product reference.\n- Base diameter, height and top diameter: [TODO].\n- Paper and print requirements.\n- Order quantity: [TODO].\n- Packaging and destination.\n\n## Review before publishing\n\nOutline: replace the draft table with approved product data, add real measurement photos and confirm the terminology. Pricing and production lead time remain [TODO] until confirmed.",
+  "bodyZh": "## 先明确成品与使用方式\n\n写作提纲：说明烘焙成品、陈列方式以及是否配合烤盘使用，再开始比较纸托尺寸。\n\n占位段落：我们提供多种花色与图案，并支持定制。不同纸托与烤盘的适配情况，应通过实物样品确认后再安排采购。\n\n## 测量纸托与烤盘\n\n### 底部直径\n\n提纲：说明烤盘内底与展开纸托底部的测量方法。补充经工厂确认的测量示意图：[TODO]。\n\n### 高度与顶部直径\n\n提纲：标明不同杯型的测量起止位置。具体可用尺寸请工厂核对：[TODO]。\n\n## 整理尺寸对照表\n\n以下表格仅为写作结构，所有尺寸应以确认后的产品资料为准。\n\n| 杯型 | 底径 | 高度 | 口径 | 对应烤盘 |\n| --- | --- | --- | --- | --- |\n| 普通蛋糕纸托 | [TODO] | [TODO] | [TODO] | [TODO] |\n| 马芬杯 | [TODO] | [TODO] | [TODO] | [TODO] |\n\n## 用样品确认适配\n\n提纲：记录烤盘型号、预期装填位置、烘焙条件和试样结果，不要默认不同杯型的规格可以直接互换。\n\n占位段落：请提供烤盘尺寸和计划包装的产品，我们会与您沟通杯型和样品需求。样品费用及打样周期：[TODO]。\n\n## 提供清晰的询价需求\n\n- 杯型与产品参考。\n- 底径、高度和口径：[TODO]。\n- 纸张及印刷要求。\n- 预计数量：[TODO]。\n- 包装方式与收货地。\n\n## 发布前核对\n\n提纲：替换为已确认的规格表，补充真实测量照片并统一术语。价格与生产交期未经确认时保留 [TODO]。"
+}

@@ -44,6 +44,9 @@ const buttonClass =
   <p data-cookie-status role="status" class="mt-2 text-sm text-copper-dark"></p>
 </section>
 <script>
-  import { initializeAnalytics } from "../lib/analytics-browser";
-  initializeAnalytics();
+  // 没有有效 GA 配置时不下载同意管理和界面字典模块。
+  if (document.querySelector("[data-cookie-consent]")) {
+    const { initializeAnalytics } = await import("../lib/analytics-browser");
+    initializeAnalytics();
+  }
 </script>

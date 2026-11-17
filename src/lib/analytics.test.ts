@@ -22,6 +22,15 @@ function fixture(initial: string | null = null) {
   return { storage, transport, access: () => storage };
 }
 describe("optional analytics consent", () => {
+  it.each(["", "  ", "TODO_GA_MEASUREMENT_ID", "TODO_GA", undefined, null])(
+    "disables the shared server-side Cookie UI gate for %s",
+    (value) => {
+      expect(Boolean(measurementId(value))).toBe(false);
+    },
+  );
+  it("restores the Cookie UI gate after entering a valid ID", () => {
+    expect(Boolean(measurementId("G-ABC123"))).toBe(true);
+  });
   it.each([
     undefined,
     "",

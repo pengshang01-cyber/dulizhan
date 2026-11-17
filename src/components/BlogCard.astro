@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import { localized, t, type Locale } from "../i18n/utils";
+import { blogHref } from "../lib/blog-rules";
+import type { BlogPost } from "../lib/blog";
+interface Props {
+  post: BlogPost;
+  locale: Locale;
+}
+const { post, locale } = Astro.props;
+const title = localized(post.data.title, locale);
+const dateLabel = new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
+  dateStyle: "long",
+  timeZone: "UTC",
+}).format(new Date(post.data.date + "T00:00:00Z"));
+---
+
+<article
+  class="flex min-w-0 flex-col rounded-panel border border-line bg-white"
+  data-blog-card={post.id}
+>
+  <a href={blogHref(post.id, locale)} tabindex="-1" aria-hidden="true">
+    <Image
+      src={post.data.cover}
+      alt=""
+      widths={[480, 800]}
+      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, calc(100vw - 2.5rem)"
+      format="webp"
+      loading="lazy"
+      class="aspect-video w-full border-b border-line object-cover"
+    />
+  </a>
+  <div class="flex flex-1 flex-col p-6">
+    <time
+      datetime={post.data.date}
+      class="text-xs font-semibold tracking-wider text-ink-soft"
+    >
+      {dateLabel}
+    </time>
+    <h2 class="mt-4 font-display text-card-title font-normal">
+      <a href={blogHref(post.id, locale)} class="hover:text-copper">
+        {title}
+      </a>
+    </h2>
+    <p class="mt-4 text-sm leading-relaxed text-ink-soft">
+      {localized(post.data.description, locale)}
+    </p>
+    <a
+      href={blogHref(post.id, locale)}
+      class="mt-auto pt-6 text-xs font-extrabold tracking-wider text-copper uppercase"
+      aria-label={t("blog.read", locale) + ": " + title}
+    >
+      {t("blog.read", locale)} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</article>

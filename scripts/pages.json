@@ -210,5 +210,35 @@
     "path": "/zh/contact/",
     "cookie": "rejected",
     "milestones": ["M6"]
+  },
+  {
+    "name": "m7-home-no-cookie",
+    "path": "/",
+    "milestones": ["M7"]
+  },
+  {
+    "name": "m7-zh-home-no-cookie",
+    "path": "/zh/",
+    "milestones": ["M7"]
+  },
+  {
+    "name": "m7-blog-empty",
+    "path": "/blog/",
+    "milestones": ["M7"]
+  },
+  {
+    "name": "m7-zh-blog-empty",
+    "path": "/zh/blog/",
+    "milestones": ["M7"]
+  },
+  {
+    "name": "m7-privacy-no-cookie",
+    "path": "/privacy-policy/",
+    "milestones": ["M7"]
+  },
+  {
+    "name": "m7-zh-privacy-no-cookie",
+    "path": "/zh/privacy-policy/",
+    "milestones": ["M7"]
   }
 ]

@@ -76,7 +76,7 @@ interface Props {
   import { readInquiryCatalog, inquiryDisplayItem } from "../lib/inquiry-view";
   import { t } from "../i18n/utils";
   const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
-  import { display } from "../config/site";
+  import { display } from "../lib/placeholders";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
   const summary = document.querySelector<HTMLElement>("[data-inquiry-summary]");

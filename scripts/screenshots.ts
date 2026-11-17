@@ -64,7 +64,8 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (milestone === "M6") return Boolean(milestones?.includes("M6"));
+      if (milestone === "M6" || milestone === "M7")
+        return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
       }
@@ -176,6 +177,19 @@ try {
           );
         }
 
+        if (
+          milestone === "M7" &&
+          (await page
+            .locator(
+              "[data-cookie-consent], [data-cookie-settings], [data-analytics-script]",
+            )
+            .count())
+        ) {
+          throw new Error(
+            "GA 未配置时仍显示 Cookie 设置或加载统计：" + route.path,
+          );
+        }
+
         if (route.cookie === "banner")
           await page
             .locator("[data-cookie-consent]")
@@ -206,7 +220,7 @@ try {
         }
 
         if (
-          ["M5", "M6"].includes(milestone) &&
+          ["M5", "M6", "M7"].includes(milestone) &&
           (await page.locator("[data-inquiry-form]").count())
         ) {
           await page.locator("[data-inquiry-form]").scrollIntoViewIfNeeded();
@@ -261,7 +275,7 @@ try {
         });
 
         if (
-          ["M5", "M6"].includes(milestone) &&
+          ["M5", "M6", "M7"].includes(milestone) &&
           (await page.evaluate(
             () => document.documentElement.scrollWidth > window.innerWidth,
           ))
@@ -269,7 +283,7 @@ try {
           throw new Error(`截图页面横向溢出：${route.path} / ${width}`);
         }
 
-        if (milestone === "M5" || milestone === "M6") {
+        if (["M5", "M6", "M7"].includes(milestone)) {
           await page.evaluate(() => window.scrollTo(0, 0));
         }
         const filename = `${route.name}-${size}.png`;
@@ -395,6 +409,13 @@ if (milestone === "M4b" || milestone === "M4c") {
 }
 
 if (milestone === "M6") {
+  const { verifySeoBrowser } = await import("./seo-browser-qa.ts");
+  await verifySeoBrowser(destination);
+}
+
+if (milestone === "M7") {
+  const { verifyBlogPreview } = await import("./blog-preview.ts");
+  await verifyBlogPreview(destination);
   const { verifySeoBrowser } = await import("./seo-browser-qa.ts");
   await verifySeoBrowser(destination);
 }

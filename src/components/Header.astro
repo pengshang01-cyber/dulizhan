@@ -2,8 +2,9 @@
 import { t, localized, type Locale } from "../i18n/utils";
 interface Props {
   locale?: Locale;
+  languagePaths?: Partial<Record<Locale, string>>;
 }
-const { locale = "en" } = Astro.props;
+const { locale = "en", languagePaths } = Astro.props;
 import { localePath, unlocalizedPath } from "../i18n/routing";
 import LanguageSwitch from "./LanguageSwitch.astro";
 import { display, navigation, site } from "../config/site";
@@ -20,11 +21,8 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
 
 <header class="sticky top-0 z-30 border-b border-line bg-cream/95 backdrop-blur-md">
   <Container class="flex min-h-18 items-center justify-between gap-2.5 py-3 lg:gap-4">
-    <a
-      href={localePath("/", locale)}
-      aria-label={t("nav.brandHome", locale, { brand })}
-      class="flex min-w-0 items-center gap-2.5"
-    >
+    <a href={localePath("/", locale)} class="flex min-w-0 items-center gap-2.5">
+      <span class="sr-only">{t("nav.home", locale)}</span>
       <span class="brand-mark hidden sm:grid" aria-hidden="true"></span>
       <span class="min-w-0 wrap-anywhere">
         <span class="block text-xs leading-tight font-bold sm:text-sm">
@@ -60,7 +58,11 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
     </nav>
 
     <div class="flex shrink-0 items-center gap-2">
-      <LanguageSwitch locale={locale} class="hidden sm:flex" />
+      <LanguageSwitch
+        locale={locale}
+        paths={languagePaths}
+        class="hidden sm:flex"
+      />
       <InquiryLink locale={locale} />
       <QuoteButton locale={locale} class="shrink-0" />
       <details class="group xl:hidden" data-mobile-menu>
@@ -79,6 +81,7 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
           <Container class="py-3">
             <LanguageSwitch
               locale={locale}
+              paths={languagePaths}
               class="mb-3 border-b border-line px-3 pb-3"
             />
             <ul class="grid gap-0.5">

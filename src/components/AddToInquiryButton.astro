@@ -19,6 +19,8 @@ const { product, class: className } = Astro.props;
   variant="secondary"
   class={className}
   data-track="add_to_inquiry"
+  data-label-add={t("inquiry.add", locale)}
+  data-label-added={t("inquiry.added", locale)}
   data-inquiry-slug={product.slug}
   data-inquiry-sku={product.sku}
   data-inquiry-title={product.title}
@@ -32,8 +34,6 @@ const { product, class: className } = Astro.props;
 
 <script>
   import { completedTracking } from "../lib/analytics";
-  import { t } from "../i18n/utils";
-  const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
   import {
     addItem,
     getItems,
@@ -53,8 +53,8 @@ const { product, class: className } = Astro.props;
       const label = button.querySelector<HTMLElement>("[data-inquiry-label]");
       if (label)
         label.textContent = added
-          ? t("inquiry.added", locale)
-          : t("inquiry.add", locale);
+          ? (button.dataset.labelAdded ?? "")
+          : (button.dataset.labelAdd ?? "");
       button.disabled = false;
     }
   }

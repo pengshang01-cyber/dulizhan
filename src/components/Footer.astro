@@ -1,4 +1,5 @@
 ---
+import { measurementId } from "../lib/analytics";
 import { t, localized, type Locale } from "../i18n/utils";
 interface Props {
   locale?: Locale;
@@ -205,9 +206,11 @@ const socialClass =
       <a href={localePath("/privacy-policy/", locale)} class={linkClass}>
         {t("site.privacyPolicy", locale)}
       </a>
-      <button type="button" data-cookie-settings class={linkClass}>
-        {t("cookie.settings", locale)}
-      </button>
+      {measurementId(site.analytics.gaMeasurementId) && (
+        <button type="button" data-cookie-settings class={linkClass}>
+          {t("cookie.settings", locale)}
+        </button>
+      )}
     </Container>
   </div>
 </footer>

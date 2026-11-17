@@ -29,23 +29,24 @@
 ## 3. 硬性规则
 
 1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书与联系方式一律从 `src/data/site.json` 读取，客户案例只从 `src/data/cases.json` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字与证书名称仍必须来自 `site.json` 或产品数据，客户名称必须来自经确认的案例数据。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
-2. **内容唯一来源。** 分类只在 `src/content/categories/*.json`（文件名即 id），产品只在 `src/content/products/*.json`（文件名与 slug 一致），网站设置只在 `src/data/site.json`，FAQ 只在 `src/data/faq.json`。定制流程、案例、团队分别在 `src/data/customization.json`、`cases.json`、`team.json`。`src/config/site.ts` 只保留类型、校验与工具，不再存配置值；禁止复制另一份分类枚举或政策文字。
+2. **内容唯一来源。** 分类只在 `src/content/categories/*.json`（文件名即 id），产品只在 `src/content/products/*.json`（文件名与 slug 一致），网站设置只在 `src/data/site.json`，FAQ 只在 `src/data/faq.json`；博客只在 `src/content/blog/*.json`（文件名即文章 slug）。定制流程、案例、团队分别在 `src/data/customization.json`、`cases.json`、`team.json`。`src/config/site.ts` 只保留类型、校验与工具，不再存配置值；禁止复制另一份分类枚举或政策文字。
 3. **密钥不进仓库。** 只用环境变量，并在 `.env.example` 里列出变量名。
 4. **一次只做一个里程碑。** 只做 `docs/PLAN.md` 里当前里程碑的范围，不提前做后面的内容。上一个里程碑的 PR 没合并之前，不开始下一个。
 5. **分支与 PR：** 每个里程碑一个分支 `m<编号>-<短名>`（如 `m2-homepage`），完成后向 `main` 开 PR，标题 `M<编号>: <名称>`。
 6. **提交审核前必须通过：** `npm run build`、`npm run check`（astro check）、`npm run lint`。任何一个失败都不能提交审核。
 7. **每个里程碑结束时写审核报告** `docs/reviews/M<编号>.md`，格式按 `docs/reviews/TEMPLATE.md`。PR 描述里贴报告的摘要。
 8. **按审核意见修改时：** 在同一分支上提交，提交信息以 `review-fix:` 开头，并在报告末尾的“修改记录”追加本轮改了什么。
-9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码访客文案。英文位于根路径，中文位于 `/zh/`，共用接收 locale 的页面组件和同一询价存储；站内链接随语言生成。代码注释和审核报告用中文。
+9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。博客正文使用独立的 bodyEn / bodyZh：中文正文留空时不生成中文文章，不回退英文正文；草稿不生成页面、列表或 sitemap。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码访客文案。英文位于根路径，中文位于 `/zh/`，共用接收 locale 的页面组件和同一询价存储；站内链接随语言生成。代码注释和审核报告用中文。
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
-11. **统计与隐私。** GA ID 只从 site.json 的 analytics.gaMeasurementId 读取；未配置、未同意或存储异常时不加载 GA。事件只传语言等非个人信息；完成类事件必须在业务成功后发出。所有新页面遵循双语 SEO，JSON-LD 不允许 TODO 或编造资料，提交前执行 seo:check。
+11. **统计与隐私。** GA ID 只从 site.json 的 analytics.gaMeasurementId 读取；无有效 ID 时不渲染 Cookie 横幅或设置入口；未配置、未同意或存储异常时不加载 GA。事件只传语言等非个人信息；完成类事件必须在业务成功后发出。所有新页面遵循双语 SEO，JSON-LD 不允许 TODO 或编造资料，提交前执行 seo:check、links:check；内部链接和锚点必须可达。
 12. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 确认正式上线后才改为 true；不得只修改其中一个输出绕过开关。
 
 ## 4. 目录约定
 
 ```
 src/
-  config/site.ts          # 网站设置类型、校验、TODO / localized 工具
+  config/site.ts          # 网站设置类型、校验与纯工具的再导出
+  lib/placeholders.ts     # 唯一的 isTodo / display；浏览器直接使用以避免下发配置校验
   data/site.json          # 网站设置唯一来源（双语内容）
   data/faq.json           # FAQ 唯一来源
   data/customization.json # 定制流程
@@ -62,15 +63,18 @@ src/
     config.ts             # collection schema
     categories/*.json    # 分类 id 由文件名生成
     products/*.json      # 结构化双语产品，不再用 Markdown 正文
-    blog/*.md
+    blog/*.json          # 双语 Markdown 正文 bodyEn / bodyZh；默认草稿
   assets/images/          # 需要优化的图片
 public/                   # favicon、默认禁止收录的 robots.txt / _headers
+scripts/todo-report.ts    # 更新上线清单自动区，保留人工检查项
+scripts/links-check.ts    # 构建产物内部链接与锚点检查
 scripts/indexing.ts       # 构建后按 allowIndexing 生成最终收录配置
 wrangler.jsonc            # Workers API 入口、ASSETS 绑定与 previews；仅 /api/* 优先执行 Worker
 .pages.yml               # Pages CMS 后台配置
 docs/
   PLAN.md
   CMS.md                 # 工厂人员内容维护指南
+  LAUNCH-CHECKLIST.md     # CMS 待补资料与人工上线检查
   notes/status.md         # 当前状态；默认读取并覆盖维护
   notes/history.md        # 历史事件；只追加，按需检索
   notes/decisions.md      # 项目规则与关键决策
@@ -106,3 +110,5 @@ docs/
 - Header 为 cream 半透明吸顶样式，当前导航为 copper 文字及细下划线；手机导航保持独立的 `Mobile` 标签。TopBar 从 `site.topBarItems` 读取，隐藏 TODO 项，手机仅显示第一条有效项。
 - StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；TODO 数值保留为可见的 `[TODO: …]`。
 - 产品实拍未提供时继续使用带 `Placeholder` 字样的新配色本地占位图，不复制参考站图片，不用 AI 产品图冒充实拍。所有页面保持 375px 下无横向溢出。
+
+博客每页九篇，按发布日期倒序；相关文章引用产品 slug。正文使用构建时 Markdown 渲染，不增加客户端渲染框架；封面与正文图必须经 astro:assets，首屏主图 eager / high，其他 lazy，并保留宽高。英文字体只引入使用的字重与 Latin 子集。调整数据后可运行 todo:report，禁止手改或删掉自动区域标记来掩盖待补资料。
