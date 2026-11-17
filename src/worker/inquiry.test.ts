@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   INQUIRY_LIMITS,
   validateInquiryPayload,
@@ -168,6 +168,11 @@ describe("inquiry payload validation", () => {
 });
 
 describe("Worker inquiry API", () => {
+  beforeEach(() => {
+    vi.spyOn(console, "warn").mockImplementation(() => undefined);
+  });
+  afterEach(() => vi.restoreAllMocks());
+
   it.each(["GET", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"])(
     "returns 405 for %s",
     async (method) => {
@@ -310,7 +315,181 @@ describe("Worker inquiry API", () => {
       fetch: fetcher,
     });
     expect(response.status).toBe(403);
-    expect(await response.text()).not.toContain("private provider");
+    const body = await response.json();
+    expect(body).toEqual({
+      ok: false,
+      code: "verification_failed",
+      verification: { reason: "network_error", errorCodes: [] },
+    });
+    expect(
+      JSON.stringify([body, vi.mocked(console.warn).mock.calls]),
+    ).not.toContain("private provider");
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+  it("trims a copied Turnstile secret before verification", async () => {
+    const env = environment();
+    env.TURNSTILE_SECRET_KEY = " \nTEST_ONLY_NOT_A_SECRET\t ";
+    const fetcher = successfulFetch();
+    const response = await handleRequest(request(), env, { fetch: fetcher });
+    expect(response.status).toBe(200);
+    expect(JSON.parse(String(fetcher.mock.calls[0]?.[1]?.body)).secret).toBe(
+      "TEST_ONLY_NOT_A_SECRET",
+    );
+    expect(console.warn).not.toHaveBeenCalled();
+  });
+  it.each([" \n\t ", " \nTODO_TURNSTILE_SECRET\t "])(
+    "rejects empty or placeholder secrets after trimming: %j",
+    async (secret) => {
+      const env = environment();
+      env.TURNSTILE_SECRET_KEY = secret;
+      const fetcher = successfulFetch();
+      const response = await handleRequest(request(), env, { fetch: fetcher });
+      expect(response.status).toBe(503);
+      expect(await response.json()).toEqual({ ok: false, code: "unavailable" });
+      expect(fetcher).not.toHaveBeenCalled();
+      expect(console.warn).not.toHaveBeenCalled();
+    },
+  );
+  it.each([
+    "invalid-input-secret",
+    "invalid-input-response",
+    "timeout-or-duplicate",
+    "internal-error",
+  ])(
+    "reports the safe Siteverify code %s without sending mail",
+    async (code) => {
+      const fetcher = vi
+        .fn<typeof fetch>()
+        .mockResolvedValue(
+          Response.json({ success: false, "error-codes": [code] }),
+        );
+      const response = await handleRequest(request(), environment(), {
+        fetch: fetcher,
+      });
+      const verification = {
+        reason: "rejected",
+        upstreamStatus: 200,
+        errorCodes: [code],
+      };
+      expect(response.status).toBe(403);
+      expect(await response.json()).toEqual({
+        ok: false,
+        code: "verification_failed",
+        verification,
+      });
+      expect(console.warn).toHaveBeenCalledExactlyOnceWith(
+        "inquiry.turnstile_verification_failed",
+        verification,
+      );
+      expect(fetcher).toHaveBeenCalledTimes(1);
+    },
+  );
+  it("omits upstream secrets, token, customer data and unknown codes from both logs and responses", async () => {
+    const env = environment();
+    const privateValues = [
+      env.TURNSTILE_SECRET_KEY!,
+      env.RESEND_API_KEY!,
+      payload.turnstileToken,
+      payload.email,
+      payload.message,
+      payload.sourceUrl,
+    ];
+    const fetcher = vi.fn<typeof fetch>().mockResolvedValue(
+      Response.json({
+        success: false,
+        "error-codes": [
+          "invalid-input-secret",
+          ...privateValues,
+          { message: "private" },
+          "invalid-input-secret",
+        ],
+        message: privateValues.join(" "),
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: payload.turnstileToken,
+        hostname: "private-host.example.com",
+      }),
+    );
+    const response = await handleRequest(request(), env, { fetch: fetcher });
+    const body = await response.json();
+    expect(body).toEqual({
+      ok: false,
+      code: "verification_failed",
+      verification: {
+        reason: "rejected",
+        upstreamStatus: 200,
+        errorCodes: ["invalid-input-secret"],
+      },
+    });
+    const recorded = JSON.stringify([body, vi.mocked(console.warn).mock.calls]);
+    for (const value of [...privateValues, "private-host.example.com"])
+      expect(recorded).not.toContain(value);
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+  it.each([
+    null,
+    [],
+    {},
+    { success: "true" },
+    { success: 1 },
+    { "error-codes": "invalid-input-secret" },
+  ])(
+    "classifies a malformed Siteverify response without trusting it: %j",
+    async (result) => {
+      const fetcher = vi
+        .fn<typeof fetch>()
+        .mockResolvedValue(Response.json(result));
+      const response = await handleRequest(request(), environment(), {
+        fetch: fetcher,
+      });
+      expect(response.status).toBe(403);
+      expect(await response.json()).toEqual({
+        ok: false,
+        code: "verification_failed",
+        verification: {
+          reason: "invalid_response",
+          upstreamStatus: 200,
+          errorCodes: [],
+        },
+      });
+      expect(fetcher).toHaveBeenCalledTimes(1);
+    },
+  );
+  it("distinguishes an upstream HTTP failure from a rejected token", async () => {
+    const fetcher = vi
+      .fn<typeof fetch>()
+      .mockResolvedValue(Response.json({ success: true }, { status: 503 }));
+    const response = await handleRequest(request(), environment(), {
+      fetch: fetcher,
+    });
+    expect(response.status).toBe(403);
+    expect(await response.json()).toEqual({
+      ok: false,
+      code: "verification_failed",
+      verification: {
+        reason: "http_error",
+        upstreamStatus: 503,
+        errorCodes: [],
+      },
+    });
+    expect(fetcher).toHaveBeenCalledTimes(1);
+  });
+  it("classifies a non-JSON Siteverify response without logging the response body", async () => {
+    const fetcher = vi
+      .fn<typeof fetch>()
+      .mockResolvedValue(new Response("private upstream response body"));
+    const response = await handleRequest(request(), environment(), {
+      fetch: fetcher,
+    });
+    const body = await response.json();
+    expect(body).toEqual({
+      ok: false,
+      code: "verification_failed",
+      verification: { reason: "invalid_response", errorCodes: [] },
+    });
+    expect(
+      JSON.stringify([body, vi.mocked(console.warn).mock.calls]),
+    ).not.toContain("private upstream response body");
+    expect(fetcher).toHaveBeenCalledTimes(1);
   });
   it("sends HTML and text with Reply-To after successful verification", async () => {
     const fetcher = successfulFetch();
@@ -407,7 +586,13 @@ describe("Worker inquiry API", () => {
         await vi.advanceTimersByTimeAsync(10_000);
         const response = await pending;
         expect(response.status).toBe(status);
-        expect(await response.json()).toEqual({ ok: false, code });
+        expect(await response.json()).toEqual({
+          ok: false,
+          code,
+          ...(provider === "Turnstile" && {
+            verification: { reason: "timeout", errorCodes: [] },
+          }),
+        });
         expect(signal?.aborted).toBe(true);
       } finally {
         streamController!.enqueue(new TextEncoder().encode("{}"));

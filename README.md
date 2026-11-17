@@ -113,6 +113,26 @@ M5 本地验收采用独立测试入口 `scripts/inquiry-test-worker.ts`（正�
 
 Cloudflare 的构建日志检查部署问题；Resend 的发送日志检查是否接受发信。不要把密钥、完整客户表单或邮件正文复制到公开 issue / PR 中。
 
+### 6. 安全验证失败的诊断
+
+验证码显示“成功”只代表浏览器取得 token，还需要 Worker 调用 Siteverify 校验后才能发信。若更新 Secret key、刷新验证后仍提示失败，先读取诊断，不要反复轮换密钥。
+
+1. 打开联系页，按 F12 打开开发者工具，选择 Network（网络），再选择 Fetch/XHR。
+2. 使用自己的测试信息提交一次，点击列表中的 inquiry 请求，打开 Response（响应），找到 verification 对象。只分享这个诊断对象；Payload（请求正文）含客户资料和 token，不要分享。
+3. 后端也会输出 inquiry.turnstile_verification_failed 日志，内容与 verification 相同。可在 Cloudflare → Worker → Observability 的实时日志中查看；本次不新增日志持久化配置。
+
+| 诊断                                                        | 含义与处理                                                                                                                    |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| errorCodes 包含 invalid-input-secret / missing-input-secret | 检查生产 Worker 的 TURNSTILE_SECRET_KEY，确认来自前端 Site key 所属的同一个组件。                                             |
+| errorCodes 包含 timeout-or-duplicate                        | token 已过期或用过；重新完成验证后提交，不重复使用旧请求。                                                                    |
+| errorCodes 包含 invalid-input-response                      | token 被拒绝；检查 Site key / Secret key 是否配对、实际验证所在域名，以及浏览器验证状态；仅此错误码不足以判断某一个具体原因。 |
+| reason 为 timeout / network_error                           | Worker 调用验证服务超时或网络异常；核查 Cloudflare 服务和出站请求情况。                                                       |
+| reason 为 http_error / invalid_response，或 internal-error  | 核查上游 HTTP 状态及服务响应；不要绕过验证继续发信。                                                                          |
+
+诊断只含固定 reason、可用时的 HTTP 状态与官方错误码白名单；不包含密钥、token、IP、表单资料、上游原文或异常文本。接口仍返回 403 / verification_failed，访客提示和重试逻辑保持一致。Worker 会去除 TURNSTILE_SECRET_KEY 的首尾空白，不改变密钥中间内容。
+
+错误码依据：[Cloudflare Siteverify 文档](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/#error-codes-reference)。
+
 ## 内容维护与双语页面
 
 工厂人员请阅读 [Pages CMS 操作指南](docs/CMS.md)。产品与分类维护于 `src/content/products/*.json`、`src/content/categories/*.json`，界面字段由根目录 `.pages.yml` 定义。分类文件名即 id，产品文件名须与 slug 一致；上传图片通过 Astro 优化。没有产品的分类自动隐藏。

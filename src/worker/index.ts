@@ -31,6 +31,41 @@ function json(
 }
 
 class PayloadTooLarge extends Error {}
+class UpstreamTimeout extends Error {}
+
+const TURNSTILE_ERROR_CODES = [
+  "missing-input-secret",
+  "invalid-input-secret",
+  "missing-input-response",
+  "invalid-input-response",
+  "bad-request",
+  "timeout-or-duplicate",
+  "internal-error",
+] as const;
+
+interface VerificationDiagnostic {
+  reason:
+    | "rejected"
+    | "http_error"
+    | "invalid_response"
+    | "network_error"
+    | "timeout";
+  upstreamStatus?: number;
+  errorCodes: (typeof TURNSTILE_ERROR_CODES)[number][];
+}
+
+function verificationErrorCodes(
+  result: unknown,
+): VerificationDiagnostic["errorCodes"] {
+  const codes =
+    result && typeof result === "object" && "error-codes" in result
+      ? result["error-codes"]
+      : undefined;
+  // 只返回官方固定错误码；上游的其他字段可能含隐私，不能透传或写入日志。
+  return Array.isArray(codes)
+    ? TURNSTILE_ERROR_CODES.filter((code) => codes.includes(code))
+    : [];
+}
 
 async function readJson(request: Request): Promise<unknown> {
   const announcedLength = Number(request.headers.get("content-length"));
@@ -67,7 +102,7 @@ async function fetchJsonWithTimeout(
   let timeout: ReturnType<typeof setTimeout> | undefined;
   const deadline = new Promise<never>((_, reject) => {
     timeout = setTimeout(() => {
-      reject(new Error("外部服务响应超时"));
+      reject(new UpstreamTimeout("外部服务响应超时"));
       controller.abort();
     }, 10_000);
   });
@@ -137,12 +172,19 @@ export async function handleRequest(
     "INQUIRY_FROM_EMAIL",
   ] as const;
   if (
-    names.some((name) => !env[name]?.trim() || env[name]?.startsWith("TODO_"))
+    names.some((name) => {
+      const value = env[name]?.trim();
+      return !value || value.startsWith("TODO_");
+    })
   )
     return json({ ok: false, code: "unavailable" }, 503);
   const data = validated.data;
   const fetcher = dependencies.fetch ?? fetch;
   let verified = false;
+  let verification: VerificationDiagnostic = {
+    reason: "invalid_response",
+    errorCodes: [],
+  };
   try {
     const { response, result } = await fetchJsonWithTimeout(
       fetcher,
@@ -151,7 +193,7 @@ export async function handleRequest(
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          secret: env.TURNSTILE_SECRET_KEY,
+          secret: env.TURNSTILE_SECRET_KEY!.trim(),
           response: data.turnstileToken,
           remoteip: request.headers.get("CF-Connecting-IP") ?? undefined,
         }),
@@ -165,10 +207,34 @@ export async function handleRequest(
         "success" in result &&
         result.success === true,
       );
-  } catch {
-    /* 网络或验证服务异常均不继续发信。 */
+    verification = {
+      reason: !response.ok
+        ? "http_error"
+        : result &&
+            typeof result === "object" &&
+            "success" in result &&
+            result.success === false
+          ? "rejected"
+          : "invalid_response",
+      upstreamStatus: response.status,
+      errorCodes: verificationErrorCodes(result),
+    };
+  } catch (error) {
+    verification = {
+      reason:
+        error instanceof UpstreamTimeout
+          ? "timeout"
+          : error instanceof SyntaxError
+            ? "invalid_response"
+            : "network_error",
+      errorCodes: [],
+    };
   }
-  if (!verified) return json({ ok: false, code: "verification_failed" }, 403);
+  if (!verified) {
+    // 日志和响应共用白名单诊断，不记录密钥、token、异常文本、IP 或客户资料。
+    console.warn("inquiry.turnstile_verification_failed", verification);
+    return json({ ok: false, code: "verification_failed", verification }, 403);
+  }
   const email = buildInquiryEmail(data, dependencies.now?.() ?? new Date());
   try {
     const { response, result } = await fetchJsonWithTimeout(
