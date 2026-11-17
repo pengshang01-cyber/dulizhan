@@ -36,9 +36,11 @@ The site uses [Cloudflare Workers Static Assets](https://developers.cloudflare.c
 PR previews depend on the `previews` configuration in `wrangler.jsonc`.
 
 1. In the Worker settings, connect this GitHub repository through **Workers Builds**. Use `main` as the production branch and the repository root as the build root.
-2. Set the build command to `npm run build` and the deploy command to `npx wrangler deploy`. The Node.js version is set in `.node-version`.
+2. Set the build command to `npm run build`, the production deploy command to `npx wrangler deploy`, and the Preview command to `npx wrangler preview`. The Node.js version is set in `.node-version`.
 3. Keep `assets.directory` in `wrangler.jsonc` set to `./dist`, which is Astro's static build output. Builds from `main` update the deployed Worker; PR preview URLs depend on the configured Workers Builds branch settings and must be verified before sharing.
 4. `assets.not_found_handling: "404-page"` serves the nearest `404.html` with status 404. Until M6 adds the custom page, missing routes return the platform's empty 404 response. It does not return the homepage for missing URLs.
+
+PR 预览的命令在 Cloudflare → Worker → Settings → Build 中单独配置。若失败日志显示 `Executing user deploy command: npx wrangler versions upload`，说明该次构建仍使用旧命令；核对当前预览的有效配置，将 Preview command 设置为 `npx wrangler preview`，保存后 Retry build。生产 Deploy command 继续使用 `npx wrangler deploy`。以新日志实际执行的命令为准，不为此修改 `wrangler.jsonc` 的 `name` 或移除身份校验变量。若公共配置已正确，还需核对已有分支预览的独立设置。[构建设置与重试](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#build-settings)、[预览配置说明](https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/#view-and-update-build-settings)
 
 `src/worker/index.ts` handles POST `/api/inquiry`. The `main` entry, `ASSETS` binding and `assets.run_worker_first: ["/api/*"]` keep API requests on the Worker while other requests use static assets. Worker-generated responses set their own indexing headers; static `_headers` rules do not apply to them.
 

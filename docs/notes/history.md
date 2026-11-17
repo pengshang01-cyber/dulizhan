@@ -25,3 +25,5 @@
 - 2026-11-16：按用户确认计划，从已合并PR #8的main c38401a创建m5-inquiry；完成双语询盘表单/感谢页、Worker API及邮件、防垃圾、中文标题修复。四项检查通过，183 tests、42截图；本地Wrangler真实Siteverify两次+mock邮件两封，未实际发信。报告docs/reviews/M5.md。
 
 - 2026-11-16：M5实现提交f10b446推送并创建PR #9；GitHub CI通过，Workers Builds失败且GitHub未提供错误日志，已请求用户提供控制台报错。未宣称云端部署成功。
+
+- 2026-11-17：用户提供完整Cloudflare日志，确认31页构建成功、部署实际执行wrangler versions upload 4.163.0并在身份标识校验失败；补充README的生产/预览命令区分及M5报告。云端命令修正及重试待用户操作，未改Worker名称或绕过身份检查。
