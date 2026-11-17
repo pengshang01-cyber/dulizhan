@@ -15,11 +15,7 @@ interface Props {
 }
 ---
 
-<BaseLayout
-  locale={locale}
-  title={t("products.pageTitle", locale)}
-  description={t("products.pageDescription", locale)}
->
+<BaseLayout locale={locale}>
   <Container class="py-8 sm:py-12">
     <Breadcrumbs
       locale={locale}

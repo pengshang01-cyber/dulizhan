@@ -34,3 +34,9 @@
 
 - 已有m5-inquiry预览实例改为npx wrangler preview后，提交10b427b的GitHub CI及Workers Builds均成功；Cloudflare构建ID为af873743-05d3-4295-95fd-b6c2490acead。Worker名称和业务代码保持不变。
 - 预览地址：https://m5-inquiry-dulizhan.pengshang01.workers.dev；只读验证英文首页和中文联系页200、API GET 405及noindex响应头。回填审核报告和PR #9描述；未真实发信，正式服务配置与收件验收仍待工厂操作。
+
+## 2026-11-17 — M6 实施与本地验收
+
+- 用户确认 M6 七步计划；从 PR #9 合并基线 2719c40 创建 m6-seo。
+- 完成双语 meta / JSON-LD / sitemap、Cookie 与 GA 事件、双语隐私和 404；新增 seo:check 与 CI，保留禁止收录及 TODO 工厂资料。
+- 242 项测试与 20 张截图通过；本地双语 Workers 404、收录开关和浏览器无真实联网统计验证通过。报告 docs/reviews/M6.md 已写，待 PR 预览后补线上 404 证据。

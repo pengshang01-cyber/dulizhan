@@ -18,6 +18,7 @@ const { product, class: className } = Astro.props;
 <Button
   variant="secondary"
   class={className}
+  data-track="add_to_inquiry"
   data-inquiry-slug={product.slug}
   data-inquiry-sku={product.sku}
   data-inquiry-title={product.title}
@@ -30,6 +31,7 @@ const { product, class: className } = Astro.props;
 </Button>
 
 <script>
+  import { completedTracking } from "../lib/analytics";
   import { t } from "../i18n/utils";
   const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
   import {
@@ -63,12 +65,13 @@ const { product, class: className } = Astro.props;
       if (getItems().some((item) => item.slug === slug)) {
         removeItem(slug);
       } else {
-        addItem({
+        const added = addItem({
           slug,
           sku: button.dataset.inquirySku ?? "",
           title: button.dataset.inquiryTitle ?? "",
           category: button.dataset.inquiryCategory ?? "",
         });
+        if (added) completedTracking(button, "add_to_inquiry");
       }
     });
   }

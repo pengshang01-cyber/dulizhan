@@ -1,0 +1,3 @@
+SEO: 35 HTML pages; 57 JSON-LD blocks; 104 hreflang links
+Indexing: 35 noindex pages; 0 sitemap page URLs
+Result: 0 errors, 0 warnings

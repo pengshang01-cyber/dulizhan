@@ -30,6 +30,19 @@ export const siteSchema = z.object({
   topBarItems: z.array(localizedText).default([]),
   domain: optionalString,
   allowIndexing: z.boolean().default(false),
+  logo: optionalImagePath,
+  analytics: z.preprocess(
+    (value) => value ?? {},
+    z.object({
+      gaMeasurementId: optionalString.refine(
+        (value) =>
+          !value.trim() ||
+          /^TODO_/.test(value.trim()) ||
+          /^G-[A-Z0-9]+$/.test(value.trim()),
+        "GA 衡量 ID 必须以 G- 开头，未配置时留空或 TODO",
+      ),
+    }),
+  ),
   email: optionalString,
   phone: optionalString,
   whatsappNumber: optionalString,

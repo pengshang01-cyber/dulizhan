@@ -297,6 +297,16 @@ const contactFields =
       {t("form.retryVerification", locale)}
     </button>
   </div>
+  <p data-form-privacy class="mt-6 text-sm leading-relaxed text-ink-soft">
+    {t("privacy.formBefore", locale)}{" "}
+    <a
+      href={localePath("/privacy-policy/", locale)}
+      class="text-copper underline"
+    >
+      {t("site.privacyPolicy", locale)}
+    </a>
+    {t("privacy.formAfter", locale)}
+  </p>
   <Button type="submit" data-form-submit class="mt-6 w-full sm:w-auto">
     <span data-submit-label>{t("form.submit", locale)}</span>
   </Button>

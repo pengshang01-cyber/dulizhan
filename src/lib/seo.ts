@@ -1,0 +1,157 @@
+import { site, type SiteConfig } from "../config/site";
+import { localized, t, type Locale } from "../i18n/utils";
+import { localePath, unlocalizedPath } from "../i18n/routing";
+import type { ProductData } from "./products";
+
+// display() 占位和旧型号 TODO-001 也不能进入结构化数据。
+export function confirmedText(value: unknown): string | undefined {
+  if (typeof value !== "string" && typeof value !== "number") return;
+  const text = String(value).trim();
+  return text && !/TODO(?:[_\-\s:]|\])/i.test(text) ? text : undefined;
+}
+
+export function configuredOrigin(domain: string): string | undefined {
+  if (!confirmedText(domain)) return;
+  try {
+    const url = new URL(domain);
+    if (/^https?:$/.test(url.protocol) && !url.username && !url.password)
+      return url.origin;
+  } catch {
+    /* 未配置域名时不生成 sitemap 或组织网址。 */
+  }
+}
+
+export function permanentlyNoindex(path: string) {
+  return /^\/(?:zh\/)?(?:inquiry|thank-you|styleguide|404(?:\.html)?)\/?$/.test(
+    path,
+  );
+}
+
+const staticPages: Record<string, string> = {
+  "/": "home",
+  "/products/": "products",
+  "/custom/": "custom",
+  "/about/": "about",
+  "/blog/": "blog",
+  "/faq/": "faq",
+  "/contact/": "contact",
+  "/inquiry/": "inquiry",
+  "/thank-you/": "thankYou",
+  "/privacy-policy/": "privacy",
+  "/styleguide/": "styleguide",
+  "/404.html": "notFound",
+};
+export function staticPageMeta(path: string, locale: Locale) {
+  const bare = unlocalizedPath(path);
+  const key = staticPages[bare] ?? staticPages[bare + "/"];
+  return key
+    ? {
+        title: t(`seo.${key}.title`, locale),
+        description: t(`seo.${key}.description`, locale),
+      }
+    : undefined;
+}
+
+export function productMeta(data: ProductData, locale: Locale) {
+  const name = confirmedText(localized(data.title, locale)) ?? data.slug;
+  return {
+    title:
+      (data.seoTitle && confirmedText(localized(data.seoTitle, locale))) ||
+      t("seo.product.title", locale, { name }),
+    description:
+      (data.seoDescription &&
+        confirmedText(localized(data.seoDescription, locale))) ||
+      t("seo.product.description", locale, { name }),
+  };
+}
+
+export type StructuredData = Record<string, unknown>;
+export function organizationData(
+  locale: Locale,
+  config: SiteConfig = site,
+  logo?: string,
+): StructuredData {
+  const origin = configuredOrigin(config.domain);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    ...(origin && { "@id": origin + "/#organization", url: origin + "/" }),
+    name: confirmedText(localized(config.companyName, locale)),
+    logo: config.logo && confirmedText(config.logo) ? logo : undefined,
+    email: confirmedText(config.email),
+    telephone: confirmedText(config.phone),
+    address: confirmedText(localized(config.factoryAddress, locale)),
+    sameAs: Object.values(config.socialLinks).filter(
+      (url) => confirmedText(url) && configuredOrigin(url),
+    ),
+  };
+}
+
+export function productData(
+  data: ProductData,
+  locale: Locale,
+  url: string,
+): StructuredData {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    url,
+    name: confirmedText(localized(data.title, locale)),
+    description: confirmedText(localized(data.summary, locale)),
+    sku: confirmedText(data.sku),
+    material: confirmedText(localized(data.material, locale)),
+    // 明显 Placeholder 图片不是产品实拍，不把它当作产品图提交给搜索引擎。
+    image: data.images
+      .filter(({ src }) => !/placeholder/i.test(src))
+      .map(({ src }) => new URL(src, url).href),
+  };
+}
+
+export function faqData(
+  items: { question: string; answer: string }[],
+): StructuredData | undefined {
+  const mainEntity = items
+    .filter(
+      ({ question, answer }) =>
+        confirmedText(question) && confirmedText(answer),
+    )
+    .map(({ question, answer }) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    }));
+  return mainEntity.length
+    ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity }
+    : undefined;
+}
+
+export function breadcrumbData(
+  items: { label: string; href?: string }[],
+  locale: Locale,
+  currentUrl: string,
+): StructuredData | undefined {
+  const valid = items.filter(({ label }) => confirmedText(label));
+  if (valid.length < 2) return;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: valid.map(({ label, href }, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: label,
+      item: href
+        ? new URL(localePath(href, locale), currentUrl).href
+        : currentUrl,
+    })),
+  };
+}
+
+// JSON.stringify 不转义 </script>；CMS 内容必须在 HTML 脚本边界再转义。
+export function serializeJsonLd(value: StructuredData) {
+  return JSON.stringify(value, (_, item: unknown) =>
+    Array.isArray(item) && !item.length ? undefined : item,
+  )
+    .replace(/</g, "\\u003c")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}

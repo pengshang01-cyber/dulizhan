@@ -7,7 +7,10 @@ interface Props {
   class?: string;
 }
 const { locale = "en", class: className } = Astro.props;
-const currentPath = unlocalizedPath(Astro.url.pathname);
+const barePath = unlocalizedPath(Astro.url.pathname);
+const currentPath = /^\/404(?:\.html)?\/?$/.test(barePath)
+  ? "/404.html"
+  : barePath;
 const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
 ---
 

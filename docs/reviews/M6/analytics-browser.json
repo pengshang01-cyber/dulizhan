@@ -1,0 +1,51 @@
+{
+  "mode": "isolated fixture; Google scripts and inquiry POST mocked; no external collection or email",
+  "results": [
+    {
+      "locale": "en",
+      "passed": true,
+      "beforeConsentGoogleRequests": 0,
+      "afterRejectionGoogleRequests": 0,
+      "acceptedEvents": [
+        "page_view",
+        "email_click",
+        "phone_click",
+        "whatsapp_click",
+        "quote_button_click",
+        "add_to_inquiry",
+        "generate_lead"
+      ],
+      "generateLeadCount": 1,
+      "rejectionPersists": true
+    },
+    {
+      "locale": "zh",
+      "passed": true,
+      "beforeConsentGoogleRequests": 0,
+      "afterRejectionGoogleRequests": 0,
+      "acceptedEvents": [
+        "page_view",
+        "email_click",
+        "phone_click",
+        "whatsapp_click",
+        "quote_button_click",
+        "wechat_open",
+        "wechat_copy",
+        "add_to_inquiry",
+        "generate_lead"
+      ],
+      "generateLeadCount": 1,
+      "rejectionPersists": true
+    },
+    {
+      "scenario": "unconfigured",
+      "passed": true,
+      "googleRequests": 0
+    },
+    {
+      "scenario": "storage-unavailable",
+      "passed": true,
+      "googleRequests": 0
+    }
+  ]
+}

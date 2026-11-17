@@ -1,0 +1,23 @@
+[
+  {
+    "path": "/m6-missing-page/",
+    "status": 404,
+    "language": "en",
+    "canonical": "https://dulizhan.pengshang01.workers.dev/404.html",
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/zh/m6-missing-page/",
+    "status": 404,
+    "language": "zh-CN",
+    "canonical": "https://dulizhan.pengshang01.workers.dev/zh/404.html",
+    "robots": "noindex, nofollow"
+  },
+  {
+    "path": "/zh/products/m6-missing-product/",
+    "status": 404,
+    "language": "zh-CN",
+    "canonical": "https://dulizhan.pengshang01.workers.dev/zh/404.html",
+    "robots": "noindex, nofollow"
+  }
+]

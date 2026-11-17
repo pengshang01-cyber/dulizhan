@@ -20,6 +20,7 @@ const pages: {
   inquiryQuantities?: Record<string, string>;
   milestones?: string[];
   formState?: "validation" | "unavailable";
+  cookie?: "banner" | "rejected";
 }[] = JSON.parse(
   await readFile(new URL("./pages.json", import.meta.url), "utf8"),
 );
@@ -63,39 +64,50 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
+      if (milestone === "M6") return Boolean(milestones?.includes("M6"));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
       }
       return milestone !== "M4c" || name === "home" || name.startsWith("zh-");
     })
-    .map(({ name, path, inquiryProducts, inquiryQuantities, formState }) => {
-      const url = new URL(path, origin);
-      if (
-        !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ||
-        !path.startsWith("/") ||
-        url.origin !== origin ||
-        (inquiryProducts &&
-          !inquiryProducts.every((slug) =>
-            /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug),
-          )) ||
-        (formState && !["validation", "unavailable"].includes(formState)) ||
-        (inquiryQuantities &&
-          !Object.entries(inquiryQuantities).every(
-            ([slug, value]) =>
-              inquiryProducts?.includes(slug) && typeof value === "string",
-          ))
-      ) {
-        throw new Error(`scripts/pages.json 中的截图配置无效：${name}`);
-      }
-      return {
+    .map(
+      ({
         name,
         path,
-        url: url.href,
         inquiryProducts,
         inquiryQuantities,
         formState,
-      };
-    });
+        cookie,
+      }) => {
+        const url = new URL(path, origin);
+        if (
+          !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ||
+          !path.startsWith("/") ||
+          url.origin !== origin ||
+          (inquiryProducts &&
+            !inquiryProducts.every((slug) =>
+              /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug),
+            )) ||
+          (formState && !["validation", "unavailable"].includes(formState)) ||
+          (inquiryQuantities &&
+            !Object.entries(inquiryQuantities).every(
+              ([slug, value]) =>
+                inquiryProducts?.includes(slug) && typeof value === "string",
+            ))
+        ) {
+          throw new Error(`scripts/pages.json 中的截图配置无效：${name}`);
+        }
+        return {
+          name,
+          path,
+          url: url.href,
+          inquiryProducts,
+          inquiryQuantities,
+          formState,
+          cookie,
+        };
+      },
+    );
   const browser = await chromium.launch();
   try {
     await mkdir(destination, { recursive: true });
@@ -106,7 +118,16 @@ try {
           isMobile,
           hasTouch: isMobile,
         });
-        if (milestone === "M5") await installTurnstileFixture(page);
+        if (milestone === "M5" || milestone === "M6")
+          await installTurnstileFixture(page);
+        if (route.cookie === "rejected")
+          await page.addInitScript(() => {
+            try {
+              localStorage.setItem("analytics-consent:v1", "rejected");
+            } catch {
+              /* 存储不可用时仍默认拒绝。 */
+            }
+          });
         if (route.formState === "unavailable") {
           await page.route("**/api/inquiry", (request) =>
             request.fulfill({
@@ -146,12 +167,19 @@ try {
           }
         }
         const response = await page.goto(route.url);
-        if (!response?.ok()) {
+        if (
+          !response?.ok() &&
+          !(route.path.endsWith("/404.html") && response?.status() === 404)
+        ) {
           throw new Error(
             `无法截取 ${route.path}（${response?.status() ?? "无响应"}）`,
           );
         }
 
+        if (route.cookie === "banner")
+          await page
+            .locator("[data-cookie-consent]")
+            .waitFor({ state: "visible" });
         if (
           /^\/(?:zh\/)?inquiry\/$/.test(new URL(route.url).pathname) &&
           route.inquiryProducts?.length
@@ -178,7 +206,7 @@ try {
         }
 
         if (
-          milestone === "M5" &&
+          ["M5", "M6"].includes(milestone) &&
           (await page.locator("[data-inquiry-form]").count())
         ) {
           await page.locator("[data-inquiry-form]").scrollIntoViewIfNeeded();
@@ -233,7 +261,7 @@ try {
         });
 
         if (
-          milestone === "M5" &&
+          ["M5", "M6"].includes(milestone) &&
           (await page.evaluate(
             () => document.documentElement.scrollWidth > window.innerWidth,
           ))
@@ -241,7 +269,7 @@ try {
           throw new Error(`截图页面横向溢出：${route.path} / ${width}`);
         }
 
-        if (milestone === "M5") {
+        if (milestone === "M5" || milestone === "M6") {
           await page.evaluate(() => window.scrollTo(0, 0));
         }
         const filename = `${route.name}-${size}.png`;
@@ -258,6 +286,15 @@ try {
             style: "header { visibility: hidden !important; }",
           });
           console.log(`docs/reviews/${milestone}/${formFile}`);
+        }
+        if (milestone === "M6" && route.name.endsWith("contact-privacy")) {
+          const form = page.locator("[data-inquiry-form]");
+          await form.screenshot({
+            path: fileURLToPath(
+              new URL(`${route.name}-form-${size}.png`, destination),
+            ),
+            style: "header { visibility: hidden !important; }",
+          });
         }
         await page.close();
       }
@@ -355,4 +392,9 @@ try {
 if (milestone === "M4b" || milestone === "M4c") {
   const { captureWechatPreview } = await import("./wechat-preview.ts");
   await captureWechatPreview(destination, milestone);
+}
+
+if (milestone === "M6") {
+  const { verifySeoBrowser } = await import("./seo-browser-qa.ts");
+  await verifySeoBrowser(destination);
 }

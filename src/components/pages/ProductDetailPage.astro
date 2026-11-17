@@ -11,6 +11,8 @@ import InquiryForm from "../InquiryForm.astro";
 import ProductCard from "../ProductCard.astro";
 import ProductGallery from "../ProductGallery.astro";
 import SectionHeading from "../SectionHeading.astro";
+import { productMeta, productData, configuredOrigin } from "../../lib/seo";
+import { site } from "../../config/site";
 import { display } from "../../config/site";
 import { localized, t } from "../../i18n/utils";
 import {
@@ -111,17 +113,14 @@ const bodySections = [
 
 <BaseLayout
   locale={locale}
-  title={String(
-    display(
-      localized(data.seoTitle ?? data.title, locale),
-      t("products.todo.title", locale),
-    ),
-  )}
-  description={String(
-    display(
-      localized(data.seoDescription ?? data.summary, locale),
-      t("products.todo.description", locale),
-    ),
+  {...productMeta(data, locale)}
+  structuredData={productData(
+    data,
+    locale,
+    new URL(
+      Astro.url.pathname,
+      configuredOrigin(site.domain) ?? Astro.url.origin,
+    ).href,
   )}
 >
   <Container class="py-8 sm:py-12">
@@ -158,6 +157,7 @@ const bodySections = [
         </p>
         <div class="mt-5 flex flex-wrap gap-3">
           <Button
+            data-track="quote_button_click"
             href={localePath(
               "/contact/?product=" + encodeURIComponent(data.slug) + "#quote",
               locale,

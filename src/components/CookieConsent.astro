@@ -1,0 +1,49 @@
+---
+import { site } from "../config/site";
+import { t, type Locale } from "../i18n/utils";
+import { localePath } from "../i18n/routing";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "en" } = Astro.props;
+const buttonClass =
+  "min-h-11 rounded-control border border-coffee bg-coffee px-6 py-3 text-sm font-bold text-white hover:bg-coffee-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-copper";
+---
+
+<section
+  hidden
+  data-cookie-consent
+  data-ga-id={site.analytics.gaMeasurementId}
+  aria-labelledby="cookie-title"
+  class="fixed inset-x-3 bottom-3 z-40 mx-auto max-w-5xl rounded-panel border border-line bg-white p-5 text-ink shadow-panel sm:inset-x-6 sm:bottom-6 sm:p-6"
+>
+  <div class="grid items-center gap-5 sm:grid-cols-[1fr_auto]">
+    <div>
+      <h2 id="cookie-title" class="font-display text-2xl font-normal">
+        {t("cookie.title", locale)}
+      </h2>
+      <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+        {t("cookie.description", locale)}{" "}
+        <a
+          href={localePath("/privacy-policy/", locale)}
+          class="text-copper underline"
+        >
+          {t("site.privacyPolicy", locale)}
+        </a>
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <button type="button" data-cookie-choice="accepted" class={buttonClass}>
+        {t("cookie.accept", locale)}
+      </button>
+      <button type="button" data-cookie-choice="rejected" class={buttonClass}>
+        {t("cookie.reject", locale)}
+      </button>
+    </div>
+  </div>
+  <p data-cookie-status role="status" class="mt-2 text-sm text-copper-dark"></p>
+</section>
+<script>
+  import { initializeAnalytics } from "../lib/analytics-browser";
+  initializeAnalytics();
+</script>

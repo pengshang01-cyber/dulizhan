@@ -1,0 +1,79 @@
+---
+import { display, isTodo, site } from "../../config/site";
+import { localized, t, type Locale } from "../../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Container from "../Container.astro";
+import DisplayHeading from "../DisplayHeading.astro";
+import Eyebrow from "../Eyebrow.astro";
+interface Props {
+  locale?: Locale;
+}
+const { locale = "en" } = Astro.props;
+const company = display(
+  localized(site.companyName, locale),
+  t("site.companyNameLabel", locale),
+);
+const email = display(site.email, t("site.emailLabel", locale));
+const sections = [
+  "collection",
+  "use",
+  "services",
+  "storage",
+  "choice",
+  "retention",
+];
+---
+
+<BaseLayout locale={locale}>
+  <Container class="max-w-4xl py-12 sm:py-20">
+    <p class="mb-8 border border-copper/30 bg-paper px-5 py-4 text-sm font-semibold text-copper-dark">
+      {t("privacy.template", locale)}
+    </p>
+    <Eyebrow class="mb-5">{t("privacy.eyebrow", locale)}</Eyebrow>
+    <DisplayHeading
+      first={t("privacy.first", locale)}
+      second={t("privacy.second", locale)}
+    />
+    <p class="mt-6 leading-relaxed text-ink-soft">
+      {t("privacy.intro", locale, { company })}
+    </p>
+    <div class="mt-10 grid gap-5">
+      {sections.map((section) => (
+        <section class="rounded-panel border border-line bg-white p-6 sm:p-8">
+          <h2 class="font-display text-card-title font-normal">
+            {t(`privacy.${section}.title`, locale)}
+          </h2>
+          <p class="mt-4 leading-relaxed text-ink-soft">
+            {t(`privacy.${section}.text`, locale)}
+          </p>
+          {section === "choice" && (
+            <button
+              type="button"
+              data-cookie-settings
+              class="mt-5 rounded-control border border-ink px-4 py-3 text-sm font-bold hover:bg-paper"
+            >
+              {t("cookie.settings", locale)}
+            </button>
+          )}
+        </section>
+      ))}
+      <section class="dark-surface rounded-panel p-6 sm:p-8">
+        <h2 class="font-display text-card-title font-normal">
+          {t("privacy.contact.title", locale)}
+        </h2>
+        <p class="mt-4 leading-relaxed wrap-anywhere">
+          {t("privacy.contact.text", locale, { company, email })}
+        </p>
+        {site.email && !isTodo(site.email) && (
+          <a
+            href={`mailto:${site.email}`}
+            data-track="email_click"
+            class="mt-4 inline-block text-cream underline"
+          >
+            {site.email}
+          </a>
+        )}
+      </section>
+    </div>
+  </Container>
+</BaseLayout>

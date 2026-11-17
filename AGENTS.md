@@ -18,7 +18,7 @@
 | 图片 | `astro:assets`（自动出 WebP、懒加载） |
 | 表单后端 | `src/worker/index.ts` 处理 POST `/api/inquiry`；`wrangler.jsonc` 配置 main 入口和 ASSETS 绑定，仅 `/api/*` 先走 Worker，其余交给静态资源；Cloudflare Turnstile + 蜜罐防垃圾，Resend 发送双语询盘邮件 |
 | 部署 | Cloudflare Workers 静态资源；Workers Builds 从 GitHub main 自动构建，构建命令 `npm run build`，部署命令 `npx wrangler deploy` |
-| 统计 | GA4（ID 从环境变量读取） |
+| 统计 | GA4（ID 唯一来源 src/data/site.json → analytics.gaMeasurementId；有效 ID 且访客同意后才加载） |
 | SEO | `@astrojs/sitemap`、每页 meta、JSON-LD 结构化数据 |
 | 语言 | Node 20+，TypeScript strict |
 
@@ -38,7 +38,8 @@
 8. **按审核意见修改时：** 在同一分支上提交，提交信息以 `review-fix:` 开头，并在报告末尾的“修改记录”追加本轮改了什么。
 9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码访客文案。英文位于根路径，中文位于 `/zh/`，共用接收 locale 的页面组件和同一询价存储；站内链接随语言生成。代码注释和审核报告用中文。
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
-11. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 确认正式上线后才改为 true；不得只修改其中一个输出绕过开关。
+11. **统计与隐私。** GA ID 只从 site.json 的 analytics.gaMeasurementId 读取；未配置、未同意或存储异常时不加载 GA。事件只传语言等非个人信息；完成类事件必须在业务成功后发出。所有新页面遵循双语 SEO，JSON-LD 不允许 TODO 或编造资料，提交前执行 seo:check。
+12. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 确认正式上线后才改为 true；不得只修改其中一个输出绕过开关。
 
 ## 4. 目录约定
 
