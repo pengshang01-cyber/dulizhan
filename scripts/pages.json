@@ -162,5 +162,53 @@
     "path": "/zh/contact/",
     "formState": "unavailable",
     "milestones": ["M5"]
+  },
+  {
+    "name": "cookie",
+    "path": "/",
+    "cookie": "banner",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "zh-cookie",
+    "path": "/zh/",
+    "cookie": "banner",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "privacy-policy",
+    "path": "/privacy-policy/",
+    "cookie": "rejected",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "zh-privacy-policy",
+    "path": "/zh/privacy-policy/",
+    "cookie": "rejected",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "404",
+    "path": "/404.html",
+    "cookie": "rejected",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "zh-404",
+    "path": "/zh/404.html",
+    "cookie": "rejected",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "contact-privacy",
+    "path": "/contact/",
+    "cookie": "rejected",
+    "milestones": ["M6"]
+  },
+  {
+    "name": "zh-contact-privacy",
+    "path": "/zh/contact/",
+    "cookie": "rejected",
+    "milestones": ["M6"]
   }
 ]

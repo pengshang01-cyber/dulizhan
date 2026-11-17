@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M5。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M6。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -215,23 +215,28 @@
 
 ## M6 SEO 与统计
 
+**目标：** 为双语 Workers 站补齐 SEO、经同意后加载的统计、隐私政策与分语言 404；M8 前保持禁止收录。
+
 **任务**
 
-1. 每页唯一的 title（≤60 字符）和 description（≤155 字符）；产品页用 `seoTitle` / `seoDescription`，没有则自动生成。
-2. canonical、OG / Twitter 卡片（默认分享图 `public/og-default.jpg` 占位）。
-3. `@astrojs/sitemap` 生成 sitemap，排除 `noindex` 页面；收录配置继续由 allowIndexing 控制，M8 前保持禁止抓取，正式开启后生成的 robots.txt 指向 sitemap。
-4. JSON-LD：全站 `Organization`；产品页 `Product`（不含价格和评分，不编造评论）；FAQ 页 `FAQPage`；面包屑 `BreadcrumbList`。
-5. GA4：`PUBLIC_GA_ID` 存在时才加载；把 `data-track` 元素点击转成 GA4 事件：`whatsapp_click`、`email_click`、`phone_click`、`quote_button_click`、`generate_lead`。
-6. Cookie 同意横幅（简单版：同意前不加载 GA4，选择存 localStorage，读写包 try/catch）。
-7. `/privacy-policy/`：通用模板，公司名和邮箱读 `site.ts`，顶部注明 “Template — review before launch”。
-8. 自定义 404 页面。
+1. 每页唯一 title / description：英文不超过 60 / 155 字符，中文不超过 30 / 80 字；产品优先读取 seoTitle / seoDescription，未填或 TODO 时按语言生成。分类、FAQ 等按当前语言输出。
+2. 当前语言自身 canonical、en / zh-CN / x-default hreflang、OG / Twitter（en_US / zh_CN）；public/og-default.jpg 使用本地新风格 Placeholder。
+3. JSON-LD：Organization、Product（不含价格/评分/评论）、FAQPage、所有面包屑的 BreadcrumbList。资料只取配置与数据中的非 TODO 值，不将占位、隐藏答案或虚构事实写入结构化数据。
+4. 有效域名且允许收录时由 @astrojs/sitemap 生成双语对应条目，排除 inquiry、thank-you、styleguide、404 等 noindex 页面。domain 为 TODO / 空时不生成；allowIndexing=false 时全站 noindex，不输出可收录条目。以临时构建验证开启收录场景，最终恢复 false。
+5. site.json 的 analytics.gaMeasurementId 为唯一 GA 配置，默认 TODO；CMS 附中文说明。ID 为空 / TODO 时完全不加载 GA。Cookie 横幅双语，接受 / 拒绝同等显眼，页脚可重选；localStorage 包 try/catch，存储异常默认拒绝。只有有效 ID 且已同意才加载脚本及发送事件。
+6. data-track 事件：whatsapp_click、wechat_open、wechat_copy、email_click、phone_click、quote_button_click、add_to_inquiry、generate_lead；每个事件含 language，generate_lead 复用 M5 成功事件，不按提交按钮点击发送。不采集询盘中的个人资料。
+7. 双语 /privacy-policy/：顶部标明模板待上线核对，涵盖询盘字段与用途、Cloudflare / Resend / GA / Turnstile、本地清单和 Cookie 选择、配置中的公司及联系方式。修复页脚/联系页链接，表单提交旁放隐私声明。
+8. 共用双语 404 组件输出 /404.html、/zh/404.html，提供首页/产品/报价入口，noindex。保留 Workers 404-page；本地和预览分别验证未知英文、中文路径返回对应语言且 HTTP 404。
+9. 新增 seo:check 并加入 CI：扫描全部 dist HTML 的 title、description、H1、canonical 唯一性，同语言 meta 重复、长度警告、hreflang 目标、noindex 与 sitemap、JSON-LD 解析和 TODO 泄露。
+10. 补 Cookie、事件映射、无 GA 配置等 Vitest 测试与浏览器网络验证；README 说明 GA 在中国大陆的覆盖限制、配置与验收方法。
 
 **验收标准**
 
-- [ ] 写脚本 `npm run seo:check`：遍历 `dist/` 的 HTML，检查每页都有唯一 title / description / 唯一 H1 / canonical，超长时报警告，缺失时报错
-- [ ] JSON-LD 能被 JSON.parse 解析（脚本内校验）
-- [ ] 未同意 cookie 时网络请求中没有 googletagmanager
-- [ ] 报告中附 `seo:check` 的输出
+- [ ] build、check、lint、test、seo:check 全部通过，报告附 SEO 输出
+- [ ] 无同意或无有效 GA ID 时没有 Google 统计请求；拒绝、撤回、存储异常和八类事件经测试
+- [ ] screenshots -- M6 覆盖双语 Cookie、隐私政策、404、联系页提交附近隐私声明
+- [ ] 预览未知英文/中文路径各实测一次，记录 URL、状态码、页面语言
+- [ ] 报告 docs/reviews/M6.md；m6-seo 向 main 开 PR “M6: SEO, analytics and privacy”
 
 ---
 
@@ -272,3 +277,7 @@
 
 - [ ] 全站 `TODO` 数量为 0，或剩余项已列出并获确认可以带着上线
 - [ ] 生产环境表单发信成功（报告附收件截图或说明）
+
+## 后续可选
+
+- 如需统计中国大陆访客，可另行评估百度统计；M6 不接入。

@@ -19,7 +19,7 @@ const { locale = "en" } = Astro.props;
 const recommended = (await getProducts()).slice(0, 3);
 ---
 
-<BaseLayout locale={locale} title={t("thankYou.title", locale)} noindex>
+<BaseLayout locale={locale} noindex>
   <Container class="py-14 sm:py-20">
     <Eyebrow class="mb-5">{t("thankYou.eyebrow", locale)}</Eyebrow>
     <DisplayHeading

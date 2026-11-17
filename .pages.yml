@@ -603,6 +603,21 @@ content:
         description: 填写已确认的完整网站地址；未配置时保留 TODO_ 占位或留空。
         type: string
         default: ""
+      - name: logo
+        label: 网站标志
+        description: 可选；请上传真实标志，用于搜索引擎组织资料，未提供时留空。
+        type: image
+        options:
+          media: site
+      - name: analytics
+        label: 访问统计
+        description: 可选统计，只在访客同意 Cookie 后加载。
+        type: object
+        fields:
+          - name: gaMeasurementId
+            label: GA4 衡量 ID
+            description: Google Analytics 衡量 ID，以 G- 开头；未配置时留空或保留 TODO 占位。
+            type: string
       - name: allowIndexing
         label: 允许搜索引擎收录
         description: 正式上线前保持关闭；M8 确认上线后开启并等待构建部署成功，才会恢复 robots 与收录响应头。

@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-17T04:27:23.636Z",
+  "revision": "9a9db6752c42be35e3180999758180f77a84702f",
+  "preview": "https://m6-seo-dulizhan.pengshang01.workers.dev",
+  "cloudflareBuild": "0f3196d7-f89d-4195-ad6e-f230bcfaa6c3",
+  "method": "GET; navigation request; no form submission",
+  "results": [
+    {
+      "url": "https://m6-seo-dulizhan.pengshang01.workers.dev/",
+      "status": 200,
+      "language": "en",
+      "title": "Cupcake Liners &amp; Baking Cups | Factory Direct",
+      "canonical": "https://dulizhan.pengshang01.workers.dev/",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m6-seo-dulizhan.pengshang01.workers.dev/zh/privacy-policy/",
+      "status": 200,
+      "language": "zh-CN",
+      "title": "隐私政策｜询盘资料与 Cookie",
+      "canonical": "https://dulizhan.pengshang01.workers.dev/zh/privacy-policy/",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m6-seo-dulizhan.pengshang01.workers.dev/m6-missing-page/",
+      "status": 404,
+      "language": "en",
+      "title": "Page Not Found | Baking Cups",
+      "canonical": "https://dulizhan.pengshang01.workers.dev/404.html",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m6-seo-dulizhan.pengshang01.workers.dev/zh/m6-missing-page/",
+      "status": 404,
+      "language": "zh-CN",
+      "title": "页面未找到｜烘焙纸杯",
+      "canonical": "https://dulizhan.pengshang01.workers.dev/zh/404.html",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m6-seo-dulizhan.pengshang01.workers.dev/zh/products/m6-missing-product/",
+      "status": 404,
+      "language": "zh-CN",
+      "title": "页面未找到｜烘焙纸杯",
+      "canonical": "https://dulizhan.pengshang01.workers.dev/zh/404.html",
+      "robots": "noindex"
+    }
+  ]
+}

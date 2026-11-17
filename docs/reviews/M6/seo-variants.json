@@ -1,0 +1,32 @@
+[
+  {
+    "scenario": "configured-domain-indexing-enabled",
+    "pages": 35,
+    "jsonLdCount": 57,
+    "alternateCount": 104,
+    "noindexPages": 7,
+    "sitemapPages": 28,
+    "errors": [],
+    "warnings": []
+  },
+  {
+    "scenario": "todo-domain-indexing-disabled",
+    "pages": 35,
+    "jsonLdCount": 57,
+    "alternateCount": 104,
+    "noindexPages": 35,
+    "sitemapPages": 0,
+    "errors": [],
+    "warnings": []
+  },
+  {
+    "scenario": "production-settings-restored",
+    "pages": 35,
+    "jsonLdCount": 57,
+    "alternateCount": 104,
+    "noindexPages": 35,
+    "sitemapPages": 0,
+    "errors": [],
+    "warnings": []
+  }
+]

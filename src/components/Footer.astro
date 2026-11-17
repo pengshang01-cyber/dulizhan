@@ -171,7 +171,19 @@ const socialClass =
               <dt class="text-xs font-semibold text-cream">{label}</dt>
               <dd class="mt-0.5 wrap-anywhere">
                 {href ? (
-                  <a href={href} class={linkClass}>
+                  <a
+                    href={href}
+                    data-track={
+                      href.startsWith("mailto:")
+                        ? "email_click"
+                        : href.startsWith("tel:")
+                          ? "phone_click"
+                          : href.startsWith("https://wa.me/")
+                            ? "whatsapp_click"
+                            : undefined
+                    }
+                    class={linkClass}
+                  >
                     {value}
                   </a>
                 ) : (
@@ -190,12 +202,12 @@ const socialClass =
       <p class="wrap-anywhere">
         © {new Date().getUTCFullYear()} {company}
       </p>
-      <a
-        href={localePath("/contact/#privacy-policy", locale)}
-        class={linkClass}
-      >
+      <a href={localePath("/privacy-policy/", locale)} class={linkClass}>
         {t("site.privacyPolicy", locale)}
       </a>
+      <button type="button" data-cookie-settings class={linkClass}>
+        {t("cookie.settings", locale)}
+      </button>
     </Container>
   </div>
 </footer>

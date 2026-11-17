@@ -14,7 +14,8 @@
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write .",
     "screenshots": "node --experimental-strip-types scripts/screenshots.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "seo:check": "node --experimental-strip-types scripts/seo-check.ts"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.5",
@@ -31,6 +32,7 @@
     "@types/node": "24.19.2",
     "eslint": "10.15.0",
     "eslint-plugin-astro": "3.2.1",
+    "parse5": "8.1.1",
     "playwright": "1.65.1",
     "prettier": "3.10.1",
     "prettier-plugin-astro": "1.1.2",

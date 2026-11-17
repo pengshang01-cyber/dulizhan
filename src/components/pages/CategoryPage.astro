@@ -22,8 +22,8 @@ const summary = localized(category.summary, locale);
 
 <BaseLayout
   locale={locale}
-  title={t("categories.pageTitle", locale, { label })}
-  description={summary}
+  title={t("seo.category.title", locale, { label })}
+  description={t("seo.category.description", locale, { label })}
 >
   <Container class="py-8 sm:py-12">
     <Breadcrumbs

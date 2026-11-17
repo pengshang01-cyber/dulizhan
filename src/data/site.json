@@ -119,5 +119,9 @@
   "replyTime": {
     "en": "TODO_REPLY_TIME",
     "zh": ""
-  }
+  },
+  "analytics": {
+    "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
+  },
+  "logo": ""
 }

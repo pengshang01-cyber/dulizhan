@@ -13,6 +13,10 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<Button href={localePath("/contact/#quote", locale)} class={className}>
+<Button
+  data-track="quote_button_click"
+  href={localePath("/contact/#quote", locale)}
+  class={className}
+>
   {t("site.getQuote", locale)}
 </Button>

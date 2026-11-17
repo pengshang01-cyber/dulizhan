@@ -1,4 +1,7 @@
 ---
+import JsonLd from "./JsonLd.astro";
+import { breadcrumbData, configuredOrigin } from "../lib/seo";
+import { site } from "../config/site";
 import { localePath } from "../i18n/routing";
 import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
@@ -38,3 +41,13 @@ const { items } = Astro.props;
     ))}
   </ol>
 </nav>
+<JsonLd
+  data={breadcrumbData(
+    items,
+    locale,
+    new URL(
+      Astro.url.pathname,
+      configuredOrigin(site.domain) ?? Astro.url.origin,
+    ).href,
+  )}
+/>
