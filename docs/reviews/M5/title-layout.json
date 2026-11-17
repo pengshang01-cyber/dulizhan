@@ -1,0 +1,348 @@
+[
+  {
+    "path": "/zh/",
+    "width": 1440,
+    "fontSize": "60.192px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "蛋糕纸托与烘焙纸杯",
+        "lines": [
+          {
+            "top": 232.125,
+            "text": "蛋糕纸托与烘焙纸杯",
+            "hanCount": 9
+          }
+        ]
+      },
+      {
+        "text": "源头工厂，直接供货。",
+        "lines": [
+          {
+            "top": 310.359375,
+            "text": "源头工厂，",
+            "hanCount": 4
+          },
+          {
+            "top": 388.59375,
+            "text": "直接供货。",
+            "hanCount": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/custom/",
+    "width": 1440,
+    "fontSize": "60.192px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 232.125,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "为您的品牌定制。",
+        "lines": [
+          {
+            "top": 310.359375,
+            "text": "为您的品牌定制。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/about/",
+    "width": 1440,
+    "fontSize": "60.192px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 232.125,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "源头工厂直供。",
+        "lines": [
+          {
+            "top": 310.359375,
+            "text": "源头工厂直供。",
+            "hanCount": 6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/contact/",
+    "width": 1440,
+    "fontSize": "60.192px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "一起规划",
+        "lines": [
+          {
+            "top": 232.125,
+            "text": "一起规划",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "您的下一笔采购。",
+        "lines": [
+          {
+            "top": 310.359375,
+            "text": "您的下一笔采购。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/",
+    "width": 1024,
+    "fontSize": "42.8032px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "蛋糕纸托与烘焙纸杯",
+        "lines": [
+          {
+            "top": 229.125,
+            "text": "蛋糕纸托与烘焙纸杯",
+            "hanCount": 9
+          }
+        ]
+      },
+      {
+        "text": "源头工厂，直接供货。",
+        "lines": [
+          {
+            "top": 284.75,
+            "text": "源头工厂，直接供货。",
+            "hanCount": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/custom/",
+    "width": 1024,
+    "fontSize": "42.8032px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 229.125,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "为您的品牌定制。",
+        "lines": [
+          {
+            "top": 284.75,
+            "text": "为您的品牌定制。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/about/",
+    "width": 1024,
+    "fontSize": "42.8032px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 229.125,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "源头工厂直供。",
+        "lines": [
+          {
+            "top": 284.75,
+            "text": "源头工厂直供。",
+            "hanCount": 6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/contact/",
+    "width": 1024,
+    "fontSize": "42.8032px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "一起规划",
+        "lines": [
+          {
+            "top": 229.125,
+            "text": "一起规划",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "您的下一笔采购。",
+        "lines": [
+          {
+            "top": 284.75,
+            "text": "您的下一笔采购。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/",
+    "width": 375,
+    "fontSize": "34.4px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "蛋糕纸托与烘焙纸杯",
+        "lines": [
+          {
+            "top": 186.5,
+            "text": "蛋糕纸托与烘焙纸杯",
+            "hanCount": 9
+          }
+        ]
+      },
+      {
+        "text": "源头工厂，直接供货。",
+        "lines": [
+          {
+            "top": 231.21875,
+            "text": "源头工厂，",
+            "hanCount": 4
+          },
+          {
+            "top": 275.9375,
+            "text": "直接供货。",
+            "hanCount": 4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/custom/",
+    "width": 375,
+    "fontSize": "34.4px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 194.5,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "为您的品牌定制。",
+        "lines": [
+          {
+            "top": 239.21875,
+            "text": "为您的品牌定制。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/about/",
+    "width": 375,
+    "fontSize": "34.4px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "烘焙纸杯，",
+        "lines": [
+          {
+            "top": 194.5,
+            "text": "烘焙纸杯，",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "源头工厂直供。",
+        "lines": [
+          {
+            "top": 239.21875,
+            "text": "源头工厂直供。",
+            "hanCount": 6
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/zh/contact/",
+    "width": 375,
+    "fontSize": "34.4px",
+    "overflow": false,
+    "phrases": [
+      {
+        "text": "一起规划",
+        "lines": [
+          {
+            "top": 194.5,
+            "text": "一起规划",
+            "hanCount": 4
+          }
+        ]
+      },
+      {
+        "text": "您的下一笔采购。",
+        "lines": [
+          {
+            "top": 239.21875,
+            "text": "您的下一笔采购。",
+            "hanCount": 7
+          }
+        ]
+      }
+    ]
+  }
+]

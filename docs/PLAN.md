@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（本轮中文站）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M5。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -80,7 +80,7 @@
 6. 工厂视频区：嵌入 YouTube（用轻量嵌入：先显示缩略图，点击后再加载 iframe）。视频 ID 来自 `site.ts`，空则隐藏此区块。
 7. 证书墙：读 `site.ts` 证书列表，空则隐藏。
 8. FAQ 精选 3–5 条（数据与 M4 的 FAQ 页共用同一数据文件 `src/data/faq.ts`）。
-9. 底部询盘 CTA 区块：标题 + Get a Quote 按钮（M5 再换成内嵌表单）。
+9. 底部询盘 CTA 区块：标题 + Get a Quote 按钮（M5 按补充要求继续跳转联系页）。
 
 **验收标准**
 
@@ -187,28 +187,29 @@
 
 ## M5 询盘表单与后端
 
+**目标：** 在现有双语静态站接入可配置的 Worker 询盘 API，联系页及产品详情共用表单；首页保留联系页 CTA，不提前接入 M6 统计或正式 404。
+
 **任务**
 
-1. `InquiryForm` 组件，字段：Name*、Email*、Company、Country*（下拉）、WhatsApp/Phone、Product Interest（下拉，选项来自产品分类，可被 `?product=` 预填）、Quantity（下拉区间）、Message*、勾选“I'd like to request samples”。前端校验 + 提交中状态 + 错误提示。
-2. 接 Cloudflare Turnstile（site key 来自环境变量；本地无 key 时用 Turnstile 官方测试 key）。
-3. Worker 脚本处理 `/api/inquiry`：在 `wrangler.jsonc` 配置 `main` 入口和 `assets.binding: "ASSETS"`，用 `assets.run_worker_first: ["/api/*"]` 仅让 API 路径先走 Worker，其余路径继续静态资源优先；具体脚本在本阶段实现：
-   - 只接受 POST；校验字段；服务端验证 Turnstile token
-   - 简单蜜罐字段（隐藏 input，有值则静默丢弃）
-   - 用 Resend 发邮件到 `INQUIRY_TO_EMAIL`，主题 `New Inquiry: <Company/Name> - <Country> - <Product>`，正文含全部字段、来源页面 URL、UTM 参数（前端从 URL 读取并随表单提交）
-   - 成功返回 JSON，前端跳转 `/thank-you/`
-   - Worker 自己返回的响应按 allowIndexing 设置 X-Robots-Tag；静态 `_headers` 不会自动应用到 API 响应
-4. `/thank-you/`（`noindex`）：感谢语、预计回复时间、WhatsApp 按钮、推荐产品。
-5. 表单放到：`/contact/#quote`、首页底部 CTA、产品详情页底部。
-6. 提交成功时触发 `data-track="generate_lead"` 事件（M6 接 GA4）。
-7. 在 README 写清：Cloudflare Workers 里要配置哪些环境变量与 secrets、Resend 发件域名验证步骤。
-8. 询盘表单读取询价清单，把每个产品的型号、名称、可选数量随表单提交，邮件正文以表格列出（空数量显示 To be discussed）；提交成功后清空清单。
+1. 修复中文 H1 / DisplayHeading：字号比英文缩小约 18%，使用平衡换行和独立短语块；在 1440、1024、375 三种宽度检查首页、定制、关于、联系页。
+2. 新建 Worker 入口；wrangler.jsonc 增加 main、assets.binding=ASSETS、assets.run_worker_first=["/api/*"]，保留 previews 及静态 404 配置。非 API 请求交给 ASSETS.fetch，API 自行按 allowIndexing 设置收录响应头。
+3. /api/inquiry 只接受 POST JSON；校验必填、邮箱、字段长度和请求大小，清单最多 50 项，条目数量为正整数或空；其他方法返回 405。
+4. Turnstile 前端使用 PUBLIC_TURNSTILE_SITE_KEY，仅本地缺 key 时使用官方测试 site key；服务端始终使用环境变量 TURNSTILE_SECRET_KEY 验证，失败 403。蜜罐有值返回成功但不发信。
+5. Resend API 使用 RESEND_API_KEY、INQUIRY_TO_EMAIL、INQUIRY_FROM_EMAIL，Reply-To 为客户邮箱。邮件主题为 [EN] New Inquiry: 公司或姓名 - 国家 - 产品数，中文为 [中文] 新询盘：对应内容；HTML 与纯文本包含全部表单字段、清单表格、样品选择、来源 URL、语言、UTM、提交时间，空数量显示 To be discussed / 待沟通。
+6. 必需配置缺失返回 503；发送失败返回可读错误。前端保留输入和清单，提示通过已配置的邮箱 / WhatsApp / 微信联系；不泄露密钥或上游原始报错。
+7. 双语 InquiryForm 字段：Name*、Email*、Company、Country*、WhatsApp/Phone、WeChat ID、Product Interest、Quantity 区间、Message*、样品勾选。微信中文前置；类别只含有产品的分类，支持 ?product=slug 和产品详情默认预填；前端校验、提交中和错误状态均经 t()。
+8. 表单读取共用 inquiry:v1 清单，显示只读摘要并随请求提交；从 URL 读取 UTM；成功清空清单、触发 generate_lead 事件及 data-track 标记，并跳当前语言感谢页。
+9. /thank-you/ 与 /zh/thank-you/ 为 noindex，共用组件，包含感谢语、来自 site.json 的 replyTime 双语 TODO、WhatsApp / 微信入口及推荐产品；CMS 提供回复时间编辑入口。
+10. 联系页 #quote 替换开发占位，产品详情底部加入表单；清除 FAQ / 联系页过期说明。所有真实资料继续来自配置，密钥只通过 Worker Variables and secrets 或本地 .dev.vars 提供；.env.example 仅列变量名并区分构建变量与运行时配置。
+11. README 中文说明 Turnstile 域名设置、Resend 账号 / API Key、无自有域名仅可用测试发件地址发到注册邮箱、正式域名 SPF / DKIM、Workers 构建变量和运行时密钥位置及验证方法。
 
 **验收标准**
 
-- [ ] 用 `wrangler dev` 本地跑通：缺字段返回 400，蜜罐有值不发信，Turnstile 失败返回 403
-- [ ] 为 Worker 的 `/api/inquiry` 处理逻辑写单元测试（Vitest，mock Resend 和 Turnstile），`npm test` 通过
-- [ ] 没有任何密钥写进代码
-- [ ] 截图：`contact`（含表单）、`thank-you`、表单报错状态
+- [ ] build、check、lint、test 全部通过
+- [ ] Vitest mock 网络覆盖方法限制、校验、蜜罐、Turnstile 拒绝、缺配置 503、Resend 成败、双语邮件和空数量、ASSETS 转发
+- [ ] npx wrangler dev 完整提交验证：官方 Turnstile 测试配置 + 独立本地 mock 发信，不增加生产验证旁路；报告写明方式
+- [ ] screenshots -- M5 覆盖中英文联系表单、带清单、校验错误、不可用、感谢页、详情底部表单，以及四个中文页面三种宽度的标题
+- [ ] M5 审核报告按模板记录实际结果；m5-inquiry 向 main 开 PR “M5: Inquiry form and Worker backend”
 
 ---
 

@@ -1,8 +1,11 @@
 {
   "name": "dulizhan",
+  "main": "src/worker/index.ts",
   "compatibility_date": "2026-11-01",
   "previews": {},
   "assets": {
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"],
     "directory": "./dist",
     "not_found_handling": "404-page",
   },

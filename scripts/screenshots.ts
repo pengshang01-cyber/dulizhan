@@ -1,7 +1,8 @@
-import { mkdir, readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { preview } from "astro";
 import { chromium } from "playwright";
+import { installTurnstileFixture } from "./inquiry-browser-fixture.ts";
 
 const milestone = process.argv[2];
 if (
@@ -17,6 +18,8 @@ const pages: {
   path: string;
   inquiryProducts?: string[];
   inquiryQuantities?: Record<string, string>;
+  milestones?: string[];
+  formState?: "validation" | "unavailable";
 }[] = JSON.parse(
   await readFile(new URL("./pages.json", import.meta.url), "utf8"),
 );
@@ -25,6 +28,22 @@ const sizes = [
   { name: "desktop", width: 1440, height: 900, isMobile: false },
   { name: "mobile", width: 375, height: 812, isMobile: true },
 ];
+const m5Pages = new Set([
+  "contact",
+  "contact-inquiry",
+  "zh-contact",
+  "zh-contact-inquiry",
+  "product-detail",
+  "zh-home",
+  "zh-custom",
+  "zh-about",
+]);
+const headingPages = new Set([
+  "zh-home",
+  "zh-custom",
+  "zh-about",
+  "zh-contact",
+]);
 
 if (
   !pages.length ||
@@ -42,11 +61,14 @@ const server = await preview({
 try {
   const origin = `http://127.0.0.1:${server.port}`;
   const routes = pages
-    .filter(
-      ({ name }) =>
-        milestone !== "M4c" || name === "home" || name.startsWith("zh-"),
-    )
-    .map(({ name, path, inquiryProducts, inquiryQuantities }) => {
+    .filter(({ name, milestones }) => {
+      if (milestones && !milestones.includes(milestone)) return false;
+      if (milestone === "M5") {
+        return m5Pages.has(name) || milestones?.includes("M5");
+      }
+      return milestone !== "M4c" || name === "home" || name.startsWith("zh-");
+    })
+    .map(({ name, path, inquiryProducts, inquiryQuantities, formState }) => {
       const url = new URL(path, origin);
       if (
         !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name) ||
@@ -56,6 +78,7 @@ try {
           !inquiryProducts.every((slug) =>
             /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug),
           )) ||
+        (formState && !["validation", "unavailable"].includes(formState)) ||
         (inquiryQuantities &&
           !Object.entries(inquiryQuantities).every(
             ([slug, value]) =>
@@ -64,7 +87,14 @@ try {
       ) {
         throw new Error(`scripts/pages.json 中的截图配置无效：${name}`);
       }
-      return { name, path, url: url.href, inquiryProducts, inquiryQuantities };
+      return {
+        name,
+        path,
+        url: url.href,
+        inquiryProducts,
+        inquiryQuantities,
+        formState,
+      };
     });
   const browser = await chromium.launch();
   try {
@@ -76,6 +106,16 @@ try {
           isMobile,
           hasTouch: isMobile,
         });
+        if (milestone === "M5") await installTurnstileFixture(page);
+        if (route.formState === "unavailable") {
+          await page.route("**/api/inquiry", (request) =>
+            request.fulfill({
+              status: 503,
+              contentType: "application/json",
+              body: JSON.stringify({ ok: false, code: "unavailable" }),
+            }),
+          );
+        }
         if (route.inquiryProducts?.length) {
           await page.goto(origin + "/products/");
           for (const slug of route.inquiryProducts) {
@@ -124,15 +164,60 @@ try {
         }
         if (new URL(route.url).searchParams.get("from") === "inquiry") {
           await page
-            .locator("[data-inquiry-summary]")
+            .locator("[data-inquiry-summary], [data-form-products]")
             .waitFor({ state: "visible" });
           if (route.inquiryProducts?.length) {
             await page.waitForFunction(
               (count) =>
-                document.querySelectorAll("[data-inquiry-summary-items] > li")
-                  .length === count,
+                document.querySelectorAll(
+                  "[data-inquiry-summary-items] > li, [data-form-products-list] > li",
+                ).length === count,
               route.inquiryProducts.length,
             );
+          }
+        }
+
+        if (
+          milestone === "M5" &&
+          (await page.locator("[data-inquiry-form]").count())
+        ) {
+          await page.locator("[data-inquiry-form]").scrollIntoViewIfNeeded();
+          await page
+            .locator("[data-inquiry-form] [data-test-turnstile]")
+            .waitFor();
+        }
+        if (route.formState) {
+          const form = page.locator("[data-inquiry-form]");
+          await form.locator("[data-test-turnstile]").waitFor();
+          if (route.formState === "unavailable") {
+            const chinese = route.path.startsWith("/zh/");
+            await form
+              .locator('[name="name"]')
+              .fill(chinese ? "测试采购员" : "Test Buyer");
+            await form.locator('[name="email"]').fill("buyer@example.com");
+            await form
+              .locator('[name="company"]')
+              .fill(chinese ? "测试采购团队" : "Test purchasing team");
+            await form
+              .locator('[name="country"]')
+              .selectOption(chinese ? "CN" : "US");
+            await form
+              .locator('[name="message"]')
+              .fill(
+                chinese
+                  ? "这是一条截图测试询盘，请提供纸杯的批发报价与样品信息。"
+                  : "Screenshot test inquiry: please share wholesale pricing and sample information for these baking cups.",
+              );
+          }
+          await form.locator("[data-form-submit]").click();
+          if (route.formState === "validation") {
+            await form
+              .locator('[data-field-error="name"]')
+              .waitFor({ state: "visible" });
+          } else {
+            await form
+              .locator("[data-form-error]")
+              .waitFor({ state: "visible" });
           }
         }
 
@@ -147,14 +232,116 @@ try {
           );
         });
 
+        if (
+          milestone === "M5" &&
+          (await page.evaluate(
+            () => document.documentElement.scrollWidth > window.innerWidth,
+          ))
+        ) {
+          throw new Error(`截图页面横向溢出：${route.path} / ${width}`);
+        }
+
+        if (milestone === "M5") {
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
         const filename = `${route.name}-${size}.png`;
         await page.screenshot({
           fullPage: true,
           path: fileURLToPath(new URL(filename, destination)),
         });
         console.log(`docs/reviews/${milestone}/${filename}`);
+        if (milestone === "M5" && route.name === "product-detail") {
+          const formFile = `product-detail-form-${size}.png`;
+          await page.locator("[data-inquiry-form]").screenshot({
+            path: fileURLToPath(new URL(formFile, destination)),
+            // 仅局部细节图暂隐吸顶页头，避免长表单截图中部被页头遮挡。
+            style: "header { visibility: hidden !important; }",
+          });
+          console.log(`docs/reviews/${milestone}/${formFile}`);
+        }
         await page.close();
       }
+    }
+    if (milestone === "M5") {
+      const evidence = [];
+      for (const viewport of [
+        { name: "desktop", width: 1440, height: 900 },
+        { name: "tablet", width: 1024, height: 900 },
+        { name: "mobile", width: 375, height: 812 },
+      ]) {
+        for (const route of routes.filter(({ name }) =>
+          headingPages.has(name),
+        )) {
+          const page = await browser.newPage({
+            viewport: { width: viewport.width, height: viewport.height },
+          });
+          await installTurnstileFixture(page);
+          await page.goto(route.url);
+          await page.evaluate(() => document.fonts.ready.then(() => true));
+          const result = await page.locator("main h1").evaluate((heading) => {
+            const phrases = [
+              ...heading.querySelectorAll(".display-heading-phrase"),
+            ];
+            const blocks = phrases.length ? phrases : [heading];
+            return {
+              fontSize: getComputedStyle(heading).fontSize,
+              overflow:
+                document.documentElement.scrollWidth > window.innerWidth,
+              phrases: blocks.map((block) => {
+                const lines: { top: number; text: string; hanCount: number }[] =
+                  [];
+                const walker = document.createTreeWalker(
+                  block,
+                  NodeFilter.SHOW_TEXT,
+                );
+                let textNode = walker.nextNode();
+                while (textNode) {
+                  const text = textNode.textContent ?? "";
+                  for (let i = 0; i < text.length; i++) {
+                    if (!text[i].trim()) continue;
+                    const range = document.createRange();
+                    range.setStart(textNode, i);
+                    range.setEnd(textNode, i + 1);
+                    const { top } = range.getBoundingClientRect();
+                    let line = lines.find(
+                      (item) => Math.abs(item.top - top) < 1,
+                    );
+                    if (!line) {
+                      line = { top, text: "", hanCount: 0 };
+                      lines.push(line);
+                    }
+                    line.text += text[i];
+                    if (/\p{Script=Han}/u.test(text[i])) line.hanCount++;
+                  }
+                  textNode = walker.nextNode();
+                }
+                return { text: block.textContent?.trim(), lines };
+              }),
+            };
+          });
+          evidence.push({ path: route.path, width: viewport.width, ...result });
+          if (
+            result.overflow ||
+            result.phrases.some(({ lines }) =>
+              lines.some(({ hanCount }) => hanCount === 1),
+            )
+          ) {
+            throw new Error(
+              `中文标题存在溢出或单字行：${route.path} / ${viewport.width}`,
+            );
+          }
+          const filename = `${route.name}-heading-${viewport.name}.png`;
+          await page.locator("main h1").screenshot({
+            path: fileURLToPath(new URL(filename, destination)),
+          });
+          console.log(`docs/reviews/${milestone}/${filename}`);
+          await page.close();
+        }
+      }
+      await writeFile(
+        new URL("title-layout.json", destination),
+        JSON.stringify(evidence, null, 2) + "\n",
+      );
     }
   } finally {
     await browser.close();

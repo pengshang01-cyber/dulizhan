@@ -87,6 +87,7 @@ describe("website settings saved by Pages CMS", () => {
     "stockMoq",
     "customMoq",
     "sampleLeadTime",
+    "replyTime",
     "productionLeadTime",
     "sampleCost",
     "paymentTerms",

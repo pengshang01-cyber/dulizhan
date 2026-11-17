@@ -21,3 +21,16 @@
 - 已提交 5f84b78 并推送 m4c-zh，创建 PR #8。GitHub Actions CI 43859840551 四项检查通过；Workers Builds 26b2623d-c578-4316-a1ec-cf24024a0f8e 返回 failure，GitHub 无错误详情，已请求用户提供控制台日志。尚未定位或宣称部署成功。
 
 - 2026-11-16 审核修复：用户确认 Workers 预览命令缺少 previews 配置；顶层加入 previews: {}，其余配置未改，README / M4c 报告同步。lint 与 build 均通过，按指定 review-fix 提交信息推送同一分支。
+
+- 2026-11-16：按用户确认计划，从已合并PR #8的main c38401a创建m5-inquiry；完成双语询盘表单/感谢页、Worker API及邮件、防垃圾、中文标题修复。四项检查通过，183 tests、42截图；本地Wrangler真实Siteverify两次+mock邮件两封，未实际发信。报告docs/reviews/M5.md。
+
+- 2026-11-16：M5实现提交f10b446推送并创建PR #9；GitHub CI通过，Workers Builds失败且GitHub未提供错误日志，已请求用户提供控制台报错。未宣称云端部署成功。
+
+- 2026-11-17：用户提供完整Cloudflare日志，确认31页构建成功、部署实际执行wrangler versions upload 4.163.0并在身份标识校验失败；补充README的生产/预览命令区分及M5报告。云端命令修正及重试待用户操作，未改Worker名称或绕过身份检查。
+
+- 2026-11-17：用户确认已将m5-inquiry预览实例命令修改为npx wrangler preview；补充记录并推送以触发新的分支构建验证，业务代码未变。
+
+### 2026-11-17：M5 分支预览部署通过
+
+- 已有m5-inquiry预览实例改为npx wrangler preview后，提交10b427b的GitHub CI及Workers Builds均成功；Cloudflare构建ID为af873743-05d3-4295-95fd-b6c2490acead。Worker名称和业务代码保持不变。
+- 预览地址：https://m5-inquiry-dulizhan.pengshang01.workers.dev；只读验证英文首页和中文联系页200、API GET 405及noindex响应头。回填审核报告和PR #9描述；未真实发信，正式服务配置与收件验收仍待工厂操作。

@@ -115,5 +115,9 @@
     "linkedin": "TODO_LINKEDIN_URL"
   },
   "wechatId": "TODO_WECHAT_ID",
-  "wechatQr": ""
+  "wechatQr": "",
+  "replyTime": {
+    "en": "TODO_REPLY_TIME",
+    "zh": ""
+  }
 }

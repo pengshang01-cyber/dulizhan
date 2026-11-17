@@ -7,6 +7,7 @@ import Breadcrumbs from "../Breadcrumbs.astro";
 import Button from "../Button.astro";
 import Container from "../Container.astro";
 import Eyebrow from "../Eyebrow.astro";
+import InquiryForm from "../InquiryForm.astro";
 import ProductCard from "../ProductCard.astro";
 import ProductGallery from "../ProductGallery.astro";
 import SectionHeading from "../SectionHeading.astro";
@@ -368,6 +369,23 @@ const bodySections = [
       </section>
     )}
   </Container>
+  <section
+    id="quote"
+    class="border-y border-line bg-paper py-14 sm:py-20"
+    aria-labelledby="product-quote-title"
+  >
+    <Container class="max-w-5xl">
+      <div class="rounded-panel border border-line bg-white p-6 sm:p-10">
+        <SectionHeading
+          id="product-quote-title"
+          eyebrow={t("contact.quoteEyebrow", locale)}
+          title={t("contact.quoteTitle", locale)}
+          description={t("contact.quoteDescription", locale)}
+        />
+        <InquiryForm locale={locale} productSlug={data.slug} />
+      </div>
+    </Container>
+  </section>
 </BaseLayout>
 
 <style>

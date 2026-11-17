@@ -1,0 +1,329 @@
+---
+import { localized, t, type Locale } from "../i18n/utils";
+import { localePath } from "../i18n/routing";
+import { getProducts, getVisibleCategories } from "../lib/products";
+import { COUNTRY_CODES } from "../lib/inquiry-countries";
+import { INQUIRY_LIMITS, QUANTITY_RANGES } from "../lib/inquiry-payload";
+import Button from "./Button.astro";
+import InquiryContactOptions from "./InquiryContactOptions.astro";
+
+interface Props {
+  locale?: Locale;
+  productSlug?: string;
+}
+const { locale = "en", productSlug = "" } = Astro.props;
+const categories = await getVisibleCategories();
+const catalog = (await getProducts()).map(({ data }) => ({
+  slug: data.slug,
+  sku: data.sku,
+  title: String(localized(data.title, locale)),
+  category: data.category,
+}));
+const countries = COUNTRY_CODES.map((code) => ({
+  code,
+  label: t("country." + code, locale),
+})).sort((a, b) => a.label.localeCompare(b.label, locale));
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "";
+const fields = [
+  {
+    name: "name",
+    type: "text",
+    required: true,
+    autocomplete: "name",
+    max: INQUIRY_LIMITS.name,
+  },
+  {
+    name: "email",
+    type: "email",
+    required: true,
+    autocomplete: "email",
+    max: INQUIRY_LIMITS.email,
+  },
+  {
+    name: "company",
+    type: "text",
+    required: false,
+    autocomplete: "organization",
+    max: INQUIRY_LIMITS.company,
+  },
+] as const;
+const contactFields =
+  locale === "zh" ? ["wechatId", "phone"] : ["phone", "wechatId"];
+---
+
+<form
+  data-inquiry-form
+  data-locale={locale}
+  data-catalog={JSON.stringify(catalog)}
+  data-product-slug={productSlug}
+  data-site-key={siteKey}
+  action="/api/inquiry"
+  method="post"
+  novalidate
+  class="mt-8"
+>
+  <noscript>
+    <p class="mb-6 border border-copper bg-paper p-4">
+      {t("form.noJavascript", locale)}
+    </p>
+  </noscript>
+  <section
+    data-form-products
+    hidden
+    class="mb-8 rounded-panel border border-line bg-paper p-5"
+    aria-labelledby="form-products-title"
+  >
+    <h3 id="form-products-title" class="font-display text-card-title">
+      {t("form.listTitle", locale)}
+    </h3>
+    <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+      {t("form.listIntro", locale)}
+    </p>
+    <ul data-form-products-list data-form-items class="mt-4 grid gap-3"></ul>
+    <a
+      href={localePath("/inquiry/", locale)}
+      class="mt-4 inline-block text-sm font-semibold text-copper underline"
+    >
+      {t("inquiry.review", locale)}
+    </a>
+  </section>
+  <p
+    data-selected-product
+    hidden
+    class="mb-6 border-l-2 border-copper bg-paper p-4 text-sm leading-relaxed wrap-anywhere"
+  ></p>
+  <div
+    data-form-error
+    hidden
+    role="alert"
+    tabindex="-1"
+    class="mb-7 rounded-panel border border-copper bg-paper p-5"
+  >
+    <h3 class="font-semibold">{t("form.errorTitle", locale)}</h3>
+    <p data-form-error-message class="mt-2 text-sm leading-relaxed"></p>
+    <InquiryContactOptions locale={locale} />
+  </div>
+  <p class="mb-5 text-xs text-ink-soft">{t("form.requiredNote", locale)}</p>
+  <fieldset data-form-fields class="min-w-0 border-0 p-0">
+    <div class="grid min-w-0 gap-x-6 gap-y-5 sm:grid-cols-2">
+      {fields.map(({ name, type, required, autocomplete, max }) => (
+        <div class="min-w-0">
+          <label for={"quote-" + name} class="block text-sm font-semibold">
+            {t("form." + name, locale)}
+            {required && <span aria-hidden="true"> *</span>}
+          </label>
+          <input
+            id={"quote-" + name}
+            name={name}
+            type={type}
+            autocomplete={autocomplete}
+            required={required}
+            maxlength={max}
+            aria-describedby={"quote-" + name + "-error"}
+            class="mt-2 w-full"
+          />
+          <p
+            id={"quote-" + name + "-error"}
+            data-field-error={name}
+            hidden
+            class="mt-2 text-sm text-copper-dark"
+          ></p>
+        </div>
+      ))}
+      <div class="min-w-0">
+        <label for="quote-country" class="block text-sm font-semibold">
+          {t("form.country", locale)} <span aria-hidden="true">*</span>
+        </label>
+        <select
+          id="quote-country"
+          name="country"
+          required
+          aria-describedby="quote-country-error"
+          class="mt-2 w-full"
+        >
+          <option value="">{t("form.chooseCountry", locale)}</option>
+          {countries.map(({ code, label }) => (
+            <option value={code}>{label}</option>
+          ))}
+        </select>
+        <p
+          id="quote-country-error"
+          data-field-error="country"
+          hidden
+          class="mt-2 text-sm text-copper-dark"
+        ></p>
+      </div>
+      {contactFields.map((name) => (
+        <div class="min-w-0">
+          <label for={"quote-" + name} class="block text-sm font-semibold">
+            {t("form." + name, locale)}
+          </label>
+          <input
+            id={"quote-" + name}
+            name={name}
+            type={name === "phone" ? "tel" : "text"}
+            autocomplete={name === "phone" ? "tel" : "off"}
+            maxlength={
+              name === "phone" ? INQUIRY_LIMITS.phone : INQUIRY_LIMITS.wechatId
+            }
+            aria-describedby={
+              "quote-" +
+              name +
+              "-error" +
+              (name === "wechatId" ? " quote-wechat-help" : "")
+            }
+            class="mt-2 w-full"
+          />
+          {name === "wechatId" && (
+            <p id="quote-wechat-help" class="mt-2 text-xs text-muted">
+              {t("form.wechatHelp", locale)}
+            </p>
+          )}
+          <p
+            id={"quote-" + name + "-error"}
+            data-field-error={name}
+            hidden
+            class="mt-2 text-sm text-copper-dark"
+          ></p>
+        </div>
+      ))}
+      <div class="min-w-0">
+        <label for="quote-productInterest" class="block text-sm font-semibold">
+          {t("form.productInterest", locale)}
+        </label>
+        <select
+          id="quote-productInterest"
+          name="productInterest"
+          aria-describedby="quote-productInterest-error"
+          class="mt-2 w-full"
+        >
+          <option value="">{t("form.chooseCategory", locale)}</option>
+          {categories.map((category) => (
+            <option value={category.id}>
+              {localized(category.label, locale)}
+            </option>
+          ))}
+        </select>
+        <p
+          id="quote-productInterest-error"
+          data-field-error="productInterest"
+          hidden
+          class="mt-2 text-sm text-copper-dark"
+        ></p>
+      </div>
+      <div class="min-w-0">
+        <label for="quote-quantity" class="block text-sm font-semibold">
+          {t("form.quantity", locale)}
+        </label>
+        <select
+          id="quote-quantity"
+          name="quantity"
+          aria-describedby="quote-quantity-error"
+          class="mt-2 w-full"
+        >
+          {QUANTITY_RANGES.map((range) => (
+            <option value={range}>{t("form.quantity." + range, locale)}</option>
+          ))}
+        </select>
+        <p
+          id="quote-quantity-error"
+          data-field-error="quantity"
+          hidden
+          class="mt-2 text-sm text-copper-dark"
+        ></p>
+      </div>
+      <div class="min-w-0 sm:col-span-2">
+        <label for="quote-message" class="block text-sm font-semibold">
+          {t("form.message", locale)} <span aria-hidden="true">*</span>
+        </label>
+        <textarea
+          id="quote-message"
+          name="message"
+          required
+          maxlength={INQUIRY_LIMITS.message}
+          rows="5"
+          placeholder={t("form.messagePlaceholder", locale)}
+          aria-describedby="quote-message-error"
+          class="mt-2 w-full"
+        ></textarea>
+        <p
+          id="quote-message-error"
+          data-field-error="message"
+          hidden
+          class="mt-2 text-sm text-copper-dark"
+        ></p>
+      </div>
+    </div>
+    <input type="hidden" name="productSlug" value={productSlug} />
+    <div class="honeypot" aria-hidden="true">
+      <label for="quote-website">{t("form.website", locale)}</label>
+      <input
+        id="quote-website"
+        name="website"
+        type="text"
+        autocomplete="off"
+        tabindex="-1"
+        maxlength={INQUIRY_LIMITS.website}
+      />
+    </div>
+    <label class="mt-6 flex items-start gap-3 text-sm leading-relaxed">
+      <input
+        type="checkbox"
+        name="samples"
+        class="mt-1 size-4 shrink-0 accent-coffee"
+      />
+      <span>{t("form.samples", locale)}</span>
+    </label>
+  </fieldset>
+  <div
+    data-turnstile-area
+    class="mt-7 min-w-0"
+    aria-label={t("form.verifyLabel", locale)}
+  >
+    <div data-turnstile-widget data-turnstile></div>
+    <p
+      data-turnstile-status
+      role="status"
+      class="mt-2 text-xs leading-relaxed text-ink-soft"
+    >
+      {t("form.verifyLoading", locale)}
+    </p>
+    <button
+      data-turnstile-retry
+      type="button"
+      hidden
+      class="mt-3 rounded-control border border-line px-3 py-2 text-sm text-copper hover:bg-paper"
+    >
+      {t("form.retryVerification", locale)}
+    </button>
+  </div>
+  <Button type="submit" data-form-submit class="mt-6 w-full sm:w-auto">
+    <span data-submit-label>{t("form.submit", locale)}</span>
+  </Button>
+  <p
+    data-form-status
+    role="status"
+    aria-live="polite"
+    class="mt-3 min-h-5 text-sm text-ink-soft"
+  ></p>
+</form>
+
+<style>
+  .honeypot {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  input[aria-invalid="true"],
+  select[aria-invalid="true"],
+  textarea[aria-invalid="true"] {
+    border-color: var(--color-copper-dark);
+  }
+</style>
+
+<script>
+  import { initializeInquiryForms } from "../lib/inquiry-form";
+  initializeInquiryForms();
+</script>

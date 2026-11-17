@@ -19,7 +19,7 @@ export default defineConfig({
       ? [
           sitemap({
             filter: (page) =>
-              !/^\/(?:zh\/)?(?:inquiry|styleguide)\/?$/.test(
+              !/^\/(?:zh\/)?(?:inquiry|styleguide|thank-you)\/?$/.test(
                 new URL(page).pathname,
               ),
           }),

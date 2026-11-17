@@ -36,7 +36,8 @@
     "prettier-plugin-astro": "1.1.2",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.2",
-    "vitest": "5.1.0"
+    "vitest": "5.1.0",
+    "wrangler": "4.163.0"
   },
   "overrides": {
     "@typescript-eslint/typescript-estree": {

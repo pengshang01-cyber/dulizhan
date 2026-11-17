@@ -38,6 +38,7 @@ export const siteSchema = z.object({
   stockMoq: localizedText,
   customMoq: localizedText,
   sampleLeadTime: localizedText,
+  replyTime: localizedText,
   productionLeadTime: localizedText,
   sampleCost: localizedText,
   paymentTerms: localizedText,

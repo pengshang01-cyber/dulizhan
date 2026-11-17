@@ -1,14 +1,13 @@
 # 当前状态
 
-更新：2026-11-16
+更新：2026-11-17
 
-- 当前里程碑：M4.6，分支 m4c-zh；基线 main 为 5829476（PR #7 已合并，含手工 wrangler.jsonc）。
-- 已完成：29 个共享中英页面路由、410 项中文界面及 FAQ / 定制内容、语言切换和 hreflang、微信浮层与手机面板、跨语言共用询价单、Workers 部署文档、单开关禁止收录、工作记录迁移。
-- 本地验证：build 29 页；check 89 文件零错误 / 警告 / 提示；lint 通过；9 个测试文件共 111 项通过；32 张截图。全部路由通过双视口检查，15 个英文页面正文与 main 基线一致。
-- 收录开关：true 的独立实际构建通过后已逐字节恢复 site.json，当前 allowIndexing=false，默认输出仍禁止收录。
-- 部署：用户提供 https://dulizhan.pengshang01.workers.dev；Workers Builds 从 main 构建，npm run build / npx wrangler deploy。环境无法连接该域名实测，不代表线上失败；本轮未直接部署。
-- 提交：5f84b78；PR #8 已向 main 创建：https://github.com/pengshang01-cyber/dulizhan/pull/8。GitHub CI 四项检查通过。
-- 审核修复：用户确认预览命令缺少 previews 配置；已在 wrangler.jsonc 顶层加入 previews: {}，更新 README 与 M4c 修改记录，lint / build 通过。
-- 待办：审核 PR #8，最新自动构建结果见 PR Checks；完整证据与限制见 docs/reviews/M4c.md。
-- 保留边界：真实微信及产品中文待工厂填写；表单 / API 在 M5，正式 404 在 M6，M8 才打开收录。
-- 工作记录统一位于 docs/notes/，根目录不再存放这三类记录。
+- 当前里程碑：M5；main基线c38401a，分支m5-inquiry；用户已确认七步实施计划。
+- 已完成：中文标题约18%缩小和平衡换行、双语共用询盘表单及感谢页、Worker API、Turnstile和Resend、配置指南；首页CTA仍跳联系页。
+- 本地验证：build31页；check103文件零错误/警告/提示；lint通过；11文件183项测试通过（Worker68项）；42张截图及12组三视口标题无孤字/无溢出。
+- wrangler dev完整流程：英文/中文真实按钮提交各200，实际Siteverify通过2次，独立测试入口捕获2封mock邮件；清单清空、UTM、Reply-To、空数量、成功事件、感谢页、静态noindex及404均验证。浏览器widget为fixture；未真实发信，生产入口无mock开关。
+- 密钥仅环境变量；新增replyTime为TODO，真实Turnstile/Resend与联系资料待工厂配置。
+- 实现提交f10b446；PR #9：https://github.com/pengshang01-cyber/dulizhan/pull/9。用户把已有m5-inquiry预览实例命令修正为npx wrangler preview后，10b427b的GitHub CI与Workers Builds均通过。
+- 已验证预览：https://m5-inquiry-dulizhan.pengshang01.workers.dev；英文首页和中文联系页200，GET /api/inquiry返回405；三项均带noindex。未发送真实询盘。
+- 待办：PR #9待审核合并；工厂配置正式Turnstile/Resend后验证真实widget与收件箱送达。最新检查见PR Checks，完整证据见docs/reviews/M5.md。
+- 保留边界：M6再接GA4与正式404，M8前allowIndexing=false。

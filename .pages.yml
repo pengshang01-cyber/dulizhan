@@ -698,6 +698,22 @@ content:
             description: 选填；中文留空时回退显示英文。
             type: string
             default: ""
+      - name: replyTime
+        label: 询盘回复时间
+        description: 工厂确认的预计回复时间；未确认时保留 TODO_ 占位。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 询盘回复时间（英文）
+            description: 英文必填，未确认时填写 TODO_REPLY_TIME。
+            type: string
+            required: true
+          - name: zh
+            label: 询盘回复时间（中文）
+            description: 中文选填，留空时回退英文。
+            type: string
+            default: ""
       - name: sampleLeadTime
         label: 打样时间
         description: 英文必填；中文选填，留空时中文页面使用英文。
