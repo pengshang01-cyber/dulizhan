@@ -70,3 +70,7 @@
 - 本地四项检查及四页浏览器替身验证通过；真实预览结果见 docs/reviews/fix-turnstile.md。
 
 - Turnstile 修复 PR #13 / 代码 9ecd14f 已部署。真实 Chrome（含普通窗口）发现另一项配置限制：Cloudflare 110200，预览域名未授权。已请用户添加预览 hostname；原 ready() 错误未再出现，token 验证仍待完成。
+
+## 2026-11-17 Turnstile 真实预览验收完成
+
+用户在 Cloudflare 保存预览 hostname 后，110200 域名错误消失。普通 Chrome 156.0.8078.74 通过真实 SDK 验证中英联系页和中英产品详情，四页均生成 token、无页面 / Turnstile 错误，询盘请求数为 0。只保存 token 是否生成与长度及成功截图；更新 fix-turnstile 审核报告与 PR #13，未修改密钥、后端或发送真实询盘。

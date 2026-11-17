@@ -26,10 +26,23 @@ src/lib/inquiry-form.ts 改为在插入脚本前注册全局 onInquiryTurnstileL
 
 ## 真实预览浏览器验证
 
-代码提交 9ecd14f 的 CI 与 Workers Builds 已通过。Chrome 使用真实脚本和预览原有 site key 后，原 ready() 报错不再出现，但 Cloudflare 返回 110200（Domain not authorized），因此尚未生成真实 token。普通可见 Chrome 也复现相同错误码；本机 Wrangler 未登录，已请用户将 fix-turnstile-ready-dulizhan.pengshang01.workers.dev 加入该 Turnstile 组件的 Hostname Management。保存后继续验证；不修改 site key、不绕过验证、不提交真实询盘。
+2026-11-17 16:46–16:48（UTC+8），在已部署的代码提交 db90a55 上完成真实验证。该提交的 GitHub CI 与 Workers Builds 均通过。
 
-错误码依据：[Cloudflare 官方说明](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/)。正式报告将在域名授权后的实测完成时更新。只记录 [错误码与状态](fix-turnstile/hostname-blocked.json) 和 [当时页面](fix-turnstile/live-failure.png)，未保存 token 内容。
+用户已在 Turnstile 的 Hostname Management 保存预览域名，原 110200（Domain not authorized）已消失。使用本机普通 Google Chrome 156.0.8078.74、独立临时配置，通过 CDP 观察页面；加载真实 Cloudflare SDK，保留预览原有 site key。首次按正常流程点击可见的验证复选框，随后双语联系页及双语产品详情页均显示“Success! / 成功!”与页面的验证完成提示，并生成真实 token。
+
+| 页面 | token 已生成 | 页面 / Turnstile 异常 | 询盘请求 | 截图 |
+| --- | --- | --- | --- | --- |
+| 英文联系页 | 是 | 0 | 0 | [验证成功](fix-turnstile/live-contact.png) |
+| 中文联系页 | 是 | 0 | 0 | [验证成功](fix-turnstile/live-zh-contact.png) |
+| 英文产品详情 | 是 | 0 | 0 | [验证成功](fix-turnstile/live-products-tulip-baking-cups-sample-tulip-cup.png) |
+| 中文产品详情 | 是 | 0 | 0 | [验证成功](fix-turnstile/live-zh-products-tulip-baking-cups-sample-tulip-cup.png) |
+
+[真实浏览器记录](fix-turnstile/live.json) 仅保存 token 是否生成与长度，不保存 token 内容。全程拦截 /api/inquiry 作为防误提交措施，实际请求数为 0，没有发信。未替换 SDK、未注入测试 token、未修改后端验证。
+
+诊断说明：Playwright 直接启动的自动化 Chrome 曾被真实挑战拒绝（600010），因此最终验收使用上述普通 Chrome 会话。先前的 [110200 记录](fix-turnstile/hostname-blocked.json) 与 [域名未授权截图](fix-turnstile/live-failure.png) 保留用于追溯，现已解决。错误码参考 [Cloudflare 官方说明](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/)。
 
 ## 修改记录
 
 初次修复，无新增依赖；仅变更加载器、相关测试及验证记录。
+
+2026-11-17：用户保存预览域名授权后，补充四个真实页面的 token、控制台与零询盘请求验收，以及成功截图；解除线上验收阻塞，无新增代码或依赖。

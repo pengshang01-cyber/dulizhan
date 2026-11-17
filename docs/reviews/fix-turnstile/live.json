@@ -1,0 +1,53 @@
+{
+  "browserVersion": "156.0.8078.74",
+  "records": [
+    {
+      "url": "https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/contact/",
+      "mode": "Real Cloudflare / normal Chrome through CDP",
+      "checkedAt": "2026-11-17T08:46:38.130Z",
+      "tokenGenerated": true,
+      "tokenLength": 837,
+      "status": "Security check complete.",
+      "widgetErrorCodes": [],
+      "consoleTurnstileErrors": [],
+      "submissions": 0,
+      "screenshot": "live-contact.png"
+    },
+    {
+      "url": "https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/zh/contact/",
+      "mode": "Real Cloudflare / normal Chrome through CDP",
+      "checkedAt": "2026-11-17T08:47:15.580Z",
+      "tokenGenerated": true,
+      "tokenLength": 816,
+      "status": "安全验证已完成。",
+      "widgetErrorCodes": [],
+      "consoleTurnstileErrors": [],
+      "submissions": 0,
+      "screenshot": "live-zh-contact.png"
+    },
+    {
+      "url": "https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/products/tulip-baking-cups/sample-tulip-cup/",
+      "mode": "Real Cloudflare / normal Chrome through CDP",
+      "checkedAt": "2026-11-17T08:47:51.010Z",
+      "tokenGenerated": true,
+      "tokenLength": 816,
+      "status": "Security check complete.",
+      "widgetErrorCodes": [],
+      "consoleTurnstileErrors": [],
+      "submissions": 0,
+      "screenshot": "live-products-tulip-baking-cups-sample-tulip-cup.png"
+    },
+    {
+      "url": "https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/zh/products/tulip-baking-cups/sample-tulip-cup/",
+      "mode": "Real Cloudflare / normal Chrome through CDP",
+      "checkedAt": "2026-11-17T08:48:59.694Z",
+      "tokenGenerated": true,
+      "tokenLength": 837,
+      "status": "安全验证已完成。",
+      "widgetErrorCodes": [],
+      "consoleTurnstileErrors": [],
+      "submissions": 0,
+      "screenshot": "live-zh-products-tulip-baking-cups-sample-tulip-cup.png"
+    }
+  ]
+}
