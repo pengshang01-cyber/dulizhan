@@ -27,3 +27,5 @@
 - 2026-11-16：M5实现提交f10b446推送并创建PR #9；GitHub CI通过，Workers Builds失败且GitHub未提供错误日志，已请求用户提供控制台报错。未宣称云端部署成功。
 
 - 2026-11-17：用户提供完整Cloudflare日志，确认31页构建成功、部署实际执行wrangler versions upload 4.163.0并在身份标识校验失败；补充README的生产/预览命令区分及M5报告。云端命令修正及重试待用户操作，未改Worker名称或绕过身份检查。
+
+- 2026-11-17：用户确认已将m5-inquiry预览实例命令修改为npx wrangler preview；补充记录并推送以触发新的分支构建验证，业务代码未变。
