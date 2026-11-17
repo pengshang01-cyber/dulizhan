@@ -7,6 +7,7 @@
 - 本地验证：build31页；check103文件零错误/警告/提示；lint通过；11文件183项测试通过（Worker68项）；42张截图及12组三视口标题无孤字/无溢出。
 - wrangler dev完整流程：英文/中文真实按钮提交各200，实际Siteverify通过2次，独立测试入口捕获2封mock邮件；清单清空、UTM、Reply-To、空数量、成功事件、感谢页、静态noindex及404均验证。浏览器widget为fixture；未真实发信，生产入口无mock开关。
 - 密钥仅环境变量；新增replyTime为TODO，真实Turnstile/Resend与联系资料待工厂配置。
-- 提交f10b446；PR #9：https://github.com/pengshang01-cyber/dulizhan/pull/9。GitHub CI已通过；Workers Builds失败；用户完整日志确认Astro构建成功、实际运行wrangler versions upload 4.163.0后在身份标识检查失败。
-- 待办：用户已确认m5-inquiry实例命令改为npx wrangler preview；本次推送记录触发新构建，待验证结果；PR待审核，最新状态见PR Checks。完整证据见docs/reviews/M5.md。
+- 实现提交f10b446；PR #9：https://github.com/pengshang01-cyber/dulizhan/pull/9。用户把已有m5-inquiry预览实例命令修正为npx wrangler preview后，10b427b的GitHub CI与Workers Builds均通过。
+- 已验证预览：https://m5-inquiry-dulizhan.pengshang01.workers.dev；英文首页和中文联系页200，GET /api/inquiry返回405；三项均带noindex。未发送真实询盘。
+- 待办：PR #9待审核合并；工厂配置正式Turnstile/Resend后验证真实widget与收件箱送达。最新检查见PR Checks，完整证据见docs/reviews/M5.md。
 - 保留边界：M6再接GA4与正式404，M8前allowIndexing=false。

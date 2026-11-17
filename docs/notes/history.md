@@ -29,3 +29,8 @@
 - 2026-11-17：用户提供完整Cloudflare日志，确认31页构建成功、部署实际执行wrangler versions upload 4.163.0并在身份标识校验失败；补充README的生产/预览命令区分及M5报告。云端命令修正及重试待用户操作，未改Worker名称或绕过身份检查。
 
 - 2026-11-17：用户确认已将m5-inquiry预览实例命令修改为npx wrangler preview；补充记录并推送以触发新的分支构建验证，业务代码未变。
+
+### 2026-11-17：M5 分支预览部署通过
+
+- 已有m5-inquiry预览实例改为npx wrangler preview后，提交10b427b的GitHub CI及Workers Builds均成功；Cloudflare构建ID为af873743-05d3-4295-95fd-b6c2490acead。Worker名称和业务代码保持不变。
+- 预览地址：https://m5-inquiry-dulizhan.pengshang01.workers.dev；只读验证英文首页和中文联系页200、API GET 405及noindex响应头。回填审核报告和PR #9描述；未真实发信，正式服务配置与收件验收仍待工厂操作。
