@@ -40,3 +40,8 @@
 - 用户确认 M6 七步计划；从 PR #9 合并基线 2719c40 创建 m6-seo。
 - 完成双语 meta / JSON-LD / sitemap、Cookie 与 GA 事件、双语隐私和 404；新增 seo:check 与 CI，保留禁止收录及 TODO 工厂资料。
 - 242 项测试与 20 张截图通过；本地双语 Workers 404、收录开关和浏览器无真实联网统计验证通过。报告 docs/reviews/M6.md 已写，待 PR 预览后补线上 404 证据。
+
+### M6 PR 与预览验证通过
+
+- 实现提交 9a9db67 已推送，PR #10 已创建；GitHub CI 与 Workers 预览构建 0f3196d7-f89d-4195-ad6e-f230bcfaa6c3 通过。
+- 预览 m6-seo-dulizhan.pengshang01.workers.dev 的首页 / 中文隐私页 200；英文、中文、深层中文未知路径均为对应语言的 404，带 noindex。报告已补原始响应证据，等待用户审核。
