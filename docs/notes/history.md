@@ -78,3 +78,5 @@
 ## 2026-11-17 生产询盘服务端验证继续失败
 
 PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURNSTILE_SECRET_KEY 并部署后仍复现 verification_failed。为避免凭通用提示猜测，创建 fix-turnstile-server-validation，加入官方错误码白名单 / HTTP 状态 / 异常类型诊断及密钥首尾空白处理；保留验证失败禁止发信。新增 16 项测试，总计 300 项通过，尚待部署后的实际错误码确定根因。
+
+- 诊断修复提交 9c31853，PR #14：https://github.com/pengshang01-cyber/dulizhan/pull/14 。生产排障需审核部署后取得真实 verification 错误码，尚未宣称根因已解决。

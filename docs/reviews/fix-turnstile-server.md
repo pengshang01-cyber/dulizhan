@@ -3,7 +3,7 @@
 - 分支：fix-turnstile-server-validation
 - 基线：main 8b6feac（PR #13 合并后）
 - 日期：2026-11-17
-- PR：待创建
+- PR：[PR #14](https://github.com/pengshang01-cyber/dulizhan/pull/14)
 
 ## 1. 问题与完成情况
 
