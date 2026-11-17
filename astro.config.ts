@@ -9,6 +9,11 @@ import { indexingIntegration } from "./scripts/indexing";
 const siteUrl = configuredOrigin(site.domain);
 
 export default defineConfig({
+  image: {
+    remotePatterns: [
+      { protocol: "https", hostname: "i.ytimg.com", pathname: "/vi/**" },
+    ],
+  },
   output: "static",
   i18n: {
     defaultLocale: "en",

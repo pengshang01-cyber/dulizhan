@@ -1,0 +1,86 @@
+{
+  "mode": "Temporary published content in isolated .astro output; sources restored before verification; no publication or real inquiries",
+  "published": {
+    "seo": {
+      "pages": 37,
+      "jsonLdCount": 63,
+      "alternateCount": 110,
+      "noindexPages": 37,
+      "sitemapPages": 0,
+      "errors": [],
+      "warnings": [
+        "/blog/cupcake-liner-sizes-chart/: title 61 字符，超过 60"
+      ]
+    },
+    "links": {
+      "pages": 37,
+      "links": 1446,
+      "anchors": 128,
+      "errors": []
+    },
+    "pages": [
+      {
+        "locale": "en",
+        "width": 1440,
+        "tocLinks": 8,
+        "relatedInquiryWorks": true,
+        "overflow": false,
+        "consoleErrors": 0
+      },
+      {
+        "locale": "zh",
+        "width": 1440,
+        "tocLinks": 8,
+        "relatedInquiryWorks": true,
+        "overflow": false,
+        "consoleErrors": 0
+      },
+      {
+        "locale": "en",
+        "width": 375,
+        "tocLinks": 8,
+        "relatedInquiryWorks": true,
+        "overflow": false,
+        "consoleErrors": 0
+      },
+      {
+        "locale": "zh",
+        "width": 375,
+        "tocLinks": 8,
+        "relatedInquiryWorks": true,
+        "overflow": false,
+        "consoleErrors": 0
+      }
+    ]
+  },
+  "pagination": {
+    "enArticles": 10,
+    "zhArticles": 1,
+    "pageSizes": [
+      9,
+      1
+    ],
+    "missingTranslationExcluded": true,
+    "bodyImageOptimized": true,
+    "previousNext": true,
+    "seo": {
+      "pages": 47,
+      "jsonLdCount": 91,
+      "alternateCount": 130,
+      "noindexPages": 7,
+      "sitemapPages": 40,
+      "errors": [],
+      "warnings": [
+        "/blog/cupcake-liner-sizes-chart/: title 61 字符，超过 60"
+      ]
+    },
+    "links": {
+      "pages": 47,
+      "links": 1852,
+      "anchors": 173,
+      "errors": []
+    }
+  },
+  "sourceDraftsRestored": true,
+  "finalAllowIndexing": false
+}

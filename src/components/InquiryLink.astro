@@ -13,6 +13,9 @@ interface Props {
 <a
   href={localePath("/inquiry/", locale)}
   data-inquiry-link
+  data-label-empty={t("inquiry.linkLabel", locale)}
+  data-label-one={t("inquiry.linkCountOne", locale)}
+  data-label-many={t("inquiry.linkCountMany", locale)}
   aria-label={t("inquiry.linkLabel", locale)}
   aria-current={current ? "page" : undefined}
   class="relative inline-flex size-11 shrink-0 items-center justify-center gap-1.5 rounded-control border border-transparent text-ink-soft hover:text-copper aria-[current=page]:border-copper aria-[current=page]:text-copper lg:w-auto lg:px-2"
@@ -43,8 +46,6 @@ interface Props {
 </a>
 
 <script>
-  import { t } from "../i18n/utils";
-  const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
   function syncInquiryLinks() {
@@ -52,15 +53,15 @@ interface Props {
     for (const link of document.querySelectorAll<HTMLAnchorElement>(
       "[data-inquiry-link]",
     )) {
+      const label =
+        count === 0
+          ? link.dataset.labelEmpty
+          : count === 1
+            ? link.dataset.labelOne
+            : link.dataset.labelMany;
       link.setAttribute(
         "aria-label",
-        count
-          ? t(
-              count === 1 ? "inquiry.linkCountOne" : "inquiry.linkCountMany",
-              locale,
-              { count },
-            )
-          : t("inquiry.linkLabel", locale),
+        (label ?? "").replace("{count}", String(count)),
       );
       const badge = link.querySelector<HTMLElement>("[data-inquiry-count]");
       if (badge) {

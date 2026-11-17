@@ -1,3 +1,4 @@
+import { isTodo } from "../lib/placeholders";
 import { z } from "astro/zod";
 import rawSite from "../data/site.json";
 import { localizedText } from "../lib/content-fields";
@@ -87,16 +88,7 @@ export type SiteConfig = z.infer<typeof siteSchema>;
 export type SiteStat = SiteConfig["stats"][number];
 export const site: SiteConfig = siteSchema.parse(rawSite);
 
-export function isTodo(value: unknown): value is `TODO_${string}` {
-  return typeof value === "string" && value.startsWith("TODO_");
-}
-
-export function display<T extends string | number>(
-  value: T,
-  label: string,
-): T | `[TODO: ${string}]` {
-  return isTodo(value) ? `[TODO: ${label}]` : value;
-}
+export { isTodo, display } from "../lib/placeholders";
 
 export function getWhatsAppHref(number: string, message: string) {
   if (isTodo(number)) return undefined;

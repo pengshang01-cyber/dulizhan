@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M6。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M7。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -242,22 +242,28 @@
 
 ## M7 博客与性能
 
+**目标：** 用 Pages CMS 发布双语资讯，完善性能与自动检查，为工厂提供可重复生成的上线资料清单。以用户本轮要求替代此前单语博客描述，不执行 M8 上线操作。
+
 **任务**
 
-1. `blog` collection：`title`、`description`、`date`、`cover`、`tags`、`relatedProducts`（产品 slug 数组）、`draft`。
-2. `/blog/` 列表（分页，每页 9 篇）、`/blog/<slug>/` 文章页（目录、相关产品卡片、文末 CTA）、`Article` JSON-LD。
-3. 两篇示例文章（结构完整，正文为写作提纲 + 占位段落，标注 `draft: true` 不上线）：
-   - “Cupcake Liner Sizes Chart: How to Choose the Right Baking Cup”
-   - “How to Order Custom Printed Cupcake Liners from a Factory”
-4. 性能：所有图片走 `astro:assets` 并设置宽高；首屏图 `loading="eager"` + `fetchpriority="high"`，其余懒加载；字体子集化 + `font-display: swap`；无未使用的大 JS。
-5. 写 `npm run links:check`：检查 `dist/` 内部链接全部可达。
-6. 上线前自检，逐条写入报告：表单、WhatsApp、https（部署后）、无 Lorem ipsum、拼写、meta、sitemap、隐私政策、联系方式全站一致。
+1. M6 审核修正：analytics.gaMeasurementId 为 TODO / 空时不显示 Cookie 横幅、页脚和隐私页设置入口；有效 ID 恢复现有同意逻辑，隐私正文保留；补测试。
+2. blog 使用 JSON collection，文件名为 slug；字段 title / description 为 {en,zh}，date、updated?、cover、tags、relatedProducts（slug 列表）、draft、bodyEn（必填 Markdown）、bodyZh（选填 Markdown）。CMS 使用富文本编辑器、动态产品多选引用与博客图片媒体库。
+3. 共用组件输出 /blog/、/zh/blog/ 和文章页。每页 9 篇，分页 /blog/page/<n>/ 及中文对应；英文排除草稿，中文还要求 bodyZh 非空。只为真实存在的语言版本输出 hreflang；没有文章时显示正式空状态。
+4. 文章包含标题、日期、封面、H2/H3 自动目录、正文、相关 ProductCard（含询价）、文末报价 CTA、Article JSON-LD、上一篇 / 下一篇。中文正文不回退英文；所有固定文字走 t()。
+5. 两篇指定标题的双语示例文章，完整写作提纲和占位段落，具体尺寸、数量、价格、交期为 [TODO]，最终 draft=true。草稿不进入列表、sitemap 或构建输出。临时发布验证后恢复草稿。
+6. 性能：图片经 astro:assets、带宽高，首屏主图 eager + high，其余 lazy；检查重复 / 未使用 JS，英文字体只保留实际字重与 Latin 子集，中文使用系统字体。
+7. 新增 links:check，检查 dist 内中英文内部链接与锚点，接入 CI；seo:check 覆盖博客，补草稿、语言、分页与结构化数据测试。
+8. 对英文首页、中文首页、一个产品详情、联系页进行移动端 Lighthouse；四类目标均 ≥90，SEO 因 noindex 降分时如实说明，不能运行则说明原因与已完成优化。
+9. 新建 docs/LAUNCH-CHECKLIST.md；todo:report 自动生成第 (1) 部分，扫描 site、data、分类、产品 TODO 与占位图片，按 CMS 菜单列填写位置 / 内容 / 格式示例，单列实拍图与建议尺寸；人工维护第 (2) 部分，涵盖密钥、真实发信、微信、隐私、示例产品、正式域名和 allowIndexing。
+10. 更新 CMS 指南、README、PRD 与记录；报告按模板附 Lighthouse、TODO 摘要、截图和自检：表单、WhatsApp、HTTPS、无 Lorem ipsum、拼写、meta、sitemap、隐私及联系方式一致。未配置项列为待补，不伪称真实验收成功。
 
 **验收标准**
 
-- [ ] 能跑 Lighthouse 时，首页和一个产品详情页移动端 Performance ≥ 90、SEO ≥ 95、Accessibility ≥ 90（不能跑则说明）
-- [ ] `links:check` 无失效链接
-- [ ] 全站搜索 `TODO` 的结果清单附在报告里（这是上线前要工厂补的资料清单）
+- [ ] build、check、lint、test、seo:check、links:check 全通过
+- [ ] Cookie 无配置不显示；草稿完全排除；中文无正文不生成；临时发布、分页、相关产品与目录链接验证通过
+- [ ] screenshots -- M7 覆盖中英文空状态、临时发布列表 / 文章，以及无 Cookie 横幅首页；最终恢复草稿
+- [ ] 四页移动端 Lighthouse 结果与 todo:report 摘要写入报告，待补资料清单可重复生成
+- [ ] docs/reviews/M7.md，m7-blog-perf 向 main 开 PR “M7: Blog, performance and launch checklist”
 
 ---
 

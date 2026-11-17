@@ -15,9 +15,12 @@
     "format": "prettier --write .",
     "screenshots": "node --experimental-strip-types scripts/screenshots.ts",
     "test": "vitest run",
-    "seo:check": "node --experimental-strip-types scripts/seo-check.ts"
+    "seo:check": "node --experimental-strip-types scripts/seo-check.ts",
+    "links:check": "node --experimental-strip-types scripts/links-check.ts",
+    "todo:report": "node --experimental-strip-types scripts/todo-report.ts"
   },
   "dependencies": {
+    "@astrojs/markdown-satteri": "0.4.10",
     "@astrojs/sitemap": "3.7.5",
     "@fontsource/dm-sans": "5.3.0",
     "@fontsource/newsreader": "5.3.0",

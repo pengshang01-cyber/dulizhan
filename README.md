@@ -15,6 +15,7 @@ npm run check
 npm run lint
 npm test
 npm run seo:check
+npm run links:check
 ```
 
 Run `npm run format` to format the source files or `npm run preview` to serve the production build locally.
@@ -116,7 +117,7 @@ Cloudflare 的构建日志检查部署问题；Resend 的发送日志检查是�
 
 工厂人员请阅读 [Pages CMS 操作指南](docs/CMS.md)。产品与分类维护于 `src/content/products/*.json`、`src/content/categories/*.json`，界面字段由根目录 `.pages.yml` 定义。分类文件名即 id，产品文件名须与 slug 一致；上传图片通过 Astro 优化。没有产品的分类自动隐藏。
 
-访客内容统一使用 `{ en, zh }`；英文必填，中文留空回退英文。网站设置、FAQ、定制流程、案例、团队以 `src/data/*.json` 为唯一来源，固定界面文字在 `src/i18n/en.json` / `zh.json`。英文保留根路径，中文在 `/zh/`；两种语言共用页面组件、分类 id 和产品 slug，页头语言切换前往对应页面。
+访客内容统一使用 `{ en, zh }`；英文必填，中文留空回退英文；博客正文单独使用 bodyEn / bodyZh，缺中文正文不生成中文文章。网站设置、FAQ、定制流程、案例、团队以 `src/data/*.json` 为唯一来源，固定界面文字在 `src/i18n/en.json` / `zh.json`。英文保留根路径，中文在 `/zh/`；两种语言共用页面组件、分类 id 和产品 slug，页头语言切换前往对应页面。
 
 两种语言共用浏览器询价清单 `inquiry:v1`，数量可留空（null / 待沟通）；支持正整数与规范千分位，存储不可用时仅当前页面内存有效。联系页与产品详情页表单读取清单，显示对应语言的只读摘要并随询盘发送；提交成功后清空清单。
 
@@ -132,9 +133,9 @@ M8 确认上线后，只需在 CMS 开启“允许搜索引擎收录”（或将
 
 ## SEO、统计与 Cookie 配置
 
-在 Pages CMS 的“网站设置 → 访问统计 → GA4 衡量 ID”填写以 `G-` 开头的 Google Analytics 衡量 ID，保存并等待构建部署。唯一来源是 `src/data/site.json → analytics.gaMeasurementId`；不再使用旧的 PUBLIC_GA_ID 构建变量，已有后台变量可移除。衡量 ID 是公开标识，不是 API 密钥；不要在此处填写服务密钥。为 TODO 或空时，网站完全不加载 GA。
+在 Pages CMS 的“网站设置 → 访问统计 → GA4 衡量 ID”填写以 `G-` 开头的 Google Analytics 衡量 ID，保存并等待构建部署。唯一来源是 `src/data/site.json → analytics.gaMeasurementId`；不再使用旧的 PUBLIC_GA_ID 构建变量，已有后台变量可移除。衡量 ID 是公开标识，不是 API 密钥；不要在此处填写服务密钥。为 TODO 或空时，网站完全不加载 GA，也不显示 Cookie 横幅、页脚及隐私页的 Cookie 设置入口；填写有效 ID 后恢复以下同意流程。
 
-首次访问提供“接受 / 拒绝”两个同等样式的按钮。未同意时不加载 Google 脚本、不发送统计请求；接受后才加载。选择保存在本地 `analytics-consent:v1`，两种语言共用；存储读写失败时保持拒绝。可从页脚或隐私政策里的“Cookie 设置”重新选择；撤回后停用事件发送、删除本站可访问的 GA Cookie，之后访问不再加载 GA。询价单和发送询盘不依赖是否接受统计。[Google 基础同意模式说明](https://developers.google.com/tag-platform/security/concepts/consent-mode#basic_consent_mode)
+已配置有效 ID 时，首次访问提供“接受 / 拒绝”两个同等样式的按钮。未同意时不加载 Google 脚本、不发送统计请求；接受后才加载。选择保存在本地 `analytics-consent:v1`，两种语言共用；存储读写失败时保持拒绝。可从页脚或隐私政策里的“Cookie 设置”重新选择；撤回后停用事件发送、删除本站可访问的 GA Cookie，之后访问不再加载 GA。询价单和发送询盘不依赖是否接受统计。[Google 基础同意模式说明](https://developers.google.com/tag-platform/security/concepts/consent-mode#basic_consent_mode)
 
 统计事件为 whatsapp_click、wechat_open、wechat_copy、email_click、phone_click、quote_button_click、add_to_inquiry、generate_lead，每项带 language=en / zh。复制微信号成功、实际加入产品、询盘成功提交才记录对应完成事件；移出产品、字段校验失败、API 失败不计为转化。事件不携带姓名、邮箱、电话、微信号或留言；页面浏览地址去除 query/hash，推广参数仍按 M5 逻辑随询盘邮件发送。
 
@@ -148,8 +149,20 @@ M8 确认上线后，只需在 CMS 开启“允许搜索引擎收录”（或将
 
 隐私政策位于 /privacy-policy/ 与 /zh/privacy-policy/，顶部明确标注模板；M8 前核对实际运营主体、邮箱、服务使用情况和资料保存安排。表单提交处及页脚均链接当前语言政策。
 
-运行 `npm run screenshots -- M6` 生成双语 Cookie、隐私政策、404 与联系页声明截图，并运行独立浏览器统计验证。Workers 本地路由用 `npx wrangler dev` 验证；部署后分别访问一个不存在的英文路径和 /zh/ 路径，确认 HTTP 404 与页面语言。回退依据 [Workers 就近 404 规则](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/#custom-404-pages)。
+M6 的双语 Cookie、隐私政策、404 与联系页声明历史截图保留于 docs/reviews/M6/。当前运行 `npm run screenshots -- M7`，验证无 GA 配置时隐藏入口，并使用隔离配置回归有效 ID 的统计同意流程。Workers 本地路由用 `npx wrangler dev` 验证；部署后分别访问一个不存在的英文路径和 /zh/ 路径，确认 HTTP 404 与页面语言。回退依据 [Workers 就近 404 规则](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/#custom-404-pages)。
 
 ## 工作记录
 
 项目工作记录统一保存在 `docs/notes/status.md`、`docs/notes/history.md`、`docs/notes/decisions.md`。日常进度不再写到根目录；历史审核证据保留在 `docs/reviews/`。
+
+## 博客、性能与上线资料
+
+资讯文章在 Pages CMS 的“资讯文章”维护，唯一来源是 `src/content/blog/*.json`；两份 Markdown 正文由构建时的 `@astrojs/markdown-satteri` 渲染，浏览器不加载 Markdown 编辑或渲染库。参见 [发布文章指南](docs/CMS.md#10-如何发布文章)。封面与正文图片上传至 `src/assets/images/blog/`，路径为 `../../assets/images/blog/文件名`，由 Astro 优化为 WebP 并保留宽高。正文只保留文章排版元素，不执行 HTML 脚本或 iframe。
+
+非草稿文章按日期倒序，每页九篇；中文站只展示有中文正文的文章。只有确实存在的语言版本才生成 hreflang 和语言切换。示例两篇保持 `draft: true`，不出现在公开列表、文章页面或 sitemap 中；[TODO] 提纲不属于可发布的正式内容。
+
+每次构建后运行 `npm run links:check`，检查 dist 内中英文内部链接、下载文件和锚点，错误时返回非零状态；CI 已接入。`npm run screenshots -- M7` 包含默认博客空状态、无 GA 界面及独立临时发布的列表 / 文章截图，还验证 9+1 分页、缺中文正文、sitemap 和相关产品询价。测试临时文件逐个清理，原草稿与收录设置恢复；测试产物只在 .astro 中，不进入 dist。
+
+运行 `npm run todo:report` 重新扫描网站设置、全部 data JSON、分类、产品及文章，更新 [上线资料清单](docs/LAUNCH-CHECKLIST.md) 的自动区域；保留人工上线检查项。清单说明 CMS 填写位置、示例格式、实拍图建议及目前没有 CMS 字段的图片替换方式。真实发信、密钥、正式域名和解除 noindex 仍须在 M8 上线验收时完成。
+
+移动端 Lighthouse 本轮结果和运行方式见 [M7 审核报告](docs/reviews/M7.md)。中文字体仍使用系统字体；英文 DM Sans / Newsreader 仅加载实际使用字重的 Latin 子集。当前没有真实产品照片，性能结果不能替代补齐真实素材后的再次测试。

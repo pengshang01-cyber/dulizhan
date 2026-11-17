@@ -5,13 +5,16 @@ import { localePath, unlocalizedPath } from "../i18n/routing";
 interface Props {
   locale?: Locale;
   class?: string;
+  paths?: Partial<Record<Locale, string>>;
 }
-const { locale = "en", class: className } = Astro.props;
+const { locale = "en", class: className, paths } = Astro.props;
 const barePath = unlocalizedPath(Astro.url.pathname);
 const currentPath = /^\/404(?:\.html)?\/?$/.test(barePath)
   ? "/404.html"
   : barePath;
-const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
+const hasTranslation = paths
+  ? Boolean(paths.en && paths.zh)
+  : currentPath.replace(/\/$/, "") !== "/styleguide";
 ---
 
 {hasTranslation && (
@@ -24,7 +27,7 @@ const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
     data-language-switch
   >
     <a
-      href={localePath(currentPath, "en")}
+      href={paths?.en ?? localePath(currentPath, "en")}
       lang="en"
       hreflang="en"
       aria-current={locale === "en" ? "page" : undefined}
@@ -36,7 +39,7 @@ const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
       /
     </span>
     <a
-      href={localePath(currentPath, "zh")}
+      href={paths?.zh ?? localePath(currentPath, "zh")}
       lang="zh-CN"
       hreflang="zh-CN"
       aria-current={locale === "zh" ? "page" : undefined}
@@ -56,7 +59,10 @@ const hasTranslation = currentPath.replace(/\/$/, "") !== "/styleguide";
     for (const link of links) {
       const url = new URL(link.href);
       url.search = location.search;
-      url.hash = location.hash;
+      // 博客两种正文的目录 ID 不同，切换语言时回到文章顶部。
+      url.hash = /\/(?:zh\/)?blog\//.test(location.pathname)
+        ? ""
+        : location.hash;
       link.href = url.href;
     }
   }

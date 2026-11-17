@@ -1,4 +1,4 @@
-import { display } from "../config/site";
+import { display } from "./placeholders";
 import { t, type Locale } from "../i18n/utils";
 import { localePath } from "../i18n/routing";
 import { clearItems, getItems, INQUIRY_CHANGE_EVENT } from "./inquiry";

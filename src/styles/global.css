@@ -203,3 +203,78 @@ html[lang="zh-CN"] .display-heading-phrase {
     padding-bottom: 1.5rem;
   }
 }
+
+/* CMS Markdown 正文：纯静态排版，表格在自身区域滚动。 */
+.blog-prose {
+  line-height: 1.8;
+  color: var(--color-ink-soft);
+}
+.blog-prose > :first-child {
+  margin-top: 0;
+}
+.blog-prose :is(p, ul, ol, blockquote, pre, table, img) {
+  margin-block: 1.25rem;
+}
+.blog-prose :is(h2, h3, h4, h5, h6) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin-block: 2.5rem 1rem;
+  scroll-margin-top: 2rem;
+}
+.blog-prose h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+.blog-prose h3 {
+  font-size: 1.5rem;
+}
+.blog-prose :is(ul, ol) {
+  padding-left: 1.5rem;
+}
+.blog-prose ul {
+  list-style: disc;
+}
+.blog-prose ol {
+  list-style: decimal;
+}
+.blog-prose a {
+  color: var(--color-copper-dark);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+.blog-prose blockquote {
+  border-left: 2px solid var(--color-copper);
+  padding: 0.5rem 1.25rem;
+  background: var(--color-paper);
+}
+.blog-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  background: white;
+  font-size: 0.875rem;
+}
+.blog-prose :is(th, td) {
+  border: 1px solid var(--color-line);
+  text-align: left;
+  min-width: 7rem;
+  padding: 0.75rem 1rem;
+}
+.blog-prose th {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.blog-prose img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-panel);
+}
+.blog-prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem;
+  background: var(--color-paper);
+}

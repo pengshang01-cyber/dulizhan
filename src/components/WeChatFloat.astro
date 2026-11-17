@@ -57,7 +57,7 @@ const qr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
           alt={t("contact.wechatQr", locale)}
           width={300}
           format="webp"
-          loading="eager"
+          loading="lazy"
           class="mx-auto mt-5 h-auto w-60 max-w-full select-auto"
           data-wechat-qr
         />

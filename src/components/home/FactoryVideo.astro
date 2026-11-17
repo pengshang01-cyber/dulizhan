@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import type { Locale } from "../../i18n/utils";
 const { locale = "en" } = Astro.props;
 import { t } from "../../i18n/utils";
@@ -34,11 +35,12 @@ const embed =
         data-video-title={t("video.playerTitle", locale)}
         class="relative isolate grid size-full cursor-pointer place-items-center overflow-hidden rounded-panel text-white"
       >
-        <img
+        <Image
           src={thumbnail}
           alt=""
-          width="480"
-          height="360"
+          width={480}
+          height={360}
+          format="webp"
           loading="lazy"
           decoding="async"
           class="absolute inset-0 -z-10 size-full object-cover opacity-65"

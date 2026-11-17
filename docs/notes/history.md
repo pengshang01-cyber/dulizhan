@@ -45,3 +45,11 @@
 
 - 实现提交 9a9db67 已推送，PR #10 已创建；GitHub CI 与 Workers 预览构建 0f3196d7-f89d-4195-ad6e-f230bcfaa6c3 通过。
 - 预览 m6-seo-dulizhan.pengshang01.workers.dev 的首页 / 中文隐私页 200；英文、中文、深层中文未知路径均为对应语言的 404，带 noindex。报告已补原始响应证据，等待用户审核。
+
+## 2026-11-17 M7 博客、性能与上线清单
+
+用户确认七步计划后，从已合并 PR #10 的 main 0b3d0af 创建 m7-blog-perf。完成 GA 未配置时隐藏 Cookie 界面、JSON 双语博客及 Pages CMS 富文本 / 产品多选、九篇分页、目录 / Article 元数据 / 相关询价、links:check 和 todo:report。两篇指定文章保持草稿。六项检查通过、20 张截图、隔离发布与统计回归完成；Lighthouse P=99–100 / A=100 / BP=100，SEO 因 noindex 为66–69。审核报告 docs/reviews/M7.md；后续提交 PR 并回填预览状态，未执行 M8。
+
+### M7 PR 与预览（2026-11-17 14:34）
+
+代码提交 613fc7f 已推送，PR #11 “M7: Blog, performance and launch checklist” 已创建。GitHub CI 44031642382 与 Workers Builds 成功。预览 m7-blog-perf-dulizhan.pengshang01.workers.dev 实测十个地址通过：中英首页 / 博客 / 隐私200，两篇草稿中英四个地址404，正确语言、Cookie界面隐藏及noindex均确认。已回填 M7 报告与部署证据；等待用户审核，不自动合并。
