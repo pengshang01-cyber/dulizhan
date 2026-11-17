@@ -8,4 +8,5 @@
 - 16 张截图及 CMS 格式测试通过，默认首页四张与 M7 逐像素相同；正式新增图片字段为空，临时图片已删除。
 - 删除 9 个 M7 Lighthouse 原始报告，只保留分数表；今后原始目录忽略。
 - 22 个 JSON 的资料清单：95 个待补字段、20 处占位图引用、7 个空图片位、3 个示例产品。
-- 待提交推送、创建 PR 和验证 CI / Workers 预览；allowIndexing=false、示例博客草稿和既有 domain 保持不变。
+- 代码提交 af8148e，PR #12 已创建并待审核：https://github.com/pengshang01-cyber/dulizhan/pull/12 。代码 CI / Workers Builds 均成功，预览 https://m7b-images-dulizhan.pengshang01.workers.dev 四个中英文页面实测 HTTP 200、默认图和 noindex 正确；文档回填后以 PR 最新 Checks 为准。
+- allowIndexing=false、示例博客草稿、既有 domain 保持不变；正式图片待工厂在 CMS 上传。

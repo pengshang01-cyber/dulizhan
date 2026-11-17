@@ -1,8 +1,8 @@
 # M7b 审核报告：M7.5 图片全部后台化
 
 - 分支：m7b-images
-- PR：待创建后回填
-- 预览地址：待 Workers Builds 部署后实测；生产站 https://dulizhan.pengshang01.workers.dev 不作为本 PR 预览证据
+- PR：[PR #12](https://github.com/pengshang01-cyber/dulizhan/pull/12)
+- 预览地址：[M7.5 Workers 预览](https://m7b-images-dulizhan.pengshang01.workers.dev)（已实测）
 - 提交时间：2026-11-17
 - 基线：PR #11 已合并，main 5043737700b6b76efc88f920ddd0e30bd069e661；已切 main 快进拉取后创建本分支。
 
@@ -104,7 +104,9 @@ Updated docs/LAUNCH-CHECKLIST.md; manual checklist preserved.
 
 ### 预览构建
 
-提交后补充 CI、Workers Builds 和预览实测结果。
+代码提交 af8148e 的 [GitHub CI](https://github.com/pengshang01-cyber/dulizhan/actions/runs/44036230728) 和 Workers Builds 均为 SUCCESS。2026-11-17 07:08:59 UTC 实测预览的英文 / 中文首页和关于页：全部 HTTP 200，html lang 分别为 en / zh-CN，保留 noindex；首页与车间默认占位图、默认分享图存在，Logo 和测试素材未泄露。见 [部署实测](M7b/deployment.json)。
+
+文档回填提交只更新报告、计划和状态记录，最终状态以 [PR #12 Checks](https://github.com/pengshang01-cyber/dulizhan/pull/12/checks) 为准。
 
 ## 3. 截图
 

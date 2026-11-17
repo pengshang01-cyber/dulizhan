@@ -281,10 +281,10 @@
 
 **验收标准**
 
-- [ ] build、check、lint、test、seo:check、links:check 全部通过
-- [ ] 以 CMS 格式临时填写 Logo、首页主图及两张车间图，验证中英说明、顺序、图片优化、分享图与组织标志；测试后恢复空值
-- [ ] screenshots -- M7b 覆盖中英首页 / 关于页，默认与上传两种状态、1440 / 375 视口
-- [ ] 按模板写 M7b 报告；m7b-images 向 main 开 PR “M7.5: Editable images in CMS”
+- [x] build、check、lint、test、seo:check、links:check 全部通过
+- [x] 以 CMS 格式临时填写 Logo、首页主图及两张车间图，验证中英说明、顺序、图片优化、分享图与组织标志；测试后恢复空值
+- [x] screenshots -- M7b 覆盖中英首页 / 关于页，默认与上传两种状态、1440 / 375 视口
+- [x] 按模板写 M7b 报告；m7b-images 向 main 开 PR “M7.5: Editable images in CMS”
 
 ---
 
