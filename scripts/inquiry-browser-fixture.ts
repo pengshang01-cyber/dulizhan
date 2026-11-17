@@ -11,6 +11,8 @@ export async function installTurnstileFixture(page: Page): Promise<void> {
       );
       const body = String.raw`
         (() => {
+          const loadedScript = document.currentScript;
+          const asyncScript = loadedScript?.async || loadedScript?.defer;
           const token = "XXXX.DUMMY.TOKEN.XXXX";
           const widgets = new Map();
           let nextId = 0;
@@ -19,7 +21,14 @@ export async function installTurnstileFixture(page: Page): Promise<void> {
             if (widget) queueMicrotask(() => widget.options.callback?.(token));
           }
           window.turnstile = {
-            ready(callback) { queueMicrotask(callback); },
+            ready(callback) {
+              if (asyncScript) {
+                const error = new Error("[Cloudflare Turnstile] Remove async/defer from the Turnstile api.js script tag before using turnstile.ready().");
+                error.name = "TurnstileError";
+                throw error;
+              }
+              queueMicrotask(callback);
+            },
             render(target, options) {
               const element = typeof target === "string" ? document.querySelector(target) : target;
               if (!element) throw new Error("Turnstile test fixture container missing");
@@ -35,7 +44,7 @@ export async function installTurnstileFixture(page: Page): Promise<void> {
             },
             reset(id) { complete(id); },
             execute(id) { complete(id); },
-            getResponse(id) { return widgets.has(id) ? token : ""; },
+            getResponse(id) { return widgets.has(id ?? widgets.keys().next().value) ? token : ""; },
             isExpired() { return false; },
             remove(id) {
               widgets.get(id)?.note.remove();

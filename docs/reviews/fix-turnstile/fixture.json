@@ -1,0 +1,79 @@
+{
+  "checkedAt": "2026-11-17T08:13:53.646Z",
+  "browserVersion": "159.0.8154.6",
+  "records": [
+    {
+      "url": "http://127.0.0.1:62538/contact/",
+      "mode": "strict fixture",
+      "tokenGenerated": true,
+      "tokenLength": 21,
+      "widgetBox": {
+        "x": 161,
+        "y": 818.71875,
+        "width": 1118,
+        "height": 48
+      },
+      "apiRequests": [
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad",
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad"
+      ],
+      "errors": [],
+      "submissions": 0,
+      "screenshot": "fixture-contact.png"
+    },
+    {
+      "url": "http://127.0.0.1:62538/zh/contact/",
+      "mode": "strict fixture",
+      "tokenGenerated": true,
+      "tokenLength": 21,
+      "widgetBox": {
+        "x": 161,
+        "y": 818.8125,
+        "width": 1118,
+        "height": 50
+      },
+      "apiRequests": [
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad"
+      ],
+      "errors": [],
+      "submissions": 0,
+      "screenshot": "fixture-zh-contact.png"
+    },
+    {
+      "url": "http://127.0.0.1:62538/products/tulip-baking-cups/sample-tulip-cup/",
+      "mode": "strict fixture",
+      "tokenGenerated": true,
+      "tokenLength": 21,
+      "widgetBox": {
+        "x": 161,
+        "y": 865.59375,
+        "width": 1118,
+        "height": 48
+      },
+      "apiRequests": [
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad"
+      ],
+      "errors": [],
+      "submissions": 0,
+      "screenshot": "fixture-products-tulip-baking-cups-sample-tulip-cup.png"
+    },
+    {
+      "url": "http://127.0.0.1:62538/zh/products/tulip-baking-cups/sample-tulip-cup/",
+      "mode": "strict fixture",
+      "tokenGenerated": true,
+      "tokenLength": 21,
+      "widgetBox": {
+        "x": 161,
+        "y": 865.8125,
+        "width": 1118,
+        "height": 50
+      },
+      "apiRequests": [
+        "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad"
+      ],
+      "errors": [],
+      "submissions": 0,
+      "screenshot": "fixture-zh-products-tulip-baking-cups-sample-tulip-cup.png"
+    }
+  ]
+}
