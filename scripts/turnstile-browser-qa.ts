@@ -15,9 +15,26 @@ const server = remote
   ? undefined
   : await preview({ server: { host: "127.0.0.1", port: 0 } });
 const origin = remote ?? "http://127.0.0.1:" + server!.port;
+const proxyUrl =
+  remote && process.env.HTTPS_PROXY
+    ? new URL(process.env.HTTPS_PROXY)
+    : undefined;
+const proxy = proxyUrl
+  ? {
+      server: proxyUrl.origin,
+      ...(proxyUrl.username && {
+        username: decodeURIComponent(proxyUrl.username),
+        password: decodeURIComponent(proxyUrl.password),
+      }),
+    }
+  : undefined;
 const browser = await chromium.launch(
   remote
-    ? { channel: "chrome", headless: process.env.TURNSTILE_HEADED !== "1" }
+    ? {
+        channel: "chrome",
+        headless: process.env.TURNSTILE_HEADED !== "1",
+        proxy,
+      }
     : {},
 );
 const records = [];
@@ -31,11 +48,29 @@ try {
     const page = await browser.newPage({
       viewport: { width: 1440, height: 1000 },
     });
+    await page.addInitScript(() => {
+      const codes: string[] = [];
+      (
+        window as unknown as { __turnstileQaCodes: string[] }
+      ).__turnstileQaCodes = codes;
+      window.addEventListener("message", ({ origin, data }) => {
+        if (
+          origin === "https://challenges.cloudflare.com" &&
+          data?.event === "fail" &&
+          data.code
+        )
+          codes.push(String(data.code));
+      });
+    });
     const errors: string[] = [];
     const apiRequests: string[] = [];
+    const apiResponses: { status: number; url: string }[] = [];
+    const networkFailures: { url: string; error: string | undefined }[] = [];
+    const consoleErrors: string[] = [];
     let submissions = 0;
     page.on("pageerror", (error) => errors.push(error.message));
     page.on("console", (message) => {
+      if (message.type() === "error") consoleErrors.push(message.text());
       if (message.type() === "error" && /turnstile/i.test(message.text()))
         errors.push(message.text());
     });
@@ -43,6 +78,16 @@ try {
       if (request.url().includes("/turnstile/v0/api.js"))
         apiRequests.push(request.url());
     });
+    page.on("response", (response) => {
+      if (response.url().includes("/turnstile/v0/api.js"))
+        apiResponses.push({ status: response.status(), url: response.url() });
+    });
+    page.on("requestfailed", (request) =>
+      networkFailures.push({
+        url: new URL(request.url()).origin,
+        error: request.failure()?.errorText,
+      }),
+    );
     // 只验证 widget 与 token；即使误触提交也禁止真实询盘请求发出。
     await page.route("**/api/inquiry", (route) => {
       submissions++;
@@ -69,6 +114,8 @@ try {
     try {
       await page.waitForFunction(
         () =>
+          (window as unknown as { __turnstileQaCodes: string[] })
+            .__turnstileQaCodes.length > 0 ||
           /Security check complete|安全验证已完成/.test(
             document.querySelector("[data-turnstile-status]")?.textContent ??
               "",
@@ -83,6 +130,12 @@ try {
             "onInquiryTurnstileLoad",
         ),
       );
+      const widgetErrorCodes = await page.evaluate(
+        () =>
+          (window as unknown as { __turnstileQaCodes: string[] })
+            .__turnstileQaCodes,
+      );
+      assert.deepEqual(widgetErrorCodes, [], "Cloudflare widget error codes");
       const tokenLength = await page.evaluate(() => {
         const api = window.turnstile as unknown as {
           getResponse: () => string;
@@ -138,6 +191,15 @@ try {
           url: page.url(),
           errors,
           apiRequests,
+          apiResponses,
+          networkFailures,
+          consoleErrors,
+          sdkPresent: await page.evaluate(() => Boolean(window.turnstile)),
+          widgetErrorCodes: await page.evaluate(
+            () =>
+              (window as unknown as { __turnstileQaCodes: string[] })
+                .__turnstileQaCodes,
+          ),
           status: await page.locator("[data-turnstile-status]").innerText(),
           siteKeyConfigured: Boolean(
             await page

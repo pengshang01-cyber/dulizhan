@@ -2,7 +2,8 @@
 
 - 分支：fix-turnstile-ready
 - 基线：main cd7169a（PR #12 合并后）
-- PR / 预览：创建、部署后回填
+- PR：[PR #13](https://github.com/pengshang01-cyber/dulizhan/pull/13)
+- 预览：[Turnstile 修复预览](https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/contact/#quote)
 - 日期：2026-11-17
 
 ## 原因与修复
@@ -25,8 +26,10 @@ src/lib/inquiry-form.ts 改为在插入脚本前注册全局 onInquiryTurnstileL
 
 ## 真实预览浏览器验证
 
-待预览部署后记录实际浏览器、URL、控件显示、真实 token 是否生成、控制台结果及截图。不会以替身结果冒充线上验证，不提交真实询盘，也不保存 token 内容。
+代码提交 9ecd14f 的 CI 与 Workers Builds 已通过。Chrome 使用真实脚本和预览原有 site key 后，原 ready() 报错不再出现，但 Cloudflare 返回 110200（Domain not authorized），因此尚未生成真实 token。普通可见 Chrome 也复现相同错误码；本机 Wrangler 未登录，已请用户将 fix-turnstile-ready-dulizhan.pengshang01.workers.dev 加入该 Turnstile 组件的 Hostname Management。保存后继续验证；不修改 site key、不绕过验证、不提交真实询盘。
+
+错误码依据：[Cloudflare 官方说明](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/)。正式报告将在域名授权后的实测完成时更新。只记录 [错误码与状态](fix-turnstile/hostname-blocked.json) 和 [当时页面](fix-turnstile/live-failure.png)，未保存 token 内容。
 
 ## 修改记录
 
-初次修复，无新增依赖；仅变更加加载器、相关测试及验证记录。
+初次修复，无新增依赖；仅变更加载器、相关测试及验证记录。

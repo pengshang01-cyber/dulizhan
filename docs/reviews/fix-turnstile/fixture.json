@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-11-17T08:01:50.508Z",
+  "checkedAt": "2026-11-17T08:13:53.646Z",
   "browserVersion": "159.0.8154.6",
   "records": [
     {
-      "url": "http://127.0.0.1:61511/contact/",
+      "url": "http://127.0.0.1:62538/contact/",
       "mode": "strict fixture",
       "tokenGenerated": true,
       "tokenLength": 21,
@@ -22,7 +22,7 @@
       "screenshot": "fixture-contact.png"
     },
     {
-      "url": "http://127.0.0.1:61511/zh/contact/",
+      "url": "http://127.0.0.1:62538/zh/contact/",
       "mode": "strict fixture",
       "tokenGenerated": true,
       "tokenLength": 21,
@@ -40,7 +40,7 @@
       "screenshot": "fixture-zh-contact.png"
     },
     {
-      "url": "http://127.0.0.1:61511/products/tulip-baking-cups/sample-tulip-cup/",
+      "url": "http://127.0.0.1:62538/products/tulip-baking-cups/sample-tulip-cup/",
       "mode": "strict fixture",
       "tokenGenerated": true,
       "tokenLength": 21,
@@ -58,7 +58,7 @@
       "screenshot": "fixture-products-tulip-baking-cups-sample-tulip-cup.png"
     },
     {
-      "url": "http://127.0.0.1:61511/zh/products/tulip-baking-cups/sample-tulip-cup/",
+      "url": "http://127.0.0.1:62538/zh/products/tulip-baking-cups/sample-tulip-cup/",
       "mode": "strict fixture",
       "tokenGenerated": true,
       "tokenLength": 21,

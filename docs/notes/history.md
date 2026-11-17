@@ -68,3 +68,5 @@
 - 用户指出线上 ready() 与 async 脚本不兼容；main cd7169a 后创建 fix-turnstile-ready。
 - 加载器采用官方 onload 回调；替身加入相同错误约束，补齐超时 / 重试 / 并发测试。
 - 本地四项检查及四页浏览器替身验证通过；真实预览结果见 docs/reviews/fix-turnstile.md。
+
+- Turnstile 修复 PR #13 / 代码 9ecd14f 已部署。真实 Chrome（含普通窗口）发现另一项配置限制：Cloudflare 110200，预览域名未授权。已请用户添加预览 hostname；原 ready() 错误未再出现，token 验证仍待完成。

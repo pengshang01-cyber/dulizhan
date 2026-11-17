@@ -1,0 +1,13 @@
+{
+  "preview": "https://fix-turnstile-ready-dulizhan.pengshang01.workers.dev/contact/",
+  "observedOn": "2026-11-17",
+  "browser": "Google Chrome (headless and visible window)",
+  "officialScriptLoaded": true,
+  "readyExceptionObserved": false,
+  "widgetErrorCode": 110200,
+  "meaning": "Domain not authorized",
+  "tokenGenerated": false,
+  "inquirySubmissions": 0,
+  "requiredHostname": "fix-turnstile-ready-dulizhan.pengshang01.workers.dev",
+  "reference": "https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/"
+}
