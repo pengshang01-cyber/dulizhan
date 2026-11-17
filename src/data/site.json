@@ -123,5 +123,13 @@
   "analytics": {
     "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
   },
-  "logo": ""
+  "logo": "",
+  "ogImage": "",
+  "homeHeroImage": "",
+  "homeHeroAlt": {
+    "en": "",
+    "zh": ""
+  },
+  "aboutGallery": [],
+  "factoryVideoPoster": ""
 }

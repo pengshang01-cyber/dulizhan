@@ -1,0 +1,102 @@
+[
+  {
+    "language": "en",
+    "screen": "desktop",
+    "identicalPixels": true,
+    "before": {
+      "format": "raw",
+      "width": 1440,
+      "height": 3804,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 16433280
+    },
+    "after": {
+      "format": "raw",
+      "width": 1440,
+      "height": 3804,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 16433280
+    }
+  },
+  {
+    "language": "en",
+    "screen": "mobile",
+    "identicalPixels": true,
+    "before": {
+      "format": "raw",
+      "width": 375,
+      "height": 5280,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 5940000
+    },
+    "after": {
+      "format": "raw",
+      "width": 375,
+      "height": 5280,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 5940000
+    }
+  },
+  {
+    "language": "zh",
+    "screen": "desktop",
+    "identicalPixels": true,
+    "before": {
+      "format": "raw",
+      "width": 1440,
+      "height": 3772,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 16295040
+    },
+    "after": {
+      "format": "raw",
+      "width": 1440,
+      "height": 3772,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 16295040
+    }
+  },
+  {
+    "language": "zh",
+    "screen": "mobile",
+    "identicalPixels": true,
+    "before": {
+      "format": "raw",
+      "width": 375,
+      "height": 4878,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 5487750
+    },
+    "after": {
+      "format": "raw",
+      "width": 375,
+      "height": 4878,
+      "channels": 3,
+      "depth": "uchar",
+      "premultiplied": false,
+      "hasAlpha": false,
+      "size": 5487750
+    }
+  }
+]

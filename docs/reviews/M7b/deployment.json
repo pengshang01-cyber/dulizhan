@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "url": "https://m7b-images-dulizhan.pengshang01.workers.dev/",
+      "defaultImages": true,
+      "testFixturesAbsent": true,
+      "status": 200,
+      "language": "en",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m7b-images-dulizhan.pengshang01.workers.dev/zh/",
+      "defaultImages": true,
+      "testFixturesAbsent": true,
+      "status": 200,
+      "language": "zh-CN",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m7b-images-dulizhan.pengshang01.workers.dev/about/",
+      "defaultImages": true,
+      "testFixturesAbsent": true,
+      "status": 200,
+      "language": "en",
+      "robots": "noindex"
+    },
+    {
+      "url": "https://m7b-images-dulizhan.pengshang01.workers.dev/zh/about/",
+      "defaultImages": true,
+      "testFixturesAbsent": true,
+      "status": 200,
+      "language": "zh-CN",
+      "robots": "noindex"
+    }
+  ],
+  "checkedAt": "2026-11-17T07:08:59.7942378Z",
+  "codeCommit": "af8148eb2a47f43b05627112d607d198a7730fa7"
+}

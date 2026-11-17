@@ -166,3 +166,9 @@ M6 的双语 Cookie、隐私政策、404 与联系页声明历史截图保留于
 运行 `npm run todo:report` 重新扫描网站设置、全部 data JSON、分类、产品及文章，更新 [上线资料清单](docs/LAUNCH-CHECKLIST.md) 的自动区域；保留人工上线检查项。清单说明 CMS 填写位置、示例格式、实拍图建议及目前没有 CMS 字段的图片替换方式。真实发信、密钥、正式域名和解除 noindex 仍须在 M8 上线验收时完成。
 
 移动端 Lighthouse 本轮结果和运行方式见 [M7 审核报告](docs/reviews/M7.md)。中文字体仍使用系统字体；英文 DM Sans / Newsreader 仅加载实际使用字重的 Latin 子集。当前没有真实产品照片，性能结果不能替代补齐真实素材后的再次测试。
+
+## 页面图片维护
+
+在 Pages CMS 的“网站设置”上传网站 Logo、默认分享图、首页主图、车间照片与可选视频封面；图片说明支持中英文，图库可增删排序。留空时保持默认图标或占位图，无需改代码。步骤与尺寸建议见 [CMS 指南第 11 节](docs/CMS.md#11-如何更换首页主图车间照片logo)。
+
+运行 npm run screenshots -- M7b 会截取默认设置及独立 CMS 测试设置；测试图片明确标注为占位图，完成后删除，正式 site.json 不被覆盖。Lighthouse 原始 HTML / JSON 放在已忽略的 docs/reviews/<里程碑>/lighthouse/，只提交审核报告中的分数摘要。

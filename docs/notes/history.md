@@ -53,3 +53,12 @@
 ### M7 PR 与预览（2026-11-17 14:34）
 
 代码提交 613fc7f 已推送，PR #11 “M7: Blog, performance and launch checklist” 已创建。GitHub CI 44031642382 与 Workers Builds 成功。预览 m7-blog-perf-dulizhan.pengshang01.workers.dev 实测十个地址通过：中英首页 / 博客 / 隐私200，两篇草稿中英四个地址404，正确语言、Cookie界面隐藏及noindex均确认。已回填 M7 报告与部署证据；等待用户审核，不自动合并。
+
+## 2026-11-17 · M7.5 图片后台化
+
+- 用户确认执行；PR #11 合并后切 main 快进到 5043737，新建 m7b-images。
+- 网站设置补齐首页、车间图库、Logo 展示、分享图与视频封面，空值保留默认；更新 CMS 指南和资料清单。
+- 删除 M7 Lighthouse 原始报告 9 个文件，保留分数表并忽略以后原始报告；未重写历史提交。
+- 六项检查通过，278 项测试；16 张双语截图完成，首页默认状态四张与 M7 逐像素一致，测试图片已清理。PR 与预览状态见 status.md 和 M7b 报告。
+
+- M7.5 提交 af8148e，PR #12 已创建；CI 与 Workers Builds 成功，预览四页实测通过，报告回填实际网址。未合并 PR，交用户审核。

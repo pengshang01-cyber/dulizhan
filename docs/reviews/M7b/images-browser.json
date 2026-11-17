@@ -1,0 +1,356 @@
+{
+  "fields": {
+    "logo": "../assets/images/site/m7b-test-logo.png",
+    "ogImage": "../assets/images/site/m7b-test-hero.png",
+    "homeHeroImage": "../assets/images/site/m7b-test-hero.png",
+    "homeHeroAlt": {
+      "en": "CMS test home hero",
+      "zh": "CMS 测试首页主图"
+    },
+    "aboutGallery": [
+      {
+        "image": "../assets/images/site/m7b-test-workshop-one.png",
+        "caption": {
+          "en": "CMS test workshop one",
+          "zh": "CMS 测试车间一"
+        }
+      },
+      {
+        "image": "../assets/images/site/m7b-test-workshop-two.png",
+        "caption": {
+          "en": "CMS test workshop two",
+          "zh": ""
+        }
+      }
+    ],
+    "factoryVideoPoster": "../assets/images/site/m7b-test-hero.png",
+    "youtubeVideoId": "TESTVIDEO01"
+  },
+  "checks": "Default and uploaded images; bilingual alt fallback; gallery order; intrinsic sizes; WebP; eager/lazy; OG 1200x630; Organization logo; product page default OG; no 375px overflow",
+  "evidence": [
+    {
+      "viewport": 1440,
+      "path": "/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__Z24U6bl.webp",
+          "width": 1600,
+          "height": 1200,
+          "loading": "eager",
+          "alt": "CMS test home hero"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Standard Cupcake Liners cover placeholder"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Tulip Baking Cups cover placeholder"
+        },
+        {
+          "src": "/_astro/muffin-cups-placeholder.BvB2Z50V_ZIEGkJ.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Muffin Cups cover placeholder"
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__2giysh.webp",
+          "width": 480,
+          "height": 360,
+          "loading": "lazy",
+          "alt": ""
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 1440,
+      "path": "/zh/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__Z24U6bl.webp",
+          "width": 1600,
+          "height": 1200,
+          "loading": "eager",
+          "alt": "CMS 测试首页主图"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "普通蛋糕纸托封面占位图"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "郁金香杯封面占位图"
+        },
+        {
+          "src": "/_astro/muffin-cups-placeholder.BvB2Z50V_ZIEGkJ.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "马芬杯封面占位图"
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__2giysh.webp",
+          "width": 480,
+          "height": 360,
+          "loading": "lazy",
+          "alt": ""
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 1440,
+      "path": "/about/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-one.LHSPV9xY_ZR5A5P.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop one"
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-two.DoEBzKtv_ZFojrP.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop two"
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 1440,
+      "path": "/zh/about/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-one.LHSPV9xY_ZR5A5P.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS 测试车间一"
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-two.DoEBzKtv_ZFojrP.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop two"
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 375,
+      "path": "/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__Z24U6bl.webp",
+          "width": 1600,
+          "height": 1200,
+          "loading": "eager",
+          "alt": "CMS test home hero"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Standard Cupcake Liners cover placeholder"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Tulip Baking Cups cover placeholder"
+        },
+        {
+          "src": "/_astro/muffin-cups-placeholder.BvB2Z50V_ZIEGkJ.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "Muffin Cups cover placeholder"
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__2giysh.webp",
+          "width": 480,
+          "height": 360,
+          "loading": "lazy",
+          "alt": ""
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 375,
+      "path": "/zh/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__Z24U6bl.webp",
+          "width": 1600,
+          "height": 1200,
+          "loading": "eager",
+          "alt": "CMS 测试首页主图"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "普通蛋糕纸托封面占位图"
+        },
+        {
+          "src": "/_astro/sample-tulip-cup-placeholder.Di7mMocn_10WTPI.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "郁金香杯封面占位图"
+        },
+        {
+          "src": "/_astro/muffin-cups-placeholder.BvB2Z50V_ZIEGkJ.webp",
+          "width": 720,
+          "height": 432,
+          "loading": "lazy",
+          "alt": "马芬杯封面占位图"
+        },
+        {
+          "src": "/_astro/m7b-test-hero.Bpj4uG8__2giysh.webp",
+          "width": 480,
+          "height": 360,
+          "loading": "lazy",
+          "alt": ""
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 375,
+      "path": "/about/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-one.LHSPV9xY_ZR5A5P.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop one"
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-two.DoEBzKtv_ZFojrP.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop two"
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    },
+    {
+      "viewport": 375,
+      "path": "/zh/about/",
+      "uploaded": true,
+      "images": [
+        {
+          "src": "/_astro/m7b-test-logo.DIZVGLEv_Z1ii2qY.webp",
+          "width": 96,
+          "height": 96,
+          "loading": "eager",
+          "alt": ""
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-one.LHSPV9xY_ZR5A5P.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS 测试车间一"
+        },
+        {
+          "src": "/_astro/m7b-test-workshop-two.DoEBzKtv_ZFojrP.webp",
+          "width": 1600,
+          "height": 1067,
+          "loading": "lazy",
+          "alt": "CMS test workshop two"
+        }
+      ],
+      "og": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-hero.Bpj4uG8__ZTYYoU.webp",
+      "organizationLogo": "https://dulizhan.pengshang01.workers.dev/_astro/m7b-test-logo.DIZVGLEv_ZpGtBK.webp"
+    }
+  ]
+}

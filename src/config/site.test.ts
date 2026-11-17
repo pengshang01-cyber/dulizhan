@@ -36,6 +36,10 @@ describe("website settings saved by Pages CMS", () => {
       "youtubeVideoId",
       "wechatId",
       "wechatQr",
+      "logo",
+      "ogImage",
+      "homeHeroImage",
+      "factoryVideoPoster",
     ] as const;
     fields.forEach((key) => delete input[key]);
 
@@ -107,5 +111,75 @@ describe("website settings saved by Pages CMS", () => {
     delete input.email;
     input.certificates = "invalid";
     expect(siteSchema.safeParse(input).success).toBe(false);
+  });
+});
+
+describe("CMS page images", () => {
+  it("restores gallery and alt defaults after CMS clears or omits fields", () => {
+    for (const clear of [undefined, null]) {
+      const result = siteSchema.parse({
+        ...rawSite,
+        aboutGallery: clear,
+        homeHeroAlt: clear,
+      });
+      expect(result.aboutGallery).toEqual([]);
+      expect(result.homeHeroAlt).toBeUndefined();
+    }
+    expect(
+      siteSchema.parse({ ...rawSite, homeHeroAlt: {} }).homeHeroAlt,
+    ).toBeUndefined();
+  });
+  it("accepts CMS-relative uploads, preserves order and optional Chinese captions", () => {
+    const gallery = [
+      {
+        image: "../assets/images/site/packing.jpg",
+        caption: { en: "Packing", zh: "包装" },
+      },
+      {
+        image: "../assets/images/site/workshop/printing.webp",
+        caption: { en: "Printing", zh: "" },
+      },
+    ];
+    const result = siteSchema.parse({
+      ...rawSite,
+      aboutGallery: gallery,
+      homeHeroAlt: { en: "Baking cups" },
+    });
+    expect(result.aboutGallery).toEqual(gallery);
+    expect(result.homeHeroAlt?.en).toBe("Baking cups");
+  });
+  it.each(["logo", "ogImage", "homeHeroImage", "factoryVideoPoster"])(
+    "rejects remote or escaping paths for %s",
+    (key) => {
+      for (const path of [
+        "https://example.com/photo.jpg",
+        "../assets/images/site/../private.jpg",
+        "/public/logo.png",
+        "../assets/images/site/image.svg",
+      ]) {
+        expect(siteSchema.safeParse({ ...rawSite, [key]: path }).success).toBe(
+          false,
+        );
+      }
+      expect(
+        siteSchema.parse({
+          ...rawSite,
+          [key]: "../assets/images/site/cms-upload.png",
+        })[key as "logo"],
+      ).toBe("../assets/images/site/cms-upload.png");
+    },
+  );
+  it("requires an uploaded image and English caption for a gallery item", () => {
+    for (const item of [
+      { caption: { en: "Workshop" } },
+      { image: "../assets/images/site/a.jpg", caption: { zh: "车间" } },
+    ]) {
+      expect(
+        siteSchema.safeParse({ ...rawSite, aboutGallery: [item] }).success,
+      ).toBe(false);
+    }
+    expect(
+      siteSchema.safeParse({ ...rawSite, homeHeroAlt: { zh: "纸杯" } }).success,
+    ).toBe(false);
   });
 });

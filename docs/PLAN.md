@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M7。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M7.5（图片全部后台化）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -14,6 +14,7 @@
 | M5 | 询盘表单与后端 | `m5-inquiry` | 表单组件、Worker API、防垃圾、感谢页 |
 | M6 | SEO 与统计 | `m6-seo` | meta、sitemap、结构化数据、GA4 事件、隐私政策、404 |
 | M7 | 博客与性能 | `m7-blog-perf` | 博客系统、示例文章、性能优化、上线检查 |
+| M7.5 | 图片全部后台化 | `m7b-images` | 网站设置图片上传、默认回退、资料清单与报告清理 |
 | M8 | 正式上线 | `m8-launch` | 绑定域名、生产环境变量、上线后检查 |
 
 ---
@@ -264,6 +265,26 @@
 - [ ] screenshots -- M7 覆盖中英文空状态、临时发布列表 / 文章，以及无 Cookie 横幅首页；最终恢复草稿
 - [ ] 四页移动端 Lighthouse 结果与 todo:report 摘要写入报告，待补资料清单可重复生成
 - [ ] docs/reviews/M7.md，m7-blog-perf 向 main 开 PR “M7: Blog, performance and launch checklist”
+
+---
+
+## M7.5 图片全部后台化
+
+**目标：** 工厂通过 Pages CMS 更换网站全部内容图片，无需改代码；保持当前双语设计、事实约束与默认显示。
+
+**任务**
+
+1. “网站设置”复用 logo，新增 ogImage、homeHeroImage / homeHeroAlt（双语）、aboutGallery（图片与双语说明的有序列表）、factoryVideoPoster；空值使用既有图标、分享图、首页 / 四张车间占位图和视频自带封面。既有产品、分类、博客、微信、证书、案例、团队图片继续由对应 CMS 条目维护。
+2. 网站图片上传 src/assets/images/site；相对路径由统一解析器转为 Astro 图片，输出 WebP、宽高；主图 eager / high，其余正文图 lazy；Logo 用于页头与 Organization.logo，自定义默认分享图用于 OG / Twitter，文章专属分享封面保持优先。
+3. CMS 中文标签与说明提供建议尺寸和回退规则；更新 CMS 指南、todo:report 和上线清单，所有内容图片均有后台填写位置。
+4. 删除 M7/lighthouse 原始 JSON / HTML，M7 报告保留分数摘要；忽略今后的原始报告目录，AGENTS 规定仅提交摘要。
+
+**验收标准**
+
+- [x] build、check、lint、test、seo:check、links:check 全部通过
+- [x] 以 CMS 格式临时填写 Logo、首页主图及两张车间图，验证中英说明、顺序、图片优化、分享图与组织标志；测试后恢复空值
+- [x] screenshots -- M7b 覆盖中英首页 / 关于页，默认与上传两种状态、1440 / 375 视口
+- [x] 按模板写 M7b 报告；m7b-images 向 main 开 PR “M7.5: Editable images in CMS”
 
 ---
 

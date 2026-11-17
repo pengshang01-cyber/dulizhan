@@ -7,3 +7,6 @@ dist/
 .dev.vars
 .dev.vars.*
 .wrangler/
+# Lighthouse 原始 HTML / JSON 仅本地留存，审核报告提交分数摘要。
+docs/reviews/**/lighthouse/
+.lighthouseci/

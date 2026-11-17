@@ -21,12 +21,31 @@ import { localized } from "../../i18n/utils";
 import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const factoryImages = [
+const placeholderImages = [
   { image: printingImage, label: t("pages.about.printing_workshop", locale) },
   { image: formingImage, label: t("pages.about.forming_equipment", locale) },
   { image: qualityImage, label: t("pages.about.quality_check_area", locale) },
   { image: packingImage, label: t("pages.about.packing_area", locale) },
 ];
+const uploadedImages = site.aboutGallery
+  .map(({ image, caption }) => ({
+    image: resolveSiteImage(image),
+    label: localized(caption, locale),
+  }))
+  .filter((item) => item.image);
+const factoryImages = uploadedImages.length
+  ? uploadedImages.map(({ image, label }) => ({
+      image: image!,
+      label,
+      alt: label,
+      placeholder: false,
+    }))
+  : placeholderImages.map(({ image, label }) => ({
+      image,
+      label,
+      alt: t("about.factoryImageAlt", locale, { label }),
+      placeholder: true,
+    }));
 const productionSteps = [
   t("pages.about.printing", locale),
   t("pages.about.forming", locale),
@@ -128,12 +147,12 @@ interface Props {
         title={t("pages.about.workshop_equipment", locale)}
         id="factory-images-title"
       />
-      <div class="mt-8 grid gap-5 sm:grid-cols-2">
-        {factoryImages.map(({ image, label }) => (
+      <div data-about-gallery class="mt-8 grid gap-5 sm:grid-cols-2">
+        {factoryImages.map(({ image, label, alt, placeholder }) => (
           <figure class="overflow-hidden rounded-panel border border-line bg-white">
             <Image
               src={image}
-              alt={t("about.factoryImageAlt", locale, { label })}
+              alt={alt}
               widths={[384, 648, 960]}
               sizes="(min-width: 80rem) 35rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
               format="webp"
@@ -142,9 +161,11 @@ interface Props {
             />
             <figcaption class="border-t border-line p-5">
               <span class="font-display text-card-title">{label}</span>
-              <span class="mt-2 block text-xs tracking-[0.1em] text-muted uppercase">
-                {t("pages.about.placeholder_image", locale)}
-              </span>
+              {placeholder && (
+                <span class="mt-2 block text-xs tracking-[0.1em] text-muted uppercase">
+                  {t("pages.about.placeholder_image", locale)}
+                </span>
+              )}
             </figcaption>
           </figure>
         ))}

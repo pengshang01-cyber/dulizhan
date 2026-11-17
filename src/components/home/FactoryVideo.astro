@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { site } from "../../config/site";
+import { resolveSiteImage } from "../../lib/site-images";
 import type { Locale } from "../../i18n/utils";
 const { locale = "en" } = Astro.props;
 import { t } from "../../i18n/utils";
@@ -12,7 +14,13 @@ interface Props {
 }
 
 const { videoId } = Astro.props;
-const thumbnail = "https://i.ytimg.com/vi/" + videoId + "/hqdefault.jpg";
+const thumbnail =
+  resolveSiteImage(site.factoryVideoPoster) ??
+  "https://i.ytimg.com/vi/" + videoId + "/hqdefault.jpg";
+const thumbnailProps =
+  typeof thumbnail === "string"
+    ? { src: thumbnail, width: 480, height: 360 }
+    : { src: thumbnail, width: 480, height: 360 };
 const embed =
   "https://www.youtube-nocookie.com/embed/" + videoId + "?autoplay=1";
 ---
@@ -36,10 +44,8 @@ const embed =
         class="relative isolate grid size-full cursor-pointer place-items-center overflow-hidden rounded-panel text-white"
       >
         <Image
-          src={thumbnail}
+          {...thumbnailProps}
           alt=""
-          width={480}
-          height={360}
           format="webp"
           loading="lazy"
           decoding="async"
