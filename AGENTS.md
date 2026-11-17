@@ -89,6 +89,9 @@ docs/
 
 ## 5. 截图规则（审核用）
 
+- Lighthouse 原始 HTML / JSON 报告保留在已忽略的 `docs/reviews/<里程碑>/lighthouse/`，不要提交；审核报告只记录分数表、环境和必要结论。
+- 网站设置中的 logo、ogImage、homeHeroImage / homeHeroAlt、aboutGallery、factoryVideoPoster 是对应页面图片的唯一编辑来源；空值使用既有回退，上传统一放 src/assets/images/site，由 astro:assets 输出。图库顺序遵循数据，说明使用双语结构。
+
 能运行 Playwright 时，每个里程碑对本次新增 / 改动的页面截图，存到 `docs/reviews/M<编号>/`：
 
 - `<页面>-desktop.png`：1440 × 900，整页截图

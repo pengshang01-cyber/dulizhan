@@ -726,8 +726,66 @@ content:
         type: string
         default: ""
       - name: logo
-        label: 网站标志
-        description: 可选；请上传真实标志，用于搜索引擎组织资料，未提供时留空。
+        label: 网站 Logo
+        description: 可选；建议透明 PNG，至少 512 × 512。用于页头和搜索引擎 Organization.logo；留空时显示原有图标与文字。
+        type: image
+        options:
+          media: site
+      - name: ogImage
+        label: 默认分享图
+        description: 建议 1200 × 630；用于没有专属分享图的页面。留空时使用默认占位分享图。
+        type: image
+        options:
+          media: site
+      - name: homeHeroImage
+        label: 首页主图
+        description: 建议 1600 × 1200，比例 4:3；上传真实主打产品或产品组合。留空时显示现有 Placeholder。
+        type: image
+        options:
+          media: site
+      - name: homeHeroAlt
+        label: 首页主图说明
+        description: 简短描述图中真实内容，供读屏和图片无法显示时使用；填写中文时也请填写英文，中文留空回退英文。整组留空时使用页面通用说明。
+        type: object
+        fields:
+          - name: en
+            label: 首页主图说明（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 首页主图说明（中文）
+            type: string
+            default: ""
+      - name: aboutGallery
+        label: 关于我们车间与设备照片
+        description: 可添加、删除、拖动排序；显示顺序与此处一致。建议 1600 × 1067，比例 3:2。删除全部条目后恢复原有四张占位图。
+        type: object
+        list: true
+        fields:
+          - name: image
+            label: 车间或设备图片
+            description: 上传真实车间、设备或生产环节照片；建议 1600 × 1067。
+            type: image
+            required: true
+            options:
+              media: site
+          - name: caption
+            label: 图片说明
+            description: 用作图下说明和图片替代文字；英文必填，中文留空回退英文。
+            type: object
+            required: true
+            fields:
+              - name: en
+                label: 图片说明（英文）
+                type: string
+                required: true
+              - name: zh
+                label: 图片说明（中文）
+                type: string
+                default: ""
+      - name: factoryVideoPoster
+        label: 工厂视频封面
+        description: 可选；建议 1280 × 720，比例 16:9。仅配置有效 YouTube 视频 ID 后显示；不上传时沿用视频自带缩略图。
         type: image
         options:
           media: site

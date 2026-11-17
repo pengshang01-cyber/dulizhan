@@ -57,16 +57,45 @@ describe("launch checklist generation", () => {
         scannedFiles: 2,
         todoFields: 2,
         placeholderReferences: 1,
-        emptyImages: 1,
+        emptyImages: 6,
         exampleProducts: 1,
       });
       expect(first.section).toContain("产品 → Sample Cup");
       expect(first.section).toContain("公司全称 → 英文");
+      for (const label of [
+        "首页主图",
+        "关于我们车间与设备照片",
+        "默认分享图",
+        "网站 Logo",
+        "工厂视频封面",
+      ])
+        expect(first.section).toContain(label);
+      expect(first.section).not.toContain("目前无 CMS 字段");
       await writeFile(
         sitePath,
         JSON.stringify({ companyName: { en: "Verified name" }, wechatQr: "" }),
       );
       expect((await collectTodos(root)).summary.todoFields).toBe(1);
+      await writeFile(
+        sitePath,
+        JSON.stringify({
+          companyName: { en: "Verified name" },
+          logo: "../assets/images/site/logo.png",
+          ogImage: "../assets/images/site/share.jpg",
+          homeHeroImage: "../assets/images/site/hero.jpg",
+          factoryVideoPoster: "../assets/images/site/video.jpg",
+          wechatQr: "../assets/images/site/qr.png",
+          aboutGallery: [
+            {
+              image: "../assets/images/site/workshop.jpg",
+              caption: { en: "Workshop", zh: "车间" },
+            },
+          ],
+        }),
+      );
+      const complete = await collectTodos(root);
+      expect(complete.summary.emptyImages).toBe(0);
+      expect(complete.section).not.toContain("（目前为空）");
     } finally {
       if (!resolve(root).startsWith(join(resolve(tmpdir()), "m7-todos-")))
         throw new Error("Unexpected cleanup path");

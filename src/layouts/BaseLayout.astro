@@ -61,14 +61,27 @@ const alternate = (language: Locale) => new URL(paths[language]!, origin).href;
 const blockIndexing = !site.allowIndexing;
 const logoSource = resolveSiteImage(site.logo);
 const logo = logoSource
-  ? await getImage({ src: logoSource, width: 256, format: "png" })
+  ? await getImage({ src: logoSource, width: 256, format: "webp" })
   : undefined;
 const organization = organizationData(
   locale,
   site,
   logo && new URL(logo.src, origin).href,
 );
-const shareImage = new URL(og?.image ?? "/og-default.jpg", origin).href;
+const shareSource = !og?.image && resolveSiteImage(site.ogImage);
+const defaultShareImage = shareSource
+  ? await getImage({
+      src: shareSource,
+      width: 1200,
+      height: 630,
+      fit: "cover",
+      format: "webp",
+    })
+  : undefined;
+const shareImage = new URL(
+  og?.image ?? defaultShareImage?.src ?? "/og-default.jpg",
+  origin,
+).href;
 ---
 
 <!doctype html>

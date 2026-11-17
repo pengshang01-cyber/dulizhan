@@ -64,7 +64,7 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (milestone === "M6" || milestone === "M7")
+      if (["M6", "M7", "M7b"].includes(milestone))
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -220,7 +220,7 @@ try {
         }
 
         if (
-          ["M5", "M6", "M7"].includes(milestone) &&
+          ["M5", "M6", "M7", "M7b"].includes(milestone) &&
           (await page.locator("[data-inquiry-form]").count())
         ) {
           await page.locator("[data-inquiry-form]").scrollIntoViewIfNeeded();
@@ -263,6 +263,11 @@ try {
           }
         }
 
+        if (milestone === "M7b") {
+          const { inspectSiteImages } =
+            await import("./site-images-preview.ts");
+          await inspectSiteImages(page, false);
+        }
         await page.evaluate(() => document.fonts.ready.then(() => true));
         // 整页截图前加载并解码折叠区和首屏外的图片，避免懒加载留下空白。
         await page.evaluate(async () => {
@@ -275,7 +280,7 @@ try {
         });
 
         if (
-          ["M5", "M6", "M7"].includes(milestone) &&
+          ["M5", "M6", "M7", "M7b"].includes(milestone) &&
           (await page.evaluate(
             () => document.documentElement.scrollWidth > window.innerWidth,
           ))
@@ -283,7 +288,7 @@ try {
           throw new Error(`截图页面横向溢出：${route.path} / ${width}`);
         }
 
-        if (["M5", "M6", "M7"].includes(milestone)) {
+        if (["M5", "M6", "M7", "M7b"].includes(milestone)) {
           await page.evaluate(() => window.scrollTo(0, 0));
         }
         const filename = `${route.name}-${size}.png`;
@@ -418,4 +423,9 @@ if (milestone === "M7") {
   await verifyBlogPreview(destination);
   const { verifySeoBrowser } = await import("./seo-browser-qa.ts");
   await verifySeoBrowser(destination);
+}
+
+if (milestone === "M7b") {
+  const { captureSiteImagesPreview } = await import("./site-images-preview.ts");
+  await captureSiteImagesPreview(destination);
 }

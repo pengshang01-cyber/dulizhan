@@ -23,6 +23,12 @@ import { localized } from "../../i18n/utils";
 import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const heroImage = resolveSiteImage(site.homeHeroImage);
+const heroAlt = heroImage
+  ? (site.homeHeroAlt ? localized(site.homeHeroAlt, locale) : "") ||
+    t("pages.index.cupcake_liners_baking_cups", locale)
+  : t("pages.index.hero_product_image_placeholder", locale);
+
 const intro = t(
   "pages.index.bulk_orders_and_custom_printing_for_bakeries_packaging",
   locale,
@@ -113,8 +119,9 @@ interface Props {
       </div>
       <div class="rounded-panel border border-line bg-paper p-2 shadow-panel sm:p-3">
         <Image
-          src={heroPlaceholder}
-          alt={t("pages.index.hero_product_image_placeholder", locale)}
+          src={heroImage ?? heroPlaceholder}
+          alt={heroAlt}
+          data-home-hero
           widths={[384, 648, 960, 1200]}
           sizes="(min-width: 80rem) 35rem, (min-width: 64rem) 46vw, calc(100vw - 2.5rem)"
           format="webp"

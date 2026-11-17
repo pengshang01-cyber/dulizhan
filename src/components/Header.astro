@@ -7,11 +7,14 @@ interface Props {
 const { locale = "en", languagePaths } = Astro.props;
 import { localePath, unlocalizedPath } from "../i18n/routing";
 import LanguageSwitch from "./LanguageSwitch.astro";
+import { Image } from "astro:assets";
+import { resolveSiteImage } from "../lib/site-images";
 import { display, navigation, site } from "../config/site";
 import Container from "./Container.astro";
 import QuoteButton from "./QuoteButton.astro";
 import InquiryLink from "./InquiryLink.astro";
 
+const logoImage = resolveSiteImage(site.logo);
 const brand = display(
   localized(site.shortName, locale),
   t("site.shortNameLabel", locale),
@@ -23,8 +26,25 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
   <Container class="flex min-h-18 items-center justify-between gap-2.5 py-3 lg:gap-4">
     <a href={localePath("/", locale)} class="flex min-w-0 items-center gap-2.5">
       <span class="sr-only">{t("nav.home", locale)}</span>
-      <span class="brand-mark hidden sm:grid" aria-hidden="true"></span>
-      <span class="min-w-0 wrap-anywhere">
+      {logoImage ? (
+        <Image
+          src={logoImage}
+          alt=""
+          width={96}
+          format="webp"
+          loading="eager"
+          data-site-logo
+          class="size-11 shrink-0 object-contain"
+        />
+      ) : (
+        <span class="brand-mark hidden sm:grid" aria-hidden="true"></span>
+      )}
+      <span
+        class:list={[
+          "min-w-0 wrap-anywhere",
+          logoImage && "sr-only sm:not-sr-only",
+        ]}
+      >
         <span class="block text-xs leading-tight font-bold sm:text-sm">
           {brand}
         </span>

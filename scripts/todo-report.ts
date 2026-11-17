@@ -1,5 +1,5 @@
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
-import { resolve, relative, dirname } from "node:path";
+import { resolve, dirname } from "node:path";
 import { pathToFileURL } from "node:url";
 export const START = "<!-- TODO-REPORT:START -->";
 export const END = "<!-- TODO-REPORT:END -->";
@@ -34,7 +34,13 @@ const labels: Record<string, string> = {
   replyTime: "预计回复时间",
   analytics: "统计",
   gaMeasurementId: "Google Analytics 衡量 ID",
-  logo: "公司标志",
+  logo: "网站 Logo",
+  ogImage: "默认分享图",
+  homeHeroImage: "首页主图",
+  homeHeroAlt: "首页主图说明",
+  aboutGallery: "关于我们车间与设备照片",
+  caption: "图片说明",
+  factoryVideoPoster: "工厂视频封面",
   title: "名称",
   summary: "简介",
   sku: "产品型号",
@@ -119,6 +125,16 @@ const examples: Record<string, string> = {
   cartonSpec: "[长] × [宽] × [高] cm；补充真实装箱说明",
   packaging: "[每包数量] pcs/bag × [每箱包数] bags/carton",
   leadTime: "[天数] working days（以工厂确认为准）",
+};
+const siteImageAdvice: Record<string, string> = {
+  logo: "真实公司标志，可选；建议透明 PNG，至少 512 × 512；留空保留图标与文字",
+  ogImage: "正式分享图，建议 1200 × 630；留空使用默认 Placeholder 分享图",
+  homeHeroImage:
+    "真实主打产品或产品组合，建议 1600 × 1200（4:3）；同时填写首页主图说明，中文可留空",
+  factoryVideoPoster:
+    "工厂视频封面，可选；建议 1280 × 720；留空沿用已配置视频的 YouTube 缩略图",
+  wechatQr: "实际微信二维码，建议至少 600 × 600，无裁剪，上传后用手机验证",
+  imagePath: "有效证书的完整扫描，长边至少 1600，名称与图像对应",
 };
 type Path = (string | number)[];
 type Leaf = { path: Path; value: string };
@@ -217,6 +233,20 @@ export async function collectTodos(root: string) {
           ? (dataMenus[filename] ?? filename)
           : menu + " → " + displayName(data, filename.slice(0, -5));
       const items = leaves(data);
+      if (menu === "data" && filename === "site.json") {
+        // CMS 清空图片后可能省略字段，仍应列出使用默认图的位置。
+        for (const key of Object.keys(siteImageAdvice).filter(
+          (key) => key !== "imagePath",
+        )) {
+          if (data[key] == null) items.push({ path: [key], value: "" });
+        }
+        if (!data.aboutGallery?.length) {
+          emptyImages++;
+          pictures.push(
+            "| 网站设置 → 关于我们车间与设备照片（目前为空） | 从“网站资料图片”上传并逐项添加说明 | 真实印刷、成型、质检、包装场景；建议 1600 × 1067（3:2），可增删排序；空列表显示四张默认占位图 |",
+          );
+        }
+      }
       const pending = items.filter(({ value }) => isPending(value));
       const rows = pending.map(({ path: keys, value }) => {
         todoFields++;
@@ -269,56 +299,19 @@ export async function collectTodos(root: string) {
           menu === "data" &&
           filename === "site.json" &&
           !value &&
-          ["wechatQr", "logo", "imagePath"].includes(String(keys.at(-1)))
+          Object.hasOwn(siteImageAdvice, String(keys.at(-1)))
         ) {
           emptyImages++;
           pictures.push(
             "| " +
               table(title + " → " + field(keys)) +
               "（目前为空） | 从“网站资料图片”上传 | " +
-              (keys.at(-1) === "wechatQr"
-                ? "实际微信二维码，建议 ≥600 × 600，无裁剪，上传后用手机验证"
-                : keys.at(-1) === "logo"
-                  ? "真实公司标志，可选；建议透明 PNG，宽 ≥512"
-                  : "有效证书的完整扫描，长边 ≥1600，名称与图像对应") +
+              siteImageAdvice[String(keys.at(-1))] +
               " |",
           );
         }
       }
       groups.push({ title: title + "（" + path + "）", rows });
-    }
-  }
-  // 这几处仍由组件引用；明确标为维护人员替换，不伪称 CMS 已有字段。
-  for (const file of [
-    "src/components/pages/HomePage.astro",
-    "src/components/pages/AboutPage.astro",
-  ]) {
-    let source = "";
-    try {
-      source = await readFile(resolve(root, file), "utf8");
-    } catch {
-      continue;
-    }
-    for (const match of source.matchAll(
-      /from\s+["']([^"']*placeholder\.(?:png|jpe?g|webp|avif))["']/g,
-    )) {
-      const path = relative(
-        root,
-        resolve(dirname(resolve(root, file)), match[1]),
-      ).replaceAll("\\", "/");
-      pictures.push(
-        "| " +
-          (file.includes("HomePage")
-            ? "首页主图"
-            : "关于我们 → 车间 / 设备照片") +
-          "（目前无 CMS 字段） | " +
-          path +
-          "；交给维护人员替换图片引用及说明 | " +
-          (file.includes("HomePage")
-            ? "真实主打产品 / 产品组合，建议长边 ≥1600，按现有首屏比例裁切"
-            : "真实印刷 / 成型 / 质检 / 包装场景，建议 1600 × 1200") +
-          " |",
-      );
     }
   }
   const summary = {
@@ -372,7 +365,7 @@ export async function collectTodos(root: string) {
     "| --- | --- | --- |",
     ...pictures,
     "",
-    "备注：首页与车间图当前由组件直接引用，工厂将素材交给维护人员替换；其余所列数据图片可在对应 CMS 菜单上传。微信二维码、证书和标志缺失时按现有规则隐藏。文章两篇示例保持草稿，正文中的 [TODO] 在正式发布前逐项核实。",
+    "备注：页面图片统一在上述 CMS 菜单上传。网站设置中的首页主图、车间图库及默认分享图为空时沿用占位图，Logo 为空时保留图标与文字；视频封面可选，留空用 YouTube 缩略图。微信二维码与证书缺失时按现有规则隐藏。文章两篇示例保持草稿，正文中的 [TODO] 在正式发布前逐项核实。",
   );
   return { summary, section: lines.join("\n") };
 }

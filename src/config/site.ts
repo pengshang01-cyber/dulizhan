@@ -1,7 +1,7 @@
 import { isTodo } from "../lib/placeholders";
 import { z } from "astro/zod";
 import rawSite from "../data/site.json";
-import { localizedText } from "../lib/content-fields";
+import { localizedText, optionalLocalizedText } from "../lib/content-fields";
 export { localized } from "../i18n/utils";
 
 export type SocialPlatform =
@@ -32,6 +32,22 @@ export const siteSchema = z.object({
   domain: optionalString,
   allowIndexing: z.boolean().default(false),
   logo: optionalImagePath,
+  ogImage: optionalImagePath,
+  homeHeroImage: optionalImagePath,
+  homeHeroAlt: optionalLocalizedText,
+  aboutGallery: z.preprocess(
+    (value) => value ?? [],
+    z.array(
+      z.object({
+        image: optionalImagePath.refine(
+          (value) => Boolean(value) && !isTodo(value),
+          "图库条目必须上传图片",
+        ),
+        caption: localizedText,
+      }),
+    ),
+  ),
+  factoryVideoPoster: optionalImagePath,
   analytics: z.preprocess(
     (value) => value ?? {},
     z.object({

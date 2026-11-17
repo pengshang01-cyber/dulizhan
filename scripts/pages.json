@@ -240,5 +240,25 @@
     "name": "m7-zh-privacy-no-cookie",
     "path": "/zh/privacy-policy/",
     "milestones": ["M7"]
+  },
+  {
+    "name": "images-default-home",
+    "path": "/",
+    "milestones": ["M7b"]
+  },
+  {
+    "name": "images-default-zh-home",
+    "path": "/zh/",
+    "milestones": ["M7b"]
+  },
+  {
+    "name": "images-default-about",
+    "path": "/about/",
+    "milestones": ["M7b"]
+  },
+  {
+    "name": "images-default-zh-about",
+    "path": "/zh/about/",
+    "milestones": ["M7b"]
   }
 ]
