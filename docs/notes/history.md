@@ -74,3 +74,9 @@
 ## 2026-11-17 Turnstile 真实预览验收完成
 
 用户在 Cloudflare 保存预览 hostname 后，110200 域名错误消失。普通 Chrome 156.0.8078.74 通过真实 SDK 验证中英联系页和中英产品详情，四页均生成 token、无页面 / Turnstile 错误，询盘请求数为 0。只保存 token 是否生成与长度及成功截图；更新 fix-turnstile 审核报告与 PR #13，未修改密钥、后端或发送真实询盘。
+
+## 2026-11-17 生产询盘服务端验证继续失败
+
+PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURNSTILE_SECRET_KEY 并部署后仍复现 verification_failed。为避免凭通用提示猜测，创建 fix-turnstile-server-validation，加入官方错误码白名单 / HTTP 状态 / 异常类型诊断及密钥首尾空白处理；保留验证失败禁止发信。新增 16 项测试，总计 300 项通过，尚待部署后的实际错误码确定根因。
+
+- 诊断修复提交 9c31853，PR #14：https://github.com/pengshang01-cyber/dulizhan/pull/14 。生产排障需审核部署后取得真实 verification 错误码，尚未宣称根因已解决。
