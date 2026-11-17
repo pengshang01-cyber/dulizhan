@@ -62,3 +62,9 @@
 - 六项检查通过，278 项测试；16 张双语截图完成，首页默认状态四张与 M7 逐像素一致，测试图片已清理。PR 与预览状态见 status.md 和 M7b 报告。
 
 - M7.5 提交 af8148e，PR #12 已创建；CI 与 Workers Builds 成功，预览四页实测通过，报告回填实际网址。未合并 PR，交用户审核。
+
+## 2026-11-17 · Turnstile 异步加载修复
+
+- 用户指出线上 ready() 与 async 脚本不兼容；main cd7169a 后创建 fix-turnstile-ready。
+- 加载器采用官方 onload 回调；替身加入相同错误约束，补齐超时 / 重试 / 并发测试。
+- 本地四项检查及四页浏览器替身验证通过；真实预览结果见 docs/reviews/fix-turnstile.md。

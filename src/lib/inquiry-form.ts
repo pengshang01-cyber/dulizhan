@@ -11,44 +11,51 @@ import {
 } from "./inquiry-payload";
 
 interface TurnstileApi {
-  ready?: (callback: () => void) => void;
   render: (container: HTMLElement, options: Record<string, unknown>) => string;
   reset: (id: string) => void;
 }
 declare global {
   interface Window {
     turnstile?: TurnstileApi;
+    onInquiryTurnstileLoad?: () => void;
   }
 }
 
 let turnstileLoading: Promise<TurnstileApi> | undefined;
-function loadTurnstile(): Promise<TurnstileApi> {
-  if (window.turnstile) return Promise.resolve(window.turnstile);
+export function loadTurnstile(): Promise<TurnstileApi> {
   if (turnstileLoading) return turnstileLoading;
+  if (window.turnstile) return Promise.resolve(window.turnstile);
   turnstileLoading = new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src =
-      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onInquiryTurnstileLoad";
     script.async = true;
-    const timeout = window.setTimeout(() => fail(), 15000);
-    function fail() {
+    let settled = false;
+    const timeout = window.setTimeout(fail, 15000);
+    function cleanup() {
+      settled = true;
       window.clearTimeout(timeout);
+      script.removeEventListener("error", fail);
+      if (window.onInquiryTurnstileLoad === loaded)
+        delete window.onInquiryTurnstileLoad;
+    }
+    function fail() {
+      if (settled) return;
+      cleanup();
       script.remove();
       turnstileLoading = undefined;
       reject(new Error("Turnstile unavailable"));
     }
+    function loaded() {
+      if (settled) return;
+      if (!window.turnstile) return fail();
+      const api = window.turnstile;
+      cleanup();
+      resolve(api);
+    }
+    // 异步 api.js 通过官方 onload 参数通知 API 可用，不能再调用 ready()。
+    window.onInquiryTurnstileLoad = loaded;
     script.addEventListener("error", fail, { once: true });
-    script.addEventListener(
-      "load",
-      () => {
-        window.clearTimeout(timeout);
-        if (!window.turnstile) return fail();
-        const api = window.turnstile;
-        if (api.ready) api.ready(() => resolve(api));
-        else resolve(api);
-      },
-      { once: true },
-    );
     document.head.append(script);
   });
   return turnstileLoading;
