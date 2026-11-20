@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import site from "../data/site.json";
 import {
   INQUIRY_LIMITS,
   validateInquiryPayload,
@@ -172,6 +173,42 @@ describe("Worker inquiry API", () => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
   });
   afterEach(() => vi.restoreAllMocks());
+
+  it.each([
+    ["/", "GET"],
+    ["/zh/contact/?from=inquiry&utm_source=m8%20review", "GET"],
+    ["//example.test/%E4%B8%AD?x=1&x=2", "HEAD"],
+    ["/api/inquiry?test=1", "POST"],
+  ])("redirects www%s to the HTTPS apex for %s", async (path, method) => {
+    const env = environment();
+    const fetcher = successfulFetch();
+    const response = await handleRequest(
+      new Request("http://www.junbeili.com:8080" + path, { method }),
+      env,
+      { fetch: fetcher },
+    );
+    expect(response.status).toBe(301);
+    expect(response.headers.get("Location")).toBe(
+      "https://junbeili.com" + path,
+    );
+    expect(response.headers.get("X-Robots-Tag")).toBe(
+      site.allowIndexing ? null : "noindex, nofollow",
+    );
+    expect(env.ASSETS.fetch).not.toHaveBeenCalled();
+    expect(fetcher).not.toHaveBeenCalled();
+  });
+
+  it.each(["https://junbeili.com", "https://preview.example.test"])(
+    "passes static requests through on %s",
+    async (origin) => {
+      const env = environment();
+      const incoming = new Request(origin + "/zh/contact/?from=inquiry");
+      const response = await handleRequest(incoming, env);
+      expect(response.status).toBe(200);
+      expect(response.headers.get("Location")).toBeNull();
+      expect(env.ASSETS.fetch).toHaveBeenCalledWith(incoming);
+    },
+  );
 
   it.each(["GET", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"])(
     "returns 405 for %s",

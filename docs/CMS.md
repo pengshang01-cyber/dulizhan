@@ -120,11 +120,11 @@
 
 保存到 `main` 会生成 GitHub 提交并触发本仓库的 CI 检查。通常需要等待数分钟，但时间取决于排队、图片数量和托管平台状态，不保证固定时长。
 
-**CMS 保存成功不等于网站已经发布。** 本仓库使用 Cloudflare Workers 静态资源部署，当前站点地址为 [dulizhan.pengshang01.workers.dev](https://dulizhan.pengshang01.workers.dev)。Workers Builds 从 GitHub 的 `main` 分支自动构建；构建命令为 `npm run build`，部署命令为 `npx wrangler deploy`。保存后仍需等待该次构建部署成功。
+本站使用 Cloudflare Workers 静态资源部署，正式站为 [junbeili.com](https://junbeili.com)。Workers Builds 在 CMS 保存到 GitHub 的 `main` 分支后构建和部署。等待该次部署成功再刷新正式站核对内容。 [workers.dev 测试地址](https://dulizhan.pengshang01.workers.dev)
 
 每次保存都先查看 GitHub 检查是否通过，再查看 Cloudflare Worker 的 Builds 部署状态。两处成功后再打开实际网站，必要时刷新浏览器。联系页和产品详情页已接入询盘表单；实际发信还需要管理员按 README 配置 Turnstile 和 Resend，CMS 不保存这些密钥。
 
-“网站设置”中的“允许搜索引擎收录”在正式上线前保持关闭。M8 确认上线时再开启；保存并部署后会同时更新 robots.txt、页面 meta 和静态响应头，无需手动改文件。关闭状态的网站仍可通过链接访问，但会向搜索引擎发出不抓取、不收录的指令。
+补齐资料后，由工厂在“网站设置”开启“允许搜索引擎收录”。新部署会同步更新 robots.txt、sitemap、页面 meta 和静态响应头。关闭时仍可直接打开网站链接，站点继续向爬虫发送不抓取、不收录的指令。 [正式开放操作](LAUNCH.md)
 
 ## 8. 填错了怎么办
 

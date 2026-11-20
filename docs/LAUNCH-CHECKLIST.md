@@ -257,19 +257,19 @@
 
 ### 表单、密钥与实际收件
 
-- [ ] Cloudflare Turnstile 已添加当前 workers.dev、PR 预览及正式域名；PUBLIC_TURNSTILE_SITE_KEY 放在 Workers Builds 的构建变量中。
+- [ ] 核对 Turnstile 已授权 junbeili.com，PUBLIC_TURNSTILE_SITE_KEY 与运行时 Secret key 属于同一个组件。需在测试地址或 PR 预览提交时，再授权对应主机名。
 - [ ] Worker Variables and secrets 中已配置 TURNSTILE_SECRET_KEY、RESEND_API_KEY、INQUIRY_TO_EMAIL、INQUIRY_FROM_EMAIL；本地仅写被忽略的 .dev.vars，不提交密钥。
-- [ ] Resend 正式发件域名的 SPF / DKIM 验证完成；没有自有域名时，测试发件地址只能用于发送到注册邮箱，不当作正式外贸发信方案。
+- [ ] 核对 Resend 发件域名 junbeili.com 的验证状态及 sales@junbeili.com 的 Cloudflare Email Routing 转发状态。生产发件和收件变量均使用 sales@junbeili.com。
 - [ ] 英文和中文各提交一次真实询盘，包含两个产品、填写数量和留空数量、样品选项；收件箱中检查 HTML / 纯文本、Reply-To、语言、来源和 UTM。
 - [ ] 确认提交失败保留输入与清单，成功后跳转当前语言感谢页并清空清单；感谢页回复时间来自已确认资料。
 
-### 域名、收录与统计（M8 负责人执行）
+### 域名、收录与统计
 
-- [ ] 在 Cloudflare Workers 绑定正式域名并验证 HTTPS；CMS“网站设置 → 网站域名”改为正式 https:// 域名，不保留预览域名。
-- [ ] 确认内容、隐私、发信与联系方式全部准备好后，M8 才把 allowIndexing 改为 true 并重新部署。
+- [ ] 核对正式域名 https://junbeili.com 的 HTTPS 和 www 跳转，CMS“网站设置 → 网站域名”与正式地址一致。
+- [ ] 内容、隐私、发信与联系方式全部准备好后，由工厂按 [正式开放清单](LAUNCH.md) 在 CMS 打开“允许搜索引擎收录”并等待部署。
 - [ ] 部署后检查 robots.txt 允许抓取并指向正确 sitemap；可收录页没有 noindex 响应头 / meta，询价单、感谢页、404、styleguide 继续不收录。
 - [ ] sitemap 中仅有真实已发布的中英文页面，未发布草稿及不存在的中文正文页面没有条目；canonical / hreflang 指向正式域名。
 - [ ] 需要 GA 时在 CMS 填写真实 G- ID，接受前不加载、拒绝后不发送、页脚可撤回；通过可访问 Google 的网络检查事件。没有配置时不显示 Cookie 横幅和设置入口。
 - [ ] GA 在中国大陆可能无法覆盖访客，不能以 GA 数字代表全部国内访问；百度统计属于后续可选，不在本阶段接入。
 - [ ] 执行 build、check、lint、test、seo:check、links:check；手机检查导航、产品、询价、微信、隐私及中英文 404。
-- [ ] 将真实发信与上线验证结果记录到 M8 报告后，再由负责人确认正式上线。
+- [ ] 由工厂负责人记录实际收件和上线验证结果。
