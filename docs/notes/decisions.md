@@ -9,8 +9,8 @@
 - 英文网址位于根路径，中文位于 /zh/；同一页面组件接收 locale，两种语言共用分类 id、产品 slug 和 inquiry:v1 存储。询价数量可留空；M5 表单和清单邮件共用数据；仅提交成功后清空清单。
 - 未确认资料保持 TODO。微信截图采用内存测试资料与非扫描占位图，不写入生产配置。
 - 每个里程碑通过检查、提交报告和截图后开 PR，等待用户审核合并，不自行合并。
-- 部署平台为 Cloudflare Workers 静态资源 + Worker；Workers Builds 从 main 构建，npm run build / npx wrangler deploy。src/worker/index.ts 处理 API，ASSETS 绑定只让 /api/* 先走 Worker；保留 previews 与静态404配置。
-- allowIndexing 默认 false，构建统一控制 robots.txt、静态响应头与页面 meta；M8 确认后开启，不单独手改某一个输出。404-page 按最近目录返回 /404.html 或 /zh/404.html；中文 404 在 Astro 构建结束时规范到该路径。
+- 部署平台为 Cloudflare Workers 静态资源 + Worker，Workers Builds 从 main 构建，npm run build / npx wrangler deploy。正式域名来自 site.json（当前 https://junbeili.com）。Wrangler 声明根域、www、workers.dev 与预览，Worker 优先处理请求以执行 www 301 和询盘 API，其他路径交给 ASSETS。
+- allowIndexing 保持 false，构建统一控制 robots.txt、静态响应头与页面 meta。资料齐全后由工厂通过 CMS 开启，不单独手改输出。英文 llms.txt 从 CMS 的确认资料与已发布分类生成，遵循同一收录规则。404-page 按最近目录返回 /404.html 或 /zh/404.html，中文 404 在 Astro 构建结束时规范到该路径。
 - 项目日常记录统一使用 docs/notes/history.md、status.md、decisions.md，根目录不放工作记录；按本次用户明确要求覆盖此前根目录记忆文件位置约定。
 
 - M5 表单使用共享纯校验模块；运行时四项配置缺失返回503，失败保留输入/清单，真实资料继续TODO。官方测试secret只放忽略的本地变量文件；发信mock只在独立测试入口，生产无绕过变量。
