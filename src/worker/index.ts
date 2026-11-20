@@ -15,6 +15,10 @@ export interface InquiryDependencies {
   now?: () => Date;
 }
 
+const indexingHeaders: Record<string, string> = site.allowIndexing
+  ? {}
+  : { "X-Robots-Tag": "noindex, nofollow" };
+
 function json(
   body: unknown,
   status = 200,
@@ -24,7 +28,7 @@ function json(
     status,
     headers: {
       "Cache-Control": "no-store",
-      ...(site.allowIndexing ? {} : { "X-Robots-Tag": "noindex, nofollow" }),
+      ...indexingHeaders,
       ...extraHeaders,
     },
   });
@@ -129,7 +133,16 @@ export async function handleRequest(
   env: Env,
   dependencies: InquiryDependencies = {},
 ): Promise<Response> {
-  const pathname = new URL(request.url).pathname;
+  const { hostname, pathname, search } = new URL(request.url);
+  if (hostname === "www.junbeili.com") {
+    const target = new URL("https://junbeili.com");
+    target.pathname = pathname;
+    target.search = search;
+    return new Response(null, {
+      status: 301,
+      headers: { ...indexingHeaders, Location: target.href },
+    });
+  }
   if (!pathname.startsWith("/api/")) return env.ASSETS.fetch(request);
   if (pathname !== "/api/inquiry")
     return json({ ok: false, code: "not_found" }, 404);

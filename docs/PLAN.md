@@ -1,6 +1,6 @@
 # 执行计划 PLAN.md
 
-原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M7.5（图片全部后台化）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
+原计划共 9 个里程碑（M0–M8），补充 M4.5（内容后台）与 M4.6（中文站）。当前执行 M8（正式域名与上线准备）。每个里程碑 = 一个分支 + 一个 PR + 一份审核报告。规则见 `AGENTS.md`。
 
 | 里程碑 | 名称 | 分支 | 主要产出 |
 | --- | --- | --- | --- |
@@ -15,7 +15,7 @@
 | M6 | SEO 与统计 | `m6-seo` | meta、sitemap、结构化数据、GA4 事件、隐私政策、404 |
 | M7 | 博客与性能 | `m7-blog-perf` | 博客系统、示例文章、性能优化、上线检查 |
 | M7.5 | 图片全部后台化 | `m7b-images` | 网站设置图片上传、默认回退、资料清单与报告清理 |
-| M8 | 正式上线 | `m8-launch` | 绑定域名、生产环境变量、上线后检查 |
+| M8 | 正式域名与上线准备 | `m8-launch` | 域名配置、收录验证、LLMs 文本、工厂上线清单 |
 
 ---
 
@@ -288,22 +288,25 @@
 
 ---
 
-## M8 正式上线
+## M8 正式域名与上线准备
 
-此阶段多数是需要人在后台操作的步骤，Codex 负责写清单和做最后的代码调整。
+正式域名为 `junbeili.com`。M8 保持 `allowIndexing: false`，工厂补齐资料后按上线清单在 CMS 开启收录。
 
 **任务**
 
-1. 生成 `docs/LAUNCH.md`：Cloudflare Workers 绑定自定义域名、配置生产环境变量与 secrets、Resend 域名验证（SPF / DKIM）、Turnstile 正式 key、GA4 属性和转化事件标记、Google Search Console 验证与提交 sitemap 的逐步操作。
-2. 根据 M7 报告的 `TODO` 清单，确认 `site.ts` 和内容文件已被工厂真实资料替换（未替换的列出来）。
-3. 把示例博客中工厂已确认的文章去掉 `draft`。
-4. 上线后自检：生产域名下表单真实发信一次、WhatsApp 跳转、sitemap 可访问、`robots.txt` 正确。
-5. 确认真实域名和资料后，把 `src/data/site.json` 的 `allowIndexing` 改为 true 并重新构建部署；核验 robots.txt 允许抓取且 Sitemap 正确、页面及静态响应不再有全站 noindex，Inquiry / Styleguide 等本就不收录页面继续 noindex。
+1. 将 `src/data/site.json` 的 `domain` 更新为 `https://junbeili.com`，核对构建产物的 canonical、OG、hreflang 和 JSON-LD 站内网址。
+2. 在 Wrangler 声明根域和 www 为自定义域名，启用测试地址和预览。Worker 为 www 提供保留路径与查询参数的 301 兜底并补测试。其他静态请求仍由 ASSETS 处理。
+3. 核对开关关闭时的 robots.txt、noindex 响应头与无 sitemap 状态。隔离构建验证开启后可抓取、中英 sitemap/hreflang、移除全站响应头，同时排除永久 noindex 页面。robots.txt 对所有爬虫应用同一抓取规则。
+4. 根据网站设置和有产品的分类生成英文 `/llms.txt`。附主要页面和分类链接，只显示已确认的公开联系方式。Organization JSON-LD 包含有效社媒链接和已上传 Logo。
+5. README 同步正式域名、Turnstile、Resend 发件与 Cloudflare Email Routing 收件。发布操作写入 `docs/LAUNCH.md`，包括待补资料与三个示例产品、CMS 的收录开关、Google 与 Bing 的 sitemap、GA4 和 Cloudflare AI Crawl Control，以及工厂上线后的双语询盘与网址核验。
+6. 运行 `npm run todo:report` 更新资料清单，在 M8 报告记录剩余项和两种收录状态的验证结果。
 
 **验收标准**
 
-- [ ] 全站 `TODO` 数量为 0，或剩余项已列出并获确认可以带着上线
-- [ ] 生产环境表单发信成功（报告附收件截图或说明）
+- [ ] build、check、lint、test、seo:check、links:check 全通过。
+- [ ] 两种收录状态均通过 seo:check，提交中的收录开关保持关闭。
+- [ ] www 兜底测试通过；PR 预览正常，M8 报告附验证和待补资料摘要。
+- [ ] `m8-launch` 向 main 开 PR “M8: Production domain and launch preparation”。真实资料补齐、开启收录和生产发信由工厂按上线清单验收。
 
 ## 后续可选
 

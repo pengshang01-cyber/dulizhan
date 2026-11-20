@@ -81,9 +81,9 @@ export function organizationData(
     email: confirmedText(config.email),
     telephone: confirmedText(config.phone),
     address: confirmedText(localized(config.factoryAddress, locale)),
-    sameAs: Object.values(config.socialLinks).filter(
-      (url) => confirmedText(url) && configuredOrigin(url),
-    ),
+    sameAs: Object.values(config.socialLinks)
+      .map(confirmedText)
+      .filter((url) => url !== undefined && configuredOrigin(url)),
   };
 }
 

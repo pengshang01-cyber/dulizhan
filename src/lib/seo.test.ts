@@ -37,11 +37,55 @@ describe("truthful bilingual SEO", () => {
     expect(confirmedText(value)).toBeUndefined(),
   );
   it("keeps the configured organization URL and omits unconfirmed facts", () => {
-    const data = JSON.parse(serializeJsonLd(organizationData("zh")));
+    const data = JSON.parse(
+      serializeJsonLd(
+        organizationData("zh", {
+          ...site,
+          companyName: { en: "TODO_COMPANY_NAME", zh: "" },
+          phone: "",
+          email: "TODO_EMAIL",
+          logo: "",
+          socialLinks: {
+            youtube: "TODO_YOUTUBE_URL",
+            tiktok: "",
+            instagram: "",
+            facebook: "",
+            pinterest: "",
+            linkedin: "",
+          },
+        }),
+      ),
+    );
     expect(data["@type"]).toBe("Organization");
     expect(data.url).toBe(site.domain + "/");
     for (const key of ["name", "telephone", "email", "logo", "sameAs"])
       expect(data).not.toHaveProperty(key);
+  });
+  it("includes only confirmed social URLs and a resolved uploaded logo", () => {
+    const config = {
+      ...site,
+      logo: "../assets/images/site/fixture-logo.png",
+      socialLinks: {
+        youtube: " https://www.youtube.com/@example-factory ",
+        tiktok: "TODO_TIKTOK_URL",
+        instagram: "javascript:alert(1)",
+        facebook: "",
+        pinterest: "https://user:pass@example.test",
+        linkedin: "https://www.linkedin.com/company/example-factory/",
+      },
+    };
+    const logo = new URL("/_astro/fixture-logo.webp", site.domain).href;
+    const data = JSON.parse(
+      serializeJsonLd(organizationData("en", config, logo)),
+    );
+    expect(data).toMatchObject({
+      "@id": site.domain + "/#organization",
+      logo,
+      sameAs: [
+        "https://www.youtube.com/@example-factory",
+        "https://www.linkedin.com/company/example-factory/",
+      ],
+    });
   });
   it("uses confirmed Chinese facts from configuration", () => {
     const config = {

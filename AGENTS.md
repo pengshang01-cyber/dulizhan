@@ -16,7 +16,7 @@
 | 样式 | Tailwind CSS |
 | 内容 | Astro Content Collections：`src/content/products/`、`src/content/blog/` |
 | 图片 | `astro:assets`（自动出 WebP、懒加载） |
-| 表单后端 | `src/worker/index.ts` 处理 POST `/api/inquiry`；`wrangler.jsonc` 配置 main 入口和 ASSETS 绑定，仅 `/api/*` 先走 Worker，其余交给静态资源；Cloudflare Turnstile + 蜜罐防垃圾，Resend 发送双语询盘邮件 |
+| 表单后端 | `src/worker/index.ts` 处理 POST `/api/inquiry` 与 www 兜底跳转；`wrangler.jsonc` 配置 Worker 优先处理请求，其余静态请求交给 ASSETS；Cloudflare Turnstile + 蜜罐防垃圾，Resend 发送双语询盘邮件 |
 | 部署 | Cloudflare Workers 静态资源；Workers Builds 从 GitHub main 自动构建，构建命令 `npm run build`，部署命令 `npx wrangler deploy` |
 | 统计 | GA4（ID 唯一来源 src/data/site.json → analytics.gaMeasurementId；有效 ID 且访客同意后才加载） |
 | SEO | `@astrojs/sitemap`、每页 meta、JSON-LD 结构化数据 |
@@ -39,7 +39,7 @@
 9. **双语字段与界面文字。** 所有面向访客的内容字段使用 `{ en, zh }`，en 必填（可 TODO），zh 选填；通过 `localized(value, locale)` 读取，中文缺失 / 空白回退英文。博客正文使用独立的 bodyEn / bodyZh：中文正文留空时不生成中文文章，不回退英文正文；草稿不生成页面、列表或 sitemap。数字、尺寸、克重、图片、型号、slug 共用一份。固定界面文案、按钮、标签、提示、aria / alt 都集中在 `src/i18n/en.json` / `zh.json` 并经 `t(key, locale)` 读取，组件中不硬编码访客文案。英文位于根路径，中文位于 `/zh/`，共用接收 locale 的页面组件和同一询价存储；站内链接随语言生成。代码注释和审核报告用中文。
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
 11. **统计与隐私。** GA ID 只从 site.json 的 analytics.gaMeasurementId 读取；无有效 ID 时不渲染 Cookie 横幅或设置入口；未配置、未同意或存储异常时不加载 GA。事件只传语言等非个人信息；完成类事件必须在业务成功后发出。所有新页面遵循双语 SEO，JSON-LD 不允许 TODO 或编造资料，提交前执行 seo:check、links:check；内部链接和锚点必须可达。
-12. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 确认正式上线后才改为 true；不得只修改其中一个输出绕过开关。
+12. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 保持关闭，资料齐全后由工厂通过 CMS 开启；不得只修改其中一个输出来绕过开关。
 
 ## 4. 目录约定
 
@@ -58,7 +58,7 @@ src/
   components/             # 可复用组件（Header, Footer, QuoteButton, WhatsAppFloat, ProductCard...）
   layouts/BaseLayout.astro
   pages/                  # 路由
-  worker/index.ts         # Worker 入口；询盘 API 与静态资源回退
+  worker/index.ts         # Worker 入口；www 301、询盘 API 与静态资源
   content/
     config.ts             # collection schema
     categories/*.json    # 分类 id 由文件名生成
@@ -69,11 +69,12 @@ public/                   # favicon、默认禁止收录的 robots.txt / _header
 scripts/todo-report.ts    # 更新上线清单自动区，保留人工检查项
 scripts/links-check.ts    # 构建产物内部链接与锚点检查
 scripts/indexing.ts       # 构建后按 allowIndexing 生成最终收录配置
-wrangler.jsonc            # Workers API 入口、ASSETS 绑定与 previews；仅 /api/* 优先执行 Worker
+wrangler.jsonc            # Workers 入口、ASSETS、正式域名与 previews
 .pages.yml               # Pages CMS 后台配置
 docs/
   PLAN.md
   CMS.md                 # 工厂人员内容维护指南
+  LAUNCH.md              # 工厂正式开放收录与上线自检
   LAUNCH-CHECKLIST.md     # CMS 待补资料与人工上线检查
   notes/status.md         # 当前状态；默认读取并覆盖维护
   notes/history.md        # 历史事件；只追加，按需检索

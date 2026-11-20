@@ -800,7 +800,7 @@ content:
             type: string
       - name: allowIndexing
         label: 允许搜索引擎收录
-        description: 正式上线前保持关闭；M8 确认上线后开启并等待构建部署成功，才会恢复 robots 与收录响应头。
+        description: 默认关闭。工厂核对资料后开启并保存，构建部署成功后允许抓取、生成 sitemap 并移除全站禁止收录响应头。
         type: boolean
         default: false
       - name: email
