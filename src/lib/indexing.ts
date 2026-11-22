@@ -1,3 +1,16 @@
+import { confirmedText } from "./placeholders";
+
+export function configuredOrigin(domain: string): string | undefined {
+  if (!confirmedText(domain)) return;
+  try {
+    const url = new URL(domain);
+    if (/^https?:$/.test(url.protocol) && !url.username && !url.password)
+      return url.origin;
+  } catch {
+    /* 未配置域名时保留由调用方决定的回退。 */
+  }
+}
+
 export function indexingAssets(allowIndexing: boolean, domain: string) {
   if (!allowIndexing) {
     return {

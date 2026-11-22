@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import { isTodo, site } from "../config/site";
+import { site } from "../config/site";
+import { confirmedText } from "../lib/placeholders";
 import { t, type Locale } from "../i18n/utils";
 import { resolveSiteImage } from "../lib/site-images";
 import BrandIcon from "./BrandIcon.astro";
@@ -9,12 +10,11 @@ interface Props {
   locale?: Locale;
 }
 const { locale = "zh" } = Astro.props;
-const wechatId = site.wechatId.trim();
-const hasWeChat = Boolean(wechatId && !isTodo(wechatId));
-const qr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
+const wechatId = confirmedText(site.wechatId);
+const qr = wechatId ? resolveSiteImage(site.wechatQr) : undefined;
 ---
 
-{hasWeChat && (
+{wechatId && (
   <div data-wechat-contact>
     <button
       type="button"

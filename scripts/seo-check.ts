@@ -2,19 +2,27 @@ import { readdir, readFile } from "node:fs/promises";
 import { resolve, relative } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parse, parseFragment, type DefaultTreeAdapterMap } from "parse5";
+import { hasPlaceholder } from "../src/lib/placeholders.ts";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
 function elements(node: Node): Element[] {
-  const children = "childNodes" in node ? node.childNodes : [];
+  const children =
+    "content" in node
+      ? node.content.childNodes
+      : "childNodes" in node
+        ? node.childNodes
+        : [];
   return [...("tagName" in node ? [node] : []), ...children.flatMap(elements)];
 }
 function text(node: Node): string {
   return "value" in node
     ? node.value
-    : "childNodes" in node
-      ? node.childNodes.map(text).join("")
-      : "";
+    : "content" in node
+      ? text(node.content)
+      : "childNodes" in node
+        ? node.childNodes.map(text).join("")
+        : "";
 }
 const attr = (node: Element, key: string) =>
   node.attrs.find(({ name }) => name === key)?.value ?? "";
@@ -55,9 +63,23 @@ export async function checkSeo(directory: string) {
   const noindex = new Set<string>();
   let jsonLdCount = 0;
   let alternateCount = 0;
+  let publicPlaceholderPages = 0;
   for (const file of htmlFiles) {
     const route = routeFor(relative(directory, file));
-    const nodes = elements(parse(await readFile(file, "utf8")));
+    const html = await readFile(file, "utf8");
+    const document = parse(html);
+    const nodes = elements(document);
+    if (
+      !/^\/(?:zh\/)?style-?guide$/.test(routeKey(route)) &&
+      (hasPlaceholder(html) ||
+        hasPlaceholder(text(document)) ||
+        nodes.some(({ attrs }) =>
+          attrs.some(({ value }) => hasPlaceholder(value)),
+        ))
+    ) {
+      publicPlaceholderPages++;
+      errors.push(`${route}: 公开 HTML 含未填写的占位`);
+    }
     const language = attr(
       nodes.find((node) => node.tagName === "html")!,
       "lang",
@@ -196,6 +218,7 @@ export async function checkSeo(directory: string) {
     alternateCount,
     noindexPages: noindex.size,
     sitemapPages,
+    publicPlaceholderPages,
     errors,
     warnings,
   };
@@ -214,6 +237,7 @@ if (
   console.log(
     `Indexing: ${result.noindexPages} noindex pages; ${result.sitemapPages} sitemap page URLs`,
   );
+  console.log(`Public placeholders: ${result.publicPlaceholderPages} pages`);
   console.log(
     `Result: ${result.errors.length} errors, ${result.warnings.length} warnings`,
   );

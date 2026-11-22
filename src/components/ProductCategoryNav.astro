@@ -2,7 +2,7 @@
 import { localePath } from "../i18n/routing";
 import type { Locale } from "../i18n/utils";
 import { getVisibleCategories } from "../lib/products";
-import { localized, t } from "../i18n/utils";
+import { confirmedLocalized, t } from "../i18n/utils";
 interface Props {
   locale?: Locale;
   current?: string;
@@ -17,7 +17,7 @@ const links = [
   },
   ...(await getVisibleCategories()).map(({ id, label }) => ({
     id,
-    label: localized(label, locale),
+    label: confirmedLocalized(label, locale) ?? id,
     href: "/products/" + id + "/",
   })),
 ];

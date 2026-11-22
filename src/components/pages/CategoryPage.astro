@@ -5,7 +5,7 @@ import Container from "../Container.astro";
 import ProductCard from "../ProductCard.astro";
 import ProductCategoryNav from "../ProductCategoryNav.astro";
 import SectionHeading from "../SectionHeading.astro";
-import { localized, t } from "../../i18n/utils";
+import { confirmedLocalized, t } from "../../i18n/utils";
 import { type Product, type ProductCategory } from "../../lib/products";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -16,8 +16,8 @@ interface Props {
 }
 const { category, products } = Astro.props;
 const { locale = "en" } = Astro.props;
-const label = localized(category.label, locale);
-const summary = localized(category.summary, locale);
+const label = confirmedLocalized(category.label, locale) ?? category.id;
+const summary = confirmedLocalized(category.summary, locale);
 ---
 
 <BaseLayout

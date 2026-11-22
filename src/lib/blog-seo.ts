@@ -1,6 +1,6 @@
-import { confirmedText, configuredOrigin, type StructuredData } from "./seo";
+import { configuredOrigin, type StructuredData } from "./seo";
 import { site } from "../config/site";
-import { localized, type Locale } from "../i18n/utils";
+import { confirmedLocalized, type Locale } from "../i18n/utils";
 import type { BlogPost } from "./blog";
 export function articleData(
   post: BlogPost,
@@ -9,15 +9,15 @@ export function articleData(
   image?: string,
 ): StructuredData {
   const data = post.data;
-  const company = confirmedText(localized(site.companyName, locale));
+  const company = confirmedLocalized(site.companyName, locale);
   const origin = configuredOrigin(site.domain);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     url,
     mainEntityOfPage: url,
-    headline: confirmedText(localized(data.title, locale)),
-    description: confirmedText(localized(data.description, locale)),
+    headline: confirmedLocalized(data.title, locale),
+    description: confirmedLocalized(data.description, locale),
     datePublished: data.date,
     dateModified: data.updated ?? data.date,
     inLanguage: locale === "zh" ? "zh-CN" : "en",

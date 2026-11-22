@@ -1,6 +1,6 @@
 import { z } from "astro/zod";
-import { display, site } from "../config/site";
-import { localized, t, type Locale } from "../i18n/utils";
+import { site } from "../config/site";
+import { confirmedLocalized, type Locale } from "../i18n/utils";
 import { localizedText } from "../lib/content-fields";
 import data from "../data/faq.json";
 
@@ -51,38 +51,28 @@ const rows = z
   .parse(data);
 
 function answerText(value: string, locale: Locale) {
-  return value.replace(/\{\{site\.(\w+)\}\}/g, (_, key: string) => {
-    if (key === "certificates") {
-      return site.certificates.length
-        ? site.certificates
-            .map(({ name }) =>
-              display(
-                localized(name, locale),
-                t("faq.placeholder.certificateName", locale),
-              ),
-            )
-            .join(", ")
-        : display(
-            "TODO_CERTIFICATES",
-            t("faq.placeholder.certificates", locale),
-          );
-    }
+  let missing = false;
+  const answer = value.replace(/\{\{site\.(\w+)\}\}/g, (_, key: string) => {
     const policy = policyKeys.find((item) => item === key);
-    if (!policy) throw new Error("FAQ 中的站点变量无效：" + key);
-    return String(
-      display(
-        localized(site[policy], locale),
-        t("faq.placeholder." + policy, locale),
-      ),
-    );
+    if (key !== "certificates" && !policy)
+      throw new Error("FAQ 中的站点变量无效：" + key);
+    const resolved = policy
+      ? confirmedLocalized(site[policy], locale)
+      : site.certificates
+          .map(({ name }) => confirmedLocalized(name, locale))
+          .filter(Boolean)
+          .join(", ");
+    if (!resolved) missing = true;
+    return resolved ?? "";
   });
+  return missing ? undefined : answer;
 }
 
 export function getFaqs(locale: Locale = "en") {
-  return rows.map(({ topic, q, a, featured }) => ({
-    topic,
-    question: localized(q, locale),
-    answer: answerText(localized(a, locale), locale),
-    featured,
-  }));
+  return rows.flatMap(({ topic, q, a, featured }) => {
+    const question = confirmedLocalized(q, locale);
+    const template = confirmedLocalized(a, locale);
+    const answer = template && answerText(template, locale);
+    return question && answer ? [{ topic, question, answer, featured }] : [];
+  });
 }

@@ -1,8 +1,9 @@
 ---
 import type { Locale } from "../i18n/utils";
-import { t, localized } from "../i18n/utils";
+import { t, confirmedLocalized } from "../i18n/utils";
 const { locale = "en" } = Astro.props;
-import { display, isTodo, site, type SiteStat } from "../config/site";
+import { site, type SiteStat } from "../config/site";
+import { confirmedText } from "../lib/placeholders";
 import Container from "./Container.astro";
 
 interface Props {
@@ -11,31 +12,32 @@ interface Props {
 }
 
 const { stats = site.stats } = Astro.props;
+const figures = stats
+  .map(({ value, label }) => ({
+    value: confirmedText(value),
+    label: confirmedLocalized(label, locale),
+  }))
+  .filter(({ value, label }) => value && label);
 ---
 
-<section
-  aria-label={t("site.figures", locale)}
-  class="border-y border-line bg-white"
->
-  <Container>
-    <dl class="stats-grid grid grid-cols-2 lg:grid-cols-4">
-      {stats.map(({ value, label }) => (
-        <div class="flex min-w-0 flex-col justify-center gap-3 px-3 py-7 text-center sm:px-6 sm:py-9">
-          <dt class="order-2 text-[0.625rem] leading-relaxed font-bold tracking-[0.12em] text-ink-soft uppercase sm:text-[0.6875rem]">
-            {localized(label, locale)}
-          </dt>
-          <dd
-            class:list={[
-              "font-display leading-[1.05] font-normal tracking-[-0.035em] wrap-anywhere text-ink",
-              isTodo(value)
-                ? "text-[1.375rem] sm:text-[1.75rem]"
-                : "text-4xl sm:text-5xl",
-            ]}
-          >
-            {display(value, localized(label, locale))}
-          </dd>
-        </div>
-      ))}
-    </dl>
-  </Container>
-</section>
+{figures.length > 0 && (
+  <section
+    aria-label={t("site.figures", locale)}
+    class="border-y border-line bg-white"
+  >
+    <Container>
+      <dl class="stats-grid grid grid-cols-2 lg:grid-cols-4">
+        {figures.map(({ value, label }) => (
+          <div class="flex min-w-0 flex-col justify-center gap-3 px-3 py-7 text-center sm:px-6 sm:py-9">
+            <dt class="order-2 text-[0.625rem] leading-relaxed font-bold tracking-[0.12em] text-ink-soft uppercase sm:text-[0.6875rem]">
+              {label}
+            </dt>
+            <dd class="font-display text-4xl leading-[1.05] font-normal tracking-[-0.035em] wrap-anywhere text-ink sm:text-5xl">
+              {value}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Container>
+  </section>
+)}

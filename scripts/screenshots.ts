@@ -7,7 +7,7 @@ import { installTurnstileFixture } from "./inquiry-browser-fixture.ts";
 const milestone = process.argv[2];
 if (
   !milestone ||
-  !/^M\d+[a-z]?$/.test(milestone) ||
+  !/^M\d+(?:[a-z]|\.\d+)?$/.test(milestone) ||
   process.argv.length !== 3
 ) {
   throw new Error("用法：npm run screenshots -- M0（或 M1b 等补充里程碑）");
@@ -60,13 +60,13 @@ const externalPreview = process.env.M9_PREVIEW_URL
   : undefined;
 if (
   externalPreview &&
-  (milestone !== "M9" ||
+  (!["M9", "M9.1"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
     externalPreview.password)
 )
-  throw new Error("M9_PREVIEW_URL 仅用于 M9 的 HTTPS Workers 预览截图");
+  throw new Error("M9_PREVIEW_URL 仅用于 M9 或 M9.1 的 HTTPS Workers 预览截图");
 const server = externalPreview
   ? undefined
   : await preview({
@@ -78,7 +78,7 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (["M6", "M7", "M7b", "M9"].includes(milestone))
+      if (["M6", "M7", "M7b", "M9", "M9.1"].includes(milestone))
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -260,6 +260,40 @@ try {
               route.inquiryProducts.length,
             );
           }
+        }
+
+        if (milestone === "M9.1") {
+          const title = "PET-Coated Round Rolled-Rim Baking Cups";
+          const isList = Boolean(route.inquiryProducts?.length);
+          const product = page.locator(
+            isList ? "[data-inquiry-product]" : "#product-title",
+          );
+          const layout = await page.evaluate(() => ({
+            overflow: document.documentElement.scrollWidth > innerWidth + 1,
+            modelVisible: Boolean(
+              document.querySelector(
+                "[data-product-model], [data-inquiry-item] [data-inquiry-sku]:not([hidden])",
+              ),
+            ),
+          }));
+          if (
+            new URL(page.url()).origin !== origin ||
+            layout.overflow ||
+            layout.modelVisible ||
+            (await product.innerText()).trim() !== title ||
+            /\[TODO|TODO_/i.test(await page.content())
+          )
+            throw new Error(
+              `M9.1 产品资料或布局异常：${route.path} / ${width}`,
+            );
+          console.log(
+            JSON.stringify({
+              url: page.url(),
+              width,
+              status: response?.status(),
+              ...layout,
+            }),
+          );
         }
 
         if (

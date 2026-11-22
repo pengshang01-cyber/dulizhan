@@ -1,4 +1,4 @@
-import { isTodo } from "../lib/placeholders";
+import { confirmedText } from "../lib/placeholders";
 import { z } from "astro/zod";
 import rawSite from "../data/site.json";
 import { localizedText, optionalLocalizedText } from "../lib/content-fields";
@@ -40,7 +40,7 @@ export const siteSchema = z.object({
     z.array(
       z.object({
         image: optionalImagePath.refine(
-          (value) => Boolean(value) && !isTodo(value),
+          (value) => Boolean(confirmedText(value)),
           "图库条目必须上传图片",
         ),
         caption: localizedText,
@@ -106,12 +106,13 @@ export const site: SiteConfig = siteSchema.parse(rawSite);
 
 export { isTodo, display } from "../lib/placeholders";
 
-export function getWhatsAppHref(number: string, message: string) {
-  if (isTodo(number)) return undefined;
-  const digits = number.replace(/\D/g, "");
+export function getWhatsAppHref(number: string, message?: string) {
+  const digits = confirmedText(number)?.replace(/\D/g, "");
   if (!digits) return undefined;
-  const text =
-    message && !isTodo(message) ? `?text=${encodeURIComponent(message)}` : "";
+  const confirmedMessage = confirmedText(message);
+  const text = confirmedMessage
+    ? `?text=${encodeURIComponent(confirmedMessage)}`
+    : "";
   return `https://wa.me/${digits}${text}`;
 }
 

@@ -2,6 +2,7 @@ import { createSatteriMarkdownProcessor } from "@astrojs/markdown-satteri";
 import { parseFragment, serialize, type DefaultTreeAdapterMap } from "parse5";
 import { localePath } from "../i18n/routing";
 import type { Locale } from "../i18n/utils";
+import { confirmedText, hasPlaceholder } from "./placeholders";
 
 type Node = DefaultTreeAdapterMap["node"];
 type Element = DefaultTreeAdapterMap["element"];
@@ -30,6 +31,7 @@ const drop = new Set([
   "svg",
   "math",
 ]);
+const textBlocks = /^(?:p|li|h[1-6]|pre|tr)$/;
 const attr = (node: Element, name: string) =>
   node.attrs.find((item) => item.name === name)?.value ?? "";
 const content = (node: Node): string =>
@@ -49,11 +51,17 @@ export async function renderBlogMarkdown(
   const root = parseFragment(result.code);
   const headings: { depth: number; slug: string; text: string }[] = [];
   const ids = new Map<string, string>();
+  const hiddenHeadings = new Set<string>();
   const anchors: Element[] = [];
   async function clean(node: Node): Promise<Node[]> {
     if (node.nodeName === "#comment") return [];
+    if ("value" in node && hasPlaceholder(node.value)) return [];
     if ("tagName" in node) {
       if (drop.has(node.tagName)) return [];
+      if (textBlocks.test(node.tagName) && hasPlaceholder(content(node))) {
+        if (/^h[1-6]$/.test(node.tagName)) hiddenHeadings.add(attr(node, "id"));
+        return [];
+      }
       if (node.tagName === "h1") node.tagName = "h2";
       if (!allowed.has(node.tagName))
         return "childNodes" in node
@@ -64,7 +72,8 @@ export async function renderBlogMarkdown(
       const read = (name: string) =>
         old.find((item) => item.name === name)?.value ?? "";
       if (/^h[2-6]$/.test(node.tagName)) {
-        const original = read("id") || "section-" + (ids.size + 1);
+        const original =
+          confirmedText(read("id")) ?? "section-" + (ids.size + 1);
         const slug = "article-" + original;
         ids.set(original, slug);
         node.attrs.push({ name: "id", value: slug });
@@ -76,7 +85,7 @@ export async function renderBlogMarkdown(
           });
       }
       if (node.tagName === "a") {
-        const href = read("href").trim();
+        const href = confirmedText(read("href"));
         if (
           href &&
           !/[\u0000-\u0020]/.test(href) &&
@@ -86,14 +95,15 @@ export async function renderBlogMarkdown(
           node.attrs.push({ name: "href", value: localePath(href, locale) });
           anchors.push(node);
         }
-        if (read("title"))
-          node.attrs.push({ name: "title", value: read("title") });
+        const title = confirmedText(read("title"));
+        if (title) node.attrs.push({ name: "title", value: title });
       }
       if (node.tagName === "img") {
         const marker = read("__astro_image_");
         const original: { src?: string; alt?: string } = marker
           ? JSON.parse(marker)
           : { src: read("src"), alt: read("alt") };
+        if (original.src && hasPlaceholder(original.src)) return [];
         if (
           !original.src ||
           !/^(?:\.\.\/\.\.\/assets|\/src\/assets)\/images\/blog\/[a-zA-Z0-9_/-]+\.(?:png|jpe?g|webp|avif)$/i.test(
@@ -104,7 +114,7 @@ export async function renderBlogMarkdown(
         const optimized = await image(original.src);
         node.attrs = Object.entries({
           ...optimized,
-          alt: original.alt ?? "",
+          alt: confirmedText(original.alt) ?? "",
           loading: "lazy",
           decoding: "async",
         })
@@ -140,6 +150,8 @@ export async function renderBlogMarkdown(
       if (ids.has(id))
         anchor.attrs.find((item) => item.name === "href")!.value =
           "#" + encodeURIComponent(ids.get(id)!);
+      else if (hiddenHeadings.has(id))
+        anchor.attrs = anchor.attrs.filter(({ name }) => name !== "href");
     }
   }
   return { html: serialize(root), headings };

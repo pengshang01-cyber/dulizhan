@@ -1,5 +1,5 @@
 import type { ImageMetadata } from "astro";
-import { isTodo } from "../config/site";
+import { confirmedText } from "./placeholders";
 
 const images = import.meta.glob<ImageMetadata>(
   "/src/assets/images/site/**/*.{png,jpg,jpeg,webp,avif}",
@@ -10,8 +10,9 @@ const images = import.meta.glob<ImageMetadata>(
 export function resolveSiteImage(
   path: string | null | undefined,
 ): ImageMetadata | undefined {
-  if (!path || isTodo(path)) return undefined;
-  const key = path.replace(/^\.\.\/assets\//, "/src/assets/");
+  const confirmedPath = confirmedText(path);
+  if (!confirmedPath) return undefined;
+  const key = confirmedPath.replace(/^\.\.\/assets\//, "/src/assets/");
   const image = images[key];
   if (!image) throw new Error("缺少网站资料图片：" + path);
   return image;

@@ -4,14 +4,13 @@ import type { InquiryProduct } from "./inquiry";
 const key = "inquiry:v1";
 const first: InquiryProduct = {
   slug: "example-standard-liner",
-  sku: "TODO-001",
-  title: "TODO_STANDARD_LINER",
+  sku: "FIXTURE-001",
+  title: "Test cupcake liner",
   category: "standard-liners",
 };
 const second: InquiryProduct = {
   slug: "example-tulip-cup",
-  sku: "TODO-002",
-  title: "TODO_TULIP_CUP",
+  title: "Test tulip cup",
   category: "tulip-cups",
 };
 
@@ -177,7 +176,7 @@ describe("inquiry list", () => {
         { ...first, slug: "../unsafe", quantity: 1 },
         { ...first, category: "../invalid", quantity: 1 },
         { ...first, title: "", quantity: 1 },
-        { ...first, sku: "", quantity: 1 },
+        { ...first, sku: 100, quantity: 1 },
         { ...first, quantity: "2" },
         { ...first, quantity: 3, unknown: "ignored" },
         { ...first, quantity: 4 },
@@ -200,6 +199,25 @@ describe("inquiry list", () => {
     );
     expect(store.getItems()).toEqual([{ ...second, quantity: 2 }]);
     expect(changed).toHaveBeenCalledOnce();
+  });
+
+  it("restores and saves inquiries without placeholder models or changed identities", async () => {
+    storage.setItem(
+      key,
+      JSON.stringify([{ ...first, sku: "TODO_SKU_LINER", quantity: 1200 }]),
+    );
+    const store = await import("./inquiry");
+    const product = {
+      slug: first.slug,
+      title: first.title,
+      category: first.category,
+    };
+    expect(store.getItems()).toEqual([{ ...product, quantity: 1200 }]);
+    expect(store.addItem({ ...second, sku: "[TODO: Model]" })).toBe(true);
+    expect(JSON.parse(storage.getItem(key) ?? "null")).toEqual([
+      { ...product, quantity: 1200 },
+      { ...second, quantity: null },
+    ]);
   });
 
   it("saves a cleared quantity as null and restores it on the next page", async () => {

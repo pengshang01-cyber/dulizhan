@@ -1,6 +1,5 @@
-import { display } from "./placeholders";
 import { t, type Locale } from "../i18n/utils";
-import { localePath } from "../i18n/routing";
+import { localePath, productHref } from "../i18n/routing";
 import { clearItems, getItems, INQUIRY_CHANGE_EVENT } from "./inquiry";
 import { inquiryDisplayItem, readInquiryCatalog } from "./inquiry-view";
 import {
@@ -129,8 +128,9 @@ export function initializeInquiryForms() {
         selectedProduct.hidden = !product;
         if (product)
           selectedProduct.textContent = t("form.selectedProduct", locale, {
-            title: display(product.title, t("inquiry.productName", locale)),
-            sku: display(product.sku, t("inquiry.skuLabel", locale)),
+            title: product.sku
+              ? `${product.title} · ${product.sku}`
+              : product.title,
           });
       }
       const requestedSlug =
@@ -162,11 +162,10 @@ export function initializeInquiryForms() {
             "flex flex-wrap items-start justify-between gap-3 border-t border-line pt-3 text-sm";
           const link = document.createElement("a");
           link.className = "min-w-0 text-copper underline wrap-anywhere";
-          link.href = localePath(
-            `/products/${item.category}/${item.slug}/`,
-            locale,
-          );
-          link.textContent = `${display(item.sku, t("inquiry.skuLabel", locale))} · ${display(item.title, t("inquiry.productName", locale))}`;
+          link.href = productHref(item, locale);
+          link.textContent = item.sku
+            ? `${item.title} · ${item.sku}`
+            : item.title;
           const quantity = document.createElement("span");
           quantity.textContent =
             item.quantity === null
@@ -310,6 +309,7 @@ export function initializeInquiryForms() {
           wechatId: value("wechatId"),
           productInterest: value("productInterest"),
           productSlug: value("productSlug"),
+          productTitle: catalog.get(productSlug.value)?.title,
           quantity: value("quantity"),
           message: value("message"),
           samples: data.has("samples"),

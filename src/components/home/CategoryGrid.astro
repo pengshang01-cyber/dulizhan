@@ -2,17 +2,23 @@
 import { localePath } from "../../i18n/routing";
 import type { Locale } from "../../i18n/utils";
 import { Image } from "astro:assets";
-import { localized, t } from "../../i18n/utils";
+import { confirmedLocalized, t } from "../../i18n/utils";
 import { getCategories, getProducts } from "../../lib/products";
 import { homeCategories } from "../../lib/category-visibility";
 import Button from "../Button.astro";
 import Container from "../Container.astro";
 import SectionHeading from "../SectionHeading.astro";
 const { locale = "en" } = Astro.props;
-const { categories, hasMore } = homeCategories(
+const { categories: entries, hasMore } = homeCategories(
   await getCategories(),
   await getProducts(),
 );
+const categories = entries.map(({ id, label, summary, image }) => ({
+  id,
+  image,
+  label: confirmedLocalized(label, locale) ?? id,
+  summary: confirmedLocalized(summary, locale),
+}));
 interface Props {
   locale?: Locale;
 }
@@ -40,7 +46,7 @@ interface Props {
                     ? "categories.coverPlaceholder"
                     : "categories.cover",
                   locale,
-                  { label: localized(label, locale) },
+                  { label },
                 )}
                 widths={[200, 400, 720]}
                 sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 340px) 48vw, calc(100vw - 2.5rem)"
@@ -53,11 +59,13 @@ interface Props {
                   id={"cover-title-" + id}
                   class="font-display text-xl leading-tight font-normal wrap-anywhere group-hover:text-copper sm:text-card-title"
                 >
-                  {localized(label, locale)}
+                  {label}
                 </h3>
-                <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {localized(summary, locale)}
-                </p>
+                {summary && (
+                  <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {summary}
+                  </p>
+                )}
                 <span
                   aria-hidden="true"
                   class="mt-auto pt-3 text-lg text-copper"
