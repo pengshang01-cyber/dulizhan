@@ -8,7 +8,20 @@
     "zh": "正方形纸盒盖，属于蛋糕盒与包装盒系列。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/square-paper-box-lids-01.webp",
+      "alt": {
+        "en": "Square Paper Box Lids — clear square box lid at an angle",
+        "zh": "正方形纸盒盖，透明正方纸盒盖斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-paper-box-lids-02.webp",
+      "alt": {
+        "en": "Square Paper Box Lids — clear square lid from above",
+        "zh": "正方形纸盒盖，透明方形盒盖俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

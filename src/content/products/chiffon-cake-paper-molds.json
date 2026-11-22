@@ -8,7 +8,27 @@
     "zh": "纸质戚风蛋糕模，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/chiffon-cake-paper-molds-01.webp",
+      "alt": {
+        "en": "Chiffon Cake Paper Molds — nested round paper molds",
+        "zh": "纸质戚风蛋糕模，叠放的圆形戚风纸模"
+      }
+    },
+    {
+      "image": "../../assets/images/products/chiffon-cake-paper-molds-02.webp",
+      "alt": {
+        "en": "Chiffon Cake Paper Molds — round paper mold from above",
+        "zh": "纸质戚风蛋糕模，圆形纸模俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/chiffon-cake-paper-molds-03.webp",
+      "alt": {
+        "en": "Chiffon Cake Paper Molds — natural-color paper mold at an angle",
+        "zh": "纸质戚风蛋糕模，本色戚风纸模斜视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "260–300",

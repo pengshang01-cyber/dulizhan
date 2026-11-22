@@ -4,7 +4,11 @@
     "en": "Round and straight-sided rolled-rim cups and trays in coated and greaseproof paper.",
     "zh": "包括淋膜纸和防油纸款的圆形、方形卷口杯及烤盘。"
   },
-  "image": "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png",
+  "image": "../../assets/images/categories/rolled-rim-baking-cups-cover.webp",
   "order": 3,
-  "showOnHome": true
+  "showOnHome": true,
+  "imageAlt": {
+    "en": "Double-Sided Gold Round Rolled-Rim Cups — gold interior and exterior",
+    "zh": "双面金圆形卷口杯，金色内外壁"
+  }
 }

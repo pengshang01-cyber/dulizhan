@@ -18,10 +18,12 @@ const product = {
   ...rawProduct,
   images: [
     {
-      src: "/_astro/product-placeholder.webp",
-      width: 400,
-      height: 400,
-      format: "webp",
+      image: {
+        src: "/_astro/product-placeholder.webp",
+        width: 400,
+        height: 400,
+        format: "webp",
+      },
     },
   ],
 } as unknown as ProductData;

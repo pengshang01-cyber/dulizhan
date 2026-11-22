@@ -11,7 +11,27 @@
     "zh": "硅油纸巴斯克纸托，材质为 硅油纸。"
   },
   "images": [
-    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-01.webp",
+      "alt": {
+        "en": "Parchment Basque Cheesecake Liners — white parchment liner at an angle",
+        "zh": "硅油纸巴斯克纸托，白色巴斯克纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-02.webp",
+      "alt": {
+        "en": "Parchment Basque Cheesecake Liners — round pleated liner from above",
+        "zh": "硅油纸巴斯克纸托，圆形折纹纸托俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-03.webp",
+      "alt": {
+        "en": "Parchment Basque Cheesecake Liners — wide white Basque liner",
+        "zh": "硅油纸巴斯克纸托，宽口白色巴斯克纸托"
+      }
+    }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,

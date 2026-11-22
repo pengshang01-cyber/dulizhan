@@ -8,7 +8,20 @@
     "zh": "硅油纸卷，材质为 硅油纸。"
   },
   "images": [
-    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/baking-parchment-rolls-01.webp",
+      "alt": {
+        "en": "Baking Parchment Rolls — paper roll with visible core",
+        "zh": "硅油纸卷，可见卷芯的硅油纸卷"
+      }
+    },
+    {
+      "image": "../../assets/images/products/baking-parchment-rolls-02.webp",
+      "alt": {
+        "en": "Baking Parchment Rolls — paper roll in profile",
+        "zh": "硅油纸卷，硅油纸卷侧视"
+      }
+    }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,

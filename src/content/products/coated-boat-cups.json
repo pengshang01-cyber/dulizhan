@@ -8,7 +8,20 @@
     "zh": "船型淋膜纸杯，材质为 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/coated-boat-cups-01.webp",
+      "alt": {
+        "en": "Coated Boat-Shaped Baking Cups — large printed boat-shaped liner",
+        "zh": "船型淋膜纸杯，大号印花船形杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/coated-boat-cups-02.webp",
+      "alt": {
+        "en": "Coated Boat-Shaped Baking Cups — boat-shaped opening from above",
+        "zh": "船型淋膜纸杯，船形开口俯视"
+      }
+    }
   ],
   "material": { "en": "Coated paper", "zh": "淋膜纸" },
   "gsm": "TODO_GSM",

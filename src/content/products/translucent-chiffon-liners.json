@@ -8,7 +8,20 @@
     "zh": "半透明雪芳杯，材质为 半透明纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/translucent-chiffon-liners-01.webp",
+      "alt": {
+        "en": "Translucent Chiffon Cake Liners — yellow oblong liner at an angle",
+        "zh": "半透明雪芳杯，黄色长圆形半透明纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/translucent-chiffon-liners-02.webp",
+      "alt": {
+        "en": "Translucent Chiffon Cake Liners — oblong opening from above",
+        "zh": "半透明雪芳杯，长圆形开口俯视"
+      }
+    }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
   "gsm": "24 / 31 / 40",

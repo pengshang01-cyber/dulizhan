@@ -8,7 +8,9 @@
     "zh": "白色花边蛋糕纸托，材质为 烘焙纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    }
   ],
   "material": { "en": "Baking paper", "zh": "烘焙纸" },
   "gsm": "TODO_GSM",

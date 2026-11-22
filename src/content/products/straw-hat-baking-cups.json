@@ -8,7 +8,27 @@
     "zh": "草帽纸杯，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-01.webp",
+      "alt": {
+        "en": "Straw-Hat Baking Cups — natural-color cup with a wide ruffled rim",
+        "zh": "草帽纸杯，宽花边的本色草帽杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-02.webp",
+      "alt": {
+        "en": "Straw-Hat Baking Cups — natural-color rim from above",
+        "zh": "草帽纸杯，本色杯口俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-03.webp",
+      "alt": {
+        "en": "Straw-Hat Baking Cups — white cup at an angle",
+        "zh": "草帽纸杯，白色草帽杯斜视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": 80,

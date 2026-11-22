@@ -8,7 +8,9 @@
     "zh": "三角形白卡垫，材质为 卡纸。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+    }
   ],
   "material": { "en": "Paperboard", "zh": "卡纸" },
   "gsm": 700,

@@ -8,7 +8,20 @@
     "zh": "烧烤纸盘，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/paper-barbecue-trays-01.webp",
+      "alt": {
+        "en": "Paper Barbecue Trays — shallow rectangular paper tray",
+        "zh": "烧烤纸盘，浅边长方形烧烤纸盘"
+      }
+    },
+    {
+      "image": "../../assets/images/products/paper-barbecue-trays-02.webp",
+      "alt": {
+        "en": "Paper Barbecue Trays — rectangular tray from above",
+        "zh": "烧烤纸盘，长方盘俯视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "260–300",

@@ -4,7 +4,11 @@
     "en": "Coated paper molds for chiffon cakes and shallow paper pans for pizza.",
     "zh": "戚风蛋糕用淋膜纸模与浅边纸质披萨盘。"
   },
-  "image": "../../assets/images/categories/paper-baking-molds-placeholder.png",
+  "image": "../../assets/images/categories/paper-baking-molds-cover.webp",
   "order": 7,
-  "showOnHome": false
+  "showOnHome": false,
+  "imageAlt": {
+    "en": "Chiffon Cake Paper Molds — nested round paper molds",
+    "zh": "纸质戚风蛋糕模，叠放的圆形戚风纸模"
+  }
 }

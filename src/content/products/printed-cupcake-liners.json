@@ -8,7 +8,20 @@
     "zh": "印花蛋糕纸托，材质为 蛋糕纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/printed-cupcake-liners-01.webp",
+      "alt": {
+        "en": "Printed Cupcake Liners — strawberry print on a fluted liner",
+        "zh": "印花蛋糕纸托，草莓印花褶纹纸托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/printed-cupcake-liners-02.webp",
+      "alt": {
+        "en": "Printed Cupcake Liners — strawberry print on the liner base",
+        "zh": "印花蛋糕纸托，草莓印花纸托底部"
+      }
+    }
   ],
   "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
   "gsm": 40,

@@ -11,7 +11,27 @@
     "zh": "单面金圆形卷口杯，材质为 单面金 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-01.webp",
+      "alt": {
+        "en": "Single-Sided Gold Round Rolled-Rim Cups — gold interior and green checkered exterior",
+        "zh": "单面金圆形卷口杯，金色内壁和绿色格纹外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-02.webp",
+      "alt": {
+        "en": "Single-Sided Gold Round Rolled-Rim Cups — gold interior and red exterior",
+        "zh": "单面金圆形卷口杯，金色内壁和红色外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-03.webp",
+      "alt": {
+        "en": "Single-Sided Gold Round Rolled-Rim Cups — white exterior and gold interior",
+        "zh": "单面金圆形卷口杯，白色外壁与金色内壁"
+      }
+    }
   ],
   "material": {
     "en": "Single-sided gold PET-coated paper",

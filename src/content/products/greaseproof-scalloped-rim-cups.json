@@ -8,7 +8,9 @@
     "zh": "防油纸花边杯，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": 80,

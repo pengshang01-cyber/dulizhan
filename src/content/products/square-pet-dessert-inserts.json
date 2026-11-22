@@ -7,7 +7,22 @@
     "en": "Square PET Dessert Inserts made from PET.",
     "zh": "方形 PET 塑料托，材质为 PET。"
   },
-  "images": ["../../assets/images/categories/dessert-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/square-pet-dessert-inserts-01.webp",
+      "alt": {
+        "en": "Square PET Dessert Inserts — clear square insert with pleated sides",
+        "zh": "方形 PET 塑料托，透明方形折纹甜品托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-pet-dessert-inserts-02.webp",
+      "alt": {
+        "en": "Square PET Dessert Inserts — clear square opening from above",
+        "zh": "方形 PET 塑料托，透明方形托开口俯视"
+      }
+    }
+  ],
   "material": { "en": "PET", "zh": "PET" },
   "gsm": "TODO_GSM",
   "sizes": [

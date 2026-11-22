@@ -4,7 +4,11 @@
     "en": "Basque cheesecake liners, coated baking cups and round greaseproof trays.",
     "zh": "巴斯克蛋糕纸托、淋膜烤杯和圆形防油纸烤盘。"
   },
-  "image": "../../assets/images/categories/basque-cheesecake-liners-placeholder.png",
+  "image": "../../assets/images/categories/basque-cheesecake-liners-cover.webp",
   "order": 6,
-  "showOnHome": true
+  "showOnHome": true,
+  "imageAlt": {
+    "en": "Parchment Basque Cheesecake Liners — white parchment liner at an angle",
+    "zh": "硅油纸巴斯克纸托，白色巴斯克纸托斜视"
+  }
 }

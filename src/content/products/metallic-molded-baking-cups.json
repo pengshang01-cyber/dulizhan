@@ -7,7 +7,22 @@
     "en": "Metallic Molded Baking Cups made from PE-coated paper.",
     "zh": "金银烫金机制杯，材质为 PE 淋膜纸。"
   },
-  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/metallic-molded-baking-cups-01.webp",
+      "alt": {
+        "en": "Metallic Molded Baking Cups — gold exterior with a pale lining",
+        "zh": "金银烫金机制杯，金色外壁与浅色内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/metallic-molded-baking-cups-02.webp",
+      "alt": {
+        "en": "Metallic Molded Baking Cups — silver exterior with a pale lining",
+        "zh": "金银烫金机制杯，银色外壁与浅色内壁"
+      }
+    }
+  ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": 170,
   "sizes": [

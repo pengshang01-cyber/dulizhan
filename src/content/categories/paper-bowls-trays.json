@@ -4,7 +4,11 @@
     "en": "Round and octagonal paper bowls, boat trays and barbecue trays for food service.",
     "zh": "餐饮用圆形与八角纸碗、船形纸盒及烧烤纸盘。"
   },
-  "image": "../../assets/images/categories/kraft-trays-boxes-placeholder.png",
+  "image": "../../assets/images/categories/paper-bowls-trays-cover.webp",
   "order": 13,
-  "showOnHome": false
+  "showOnHome": false,
+  "imageAlt": {
+    "en": "Octagonal Paper Bowls — kraft-colored octagonal bowl",
+    "zh": "八角纸碗，牛皮色八角纸碗"
+  }
 }

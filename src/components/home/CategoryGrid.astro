@@ -13,9 +13,10 @@ const { categories: entries, hasMore } = homeCategories(
   await getCategories(),
   await getProducts(),
 );
-const categories = entries.map(({ id, label, summary, image }) => ({
+const categories = entries.map(({ id, label, summary, image, imageAlt }) => ({
   id,
   image,
+  imageAlt: confirmedLocalized(imageAlt, locale),
   label: confirmedLocalized(label, locale) ?? id,
   summary: confirmedLocalized(summary, locale),
 }));
@@ -33,7 +34,7 @@ interface Props {
         id="categories-title"
       />
       <ul class="mt-7 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-        {categories.map(({ id, label, summary, image }) => (
+        {categories.map(({ id, label, summary, image, imageAlt }) => (
           <li>
             <a
               href={localePath("/products/" + id + "/", locale)}
@@ -41,18 +42,21 @@ interface Props {
             >
               <Image
                 src={image}
-                alt={t(
-                  image.src.includes("placeholder")
-                    ? "categories.coverPlaceholder"
-                    : "categories.cover",
-                  locale,
-                  { label },
-                )}
+                alt={
+                  imageAlt ??
+                  t(
+                    image.src.includes("placeholder")
+                      ? "categories.coverPlaceholder"
+                      : "categories.cover",
+                    locale,
+                    { label },
+                  )
+                }
                 widths={[200, 400, 720]}
                 sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 340px) 48vw, calc(100vw - 2.5rem)"
                 format="webp"
                 loading="lazy"
-                class="aspect-[5/3] w-full border-b border-line object-cover"
+                class="aspect-[4/3] w-full border-b border-line object-cover"
               />
               <div class="flex flex-1 flex-col p-3.5 sm:p-5">
                 <h3

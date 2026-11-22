@@ -8,7 +8,20 @@
     "zh": "圆形金卡垫，属于蛋糕底板系列。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/products/round-gold-cake-cards-01.webp",
+      "alt": {
+        "en": "Round Gold Cake Cards — large round gold cake card with tab",
+        "zh": "圆形金卡垫，带手柄的大圆形金卡垫"
+      }
+    },
+    {
+      "image": "../../assets/images/products/round-gold-cake-cards-02.webp",
+      "alt": {
+        "en": "Round Gold Cake Cards — small round gold cake card with tab",
+        "zh": "圆形金卡垫，带手柄的小圆形金卡垫"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

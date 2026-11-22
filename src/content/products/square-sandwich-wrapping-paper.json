@@ -11,7 +11,9 @@
     "zh": "正方形三明治包装纸，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "40–60",

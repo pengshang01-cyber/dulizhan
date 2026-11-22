@@ -8,7 +8,20 @@
     "zh": "大长方卷口杯，属于卷口杯系列。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-01.webp",
+      "alt": {
+        "en": "Large Rectangular Rolled-Rim Trays — patterned rectangular tray at an angle",
+        "zh": "大长方卷口杯，印花长方盘斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-02.webp",
+      "alt": {
+        "en": "Large Rectangular Rolled-Rim Trays — rectangular tray opening from above",
+        "zh": "大长方卷口杯，长方盘开口俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

@@ -11,7 +11,20 @@
     "zh": "单面玫瑰金圆形卷口杯，属于卷口杯系列。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/rose-gold-round-rolled-rim-cups-01.webp",
+      "alt": {
+        "en": "Rose Gold Round Rolled-Rim Cups — printed pink exterior and metallic lining",
+        "zh": "单面玫瑰金圆形卷口杯，粉色印花外壁和金属色内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/rose-gold-round-rolled-rim-cups-02.webp",
+      "alt": {
+        "en": "Rose Gold Round Rolled-Rim Cups — printed pink base",
+        "zh": "单面玫瑰金圆形卷口杯，粉色印花杯底"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

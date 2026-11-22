@@ -8,7 +8,20 @@
     "zh": "蘑菇杯配套盖，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/mushroom-cup-lids-01.webp",
+      "alt": {
+        "en": "Mushroom Cup Lids — clear dome lid at an angle",
+        "zh": "蘑菇杯配套盖，透明拱形盖斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/mushroom-cup-lids-02.webp",
+      "alt": {
+        "en": "Mushroom Cup Lids — clear dome lid from the side",
+        "zh": "蘑菇杯配套盖，透明拱形盖侧视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

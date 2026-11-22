@@ -4,7 +4,11 @@
     "en": "Paper boxes, window cake boxes, corrugated cartons and paper trays with lids.",
     "zh": "纸盒、开窗蛋糕盒、瓦楞盒和带盖纸塑盒。"
   },
-  "image": "../../assets/images/categories/kraft-trays-boxes-placeholder.png",
+  "image": "../../assets/images/categories/cake-boxes-cover.webp",
   "order": 12,
-  "showOnHome": false
+  "showOnHome": false,
+  "imageAlt": {
+    "en": "Window Cake Boxes — kraft box with a square display window",
+    "zh": "开窗蛋糕盒，方形开窗牛皮纸蛋糕盒"
+  }
 }

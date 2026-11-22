@@ -4,7 +4,11 @@
     "en": "Cake cards and boards in different shapes for presenting cakes and pastries.",
     "zh": "用于承托和展示蛋糕、点心的多种形状卡垫与底板。"
   },
-  "image": "../../assets/images/categories/specialty-packaging-placeholder.png",
+  "image": "../../assets/images/categories/cake-boards-cover.webp",
   "order": 11,
-  "showOnHome": false
+  "showOnHome": false,
+  "imageAlt": {
+    "en": "Round Gold Cake Cards — large round gold cake card with tab",
+    "zh": "圆形金卡垫，带手柄的大圆形金卡垫"
+  }
 }

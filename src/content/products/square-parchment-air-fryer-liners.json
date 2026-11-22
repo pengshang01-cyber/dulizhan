@@ -10,7 +10,22 @@
     "en": "Square Parchment Air Fryer Liners made from silicone-coated parchment paper.",
     "zh": "方形硅油空气炸锅纸，材质为 硅油纸。"
   },
-  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/square-parchment-air-fryer-liners-01.webp",
+      "alt": {
+        "en": "Square Parchment Air Fryer Liners — square liner with folded corners",
+        "zh": "方形硅油空气炸锅纸，带折角的方形空气炸锅纸"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-parchment-air-fryer-liners-02.webp",
+      "alt": {
+        "en": "Square Parchment Air Fryer Liners — square opening from above",
+        "zh": "方形硅油空气炸锅纸，方形开口俯视"
+      }
+    }
+  ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,
   "sizes": [

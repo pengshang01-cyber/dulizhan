@@ -11,7 +11,20 @@
     "zh": "防油纸圆盘卷口杯，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-trays-01.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Trays — natural-color round tray at an angle",
+        "zh": "防油纸圆盘卷口杯，本色圆盘斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-trays-02.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Trays — round tray opening from above",
+        "zh": "防油纸圆盘卷口杯，圆盘开口俯视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": "TODO_GSM",

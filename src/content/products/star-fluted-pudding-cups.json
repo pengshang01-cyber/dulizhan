@@ -8,7 +8,27 @@
     "zh": "星纹布丁杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/star-fluted-pudding-cups-01.webp",
+      "alt": {
+        "en": "Star-Fluted Pudding Cups — pink cup with white fluted interior",
+        "zh": "星纹布丁杯，粉色布丁杯与白色星纹内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/star-fluted-pudding-cups-02.webp",
+      "alt": {
+        "en": "Star-Fluted Pudding Cups — fluted pink base",
+        "zh": "星纹布丁杯，粉色星纹杯底"
+      }
+    },
+    {
+      "image": "../../assets/images/products/star-fluted-pudding-cups-03.webp",
+      "alt": {
+        "en": "Star-Fluted Pudding Cups — white star-shaped opening from above",
+        "zh": "星纹布丁杯，白色星纹杯口俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 220,

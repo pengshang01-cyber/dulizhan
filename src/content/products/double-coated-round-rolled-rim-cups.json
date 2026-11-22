@@ -11,7 +11,9 @@
     "zh": "双面淋膜圆形卷口杯，材质为 双面 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    }
   ],
   "material": {
     "en": "Double-sided PET-coated paper",

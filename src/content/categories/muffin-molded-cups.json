@@ -4,7 +4,11 @@
     "en": "Round, square, hexagonal and rectangular baking cups for muffins and individual cakes.",
     "zh": "适用于马芬与小蛋糕的圆形、正方形、六角形及长方形纸杯。"
   },
-  "image": "../../assets/images/categories/muffin-cups-placeholder.png",
+  "image": "../../assets/images/categories/muffin-molded-cups-cover.webp",
   "order": 5,
-  "showOnHome": true
+  "showOnHome": true,
+  "imageAlt": {
+    "en": "Greaseproof Muffin Cups — natural-color muffin cup at an angle",
+    "zh": "防油纸玛芬翻边杯，本色马芬杯斜视"
+  }
 }

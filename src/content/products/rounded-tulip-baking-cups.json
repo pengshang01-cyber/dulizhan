@@ -8,7 +8,20 @@
     "zh": "圆角郁金香纸杯，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/rounded-tulip-baking-cups-01.webp",
+      "alt": {
+        "en": "Rounded Tulip Baking Cups — white liner with rounded peaks",
+        "zh": "圆角郁金香纸杯，白色圆角郁金香杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/rounded-tulip-baking-cups-02.webp",
+      "alt": {
+        "en": "Rounded Tulip Baking Cups — rounded folds from above",
+        "zh": "圆角郁金香纸杯，圆角折边俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

@@ -11,7 +11,20 @@
     "zh": "印花蛋糕纸托补充规格，属于蛋糕纸托系列。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/printed-liner-extra-sizes-01.webp",
+      "alt": {
+        "en": "Printed Cupcake Liners — Additional Sizes — strawberry print at an angle",
+        "zh": "印花蛋糕纸托补充规格，草莓印花纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/printed-liner-extra-sizes-02.webp",
+      "alt": {
+        "en": "Printed Cupcake Liners — Additional Sizes — printed liner from above",
+        "zh": "印花蛋糕纸托补充规格，印花纸托俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

@@ -8,7 +8,20 @@
     "zh": "小船型纸托，材质为 蛋糕纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/boat-shaped-paper-liners-01.webp",
+      "alt": {
+        "en": "Boat-Shaped Paper Liners — small white boat-shaped liner",
+        "zh": "小船型纸托，小号白色船形纸托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/boat-shaped-paper-liners-02.webp",
+      "alt": {
+        "en": "Boat-Shaped Paper Liners — boat-shaped liner from above",
+        "zh": "小船型纸托，小船形开口俯视"
+      }
+    }
   ],
   "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
   "gsm": 40,

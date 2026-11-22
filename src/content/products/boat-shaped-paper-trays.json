@@ -8,7 +8,20 @@
     "zh": "船形纸盒，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/boat-shaped-paper-trays-01.webp",
+      "alt": {
+        "en": "Boat-Shaped Paper Trays — kraft-colored boat tray at an angle",
+        "zh": "船形纸盒，牛皮色船形餐盒斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/boat-shaped-paper-trays-02.webp",
+      "alt": {
+        "en": "Boat-Shaped Paper Trays — open boat tray from above",
+        "zh": "船形纸盒，船形餐盒开口俯视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "260–300",

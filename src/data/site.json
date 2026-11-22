@@ -3,27 +3,15 @@
     "en": "Foshan Junbeili Paper Products Co., Ltd.",
     "zh": "佛山俊焙利纸制品有限公司"
   },
-  "shortName": {
-    "en": "Junbeili",
-    "zh": "俊焙利"
-  },
+  "shortName": { "en": "Junbeili", "zh": "俊焙利" },
   "tagline": {
     "en": "Food-grade cupcake liners & baking cups, wholesale and custom",
     "zh": "专做食品级蛋糕纸托和烘焙纸杯，支持批发与定制"
   },
   "topBarItems": [
-    {
-      "en": "Factory Direct",
-      "zh": "源头工厂"
-    },
-    {
-      "en": "Custom Printing & OEM",
-      "zh": "印刷定制与 OEM"
-    },
-    {
-      "en": "2,000+ patterns available",
-      "zh": "多种花色可选"
-    }
+    { "en": "Factory Direct", "zh": "源头工厂" },
+    { "en": "Custom Printing & OEM", "zh": "印刷定制与 OEM" },
+    { "en": "2,000+ patterns available", "zh": "多种花色可选" }
   ],
   "domain": "https://junbeili.com",
   "allowIndexing": false,
@@ -46,14 +34,8 @@
     "en": "Varies by product, please contact us",
     "zh": "因产品而异，欢迎咨询"
   },
-  "sampleLeadTime": {
-    "en": "3–7 working days",
-    "zh": "3–7 个工作日"
-  },
-  "productionLeadTime": {
-    "en": "15–25 working days",
-    "zh": "15–25 个工作日"
-  },
+  "sampleLeadTime": { "en": "3–7 working days", "zh": "3–7 个工作日" },
+  "productionLeadTime": { "en": "15–25 working days", "zh": "15–25 个工作日" },
   "sampleCost": {
     "en": "Negotiable, please contact us",
     "zh": "可协商，欢迎咨询"
@@ -67,44 +49,20 @@
     "zh": "海运、空运、快递（DHL / FedEx）"
   },
   "stats": [
-    {
-      "value": 2002,
-      "label": {
-        "en": "Founded",
-        "zh": "成立年份"
-      }
-    },
+    { "value": 2002, "label": { "en": "Founded", "zh": "成立年份" } },
     {
       "value": "8,000,000",
-      "label": {
-        "en": "Daily Capacity (pcs/day)",
-        "zh": "日产能（个/日）"
-      }
+      "label": { "en": "Daily Capacity (pcs/day)", "zh": "日产能（个/日）" }
     },
-    {
-      "value": "30+",
-      "label": {
-        "en": "Export Countries",
-        "zh": "出口国家"
-      }
-    },
+    { "value": "30+", "label": { "en": "Export Countries", "zh": "出口国家" } },
     {
       "value": "2,000+",
-      "label": {
-        "en": "Colors & Patterns",
-        "zh": "花色款式"
-      }
+      "label": { "en": "Colors & Patterns", "zh": "花色款式" }
     }
   ],
   "youtubeVideoId": "TODO_YOUTUBE_VIDEO_ID",
   "certificates": [
-    {
-      "name": {
-        "en": "TODO_CERTIFICATE_NAME",
-        "zh": ""
-      },
-      "imagePath": ""
-    }
+    { "name": { "en": "TODO_CERTIFICATE_NAME", "zh": "" }, "imagePath": "" }
   ],
   "socialLinks": {
     "youtube": "TODO_YOUTUBE_URL",
@@ -116,20 +74,72 @@
   },
   "wechatId": "18988624435",
   "wechatQr": "",
-  "replyTime": {
-    "en": "Within 12 hours",
-    "zh": "12 小时内"
-  },
-  "analytics": {
-    "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
-  },
+  "replyTime": { "en": "Within 12 hours", "zh": "12 小时内" },
+  "analytics": { "gaMeasurementId": "TODO_GA_MEASUREMENT_ID" },
   "logo": "",
   "ogImage": "",
-  "homeHeroImage": "",
+  "homeHeroImage": "../assets/images/site/factory-01.webp",
   "homeHeroAlt": {
-    "en": "",
-    "zh": ""
+    "en": "Overhead view of the workshop and its rows of production equipment",
+    "zh": "从上方拍摄的车间设备全景"
   },
-  "aboutGallery": [],
+  "aboutGallery": [
+    {
+      "image": "../assets/images/site/factory-01.webp",
+      "caption": {
+        "en": "Overhead view of the workshop and its rows of production equipment",
+        "zh": "从上方拍摄的车间设备全景"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-02.webp",
+      "caption": {
+        "en": "Rows of equipment on the green workshop floor",
+        "zh": "绿色地面车间内成排的设备"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-03.webp",
+      "caption": {
+        "en": "Blue enclosed machines along a workshop aisle",
+        "zh": "车间通道两侧的蓝色封闭式设备"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-04.webp",
+      "caption": {
+        "en": "Production area with equipment and stainless-steel work surfaces",
+        "zh": "配有生产设备和不锈钢工作台的区域"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-05.webp",
+      "caption": {
+        "en": "Close-up of metal forming parts and the machine platform",
+        "zh": "金属成型部件和设备台面特写"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-06.webp",
+      "caption": {
+        "en": "Interior of a machine with blue side panels",
+        "zh": "蓝色操作门内的设备细节"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-07.webp",
+      "caption": {
+        "en": "Paper cup equipment beside the workshop windows",
+        "zh": "车间窗边的纸杯设备"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-08.webp",
+      "caption": {
+        "en": "A wide view of the production floor and equipment in the distance",
+        "zh": "车间地面与远处设备的宽幅视角"
+      }
+    }
+  ],
   "factoryVideoPoster": ""
 }

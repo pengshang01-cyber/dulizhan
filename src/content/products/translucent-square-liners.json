@@ -8,7 +8,20 @@
     "zh": "半透明正方杯，材质为 半透明纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/translucent-square-liners-01.webp",
+      "alt": {
+        "en": "Square Translucent Cake Liners — small square translucent liner",
+        "zh": "半透明正方杯，小号半透明方形纸托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/translucent-square-liners-02.webp",
+      "alt": {
+        "en": "Square Translucent Cake Liners — square opening from above",
+        "zh": "半透明正方杯，方形开口俯视"
+      }
+    }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
   "gsm": "24 / 31 / 40",

@@ -8,7 +8,27 @@
     "zh": "铝箔复合纸托，材质为 铝箔复合纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/foil-laminated-cupcake-liners-01.webp",
+      "alt": {
+        "en": "Foil-Laminated Cupcake Liners — gold exterior and white pleated interior",
+        "zh": "铝箔复合纸托，金色外壁与白色折纹内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/foil-laminated-cupcake-liners-02.webp",
+      "alt": {
+        "en": "Foil-Laminated Cupcake Liners — silver exterior and white pleated interior",
+        "zh": "铝箔复合纸托，银色外壁与白色折纹内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/foil-laminated-cupcake-liners-03.webp",
+      "alt": {
+        "en": "Foil-Laminated Cupcake Liners — gold-colored pleated base",
+        "zh": "铝箔复合纸托，金色折纹杯底"
+      }
+    }
   ],
   "material": { "en": "Foil-laminated paper", "zh": "铝箔复合纸" },
   "gsm": 60,

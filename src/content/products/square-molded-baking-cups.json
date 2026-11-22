@@ -7,7 +7,22 @@
     "en": "Square Molded Baking Cups in the muffin & molded baking cups range.",
     "zh": "正方机制杯，属于机制杯与马芬杯系列。"
   },
-  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/square-molded-baking-cups-01.webp",
+      "alt": {
+        "en": "Square Molded Baking Cups — square cups with striped, dotted and kraft-colored walls",
+        "zh": "正方机制杯，条纹、波点和牛皮色方形机制杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-molded-baking-cups-02.webp",
+      "alt": {
+        "en": "Square Molded Baking Cups — kraft-colored square cup from a different angle",
+        "zh": "正方机制杯，牛皮色方杯另一视角"
+      }
+    }
+  ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [

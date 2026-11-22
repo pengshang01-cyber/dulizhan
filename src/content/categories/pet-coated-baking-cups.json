@@ -4,7 +4,11 @@
     "en": "Coated paper baking cups in round, square, rectangular and shaped profiles.",
     "zh": "圆形、方形、长方形及异形淋膜纸杯。"
   },
-  "image": "../../assets/images/categories/paper-baking-molds-placeholder.png",
+  "image": "../../assets/images/categories/pet-coated-baking-cups-cover.webp",
   "order": 2,
-  "showOnHome": true
+  "showOnHome": true,
+  "imageAlt": {
+    "en": "PET-Coated Square Baking Cups — patterned square cup at an angle",
+    "zh": "PET 淋膜正方形纸杯，印花方形淋膜杯斜视"
+  }
 }

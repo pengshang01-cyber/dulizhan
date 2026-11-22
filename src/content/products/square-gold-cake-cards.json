@@ -8,7 +8,20 @@
     "zh": "正方形金卡垫，属于蛋糕底板系列。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/products/square-gold-cake-cards-01.webp",
+      "alt": {
+        "en": "Square Gold Cake Cards — large square gold cake card",
+        "zh": "正方形金卡垫，大正方金卡垫"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-gold-cake-cards-02.webp",
+      "alt": {
+        "en": "Square Gold Cake Cards — small square gold cake card",
+        "zh": "正方形金卡垫，小正方金卡垫"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

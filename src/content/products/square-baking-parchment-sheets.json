@@ -8,7 +8,20 @@
     "zh": "正方形硅油纸片，材质为 硅油纸。"
   },
   "images": [
-    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/square-baking-parchment-sheets-01.webp",
+      "alt": {
+        "en": "Square Baking Parchment Sheets — white square sheets angled as a stack",
+        "zh": "正方形硅油纸片，白色方形硅油纸片堆叠"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-baking-parchment-sheets-02.webp",
+      "alt": {
+        "en": "Square Baking Parchment Sheets — square sheet seen from above",
+        "zh": "正方形硅油纸片，方形纸片俯视"
+      }
+    }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,

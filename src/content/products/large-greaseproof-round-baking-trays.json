@@ -11,7 +11,20 @@
     "zh": "大号防油纸圆盘，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/large-greaseproof-round-baking-trays-01.webp",
+      "alt": {
+        "en": "Large Greaseproof Round Baking Trays — wide natural-color round baking tray",
+        "zh": "大号防油纸圆盘，本色宽口防油纸大盘"
+      }
+    },
+    {
+      "image": "../../assets/images/products/large-greaseproof-round-baking-trays-02.webp",
+      "alt": {
+        "en": "Large Greaseproof Round Baking Trays — wide baking tray from above",
+        "zh": "大号防油纸圆盘，宽口防油纸盘俯视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": 100,

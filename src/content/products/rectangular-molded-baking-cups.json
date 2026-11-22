@@ -7,7 +7,29 @@
     "en": "Rectangular Molded Baking Cups in the muffin & molded baking cups range.",
     "zh": "长方机制杯，属于机制杯与马芬杯系列。"
   },
-  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/rectangular-molded-baking-cups-01.webp",
+      "alt": {
+        "en": "Rectangular Molded Baking Cups — rectangular cup with striped walls",
+        "zh": "长方机制杯，条纹外壁长方机制杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/rectangular-molded-baking-cups-02.webp",
+      "alt": {
+        "en": "Rectangular Molded Baking Cups — rectangular cup with blue and green stripes",
+        "zh": "长方机制杯，蓝绿条纹长方机制杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/rectangular-molded-baking-cups-03.webp",
+      "alt": {
+        "en": "Rectangular Molded Baking Cups — floral rectangular cup",
+        "zh": "长方机制杯，印花长方机制杯"
+      }
+    }
+  ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [

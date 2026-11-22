@@ -11,7 +11,27 @@
     "zh": "双面金圆形卷口杯，材质为 双面金 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/double-sided-gold-round-rolled-rim-cups-01.webp",
+      "alt": {
+        "en": "Double-Sided Gold Round Rolled-Rim Cups — gold interior and exterior",
+        "zh": "双面金圆形卷口杯，金色内外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-round-rolled-rim-cups-02.webp",
+      "alt": {
+        "en": "Double-Sided Gold Round Rolled-Rim Cups — gold base and fluted wall",
+        "zh": "双面金圆形卷口杯，金色杯底和褶皱外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-round-rolled-rim-cups-03.webp",
+      "alt": {
+        "en": "Double-Sided Gold Round Rolled-Rim Cups — gold interior from above",
+        "zh": "双面金圆形卷口杯，金色内壁俯视"
+      }
+    }
   ],
   "material": {
     "en": "Double-sided gold PET-coated paper",

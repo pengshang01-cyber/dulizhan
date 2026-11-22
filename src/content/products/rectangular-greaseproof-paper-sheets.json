@@ -11,7 +11,9 @@
     "zh": "长方形防油纸片，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": 40,

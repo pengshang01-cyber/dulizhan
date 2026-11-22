@@ -8,7 +8,20 @@
     "zh": "郁金香纸杯，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/tulip-baking-cups-01.webp",
+      "alt": {
+        "en": "Tulip Baking Cups — natural-color 170 liner at an angle",
+        "zh": "郁金香纸杯，本色 170 郁金香纸杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/tulip-baking-cups-02.webp",
+      "alt": {
+        "en": "Tulip Baking Cups — pointed folds from above",
+        "zh": "郁金香纸杯，尖角折边俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
