@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { site } from "../config/site";
 import { articleData } from "./blog-seo";
 import type { BlogPost } from "./blog";
 
@@ -24,7 +25,7 @@ const post = {
 } satisfies BlogPost;
 
 describe("Article structured data", () => {
-  it("uses the current language and excludes placeholder image and company facts", () => {
+  it("uses the current language and confirmed publisher and omits placeholder imagery", () => {
     const result = articleData(
       post,
       "zh",
@@ -39,7 +40,11 @@ describe("Article structured data", () => {
       datePublished: "2026-11-17",
     });
     expect(result).not.toHaveProperty("image");
-    expect(result).not.toHaveProperty("publisher");
+    expect(result.publisher).toEqual({
+      "@type": "Organization",
+      name: site.companyName.zh,
+      "@id": site.domain + "/#organization",
+    });
     expect(JSON.stringify(result)).not.toContain("TODO");
   });
   it("includes a real cover and revision without emitting TODO metadata", () => {

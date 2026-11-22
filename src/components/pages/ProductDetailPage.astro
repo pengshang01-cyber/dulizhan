@@ -12,8 +12,7 @@ import ProductCard from "../ProductCard.astro";
 import ProductGallery from "../ProductGallery.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { productMeta, productData, configuredOrigin } from "../../lib/seo";
-import { site } from "../../config/site";
-import { display } from "../../config/site";
+import { display, isTodo, site } from "../../config/site";
 import { localized, t } from "../../i18n/utils";
 import {
   getProductCategory,
@@ -40,6 +39,19 @@ const summary = display(
   localized(data.summary, locale),
   t("products.todo.summary", locale),
 );
+const localValue = (
+  value: { en: string | number; zh?: string | null } | undefined,
+  fallback: { en: string; zh?: string | null },
+  label: string,
+) => {
+  const current = value && localized(value, locale);
+  return display(
+    current !== undefined && current !== "" && !isTodo(current)
+      ? current
+      : localized(fallback, locale),
+    label,
+  );
+};
 const specificationRows = [
   [
     t("products.material", locale),
@@ -50,48 +62,75 @@ const specificationRows = [
   ],
   [
     t("products.paperWeight", locale),
-    typeof data.gsm === "number"
-      ? t("products.weightValue", locale, { value: data.gsm })
-      : display(data.gsm, t("products.todo.paperWeight", locale)),
+    isTodo(data.gsm)
+      ? display(data.gsm, t("products.todo.paperWeight", locale))
+      : t("products.weightValue", locale, { value: data.gsm }),
   ],
   [
     t("products.minimumOrder", locale),
-    display(
-      localized(data.moq, locale),
+    localValue(
+      data.moq,
+      data.customizable === true ? site.customMoq : site.stockMoq,
       t("products.todo.minimumOrder", locale),
     ),
   ],
   [
     t("products.packaging", locale),
-    display(
-      localized(data.packaging, locale),
-      t("products.todo.packaging", locale),
-    ),
+    data.packaging
+      ? display(
+          localized(data.packaging, locale),
+          t("products.todo.packaging", locale),
+        )
+      : undefined,
   ],
   [
     t("products.cartonSpecification", locale),
-    display(
-      localized(data.cartonSpec, locale),
-      t("products.todo.cartonSpecification", locale),
-    ),
+    data.cartonSpec
+      ? display(
+          localized(data.cartonSpec, locale),
+          t("products.todo.cartonSpecification", locale),
+        )
+      : undefined,
   ],
   [
     t("products.leadTime", locale),
-    display(
-      localized(data.leadTime, locale),
+    localValue(
+      data.leadTime,
+      site.productionLeadTime,
       t("products.todo.leadTime", locale),
     ),
   ],
-];
-const customization =
-  typeof data.customizable === "boolean"
-    ? t(
-        data.customizable
-          ? "products.customizationAvailable"
-          : "products.customizationUnavailable",
-        locale,
-      )
-    : display(data.customizable, t("products.todo.customization", locale));
+].filter(([, value]) => value !== undefined);
+const sizeColumns = [
+  {
+    field: "baseDiameterMm",
+    title: "products.baseDiameter",
+    missing: "products.todo.baseDiameter",
+  },
+  {
+    field: "heightMm",
+    title: "products.height",
+    missing: "products.todo.height",
+  },
+  {
+    field: "topDiameterMm",
+    title: "products.topDiameter",
+    missing: "products.todo.topDiameter",
+  },
+] as const;
+const visibleSizeColumns = sizeColumns.filter(({ field }) =>
+  data.sizes.some((size) => size[field] !== undefined),
+);
+const hasWrittenSpecification = data.sizes.some((size) => size.specification);
+const hasCustomization = typeof data.customizable === "boolean";
+const customization = hasCustomization
+  ? t(
+      data.customizable
+        ? "products.customizationAvailable"
+        : "products.customizationUnavailable",
+      locale,
+    )
+  : undefined;
 const bodySections = [
   {
     heading: t("products.customOptions", locale),
@@ -211,7 +250,12 @@ const bodySections = [
         tabindex="0"
         class="mt-4 max-w-full overflow-x-auto rounded-panel border border-line bg-white"
       >
-        <table class="w-full min-w-[42rem] border-collapse text-left text-sm">
+        <table
+          class:list={[
+            "w-full border-collapse text-left text-sm",
+            visibleSizeColumns.length >= 2 && "min-w-[34rem]",
+          ]}
+        >
           <caption class="sr-only">
             {t("products.dimensionsCaption", locale)}
           </caption>
@@ -220,15 +264,16 @@ const bodySections = [
               <th scope="col" class="px-5 py-4 font-bold">
                 {t("products.size", locale)}
               </th>
-              <th scope="col" class="px-5 py-4 font-bold">
-                {t("products.baseDiameter", locale)}
-              </th>
-              <th scope="col" class="px-5 py-4 font-bold">
-                {t("products.height", locale)}
-              </th>
-              <th scope="col" class="px-5 py-4 font-bold">
-                {t("products.topDiameter", locale)}
-              </th>
+              {visibleSizeColumns.map(({ title }) => (
+                <th scope="col" class="px-5 py-4 font-bold">
+                  {t(title, locale)}
+                </th>
+              ))}
+              {hasWrittenSpecification && (
+                <th scope="col" class="px-5 py-4 font-bold">
+                  {t("products.sizeSpecification", locale)}
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -240,27 +285,21 @@ const bodySections = [
                     t("products.todo.sizeName", locale),
                   )}
                 </th>
-                <td class="px-5 py-4">
-                  {measurementLabel(
-                    size.baseDiameterMm,
-                    t("products.todo.baseDiameter", locale),
-                    locale,
-                  )}
-                </td>
-                <td class="px-5 py-4">
-                  {measurementLabel(
-                    size.heightMm,
-                    t("products.todo.height", locale),
-                    locale,
-                  )}
-                </td>
-                <td class="px-5 py-4">
-                  {measurementLabel(
-                    size.topDiameterMm,
-                    t("products.todo.topDiameter", locale),
-                    locale,
-                  )}
-                </td>
+                {visibleSizeColumns.map(({ field, missing }) => (
+                  <td class="px-5 py-4">
+                    {measurementLabel(size[field], t(missing, locale), locale)}
+                  </td>
+                ))}
+                {hasWrittenSpecification && (
+                  <td class="px-5 py-4 wrap-anywhere">
+                    {size.specification
+                      ? display(
+                          localized(size.specification, locale),
+                          t("products.todo.size", locale),
+                        )
+                      : t("products.notSpecified", locale)}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -268,49 +307,59 @@ const bodySections = [
       </div>
     </section>
 
-    <section
-      class="mt-10 grid gap-5 sm:grid-cols-3"
-      aria-label={t("products.availableOptions", locale)}
-    >
-      <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">
-          {t("products.colors", locale)}
-        </h2>
-        <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
-          {data.colors.map((color) => (
-            <li>
-              {display(
-                localized(color, locale),
-                t("products.todo.colors", locale),
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">
-          {t("products.patterns", locale)}
-        </h2>
-        <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
-          {data.patterns.map((pattern) => (
-            <li>
-              {display(
-                localized(pattern, locale),
-                t("products.todo.patterns", locale),
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="min-w-0 rounded-panel border border-line bg-white p-5">
-        <h2 class="font-display text-card-title font-normal">
-          {t("products.customization", locale)}
-        </h2>
-        <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-          {customization}
-        </p>
-      </div>
-    </section>
+    {(data.colors.length > 0 ||
+      data.patterns.length > 0 ||
+      hasCustomization) && (
+      <section
+        class="mt-10 grid gap-5 sm:grid-cols-3"
+        aria-label={t("products.availableOptions", locale)}
+      >
+        {data.colors.length > 0 && (
+          <div class="min-w-0 rounded-panel border border-line bg-white p-5">
+            <h2 class="font-display text-card-title font-normal">
+              {t("products.colors", locale)}
+            </h2>
+            <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
+              {data.colors.map((color) => (
+                <li>
+                  {display(
+                    localized(color, locale),
+                    t("products.todo.colors", locale),
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {data.patterns.length > 0 && (
+          <div class="min-w-0 rounded-panel border border-line bg-white p-5">
+            <h2 class="font-display text-card-title font-normal">
+              {t("products.patterns", locale)}
+            </h2>
+            <ul class="mt-3 grid gap-2 text-sm leading-relaxed text-ink-soft">
+              {data.patterns.map((pattern) => (
+                <li>
+                  {display(
+                    localized(pattern, locale),
+                    t("products.todo.patterns", locale),
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {hasCustomization && (
+          <div class="min-w-0 rounded-panel border border-line bg-white p-5">
+            <h2 class="font-display text-card-title font-normal">
+              {t("products.customization", locale)}
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+              {customization}
+            </p>
+          </div>
+        )}
+      </section>
+    )}
 
     {bodySections.length > 0 && (
       <div class="product-body mt-10 max-w-3xl border-t border-line pt-2">

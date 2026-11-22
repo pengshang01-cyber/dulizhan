@@ -1,0 +1,33 @@
+{
+  "sku": "TODO_SKU_SQUARE_PAPER_BOX_LIDS",
+  "slug": "square-paper-box-lids",
+  "category": "cake-boxes.json",
+  "title": { "en": "Square Paper Box Lids", "zh": "正方形纸盒盖" },
+  "summary": {
+    "en": "Square Paper Box Lids in the cake boxes & packaging range.",
+    "zh": "正方形纸盒盖，属于蛋糕盒与包装盒系列。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "133×133×35 mm", "zh": "133×133×35 mm" },
+      "heightMm": 35,
+      "specification": { "en": "133×133×35 mm", "zh": "133×133×35 mm" }
+    },
+    { "name": { "en": "Mini", "zh": "迷你" } }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Square Paper Box Lids", "zh": "正方形纸盒盖" },
+  "seoDescription": {
+    "en": "Square Paper Box Lids in the cake boxes & packaging range.",
+    "zh": "正方形纸盒盖，属于蛋糕盒与包装盒系列。"
+  },
+  "featured": false,
+  "order": 94
+}

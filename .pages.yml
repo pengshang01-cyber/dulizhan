@@ -159,15 +159,15 @@ content:
             default: ""
       - name: gsm
         label: 纸张克重（g/m²）
-        description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+        description: 不写单位；可填正数、范围（例如 260–300）或多个选项（例如 24 / 31 / 40），未确认时填 TODO_ 占位。
         type: string
         required: true
         pattern:
-          regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
-          message: 请填写大于 0 的数字或 TODO_ 占位值。
+          regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+)|\d+(?:\.\d+)?(?:\s*[–/-]\s*\d+(?:\.\d+)?)+)$
+          message: 请填写正数、范围、多个克重选项或 TODO_ 占位值。
       - name: sizes
         label: 尺寸规格
-        description: 至少填写一组；数字两种语言共用，单位为毫米。
+        description: 至少填写一组；直径和高度单位为毫米。非圆形或纸片规格可填写双语规格说明。
         type: object
         list:
           min: 1
@@ -178,7 +178,7 @@ content:
         fields:
           - name: name
             label: 规格名称
-            description: 英文必填；中文选填，留空时中文页面使用英文。
+            description: 有尺寸型号时填写原型号（例如 5039）。英文字段必填，中文留空时使用英文。
             type: object
             required: true
             fields:
@@ -194,19 +194,17 @@ content:
                 default: ""
           - name: baseDiameterMm
             label: 底部直径（mm）
-            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+            description: 圆形底径以正数填写；方形、纸片等可留空，在规格说明填长宽。
             type: string
-            required: true
             pattern:
-              regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
               message: 请填写大于 0 的数字或 TODO_ 占位值。
           - name: heightMm
             label: 高度（mm）
-            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+            description: 已确认高度填正数，不写单位；无高度或未确认时可留空。
             type: string
-            required: true
             pattern:
-              regex: ^(?:TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
               message: 请填写大于 0 的数字或 TODO_ 占位值。
           - name: topDiameterMm
             label: 顶部直径（mm，可选）
@@ -215,6 +213,19 @@ content:
             pattern:
               regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
               message: 请填写大于 0 的数字或 TODO_ 占位值。
+          - name: specification
+            label: 规格说明
+            description: 可选；用于底部、顶部的长宽、纸片尺寸或该规格克重。填写时先填英文。
+            type: object
+            fields:
+              - name: en
+                label: 规格说明（英文）
+                description: 例如 Base 65×65 mm, top 85×85 mm, height 35 mm。
+                type: string
+              - name: zh
+                label: 规格说明（中文）
+                description: 例如底部 65×65 mm，顶部 85×85 mm，高度 35 mm。
+                type: string
       - name: colors
         label: 颜色
         description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
@@ -271,15 +282,13 @@ content:
               label: 待工厂确认
       - name: moq
         label: 最小起订量
-        description: 可填数量、英文说明或 TODO_ 占位；纯数字只在英文栏填一次，中文留空即可共用。
+        description: 如产品所有规格通用则可填写；留空时显示网站设置中的说明。仅单个规格适用时填在包装详情。
         type: object
-        required: true
         fields:
           - name: en
             label: 最小起订量（英文）
-            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            description: 选填；当整组留空时使用网站默认说明。
             type: string
-            required: true
           - name: zh
             label: 最小起订量（中文）
             description: 选填；中文留空时回退显示英文。
@@ -287,15 +296,13 @@ content:
             default: ""
       - name: packaging
         label: 包装方式
-        description: 英文必填；中文选填，留空时中文页面使用英文。
+        description: 填写全产品通用的包装方式；仅适用于单个规格时填在包装详情。
         type: object
-        required: true
         fields:
           - name: en
             label: 包装方式（英文）
-            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            description: 选填；不同规格有不同包装时可留空。
             type: string
-            required: true
           - name: zh
             label: 包装方式（中文）
             description: 选填；中文留空时回退显示英文。
@@ -303,15 +310,13 @@ content:
             default: ""
       - name: cartonSpec
         label: 外箱规格
-        description: 英文必填；中文选填，留空时中文页面使用英文。
+        description: 填写全产品通用的外箱规格；具体规格的外箱信息填在包装详情。
         type: object
-        required: true
         fields:
           - name: en
             label: 外箱规格（英文）
-            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            description: 选填；没有确认的通用外箱规格时留空。
             type: string
-            required: true
           - name: zh
             label: 外箱规格（中文）
             description: 选填；中文留空时回退显示英文。
@@ -319,15 +324,13 @@ content:
             default: ""
       - name: leadTime
         label: 生产交期
-        description: 英文必填；中文选填，留空时中文页面使用英文。
+        description: 留空时显示网站设置中的生产交期。
         type: object
-        required: true
         fields:
           - name: en
             label: 生产交期（英文）
-            description: 填写英文；未确认的资料使用 TODO_ 开头的占位值。
+            description: 选填；未确认产品专用交期时留空。
             type: string
-            required: true
           - name: zh
             label: 生产交期（中文）
             description: 选填；中文留空时回退显示英文。

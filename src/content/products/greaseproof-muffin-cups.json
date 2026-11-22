@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_GREASEPROOF_MUFFIN_CUPS",
+  "slug": "greaseproof-muffin-cups",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Greaseproof Muffin Cups", "zh": "防油纸玛芬翻边杯" },
+  "summary": {
+    "en": "Greaseproof Muffin Cups made from greaseproof paper.",
+    "zh": "防油纸玛芬翻边杯，材质为 防油纸。"
+  },
+  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": 80,
+  "sizes": [
+    {
+      "name": { "en": "50×40 mm", "zh": "50×40 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 40,
+      "topDiameterMm": 90
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "100 pcs/pack × 30 packs", "zh": "100 个/包 × 30 包" },
+  "seoTitle": { "en": "Greaseproof Muffin Cups", "zh": "防油纸玛芬翻边杯" },
+  "seoDescription": {
+    "en": "Greaseproof Muffin Cups made from greaseproof paper.",
+    "zh": "防油纸玛芬翻边杯，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 63
+}

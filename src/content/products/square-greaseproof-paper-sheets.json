@@ -1,0 +1,55 @@
+{
+  "sku": "TODO_SKU_SQUARE_GREASEPROOF_PAPER_SHEETS",
+  "slug": "square-greaseproof-paper-sheets",
+  "category": "baking-wrapping-paper.json",
+  "title": { "en": "Square Greaseproof Paper Sheets", "zh": "正方形防油纸片" },
+  "summary": {
+    "en": "Square Greaseproof Paper Sheets made from greaseproof paper.",
+    "zh": "正方形防油纸片，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "15×15 cm", "zh": "15×15 cm" },
+      "specification": { "en": "15×15 cm", "zh": "15×15 cm" }
+    },
+    {
+      "name": { "en": "18×18 cm", "zh": "18×18 cm" },
+      "specification": { "en": "18×18 cm", "zh": "18×18 cm" }
+    },
+    {
+      "name": { "en": "20×20 cm", "zh": "20×20 cm" },
+      "specification": { "en": "20×20 cm", "zh": "20×20 cm" }
+    },
+    {
+      "name": { "en": "22×22 cm", "zh": "22×22 cm" },
+      "specification": { "en": "22×22 cm", "zh": "22×22 cm" }
+    },
+    {
+      "name": { "en": "25×25 cm", "zh": "25×25 cm" },
+      "specification": { "en": "25×25 cm", "zh": "25×25 cm" }
+    },
+    {
+      "name": { "en": "30×30 cm", "zh": "30×30 cm" },
+      "specification": { "en": "30×30 cm", "zh": "30×30 cm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "packaging": { "en": "500 sheets/bag", "zh": "500 张/袋" },
+  "seoTitle": {
+    "en": "Square Greaseproof Paper Sheets",
+    "zh": "正方形防油纸片"
+  },
+  "seoDescription": {
+    "en": "Square Greaseproof Paper Sheets made from greaseproof paper.",
+    "zh": "正方形防油纸片，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 6
+}

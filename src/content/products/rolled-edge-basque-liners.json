@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_ROLLED_EDGE_BASQUE_LINERS",
+  "slug": "rolled-edge-basque-liners",
+  "category": "basque-cheesecake-liners.json",
+  "title": { "en": "Rolled-Edge Basque Liners", "zh": "翻边巴斯克纸托" },
+  "summary": {
+    "en": "Rolled-Edge Basque Liners in the basque cheesecake liners range.",
+    "zh": "翻边巴斯克纸托，属于巴斯克蛋糕纸系列。"
+  },
+  "images": [
+    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "3.5 in", "zh": "3.5 英寸" },
+      "baseDiameterMm": 80,
+      "heightMm": 45
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Rolled-Edge Basque Liners", "zh": "翻边巴斯克纸托" },
+  "seoDescription": {
+    "en": "Rolled-Edge Basque Liners in the basque cheesecake liners range.",
+    "zh": "翻边巴斯克纸托，属于巴斯克蛋糕纸系列。"
+  },
+  "featured": false,
+  "order": 39
+}

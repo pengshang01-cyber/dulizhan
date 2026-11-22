@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Tulip & Shaped Baking Cups", "zh": "造型纸杯" },
+  "summary": {
+    "en": "Tulip, lotus, scalloped and other shaped cups for baking and desserts.",
+    "zh": "适合烘焙与甜品的郁金香杯、莲花杯、花边杯及其他造型纸杯。"
+  },
+  "image": "../../assets/images/categories/tulip-baking-cups-placeholder.png",
+  "order": 4,
+  "showOnHome": true
+}

@@ -1,0 +1,42 @@
+{
+  "sku": "TODO_SKU_SQUARE_FOIL_AIR_FRYER_LINERS",
+  "slug": "square-foil-air-fryer-liners",
+  "category": "air-fryer-liners.json",
+  "title": {
+    "en": "Square Foil-Laminated Air Fryer Liners",
+    "zh": "方形铝箔空气炸锅纸"
+  },
+  "summary": {
+    "en": "Square Foil-Laminated Air Fryer Liners made from foil-laminated paper.",
+    "zh": "方形铝箔空气炸锅纸，材质为 铝箔复合纸。"
+  },
+  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "material": { "en": "Foil-laminated paper", "zh": "铝箔复合纸" },
+  "gsm": 90,
+  "sizes": [
+    {
+      "name": { "en": "6 in", "zh": "6 英寸" },
+      "heightMm": 45,
+      "specification": { "en": "160×160×45 mm", "zh": "160×160×45 mm" }
+    },
+    {
+      "name": { "en": "8 in", "zh": "8 英寸" },
+      "heightMm": 45,
+      "specification": { "en": "200×200×45 mm", "zh": "200×200×45 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Square Foil-Laminated Air Fryer Liners",
+    "zh": "方形铝箔空气炸锅纸"
+  },
+  "seoDescription": {
+    "en": "Square Foil-Laminated Air Fryer Liners made from foil-laminated paper.",
+    "zh": "方形铝箔空气炸锅纸，材质为 铝箔复合纸。"
+  },
+  "featured": false,
+  "order": 72
+}

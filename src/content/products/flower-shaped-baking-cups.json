@@ -1,0 +1,30 @@
+{
+  "sku": "TODO_SKU_FLOWER_SHAPED_BAKING_CUPS",
+  "slug": "flower-shaped-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Flower-Shaped Baking Cups", "zh": "花朵杯" },
+  "summary": {
+    "en": "Flower-Shaped Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "花朵杯，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "TODO_SIZE_NAME", "zh": "" } }],
+  "colors": [
+    { "en": "Purple", "zh": "紫色" },
+    { "en": "Green", "zh": "绿色" },
+    { "en": "Blue", "zh": "蓝色" }
+  ],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Flower-Shaped Baking Cups", "zh": "花朵杯" },
+  "seoDescription": {
+    "en": "Flower-Shaped Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "花朵杯，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 96
+}

@@ -1,0 +1,10 @@
+{
+  "label": { "en": "PET Dessert Inserts", "zh": "PET 塑料托" },
+  "summary": {
+    "en": "Round and square PET inserts for individual desserts.",
+    "zh": "用于独立包装甜点的圆形和方形 PET 塑料托。"
+  },
+  "image": "../../assets/images/categories/dessert-cups-placeholder.png",
+  "order": 8,
+  "showOnHome": false
+}

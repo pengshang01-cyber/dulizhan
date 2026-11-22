@@ -5,7 +5,7 @@ describe("localized routes", () => {
   it.each([
     "/",
     "/products/",
-    "/products/tulip-baking-cups/sample-tulip-cup/",
+    "/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
     "/contact/?from=inquiry#quote",
   ])("keeps the same page across languages: %s", (path) => {
     expect(localePath(path, "en")).toBe(path);

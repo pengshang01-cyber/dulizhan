@@ -1,0 +1,58 @@
+{
+  "sku": "TODO_SKU_GREASEPROOF_ROUND_ROLLED_RIM_BAKING_CUPS",
+  "slug": "greaseproof-round-rolled-rim-baking-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Greaseproof Round Rolled-Rim Baking Cups",
+    "zh": "防油纸圆形卷口杯"
+  },
+  "summary": {
+    "en": "Greaseproof Round Rolled-Rim Baking Cups made from colored greaseproof paper.",
+    "zh": "防油纸圆形卷口杯，材质为 彩色防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "Colored greaseproof paper", "zh": "彩色防油纸" },
+  "gsm": 80,
+  "sizes": [
+    {
+      "name": { "en": "3830", "zh": "3830" },
+      "baseDiameterMm": 38,
+      "heightMm": 30,
+      "topDiameterMm": 50
+    },
+    {
+      "name": { "en": "4435", "zh": "4435" },
+      "baseDiameterMm": 44,
+      "heightMm": 35,
+      "topDiameterMm": 60
+    },
+    {
+      "name": { "en": "5039", "zh": "5039" },
+      "baseDiameterMm": 50,
+      "heightMm": 39,
+      "topDiameterMm": 70
+    },
+    {
+      "name": { "en": "6040", "zh": "6040" },
+      "baseDiameterMm": 60,
+      "heightMm": 40,
+      "topDiameterMm": 80
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Greaseproof Round Rolled-Rim Baking Cups",
+    "zh": "防油纸圆形卷口杯"
+  },
+  "seoDescription": {
+    "en": "Greaseproof Round Rolled-Rim Baking Cups made from colored greaseproof paper.",
+    "zh": "防油纸圆形卷口杯，材质为 彩色防油纸。"
+  },
+  "featured": false,
+  "order": 15
+}

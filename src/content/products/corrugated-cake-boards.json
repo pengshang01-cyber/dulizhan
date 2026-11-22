@@ -1,0 +1,34 @@
+{
+  "sku": "TODO_SKU_CORRUGATED_CAKE_BOARDS",
+  "slug": "corrugated-cake-boards",
+  "category": "cake-boards.json",
+  "title": { "en": "Corrugated Cake Boards", "zh": "瓦楞蛋糕板" },
+  "summary": {
+    "en": "Corrugated Cake Boards made from corrugated paperboard.",
+    "zh": "瓦楞蛋糕板，材质为 瓦楞纸。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "Corrugated paperboard", "zh": "瓦楞纸" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "3–14 in", "zh": "3–14 英寸" },
+      "specification": {
+        "en": "Series sizes 3–14 in, thickness 1–12 mm",
+        "zh": "系列尺寸 3–14 英寸，厚度 1–12 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "seoTitle": { "en": "Corrugated Cake Boards", "zh": "瓦楞蛋糕板" },
+  "seoDescription": {
+    "en": "Corrugated Cake Boards made from corrugated paperboard.",
+    "zh": "瓦楞蛋糕板，材质为 瓦楞纸。"
+  },
+  "featured": false,
+  "order": 105
+}

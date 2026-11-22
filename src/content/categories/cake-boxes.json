@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Cake Boxes & Packaging", "zh": "蛋糕盒与包装盒" },
+  "summary": {
+    "en": "Paper boxes, window cake boxes, corrugated cartons and paper trays with lids.",
+    "zh": "纸盒、开窗蛋糕盒、瓦楞盒和带盖纸塑盒。"
+  },
+  "image": "../../assets/images/categories/kraft-trays-boxes-placeholder.png",
+  "order": 12,
+  "showOnHome": false
+}

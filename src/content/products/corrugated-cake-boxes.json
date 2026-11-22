@@ -1,0 +1,46 @@
+{
+  "sku": "TODO_SKU_CORRUGATED_CAKE_BOXES",
+  "slug": "corrugated-cake-boxes",
+  "category": "cake-boxes.json",
+  "title": { "en": "Corrugated Paper Cake Boxes", "zh": "长方形瓦楞纸盒" },
+  "summary": {
+    "en": "Corrugated Paper Cake Boxes made from corrugated paperboard.",
+    "zh": "长方形瓦楞纸盒，材质为 瓦楞纸。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "Corrugated paperboard", "zh": "瓦楞纸" },
+  "gsm": 240,
+  "sizes": [
+    {
+      "name": { "en": "150×65×50 mm", "zh": "150×65×50 mm" },
+      "heightMm": 50,
+      "specification": { "en": "150×65×50 mm", "zh": "150×65×50 mm" }
+    },
+    {
+      "name": { "en": "175×75×50 mm", "zh": "175×75×50 mm" },
+      "heightMm": 50,
+      "specification": { "en": "175×75×50 mm", "zh": "175×75×50 mm" }
+    },
+    {
+      "name": { "en": "200×65×52 mm", "zh": "200×65×52 mm" },
+      "heightMm": 52,
+      "specification": { "en": "200×65×52 mm", "zh": "200×65×52 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "150×65×50 mm — 50 pcs/pack × 6 packs\n175×75×50 mm — 50 pcs/pack × 16 packs\n200×65×52 mm — 50 pcs/pack × 6 packs",
+    "zh": "150×65×50 mm — 包装 50 个/包 × 6 包\n175×75×50 mm — 包装 50 个/包 × 16 包\n200×65×52 mm — 包装 50 个/包 × 6 包"
+  },
+  "seoTitle": { "en": "Corrugated Paper Cake Boxes", "zh": "长方形瓦楞纸盒" },
+  "seoDescription": {
+    "en": "Corrugated Paper Cake Boxes made from corrugated paperboard.",
+    "zh": "长方形瓦楞纸盒，材质为 瓦楞纸。"
+  },
+  "featured": false,
+  "order": 64
+}

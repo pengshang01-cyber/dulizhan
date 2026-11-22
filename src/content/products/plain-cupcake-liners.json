@@ -1,0 +1,52 @@
+{
+  "sku": "TODO_SKU_PLAIN_CUPCAKE_LINERS",
+  "slug": "plain-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Plain Cupcake Liners", "zh": "普通蛋糕纸托" },
+  "summary": {
+    "en": "Plain Cupcake Liners in the cupcake liners range.",
+    "zh": "普通蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
+      "baseDiameterMm": 25,
+      "heightMm": 17.5
+    },
+    {
+      "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
+      "baseDiameterMm": 35,
+      "heightMm": 22.5
+    },
+    {
+      "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
+      "baseDiameterMm": 40,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
+      "baseDiameterMm": 45,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
+      "baseDiameterMm": 50,
+      "heightMm": 35
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Plain Cupcake Liners", "zh": "普通蛋糕纸托" },
+  "seoDescription": {
+    "en": "Plain Cupcake Liners in the cupcake liners range.",
+    "zh": "普通蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 77
+}

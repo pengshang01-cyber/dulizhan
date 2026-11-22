@@ -1,0 +1,45 @@
+{
+  "sku": "TODO_SKU_DOUBLE_SIDED_GOLD_RECTANGULAR_ROLLED_RIM_CUPS",
+  "slug": "double-sided-gold-rectangular-rolled-rim-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Double-Sided Gold Rectangular Rolled-Rim Cups",
+    "zh": "双面金长方形卷口杯"
+  },
+  "summary": {
+    "en": "Double-Sided Gold Rectangular Rolled-Rim Cups made from double-sided gold PET-coated paper.",
+    "zh": "双面金长方形卷口杯，材质为 双面金 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": {
+    "en": "Double-sided gold PET-coated paper",
+    "zh": "双面金 PET 淋膜纸"
+  },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "80×40×40 mm", "zh": "80×40×40 mm" },
+      "heightMm": 40,
+      "specification": {
+        "en": "Base 80×40 mm, height 40 mm",
+        "zh": "底部 80×40 mm，高度 40 mm"
+      }
+    }
+  ],
+  "colors": [{ "en": "Double-sided gold", "zh": "双面金" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Double-Sided Gold Rectangular Rolled-Rim Cups",
+    "zh": "双面金长方形卷口杯"
+  },
+  "seoDescription": {
+    "en": "Double-Sided Gold Rectangular Rolled-Rim Cups made from double-sided gold PET-coated paper.",
+    "zh": "双面金长方形卷口杯，材质为 双面金 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 24
+}

@@ -6,10 +6,11 @@ import { z } from "astro/zod";
 import {
   contentId,
   localizedText,
-  localizedValue,
   optionalLocalizedText,
+  optionalLocalizedValue,
+  optionalMeasurement,
+  paperWeight,
   requiredText,
-  sharedMeasurement,
 } from "../lib/content-fields";
 
 // 校验来源与分类 collection 相同；新增分类文件自动进入允许集合。
@@ -46,17 +47,15 @@ const products = defineCollection({
       summary: localizedText,
       images: z.array(image()).min(1),
       material: localizedText,
-      gsm: sharedMeasurement,
+      gsm: paperWeight,
       sizes: z
         .array(
           z.object({
             name: localizedText,
-            baseDiameterMm: sharedMeasurement,
-            heightMm: sharedMeasurement,
-            topDiameterMm: z.preprocess(
-              (value) => (value === "" || value === null ? undefined : value),
-              sharedMeasurement.optional(),
-            ),
+            baseDiameterMm: optionalMeasurement,
+            heightMm: optionalMeasurement,
+            topDiameterMm: optionalMeasurement,
+            specification: optionalLocalizedText,
           }),
         )
         .min(1),
@@ -67,10 +66,10 @@ const products = defineCollection({
           value === "true" ? true : value === "false" ? false : value,
         z.union([z.boolean(), z.string().regex(/^TODO_.+/)]),
       ),
-      moq: localizedValue,
-      packaging: localizedText,
-      cartonSpec: localizedText,
-      leadTime: localizedText,
+      moq: optionalLocalizedValue,
+      packaging: optionalLocalizedText,
+      cartonSpec: optionalLocalizedText,
+      leadTime: optionalLocalizedText,
       faqs: z
         .array(z.object({ q: localizedText, a: localizedText }))
         .default([]),

@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_SQUARE_WHITE_CAKE_CARDS",
+  "slug": "square-white-cake-cards",
+  "category": "cake-boards.json",
+  "title": { "en": "Square White Cake Cards", "zh": "正方形白卡垫" },
+  "summary": {
+    "en": "Square White Cake Cards made from paperboard.",
+    "zh": "正方形白卡垫，材质为 卡纸。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "Paperboard", "zh": "卡纸" },
+  "gsm": 700,
+  "sizes": [
+    {
+      "name": { "en": "90×90 mm", "zh": "90×90 mm" },
+      "specification": { "en": "90×90 mm", "zh": "90×90 mm" }
+    }
+  ],
+  "colors": [{ "en": "White", "zh": "白色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 100 packs", "zh": "50 个/包 × 100 包" },
+  "seoTitle": { "en": "Square White Cake Cards", "zh": "正方形白卡垫" },
+  "seoDescription": {
+    "en": "Square White Cake Cards made from paperboard.",
+    "zh": "正方形白卡垫，材质为 卡纸。"
+  },
+  "featured": false,
+  "order": 66
+}

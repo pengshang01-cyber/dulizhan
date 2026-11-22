@@ -1,0 +1,33 @@
+{
+  "sku": "TODO_SKU_BOAT_SHAPED_PAPER_LINERS",
+  "slug": "boat-shaped-paper-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Boat-Shaped Paper Liners", "zh": "小船型纸托" },
+  "summary": {
+    "en": "Boat-Shaped Paper Liners made from cake liner paper.",
+    "zh": "小船型纸托，材质为 蛋糕纸。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "60×30×20 mm", "zh": "60×30×20 mm" },
+      "heightMm": 20,
+      "specification": { "en": "60×30×20 mm", "zh": "60×30×20 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "1000 pcs/pack × 50 packs", "zh": "1000 个/包 × 50 包" },
+  "seoTitle": { "en": "Boat-Shaped Paper Liners", "zh": "小船型纸托" },
+  "seoDescription": {
+    "en": "Boat-Shaped Paper Liners made from cake liner paper.",
+    "zh": "小船型纸托，材质为 蛋糕纸。"
+  },
+  "featured": false,
+  "order": 79
+}

@@ -1,0 +1,48 @@
+{
+  "sku": "TODO_SKU_SINGLE_SIDED_GOLD_RECTANGULAR_ROLLED_RIM_CUPS",
+  "slug": "single-sided-gold-rectangular-rolled-rim-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Single-Sided Gold Rectangular Rolled-Rim Cups",
+    "zh": "单面金长方形卷口杯"
+  },
+  "summary": {
+    "en": "Single-Sided Gold Rectangular Rolled-Rim Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金长方形卷口杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": {
+    "en": "Single-sided gold PET-coated paper",
+    "zh": "单面金 PET 淋膜纸"
+  },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "80×40×40 mm", "zh": "80×40×40 mm" },
+      "heightMm": 40,
+      "specification": {
+        "en": "Base 80×40 mm, top 110×65 mm, height 40 mm",
+        "zh": "底部 80×40 mm，顶部 110×65 mm，高度 40 mm"
+      }
+    }
+  ],
+  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "patterns": [{ "en": "Gold print", "zh": "金色印花" }],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "80×40×40 mm — 50 pcs/pack × 60 packs\n80×40×40 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 57 × 37 × 42 cm",
+    "zh": "80×40×40 mm — 包装 50 个/包 × 60 包\n80×40×40 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 57 × 37 × 42 cm"
+  },
+  "seoTitle": {
+    "en": "Single-Sided Gold Rectangular Rolled-Rim Cups",
+    "zh": "单面金长方形卷口杯"
+  },
+  "seoDescription": {
+    "en": "Single-Sided Gold Rectangular Rolled-Rim Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金长方形卷口杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 23
+}

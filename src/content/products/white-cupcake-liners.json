@@ -1,0 +1,26 @@
+{
+  "sku": "TODO_SKU_WHITE_CUPCAKE_LINERS",
+  "slug": "white-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "White Cupcake Liners", "zh": "白色蛋糕纸托" },
+  "summary": {
+    "en": "White Cupcake Liners in the cupcake liners range.",
+    "zh": "白色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "White", "zh": "白色" } }],
+  "colors": [{ "en": "White", "zh": "白色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "White Cupcake Liners", "zh": "白色蛋糕纸托" },
+  "seoDescription": {
+    "en": "White Cupcake Liners in the cupcake liners range.",
+    "zh": "白色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 82
+}

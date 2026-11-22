@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_LARGE_ROUND_ROLLED_RIM_TRAYS",
+  "slug": "large-round-rolled-rim-trays",
+  "category": "rolled-rim-baking-cups.json",
+  "title": { "en": "Large Round Rolled-Rim Trays", "zh": "大圆盘卷口杯" },
+  "summary": {
+    "en": "Large Round Rolled-Rim Trays in the rolled-rim baking cups range.",
+    "zh": "大圆盘卷口杯，属于卷口杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "155×35 mm", "zh": "155×35 mm" },
+      "baseDiameterMm": 155,
+      "heightMm": 35
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Large Round Rolled-Rim Trays", "zh": "大圆盘卷口杯" },
+  "seoDescription": {
+    "en": "Large Round Rolled-Rim Trays in the rolled-rim baking cups range.",
+    "zh": "大圆盘卷口杯，属于卷口杯系列。"
+  },
+  "featured": false,
+  "order": 33
+}

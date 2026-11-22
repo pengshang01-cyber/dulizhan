@@ -1,0 +1,49 @@
+{
+  "sku": "TODO_SKU_SINGLE_SIDED_GOLD_FLAME_CUPS",
+  "slug": "single-sided-gold-flame-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": {
+    "en": "Single-Sided Gold Flame Baking Cups",
+    "zh": "单面金火焰杯"
+  },
+  "summary": {
+    "en": "Single-Sided Gold Flame Baking Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金火焰杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": {
+    "en": "Single-sided gold PET-coated paper",
+    "zh": "单面金 PET 淋膜纸"
+  },
+  "gsm": 110,
+  "sizes": [
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 },
+    {
+      "name": { "en": "50×75 mm", "zh": "50×75 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 75
+    }
+  ],
+  "colors": [
+    { "en": "Gold", "zh": "金色" },
+    { "en": "Single-sided gold", "zh": "单面金" }
+  ],
+  "patterns": [{ "en": "Printed", "zh": "印花" }],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "This option — 50 pcs/pack × 60 packs\n50×75 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 75 × 33 × 40 cm",
+    "zh": "此规格 — 包装 50 个/包 × 60 包\n50×75 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 75 × 33 × 40 cm"
+  },
+  "seoTitle": {
+    "en": "Single-Sided Gold Flame Baking Cups",
+    "zh": "单面金火焰杯"
+  },
+  "seoDescription": {
+    "en": "Single-Sided Gold Flame Baking Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金火焰杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 59
+}

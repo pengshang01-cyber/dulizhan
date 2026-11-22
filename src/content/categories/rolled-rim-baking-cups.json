@@ -1,13 +1,10 @@
 {
-  "label": {
-    "en": "Rolled-Rim Baking Cups",
-    "zh": "卷边硬质烤杯"
-  },
+  "label": { "en": "Rolled-Rim Baking Cups", "zh": "卷口杯" },
   "summary": {
-    "en": "Structured baking cups with rolled rims for individual portions.",
-    "zh": "带卷边的硬质烤杯，适合单份烘焙。"
+    "en": "Round and straight-sided rolled-rim cups and trays in coated and greaseproof paper.",
+    "zh": "包括淋膜纸和防油纸款的圆形、方形卷口杯及烤盘。"
   },
   "image": "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png",
-  "order": 7,
+  "order": 3,
   "showOnHome": true
 }

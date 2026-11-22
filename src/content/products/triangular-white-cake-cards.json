@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_TRIANGULAR_WHITE_CAKE_CARDS",
+  "slug": "triangular-white-cake-cards",
+  "category": "cake-boards.json",
+  "title": { "en": "Triangular White Cake Cards", "zh": "三角形白卡垫" },
+  "summary": {
+    "en": "Triangular White Cake Cards made from paperboard.",
+    "zh": "三角形白卡垫，材质为 卡纸。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "Paperboard", "zh": "卡纸" },
+  "gsm": 700,
+  "sizes": [
+    {
+      "name": { "en": "118×78 mm", "zh": "118×78 mm" },
+      "specification": { "en": "118×78 mm", "zh": "118×78 mm" }
+    }
+  ],
+  "colors": [{ "en": "White", "zh": "白色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "500 pcs/pack × 100 packs", "zh": "500 个/包 × 100 包" },
+  "seoTitle": { "en": "Triangular White Cake Cards", "zh": "三角形白卡垫" },
+  "seoDescription": {
+    "en": "Triangular White Cake Cards made from paperboard.",
+    "zh": "三角形白卡垫，材质为 卡纸。"
+  },
+  "featured": false,
+  "order": 65
+}

@@ -5,7 +5,7 @@
 ## 1. 核对资料和询盘链路
 
 1. 打开[上线资料清单](LAUNCH-CHECKLIST.md)，照表在 Pages CMS 填写公司名称、公开联系方式、起订量、交期等已确认资料，并更换首页、产品、车间和分享占位图。每次补完一批，可请维护同事在项目目录运行 `npm run todo:report`，查看刷新后还缺什么。
-2. 在 CMS 的“产品”中发布已核验资料的真实产品，移除三个示例产品 Sample Standard Liner、Sample Tulip Cup 和 Sample Muffin Cup。删除前清理引用示例产品的文章。核对隐私政策里的主体名称、联系方式和数据用途，再请维护同事移除模板提醒。
+2. 在 CMS 的“产品”中核对 M9 导入的真实产品，按 [产品图片清单](import/images-needed.md) 上传实拍，并补齐缺少的规格和型号。核对隐私政策里的主体名称、联系方式和数据用途，再请维护同事移除模板提醒。
 3. 在 Cloudflare Turnstile 核对询盘组件已授权主机名 `junbeili.com`，其 Site key 对应 Workers Builds 的 `PUBLIC_TURNSTILE_SITE_KEY`，同一组件的 Secret key 对应生产 Worker 的 `TURNSTILE_SECRET_KEY`。
 4. 在 Resend 核对发件域名 `junbeili.com` 显示 **Verified**。生产 Worker 的 `INQUIRY_FROM_EMAIL` 和 `INQUIRY_TO_EMAIL` 均为 `sales@junbeili.com`。在 Cloudflare 的 **Email → Email Routing** 核对这个地址转发到已验证的工厂邮箱。详情见 [README 的询盘表单配置](../README.md#询盘表单配置)。
 

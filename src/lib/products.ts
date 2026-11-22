@@ -68,12 +68,20 @@ export function sizeSummary(
   locale: Locale = "en",
 ) {
   const size = sizes[0];
-  if (!size || isTodo(size.baseDiameterMm) || isTodo(size.heightMm))
-    return display("TODO_SIZE", t("products.todo.size", locale));
-  return t("products.sizeSummary", locale, {
-    base: size.baseDiameterMm,
-    height: size.heightMm,
-  });
+  if (size) {
+    if (
+      typeof size.baseDiameterMm === "number" &&
+      typeof size.heightMm === "number"
+    )
+      return t("products.sizeSummary", locale, {
+        base: size.baseDiameterMm,
+        height: size.heightMm,
+      });
+    const specification =
+      size.specification && localized(size.specification, locale);
+    if (specification && !isTodo(specification)) return specification;
+  }
+  return display("TODO_SIZE", t("products.todo.size", locale));
 }
 export function measurementLabel(
   value: number | string | undefined,

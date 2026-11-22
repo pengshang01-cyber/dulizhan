@@ -1,0 +1,34 @@
+{
+  "sku": "TODO_SKU_STRAW_HAT_BAKING_CUPS",
+  "slug": "straw-hat-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Straw-Hat Baking Cups", "zh": "草帽纸杯" },
+  "summary": {
+    "en": "Straw-Hat Baking Cups made from greaseproof paper.",
+    "zh": "草帽纸杯，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": 80,
+  "sizes": [
+    {
+      "name": { "en": "45×50 mm", "zh": "45×50 mm" },
+      "baseDiameterMm": 45,
+      "heightMm": 50,
+      "topDiameterMm": 80
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "30 pcs/pack × 100 packs", "zh": "30 个/包 × 100 包" },
+  "seoTitle": { "en": "Straw-Hat Baking Cups", "zh": "草帽纸杯" },
+  "seoDescription": {
+    "en": "Straw-Hat Baking Cups made from greaseproof paper.",
+    "zh": "草帽纸杯，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 100
+}

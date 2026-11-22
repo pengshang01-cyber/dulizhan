@@ -1,0 +1,79 @@
+{
+  "sku": "TODO_SKU_BOAT_SHAPED_PAPER_TRAYS",
+  "slug": "boat-shaped-paper-trays",
+  "category": "paper-bowls-trays.json",
+  "title": { "en": "Boat-Shaped Paper Trays", "zh": "船形纸盒" },
+  "summary": {
+    "en": "Boat-Shaped Paper Trays made from PE-coated paper.",
+    "zh": "船形纸盒，材质为 PE 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "gsm": "260–300",
+  "sizes": [
+    {
+      "name": { "en": "No. 1", "zh": "1号" },
+      "heightMm": 19,
+      "specification": {
+        "en": "Base 73×47 mm, top 100×75 mm, height 19 mm",
+        "zh": "底部 73×47 mm，顶部 100×75 mm，高度 19 mm"
+      }
+    },
+    {
+      "name": { "en": "No. 2", "zh": "2号" },
+      "heightMm": 23,
+      "specification": {
+        "en": "Base 85×52 mm, top 130×85 mm, height 23 mm",
+        "zh": "底部 85×52 mm，顶部 130×85 mm，高度 23 mm"
+      }
+    },
+    {
+      "name": { "en": "No. 3", "zh": "3号" },
+      "heightMm": 25,
+      "specification": {
+        "en": "Base 100×61 mm, top 150×100 mm, height 25 mm",
+        "zh": "底部 100×61 mm，顶部 150×100 mm，高度 25 mm"
+      }
+    },
+    {
+      "name": { "en": "No. 4", "zh": "4号" },
+      "heightMm": 30,
+      "specification": {
+        "en": "Base 138×88 mm, top 155×105 mm, height 30 mm",
+        "zh": "底部 138×88 mm，顶部 155×105 mm，高度 30 mm"
+      }
+    },
+    {
+      "name": { "en": "No. 5", "zh": "5号" },
+      "heightMm": 35,
+      "specification": {
+        "en": "Base 138×88 mm, top 205×125 mm, height 35 mm",
+        "zh": "底部 138×88 mm，顶部 205×125 mm，高度 35 mm"
+      }
+    },
+    {
+      "name": { "en": "No. 6", "zh": "6号" },
+      "heightMm": 50,
+      "specification": {
+        "en": "Base 168×95 mm, top 225×135 mm, height 50 mm",
+        "zh": "底部 168×95 mm，顶部 225×135 mm，高度 50 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "No. 1 — 125 pcs/pack × 8 packs\nNo. 2 — 125 pcs/pack × 8 packs\nNo. 3 — 125 pcs/pack × 8 packs\nNo. 4 — 125 pcs/pack × 8 packs\nNo. 5 — 125 pcs/pack × 4 packs\nNo. 6 — 125 pcs/pack × 4 packs",
+    "zh": "1号 — 包装 125 个/包 × 8 包\n2号 — 包装 125 个/包 × 8 包\n3号 — 包装 125 个/包 × 8 包\n4号 — 包装 125 个/包 × 8 包\n5号 — 包装 125 个/包 × 4 包\n6号 — 包装 125 个/包 × 4 包"
+  },
+  "seoTitle": { "en": "Boat-Shaped Paper Trays", "zh": "船形纸盒" },
+  "seoDescription": {
+    "en": "Boat-Shaped Paper Trays made from PE-coated paper.",
+    "zh": "船形纸盒，材质为 PE 淋膜纸。"
+  },
+  "featured": false,
+  "order": 95
+}

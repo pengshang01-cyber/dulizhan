@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Air Fryer Liners", "zh": "空气炸锅纸" },
+  "summary": {
+    "en": "Round, square and rectangular air fryer liners in silicone-coated and foil-laminated paper.",
+    "zh": "圆形、方形及长方形空气炸锅用硅油纸与铝箔复合纸托。"
+  },
+  "image": "../../assets/images/categories/foil-baking-cups-placeholder.png",
+  "order": 10,
+  "showOnHome": false
+}

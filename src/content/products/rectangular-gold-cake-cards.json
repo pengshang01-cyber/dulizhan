@@ -1,0 +1,35 @@
+{
+  "sku": "TODO_SKU_RECTANGULAR_GOLD_CAKE_CARDS",
+  "slug": "rectangular-gold-cake-cards",
+  "category": "cake-boards.json",
+  "title": { "en": "Rectangular Gold Cake Cards", "zh": "长方形金卡垫" },
+  "summary": {
+    "en": "Rectangular Gold Cake Cards in the cake boards range.",
+    "zh": "长方形金卡垫，属于蛋糕底板系列。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "100×60 mm", "zh": "100×60 mm" },
+      "specification": { "en": "100×60 mm", "zh": "100×60 mm" }
+    },
+    {
+      "name": { "en": "100×52 mm", "zh": "100×52 mm" },
+      "specification": { "en": "100×52 mm", "zh": "100×52 mm" }
+    }
+  ],
+  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Rectangular Gold Cake Cards", "zh": "长方形金卡垫" },
+  "seoDescription": {
+    "en": "Rectangular Gold Cake Cards in the cake boards range.",
+    "zh": "长方形金卡垫，属于蛋糕底板系列。"
+  },
+  "featured": false,
+  "order": 110
+}

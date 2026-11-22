@@ -1,0 +1,26 @@
+{
+  "sku": "TODO_SKU_DYED_CUPCAKE_LINERS",
+  "slug": "dyed-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Dyed Cupcake Liners", "zh": "染色蛋糕纸托" },
+  "summary": {
+    "en": "Dyed Cupcake Liners in the cupcake liners range.",
+    "zh": "染色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "Dyed", "zh": "染色" } }],
+  "colors": [{ "en": "Dyed", "zh": "染色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Dyed Cupcake Liners", "zh": "染色蛋糕纸托" },
+  "seoDescription": {
+    "en": "Dyed Cupcake Liners in the cupcake liners range.",
+    "zh": "染色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 86
+}

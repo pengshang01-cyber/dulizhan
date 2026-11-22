@@ -8,7 +8,7 @@
 
 本部分由 npm run todo:report 自动生成，重新运行会更新此区域，保留下方人工上线检查项。示例格式仅供填写参考，**不是已经确认的工厂资料**。
 
-扫描 22 个 JSON 文件；95 个待补文字 / 参数字段；20 处占位图片引用；7 个空图片位；3 个示例产品。
+扫描 138 个 JSON 文件；314 个待补文字 / 参数字段；133 处占位图片引用；7 个空图片位；0 个示例产品。
 
 中文栏通常选填，留空回退英文；博客中文正文例外，留空不生成中文文章。无产品分类当前隐藏，其封面可在启用该类前补齐。
 
@@ -28,26 +28,6 @@
 
 | 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
 | --- | --- | --- |
-| 公司全称 → 英文 | TODO_COMPANY_NAME | 英文栏：[工厂正式英文全称]；中文栏：[营业主体中文全称] |
-| 公司简称 → 英文 | TODO_COMPANY_SHORT_NAME | [对外使用的公司简称]，与页头品牌一致 |
-| 品牌副标题 → 英文 | TODO_COMPANY_TAGLINE | [一句简短定位]，如描述产品品类，不写未经核实的年限 |
-| 顶部公告 → 第 3 项 → 英文 | TODO_TOP_BAR_ITEM | [一条简短采购提示]，不超过一行；没有确认内容可删掉该项 |
-| 邮箱 | TODO_EMAIL | name@example.com（仅格式） |
-| 电话 | TODO_PHONE | +国家区号 电话号码 |
-| WhatsApp 号码 | TODO_WHATSAPP_NUMBER | +国家区号手机号码（不带分隔符） |
-| WhatsApp 预填消息 → 英文 | TODO_WHATSAPP_PREFILL_MESSAGE | 填写希望客户打开 WhatsApp 后看到的询价开场白 |
-| 工厂地址 → 英文 | TODO_FACTORY_ADDRESS | 英文：[街道], [城市], [省], [国家]；中文填对应详细地址 |
-| 现货起订量 → 英文 | TODO_STOCK_MOQ | [数量] pcs，或经确认的起订政策 |
-| 定制起订量 → 英文 | TODO_CUSTOM_MOQ | [数量] pcs，或经确认的起订政策 |
-| 打样周期 → 英文 | TODO_SAMPLE_LEAD_TIME | [天数] working days（以工厂确认为准） |
-| 生产交期 → 英文 | TODO_PRODUCTION_LEAD_TIME | [天数] working days（以工厂确认为准） |
-| 样品政策 → 英文 | TODO_SAMPLE_COST | 一句话说明样品费用、运费及条件 |
-| 付款方式 → 英文 | TODO_PAYMENT_TERMS | 经确认的付款方式与条件 |
-| 运输方式 → 英文 | TODO_SHIPPING_METHODS | 经确认的运输方式及适用条件 |
-| 关键数字 → 第 1 项 → 数值 | TODO_FOUNDED_YEAR | 填写该指标已确认的数值，如 [年份] / [产能数] / [国家数] / [花色数]；两种语言共用，禁止估算 |
-| 关键数字 → 第 2 项 → 数值 | TODO_DAILY_CAPACITY | 填写该指标已确认的数值，如 [年份] / [产能数] / [国家数] / [花色数]；两种语言共用，禁止估算 |
-| 关键数字 → 第 3 项 → 数值 | TODO_EXPORT_COUNTRY_COUNT | 填写该指标已确认的数值，如 [年份] / [产能数] / [国家数] / [花色数]；两种语言共用，禁止估算 |
-| 关键数字 → 第 4 项 → 数值 | TODO_PATTERN_COUNT | 填写该指标已确认的数值，如 [年份] / [产能数] / [国家数] / [花色数]；两种语言共用，禁止估算 |
 | YouTube 视频 ID | TODO_YOUTUBE_VIDEO_ID | 视频网址中 v= 后的 ID，不粘贴整条网址 |
 | 证书 → 第 1 项 → 名称 → 英文 | TODO_CERTIFICATE_NAME | [证书真实名称]，核实有效期和适用范围，并上传对应扫描件 |
 | 社交媒体 → youtube | TODO_YOUTUBE_URL | https://对应平台/工厂官方账号（不填个人或示例账号） |
@@ -56,39 +36,37 @@
 | 社交媒体 → facebook | TODO_FACEBOOK_URL | https://对应平台/工厂官方账号（不填个人或示例账号） |
 | 社交媒体 → pinterest | TODO_PINTEREST_URL | https://对应平台/工厂官方账号（不填个人或示例账号） |
 | 社交媒体 → linkedin | TODO_LINKEDIN_URL | https://对应平台/工厂官方账号（不填个人或示例账号） |
-| 微信号 | TODO_WECHAT_ID | 填写可添加的实际微信号 |
-| 预计回复时间 → 英文 | TODO_REPLY_TIME | [时间] business hours（以实际承诺为准） |
 | 统计 → Google Analytics 衡量 ID | TODO_GA_MEASUREMENT_ID | G-XXXXXXXXXX（以真实衡量 ID 替换） |
 
 ### 团队（src/data/team.json）
 
 未发现 TODO 文字。此项为可选内容，没有真实资料时继续留空并隐藏。
 
+### 分类 → 空气炸锅纸（src/content/categories/air-fryer-liners.json）
+
+未发现 TODO 文字；请在正式上线前核对现有内容。
+
+### 分类 → 烘焙用纸（src/content/categories/baking-wrapping-paper.json）
+
+未发现 TODO 文字；请在正式上线前核对现有内容。
+
 ### 分类 → 巴斯克蛋糕纸（src/content/categories/basque-cheesecake-liners.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 甜品杯（src/content/categories/dessert-cups.json）
+### 分类 → 蛋糕底板（src/content/categories/cake-boards.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 铝箔杯（src/content/categories/foil-baking-cups.json）
+### 分类 → 蛋糕盒与包装盒（src/content/categories/cake-boxes.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 防油纸托（src/content/categories/greaseproof-cupcake-liners.json）
+### 分类 → 蛋糕纸托（src/content/categories/cupcake-liners.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 牛皮纸托盘与盒（src/content/categories/kraft-trays-boxes.json）
-
-未发现 TODO 文字；请在正式上线前核对现有内容。
-
-### 分类 → 荷花杯（src/content/categories/lotus-baking-cups.json）
-
-未发现 TODO 文字；请在正式上线前核对现有内容。
-
-### 分类 → 马芬杯（src/content/categories/muffin-cups.json）
+### 分类 → 机制杯与马芬杯（src/content/categories/muffin-molded-cups.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
@@ -96,99 +74,916 @@
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 卷边硬质烤杯（src/content/categories/rolled-rim-baking-cups.json）
+### 分类 → 纸碗与餐盒（src/content/categories/paper-bowls-trays.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 特殊包装（src/content/categories/specialty-packaging.json）
+### 分类 → 淋膜纸杯（src/content/categories/pet-coated-baking-cups.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 普通蛋糕纸托（src/content/categories/standard-cupcake-liners.json）
+### 分类 → PET 塑料托（src/content/categories/pet-dessert-inserts.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 分类 → 郁金香杯（src/content/categories/tulip-baking-cups.json）
+### 分类 → 卷口杯（src/content/categories/rolled-rim-baking-cups.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
-### 产品 → Sample Muffin Cup（src/content/products/sample-muffin-cup.json）
+### 分类 → 造型纸杯（src/content/categories/tulip-shaped-baking-cups.json）
+
+未发现 TODO 文字；请在正式上线前核对现有内容。
+
+### 产品 → 硅油纸卷（src/content/products/baking-parchment-rolls.json）
 
 | 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
 | --- | --- | --- |
-| **示例产品，上线前删除或替换** | TODO-003 | 核实全部参数、名称与产品实拍；替换后检查分类和文章引用 |
-| 产品型号 | TODO-003 | 工厂真实型号；示例 TODO-001 不能直接上线 |
-| 简介 → 英文 | TODO_PRODUCT_SUMMARY | 一句话：[产品类别] + [适用场景] + [已确认特点] |
-| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
-| 纸张克重 | TODO_GSM | 只填已确认的正数，单位 g/m² |
-| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
-| 尺寸规格 → 第 1 项 → 底部直径 | TODO_BASE_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 高度 | TODO_HEIGHT_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 顶部直径 | TODO_TOP_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 颜色 → 第 1 项 → 英文 | TODO_COLORS | 每项一个真实颜色名称，例如 [英文颜色名] / [中文颜色名] |
-| 图案 → 第 1 项 → 英文 | TODO_PATTERNS | 每项一个已提供的图案系列，例如 [系列英文名] / [系列中文名] |
-| 是否支持定制 | TODO_CUSTOMIZATION_OPTIONS | 按实际产品选择支持 / 不支持 |
-| 最小起订量 → 英文 | TODO_MOQ | [数量] pcs 或已确认的起订说明 |
-| 包装方式 → 英文 | TODO_PACKAGING | [每包数量] pcs/bag × [每箱包数] bags/carton |
-| 外箱规格 → 英文 | TODO_CARTON_SPEC | [长] × [宽] × [高] cm；补充真实装箱说明 |
-| 生产交期 → 英文 | TODO_LEAD_TIME | [天数] working days（以工厂确认为准） |
-| 产品问答 → 第 1 项 → 回答 → 英文 | TODO_PRODUCT_SPECIFICATIONS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 产品问答 → 第 2 项 → 回答 → 英文 | TODO_ORDER_REQUIREMENTS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 定制选项详情 → 英文 | TODO_PRODUCT_CUSTOM_OPTIONS | 逐行写已支持的印刷、尺寸、颜色及包装选项；没有资料可整组留空 |
-| 包装详情 → 英文 | TODO_PRODUCT_PACKAGING_DETAILS | 写明 [内包装方式]、[装箱方式] 和 [运输注意事项]；没有资料可整组留空 |
-| 应用场景 → 英文 | TODO_PRODUCT_APPLICATIONS | 逐行写实际适用的 [烘焙品类 / 陈列场景]；没有资料可整组留空 |
+| 产品型号 | TODO_SKU_BAKING_PARCHMENT_ROLLS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
 
-### 产品 → Sample Standard Liner（src/content/products/sample-standard-liner.json）
+### 产品 → 小船型纸托（src/content/products/boat-shaped-paper-liners.json）
 
 | 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
 | --- | --- | --- |
-| **示例产品，上线前删除或替换** | TODO-001 | 核实全部参数、名称与产品实拍；替换后检查分类和文章引用 |
-| 产品型号 | TODO-001 | 工厂真实型号；示例 TODO-001 不能直接上线 |
-| 简介 → 英文 | TODO_PRODUCT_SUMMARY | 一句话：[产品类别] + [适用场景] + [已确认特点] |
-| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
-| 纸张克重 | TODO_GSM | 只填已确认的正数，单位 g/m² |
-| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
-| 尺寸规格 → 第 1 项 → 底部直径 | TODO_BASE_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 高度 | TODO_HEIGHT_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 顶部直径 | TODO_TOP_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 颜色 → 第 1 项 → 英文 | TODO_COLORS | 每项一个真实颜色名称，例如 [英文颜色名] / [中文颜色名] |
-| 图案 → 第 1 项 → 英文 | TODO_PATTERNS | 每项一个已提供的图案系列，例如 [系列英文名] / [系列中文名] |
-| 是否支持定制 | TODO_CUSTOMIZATION_OPTIONS | 按实际产品选择支持 / 不支持 |
-| 最小起订量 → 英文 | TODO_MOQ | [数量] pcs 或已确认的起订说明 |
-| 包装方式 → 英文 | TODO_PACKAGING | [每包数量] pcs/bag × [每箱包数] bags/carton |
-| 外箱规格 → 英文 | TODO_CARTON_SPEC | [长] × [宽] × [高] cm；补充真实装箱说明 |
-| 生产交期 → 英文 | TODO_LEAD_TIME | [天数] working days（以工厂确认为准） |
-| 产品问答 → 第 1 项 → 回答 → 英文 | TODO_PRODUCT_SPECIFICATIONS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 产品问答 → 第 2 项 → 回答 → 英文 | TODO_ORDER_REQUIREMENTS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 定制选项详情 → 英文 | TODO_PRODUCT_CUSTOM_OPTIONS | 逐行写已支持的印刷、尺寸、颜色及包装选项；没有资料可整组留空 |
-| 包装详情 → 英文 | TODO_PRODUCT_PACKAGING_DETAILS | 写明 [内包装方式]、[装箱方式] 和 [运输注意事项]；没有资料可整组留空 |
-| 应用场景 → 英文 | TODO_PRODUCT_APPLICATIONS | 逐行写实际适用的 [烘焙品类 / 陈列场景]；没有资料可整组留空 |
+| 产品型号 | TODO_SKU_BOAT_SHAPED_PAPER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
 
-### 产品 → Sample Tulip Cup（src/content/products/sample-tulip-cup.json）
+### 产品 → 船形纸盒（src/content/products/boat-shaped-paper-trays.json）
 
 | 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
 | --- | --- | --- |
-| **示例产品，上线前删除或替换** | TODO-002 | 核实全部参数、名称与产品实拍；替换后检查分类和文章引用 |
-| 产品型号 | TODO-002 | 工厂真实型号；示例 TODO-001 不能直接上线 |
-| 简介 → 英文 | TODO_PRODUCT_SUMMARY | 一句话：[产品类别] + [适用场景] + [已确认特点] |
-| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
-| 纸张克重 | TODO_GSM | 只填已确认的正数，单位 g/m² |
+| 产品型号 | TODO_SKU_BOAT_SHAPED_PAPER_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 纸质戚风蛋糕模（src/content/products/chiffon-cake-paper-molds.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_CHIFFON_CAKE_PAPER_MOLDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 巴斯克淋膜纸杯（src/content/products/coated-basque-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_COATED_BASQUE_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 船型淋膜纸杯（src/content/products/coated-boat-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_COATED_BOAT_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形淋膜纸杯（src/content/products/coated-round-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_COATED_ROUND_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 彩色花边蛋糕纸托（src/content/products/colored-scalloped-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_COLORED_SCALLOPED_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 瓦楞蛋糕板（src/content/products/corrugated-cake-boards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_CORRUGATED_CAKE_BOARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+
+### 产品 → 长方形瓦楞纸盒（src/content/products/corrugated-cake-boxes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_CORRUGATED_CAKE_BOXES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面淋膜火焰纸杯（src/content/products/double-coated-flame-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_COATED_FLAME_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面淋膜圆形卷口杯（src/content/products/double-coated-round-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_COATED_ROUND_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面金火焰杯（src/content/products/double-sided-gold-flame-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_SIDED_GOLD_FLAME_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
 | 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
-| 尺寸规格 → 第 1 项 → 底部直径 | TODO_BASE_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 高度 | TODO_HEIGHT_MM | 只填已确认的正数，单位 mm |
-| 尺寸规格 → 第 1 项 → 顶部直径 | TODO_TOP_DIAMETER_MM | 只填已确认的正数，单位 mm |
-| 颜色 → 第 1 项 → 英文 | TODO_COLORS | 每项一个真实颜色名称，例如 [英文颜色名] / [中文颜色名] |
-| 图案 → 第 1 项 → 英文 | TODO_PATTERNS | 每项一个已提供的图案系列，例如 [系列英文名] / [系列中文名] |
-| 是否支持定制 | TODO_CUSTOMIZATION_OPTIONS | 按实际产品选择支持 / 不支持 |
-| 最小起订量 → 英文 | TODO_MOQ | [数量] pcs 或已确认的起订说明 |
-| 包装方式 → 英文 | TODO_PACKAGING | [每包数量] pcs/bag × [每箱包数] bags/carton |
-| 外箱规格 → 英文 | TODO_CARTON_SPEC | [长] × [宽] × [高] cm；补充真实装箱说明 |
-| 生产交期 → 英文 | TODO_LEAD_TIME | [天数] working days（以工厂确认为准） |
-| 产品问答 → 第 1 项 → 回答 → 英文 | TODO_PRODUCT_SPECIFICATIONS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 产品问答 → 第 2 项 → 回答 → 英文 | TODO_ORDER_REQUIREMENTS_ANSWER | 问题填写采购者会问的问题；回答以 We / 我们开头，具体参数须核实 |
-| 定制选项详情 → 英文 | TODO_PRODUCT_CUSTOM_OPTIONS | 逐行写已支持的印刷、尺寸、颜色及包装选项；没有资料可整组留空 |
-| 包装详情 → 英文 | TODO_PRODUCT_PACKAGING_DETAILS | 写明 [内包装方式]、[装箱方式] 和 [运输注意事项]；没有资料可整组留空 |
-| 应用场景 → 英文 | TODO_PRODUCT_APPLICATIONS | 逐行写实际适用的 [烘焙品类 / 陈列场景]；没有资料可整组留空 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面金长方形卷口杯（src/content/products/double-sided-gold-rectangular-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_SIDED_GOLD_RECTANGULAR_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面金圆形卷口杯（src/content/products/double-sided-gold-round-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_SIDED_GOLD_ROUND_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 双面金正方形卷口杯（src/content/products/double-sided-gold-square-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DOUBLE_SIDED_GOLD_SQUARE_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 染色蛋糕纸托（src/content/products/dyed-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_DYED_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 火焰纸杯（src/content/products/flame-paper-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_FLAME_PAPER_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 花朵杯（src/content/products/flower-shaped-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_FLOWER_SHAPED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 铝箔复合纸托（src/content/products/foil-laminated-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_FOIL_LAMINATED_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 四色蛋糕纸托（src/content/products/four-color-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_FOUR_COLOR_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 细长条金卡垫（src/content/products/gold-cake-card-strips.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GOLD_CAKE_CARD_STRIPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 金色印花长方形卷口杯（src/content/products/gold-print-rectangular-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GOLD_PRINT_RECTANGULAR_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 金色印花正方形卷口杯（src/content/products/gold-print-square-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GOLD_PRINT_SQUARE_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油蛋糕纸托（src/content/products/greaseproof-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸玛芬翻边杯（src/content/products/greaseproof-muffin-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_MUFFIN_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸长方形卷口杯（src/content/products/greaseproof-rectangular-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_RECTANGULAR_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸大圆盘（src/content/products/greaseproof-round-baking-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_ROUND_BAKING_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸圆形卷口杯（src/content/products/greaseproof-round-rolled-rim-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_ROUND_ROLLED_RIM_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸圆盘卷口杯（src/content/products/greaseproof-round-rolled-rim-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_ROUND_ROLLED_RIM_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸花边杯（src/content/products/greaseproof-scalloped-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_SCALLOPED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸正方形卷口杯（src/content/products/greaseproof-square-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_SQUARE_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸郁金香杯（src/content/products/greaseproof-tulip-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_GREASEPROOF_TULIP_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 六角杯（src/content/products/hexagonal-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_HEXAGONAL_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 牛皮色机制杯（src/content/products/kraft-look-molded-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_KRAFT_LOOK_MOLDED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 大号防油纸圆盘（src/content/products/large-greaseproof-round-baking-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_LARGE_GREASEPROOF_ROUND_BAKING_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 大长方卷口杯（src/content/products/large-rectangular-rolled-rim-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_LARGE_RECTANGULAR_ROLLED_RIM_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 大圆盘卷口杯（src/content/products/large-round-rolled-rim-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_LARGE_ROUND_ROLLED_RIM_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 树叶形金卡垫（src/content/products/leaf-shaped-gold-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_LEAF_SHAPED_GOLD_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 莲花杯（src/content/products/lotus-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_LOTUS_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 金银烫金机制杯（src/content/products/metallic-molded-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_METALLIC_MOLDED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 迷你长方纸盒（src/content/products/mini-rectangular-paper-boxes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_MINI_RECTANGULAR_PAPER_BOXES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜蘑菇杯（src/content/products/mushroom-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_MUSHROOM_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 蘑菇杯配套盖（src/content/products/mushroom-cup-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_MUSHROOM_CUP_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 本色蛋糕纸托（src/content/products/natural-color-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_NATURAL_COLOR_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 磨堡纸托（src/content/products/oblong-cake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_OBLONG_CAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 八角纸碗（src/content/products/octagonal-paper-bowls.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_OCTAGONAL_PAPER_BOWLS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 烧烤纸盘（src/content/products/paper-barbecue-trays.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PAPER_BARBECUE_TRAYS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 甜品纸杯配套盖（src/content/products/paper-dessert-cup-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PAPER_DESSERT_CUP_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 纸质甜品杯（src/content/products/paper-dessert-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PAPER_DESSERT_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 纸质披萨盘（src/content/products/paper-pizza-pans.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PAPER_PIZZA_PANS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 硅油纸巴斯克纸托（src/content/products/parchment-basque-cheesecake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PARCHMENT_BASQUE_CHEESECAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜船型纸杯（src/content/products/pet-coated-boat-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_BOAT_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜树叶形纸杯（src/content/products/pet-coated-leaf-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_LEAF_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → PET 淋膜长方形纸杯（src/content/products/pet-coated-rectangular-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_RECTANGULAR_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → PET 淋膜长方形卷口杯（src/content/products/pet-coated-rectangular-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_RECTANGULAR_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜圆形纸杯（src/content/products/pet-coated-round-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_ROUND_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → PET 淋膜圆形卷口杯（src/content/products/pet-coated-round-rolled-rim-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_ROUND_ROLLED_RIM_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → PET 淋膜花边杯（src/content/products/pet-coated-scalloped-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_SCALLOPED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜正方形纸杯（src/content/products/pet-coated-square-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_SQUARE_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → PET 淋膜正方形卷口杯（src/content/products/pet-coated-square-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_SQUARE_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → PET 淋膜三角形纸杯（src/content/products/pet-coated-triangular-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PET_COATED_TRIANGULAR_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 普通蛋糕纸托（src/content/products/plain-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PLAIN_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 普通机制杯（src/content/products/plain-molded-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PLAIN_MOLDED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 印花蛋糕纸托（src/content/products/printed-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PRINTED_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 印花蛋糕纸托补充规格（src/content/products/printed-liner-extra-sizes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_PRINTED_LINER_EXTRA_SIZES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形硅油纸片（src/content/products/rectangular-baking-parchment-sheets.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_BAKING_PARCHMENT_SHEETS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 长方形淋膜纸盒（src/content/products/rectangular-coated-paper-boxes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_COATED_PAPER_BOXES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形金卡垫（src/content/products/rectangular-gold-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_GOLD_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形防油纸片（src/content/products/rectangular-greaseproof-paper-sheets.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_GREASEPROOF_PAPER_SHEETS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 长方机制杯（src/content/products/rectangular-molded-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_MOLDED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形纸盒盖（src/content/products/rectangular-paper-box-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_PAPER_BOX_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形纸塑盒（src/content/products/rectangular-paper-trays-with-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_PAPER_TRAYS_WITH_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形硅油空气炸锅纸（src/content/products/rectangular-parchment-air-fryer-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_PARCHMENT_AIR_FRYER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 长方形三明治包装纸（src/content/products/rectangular-sandwich-wrapping-paper.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_RECTANGULAR_SANDWICH_WRAPPING_PAPER | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 翻边巴斯克纸托（src/content/products/rolled-edge-basque-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROLLED_EDGE_BASQUE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 防油纸翻边巴斯克纸托（src/content/products/rolled-edge-greaseproof-basque-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROLLED_EDGE_GREASEPROOF_BASQUE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 硅油纸翻边巴斯克纸托（src/content/products/rolled-edge-parchment-basque-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROLLED_EDGE_PARCHMENT_BASQUE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面玫瑰金圆形卷口杯（src/content/products/rose-gold-round-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROSE_GOLD_ROUND_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形铝箔空气炸锅纸（src/content/products/round-foil-air-fryer-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUND_FOIL_AIR_FRYER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形金卡垫（src/content/products/round-gold-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUND_GOLD_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 尺寸规格 → 第 2 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形纸碗（src/content/products/round-paper-bowls.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUND_PAPER_BOWLS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形硅油空气炸锅纸（src/content/products/round-parchment-air-fryer-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUND_PARCHMENT_AIR_FRYER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆形 PET 塑料托（src/content/products/round-pet-dessert-inserts.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUND_PET_DESSERT_INSERTS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 圆角郁金香纸杯（src/content/products/rounded-tulip-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_ROUNDED_TULIP_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 光面花边蛋糕板（src/content/products/scalloped-cake-boards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SCALLOPED_CAKE_BOARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+
+### 产品 → 单色蛋糕纸托（src/content/products/single-color-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SINGLE_COLOR_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面金火焰杯（src/content/products/single-sided-gold-flame-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SINGLE_SIDED_GOLD_FLAME_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 尺寸规格 → 第 1 项 → 名称 → 英文 | TODO_SIZE_NAME | 规格名称写 [工厂规格名]；尺寸数字分别填对应 mm 栏 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面金长方形卷口杯（src/content/products/single-sided-gold-rectangular-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SINGLE_SIDED_GOLD_RECTANGULAR_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面金圆形卷口杯（src/content/products/single-sided-gold-round-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SINGLE_SIDED_GOLD_ROUND_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面金花边杯（src/content/products/single-sided-gold-scalloped-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 单面金正方形卷口杯（src/content/products/single-sided-gold-square-rolled-rim-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SINGLE_SIDED_GOLD_SQUARE_ROLLED_RIM_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 纯色蛋糕纸托（src/content/products/solid-color-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SOLID_COLOR_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形硅油纸片（src/content/products/square-baking-parchment-sheets.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_BAKING_PARCHMENT_SHEETS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 正方形淋膜纸盒（src/content/products/square-coated-paper-boxes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_COATED_PAPER_BOXES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 方形铝箔空气炸锅纸（src/content/products/square-foil-air-fryer-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_FOIL_AIR_FRYER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形金卡垫（src/content/products/square-gold-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_GOLD_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形防油纸片（src/content/products/square-greaseproof-paper-sheets.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_GREASEPROOF_PAPER_SHEETS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 正方机制杯（src/content/products/square-molded-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_MOLDED_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形纸盒盖（src/content/products/square-paper-box-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_PAPER_BOX_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形纸托（src/content/products/square-paper-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_PAPER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 方形纸塑盒（src/content/products/square-paper-trays-with-lids.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_PAPER_TRAYS_WITH_LIDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 方形硅油空气炸锅纸（src/content/products/square-parchment-air-fryer-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_PARCHMENT_AIR_FRYER_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 方形 PET 塑料托（src/content/products/square-pet-dessert-inserts.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_PET_DESSERT_INSERTS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形三明治包装纸（src/content/products/square-sandwich-wrapping-paper.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_SANDWICH_WRAPPING_PAPER | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 正方形白卡垫（src/content/products/square-white-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_SQUARE_WHITE_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 星纹布丁杯（src/content/products/star-fluted-pudding-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_STAR_FLUTED_PUDDING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 草帽纸杯（src/content/products/straw-hat-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_STRAW_HAT_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 半透明雪芳杯（src/content/products/translucent-chiffon-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRANSLUCENT_CHIFFON_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 半透明纸托（src/content/products/translucent-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRANSLUCENT_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 半透明磨堡杯（src/content/products/translucent-oblong-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRANSLUCENT_OBLONG_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 半透明正方杯（src/content/products/translucent-square-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRANSLUCENT_SQUARE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+
+### 产品 → 三角形金卡垫（src/content/products/triangular-gold-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRIANGULAR_GOLD_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 三角形白卡垫（src/content/products/triangular-white-cake-cards.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TRIANGULAR_WHITE_CAKE_CARDS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 郁金香纸杯（src/content/products/tulip-baking-cups.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_TULIP_BAKING_CUPS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 白色蛋糕纸托（src/content/products/white-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_WHITE_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 材质 → 英文 | TODO_MATERIAL | [Paper type], [coating / treatment]；写清纸张与处理方式 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 白色花边蛋糕纸托（src/content/products/white-scalloped-cupcake-liners.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_WHITE_SCALLOPED_CUPCAKE_LINERS | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 纸张克重 | TODO_GSM | 填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
+
+### 产品 → 开窗蛋糕盒（src/content/products/window-cake-boxes.json）
+
+| 在 CMS 中填写的位置 | 当前占位 | 填什么 / 示例格式 |
+| --- | --- | --- |
+| 产品型号 | TODO_SKU_WINDOW_CAKE_BOXES | 工厂真实型号；示例 TODO-001 不能直接上线 |
+| 是否支持定制 | TODO_CUSTOMIZABLE | 按实际产品选择支持 / 不支持 |
 
 ### 资讯文章 → 蛋糕纸托尺寸对照表：如何选择合适的烘焙纸杯（src/content/blog/cupcake-liner-sizes-chart.json）
 
@@ -217,24 +1012,137 @@
 | 网站设置 → 默认分享图（目前为空） | 从“网站资料图片”上传 | 正式分享图，建议 1200 × 630；留空使用默认 Placeholder 分享图 |
 | 网站设置 → 首页主图（目前为空） | 从“网站资料图片”上传 | 真实主打产品或产品组合，建议 1600 × 1200（4:3）；同时填写首页主图说明，中文可留空 |
 | 网站设置 → 工厂视频封面（目前为空） | 从“网站资料图片”上传 | 工厂视频封面，可选；建议 1280 × 720；留空沿用已配置视频的 YouTube 缩略图 |
+| 分类 → 空气炸锅纸 → 图片 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 烘焙用纸 → 图片 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
 | 分类 → 巴斯克蛋糕纸 → 图片 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 甜品杯 → 图片 | ../../assets/images/categories/dessert-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 铝箔杯 → 图片 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 防油纸托 → 图片 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 牛皮纸托盘与盒 → 图片 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 荷花杯 → 图片 | ../../assets/images/categories/lotus-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 马芬杯 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 蛋糕底板 → 图片 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 蛋糕盒与包装盒 → 图片 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 蛋糕纸托 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 机制杯与马芬杯 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
 | 分类 → 纸质烤模 → 图片 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 卷边硬质烤杯 → 图片 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 特殊包装 → 图片 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 普通蛋糕纸托 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 分类 → 郁金香杯 → 图片 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
-| 产品 → Sample Muffin Cup → 产品图片 → 第 1 项 | ../../assets/images/products/sample-muffin-cup-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → Sample Muffin Cup → 产品图片 → 第 2 项 | ../../assets/images/products/sample-muffin-cup-detail-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → Sample Standard Liner → 产品图片 → 第 1 项 | ../../assets/images/products/sample-standard-liner-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → Sample Standard Liner → 产品图片 → 第 2 项 | ../../assets/images/products/sample-standard-liner-detail-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → Sample Tulip Cup → 产品图片 → 第 1 项 | ../../assets/images/products/sample-tulip-cup-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → Sample Tulip Cup → 产品图片 → 第 2 项 | ../../assets/images/products/sample-tulip-cup-detail-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 分类 → 纸碗与餐盒 → 图片 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 淋膜纸杯 → 图片 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → PET 塑料托 → 图片 | ../../assets/images/categories/dessert-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 卷口杯 → 图片 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 分类 → 造型纸杯 → 图片 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实分类代表产品；建议 1200 × 900 |
+| 产品 → 硅油纸卷 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 小船型纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 船形纸盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 纸质戚风蛋糕模 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 巴斯克淋膜纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 船型淋膜纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形淋膜纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 彩色花边蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 瓦楞蛋糕板 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形瓦楞纸盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面淋膜火焰纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面淋膜圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面金火焰杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面金长方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面金圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 双面金正方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 染色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 火焰纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 花朵杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 铝箔复合纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 四色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 细长条金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 金色印花长方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 金色印花正方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸玛芬翻边杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸长方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸大圆盘 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸圆盘卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸花边杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸正方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸郁金香杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 六角杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 牛皮色机制杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 大号防油纸圆盘 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 大长方卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 大圆盘卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 树叶形金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 莲花杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 金银烫金机制杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 迷你长方纸盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜蘑菇杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 蘑菇杯配套盖 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 本色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 磨堡纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 八角纸碗 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 烧烤纸盘 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 甜品纸杯配套盖 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 纸质甜品杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 纸质披萨盘 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 硅油纸巴斯克纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜船型纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜树叶形纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜长方形纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜长方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜圆形纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜花边杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜正方形纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜正方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → PET 淋膜三角形纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/paper-baking-molds-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 普通蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 普通机制杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 印花蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 印花蛋糕纸托补充规格 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形硅油纸片 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形淋膜纸盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形防油纸片 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方机制杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形纸盒盖 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形纸塑盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形硅油空气炸锅纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 长方形三明治包装纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 翻边巴斯克纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 防油纸翻边巴斯克纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 硅油纸翻边巴斯克纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面玫瑰金圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形铝箔空气炸锅纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形纸碗 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形硅油空气炸锅纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆形 PET 塑料托 → 产品图片 → 第 1 项 | ../../assets/images/categories/dessert-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 圆角郁金香纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 光面花边蛋糕板 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面金火焰杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面金长方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面金圆形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面金花边杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 单面金正方形卷口杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 纯色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形硅油纸片 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形淋膜纸盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 方形铝箔空气炸锅纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形防油纸片 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方机制杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形纸盒盖 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 方形纸塑盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 方形硅油空气炸锅纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/foil-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 方形 PET 塑料托 → 产品图片 → 第 1 项 | ../../assets/images/categories/dessert-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形三明治包装纸 → 产品图片 → 第 1 项 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 正方形白卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 星纹布丁杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 草帽纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 半透明雪芳杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 半透明纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 半透明磨堡杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 半透明正方杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 三角形金卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 三角形白卡垫 → 产品图片 → 第 1 项 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 郁金香纸杯 → 产品图片 → 第 1 项 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 白色蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 白色花边蛋糕纸托 → 产品图片 → 第 1 项 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
+| 产品 → 开窗蛋糕盒 → 产品图片 → 第 1 项 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 资讯文章 → 蛋糕纸托尺寸对照表：如何选择合适的烘焙纸杯 → 文章封面 | ../../assets/images/blog/blog-cover-placeholder.png | 与文章对应的真实照片或已核对示意图；建议 1600 × 900，草稿发布前替换 |
 | 资讯文章 → 如何向工厂定制印刷蛋糕纸托 → 文章封面 | ../../assets/images/blog/blog-cover-placeholder.png | 与文章对应的真实照片或已核对示意图；建议 1600 × 900，草稿发布前替换 |
 
@@ -247,7 +1155,7 @@
 ### 内容与图片
 
 - [ ] 在 CMS“网站设置”填写真实公司名称、联系方式、地址、政策与预计回复时间；英文和中文表达一致，具体数字经工厂确认。
-- [ ] 删除或替换 3 个示例产品，所有型号、尺寸、克重、颜色、包装、起订量与交期已核对；删除时同步移除文章相关产品引用。
+- [ ] 已核对 M9 导入的产品型号、尺寸、克重、颜色及对应规格的包装、起订量和交期；已按 [产品图片清单](import/images-needed.md) 上传实拍。
 - [ ] 上传真实产品、分类、首页和车间照片；证书仅填写实际持有且可提供的资料，不使用 Placeholder 或 AI 产品图冒充实拍。
 - [ ] 真实微信号与二维码已上传，用电脑和手机核验打开、扫码 / 长按及复制；WhatsApp 国际号码和跳转已实测。
 - [ ] 在 CMS“网站设置”上传真实首页主图和车间照片、填写双语说明；上传网站 Logo 与默认分享图。按需设置视频封面，保存部署后核对中英文页面与分享预览。

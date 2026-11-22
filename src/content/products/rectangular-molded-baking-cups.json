@@ -1,0 +1,49 @@
+{
+  "sku": "TODO_SKU_RECTANGULAR_MOLDED_BAKING_CUPS",
+  "slug": "rectangular-molded-baking-cups",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Rectangular Molded Baking Cups", "zh": "长方机制杯" },
+  "summary": {
+    "en": "Rectangular Molded Baking Cups in the muffin & molded baking cups range.",
+    "zh": "长方机制杯，属于机制杯与马芬杯系列。"
+  },
+  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "Small", "zh": "小号" },
+      "heightMm": 33,
+      "specification": { "en": "80×30×33 mm", "zh": "80×30×33 mm" }
+    },
+    {
+      "name": { "en": "Medium-small", "zh": "中小号" },
+      "heightMm": 30,
+      "specification": { "en": "90×50×30 mm", "zh": "90×50×30 mm" }
+    },
+    {
+      "name": { "en": "Medium", "zh": "中号" },
+      "heightMm": 38,
+      "specification": { "en": "110×49×38 mm", "zh": "110×49×38 mm" }
+    },
+    {
+      "name": { "en": "Large", "zh": "大号" },
+      "heightMm": 38,
+      "specification": { "en": "140×49×38 mm", "zh": "140×49×38 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "Small — 100 pcs/pack × 60 packs\nMedium-small — 100 pcs/pack × 30 packs\nMedium — 100 pcs/pack × 30 packs\nLarge — 100 pcs/pack × 20 packs",
+    "zh": "小号 — 包装 100 个/包 × 60 包\n中小号 — 包装 100 个/包 × 30 包\n中号 — 包装 100 个/包 × 30 包\n大号 — 包装 100 个/包 × 20 包"
+  },
+  "seoTitle": { "en": "Rectangular Molded Baking Cups", "zh": "长方机制杯" },
+  "seoDescription": {
+    "en": "Rectangular Molded Baking Cups in the muffin & molded baking cups range.",
+    "zh": "长方机制杯，属于机制杯与马芬杯系列。"
+  },
+  "featured": false,
+  "order": 116
+}

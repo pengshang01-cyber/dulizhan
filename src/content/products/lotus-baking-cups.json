@@ -1,0 +1,52 @@
+{
+  "sku": "TODO_SKU_LOTUS_BAKING_CUPS",
+  "slug": "lotus-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Lotus Baking Cups", "zh": "莲花杯" },
+  "summary": {
+    "en": "Lotus Baking Cups made from greaseproof paper.",
+    "zh": "莲花杯，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": "40 / 50 / 60",
+  "sizes": [
+    {
+      "name": { "en": "150 · 50×70 mm", "zh": "150 · 50×70 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 70,
+      "topDiameterMm": 95
+    },
+    {
+      "name": { "en": "160 · 50×75 mm", "zh": "160 · 50×75 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 75,
+      "topDiameterMm": 100
+    },
+    {
+      "name": { "en": "160 · 50×90 mm", "zh": "160 · 50×90 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 90,
+      "topDiameterMm": 110
+    },
+    {
+      "name": { "en": "170 · 50×95 mm", "zh": "170 · 50×95 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 95,
+      "topDiameterMm": 115
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "200 pcs/pack × 25 packs", "zh": "200 个/包 × 25 包" },
+  "seoTitle": { "en": "Lotus Baking Cups", "zh": "莲花杯" },
+  "seoDescription": {
+    "en": "Lotus Baking Cups made from greaseproof paper.",
+    "zh": "莲花杯，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 101
+}

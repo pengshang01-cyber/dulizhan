@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_MUSHROOM_CUP_LIDS",
+  "slug": "mushroom-cup-lids",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Mushroom Cup Lids", "zh": "蘑菇杯配套盖" },
+  "summary": {
+    "en": "Mushroom Cup Lids in the tulip & shaped baking cups range.",
+    "zh": "蘑菇杯配套盖，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "Ø 88 mm", "zh": "Ø 88 mm" },
+      "heightMm": 25,
+      "specification": { "en": "Diameter 88 mm", "zh": "直径 88 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Mushroom Cup Lids", "zh": "蘑菇杯配套盖" },
+  "seoDescription": {
+    "en": "Mushroom Cup Lids in the tulip & shaped baking cups range.",
+    "zh": "蘑菇杯配套盖，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 103
+}

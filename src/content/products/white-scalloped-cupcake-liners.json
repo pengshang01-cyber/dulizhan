@@ -1,0 +1,58 @@
+{
+  "sku": "TODO_SKU_WHITE_SCALLOPED_CUPCAKE_LINERS",
+  "slug": "white-scalloped-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "White Scalloped Cupcake Liners", "zh": "白色花边蛋糕纸托" },
+  "summary": {
+    "en": "White Scalloped Cupcake Liners made from baking paper.",
+    "zh": "白色花边蛋糕纸托，材质为 烘焙纸。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Baking paper", "zh": "烘焙纸" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "40×20 mm · top Ø 55 mm", "zh": "40×20 mm · 口径 55 mm" },
+      "baseDiameterMm": 40,
+      "heightMm": 20,
+      "topDiameterMm": 55
+    },
+    {
+      "name": { "en": "45×26 mm · top Ø 60 mm", "zh": "45×26 mm · 口径 60 mm" },
+      "baseDiameterMm": 45,
+      "heightMm": 26,
+      "topDiameterMm": 60
+    },
+    {
+      "name": { "en": "45×30 mm · top Ø 70 mm", "zh": "45×30 mm · 口径 70 mm" },
+      "baseDiameterMm": 45,
+      "heightMm": 30,
+      "topDiameterMm": 70
+    },
+    {
+      "name": { "en": "50×35 mm · top Ø 65 mm", "zh": "50×35 mm · 口径 65 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 35,
+      "topDiameterMm": 65
+    }
+  ],
+  "colors": [{ "en": "White", "zh": "白色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "40×20 mm · top Ø 55 mm (quoted specification) — 125 pcs/box, 24 boxes/carton\n45×26 mm · top Ø 60 mm (quoted specification) — 125 pcs/box, 24 boxes/carton\n45×30 mm · top Ø 70 mm (quoted specification) — 125 pcs/box, 24 boxes/carton\n50×35 mm · top Ø 65 mm (quoted specification) — 125 pcs/box, 24 boxes/carton",
+    "zh": "40×20 mm · 口径 55 mm（该规格报价） — 包装 125 个/纸盒，24 盒/箱\n45×26 mm · 口径 60 mm（该规格报价） — 包装 125 个/纸盒，24 盒/箱\n45×30 mm · 口径 70 mm（该规格报价） — 包装 125 个/纸盒，24 盒/箱\n50×35 mm · 口径 65 mm（该规格报价） — 包装 125 个/纸盒，24 盒/箱"
+  },
+  "seoTitle": {
+    "en": "White Scalloped Cupcake Liners",
+    "zh": "白色花边蛋糕纸托"
+  },
+  "seoDescription": {
+    "en": "White Scalloped Cupcake Liners made from baking paper.",
+    "zh": "白色花边蛋糕纸托，材质为 烘焙纸。"
+  },
+  "featured": false,
+  "order": 88
+}

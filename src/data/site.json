@@ -1,15 +1,15 @@
 {
   "companyName": {
-    "en": "TODO_COMPANY_NAME",
-    "zh": ""
+    "en": "Foshan Junbeili Paper Products Co., Ltd.",
+    "zh": "佛山俊焙利纸制品有限公司"
   },
   "shortName": {
-    "en": "TODO_COMPANY_SHORT_NAME",
-    "zh": ""
+    "en": "Junbeili",
+    "zh": "俊焙利"
   },
   "tagline": {
-    "en": "TODO_COMPANY_TAGLINE",
-    "zh": ""
+    "en": "Food-grade cupcake liners & baking cups, wholesale and custom",
+    "zh": "专做食品级蛋糕纸托和烘焙纸杯，支持批发与定制"
   },
   "topBarItems": [
     {
@@ -21,75 +21,75 @@
       "zh": "印刷定制与 OEM"
     },
     {
-      "en": "TODO_TOP_BAR_ITEM",
-      "zh": ""
+      "en": "2,000+ patterns available",
+      "zh": "多种花色可选"
     }
   ],
   "domain": "https://junbeili.com",
   "allowIndexing": false,
-  "email": "TODO_EMAIL",
-  "phone": "TODO_PHONE",
-  "whatsappNumber": "TODO_WHATSAPP_NUMBER",
+  "email": "sales@junbeili.com",
+  "phone": "+86 189 8862 4435",
+  "whatsappNumber": "+8618988624435",
   "whatsappPrefillMessage": {
-    "en": "TODO_WHATSAPP_PREFILL_MESSAGE",
-    "zh": ""
+    "en": "Hi, I'd like to get a quote for your baking cups.",
+    "zh": "你好，我想询问纸杯价格"
   },
   "factoryAddress": {
-    "en": "TODO_FACTORY_ADDRESS",
-    "zh": ""
+    "en": "No. 1, Shang'an Industrial Zone 2, Danzao Town, Nanhai District, Foshan, Guangdong, China",
+    "zh": "广东省佛山市南海区丹灶镇上安工业二区一号"
   },
   "stockMoq": {
-    "en": "TODO_STOCK_MOQ",
-    "zh": ""
+    "en": "Varies by product, please contact us",
+    "zh": "因产品而异，欢迎咨询"
   },
   "customMoq": {
-    "en": "TODO_CUSTOM_MOQ",
-    "zh": ""
+    "en": "Varies by product, please contact us",
+    "zh": "因产品而异，欢迎咨询"
   },
   "sampleLeadTime": {
-    "en": "TODO_SAMPLE_LEAD_TIME",
-    "zh": ""
+    "en": "3–7 working days",
+    "zh": "3–7 个工作日"
   },
   "productionLeadTime": {
-    "en": "TODO_PRODUCTION_LEAD_TIME",
-    "zh": ""
+    "en": "15–25 working days",
+    "zh": "15–25 个工作日"
   },
   "sampleCost": {
-    "en": "TODO_SAMPLE_COST",
-    "zh": ""
+    "en": "Negotiable, please contact us",
+    "zh": "可协商，欢迎咨询"
   },
   "paymentTerms": {
-    "en": "TODO_PAYMENT_TERMS",
-    "zh": ""
+    "en": "30% deposit, 70% balance before shipment",
+    "zh": "30% 定金，70% 发货前付清"
   },
   "shippingMethods": {
-    "en": "TODO_SHIPPING_METHODS",
-    "zh": ""
+    "en": "Sea freight, air freight and express (DHL / FedEx)",
+    "zh": "海运、空运、快递（DHL / FedEx）"
   },
   "stats": [
     {
-      "value": "TODO_FOUNDED_YEAR",
+      "value": 2002,
       "label": {
         "en": "Founded",
         "zh": "成立年份"
       }
     },
     {
-      "value": "TODO_DAILY_CAPACITY",
+      "value": "8,000,000",
       "label": {
-        "en": "Daily Capacity",
-        "zh": "日产能"
+        "en": "Daily Capacity (pcs/day)",
+        "zh": "日产能（个/日）"
       }
     },
     {
-      "value": "TODO_EXPORT_COUNTRY_COUNT",
+      "value": "30+",
       "label": {
         "en": "Export Countries",
         "zh": "出口国家"
       }
     },
     {
-      "value": "TODO_PATTERN_COUNT",
+      "value": "2,000+",
       "label": {
         "en": "Colors & Patterns",
         "zh": "花色款式"
@@ -114,11 +114,11 @@
     "pinterest": "TODO_PINTEREST_URL",
     "linkedin": "TODO_LINKEDIN_URL"
   },
-  "wechatId": "TODO_WECHAT_ID",
+  "wechatId": "18988624435",
   "wechatQr": "",
   "replyTime": {
-    "en": "TODO_REPLY_TIME",
-    "zh": ""
+    "en": "Within 12 hours",
+    "zh": "12 小时内"
   },
   "analytics": {
     "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"

@@ -1,13 +1,10 @@
 {
-  "label": {
-    "en": "Paper Baking Molds",
-    "zh": "纸质烤模"
-  },
+  "label": { "en": "Paper Baking Molds", "zh": "纸质烤模" },
   "summary": {
-    "en": "Paper molds for baking and presenting cakes and breads.",
-    "zh": "适合烘焙及展示蛋糕和面包的纸模。"
+    "en": "Coated paper molds for chiffon cakes and shallow paper pans for pizza.",
+    "zh": "戚风蛋糕用淋膜纸模与浅边纸质披萨盘。"
   },
   "image": "../../assets/images/categories/paper-baking-molds-placeholder.png",
-  "order": 9,
-  "showOnHome": true
+  "order": 7,
+  "showOnHome": false
 }
