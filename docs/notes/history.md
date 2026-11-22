@@ -80,3 +80,7 @@
 PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURNSTILE_SECRET_KEY 并部署后仍复现 verification_failed。为避免凭通用提示猜测，创建 fix-turnstile-server-validation，加入官方错误码白名单 / HTTP 状态 / 异常类型诊断及密钥首尾空白处理；保留验证失败禁止发信。新增 16 项测试，总计 300 项通过，尚待部署后的实际错误码确定根因。
 
 - 诊断修复提交 9c31853，PR #14：https://github.com/pengshang01-cyber/dulizhan/pull/14 。生产排障需审核部署后取得真实 verification 错误码，尚未宣称根因已解决。
+
+## 2026-11-22 M9 产品与公司资料批量导入
+
+从 main fd6d242 创建 m9-product-import。工厂工作簿原样移入 data-import，使用确认的公司资料、13 个分类和 118 个产品。354 条原始记录中纳入 342 条，形成 339 个尺寸或选项。保留逐行合并方案和图片清单。六项检查、312 项测试、重复导入、GitHub CI 和 Workers PR 预览均通过。PR #16 实测双语页面、375px 和 noindex 响应并记录 12 张预览截图。继续等待工厂照片、型号和待核对规格。PR：https://github.com/pengshang01-cyber/dulizhan/pull/16 。
