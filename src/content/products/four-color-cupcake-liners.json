@@ -1,0 +1,26 @@
+{
+  "sku": "TODO_SKU_FOUR_COLOR_CUPCAKE_LINERS",
+  "slug": "four-color-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Four-Color Cupcake Liners", "zh": "四色蛋糕纸托" },
+  "summary": {
+    "en": "Four-Color Cupcake Liners in the cupcake liners range.",
+    "zh": "四色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "Four colors", "zh": "四色" } }],
+  "colors": [{ "en": "Four colors", "zh": "四色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Four-Color Cupcake Liners", "zh": "四色蛋糕纸托" },
+  "seoDescription": {
+    "en": "Four-Color Cupcake Liners in the cupcake liners range.",
+    "zh": "四色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 87
+}

@@ -1,0 +1,40 @@
+{
+  "sku": "TODO_SKU_LARGE_GREASEPROOF_ROUND_BAKING_TRAYS",
+  "slug": "large-greaseproof-round-baking-trays",
+  "category": "basque-cheesecake-liners.json",
+  "title": {
+    "en": "Large Greaseproof Round Baking Trays",
+    "zh": "大号防油纸圆盘"
+  },
+  "summary": {
+    "en": "Large Greaseproof Round Baking Trays made from greaseproof paper.",
+    "zh": "大号防油纸圆盘，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": 100,
+  "sizes": [
+    {
+      "name": { "en": "8 in", "zh": "8 英寸" },
+      "baseDiameterMm": 190,
+      "heightMm": 55,
+      "topDiameterMm": 230
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "10 pcs/pack × 60 packs", "zh": "10 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Large Greaseproof Round Baking Trays",
+    "zh": "大号防油纸圆盘"
+  },
+  "seoDescription": {
+    "en": "Large Greaseproof Round Baking Trays made from greaseproof paper.",
+    "zh": "大号防油纸圆盘，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 118
+}

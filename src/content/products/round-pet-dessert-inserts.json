@@ -1,0 +1,64 @@
+{
+  "sku": "TODO_SKU_ROUND_PET_DESSERT_INSERTS",
+  "slug": "round-pet-dessert-inserts",
+  "category": "pet-dessert-inserts.json",
+  "title": { "en": "Round PET Dessert Inserts", "zh": "圆形 PET 塑料托" },
+  "summary": {
+    "en": "Round PET Dessert Inserts made from PET.",
+    "zh": "圆形 PET 塑料托，材质为 PET。"
+  },
+  "images": ["../../assets/images/categories/dessert-cups-placeholder.png"],
+  "material": { "en": "PET", "zh": "PET" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "50×30 mm", "zh": "50×30 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "57×57 mm", "zh": "57×57 mm" },
+      "baseDiameterMm": 57,
+      "heightMm": 57
+    },
+    {
+      "name": { "en": "57×60 mm", "zh": "57×60 mm" },
+      "baseDiameterMm": 57,
+      "heightMm": 60
+    },
+    {
+      "name": { "en": "60×25 mm", "zh": "60×25 mm" },
+      "baseDiameterMm": 60,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "60×30 mm", "zh": "60×30 mm" },
+      "baseDiameterMm": 60,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "75×47.5 mm", "zh": "75×47.5 mm" },
+      "baseDiameterMm": 75,
+      "heightMm": 47.5
+    },
+    {
+      "name": { "en": "75×62.5 mm", "zh": "75×62.5 mm" },
+      "baseDiameterMm": 75,
+      "heightMm": 62.5
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": {
+    "en": "500 pcs/sleeve × 20 sleeves",
+    "zh": "500 个/条 × 20 条"
+  },
+  "seoTitle": { "en": "Round PET Dessert Inserts", "zh": "圆形 PET 塑料托" },
+  "seoDescription": {
+    "en": "Round PET Dessert Inserts made from PET.",
+    "zh": "圆形 PET 塑料托，材质为 PET。"
+  },
+  "featured": false,
+  "order": 1
+}

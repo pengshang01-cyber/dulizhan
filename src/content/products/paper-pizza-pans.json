@@ -1,0 +1,54 @@
+{
+  "sku": "TODO_SKU_PAPER_PIZZA_PANS",
+  "slug": "paper-pizza-pans",
+  "category": "paper-baking-molds.json",
+  "title": { "en": "Paper Pizza Pans", "zh": "纸质披萨盘" },
+  "summary": {
+    "en": "Paper Pizza Pans made from PET-coated paper.",
+    "zh": "纸质披萨盘，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "4 in", "zh": "4 英寸" },
+      "baseDiameterMm": 115,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "6 in", "zh": "6 英寸" },
+      "baseDiameterMm": 140,
+      "heightMm": 20
+    },
+    {
+      "name": { "en": "7 in", "zh": "7 英寸" },
+      "baseDiameterMm": 160,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "8 in", "zh": "8 英寸" },
+      "baseDiameterMm": 200,
+      "heightMm": 25
+    }
+  ],
+  "colors": [{ "en": "Natural color", "zh": "本色" }],
+  "patterns": [
+    { "en": "Plain", "zh": "素色" },
+    { "en": "Printed", "zh": "印花" }
+  ],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "4 in — 200 pcs/pack × 20 packs\n6 in — 200 pcs/pack × 20 packs\n7 in — 200 pcs/pack × 10 packs\n8 in — 200 pcs/pack × 10 packs",
+    "zh": "4 英寸 — 包装 200 个/包 × 20 包\n6 英寸 — 包装 200 个/包 × 20 包\n7 英寸 — 包装 200 个/包 × 10 包\n8 英寸 — 包装 200 个/包 × 10 包"
+  },
+  "seoTitle": { "en": "Paper Pizza Pans", "zh": "纸质披萨盘" },
+  "seoDescription": {
+    "en": "Paper Pizza Pans made from PET-coated paper.",
+    "zh": "纸质披萨盘，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 43
+}

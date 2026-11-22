@@ -1,0 +1,33 @@
+{
+  "sku": "TODO_SKU_TRANSLUCENT_OBLONG_LINERS",
+  "slug": "translucent-oblong-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Oblong Translucent Cake Liners", "zh": "半透明磨堡杯" },
+  "summary": {
+    "en": "Oblong Translucent Cake Liners made from translucent paper.",
+    "zh": "半透明磨堡杯，材质为 半透明纸。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Translucent paper", "zh": "半透明纸" },
+  "gsm": "24 / 31 / 40",
+  "sizes": [
+    {
+      "name": { "en": "72×35×25 mm", "zh": "72×35×25 mm" },
+      "heightMm": 25,
+      "specification": { "en": "72×35×25 mm", "zh": "72×35×25 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "packaging": { "en": "1000 pcs/pack × 50 packs", "zh": "1000 个/包 × 50 包" },
+  "seoTitle": { "en": "Oblong Translucent Cake Liners", "zh": "半透明磨堡杯" },
+  "seoDescription": {
+    "en": "Oblong Translucent Cake Liners made from translucent paper.",
+    "zh": "半透明磨堡杯，材质为 半透明纸。"
+  },
+  "featured": false,
+  "order": 12
+}

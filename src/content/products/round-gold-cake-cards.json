@@ -1,0 +1,30 @@
+{
+  "sku": "TODO_SKU_ROUND_GOLD_CAKE_CARDS",
+  "slug": "round-gold-cake-cards",
+  "category": "cake-boards.json",
+  "title": { "en": "Round Gold Cake Cards", "zh": "圆形金卡垫" },
+  "summary": {
+    "en": "Round Gold Cake Cards in the cake boards range.",
+    "zh": "圆形金卡垫，属于蛋糕底板系列。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 90 },
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 80 }
+  ],
+  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "5,000 pcs/carton", "zh": "5,000 个/箱" },
+  "seoTitle": { "en": "Round Gold Cake Cards", "zh": "圆形金卡垫" },
+  "seoDescription": {
+    "en": "Round Gold Cake Cards in the cake boards range.",
+    "zh": "圆形金卡垫，属于蛋糕底板系列。"
+  },
+  "featured": false,
+  "order": 111
+}

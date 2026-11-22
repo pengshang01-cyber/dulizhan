@@ -1,0 +1,38 @@
+{
+  "sku": "TODO_SKU_SQUARE_PAPER_LINERS",
+  "slug": "square-paper-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Square Paper Cake Liners", "zh": "正方形纸托" },
+  "summary": {
+    "en": "Square Paper Cake Liners made from cake liner paper.",
+    "zh": "正方形纸托，材质为 蛋糕纸。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "45×45×25 mm", "zh": "45×45×25 mm" },
+      "heightMm": 25,
+      "specification": { "en": "45×45×25 mm", "zh": "45×45×25 mm" }
+    },
+    {
+      "name": { "en": "60×60×30 mm", "zh": "60×60×30 mm" },
+      "heightMm": 30,
+      "specification": { "en": "60×60×30 mm", "zh": "60×60×30 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "1000 pcs/pack × 50 packs", "zh": "1000 个/包 × 50 包" },
+  "seoTitle": { "en": "Square Paper Cake Liners", "zh": "正方形纸托" },
+  "seoDescription": {
+    "en": "Square Paper Cake Liners made from cake liner paper.",
+    "zh": "正方形纸托，材质为 蛋糕纸。"
+  },
+  "featured": false,
+  "order": 81
+}

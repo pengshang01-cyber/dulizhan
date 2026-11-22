@@ -1,0 +1,29 @@
+{
+  "sku": "TODO_SKU_FLAME_PAPER_BAKING_CUPS",
+  "slug": "flame-paper-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Flame-Shaped Baking Cups", "zh": "火焰纸杯" },
+  "summary": {
+    "en": "Flame-Shaped Baking Cups made from PET-coated paper.",
+    "zh": "火焰纸杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
+  "sizes": [
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": { "en": "Flame-Shaped Baking Cups", "zh": "火焰纸杯" },
+  "seoDescription": {
+    "en": "Flame-Shaped Baking Cups made from PET-coated paper.",
+    "zh": "火焰纸杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 58
+}

@@ -1,0 +1,43 @@
+{
+  "sku": "TODO_SKU_STAR_FLUTED_PUDDING_CUPS",
+  "slug": "star-fluted-pudding-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Star-Fluted Pudding Cups", "zh": "星纹布丁杯" },
+  "summary": {
+    "en": "Star-Fluted Pudding Cups made from PET-coated paper.",
+    "zh": "星纹布丁杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 220,
+  "sizes": [
+    {
+      "name": { "en": "Small", "zh": "小号" },
+      "baseDiameterMm": 45,
+      "heightMm": 32
+    },
+    {
+      "name": { "en": "Medium", "zh": "中号" },
+      "baseDiameterMm": 50,
+      "heightMm": 32
+    },
+    {
+      "name": { "en": "Large", "zh": "大号" },
+      "baseDiameterMm": 75,
+      "heightMm": 45
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 100 packs", "zh": "50 个/包 × 100 包" },
+  "seoTitle": { "en": "Star-Fluted Pudding Cups", "zh": "星纹布丁杯" },
+  "seoDescription": {
+    "en": "Star-Fluted Pudding Cups made from PET-coated paper.",
+    "zh": "星纹布丁杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 44
+}

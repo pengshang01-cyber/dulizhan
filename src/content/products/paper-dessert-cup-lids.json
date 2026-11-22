@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_PAPER_DESSERT_CUP_LIDS",
+  "slug": "paper-dessert-cup-lids",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Lids for Paper Dessert Cups", "zh": "甜品纸杯配套盖" },
+  "summary": {
+    "en": "Lids for Paper Dessert Cups in the tulip & shaped baking cups range.",
+    "zh": "甜品纸杯配套盖，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "88×25 mm", "zh": "88×25 mm" },
+      "baseDiameterMm": 88,
+      "heightMm": 25
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Lids for Paper Dessert Cups", "zh": "甜品纸杯配套盖" },
+  "seoDescription": {
+    "en": "Lids for Paper Dessert Cups in the tulip & shaped baking cups range.",
+    "zh": "甜品纸杯配套盖，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 49
+}

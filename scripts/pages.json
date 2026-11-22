@@ -33,11 +33,11 @@
   },
   {
     "name": "product-category",
-    "path": "/products/tulip-baking-cups/"
+    "path": "/products/tulip-shaped-baking-cups/"
   },
   {
     "name": "product-detail",
-    "path": "/products/tulip-baking-cups/sample-tulip-cup/"
+    "path": "/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/"
   },
   {
     "name": "inquiry-empty",
@@ -46,24 +46,30 @@
   {
     "name": "inquiry-filled",
     "path": "/inquiry/",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"]
+    "inquiryProducts": ["plain-cupcake-liners", "greaseproof-tulip-baking-cups"]
   },
   {
     "name": "inquiry-quantities",
     "path": "/inquiry/",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryProducts": [
+      "plain-cupcake-liners",
+      "greaseproof-tulip-baking-cups"
+    ],
     "inquiryQuantities": {
-      "sample-standard-liner": "10,000",
-      "sample-tulip-cup": ""
+      "plain-cupcake-liners": "10,000",
+      "greaseproof-tulip-baking-cups": ""
     }
   },
   {
     "name": "contact-inquiry",
     "path": "/contact/?from=inquiry",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryProducts": [
+      "plain-cupcake-liners",
+      "greaseproof-tulip-baking-cups"
+    ],
     "inquiryQuantities": {
-      "sample-standard-liner": "10,000",
-      "sample-tulip-cup": ""
+      "plain-cupcake-liners": "10,000",
+      "greaseproof-tulip-baking-cups": ""
     }
   },
   {
@@ -96,11 +102,11 @@
   },
   {
     "name": "zh-product-category",
-    "path": "/zh/products/tulip-baking-cups/"
+    "path": "/zh/products/tulip-shaped-baking-cups/"
   },
   {
     "name": "zh-product-detail",
-    "path": "/zh/products/tulip-baking-cups/sample-tulip-cup/"
+    "path": "/zh/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/"
   },
   {
     "name": "zh-inquiry-empty",
@@ -109,24 +115,30 @@
   {
     "name": "zh-inquiry-filled",
     "path": "/zh/inquiry/",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"]
+    "inquiryProducts": ["plain-cupcake-liners", "greaseproof-tulip-baking-cups"]
   },
   {
     "name": "zh-inquiry-quantities",
     "path": "/zh/inquiry/",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryProducts": [
+      "plain-cupcake-liners",
+      "greaseproof-tulip-baking-cups"
+    ],
     "inquiryQuantities": {
-      "sample-standard-liner": "10,000",
-      "sample-tulip-cup": ""
+      "plain-cupcake-liners": "10,000",
+      "greaseproof-tulip-baking-cups": ""
     }
   },
   {
     "name": "zh-contact-inquiry",
     "path": "/zh/contact/?from=inquiry",
-    "inquiryProducts": ["sample-standard-liner", "sample-tulip-cup"],
+    "inquiryProducts": [
+      "plain-cupcake-liners",
+      "greaseproof-tulip-baking-cups"
+    ],
     "inquiryQuantities": {
-      "sample-standard-liner": "10,000",
-      "sample-tulip-cup": ""
+      "plain-cupcake-liners": "10,000",
+      "greaseproof-tulip-baking-cups": ""
     }
   },
   {
@@ -260,5 +272,35 @@
     "name": "images-default-zh-about",
     "path": "/zh/about/",
     "milestones": ["M7b"]
+  },
+  {
+    "name": "products-index",
+    "path": "/products/",
+    "milestones": ["M9"]
+  },
+  {
+    "name": "category-cupcake-liners",
+    "path": "/products/cupcake-liners/",
+    "milestones": ["M9"]
+  },
+  {
+    "name": "zh-category-rolled-rim",
+    "path": "/zh/products/rolled-rim-baking-cups/",
+    "milestones": ["M9"]
+  },
+  {
+    "name": "category-paper-bowls-trays",
+    "path": "/products/paper-bowls-trays/",
+    "milestones": ["M9"]
+  },
+  {
+    "name": "detail-pet-round-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M9"]
+  },
+  {
+    "name": "zh-detail-pet-square",
+    "path": "/zh/products/pet-coated-baking-cups/pet-coated-square-cups/",
+    "milestones": ["M9"]
   }
 ]

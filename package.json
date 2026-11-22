@@ -17,7 +17,8 @@
     "test": "vitest run",
     "seo:check": "node --experimental-strip-types scripts/seo-check.ts",
     "links:check": "node --experimental-strip-types scripts/links-check.ts",
-    "todo:report": "node --experimental-strip-types scripts/todo-report.ts"
+    "todo:report": "node --experimental-strip-types scripts/todo-report.ts",
+    "import:products": "node --experimental-strip-types scripts/import-products.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",
@@ -39,6 +40,7 @@
     "playwright": "1.65.1",
     "prettier": "3.10.1",
     "prettier-plugin-astro": "1.1.2",
+    "read-excel-file": "9.3.20",
     "typescript": "6.0.3",
     "typescript-eslint": "8.72.2",
     "vitest": "5.1.0",

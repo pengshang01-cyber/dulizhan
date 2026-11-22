@@ -1,0 +1,26 @@
+{
+  "sku": "TODO_SKU_SINGLE_COLOR_CUPCAKE_LINERS",
+  "slug": "single-color-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Single-Color Cupcake Liners", "zh": "单色蛋糕纸托" },
+  "summary": {
+    "en": "Single-Color Cupcake Liners in the cupcake liners range.",
+    "zh": "单色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "Single color", "zh": "单色" } }],
+  "colors": [{ "en": "Single color", "zh": "单色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Single-Color Cupcake Liners", "zh": "单色蛋糕纸托" },
+  "seoDescription": {
+    "en": "Single-Color Cupcake Liners in the cupcake liners range.",
+    "zh": "单色蛋糕纸托，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 85
+}

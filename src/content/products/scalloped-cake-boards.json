@@ -1,0 +1,34 @@
+{
+  "sku": "TODO_SKU_SCALLOPED_CAKE_BOARDS",
+  "slug": "scalloped-cake-boards",
+  "category": "cake-boards.json",
+  "title": { "en": "Smooth Scalloped Cake Boards", "zh": "光面花边蛋糕板" },
+  "summary": {
+    "en": "Smooth Scalloped Cake Boards in the cake boards range.",
+    "zh": "光面花边蛋糕板，属于蛋糕底板系列。"
+  },
+  "images": [
+    "../../assets/images/categories/specialty-packaging-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "3–14 in", "zh": "3–14 英寸" },
+      "specification": {
+        "en": "Series sizes 3–14 in, thickness 1–12 mm",
+        "zh": "系列尺寸 3–14 英寸，厚度 1–12 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "seoTitle": { "en": "Smooth Scalloped Cake Boards", "zh": "光面花边蛋糕板" },
+  "seoDescription": {
+    "en": "Smooth Scalloped Cake Boards in the cake boards range.",
+    "zh": "光面花边蛋糕板，属于蛋糕底板系列。"
+  },
+  "featured": false,
+  "order": 104
+}

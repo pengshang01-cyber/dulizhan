@@ -1,0 +1,43 @@
+{
+  "sku": "TODO_SKU_SQUARE_PAPER_TRAYS_WITH_LIDS",
+  "slug": "square-paper-trays-with-lids",
+  "category": "cake-boxes.json",
+  "title": { "en": "Square Paper Trays with Lids", "zh": "方形纸塑盒" },
+  "summary": {
+    "en": "Square Paper Trays with Lids made from food-grade white paperboard.",
+    "zh": "方形纸塑盒，材质为 食品级白卡。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "Food-grade white paperboard", "zh": "食品级白卡" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "120×110 mm", "zh": "120×110 mm" },
+      "specification": {
+        "en": "Base 120×110 mm, top 135×125 mm",
+        "zh": "底部 120×110 mm，顶部 135×125 mm"
+      }
+    }
+  ],
+  "colors": [
+    { "en": "White", "zh": "白色" },
+    { "en": "Kraft color", "zh": "牛皮色" },
+    { "en": "Assorted colors", "zh": "彩色" }
+  ],
+  "patterns": [
+    { "en": "Solid color", "zh": "纯色" },
+    { "en": "Checked", "zh": "格纹" },
+    { "en": "Printed", "zh": "印花" }
+  ],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "1,000 pcs/carton", "zh": "1,000 个/箱" },
+  "seoTitle": { "en": "Square Paper Trays with Lids", "zh": "方形纸塑盒" },
+  "seoDescription": {
+    "en": "Square Paper Trays with Lids made from food-grade white paperboard.",
+    "zh": "方形纸塑盒，材质为 食品级白卡。"
+  },
+  "featured": false,
+  "order": 73
+}

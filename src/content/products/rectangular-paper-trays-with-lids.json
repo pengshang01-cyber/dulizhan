@@ -1,0 +1,46 @@
+{
+  "sku": "TODO_SKU_RECTANGULAR_PAPER_TRAYS_WITH_LIDS",
+  "slug": "rectangular-paper-trays-with-lids",
+  "category": "cake-boxes.json",
+  "title": { "en": "Rectangular Paper Trays with Lids", "zh": "长方形纸塑盒" },
+  "summary": {
+    "en": "Rectangular Paper Trays with Lids made from food-grade white paperboard.",
+    "zh": "长方形纸塑盒，材质为 食品级白卡。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "Food-grade white paperboard", "zh": "食品级白卡" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "175×70 mm", "zh": "175×70 mm" },
+      "specification": {
+        "en": "Base 175×70 mm, top 190×85 mm",
+        "zh": "底部 175×70 mm，顶部 190×85 mm"
+      }
+    }
+  ],
+  "colors": [
+    { "en": "White", "zh": "白色" },
+    { "en": "Kraft color", "zh": "牛皮色" },
+    { "en": "Assorted colors", "zh": "彩色" }
+  ],
+  "patterns": [
+    { "en": "Solid color", "zh": "纯色" },
+    { "en": "Checked", "zh": "格纹" },
+    { "en": "Printed", "zh": "印花" }
+  ],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "1,000 pcs/carton", "zh": "1,000 个/箱" },
+  "seoTitle": {
+    "en": "Rectangular Paper Trays with Lids",
+    "zh": "长方形纸塑盒"
+  },
+  "seoDescription": {
+    "en": "Rectangular Paper Trays with Lids made from food-grade white paperboard.",
+    "zh": "长方形纸塑盒，材质为 食品级白卡。"
+  },
+  "featured": false,
+  "order": 74
+}

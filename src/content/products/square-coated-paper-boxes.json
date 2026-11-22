@@ -1,0 +1,50 @@
+{
+  "sku": "TODO_SKU_SQUARE_COATED_PAPER_BOXES",
+  "slug": "square-coated-paper-boxes",
+  "category": "cake-boxes.json",
+  "title": { "en": "Square Coated Paper Cake Boxes", "zh": "正方形淋膜纸盒" },
+  "summary": {
+    "en": "Square Coated Paper Cake Boxes made from PE-coated paper.",
+    "zh": "正方形淋膜纸盒，材质为 PE 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "gsm": "230–300",
+  "sizes": [
+    {
+      "name": { "en": "Mini", "zh": "迷你" },
+      "heightMm": 35,
+      "specification": {
+        "en": "Base 65×65 mm, top 85×85 mm, height 35 mm",
+        "zh": "底部 65×65 mm，顶部 85×85 mm，高度 35 mm"
+      }
+    },
+    {
+      "name": { "en": "95×95×50 mm", "zh": "95×95×50 mm" },
+      "heightMm": 50,
+      "specification": {
+        "en": "Base 95×95 mm, top 125×125 mm, height 50 mm",
+        "zh": "底部 95×95 mm，顶部 125×125 mm，高度 50 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "Mini — 50 pcs/pack × 60 packs\n95×95×50 mm — 50 pcs/pack × 20 packs",
+    "zh": "迷你 — 包装 50 个/包 × 60 包\n95×95×50 mm — 包装 50 个/包 × 20 包"
+  },
+  "seoTitle": {
+    "en": "Square Coated Paper Cake Boxes",
+    "zh": "正方形淋膜纸盒"
+  },
+  "seoDescription": {
+    "en": "Square Coated Paper Cake Boxes made from PE-coated paper.",
+    "zh": "正方形淋膜纸盒，材质为 PE 淋膜纸。"
+  },
+  "featured": false,
+  "order": 90
+}

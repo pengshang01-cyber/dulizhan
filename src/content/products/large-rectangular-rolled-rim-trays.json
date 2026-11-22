@@ -1,0 +1,38 @@
+{
+  "sku": "TODO_SKU_LARGE_RECTANGULAR_ROLLED_RIM_TRAYS",
+  "slug": "large-rectangular-rolled-rim-trays",
+  "category": "rolled-rim-baking-cups.json",
+  "title": { "en": "Large Rectangular Rolled-Rim Trays", "zh": "大长方卷口杯" },
+  "summary": {
+    "en": "Large Rectangular Rolled-Rim Trays in the rolled-rim baking cups range.",
+    "zh": "大长方卷口杯，属于卷口杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "157×56×56 mm", "zh": "157×56×56 mm" },
+      "heightMm": 56,
+      "specification": {
+        "en": "Base 157×56 mm, top 190×90 mm, height 56 mm",
+        "zh": "底部 157×56 mm，顶部 190×90 mm，高度 56 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Large Rectangular Rolled-Rim Trays",
+    "zh": "大长方卷口杯"
+  },
+  "seoDescription": {
+    "en": "Large Rectangular Rolled-Rim Trays in the rolled-rim baking cups range.",
+    "zh": "大长方卷口杯，属于卷口杯系列。"
+  },
+  "featured": false,
+  "order": 35
+}

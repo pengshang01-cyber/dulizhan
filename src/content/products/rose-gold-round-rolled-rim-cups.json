@@ -1,0 +1,32 @@
+{
+  "sku": "TODO_SKU_ROSE_GOLD_ROUND_ROLLED_RIM_CUPS",
+  "slug": "rose-gold-round-rolled-rim-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Rose Gold Round Rolled-Rim Cups",
+    "zh": "单面玫瑰金圆形卷口杯"
+  },
+  "summary": {
+    "en": "Rose Gold Round Rolled-Rim Cups in the rolled-rim baking cups range.",
+    "zh": "单面玫瑰金圆形卷口杯，属于卷口杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [{ "name": { "en": "TODO_SIZE_NAME", "zh": "" } }],
+  "colors": [{ "en": "Rose gold", "zh": "玫瑰金" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Rose Gold Round Rolled-Rim Cups",
+    "zh": "单面玫瑰金圆形卷口杯"
+  },
+  "seoDescription": {
+    "en": "Rose Gold Round Rolled-Rim Cups in the rolled-rim baking cups range.",
+    "zh": "单面玫瑰金圆形卷口杯，属于卷口杯系列。"
+  },
+  "featured": false,
+  "order": 29
+}

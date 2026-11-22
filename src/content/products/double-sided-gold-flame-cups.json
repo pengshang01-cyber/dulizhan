@@ -1,0 +1,38 @@
+{
+  "sku": "TODO_SKU_DOUBLE_SIDED_GOLD_FLAME_CUPS",
+  "slug": "double-sided-gold-flame-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": {
+    "en": "Double-Sided Gold Flame Baking Cups",
+    "zh": "双面金火焰杯"
+  },
+  "summary": {
+    "en": "Double-Sided Gold Flame Baking Cups made from double-sided gold PET-coated paper.",
+    "zh": "双面金火焰杯，材质为 双面金 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": {
+    "en": "Double-sided gold PET-coated paper",
+    "zh": "双面金 PET 淋膜纸"
+  },
+  "gsm": 110,
+  "sizes": [
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 }
+  ],
+  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Double-Sided Gold Flame Baking Cups",
+    "zh": "双面金火焰杯"
+  },
+  "seoDescription": {
+    "en": "Double-Sided Gold Flame Baking Cups made from double-sided gold PET-coated paper.",
+    "zh": "双面金火焰杯，材质为 双面金 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 60
+}

@@ -1,0 +1,48 @@
+{
+  "sku": "TODO_SKU_SINGLE_SIDED_GOLD_SQUARE_ROLLED_RIM_CUPS",
+  "slug": "single-sided-gold-square-rolled-rim-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Single-Sided Gold Square Rolled-Rim Cups",
+    "zh": "单面金正方形卷口杯"
+  },
+  "summary": {
+    "en": "Single-Sided Gold Square Rolled-Rim Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金正方形卷口杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": {
+    "en": "Single-sided gold PET-coated paper",
+    "zh": "单面金 PET 淋膜纸"
+  },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "65×65×35 mm", "zh": "65×65×35 mm" },
+      "heightMm": 35,
+      "specification": {
+        "en": "Base 65×65 mm, top 85×85 mm, height 35 mm",
+        "zh": "底部 65×65 mm，顶部 85×85 mm，高度 35 mm"
+      }
+    }
+  ],
+  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "patterns": [{ "en": "Gold print", "zh": "金色印花" }],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "65×65×35 mm — 50 pcs/pack × 60 packs\n65×65×35 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 52 × 40 × 44 cm",
+    "zh": "65×65×35 mm — 包装 50 个/包 × 60 包\n65×65×35 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 52 × 40 × 44 cm"
+  },
+  "seoTitle": {
+    "en": "Single-Sided Gold Square Rolled-Rim Cups",
+    "zh": "单面金正方形卷口杯"
+  },
+  "seoDescription": {
+    "en": "Single-Sided Gold Square Rolled-Rim Cups made from single-sided gold PET-coated paper.",
+    "zh": "单面金正方形卷口杯，材质为 单面金 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 19
+}

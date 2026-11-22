@@ -11,7 +11,7 @@ import {
   productMeta,
   serializeJsonLd,
 } from "./seo";
-import rawProduct from "../content/products/sample-standard-liner.json";
+import rawProduct from "../content/products/plain-cupcake-liners.json";
 import type { ProductData } from "./products";
 
 const product = {
@@ -102,14 +102,14 @@ describe("truthful bilingual SEO", () => {
         productData(product, "zh", "https://example.test/zh/product/"),
       ),
     );
-    expect(data.name).toBe(rawProduct.title.en);
+    expect(data.name).toBe(rawProduct.title.zh);
+    expect(data.description).toBe(rawProduct.summary.zh);
     for (const key of [
       "offers",
       "review",
       "aggregateRating",
       "sku",
       "material",
-      "description",
       "image",
     ])
       expect(data).not.toHaveProperty(key);

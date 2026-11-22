@@ -1,0 +1,49 @@
+{
+  "sku": "TODO_SKU_MUSHROOM_BAKING_CUPS",
+  "slug": "mushroom-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "PET-Coated Mushroom Baking Cups", "zh": "PET 淋膜蘑菇杯" },
+  "summary": {
+    "en": "PET-Coated Mushroom Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜蘑菇杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "45×50 mm", "zh": "45×50 mm" },
+      "baseDiameterMm": 45,
+      "heightMm": 50,
+      "specification": {
+        "en": "Paper weight 190 g/m²",
+        "zh": "纸张克重 190 g/m²"
+      }
+    },
+    {
+      "name": { "en": "48×38 mm", "zh": "48×38 mm" },
+      "baseDiameterMm": 48,
+      "heightMm": 38,
+      "specification": {
+        "en": "Paper weight 110 g/m²",
+        "zh": "纸张克重 110 g/m²"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/sleeve × 60 sleeves", "zh": "50 个/条 × 60 条" },
+  "seoTitle": {
+    "en": "PET-Coated Mushroom Baking Cups",
+    "zh": "PET 淋膜蘑菇杯"
+  },
+  "seoDescription": {
+    "en": "PET-Coated Mushroom Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜蘑菇杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 102
+}

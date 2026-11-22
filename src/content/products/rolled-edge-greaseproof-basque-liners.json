@@ -1,0 +1,42 @@
+{
+  "sku": "TODO_SKU_ROLLED_EDGE_GREASEPROOF_BASQUE_LINERS",
+  "slug": "rolled-edge-greaseproof-basque-liners",
+  "category": "basque-cheesecake-liners.json",
+  "title": {
+    "en": "Rolled-Edge Greaseproof Basque Liners",
+    "zh": "防油纸翻边巴斯克纸托"
+  },
+  "summary": {
+    "en": "Rolled-Edge Greaseproof Basque Liners made from greaseproof paper.",
+    "zh": "防油纸翻边巴斯克纸托，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "3.5 in", "zh": "3.5 英寸" },
+      "baseDiameterMm": 85,
+      "heightMm": 40
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "3.5 in (quoted specification) — 100 pcs/sleeve, 20 sleeves/carton",
+    "zh": "3.5 英寸（该规格报价） — 包装 100 个/条，20 条/箱"
+  },
+  "seoTitle": {
+    "en": "Rolled-Edge Greaseproof Basque Liners",
+    "zh": "防油纸翻边巴斯克纸托"
+  },
+  "seoDescription": {
+    "en": "Rolled-Edge Greaseproof Basque Liners made from greaseproof paper.",
+    "zh": "防油纸翻边巴斯克纸托，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 40
+}

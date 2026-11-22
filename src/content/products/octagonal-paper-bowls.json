@@ -1,0 +1,92 @@
+{
+  "sku": "TODO_SKU_OCTAGONAL_PAPER_BOWLS",
+  "slug": "octagonal-paper-bowls",
+  "category": "paper-bowls-trays.json",
+  "title": { "en": "Octagonal Paper Bowls", "zh": "八角纸碗" },
+  "summary": {
+    "en": "Octagonal Paper Bowls made from PE-coated paper.",
+    "zh": "八角纸碗，材质为 PE 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+  ],
+  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "gsm": "260–300",
+  "sizes": [
+    {
+      "name": { "en": "300 mL", "zh": "300 mL" },
+      "heightMm": 35,
+      "specification": {
+        "en": "Base 90×90 mm, top 124×124 mm, height 35 mm",
+        "zh": "底部 90×90 mm，顶部 124×124 mm，高度 35 mm"
+      }
+    },
+    {
+      "name": { "en": "400 mL", "zh": "400 mL" },
+      "heightMm": 35,
+      "specification": {
+        "en": "Base 103×103 mm, top 141×141 mm, height 35 mm",
+        "zh": "底部 103×103 mm，顶部 141×141 mm，高度 35 mm"
+      }
+    },
+    {
+      "name": { "en": "500 mL", "zh": "500 mL" },
+      "heightMm": 42,
+      "specification": {
+        "en": "Base 99×99 mm, top 141×141 mm, height 42 mm",
+        "zh": "底部 99×99 mm，顶部 141×141 mm，高度 42 mm"
+      }
+    },
+    {
+      "name": { "en": "650 mL", "zh": "650 mL" },
+      "heightMm": 45,
+      "specification": {
+        "en": "Base 110×110 mm, top 152×152 mm, height 45 mm",
+        "zh": "底部 110×110 mm，顶部 152×152 mm，高度 45 mm"
+      }
+    },
+    {
+      "name": { "en": "750 mL", "zh": "750 mL" },
+      "heightMm": 54,
+      "specification": {
+        "en": "Base 106×106 mm, top 152×152 mm, height 54 mm",
+        "zh": "底部 106×106 mm，顶部 152×152 mm，高度 54 mm"
+      }
+    },
+    {
+      "name": { "en": "1000 mL", "zh": "1000 mL" },
+      "heightMm": 50,
+      "specification": {
+        "en": "Base 133×133 mm, top 178×178 mm, height 50 mm",
+        "zh": "底部 133×133 mm，顶部 178×178 mm，高度 50 mm"
+      }
+    },
+    {
+      "name": { "en": "1200 mL", "zh": "1200 mL" },
+      "heightMm": 60,
+      "specification": {
+        "en": "Base 127×127 mm, top 178×178 mm, height 60 mm",
+        "zh": "底部 127×127 mm，顶部 178×178 mm，高度 60 mm"
+      }
+    },
+    {
+      "name": { "en": "1400 mL", "zh": "1400 mL" },
+      "heightMm": 48,
+      "specification": {
+        "en": "Base 154×154 mm, top 180×180 mm, height 48 mm",
+        "zh": "底部 154×154 mm，顶部 180×180 mm，高度 48 mm"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "300 pcs", "zh": "300 个" },
+  "seoTitle": { "en": "Octagonal Paper Bowls", "zh": "八角纸碗" },
+  "seoDescription": {
+    "en": "Octagonal Paper Bowls made from PE-coated paper.",
+    "zh": "八角纸碗，材质为 PE 淋膜纸。"
+  },
+  "featured": false,
+  "order": 3
+}

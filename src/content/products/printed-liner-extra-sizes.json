@@ -1,0 +1,48 @@
+{
+  "sku": "TODO_SKU_PRINTED_LINER_EXTRA_SIZES",
+  "slug": "printed-liner-extra-sizes",
+  "category": "cupcake-liners.json",
+  "title": {
+    "en": "Printed Cupcake Liners — Additional Sizes",
+    "zh": "印花蛋糕纸托补充规格"
+  },
+  "summary": {
+    "en": "Printed Cupcake Liners — Additional Sizes in the cupcake liners range.",
+    "zh": "印花蛋糕纸托补充规格，属于蛋糕纸托系列。"
+  },
+  "images": [
+    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "8.5 cm blank", "zh": "8.5 cm 展开规格" },
+      "baseDiameterMm": 35,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "9.5 cm blank", "zh": "9.5 cm 展开规格" },
+      "baseDiameterMm": 40,
+      "heightMm": 27.5
+    },
+    {
+      "name": { "en": "12.5 cm blank", "zh": "12.5 cm 展开规格" },
+      "baseDiameterMm": 50,
+      "heightMm": 37.5
+    }
+  ],
+  "colors": [],
+  "patterns": [{ "en": "Printed", "zh": "印花" }],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Printed Cupcake Liners — Additional Sizes",
+    "zh": "印花蛋糕纸托补充规格"
+  },
+  "seoDescription": {
+    "en": "Printed Cupcake Liners — Additional Sizes in the cupcake liners range.",
+    "zh": "印花蛋糕纸托补充规格，属于蛋糕纸托系列。"
+  },
+  "featured": false,
+  "order": 78
+}

@@ -1,13 +1,10 @@
 {
-  "label": {
-    "en": "Basque Cheesecake Liners",
-    "zh": "巴斯克蛋糕纸"
-  },
+  "label": { "en": "Basque Cheesecake Liners", "zh": "巴斯克蛋糕纸" },
   "summary": {
-    "en": "Paper liners for Basque cheesecake pans and presentation.",
-    "zh": "用于巴斯克芝士蛋糕模具与成品展示的烘焙纸。"
+    "en": "Basque cheesecake liners, coated baking cups and round greaseproof trays.",
+    "zh": "巴斯克蛋糕纸托、淋膜烤杯和圆形防油纸烤盘。"
   },
   "image": "../../assets/images/categories/basque-cheesecake-liners-placeholder.png",
-  "order": 8,
+  "order": 6,
   "showOnHome": true
 }

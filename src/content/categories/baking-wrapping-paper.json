@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Baking & Wrapping Paper", "zh": "烘焙用纸" },
+  "summary": {
+    "en": "Parchment sheets, rolls and wrapping papers for baking and food packaging.",
+    "zh": "用于烘焙和食品包装的硅油纸片、纸卷和包装纸。"
+  },
+  "image": "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png",
+  "order": 9,
+  "showOnHome": false
+}

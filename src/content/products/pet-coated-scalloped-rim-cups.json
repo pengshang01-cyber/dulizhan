@@ -1,0 +1,47 @@
+{
+  "sku": "TODO_SKU_PET_COATED_SCALLOPED_RIM_CUPS",
+  "slug": "pet-coated-scalloped-rim-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "PET-Coated Scalloped-Rim Cups", "zh": "PET 淋膜花边杯" },
+  "summary": {
+    "en": "PET-Coated Scalloped-Rim Cups made from PET-coated paper.",
+    "zh": "PET 淋膜花边杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "4435", "zh": "4435" },
+      "baseDiameterMm": 44,
+      "heightMm": 35
+    },
+    {
+      "name": { "en": "5040", "zh": "5040" },
+      "baseDiameterMm": 50,
+      "heightMm": 40
+    },
+    {
+      "name": { "en": "5045", "zh": "5045" },
+      "baseDiameterMm": 50,
+      "heightMm": 45
+    }
+  ],
+  "colors": [],
+  "patterns": [
+    { "en": "Solid color", "zh": "纯色" },
+    { "en": "Polka dots", "zh": "波点" },
+    { "en": "Printed", "zh": "印花" }
+  ],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "100 pcs/pack × 30 packs", "zh": "100 个/包 × 30 包" },
+  "seoTitle": { "en": "PET-Coated Scalloped-Rim Cups", "zh": "PET 淋膜花边杯" },
+  "seoDescription": {
+    "en": "PET-Coated Scalloped-Rim Cups made from PET-coated paper.",
+    "zh": "PET 淋膜花边杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 97
+}

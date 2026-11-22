@@ -42,8 +42,8 @@ try {
   for (const path of [
     "/contact/",
     "/zh/contact/",
-    "/products/tulip-baking-cups/sample-tulip-cup/",
-    "/zh/products/tulip-baking-cups/sample-tulip-cup/",
+    "/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
+    "/zh/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
   ]) {
     const page = await browser.newPage({
       viewport: { width: 1440, height: 1000 },

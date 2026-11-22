@@ -1,0 +1,33 @@
+{
+  "sku": "TODO_SKU_ROUNDED_TULIP_BAKING_CUPS",
+  "slug": "rounded-tulip-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Rounded Tulip Baking Cups", "zh": "圆角郁金香纸杯" },
+  "summary": {
+    "en": "Rounded Tulip Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "圆角郁金香纸杯，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "150 · 50×70 mm", "zh": "150 · 50×70 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 70,
+      "topDiameterMm": 75
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Rounded Tulip Baking Cups", "zh": "圆角郁金香纸杯" },
+  "seoDescription": {
+    "en": "Rounded Tulip Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "圆角郁金香纸杯，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 108
+}

@@ -1,0 +1,39 @@
+{
+  "sku": "TODO_SKU_ROLLED_EDGE_PARCHMENT_BASQUE_LINERS",
+  "slug": "rolled-edge-parchment-basque-liners",
+  "category": "basque-cheesecake-liners.json",
+  "title": {
+    "en": "Rolled-Edge Parchment Basque Liners",
+    "zh": "硅油纸翻边巴斯克纸托"
+  },
+  "summary": {
+    "en": "Rolled-Edge Parchment Basque Liners made from silicone-coated parchment paper.",
+    "zh": "硅油纸翻边巴斯克纸托，材质为 硅油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+  ],
+  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "3.5 in", "zh": "3.5 英寸" },
+      "baseDiameterMm": 85,
+      "heightMm": 40
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "100 pcs/pack × 20 packs", "zh": "100 个/包 × 20 包" },
+  "seoTitle": {
+    "en": "Rolled-Edge Parchment Basque Liners",
+    "zh": "硅油纸翻边巴斯克纸托"
+  },
+  "seoDescription": {
+    "en": "Rolled-Edge Parchment Basque Liners made from silicone-coated parchment paper.",
+    "zh": "硅油纸翻边巴斯克纸托，材质为 硅油纸。"
+  },
+  "featured": false,
+  "order": 38
+}

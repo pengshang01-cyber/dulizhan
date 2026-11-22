@@ -1,0 +1,66 @@
+{
+  "sku": "TODO_SKU_RECTANGULAR_BAKING_PARCHMENT_SHEETS",
+  "slug": "rectangular-baking-parchment-sheets",
+  "category": "baking-wrapping-paper.json",
+  "title": {
+    "en": "Rectangular Baking Parchment Sheets",
+    "zh": "长方形硅油纸片"
+  },
+  "summary": {
+    "en": "Rectangular Baking Parchment Sheets made from silicone-coated parchment paper.",
+    "zh": "长方形硅油纸片，材质为 硅油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "28×38 cm", "zh": "28×38 cm" },
+      "specification": { "en": "28×38 cm", "zh": "28×38 cm" }
+    },
+    {
+      "name": { "en": "23×33 cm", "zh": "23×33 cm" },
+      "specification": { "en": "23×33 cm", "zh": "23×33 cm" }
+    },
+    {
+      "name": { "en": "20×30 cm", "zh": "20×30 cm" },
+      "specification": { "en": "20×30 cm", "zh": "20×30 cm" }
+    },
+    {
+      "name": { "en": "25×35 cm", "zh": "25×35 cm" },
+      "specification": { "en": "25×35 cm", "zh": "25×35 cm" }
+    },
+    {
+      "name": { "en": "30×40 cm", "zh": "30×40 cm" },
+      "specification": { "en": "30×40 cm", "zh": "30×40 cm" }
+    },
+    {
+      "name": { "en": "40×60 cm", "zh": "40×60 cm" },
+      "specification": { "en": "40×60 cm", "zh": "40×60 cm" }
+    },
+    {
+      "name": { "en": "50×70 cm", "zh": "50×70 cm" },
+      "specification": { "en": "50×70 cm", "zh": "50×70 cm" }
+    },
+    {
+      "name": { "en": "60×80 cm", "zh": "60×80 cm" },
+      "specification": { "en": "60×80 cm", "zh": "60×80 cm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "packaging": { "en": "500 sheets/bag", "zh": "500 张/袋" },
+  "seoTitle": {
+    "en": "Rectangular Baking Parchment Sheets",
+    "zh": "长方形硅油纸片"
+  },
+  "seoDescription": {
+    "en": "Rectangular Baking Parchment Sheets made from silicone-coated parchment paper.",
+    "zh": "长方形硅油纸片，材质为 硅油纸。"
+  },
+  "featured": false,
+  "order": 5
+}

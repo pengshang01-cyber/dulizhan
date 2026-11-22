@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Cupcake Liners", "zh": "蛋糕纸托" },
+  "summary": {
+    "en": "Plain, printed, translucent and foil-laminated liners for cupcakes and small cakes.",
+    "zh": "用于蛋糕与小点心的素色、印花、半透明及铝箔复合纸托。"
+  },
+  "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png",
+  "order": 1,
+  "showOnHome": true
+}

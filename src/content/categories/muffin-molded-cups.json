@@ -1,0 +1,10 @@
+{
+  "label": { "en": "Muffin & Molded Baking Cups", "zh": "机制杯与马芬杯" },
+  "summary": {
+    "en": "Round, square, hexagonal and rectangular baking cups for muffins and individual cakes.",
+    "zh": "适用于马芬与小蛋糕的圆形、正方形、六角形及长方形纸杯。"
+  },
+  "image": "../../assets/images/categories/muffin-cups-placeholder.png",
+  "order": 5,
+  "showOnHome": true
+}

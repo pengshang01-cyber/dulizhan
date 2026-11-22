@@ -1,0 +1,46 @@
+{
+  "sku": "TODO_SKU_SQUARE_SANDWICH_WRAPPING_PAPER",
+  "slug": "square-sandwich-wrapping-paper",
+  "category": "baking-wrapping-paper.json",
+  "title": {
+    "en": "Square Sandwich Wrapping Paper",
+    "zh": "正方形三明治包装纸"
+  },
+  "summary": {
+    "en": "Square Sandwich Wrapping Paper made from PE-coated paper.",
+    "zh": "正方形三明治包装纸，材质为 PE 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png"
+  ],
+  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "gsm": "40–60",
+  "sizes": [
+    {
+      "name": { "en": "18×18 cm", "zh": "18×18 cm" },
+      "specification": { "en": "18×18 cm", "zh": "18×18 cm" }
+    },
+    {
+      "name": { "en": "25×25 cm", "zh": "25×25 cm" },
+      "specification": { "en": "25×25 cm", "zh": "25×25 cm" }
+    },
+    {
+      "name": { "en": "30×30 cm", "zh": "30×30 cm" },
+      "specification": { "en": "30×30 cm", "zh": "30×30 cm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "100 sheets", "zh": "100 张" },
+  "seoTitle": {
+    "en": "Square Sandwich Wrapping Paper",
+    "zh": "正方形三明治包装纸"
+  },
+  "seoDescription": {
+    "en": "Square Sandwich Wrapping Paper made from PE-coated paper.",
+    "zh": "正方形三明治包装纸，材质为 PE 淋膜纸。"
+  },
+  "featured": false,
+  "order": 8
+}

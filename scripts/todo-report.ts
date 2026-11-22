@@ -116,7 +116,7 @@ const examples: Record<string, string> = {
   shippingMethods: "经确认的运输方式及适用条件",
   replyTime: "[时间] business hours（以实际承诺为准）",
   sku: "工厂真实型号；示例 TODO-001 不能直接上线",
-  gsm: "只填已确认的正数，单位 g/m²",
+  gsm: "填已确认的克重（例如 110）、范围（260–300）或选项（24 / 31 / 40），无需写单位",
   baseDiameterMm: "只填已确认的正数，单位 mm",
   heightMm: "只填已确认的正数，单位 mm",
   topDiameterMm: "只填已确认的正数，单位 mm",

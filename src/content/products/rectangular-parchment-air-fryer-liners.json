@@ -1,0 +1,42 @@
+{
+  "sku": "TODO_SKU_RECTANGULAR_PARCHMENT_AIR_FRYER_LINERS",
+  "slug": "rectangular-parchment-air-fryer-liners",
+  "category": "air-fryer-liners.json",
+  "title": {
+    "en": "Rectangular Parchment Air Fryer Liners",
+    "zh": "长方形硅油空气炸锅纸"
+  },
+  "summary": {
+    "en": "Rectangular Parchment Air Fryer Liners made from silicone-coated parchment paper.",
+    "zh": "长方形硅油空气炸锅纸，材质为 硅油纸。"
+  },
+  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "8 in", "zh": "8 英寸" },
+      "heightMm": 45,
+      "specification": { "en": "205×140×45 mm", "zh": "205×140×45 mm" }
+    },
+    {
+      "name": { "en": "8.5 in", "zh": "8.5 英寸" },
+      "heightMm": 45,
+      "specification": { "en": "220×140×45 mm", "zh": "220×140×45 mm" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
+  "seoTitle": {
+    "en": "Rectangular Parchment Air Fryer Liners",
+    "zh": "长方形硅油空气炸锅纸"
+  },
+  "seoDescription": {
+    "en": "Rectangular Parchment Air Fryer Liners made from silicone-coated parchment paper.",
+    "zh": "长方形硅油空气炸锅纸，材质为 硅油纸。"
+  },
+  "featured": false,
+  "order": 70
+}

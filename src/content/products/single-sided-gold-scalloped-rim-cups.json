@@ -1,0 +1,38 @@
+{
+  "sku": "5045",
+  "slug": "single-sided-gold-scalloped-rim-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": {
+    "en": "Single-Sided Gold Scalloped-Rim Cups",
+    "zh": "单面金花边杯"
+  },
+  "summary": {
+    "en": "Single-Sided Gold Scalloped-Rim Cups in the tulip & shaped baking cups range.",
+    "zh": "单面金花边杯，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "5045", "zh": "5045" },
+      "baseDiameterMm": 50,
+      "heightMm": 45
+    }
+  ],
+  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Single-Sided Gold Scalloped-Rim Cups",
+    "zh": "单面金花边杯"
+  },
+  "seoDescription": {
+    "en": "Single-Sided Gold Scalloped-Rim Cups in the tulip & shaped baking cups range.",
+    "zh": "单面金花边杯，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 98
+}

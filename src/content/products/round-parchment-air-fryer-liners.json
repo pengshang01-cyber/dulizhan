@@ -1,0 +1,50 @@
+{
+  "sku": "TODO_SKU_ROUND_PARCHMENT_AIR_FRYER_LINERS",
+  "slug": "round-parchment-air-fryer-liners",
+  "category": "air-fryer-liners.json",
+  "title": {
+    "en": "Round Parchment Air Fryer Liners",
+    "zh": "圆形硅油空气炸锅纸"
+  },
+  "summary": {
+    "en": "Round Parchment Air Fryer Liners made from silicone-coated parchment paper.",
+    "zh": "圆形硅油空气炸锅纸，材质为 硅油纸。"
+  },
+  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "gsm": 40,
+  "sizes": [
+    {
+      "name": { "en": "6 in", "zh": "6 英寸" },
+      "baseDiameterMm": 160,
+      "heightMm": 45
+    },
+    {
+      "name": { "en": "8 in", "zh": "8 英寸" },
+      "baseDiameterMm": 200,
+      "heightMm": 45
+    },
+    {
+      "name": { "en": "9 in", "zh": "9 英寸" },
+      "baseDiameterMm": 230,
+      "heightMm": 45
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "6 in — 50 pcs/pack × 120 packs\n8 in — 50 pcs/pack × 60 packs\n9 in — 50 pcs/pack × 60 packs",
+    "zh": "6 英寸 — 包装 50 个/包 × 120 包\n8 英寸 — 包装 50 个/包 × 60 包\n9 英寸 — 包装 50 个/包 × 60 包"
+  },
+  "seoTitle": {
+    "en": "Round Parchment Air Fryer Liners",
+    "zh": "圆形硅油空气炸锅纸"
+  },
+  "seoDescription": {
+    "en": "Round Parchment Air Fryer Liners made from silicone-coated parchment paper.",
+    "zh": "圆形硅油空气炸锅纸，材质为 硅油纸。"
+  },
+  "featured": false,
+  "order": 68
+}

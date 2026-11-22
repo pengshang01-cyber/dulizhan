@@ -130,7 +130,7 @@ export function initializeInquiryForms() {
         if (product)
           selectedProduct.textContent = t("form.selectedProduct", locale, {
             title: display(product.title, t("inquiry.productName", locale)),
-            sku: product.sku,
+            sku: display(product.sku, t("inquiry.skuLabel", locale)),
           });
       }
       const requestedSlug =
@@ -166,7 +166,7 @@ export function initializeInquiryForms() {
             `/products/${item.category}/${item.slug}/`,
             locale,
           );
-          link.textContent = `${item.sku} · ${display(item.title, t("inquiry.productName", locale))}`;
+          link.textContent = `${display(item.sku, t("inquiry.skuLabel", locale))} · ${display(item.title, t("inquiry.productName", locale))}`;
           const quantity = document.createElement("span");
           quantity.textContent =
             item.quantity === null

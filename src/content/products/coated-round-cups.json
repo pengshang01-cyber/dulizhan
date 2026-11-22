@@ -1,0 +1,70 @@
+{
+  "sku": "TODO_SKU_COATED_ROUND_CUPS",
+  "slug": "coated-round-cups",
+  "category": "pet-coated-baking-cups.json",
+  "title": { "en": "Coated Round Baking Cups", "zh": "圆形淋膜纸杯" },
+  "summary": {
+    "en": "Coated Round Baking Cups made from coated paper.",
+    "zh": "圆形淋膜纸杯，材质为 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+  ],
+  "material": { "en": "Coated paper", "zh": "淋膜纸" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "50×25 mm", "zh": "50×25 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "70×25 mm", "zh": "70×25 mm" },
+      "baseDiameterMm": 70,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "115×27.5 mm", "zh": "115×27.5 mm" },
+      "baseDiameterMm": 115,
+      "heightMm": 27.5
+    },
+    {
+      "name": { "en": "135×45 mm", "zh": "135×45 mm" },
+      "baseDiameterMm": 135,
+      "heightMm": 45
+    },
+    {
+      "name": { "en": "160×45 mm", "zh": "160×45 mm" },
+      "baseDiameterMm": 160,
+      "heightMm": 45
+    },
+    {
+      "name": { "en": "40×25 mm", "zh": "40×25 mm" },
+      "baseDiameterMm": 40,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "80×30 mm", "zh": "80×30 mm" },
+      "baseDiameterMm": 80,
+      "heightMm": 30,
+      "specification": {
+        "en": "Paper weight 110 g/m²",
+        "zh": "纸张克重 110 g/m²"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "80×30 mm (quoted specification) — 200 pcs/sleeve, 20 sleeves/carton",
+    "zh": "80×30 mm（该规格报价） — 包装 200 个/条，20 条/箱"
+  },
+  "seoTitle": { "en": "Coated Round Baking Cups", "zh": "圆形淋膜纸杯" },
+  "seoDescription": {
+    "en": "Coated Round Baking Cups made from coated paper.",
+    "zh": "圆形淋膜纸杯，材质为 淋膜纸。"
+  },
+  "featured": false,
+  "order": 50
+}

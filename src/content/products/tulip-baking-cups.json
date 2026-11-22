@@ -1,0 +1,33 @@
+{
+  "sku": "TODO_SKU_TULIP_BAKING_CUPS",
+  "slug": "tulip-baking-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Tulip Baking Cups", "zh": "郁金香纸杯" },
+  "summary": {
+    "en": "Tulip Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "郁金香纸杯，属于造型纸杯系列。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "170 · 60×90 mm", "zh": "170 · 60×90 mm" },
+      "baseDiameterMm": 60,
+      "heightMm": 90,
+      "topDiameterMm": 100
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Tulip Baking Cups", "zh": "郁金香纸杯" },
+  "seoDescription": {
+    "en": "Tulip Baking Cups in the tulip & shaped baking cups range.",
+    "zh": "郁金香纸杯，属于造型纸杯系列。"
+  },
+  "featured": false,
+  "order": 107
+}

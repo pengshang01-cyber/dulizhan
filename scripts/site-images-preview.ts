@@ -250,7 +250,7 @@ export async function captureSiteImagesPreview(destination: URL) {
         await page.goto(
           "http://127.0.0.1:" +
             server.port +
-            "/products/tulip-baking-cups/sample-tulip-cup/",
+            "/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
         );
         const productOg = await page
           .locator('meta[property="og:image"]')

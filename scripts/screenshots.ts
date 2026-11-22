@@ -55,16 +55,30 @@ if (
   );
 }
 
-const server = await preview({
-  root: fileURLToPath(new URL("../", import.meta.url)),
-  server: { host: "127.0.0.1", port: 0 },
-});
+const externalPreview = process.env.M9_PREVIEW_URL
+  ? new URL(process.env.M9_PREVIEW_URL)
+  : undefined;
+if (
+  externalPreview &&
+  (milestone !== "M9" ||
+    externalPreview.protocol !== "https:" ||
+    !externalPreview.hostname.endsWith(".workers.dev") ||
+    externalPreview.username ||
+    externalPreview.password)
+)
+  throw new Error("M9_PREVIEW_URL 仅用于 M9 的 HTTPS Workers 预览截图");
+const server = externalPreview
+  ? undefined
+  : await preview({
+      root: fileURLToPath(new URL("../", import.meta.url)),
+      server: { host: "127.0.0.1", port: 0 },
+    });
 try {
-  const origin = `http://127.0.0.1:${server.port}`;
+  const origin = externalPreview?.origin ?? `http://127.0.0.1:${server!.port}`;
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (["M6", "M7", "M7b"].includes(milestone))
+      if (["M6", "M7", "M7b", "M9"].includes(milestone))
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -174,6 +188,35 @@ try {
         ) {
           throw new Error(
             `无法截取 ${route.path}（${response?.status() ?? "无响应"}）`,
+          );
+        }
+        if (milestone === "M9") {
+          if (new URL(page.url()).origin !== origin)
+            throw new Error("M9 页面离开截图源站：" + route.path);
+          const layout = await page.evaluate(() => ({
+            lang: document.documentElement.lang,
+            overflow: document.documentElement.scrollWidth > innerWidth + 1,
+            cards: document.querySelectorAll("[data-product-card]").length,
+            sizes: document.querySelectorAll("[data-size-table] tbody tr")
+              .length,
+          }));
+          if (
+            layout.overflow ||
+            layout.lang !== (route.path.startsWith("/zh/") ? "zh-CN" : "en") ||
+            (route.name.includes("detail")
+              ? layout.sizes < 2
+              : layout.cards < 2)
+          )
+            throw new Error(
+              `M9 页面数据或布局异常：${route.path} ${JSON.stringify(layout)}`,
+            );
+          console.log(
+            JSON.stringify({
+              url: page.url(),
+              width,
+              status: response?.status(),
+              ...layout,
+            }),
           );
         }
 
@@ -403,9 +446,11 @@ try {
     await browser.close();
   }
 } finally {
-  const closed = server.closed();
-  await server.stop();
-  await closed;
+  if (server) {
+    const closed = server.closed();
+    await server.stop();
+    await closed;
+  }
 }
 
 if (milestone === "M4b" || milestone === "M4c") {

@@ -1,0 +1,55 @@
+{
+  "sku": "TODO_SKU_PAPER_DESSERT_CUPS",
+  "slug": "paper-dessert-cups",
+  "category": "tulip-shaped-baking-cups.json",
+  "title": { "en": "Paper Dessert Cups", "zh": "纸质甜品杯" },
+  "summary": {
+    "en": "Paper Dessert Cups made from PE-coated paper.",
+    "zh": "纸质甜品杯，材质为 PE 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "gsm": 210,
+  "sizes": [
+    {
+      "name": { "en": "65", "zh": "65" },
+      "baseDiameterMm": 55,
+      "heightMm": 40,
+      "topDiameterMm": 65
+    },
+    {
+      "name": { "en": "75", "zh": "75" },
+      "baseDiameterMm": 60,
+      "heightMm": 50,
+      "topDiameterMm": 75
+    },
+    {
+      "name": { "en": "85", "zh": "85" },
+      "baseDiameterMm": 70,
+      "heightMm": 55,
+      "topDiameterMm": 85
+    },
+    {
+      "name": { "en": "95", "zh": "95" },
+      "baseDiameterMm": 80,
+      "heightMm": 55,
+      "topDiameterMm": 95
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "65 — 50 pcs/pack × 40 packs\n75 — 50 pcs/pack × 40 packs\n85 — 50 pcs/pack × 20 packs\n95 — 50 pcs/pack × 20 packs",
+    "zh": "65 — 包装 50 个/包 × 40 包\n75 — 包装 50 个/包 × 40 包\n85 — 包装 50 个/包 × 20 包\n95 — 包装 50 个/包 × 20 包"
+  },
+  "seoTitle": { "en": "Paper Dessert Cups", "zh": "纸质甜品杯" },
+  "seoDescription": {
+    "en": "Paper Dessert Cups made from PE-coated paper.",
+    "zh": "纸质甜品杯，材质为 PE 淋膜纸。"
+  },
+  "featured": false,
+  "order": 48
+}

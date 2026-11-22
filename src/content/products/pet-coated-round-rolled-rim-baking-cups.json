@@ -1,0 +1,76 @@
+{
+  "sku": "TODO_SKU_PET_COATED_ROUND_ROLLED_RIM_BAKING_CUPS",
+  "slug": "pet-coated-round-rolled-rim-baking-cups",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "PET-Coated Round Rolled-Rim Baking Cups",
+    "zh": "PET 淋膜圆形卷口杯"
+  },
+  "summary": {
+    "en": "PET-Coated Round Rolled-Rim Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜圆形卷口杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "2525", "zh": "2525" },
+      "baseDiameterMm": 25,
+      "heightMm": 25,
+      "topDiameterMm": 35
+    },
+    {
+      "name": { "en": "3830", "zh": "3830" },
+      "baseDiameterMm": 38,
+      "heightMm": 30,
+      "topDiameterMm": 50
+    },
+    {
+      "name": { "en": "4435", "zh": "4435" },
+      "baseDiameterMm": 44,
+      "heightMm": 35,
+      "topDiameterMm": 60
+    },
+    {
+      "name": { "en": "5039", "zh": "5039" },
+      "baseDiameterMm": 50,
+      "heightMm": 39,
+      "topDiameterMm": 70
+    },
+    {
+      "name": { "en": "6040", "zh": "6040" },
+      "baseDiameterMm": 60,
+      "heightMm": 40,
+      "topDiameterMm": 80
+    },
+    {
+      "name": { "en": "7540", "zh": "7540" },
+      "baseDiameterMm": 75,
+      "heightMm": 40,
+      "topDiameterMm": 90
+    },
+    {
+      "name": { "en": "8928", "zh": "8928" },
+      "baseDiameterMm": 89,
+      "heightMm": 28,
+      "topDiameterMm": 100
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "packaging": { "en": "100 pcs/pack × 30 packs", "zh": "100 个/包 × 30 包" },
+  "seoTitle": {
+    "en": "PET-Coated Round Rolled-Rim Baking Cups",
+    "zh": "PET 淋膜圆形卷口杯"
+  },
+  "seoDescription": {
+    "en": "PET-Coated Round Rolled-Rim Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜圆形卷口杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 14
+}

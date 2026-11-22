@@ -1,0 +1,57 @@
+{
+  "sku": "TODO_SKU_GREASEPROOF_ROUND_ROLLED_RIM_TRAYS",
+  "slug": "greaseproof-round-rolled-rim-trays",
+  "category": "rolled-rim-baking-cups.json",
+  "title": {
+    "en": "Greaseproof Round Rolled-Rim Trays",
+    "zh": "防油纸圆盘卷口杯"
+  },
+  "summary": {
+    "en": "Greaseproof Round Rolled-Rim Trays made from greaseproof paper.",
+    "zh": "防油纸圆盘卷口杯，材质为 防油纸。"
+  },
+  "images": [
+    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+  ],
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "gsm": "TODO_GSM",
+  "sizes": [
+    {
+      "name": { "en": "90×25 mm", "zh": "90×25 mm" },
+      "baseDiameterMm": 90,
+      "heightMm": 25,
+      "topDiameterMm": 111,
+      "specification": {
+        "en": "Paper weight 80 / 100 / 120 g/m²",
+        "zh": "纸张克重 80 / 100 / 120 g/m²"
+      }
+    },
+    {
+      "name": { "en": "150×35 mm", "zh": "150×35 mm" },
+      "baseDiameterMm": 150,
+      "heightMm": 35,
+      "topDiameterMm": 175,
+      "specification": {
+        "en": "Paper weight 80 / 100 / 120 g/m²",
+        "zh": "纸张克重 80 / 100 / 120 g/m²"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "packagingDetails": {
+    "en": "90×25 mm — 50 pcs/pack × 60 packs\n150×35 mm — 50 pcs/pack × 20 packs\n150×35 mm (quoted specification) — 50 pcs/sleeve, 24 sleeves/carton · 80 g/m²",
+    "zh": "90×25 mm — 包装 50 个/包 × 60 包\n150×35 mm — 包装 50 个/包 × 20 包\n150×35 mm（该规格报价） — 包装 50 个/条，24 条/箱 · 纸张克重 80 g/m²"
+  },
+  "seoTitle": {
+    "en": "Greaseproof Round Rolled-Rim Trays",
+    "zh": "防油纸圆盘卷口杯"
+  },
+  "seoDescription": {
+    "en": "Greaseproof Round Rolled-Rim Trays made from greaseproof paper.",
+    "zh": "防油纸圆盘卷口杯，材质为 防油纸。"
+  },
+  "featured": false,
+  "order": 34
+}

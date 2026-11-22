@@ -1,0 +1,124 @@
+{
+  "sku": "TODO_SKU_PET_COATED_ROUND_CUPS",
+  "slug": "pet-coated-round-cups",
+  "category": "pet-coated-baking-cups.json",
+  "title": { "en": "PET-Coated Round Baking Cups", "zh": "PET 淋膜圆形纸杯" },
+  "summary": {
+    "en": "PET-Coated Round Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜圆形纸杯，材质为 PET 淋膜纸。"
+  },
+  "images": [
+    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+  ],
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
+  "sizes": [
+    {
+      "name": { "en": "50×30 mm", "zh": "50×30 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "75×25 mm", "zh": "75×25 mm" },
+      "baseDiameterMm": 75,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "60×30 mm", "zh": "60×30 mm" },
+      "baseDiameterMm": 60,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "50×35 mm", "zh": "50×35 mm" },
+      "baseDiameterMm": 50,
+      "heightMm": 35
+    },
+    {
+      "name": { "en": "85×25 mm", "zh": "85×25 mm" },
+      "baseDiameterMm": 85,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "70×30 mm", "zh": "70×30 mm" },
+      "baseDiameterMm": 70,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "80×25 mm", "zh": "80×25 mm" },
+      "baseDiameterMm": 80,
+      "heightMm": 25
+    },
+    {
+      "name": { "en": "90×27.5 mm", "zh": "90×27.5 mm" },
+      "baseDiameterMm": 90,
+      "heightMm": 27.5
+    },
+    {
+      "name": { "en": "80×30 mm", "zh": "80×30 mm" },
+      "baseDiameterMm": 80,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "90×32.5 mm", "zh": "90×32.5 mm" },
+      "baseDiameterMm": 90,
+      "heightMm": 32.5
+    },
+    {
+      "name": { "en": "90×30 mm", "zh": "90×30 mm" },
+      "baseDiameterMm": 90,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "90×35 mm", "zh": "90×35 mm" },
+      "baseDiameterMm": 90,
+      "heightMm": 35
+    },
+    {
+      "name": { "en": "120×50 mm", "zh": "120×50 mm" },
+      "baseDiameterMm": 120,
+      "heightMm": 50
+    },
+    {
+      "name": { "en": "45×30 mm", "zh": "45×30 mm" },
+      "baseDiameterMm": 45,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "85×30 mm", "zh": "85×30 mm" },
+      "baseDiameterMm": 85,
+      "heightMm": 30
+    },
+    {
+      "name": { "en": "135×60 mm", "zh": "135×60 mm" },
+      "baseDiameterMm": 135,
+      "heightMm": 60
+    },
+    {
+      "name": { "en": "30×20 mm", "zh": "30×20 mm" },
+      "baseDiameterMm": 30,
+      "heightMm": 20
+    },
+    {
+      "name": { "en": "30×30 mm", "zh": "30×30 mm" },
+      "baseDiameterMm": 30,
+      "heightMm": 30
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": true,
+  "packagingDetails": {
+    "en": "50×30 mm — 6,000 pcs\n75×25 mm — 3,000 / 4,000 pcs\n60×30 mm — 3,000 / 4,000 pcs\n50×35 mm — 3,000 / 4,000 pcs\n85×25 mm — 3,000 / 4,000 pcs\n70×30 mm — 3,000 / 4,000 pcs\n80×25 mm — 3,000 / 4,000 pcs\n90×27.5 mm — 3,000 / 4,000 pcs\n80×30 mm — 3,000 / 4,000 pcs\n90×32.5 mm — 3,000 / 4,000 pcs\n90×30 mm — 3,000 / 4,000 pcs\n90×35 mm — 3,000 / 4,000 pcs\n120×50 mm — 3,000 / 4,000 pcs\n45×30 mm — 3,000 / 4,000 pcs\n85×30 mm — 3,000 / 4,000 pcs\n135×60 mm — 3,000 / 4,000 pcs\n30×20 mm — 3,000 / 4,000 pcs\n30×30 mm — 3,000 / 4,000 pcs",
+    "zh": "50×30 mm — 包装 6,000 个\n75×25 mm — 包装 3,000 / 4,000 个\n60×30 mm — 包装 3,000 / 4,000 个\n50×35 mm — 包装 3,000 / 4,000 个\n85×25 mm — 包装 3,000 / 4,000 个\n70×30 mm — 包装 3,000 / 4,000 个\n80×25 mm — 包装 3,000 / 4,000 个\n90×27.5 mm — 包装 3,000 / 4,000 个\n80×30 mm — 包装 3,000 / 4,000 个\n90×32.5 mm — 包装 3,000 / 4,000 个\n90×30 mm — 包装 3,000 / 4,000 个\n90×35 mm — 包装 3,000 / 4,000 个\n120×50 mm — 包装 3,000 / 4,000 个\n45×30 mm — 包装 3,000 / 4,000 个\n85×30 mm — 包装 3,000 / 4,000 个\n135×60 mm — 包装 3,000 / 4,000 个\n30×20 mm — 包装 3,000 / 4,000 个\n30×30 mm — 包装 3,000 / 4,000 个"
+  },
+  "seoTitle": {
+    "en": "PET-Coated Round Baking Cups",
+    "zh": "PET 淋膜圆形纸杯"
+  },
+  "seoDescription": {
+    "en": "PET-Coated Round Baking Cups made from PET-coated paper.",
+    "zh": "PET 淋膜圆形纸杯，材质为 PET 淋膜纸。"
+  },
+  "featured": false,
+  "order": 51
+}
