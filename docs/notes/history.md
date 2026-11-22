@@ -84,3 +84,7 @@ PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURN
 ## 2026-11-22 M9 产品与公司资料批量导入
 
 从 main fd6d242 创建 m9-product-import。工厂工作簿原样移入 data-import，使用确认的公司资料、13 个分类和 118 个产品。354 条原始记录中纳入 342 条，形成 339 个尺寸或选项。保留逐行合并方案和图片清单。六项检查、312 项测试、重复导入、GitHub CI 和 Workers PR 预览均通过。PR #16 实测双语页面、375px 和 noindex 响应并记录 12 张预览截图。继续等待工厂照片、型号和待核对规格。PR：https://github.com/pengshang01-cyber/dulizhan/pull/16 。
+
+## 2026-11-22 M9.1 公开页面隐藏未补资料
+
+从 main 79a85c3 创建 `m9-1-hide-todo`。公开 HTML 和询盘的产品数据省略待补字段，询价单保留 slug、名称和数量，邮件包含当前语言的产品链接。六项检查及 322 项测试通过，公开 HTML 含占位页面数从 284 降至 0，待补清单保留现有 314 项。Workers PR 预览验证双语 noindex，提交无型号详情和询价单的四张截图。[PR #17](https://github.com/pengshang01-cyber/dulizhan/pull/17)
