@@ -88,3 +88,7 @@ PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURN
 ## 2026-11-22 M9.1 公开页面隐藏未补资料
 
 从 main 79a85c3 创建 `m9-1-hide-todo`。公开 HTML 和询盘的产品数据省略待补字段，询价单保留 slug、名称和数量，邮件包含当前语言的产品链接。六项检查及 322 项测试通过，公开 HTML 含占位页面数从 284 降至 0，待补清单保留现有 314 项。Workers PR 预览验证双语 noindex，提交无型号详情和询价单的四张截图。[PR #17](https://github.com/pengshang01-cyber/dulizhan/pull/17)
+
+## 2026-11-22 M10 产品图片挑选、处理与上线
+
+从 main adee147 创建 `m10-product-images`，按产品映射筛选图片并保留原图。91 款产品写入 207 张图库图片，同时更新 13 张分类封面、8 张车间实拍及机器可读的来源与处理清单。27 款保留原占位。六项检查、322 项测试、GitHub CI 和 Workers 构建通过，登记 18 张 PR 预览截图并复核禁止收录响应。[PR #18](https://github.com/pengshang01-cyber/dulizhan/pull/18) · [M10 审核报告](../reviews/M10.md)
