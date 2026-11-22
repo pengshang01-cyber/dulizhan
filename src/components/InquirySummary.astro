@@ -1,18 +1,14 @@
 ---
-import { getProducts } from "../lib/products";
-import { localized } from "../i18n/utils";
+import { getProducts, inquiryProduct } from "../lib/products";
 import { localePath } from "../i18n/routing";
 import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
 const { locale = "en" } = Astro.props;
 import Button from "./Button.astro";
 import SectionHeading from "./SectionHeading.astro";
-const catalog = (await getProducts()).map(({ data }) => ({
-  slug: data.slug,
-  sku: data.sku,
-  title: localized(data.title, locale),
-  category: data.category,
-}));
+const catalog = (await getProducts()).map(({ data }) =>
+  inquiryProduct(data, locale),
+);
 interface Props {
   locale?: Locale;
 }
@@ -56,6 +52,7 @@ interface Props {
     <div class="min-w-0">
       <p
         data-inquiry-summary-sku
+        hidden
         class="text-xs tracking-[0.12em] wrap-anywhere text-muted uppercase"
       ></p>
       <h3 class="mt-2 font-display text-card-title font-normal wrap-anywhere">
@@ -72,11 +69,10 @@ interface Props {
 </template>
 
 <script>
-  import { localePath } from "../i18n/routing";
+  import { productHref } from "../i18n/routing";
   import { readInquiryCatalog, inquiryDisplayItem } from "../lib/inquiry-view";
   import { t } from "../i18n/utils";
   const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
-  import { display } from "../lib/placeholders";
   import { getItems, INQUIRY_CHANGE_EVENT } from "../lib/inquiry";
 
   const summary = document.querySelector<HTMLElement>("[data-inquiry-summary]");
@@ -115,19 +111,15 @@ interface Props {
         "[data-inquiry-summary-quantity]",
       );
       if (product) {
-        product.textContent = display(
-          item.title,
-          t("inquiry.productName", locale),
-        );
-        product.href = localePath(
-          `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`,
-          locale,
-        );
+        product.textContent = item.title;
+        product.href = productHref(item, locale);
       }
-      if (sku)
-        sku.textContent = t("inquiry.sku", locale, {
-          sku: display(item.sku, t("inquiry.skuLabel", locale)),
-        });
+      if (sku) {
+        sku.hidden = !item.sku;
+        sku.textContent = item.sku
+          ? t("inquiry.sku", locale, { sku: item.sku })
+          : "";
+      }
       if (quantity) {
         quantity.textContent =
           item.quantity === null

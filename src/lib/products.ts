@@ -1,8 +1,8 @@
-import { localePath } from "../i18n/routing";
 import { getCollection, type CollectionEntry } from "astro:content";
-import { display, isTodo } from "../config/site";
-import { localized, t, type Locale } from "../i18n/utils";
+import { confirmedLocalized, localized, t, type Locale } from "../i18n/utils";
 import { visibleCategories } from "./category-visibility";
+import { confirmedText } from "./placeholders";
+export { productHref } from "../i18n/routing";
 
 export type Product = CollectionEntry<"products">;
 export type ProductData = Product["data"];
@@ -54,21 +54,21 @@ export async function getProductCategory(id: string): Promise<ProductCategory> {
   return category;
 }
 
-export function productHref(
-  product: Pick<ProductData, "category" | "slug">,
-  locale: Locale = "en",
-) {
-  return localePath(
-    "/products/" + product.category + "/" + product.slug + "/",
-    locale,
-  );
+export function inquiryProduct(data: ProductData, locale: Locale) {
+  return {
+    slug: data.slug,
+    title:
+      confirmedLocalized(data.title, locale) ??
+      t("inquiry.productName", locale),
+    sku: confirmedText(data.sku),
+    category: data.category,
+  };
 }
 export function sizeSummary(
   sizes: ProductData["sizes"],
   locale: Locale = "en",
 ) {
-  const size = sizes[0];
-  if (size) {
+  for (const size of sizes) {
     if (
       typeof size.baseDiameterMm === "number" &&
       typeof size.heightMm === "number"
@@ -77,19 +77,7 @@ export function sizeSummary(
         base: size.baseDiameterMm,
         height: size.heightMm,
       });
-    const specification =
-      size.specification && localized(size.specification, locale);
-    if (specification && !isTodo(specification)) return specification;
+    const specification = confirmedLocalized(size.specification, locale);
+    if (specification) return specification;
   }
-  return display("TODO_SIZE", t("products.todo.size", locale));
-}
-export function measurementLabel(
-  value: number | string | undefined,
-  label: string,
-  locale: Locale = "en",
-) {
-  if (value === undefined) return t("products.notSpecified", locale);
-  return typeof value === "number"
-    ? t("products.measurement", locale, { value })
-    : display(value, label);
 }

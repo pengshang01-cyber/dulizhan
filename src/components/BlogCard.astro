@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import { localized, t, type Locale } from "../i18n/utils";
+import { confirmedLocalized, t, type Locale } from "../i18n/utils";
 import { blogHref } from "../lib/blog-rules";
 import type { BlogPost } from "../lib/blog";
 interface Props {
@@ -8,7 +8,8 @@ interface Props {
   locale: Locale;
 }
 const { post, locale } = Astro.props;
-const title = localized(post.data.title, locale);
+const title = confirmedLocalized(post.data.title, locale) ?? post.id;
+const description = confirmedLocalized(post.data.description, locale);
 const dateLabel = new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
   dateStyle: "long",
   timeZone: "UTC",
@@ -42,9 +43,9 @@ const dateLabel = new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
         {title}
       </a>
     </h2>
-    <p class="mt-4 text-sm leading-relaxed text-ink-soft">
-      {localized(post.data.description, locale)}
-    </p>
+    {description && (
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft">{description}</p>
+    )}
     <a
       href={blogHref(post.id, locale)}
       class="mt-auto pt-6 text-xs font-extrabold tracking-wider text-copper uppercase"

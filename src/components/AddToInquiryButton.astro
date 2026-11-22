@@ -2,7 +2,7 @@
 import type { Locale } from "../i18n/utils";
 import { t } from "../i18n/utils";
 const { locale = "en" } = Astro.props;
-import { display } from "../config/site";
+import { confirmedText } from "../lib/placeholders";
 import type { InquiryProduct } from "../lib/inquiry";
 import Button from "./Button.astro";
 
@@ -13,6 +13,7 @@ interface Props {
 }
 
 const { product, class: className } = Astro.props;
+const title = confirmedText(product.title) ?? t("inquiry.productName", locale);
 ---
 
 <Button
@@ -22,11 +23,11 @@ const { product, class: className } = Astro.props;
   data-label-add={t("inquiry.add", locale)}
   data-label-added={t("inquiry.added", locale)}
   data-inquiry-slug={product.slug}
-  data-inquiry-sku={product.sku}
-  data-inquiry-title={product.title}
+  data-inquiry-sku={confirmedText(product.sku)}
+  data-inquiry-title={title}
   data-inquiry-category={product.category}
   aria-pressed="false"
-  title={display(product.title, t("inquiry.productName", locale))}
+  title={title}
   disabled
 >
   <span data-inquiry-label>{t("inquiry.add", locale)}</span>
@@ -67,7 +68,7 @@ const { product, class: className } = Astro.props;
       } else {
         const added = addItem({
           slug,
-          sku: button.dataset.inquirySku ?? "",
+          sku: button.dataset.inquirySku,
           title: button.dataset.inquiryTitle ?? "",
           category: button.dataset.inquiryCategory ?? "",
         });

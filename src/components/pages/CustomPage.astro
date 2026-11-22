@@ -12,9 +12,9 @@ import Eyebrow from "../Eyebrow.astro";
 import FaqAccordion from "../FaqAccordion.astro";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
-import { display, site } from "../../config/site";
+import { site } from "../../config/site";
 import { customizationCases, customizationSteps } from "../../lib/content-data";
-import { localized } from "../../i18n/utils";
+import { confirmedLocalized } from "../../i18n/utils";
 import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -69,11 +69,40 @@ const policies = [
     label: t("pages.custom.shipping_methods", locale),
     value: site.shippingMethods,
   },
-];
-const process = customizationSteps.map(({ title, description }, index) => ({
-  question: `${String(index + 1).padStart(2, "0")} / ${localized(title, locale)}`,
-  answer: localized(description, locale),
-}));
+]
+  .map(({ label, value }) => ({
+    label,
+    value: confirmedLocalized(value, locale),
+  }))
+  .filter(({ value }) => value);
+const process = customizationSteps.flatMap(({ title, description }, index) => {
+  const heading = confirmedLocalized(title, locale);
+  const answer = confirmedLocalized(description, locale);
+  return heading && answer
+    ? [
+        {
+          question: `${String(index + 1).padStart(2, "0")} / ${heading}`,
+          answer,
+        },
+      ]
+    : [];
+});
+const cases = customizationCases.flatMap(
+  ({ title, summary, image, imageAlt }) => {
+    const heading = confirmedLocalized(title, locale);
+    const photo = heading && resolveSiteImage(image);
+    return heading && photo
+      ? [
+          {
+            title: heading,
+            summary: confirmedLocalized(summary, locale),
+            image: photo,
+            alt: confirmedLocalized(imageAlt, locale) ?? "",
+          },
+        ]
+      : [];
+  },
+);
 interface Props {
   locale?: Locale;
 }
@@ -170,9 +199,11 @@ interface Props {
           locale,
         )}
       />
-      <div class="text-ink">
-        <FaqAccordion items={process} firstOpen />
-      </div>
+      {process.length > 0 && (
+        <div class="text-ink">
+          <FaqAccordion items={process} firstOpen />
+        </div>
+      )}
     </Container>
   </section>
 
@@ -190,22 +221,24 @@ interface Props {
           locale,
         )}
       />
-      <dl class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {policies.map(({ label, value }) => (
-          <div class="rounded-panel border border-line bg-white p-6">
-            <dt class="text-xs font-bold tracking-[0.12em] text-muted uppercase">
-              {label}
-            </dt>
-            <dd class="mt-4 text-base leading-relaxed wrap-anywhere text-ink-soft">
-              {display(localized(value, locale), label.toLowerCase())}
-            </dd>
-          </div>
-        ))}
-      </dl>
+      {policies.length > 0 && (
+        <dl class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {policies.map(({ label, value }) => (
+            <div class="rounded-panel border border-line bg-white p-6">
+              <dt class="text-xs font-bold tracking-[0.12em] text-muted uppercase">
+                {label}
+              </dt>
+              <dd class="mt-4 text-base leading-relaxed wrap-anywhere text-ink-soft">
+                {value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
     </Container>
   </section>
 
-  {customizationCases.length > 0 && (
+  {cases.length > 0 && (
     <section
       id="custom-cases"
       aria-labelledby="custom-cases-title"
@@ -218,11 +251,11 @@ interface Props {
           id="custom-cases-title"
         />
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {customizationCases.map(({ title, summary, image, imageAlt }) => (
+          {cases.map(({ title, summary, image, alt }) => (
             <article class="overflow-hidden rounded-panel border border-line bg-white">
               <Image
-                src={resolveSiteImage(image)!}
-                alt={localized(imageAlt, locale)}
+                src={image}
+                alt={alt}
                 widths={[384, 768]}
                 sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
                 format="webp"
@@ -231,17 +264,13 @@ interface Props {
               />
               <div class="p-6">
                 <h3 class="font-display text-card-title font-normal">
-                  {display(
-                    localized(title, locale),
-                    t("pages.custom.case_title", locale),
-                  )}
+                  {title}
                 </h3>
-                <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {display(
-                    localized(summary, locale),
-                    t("pages.custom.case_description", locale),
-                  )}
-                </p>
+                {summary && (
+                  <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                    {summary}
+                  </p>
+                )}
               </div>
             </article>
           ))}

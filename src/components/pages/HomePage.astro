@@ -11,22 +11,23 @@ import Container from "../Container.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
 import FaqAccordion from "../FaqAccordion.astro";
-import { customizationSteps as steps } from "../../lib/content-data";
+import { customizationSteps } from "../../lib/content-data";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
 import StatsBar from "../StatsBar.astro";
 import CategoryGrid from "../home/CategoryGrid.astro";
 import FactoryVideo from "../home/FactoryVideo.astro";
-import { isTodo, site } from "../../config/site";
+import { site } from "../../config/site";
+import { confirmedText } from "../../lib/placeholders";
 import { getFaqs } from "../../lib/faq";
-import { localized } from "../../i18n/utils";
+import { confirmedLocalized } from "../../i18n/utils";
 import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const heroImage = resolveSiteImage(site.homeHeroImage);
 const heroAlt = heroImage
-  ? (site.homeHeroAlt ? localized(site.homeHeroAlt, locale) : "") ||
-    t("pages.index.cupcake_liners_baking_cups", locale)
+  ? (confirmedLocalized(site.homeHeroAlt, locale) ??
+    t("pages.index.cupcake_liners_baking_cups", locale))
   : t("pages.index.hero_product_image_placeholder", locale);
 
 const intro = t(
@@ -68,20 +69,18 @@ const benefits = [
   },
 ];
 
-const videoId = site.youtubeVideoId.trim();
-const hasVideo = !isTodo(videoId) && /^[A-Za-z0-9_-]{11}$/.test(videoId);
-const certificates = site.certificates
-  .map((item) => ({
-    name: localized(item.name, locale),
-    imagePath: item.imagePath,
-  }))
-  .filter(
-    ({ name, imagePath }) =>
-      name.trim() &&
-      imagePath?.trim() &&
-      !isTodo(name.trim()) &&
-      !isTodo(imagePath.trim()),
-  );
+const videoId = confirmedText(site.youtubeVideoId);
+const certificates = site.certificates.flatMap(({ name, imagePath }) => {
+  const caption = confirmedLocalized(name, locale);
+  const image = caption && resolveSiteImage(imagePath);
+  return caption && image ? [{ name: caption, image }] : [];
+});
+const steps = customizationSteps.flatMap(({ title, description }) => {
+  const heading = confirmedLocalized(title, locale);
+  return heading
+    ? [{ title: heading, description: confirmedLocalized(description, locale) }]
+    : [];
+});
 const featuredFaqs = getFaqs(locale).filter(({ featured }) => featured);
 interface Props {
   locale?: Locale;
@@ -198,28 +197,34 @@ interface Props {
           <span aria-hidden="true">→</span>
         </Button>
       </div>
-      <ol class="mt-9 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-        {steps.map(({ title, description }, index) => (
-          <li class="rounded-panel border border-line bg-white p-4 text-ink sm:p-6">
-            <span
-              aria-hidden="true"
-              class="font-display text-3xl leading-none text-copper"
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
-              {localized(title, locale)}
-            </h3>
-            <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-              {localized(description, locale)}
-            </p>
-          </li>
-        ))}
-      </ol>
+      {steps.length > 0 && (
+        <ol class="mt-9 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
+          {steps.map(({ title, description }, index) => (
+            <li class="rounded-panel border border-line bg-white p-4 text-ink sm:p-6">
+              <span
+                aria-hidden="true"
+                class="font-display text-3xl leading-none text-copper"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
+                {title}
+              </h3>
+              {description && (
+                <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                  {description}
+                </p>
+              )}
+            </li>
+          ))}
+        </ol>
+      )}
     </Container>
   </section>
 
-  {hasVideo && <FactoryVideo locale={locale} videoId={videoId} />}
+  {videoId && /^[A-Za-z0-9_-]{11}$/.test(videoId) && (
+    <FactoryVideo locale={locale} videoId={videoId} />
+  )}
 
   {certificates.length > 0 && (
     <section
@@ -234,11 +239,11 @@ interface Props {
           id="certificates-title"
         />
         <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {certificates.map(({ name, imagePath }) => (
+          {certificates.map(({ name, image }) => (
             <li>
               <figure class="h-full rounded-panel border border-line bg-white p-4">
                 <Image
-                  src={resolveSiteImage(imagePath)!}
+                  src={image}
                   alt={name}
                   width={480}
                   height={360}
@@ -256,20 +261,22 @@ interface Props {
     </section>
   )}
 
-  <section
-    id="home-faq"
-    aria-labelledby="home-faq-title"
-    class="border-b border-line py-14 sm:py-20"
-  >
-    <Container class="grid items-start gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-      <SectionHeading
-        eyebrow={t("pages.index.before_you_order", locale)}
-        title={t("pages.index.frequently_asked_questions", locale)}
-        id="home-faq-title"
-      />
-      <FaqAccordion items={featuredFaqs} firstOpen />
-    </Container>
-  </section>
+  {featuredFaqs.length > 0 && (
+    <section
+      id="home-faq"
+      aria-labelledby="home-faq-title"
+      class="border-b border-line py-14 sm:py-20"
+    >
+      <Container class="grid items-start gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+        <SectionHeading
+          eyebrow={t("pages.index.before_you_order", locale)}
+          title={t("pages.index.frequently_asked_questions", locale)}
+          id="home-faq-title"
+        />
+        <FaqAccordion items={featuredFaqs} firstOpen />
+      </Container>
+    </section>
+  )}
 
   <section
     aria-labelledby="home-quote-title"

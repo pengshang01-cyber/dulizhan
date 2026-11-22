@@ -23,7 +23,7 @@ const payload: InquiryPayload = {
   items: [
     {
       slug: "sample-cup",
-      sku: "TODO-001",
+      sku: "TODO_SKU_TEST_CUP",
       title: "Test cup",
       category: "tulip-shaped-baking-cups",
       quantity: null,
@@ -68,10 +68,27 @@ function successfulFetch() {
 
 describe("inquiry payload validation", () => {
   it("accepts the form contract with nullable line quantities", () => {
-    expect(validateInquiryPayload(payload)).toEqual({
+    const items = payload.items.map(({ slug, title, category, quantity }) => ({
+      slug,
+      title,
+      category,
+      quantity,
+    }));
+    expect(validateInquiryPayload({ ...payload, items })).toEqual({
       ok: true,
-      data: payload,
+      data: { ...payload, items },
     });
+  });
+  it("filters placeholder models sent by older clients while preserving product slugs", () => {
+    const result = validateInquiryPayload(payload);
+    expect(result.ok).toBe(true);
+    if (!result.ok) throw new Error("Expected a valid inquiry");
+    expect(result.data.items.map(({ slug }) => slug)).toEqual(
+      payload.items.map(({ slug }) => slug),
+    );
+    for (const item of result.data.items)
+      expect(item).not.toHaveProperty("sku");
+    expect(JSON.stringify(result)).not.toContain("TODO");
   });
   it.each([
     "name",
@@ -558,7 +575,12 @@ describe("Worker inquiry API", () => {
       "[EN] New Inquiry: Test Company - United Kingdom - 2",
     );
     expect(mail.html).toContain("<table");
-    expect(mail.html).toContain("TODO-001");
+    const productUrl = `${site.domain}/products/tulip-shaped-baking-cups/sample-cup/`;
+    expect(mail.html).toContain(`<a href="${productUrl}">Test cup</a>`);
+    expect(mail.text).toContain(`Test cup (${productUrl})`);
+    expect(mail.html).not.toContain("SKU");
+    expect(mail.html).not.toContain("TODO");
+    expect(mail.text).not.toContain("TODO");
     expect(mail.text).toContain("To be discussed");
     expect(mail.text).toContain("10000");
     expect(mail.text).toContain("2026-11-16T12:00:00.000Z");
@@ -649,8 +671,8 @@ describe("inquiry email", () => {
     expect(mail.subject).toBe("[中文] 新询盘：Test Buyer - 中国 - 2");
     for (const value of [
       "待沟通",
-      "TODO-001",
-      "TODO-002",
+      `Test cup (${site.domain}/zh/products/tulip-shaped-baking-cups/sample-cup/)`,
+      `Second test cup (${site.domain}/zh/products/cupcake-liners/second-cup/)`,
       "采购需求",
       "是否需要样品: 是",
       "test-only",
@@ -663,6 +685,28 @@ describe("inquiry email", () => {
     ])
       expect(mail.text).toContain(value);
     expect(mail.html).toContain('lang="zh-CN"');
+    expect(mail.html).not.toMatch(/TODO|>型号</);
+    expect(mail.text).not.toContain("TODO");
+  });
+  it("links a directly selected product and retains a verified model for another product", () => {
+    const mail = buildInquiryEmail(
+      {
+        ...payload,
+        productSlug: "selected-cup",
+        productTitle: "Selected cup",
+        items: [
+          payload.items[0]!,
+          { ...payload.items[1]!, sku: "VERIFIED-02" },
+        ],
+      },
+      new Date(),
+    );
+    expect(mail.html).toContain(
+      `href="${site.domain}/products/tulip-shaped-baking-cups/selected-cup/">Selected cup</a>`,
+    );
+    expect(mail.html).toContain(">VERIFIED-02<");
+    expect(mail.text).toContain("VERIFIED-02 | Second test cup");
+    expect(mail.html + mail.text).not.toContain("TODO");
   });
   it("escapes user HTML in fields and table cells while keeping plain text readable", () => {
     const malicious = '<img src=x onerror="alert(1)"> & quote';

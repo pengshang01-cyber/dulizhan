@@ -1,6 +1,6 @@
 ---
 import { localePath } from "../../i18n/routing";
-import { t, localized, type Locale } from "../../i18n/utils";
+import { t, confirmedLocalized, type Locale } from "../../i18n/utils";
 interface Props {
   locale?: Locale;
 }
@@ -12,47 +12,41 @@ import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
 import InquiryForm from "../InquiryForm.astro";
 import SectionHeading from "../SectionHeading.astro";
-import { display, getWhatsAppHref, isTodo, site } from "../../config/site";
+import { getWhatsAppHref, site } from "../../config/site";
+import { confirmedText } from "../../lib/placeholders";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
-const email = site.email.trim();
-const phone = site.phone.trim();
-const address = localized(site.factoryAddress, locale).trim();
-const wechatId = site.wechatId.trim();
-const hasWeChat = Boolean(wechatId && !isTodo(wechatId));
-const wechatQr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
+const email = confirmedText(site.email);
+const phone = confirmedText(site.phone);
+const address = confirmedLocalized(site.factoryAddress, locale);
+const wechatId = confirmedText(site.wechatId);
+const wechatQr = wechatId ? resolveSiteImage(site.wechatQr) : undefined;
 const contactCards = {
   email: {
     key: "email",
     label: t("site.email", locale),
-    value: display(site.email, t("site.emailLabel", locale)),
-    href: email && !isTodo(email) ? "mailto:" + email : undefined,
+    value: email,
+    href: email ? "mailto:" + email : undefined,
   },
   phone: {
     key: "phone",
     label: t("site.phone", locale),
-    value: display(site.phone, t("site.phoneLabel", locale)),
-    href:
-      phone && !isTodo(phone)
-        ? "tel:" + phone.replace(/[^+\d]/g, "")
-        : undefined,
+    value: phone,
+    href: phone ? "tel:" + phone.replace(/[^+\d]/g, "") : undefined,
   },
   whatsapp: {
     key: "whatsapp",
     label: t("site.whatsapp", locale),
-    value: display(site.whatsappNumber, t("site.whatsappNumberLabel", locale)),
+    value: confirmedText(site.whatsappNumber),
     href: getWhatsAppHref(
       site.whatsappNumber,
-      localized(site.whatsappPrefillMessage, locale),
+      confirmedLocalized(site.whatsappPrefillMessage, locale),
     ),
   },
   address: {
     key: "address",
     label: t("contact.address", locale),
-    value: display(
-      localized(site.factoryAddress, locale),
-      t("site.addressLabel", locale),
-    ),
+    value: address,
     href: undefined,
   },
   wechat: {
@@ -67,12 +61,11 @@ const order =
     ? (["wechat", "phone", "whatsapp", "email", "address"] as const)
     : (["email", "phone", "whatsapp", "address", "wechat"] as const);
 const contacts = order
-  .filter((key) => key !== "wechat" || hasWeChat)
-  .map((key) => contactCards[key]);
-const mapUrl =
-  address && !isTodo(address)
-    ? `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
-    : undefined;
+  .map((key) => contactCards[key])
+  .filter(({ value }) => value);
+const mapUrl = address
+  ? `https://maps.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
+  : undefined;
 ---
 
 <BaseLayout locale={locale}>
@@ -85,50 +78,52 @@ const mapUrl =
     <p class="mt-6 max-w-2xl leading-relaxed text-ink-soft">
       {t("contact.intro", locale)}
     </p>
-    <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {contacts.map(({ key, label, value, href }) => (
-        <section
-          data-contact-method={key}
-          data-wechat-card={key === "wechat" || undefined}
-          class="min-w-0 rounded-panel border border-line bg-white p-6"
-        >
-          <h2 class="text-xs font-bold tracking-[0.12em] text-ink-soft uppercase">
-            {label}
-          </h2>
-          <p class="mt-4 text-sm leading-relaxed wrap-anywhere">
-            {href ? (
-              <a
-                href={href}
-                data-track={
-                  key === "email"
-                    ? "email_click"
-                    : key === "phone"
-                      ? "phone_click"
-                      : key === "whatsapp"
-                        ? "whatsapp_click"
-                        : undefined
-                }
-                class="text-copper hover:text-copper-dark"
-              >
-                {value}
-              </a>
-            ) : (
-              value
+    {contacts.length > 0 && (
+      <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {contacts.map(({ key, label, value, href }) => (
+          <section
+            data-contact-method={key}
+            data-wechat-card={key === "wechat" || undefined}
+            class="min-w-0 rounded-panel border border-line bg-white p-6"
+          >
+            <h2 class="text-xs font-bold tracking-[0.12em] text-ink-soft uppercase">
+              {label}
+            </h2>
+            <p class="mt-4 text-sm leading-relaxed wrap-anywhere">
+              {href ? (
+                <a
+                  href={href}
+                  data-track={
+                    key === "email"
+                      ? "email_click"
+                      : key === "phone"
+                        ? "phone_click"
+                        : key === "whatsapp"
+                          ? "whatsapp_click"
+                          : undefined
+                  }
+                  class="text-copper hover:text-copper-dark"
+                >
+                  {value}
+                </a>
+              ) : (
+                value
+              )}
+            </p>
+            {key === "wechat" && wechatQr && (
+              <Image
+                src={wechatQr}
+                alt={t("contact.wechatQr", locale)}
+                width={240}
+                format="webp"
+                loading="lazy"
+                class="mt-4 h-auto w-48 max-w-full"
+              />
             )}
-          </p>
-          {key === "wechat" && wechatQr && (
-            <Image
-              src={wechatQr}
-              alt={t("contact.wechatQr", locale)}
-              width={240}
-              format="webp"
-              loading="lazy"
-              class="mt-4 h-auto w-48 max-w-full"
-            />
-          )}
-        </section>
-      ))}
-    </div>
+          </section>
+        ))}
+      </div>
+    )}
   </Container>
 
   <section

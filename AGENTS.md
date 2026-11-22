@@ -28,7 +28,7 @@
 
 ## 3. 硬性规则
 
-1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书与联系方式一律从 `src/data/site.json` 读取，客户案例只从 `src/data/cases.json` 读取；没有的值用明显的占位符 `TODO_xxx`，页面上显示为 `[TODO: xxx]`。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字与证书名称仍必须来自 `site.json` 或产品数据，客户名称必须来自经确认的案例数据。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
+1. **不编造事实。** 工厂名、年限、产能、出口国家数、证书与联系方式一律从 `src/data/site.json` 读取，客户案例只从 `src/data/cases.json` 读取。待补资料保留在源数据和 `todo:report` 中。公开页面、提交的询价清单和询盘邮件省略占位字段；内部样式指南可显示占位。工厂已确认的定性卖点（花色多、食品级材质、工厂直供批发价、支持定制）可以直接作为肯定表述使用；具体数字与证书名称仍必须来自 `site.json` 或产品数据，客户名称必须来自经确认的案例数据。绝不自己写 “FDA certified”“20 years experience” 之类未经确认的具体声明。
 2. **内容唯一来源。** 分类只在 `src/content/categories/*.json`（文件名即 id），产品只在 `src/content/products/*.json`（文件名与 slug 一致），网站设置只在 `src/data/site.json`，FAQ 只在 `src/data/faq.json`；博客只在 `src/content/blog/*.json`（文件名即文章 slug）。定制流程、案例、团队分别在 `src/data/customization.json`、`cases.json`、`team.json`。`src/config/site.ts` 只保留类型、校验与工具，不再存配置值；禁止复制另一份分类枚举或政策文字。
 3. **密钥不进仓库。** 只用环境变量，并在 `.env.example` 里列出变量名。
 4. **一次只做一个里程碑。** 只做 `docs/PLAN.md` 里当前里程碑的范围，不提前做后面的内容。上一个里程碑的 PR 没合并之前，不开始下一个。
@@ -112,7 +112,7 @@ docs/
 - primary 按钮 coffee 底白字，11–12px、字重 800、字距约 `0.06em`，右侧带箭头；secondary 透明底、ink 细边框。深色区块内增加浅色边框和文字对比，悬停只变色。
 - Eyebrow 小号大写、字距约 `0.2em`；小字用 copper-dark 保证 paper 背景下对比度，左侧 24px 细线用 copper；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。
 - Header 为 cream 半透明吸顶样式，当前导航为 copper 文字及细下划线；手机导航保持独立的 `Mobile` 标签。TopBar 从 `site.topBarItems` 读取，隐藏 TODO 项，手机仅显示第一条有效项。
-- StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；TODO 数值保留为可见的 `[TODO: …]`。
+- StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；缺标签或数值的指标从公开页面省略。
 - 产品实拍未提供时继续使用带 `Placeholder` 字样的新配色本地占位图，不复制参考站图片，不用 AI 产品图冒充实拍。所有页面保持 375px 下无横向溢出。
 
 博客每页九篇，按发布日期倒序；相关文章引用产品 slug。正文使用构建时 Markdown 渲染，不增加客户端渲染框架；封面与正文图必须经 astro:assets，首屏主图 eager / high，其他 lazy，并保留宽高。英文字体只引入使用的字重与 Latin 子集。调整数据后可运行 todo:report，禁止手改或删掉自动区域标记来掩盖待补资料。

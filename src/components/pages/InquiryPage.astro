@@ -1,6 +1,5 @@
 ---
-import { getProducts } from "../../lib/products";
-import { localized } from "../../i18n/utils";
+import { getProducts, inquiryProduct } from "../../lib/products";
 import { localePath } from "../../i18n/routing";
 import type { Locale } from "../../i18n/utils";
 import { t } from "../../i18n/utils";
@@ -9,12 +8,9 @@ import Button from "../Button.astro";
 import Container from "../Container.astro";
 import SectionHeading from "../SectionHeading.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const catalog = (await getProducts()).map(({ data }) => ({
-  slug: data.slug,
-  sku: data.sku,
-  title: localized(data.title, locale),
-  category: data.category,
-}));
+const catalog = (await getProducts()).map(({ data }) =>
+  inquiryProduct(data, locale),
+);
 interface Props {
   locale?: Locale;
 }
@@ -87,9 +83,10 @@ interface Props {
         <div class="min-w-0">
           <p
             data-inquiry-sku
-            class="text-xs leading-relaxed tracking-[0.12em] wrap-anywhere text-muted uppercase"
+            hidden
+            class="mb-3 text-xs leading-relaxed tracking-[0.12em] wrap-anywhere text-muted uppercase"
           ></p>
-          <h2 class="mt-3 font-display text-card-title font-normal wrap-anywhere">
+          <h2 class="font-display text-card-title font-normal wrap-anywhere">
             <a data-inquiry-product class="hover:text-copper"></a>
           </h2>
         </div>
@@ -136,14 +133,13 @@ interface Props {
 </BaseLayout>
 
 <script>
-  import { localePath } from "../../i18n/routing";
+  import { productHref } from "../../i18n/routing";
   import {
     readInquiryCatalog,
     inquiryDisplayItem,
   } from "../../lib/inquiry-view";
   import { t } from "../../i18n/utils";
   const locale = document.documentElement.lang === "zh-CN" ? "zh" : "en";
-  import { display } from "../../lib/placeholders";
   import {
     clearItems,
     getItems,
@@ -203,7 +199,7 @@ interface Props {
     remove?.setAttribute(
       "aria-label",
       t("inquiry.removeProduct", locale, {
-        title: display(item.title, t("inquiry.productName", locale)),
+        title: item.title,
       }),
     );
     remove?.addEventListener("click", () => removeItem(item.slug));
@@ -245,19 +241,15 @@ interface Props {
         "[data-inquiry-quantity]",
       );
       if (title) {
-        title.textContent = display(
-          item.title,
-          t("inquiry.productName", locale),
-        );
-        title.href = localePath(
-          `/products/${encodeURIComponent(item.category)}/${encodeURIComponent(item.slug)}/`,
-          locale,
-        );
+        title.textContent = item.title;
+        title.href = productHref(item, locale);
       }
-      if (sku)
-        sku.textContent = t("inquiry.sku", locale, {
-          sku: display(item.sku, t("inquiry.skuLabel", locale)),
-        });
+      if (sku) {
+        sku.hidden = !item.sku;
+        sku.textContent = item.sku
+          ? t("inquiry.sku", locale, { sku: item.sku })
+          : "";
+      }
       // 数量变化保留已有行及当前输入焦点，不整体重建 DOM。
       if (input && document.activeElement !== input) {
         input.value = item.quantity === null ? "" : String(item.quantity);

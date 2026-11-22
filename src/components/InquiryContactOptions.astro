@@ -1,33 +1,32 @@
 ---
 import { Image } from "astro:assets";
-import { getWhatsAppHref, isTodo, site } from "../config/site";
-import { localized, t, type Locale } from "../i18n/utils";
+import { getWhatsAppHref, site } from "../config/site";
+import { confirmedLocalized, t, type Locale } from "../i18n/utils";
+import { confirmedText } from "../lib/placeholders";
 import { resolveSiteImage } from "../lib/site-images";
 
 interface Props {
   locale?: Locale;
 }
 const { locale = "en" } = Astro.props;
-const email = site.email.trim();
-const hasEmail = email && !isTodo(email);
+const email = confirmedText(site.email);
 const whatsapp = getWhatsAppHref(
   site.whatsappNumber,
-  localized(site.whatsappPrefillMessage, locale),
+  confirmedLocalized(site.whatsappPrefillMessage, locale),
 );
-const wechat = site.wechatId.trim();
-const hasWeChat = wechat && !isTodo(wechat);
-const qr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
+const wechat = confirmedText(site.wechatId);
+const qr = wechat ? resolveSiteImage(site.wechatQr) : undefined;
 ---
 
 <div
   data-inquiry-contact-options
   class="mt-5 grid gap-4 text-sm leading-relaxed"
 >
-  {!(hasEmail || whatsapp || hasWeChat) && (
+  {!(email || whatsapp || wechat) && (
     <p>{t("form.contactUnavailable", locale)}</p>
   )}
   <div class="flex flex-wrap gap-x-6 gap-y-3">
-    {hasEmail && (
+    {email && (
       <a
         href={"mailto:" + email}
         data-track="email_click"
@@ -46,7 +45,7 @@ const qr = hasWeChat ? resolveSiteImage(site.wechatQr) : undefined;
       </a>
     )}
   </div>
-  {hasWeChat && (
+  {wechat && (
     <div class="flex flex-wrap items-center gap-4">
       {qr && (
         <Image

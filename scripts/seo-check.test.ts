@@ -30,6 +30,37 @@ describe("built HTML SEO check", () => {
     const dir = await fixture(valid + "<!-- <title>not a title</title> -->");
     expect((await checkSeo(dir)).errors).toEqual([]);
   });
+  it.each([
+    "<p>[TODO: Material]</p>",
+    '<script type="application/json">{"sku":"TODO_SKU_CUP"}</script>',
+    '<template><img alt="TO&#68;O_CAPTION"></template>',
+  ])(
+    "flags public placeholders in text, payloads and attributes: %s",
+    async (markup) => {
+      const dir = await fixture(valid.replace("</body>", markup + "</body>"));
+      const result = await checkSeo(dir);
+      expect(result.publicPlaceholderPages).toBe(1);
+      expect(result.errors).toContain("/: 公开 HTML 含未填写的占位");
+    },
+  );
+  it("allows text placeholders on the internal style guide", async () => {
+    const dir = await fixture(valid);
+    await mkdir(join(dir, "styleguide"));
+    await writeFile(
+      join(dir, "styleguide/index.html"),
+      valid
+        .replace(
+          'rel="canonical" href="https://example.test/"',
+          'rel="canonical" href="https://example.test/styleguide/"',
+        )
+        .replace("Home &amp; products", "Style guide")
+        .replace("About our products", "Internal styles")
+        .replace("<h1>Home</h1>", "<h1>Style guide</h1><p>[TODO: Model]</p>"),
+    );
+    const result = await checkSeo(dir);
+    expect(result.publicPlaceholderPages).toBe(0);
+    expect(result.errors).toEqual([]);
+  });
   it("detects missing and duplicate required elements", async () => {
     const dir = await fixture(
       valid

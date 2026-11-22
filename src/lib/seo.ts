@@ -1,25 +1,10 @@
 import { site, type SiteConfig } from "../config/site";
-import { localized, t, type Locale } from "../i18n/utils";
+import { confirmedLocalized, t, type Locale } from "../i18n/utils";
 import { localePath, unlocalizedPath } from "../i18n/routing";
 import type { ProductData } from "./products";
-
-// display() 占位和旧型号 TODO-001 也不能进入结构化数据。
-export function confirmedText(value: unknown): string | undefined {
-  if (typeof value !== "string" && typeof value !== "number") return;
-  const text = String(value).trim();
-  return text && !/TODO(?:[_\-\s:]|\])/i.test(text) ? text : undefined;
-}
-
-export function configuredOrigin(domain: string): string | undefined {
-  if (!confirmedText(domain)) return;
-  try {
-    const url = new URL(domain);
-    if (/^https?:$/.test(url.protocol) && !url.username && !url.password)
-      return url.origin;
-  } catch {
-    /* 未配置域名时不生成 sitemap 或组织网址。 */
-  }
-}
+import { confirmedText } from "./placeholders";
+import { configuredOrigin } from "./indexing";
+export { confirmedText, configuredOrigin };
 
 export function permanentlyNoindex(path: string) {
   return /^\/(?:zh\/)?(?:inquiry|thank-you|styleguide|404(?:\.html)?)\/?$/.test(
@@ -53,14 +38,13 @@ export function staticPageMeta(path: string, locale: Locale) {
 }
 
 export function productMeta(data: ProductData, locale: Locale) {
-  const name = confirmedText(localized(data.title, locale)) ?? data.slug;
+  const name = confirmedLocalized(data.title, locale) ?? data.slug;
   return {
     title:
-      (data.seoTitle && confirmedText(localized(data.seoTitle, locale))) ||
+      confirmedLocalized(data.seoTitle, locale) ||
       t("seo.product.title", locale, { name }),
     description:
-      (data.seoDescription &&
-        confirmedText(localized(data.seoDescription, locale))) ||
+      confirmedLocalized(data.seoDescription, locale) ||
       t("seo.product.description", locale, { name }),
   };
 }
@@ -76,11 +60,11 @@ export function organizationData(
     "@context": "https://schema.org",
     "@type": "Organization",
     ...(origin && { "@id": origin + "/#organization", url: origin + "/" }),
-    name: confirmedText(localized(config.companyName, locale)),
+    name: confirmedLocalized(config.companyName, locale),
     logo: config.logo && confirmedText(config.logo) ? logo : undefined,
     email: confirmedText(config.email),
     telephone: confirmedText(config.phone),
-    address: confirmedText(localized(config.factoryAddress, locale)),
+    address: confirmedLocalized(config.factoryAddress, locale),
     sameAs: Object.values(config.socialLinks)
       .map(confirmedText)
       .filter((url) => url !== undefined && configuredOrigin(url)),
@@ -96,10 +80,10 @@ export function productData(
     "@context": "https://schema.org",
     "@type": "Product",
     url,
-    name: confirmedText(localized(data.title, locale)),
-    description: confirmedText(localized(data.summary, locale)),
+    name: confirmedLocalized(data.title, locale),
+    description: confirmedLocalized(data.summary, locale),
     sku: confirmedText(data.sku),
-    material: confirmedText(localized(data.material, locale)),
+    material: confirmedLocalized(data.material, locale),
     // 明显 Placeholder 图片不是产品实拍，不把它当作产品图提交给搜索引擎。
     image: data.images
       .filter(({ src }) => !/placeholder/i.test(src))

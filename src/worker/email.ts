@@ -1,4 +1,8 @@
+import site from "../data/site.json";
+import { productHref } from "../i18n/routing";
+import { configuredOrigin } from "../lib/indexing";
 import type { InquiryPayload } from "../lib/inquiry-payload";
+import { confirmedText } from "../lib/placeholders";
 
 const labels = {
   en: {
@@ -10,7 +14,7 @@ const labels = {
     phone: "WhatsApp / Phone",
     wechatId: "WeChat ID",
     productInterest: "Product category (ID)",
-    productSlug: "Selected product (slug)",
+    selectedProduct: "Selected product",
     quantity: "Quantity range (pcs)",
     message: "Message",
     samples: "Samples requested",
@@ -37,7 +41,7 @@ const labels = {
     phone: "WhatsApp / 电话",
     wechatId: "微信号",
     productInterest: "产品分类（ID）",
-    productSlug: "所选产品（slug）",
+    selectedProduct: "所选产品",
     quantity: "采购数量区间（个）",
     message: "采购需求",
     samples: "是否需要样品",
@@ -73,6 +77,37 @@ export function escapeHtml(value: string): string {
 
 export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
   const copy = labels[data.locale];
+  const origin = configuredOrigin(site.domain);
+  const productUrl = (slug: string, category: string) =>
+    origin && category
+      ? new URL(productHref({ slug, category }, data.locale), origin).href
+      : undefined;
+  const items = data.items.map(({ title, slug, category, sku, quantity }) => ({
+    title: confirmedText(title) ?? slug,
+    url: productUrl(slug, category),
+    sku: confirmedText(sku),
+    quantity: String(quantity ?? copy.discuss),
+  }));
+  const hasSku = items.some(({ sku }) => sku);
+  const itemHeaders = [
+    ...(hasSku ? [copy.sku] : []),
+    copy.title,
+    copy.itemQuantity,
+  ];
+  const selected = data.items.find(({ slug }) => slug === data.productSlug);
+  const selectedTitle =
+    confirmedText(data.productTitle) ??
+    confirmedText(selected?.title) ??
+    data.productSlug;
+  const selectedUrl = data.productSlug
+    ? productUrl(data.productSlug, selected?.category ?? data.productInterest)
+    : undefined;
+  const textProduct = (title: string, url: string | undefined) =>
+    url ? `${title} (${url})` : title;
+  const htmlProduct = (title: string, url: string | undefined) =>
+    url
+      ? `<a href="${escapeHtml(url)}">${escapeHtml(title)}</a>`
+      : escapeHtml(title);
   const country =
     new Intl.DisplayNames([data.locale], { type: "region" }).of(data.country) ??
     data.country;
@@ -82,7 +117,7 @@ export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
     "50000-99999": "50,000–99,999",
     "100000-plus": "100,000+",
   };
-  const fields: [string, string][] = [
+  const fields: [string, string, string?][] = [
     [copy.name, data.name],
     [copy.email, data.email],
     [copy.company, data.company],
@@ -90,7 +125,7 @@ export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
     [copy.phone, data.phone],
     [copy.wechatId, data.wechatId],
     [copy.productInterest, data.productInterest],
-    [copy.productSlug, data.productSlug],
+    [copy.selectedProduct, selectedTitle, selectedUrl],
     [copy.quantity, quantityRanges[data.quantity] ?? copy.discuss],
     [copy.message, data.message],
     [copy.samples, data.samples ? copy.yes : copy.no],
@@ -115,24 +150,36 @@ export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
   const text = [
     copy.heading,
     "",
-    ...fields.map(([key, value]) => `${key}: ${value || copy.none}`),
+    ...fields.map(
+      ([key, value, url]) => `${key}: ${textProduct(value || copy.none, url)}`,
+    ),
     "",
     copy.items,
-    `${copy.sku} | ${copy.title} | ${copy.itemQuantity}`,
-    ...(data.items.length
-      ? data.items.map(
-          (item) =>
-            `${item.sku} | ${item.title} | ${item.quantity ?? copy.discuss}`,
+    itemHeaders.join(" | "),
+    ...(items.length
+      ? items.map(({ title, url, sku, quantity }) =>
+          [
+            ...(hasSku ? [sku ?? ""] : []),
+            textProduct(title, url),
+            quantity,
+          ].join(" | "),
         )
       : [copy.empty]),
   ].join("\n");
-  const cells = (values: string[], tag = "td") =>
-    values
-      .map(
-        (value) =>
-          `<${tag} style="border:1px solid #e8e1d7;padding:10px;text-align:left;white-space:pre-wrap">${escapeHtml(value)}</${tag}>`,
-      )
-      .join("");
-  const html = `<!doctype html><html lang="${data.locale === "zh" ? "zh-CN" : "en"}"><body style="font-family:Arial,sans-serif;color:#30271f"><h1>${copy.heading}</h1><table style="border-collapse:collapse;width:100%">${fields.map(([key, value]) => `<tr>${cells([key, value || copy.none])}</tr>`).join("")}</table><h2>${copy.items}</h2><table style="border-collapse:collapse;width:100%"><thead><tr>${cells([copy.sku, copy.title, copy.itemQuantity], "th")}</tr></thead><tbody>${data.items.map((item) => `<tr>${cells([item.sku, item.title, String(item.quantity ?? copy.discuss)])}</tr>`).join("")}</tbody></table>${data.items.length ? "" : `<p>${copy.empty}</p>`}</body></html>`;
+  const cell = (content: string, tag = "td") =>
+    `<${tag} style="border:1px solid #e8e1d7;padding:10px;text-align:left;white-space:pre-wrap">${content}</${tag}>`;
+  const detailRows = fields
+    .map(
+      ([key, value, url]) =>
+        `<tr>${cell(escapeHtml(key))}${cell(htmlProduct(value || copy.none, url))}</tr>`,
+    )
+    .join("");
+  const itemRows = items
+    .map(
+      ({ title, url, sku, quantity }) =>
+        `<tr>${hasSku ? cell(escapeHtml(sku ?? "")) : ""}${cell(htmlProduct(title, url))}${cell(escapeHtml(quantity))}</tr>`,
+    )
+    .join("");
+  const html = `<!doctype html><html lang="${data.locale === "zh" ? "zh-CN" : "en"}"><body style="font-family:Arial,sans-serif;color:#30271f"><h1>${copy.heading}</h1><table style="border-collapse:collapse;width:100%">${detailRows}</table><h2>${copy.items}</h2><table style="border-collapse:collapse;width:100%"><thead><tr>${itemHeaders.map((header) => cell(escapeHtml(header), "th")).join("")}</tr></thead><tbody>${itemRows}</tbody></table>${items.length ? "" : `<p>${copy.empty}</p>`}</body></html>`;
   return { subject, html, text };
 }

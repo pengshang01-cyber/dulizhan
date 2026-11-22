@@ -1,10 +1,10 @@
 ---
 import type { Locale } from "../i18n/utils";
 import { Image } from "astro:assets";
-import { display, isTodo } from "../config/site";
-import { localized, t } from "../i18n/utils";
+import { confirmedLocalized, t } from "../i18n/utils";
 import {
   getProductCategory,
+  inquiryProduct,
   productHref,
   sizeSummary,
   type Product,
@@ -19,11 +19,10 @@ const { data } = product;
 const { locale = "en" } = Astro.props;
 const category = await getProductCategory(data.category);
 const cover = data.images[0]!;
-const title = display(
-  localized(data.title, locale),
-  t("products.todo.name", locale),
-);
-const badge = data.badge ? localized(data.badge, locale) : "";
+const inquiryEntry = inquiryProduct(data, locale);
+const title = inquiryEntry.title;
+const badge = confirmedLocalized(data.badge, locale);
+const size = sizeSummary(data.sizes, locale);
 ---
 
 <article
@@ -46,7 +45,7 @@ const badge = data.badge ? localized(data.badge, locale) : "";
       loading="lazy"
       class="aspect-[5/4] w-full rounded-t-panel object-cover"
     />
-    {badge && !isTodo(badge) && (
+    {badge && (
       <span
         data-product-badge
         class="pointer-events-none absolute top-3 left-3 z-20 max-w-[calc(100%-1.5rem)] rounded-control bg-coffee px-2.5 py-1.5 text-[0.625rem] font-bold tracking-[0.08em] wrap-anywhere text-cream uppercase"
@@ -57,8 +56,8 @@ const badge = data.badge ? localized(data.badge, locale) : "";
   </div>
   <div class="flex flex-1 flex-col p-5 sm:p-6">
     <p class="text-[0.625rem] leading-relaxed font-semibold tracking-[0.12em] wrap-anywhere text-muted uppercase">
-      {display(data.sku, t("products.sku", locale))} /{" "}
-      {localized(category.label, locale)}
+      {inquiryEntry.sku && inquiryEntry.sku + " / "}
+      {confirmedLocalized(category.label, locale) ?? category.id}
     </p>
     <h2 class="mt-3 font-display text-card-title font-normal wrap-anywhere">
       <a
@@ -68,21 +67,14 @@ const badge = data.badge ? localized(data.badge, locale) : "";
         {title}
       </a>
     </h2>
-    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-      {sizeSummary(data.sizes, locale)}
-    </p>
+    {size && <p class="mt-3 text-sm leading-relaxed text-ink-soft">{size}</p>}
     <p class="mt-5 text-[0.625rem] font-extrabold tracking-[0.14em] text-copper uppercase">
       {t("products.askPricing", locale)}
     </p>
     <div class="mt-auto pt-5">
       <AddToInquiryButton
         locale={locale}
-        product={{
-          slug: data.slug,
-          sku: data.sku,
-          title: localized(data.title, locale),
-          category: data.category,
-        }}
+        product={inquiryEntry}
         class="relative z-20 w-full"
       />
     </div>

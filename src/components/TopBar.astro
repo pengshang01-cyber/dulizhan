@@ -1,13 +1,13 @@
 ---
 import type { Locale } from "../i18n/utils";
-import { t, localized } from "../i18n/utils";
+import { t, confirmedLocalized } from "../i18n/utils";
 const { locale = "en" } = Astro.props;
-import { isTodo, site } from "../config/site";
+import { site } from "../config/site";
 import Container from "./Container.astro";
 
 const items = site.topBarItems
-  .map((item) => localized(item, locale).trim())
-  .filter((item) => item && !isTodo(item));
+  .map((item) => confirmedLocalized(item, locale))
+  .filter(Boolean);
 interface Props {
   locale?: Locale;
 }

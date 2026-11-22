@@ -1,5 +1,5 @@
 ---
-import { t, localized, type Locale } from "../i18n/utils";
+import { t, confirmedLocalized, type Locale } from "../i18n/utils";
 interface Props {
   locale?: Locale;
   languagePaths?: Partial<Record<Locale, string>>;
@@ -9,16 +9,16 @@ import { localePath, unlocalizedPath } from "../i18n/routing";
 import LanguageSwitch from "./LanguageSwitch.astro";
 import { Image } from "astro:assets";
 import { resolveSiteImage } from "../lib/site-images";
-import { display, navigation, site } from "../config/site";
+import { navigation, site } from "../config/site";
 import Container from "./Container.astro";
 import QuoteButton from "./QuoteButton.astro";
 import InquiryLink from "./InquiryLink.astro";
 
 const logoImage = resolveSiteImage(site.logo);
-const brand = display(
-  localized(site.shortName, locale),
-  t("site.shortNameLabel", locale),
-);
+const brand =
+  confirmedLocalized(site.shortName, locale) ??
+  confirmedLocalized(site.companyName, locale);
+const tagline = confirmedLocalized(site.tagline, locale);
 const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
 ---
 
@@ -39,22 +39,25 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
       ) : (
         <span class="brand-mark hidden sm:grid" aria-hidden="true"></span>
       )}
-      <span
-        class:list={[
-          "min-w-0 wrap-anywhere",
-          logoImage && "sr-only sm:not-sr-only",
-        ]}
-      >
-        <span class="block text-xs leading-tight font-bold sm:text-sm">
-          {brand}
-        </span>
-        <span class="mt-1 block text-[0.5rem] leading-relaxed font-semibold tracking-[0.12em] text-ink-soft uppercase sm:text-[0.5625rem]">
-          {display(
-            localized(site.tagline, locale),
-            t("site.taglineLabel", locale),
+      {(brand || tagline) && (
+        <span
+          class:list={[
+            "min-w-0 wrap-anywhere",
+            logoImage && "sr-only sm:not-sr-only",
+          ]}
+        >
+          {brand && (
+            <span class="block text-xs leading-tight font-bold sm:text-sm">
+              {brand}
+            </span>
+          )}
+          {tagline && (
+            <span class="mt-1 block text-[0.5rem] leading-relaxed font-semibold tracking-[0.12em] text-ink-soft uppercase sm:text-[0.5625rem]">
+              {tagline}
+            </span>
           )}
         </span>
-      </span>
+      )}
     </a>
 
     <nav aria-label={t("nav.main", locale)} class="hidden shrink-0 xl:block">

@@ -302,5 +302,16 @@
     "name": "zh-detail-pet-square",
     "path": "/zh/products/pet-coated-baking-cups/pet-coated-square-cups/",
     "milestones": ["M9"]
+  },
+  {
+    "name": "detail-without-model",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M9.1"]
+  },
+  {
+    "name": "inquiry-without-model",
+    "path": "/inquiry/",
+    "inquiryProducts": ["pet-coated-round-rolled-rim-baking-cups"],
+    "milestones": ["M9.1"]
   }
 ]

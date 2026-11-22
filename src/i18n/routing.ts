@@ -16,3 +16,10 @@ export function localePath(path: string, locale: Locale): string {
     return normalized;
   return locale === "zh" ? "/zh" + normalized : normalized;
 }
+
+export function productHref(
+  product: { category: string; slug: string },
+  locale: Locale = "en",
+) {
+  return localePath(`/products/${product.category}/${product.slug}/`, locale);
+}

@@ -1,6 +1,8 @@
+import { confirmedText } from "./placeholders";
+
 export interface InquiryProduct {
   slug: string;
-  sku: string;
+  sku?: string;
   title: string;
   category: string;
 }
@@ -16,19 +18,26 @@ let items: InquiryItem[] = [];
 let initialized = false;
 let storage: Storage | null = null;
 
-function isProduct(value: unknown): value is InquiryProduct {
-  if (!value || typeof value !== "object") return false;
-  const product = value as Record<string, unknown>;
-  return (
-    typeof product.slug === "string" &&
-    /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.slug) &&
-    typeof product.sku === "string" &&
-    product.sku.trim().length > 0 &&
-    typeof product.title === "string" &&
-    product.title.trim().length > 0 &&
-    typeof product.category === "string" &&
-    /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(product.category)
-  );
+export function readInquiryProduct(value: unknown): InquiryProduct | undefined {
+  if (!value || typeof value !== "object") return;
+  const { slug, sku, title, category } = value as Record<string, unknown>;
+  if (
+    typeof slug !== "string" ||
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ||
+    typeof category !== "string" ||
+    !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category) ||
+    typeof title !== "string" ||
+    !title.trim() ||
+    (sku != null && typeof sku !== "string")
+  )
+    return;
+  const model = confirmedText(sku);
+  return {
+    slug,
+    title: confirmedText(title) ?? slug,
+    category,
+    ...(model ? { sku: model } : {}),
+  };
 }
 
 function isQuantity(value: unknown): value is number {
@@ -51,19 +60,19 @@ function normalize(value: unknown): InquiryItem[] {
   const seen = new Set<string>();
   const result: InquiryItem[] = [];
   for (const candidate of value) {
-    if (!isProduct(candidate)) continue;
+    const product = readInquiryProduct(candidate);
+    if (!product) continue;
     // 保留旧版本的正整数数量；缺少字段和显式 null 都归一为待商议。
     const quantity =
       (candidate as InquiryProduct & { quantity?: unknown }).quantity ?? null;
     if (
       (quantity !== null && !isQuantity(quantity)) ||
-      seen.has(candidate.slug)
+      seen.has(product.slug)
     ) {
       continue;
     }
-    const { slug, sku, title, category } = candidate;
-    result.push({ slug, sku, title, category, quantity });
-    seen.add(slug);
+    result.push({ ...product, quantity });
+    seen.add(product.slug);
   }
   return result;
 }
@@ -123,15 +132,15 @@ export function getItems(): InquiryItem[] {
 
 export function addItem(product: InquiryProduct): boolean {
   initialize();
+  const normalized = readInquiryProduct(product);
   if (
     typeof window === "undefined" ||
-    !isProduct(product) ||
+    !normalized ||
     items.some(({ slug }) => slug === product.slug)
   ) {
     return false;
   }
-  const { slug, sku, title, category } = product;
-  save([...items, { slug, sku, title, category, quantity: null }]);
+  save([...items, { ...normalized, quantity: null }]);
   return true;
 }
 

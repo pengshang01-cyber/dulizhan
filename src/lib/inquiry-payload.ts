@@ -1,4 +1,5 @@
 import { COUNTRY_CODES } from "./inquiry-countries";
+import { confirmedText } from "./placeholders";
 
 export const QUANTITY_RANGES = [
   "",
@@ -28,6 +29,7 @@ export const INQUIRY_LIMITS = {
   wechatId: 100,
   productInterest: 100,
   productSlug: 120,
+  productTitle: 300,
   quantity: 40,
   message: 5000,
   sourceUrl: 2000,
@@ -40,7 +42,7 @@ export const INQUIRY_LIMITS = {
 
 export interface InquiryLine {
   slug: string;
-  sku: string;
+  sku?: string;
   title: string;
   category: string;
   quantity: number | null;
@@ -55,6 +57,7 @@ export interface InquiryPayload {
   wechatId: string;
   productInterest: string;
   productSlug: string;
+  productTitle?: string;
   quantity: string;
   message: string;
   samples: boolean;
@@ -104,6 +107,7 @@ export function validateInquiryPayload(
     wechatId: text("wechatId"),
     productInterest: text("productInterest"),
     productSlug: text("productSlug"),
+    productTitle: confirmedText(text("productTitle")),
     quantity: text("quantity"),
     message: text("message", true),
     sourceUrl: text("sourceUrl", true),
@@ -152,9 +156,9 @@ export function validateInquiryPayload(
         typeof item.category !== "string" ||
         !identifier.test(item.category) ||
         item.category.length > INQUIRY_LIMITS.productInterest ||
-        typeof item.sku !== "string" ||
-        !item.sku.trim() ||
-        item.sku.length > INQUIRY_LIMITS.sku ||
+        (item.sku != null &&
+          (typeof item.sku !== "string" ||
+            item.sku.length > INQUIRY_LIMITS.sku)) ||
         typeof item.title !== "string" ||
         !item.title.trim() ||
         item.title.length > INQUIRY_LIMITS.title ||
@@ -170,10 +174,11 @@ export function validateInquiryPayload(
         break;
       }
       seen.add(item.slug);
+      const sku = confirmedText(item.sku);
       data.items.push({
         slug: item.slug,
-        sku: item.sku.trim(),
-        title: item.title.trim(),
+        ...(sku ? { sku } : {}),
+        title: confirmedText(item.title) ?? item.slug,
         category: item.category,
         quantity: item.quantity as number | null,
       });

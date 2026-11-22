@@ -1,5 +1,6 @@
 import en from "./en.json";
 import zh from "./zh.json";
+import { confirmedText } from "../lib/placeholders";
 
 export type Locale = "en" | "zh";
 export interface LocalizedValue {
@@ -14,6 +15,17 @@ export function localized<T extends string | number>(
   if (locale === "zh" && typeof value.zh === "string" && value.zh.trim())
     return value.zh;
   return value.en;
+}
+
+export function confirmedLocalized(
+  value: LocalizedValue | undefined | null,
+  locale: Locale = "en",
+): string | undefined {
+  if (!value) return;
+  return (
+    (locale === "zh" ? confirmedText(value.zh) : undefined) ??
+    confirmedText(value.en)
+  );
 }
 
 export function t(
