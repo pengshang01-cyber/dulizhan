@@ -29,76 +29,307 @@
     {
       "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 100 packs",
+            "zh": "1000 只 × 100 条"
+          },
+          "packWeight": "102 g",
+          "packSize": "3.5 × 3.5 × 35",
+          "cartonWeight": "10.65 kg",
+          "cartonSpec": "37 × 37 × 36"
+        }
+      ]
     },
     {
       "name": { "en": "6.5 cm blank", "zh": "6.5 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "132 g",
+          "packSize": "4 × 4 × 30",
+          "cartonWeight": "7.2 kg",
+          "cartonSpec": "50 × 31 × 19.5"
+        }
+      ]
     },
     {
       "name": { "en": "7 cm blank", "zh": "7 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "143 g",
+          "packSize": "4.5 × 4.5 × 32",
+          "cartonWeight": "7.7 kg",
+          "cartonSpec": "47 × 32 × 24"
+        }
+      ]
     },
     {
       "name": { "en": "7.5 cm blank", "zh": "7.5 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "157 g",
+          "packSize": "4.8 × 4.8 × 32",
+          "cartonWeight": "8.65 kg",
+          "cartonSpec": "51 × 32 × 25"
+        }
+      ]
     },
     {
       "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 22.5
+      "heightMm": 22.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "190 g",
+          "packSize": "5 × 5 × 32.5",
+          "cartonWeight": "9.8 kg",
+          "cartonSpec": "51 × 32 × 25"
+        }
+      ]
     },
     {
       "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "228 g",
+          "packSize": "5.5 × 5.5 × 36",
+          "cartonWeight": "12.3 kg",
+          "cartonSpec": "58 × 35.5 × 29.5"
+        }
+      ]
     },
     {
       "name": { "en": "10 cm blank", "zh": "10 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 27.5
+      "heightMm": 27.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "301 g",
+          "packSize": "6.5 × 6.5 × 33",
+          "cartonWeight": "15.8 kg",
+          "cartonSpec": "64 × 35 × 32"
+        }
+      ]
     },
     {
       "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "308 g",
+          "packSize": "6.5 × 6.5 × 33",
+          "cartonWeight": "16.5 kg",
+          "cartonSpec": "67.5 × 35 × 33 cm"
+        }
+      ]
     },
     {
       "name": { "en": "11 cm blank", "zh": "11 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "376 g",
+          "packSize": "7 × 7 × 36.5",
+          "cartonWeight": "19.8 kg",
+          "cartonSpec": "69 × 37 × 35"
+        },
+        {
+          "packaging": { "en": "100 pcs / PET tub", "zh": "100 只 / PET 桶" },
+          "cartonLoading": {
+            "en": "100 pcs × 200 tubs",
+            "zh": "100 只 × 200 桶"
+          },
+          "packWeight": "43.1 g",
+          "packSize": "7.5 × 7.5 × 6.5 cm",
+          "cartonWeight": "9.65 kg"
+        }
+      ]
     },
     {
       "name": { "en": "11.5 cm blank", "zh": "11.5 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 32.5
+      "heightMm": 32.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "389 g",
+          "packSize": "7 × 7 × 35.5",
+          "cartonWeight": "20.4 kg",
+          "cartonSpec": "72.5 × 37 × 37"
+        }
+      ]
     },
     {
       "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "408 g",
+          "packSize": "7 × 7 × 36",
+          "cartonWeight": "21.3 kg",
+          "cartonSpec": "72.5 × 37 × 37"
+        }
+      ]
     },
     {
       "name": { "en": "13 cm blank", "zh": "13 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 40 packs",
+            "zh": "1000 只 × 40 条"
+          }
+        }
+      ]
     }
   ],
   "colors": [],
   "patterns": [{ "en": "Printed", "zh": "印花" }],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packagingDetails": {
-    "en": "6 cm blank — 1000 pcs/pack × 100 packs\n6.5 cm blank — 1000 pcs/pack × 50 packs\n7 cm blank — 1000 pcs/pack × 50 packs\n7.5 cm blank — 1000 pcs/pack × 50 packs\n8 cm blank — 1000 pcs/pack × 50 packs\n9 cm blank — 1000 pcs/pack × 50 packs\n10 cm blank — 1000 pcs/pack × 50 packs\n10.5 cm blank — 1000 pcs/pack × 50 packs\n11 cm blank — 1000 pcs/pack × 50 packs\n11.5 cm blank — 1000 pcs/pack × 50 packs\n12 cm blank — 1000 pcs/pack × 50 packs\n13 cm blank — 1000 pcs/pack × 50 packs",
-    "zh": "6 cm 展开规格 — 包装 1000 个/包 × 100 包\n6.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n7 cm 展开规格 — 包装 1000 个/包 × 50 包\n7.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n8 cm 展开规格 — 包装 1000 个/包 × 50 包\n9 cm 展开规格 — 包装 1000 个/包 × 50 包\n10 cm 展开规格 — 包装 1000 个/包 × 50 包\n10.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n11 cm 展开规格 — 包装 1000 个/包 × 50 包\n11.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n12 cm 展开规格 — 包装 1000 个/包 × 50 包\n13 cm 展开规格 — 包装 1000 个/包 × 50 包"
-  },
   "seoTitle": { "en": "Printed Cupcake Liners", "zh": "印花蛋糕纸托" },
   "seoDescription": {
     "en": "Printed Cupcake Liners made from cake liner paper.",
     "zh": "印花蛋糕纸托，材质为 蛋糕纸。"
   },
   "featured": false,
-  "order": 76
+  "order": 76,
+  "moreColorsOnRequest": true
 }

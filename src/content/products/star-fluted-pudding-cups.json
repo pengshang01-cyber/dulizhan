@@ -36,23 +36,70 @@
     {
       "name": { "en": "Small", "zh": "小号" },
       "baseDiameterMm": 45,
-      "heightMm": 32
+      "heightMm": 32,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 220,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "50 pcs × 100 packs",
+            "zh": "50 只 × 100 条"
+          },
+          "packWeight": "104.3 g",
+          "packSize": "8 × 8 × 11 cm",
+          "cartonWeight": "11.15 kg",
+          "cartonSpec": "54 × 30.5 × 37 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "Medium", "zh": "中号" },
       "baseDiameterMm": 50,
-      "heightMm": 32
+      "heightMm": 32,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 220,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "50 pcs × 100 packs",
+            "zh": "50 只 × 100 条"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "Large", "zh": "大号" },
       "baseDiameterMm": 75,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 220,
+      "packages": [
+        { "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" } }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Gold", "zh": "金色", "swatch": "#c6a244" },
+    { "en": "Silver", "zh": "银色", "swatch": "#c0c5ca" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Turquoise", "zh": "蓝绿色", "swatch": "#4fb5b7" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Lavender", "zh": "浅紫色", "swatch": "#b5a1cb" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Yellow-green", "zh": "黄绿色", "swatch": "#aeb63a" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 100 packs", "zh": "50 个/包 × 100 包" },
   "seoTitle": { "en": "Star-Fluted Pudding Cups", "zh": "星纹布丁杯" },
   "seoDescription": {
     "en": "Star-Fluted Pudding Cups made from PET-coated paper.",

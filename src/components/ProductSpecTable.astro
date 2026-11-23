@@ -1,0 +1,63 @@
+---
+interface Props {
+  name: "size" | "lid" | "package";
+  title: string;
+  columns: readonly (readonly [string, string])[];
+  rows: readonly Record<string, string | undefined>[];
+}
+const { name, title, columns, rows } = Astro.props;
+---
+
+{rows.length > 0 && columns.length > 0 && (
+  <>
+    <h3
+      class="mt-8 font-display text-card-title font-normal"
+      id={name + "-table-title"}
+    >
+      {title}
+    </h3>
+    <div
+      data-size-table={name === "size" || undefined}
+      data-lid-table={name === "lid" || undefined}
+      data-package-table={name === "package" || undefined}
+      role="region"
+      aria-labelledby={name + "-table-title"}
+      tabindex="0"
+      class="mt-4 max-w-full overflow-x-auto rounded-panel border border-line bg-white"
+    >
+      <table
+        class:list={[
+          "w-full border-collapse text-left text-sm",
+          columns.length >= 3 && "min-w-[34rem]",
+        ]}
+      >
+        <thead class="border-b border-line bg-paper text-xs text-ink-soft">
+          <tr>
+            {columns.map(([, label]) => (
+              <th scope="col" class="px-4 py-4 font-bold">
+                {label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr class="border-b border-line last:border-b-0">
+              {columns.map(([field]) =>
+                field === "name" && row.name ? (
+                  <th scope="row" class="px-4 py-4 font-semibold">
+                    {row.name}
+                  </th>
+                ) : (
+                  <td class="px-4 py-4 min-w-20 wrap-break-word">
+                    {row[field]}
+                  </td>
+                ),
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </>
+)}

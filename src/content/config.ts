@@ -8,10 +8,10 @@ import {
   localizedText,
   optionalLocalizedText,
   optionalLocalizedValue,
-  optionalMeasurement,
   paperWeight,
   requiredText,
 } from "../lib/content-fields";
+import { colorFields, productSizeFields } from "../lib/product-size-fields";
 
 // 校验来源与分类 collection 相同；新增分类文件自动进入允许集合。
 const categoryIds = new Set(
@@ -56,18 +56,9 @@ const products = defineCollection({
         .min(1),
       material: localizedText,
       gsm: paperWeight,
-      sizes: z
-        .array(
-          z.object({
-            name: localizedText,
-            baseDiameterMm: optionalMeasurement,
-            heightMm: optionalMeasurement,
-            topDiameterMm: optionalMeasurement,
-            specification: optionalLocalizedText,
-          }),
-        )
-        .min(1),
-      colors: z.array(localizedText).default([]),
+      sizes: z.array(productSizeFields).min(1),
+      colors: z.array(colorFields).default([]),
+      moreColorsOnRequest: z.boolean().optional(),
       patterns: z.array(localizedText).default([]),
       customizable: z.preprocess(
         (value) =>

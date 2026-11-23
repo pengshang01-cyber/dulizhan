@@ -1,7 +1,11 @@
 import { confirmedText } from "../lib/placeholders";
 import { z } from "astro/zod";
 import rawSite from "../data/site.json";
-import { localizedText, optionalLocalizedText } from "../lib/content-fields";
+import {
+  localizedText,
+  optionalLocalizedText,
+  optionalMeasurement,
+} from "../lib/content-fields";
 export { localized } from "../i18n/utils";
 
 export type SocialPlatform =
@@ -23,6 +27,18 @@ const optionalImagePath = z.preprocess(
 );
 // Pages CMS 保存时会省略空字符串、空数组和空对象；读取时恢复可选项。
 const optionalString = z.string().default("");
+const mediaEntries = z.preprocess(
+  (value) => value ?? [],
+  z.array(
+    z.object({
+      image: optionalImagePath.refine(
+        (value) => Boolean(confirmedText(value)),
+        "图库条目必须上传图片",
+      ),
+      caption: localizedText,
+    }),
+  ),
+);
 
 export const siteSchema = z.object({
   companyName: localizedText,
@@ -35,17 +51,18 @@ export const siteSchema = z.object({
   ogImage: optionalImagePath,
   homeHeroImage: optionalImagePath,
   homeHeroAlt: optionalLocalizedText,
-  aboutGallery: z.preprocess(
-    (value) => value ?? [],
-    z.array(
-      z.object({
-        image: optionalImagePath.refine(
-          (value) => Boolean(confirmedText(value)),
-          "图库条目必须上传图片",
-        ),
-        caption: localizedText,
-      }),
-    ),
+  aboutGallery: mediaEntries,
+  factoryProfile: z.preprocess(
+    (value) => value ?? {},
+    z.object({
+      areaSqM: optionalMeasurement,
+      employeeCount: optionalMeasurement,
+      productionLineCount: optionalMeasurement,
+      exportRegions: z.array(localizedText).default([]),
+      qualityControl: optionalLocalizedText,
+      tradeShowPhotos: mediaEntries,
+      clientLogos: mediaEntries,
+    }),
   ),
   factoryVideoPoster: optionalImagePath,
   analytics: z.preprocess(

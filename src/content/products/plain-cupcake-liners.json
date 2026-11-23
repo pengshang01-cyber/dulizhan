@@ -4,8 +4,8 @@
   "category": "cupcake-liners.json",
   "title": { "en": "Plain Cupcake Liners", "zh": "普通蛋糕纸托" },
   "summary": {
-    "en": "Plain Cupcake Liners in the cupcake liners range.",
-    "zh": "普通蛋糕纸托，属于蛋糕纸托系列。"
+    "en": "Plain Cupcake Liners made from Cake liner paper.",
+    "zh": "普通蛋糕纸托，材质为 蛋糕纸。"
   },
   "images": [
     {
@@ -23,33 +23,112 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+  "gsm": 38,
   "sizes": [
     {
       "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 38,
+      "packages": [
+        {
+          "packaging": {
+            "en": "600 pcs / shrink wrap",
+            "zh": "600 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "600 pcs × 20 packs",
+            "zh": "600 只 × 20 条"
+          },
+          "cartonWeight": "1.4 kg",
+          "cartonSpec": "32 × 19 × 16"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 22.5
+      "heightMm": 22.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 38,
+      "packages": [
+        {
+          "packaging": {
+            "en": "450 pcs / shrink wrap",
+            "zh": "450 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "450 pcs × 10 packs",
+            "zh": "450 只 × 10 条"
+          },
+          "cartonSpec": "26 × 24 × 11"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 38,
+      "packages": [
+        {
+          "packaging": { "en": "450 pcs × 10 packs", "zh": "450 只 × 10 条" },
+          "cartonLoading": {
+            "en": "450 pcs × 10 packs",
+            "zh": "450 只 × 10 条"
+          },
+          "cartonWeight": "1.35 kg",
+          "cartonSpec": "28 × 26 × 12"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 38,
+      "packages": [
+        {
+          "packaging": { "en": "450 pcs × 10 packs", "zh": "450 只 × 10 条" },
+          "cartonLoading": {
+            "en": "450 pcs × 10 packs",
+            "zh": "450 只 × 10 条"
+          },
+          "cartonSpec": "33 × 25 × 13"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 38,
+      "packages": [
+        {
+          "packaging": { "en": "450 pcs × 10 packs", "zh": "450 只 × 10 条" },
+          "cartonLoading": {
+            "en": "450 pcs × 10 packs",
+            "zh": "450 只 × 10 条"
+          },
+          "cartonWeight": "2.15 kg",
+          "cartonSpec": "36 × 30 × 13.5"
+        }
+      ],
+      "hasLid": false
     }
   ],
   "colors": [],
@@ -57,8 +136,8 @@
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Plain Cupcake Liners", "zh": "普通蛋糕纸托" },
   "seoDescription": {
-    "en": "Plain Cupcake Liners in the cupcake liners range.",
-    "zh": "普通蛋糕纸托，属于蛋糕纸托系列。"
+    "en": "Plain Cupcake Liners made from Cake liner paper.",
+    "zh": "普通蛋糕纸托，材质为 蛋糕纸。"
   },
   "featured": false,
   "order": 77

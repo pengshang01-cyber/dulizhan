@@ -2,6 +2,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import { confirmedLocalized, localized, t, type Locale } from "../i18n/utils";
 import { visibleCategories } from "./category-visibility";
 import { confirmedText } from "./placeholders";
+import { structuredSizeSummary } from "./product-specifications";
 export { productHref } from "../i18n/routing";
 
 export type Product = CollectionEntry<"products">;
@@ -69,6 +70,8 @@ export function sizeSummary(
   locale: Locale = "en",
 ) {
   for (const size of sizes) {
+    const structured = structuredSizeSummary(size, locale);
+    if (structured) return structured;
     if (
       typeof size.baseDiameterMm === "number" &&
       typeof size.heightMm === "number"

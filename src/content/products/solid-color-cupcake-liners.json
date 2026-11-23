@@ -14,8 +14,21 @@
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
-  "sizes": [{ "name": { "en": "Solid color", "zh": "纯色" } }],
-  "colors": [{ "en": "Solid color", "zh": "纯色" }],
+  "sizes": [
+    {
+      "name": { "en": "11 cm", "zh": "11 厘米" },
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": { "en": "300 pcs × 80 tubs", "zh": "300 只 × 80 桶" },
+          "packWeight": "43.1 g",
+          "packSize": "7.5 × 7.5 × 6.5 cm",
+          "cartonWeight": "9.65 kg"
+        }
+      ]
+    }
+  ],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Solid-Color Cupcake Liners", "zh": "纯色蛋糕纸托" },

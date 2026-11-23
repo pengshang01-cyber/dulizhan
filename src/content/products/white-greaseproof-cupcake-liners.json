@@ -1,0 +1,51 @@
+{
+  "sku": "TODO_SKU_WHITE_GREASEPROOF_CUPCAKE_LINERS",
+  "slug": "white-greaseproof-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": {
+    "en": "White Greaseproof Cupcake Liners",
+    "zh": "白色防油蛋糕纸托"
+  },
+  "summary": {
+    "en": "White Greaseproof Cupcake Liners made from Grade 7 greaseproof paper.",
+    "zh": "白色防油蛋糕纸托，材质为 7 级防油纸。"
+  },
+  "material": { "en": "Grade 7 greaseproof paper", "zh": "7 级防油纸" },
+  "gsm": "TODO_GSM",
+  "images": [
+    {
+      "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    }
+  ],
+  "sizes": [
+    {
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / PET tub", "zh": "100 只 / PET 桶" },
+          "cartonLoading": {
+            "en": "100 pcs × 200 tubs",
+            "zh": "100 只 × 200 桶"
+          },
+          "packWeight": "43.1 g",
+          "packSize": "7.5 × 7.5 × 6.5 cm",
+          "cartonWeight": "9.65 kg"
+        }
+      ],
+      "name": { "en": "11 cm", "zh": "11 厘米" }
+    }
+  ],
+  "colors": [{ "en": "White", "zh": "白色", "swatch": "#ffffff" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "White Greaseproof Cupcake Liners",
+    "zh": "白色防油蛋糕纸托"
+  },
+  "seoDescription": {
+    "en": "White Greaseproof Cupcake Liners made from Grade 7 greaseproof paper.",
+    "zh": "白色防油蛋糕纸托，材质为 7 级防油纸。"
+  },
+  "featured": false,
+  "order": 125
+}

@@ -61,7 +61,7 @@ const alternate = (language: Locale) => new URL(paths[language]!, origin).href;
 const blockIndexing = !site.allowIndexing;
 const logoSource = resolveSiteImage(site.logo);
 const logo = logoSource
-  ? await getImage({ src: logoSource, width: 256, format: "webp" })
+  ? await getImage({ src: logoSource, width: 256, format: "png" })
   : undefined;
 const organization = organizationData(
   locale,

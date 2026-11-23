@@ -29,7 +29,11 @@
     {
       "name": { "en": "142×50×30 mm", "zh": "142×50×30 mm" },
       "heightMm": 30,
-      "specification": { "en": "142×50×30 mm", "zh": "142×50×30 mm" }
+      "shape": "shaped",
+      "length": 142,
+      "width": 50,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "142×50×25 mm", "zh": "142×50×25 mm" },
@@ -37,7 +41,8 @@
       "specification": {
         "en": "142×50×25 mm · Paper weight 110 g/m²",
         "zh": "142×50×25 mm · 纸张克重 110 g/m²"
-      }
+      },
+      "shape": "shaped"
     }
   ],
   "colors": [],

@@ -29,7 +29,11 @@
     {
       "name": { "en": "60×30×20 mm", "zh": "60×30×20 mm" },
       "heightMm": 20,
-      "specification": { "en": "60×30×20 mm", "zh": "60×30×20 mm" }
+      "shape": "shaped",
+      "length": 60,
+      "width": 30,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
   "colors": [],

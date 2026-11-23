@@ -29,18 +29,32 @@
     {
       "name": { "en": "60×50 mm", "zh": "60×50 mm" },
       "heightMm": 50,
-      "specification": { "en": "60×50 mm", "zh": "60×50 mm" }
+      "specification": { "en": "60×50 mm", "zh": "60×50 mm" },
+      "shape": "shaped",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 条"
+          },
+          "packWeight": "159 g",
+          "packSize": "7 × 7 × 28 cm",
+          "cartonWeight": "17.2 kg",
+          "cartonSpec": "65 × 58 × 33 cm"
+        }
+      ]
     }
   ],
   "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "100 pcs/pack × 50 packs", "zh": "100 个/包 × 50 包" },
   "seoTitle": { "en": "Hexagonal Baking Cups", "zh": "六角杯" },
   "seoDescription": {
     "en": "Hexagonal Baking Cups in the muffin & molded baking cups range.",
     "zh": "六角杯，属于机制杯与马芬杯系列。"
   },
   "featured": false,
-  "order": 31
+  "order": 31,
+  "moreColorsOnRequest": true
 }

@@ -1,0 +1,27 @@
+{
+  "sku": "TODO_SKU_MUFFIN_ROLLED_RIM_BAKING_CUPS",
+  "slug": "muffin-rolled-rim-baking-cups",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Rolled-Rim Muffin Cups", "zh": "玛芬卷口杯" },
+  "summary": {
+    "en": "Rolled-Rim Muffin Cups for wholesale inquiries.",
+    "zh": "玛芬卷口杯，欢迎咨询批发。"
+  },
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "images": [
+    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+  ],
+  "sizes": [{ "shape": "round", "name": { "en": "TODO_SIZE_NAME", "zh": "" } }],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Rolled-Rim Muffin Cups", "zh": "玛芬卷口杯" },
+  "seoDescription": {
+    "en": "Rolled-Rim Muffin Cups for wholesale inquiries.",
+    "zh": "玛芬卷口杯，欢迎咨询批发。"
+  },
+  "featured": false,
+  "order": 127,
+  "moreColorsOnRequest": true
+}

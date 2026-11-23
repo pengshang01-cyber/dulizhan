@@ -24,17 +24,30 @@
     }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
-  "gsm": "24 / 31 / 40",
+  "gsm": 24,
   "sizes": [
     {
-      "name": { "en": "100×50 mm", "zh": "100×50 mm" },
-      "specification": { "en": "100×50 mm", "zh": "100×50 mm" }
+      "name": { "en": "100 × 50 mm", "zh": "100 × 50 mm" },
+      "shape": "rectangular",
+      "baseLengthMm": 100,
+      "baseWidthMm": 50,
+      "heightMm": 35,
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "5 packs", "zh": "5 条" } },
+        { "cartonLoading": { "en": "30 packs", "zh": "30 条" } }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" }
+  ],
   "patterns": [],
   "customizable": true,
-  "packaging": { "en": "800 pcs/pack × 30 packs", "zh": "800 个/包 × 30 包" },
   "seoTitle": { "en": "Translucent Chiffon Cake Liners", "zh": "半透明雪芳杯" },
   "seoDescription": {
     "en": "Translucent Chiffon Cake Liners made from translucent paper.",

@@ -101,7 +101,11 @@ describe("truthful bilingual SEO", () => {
   it("does not invent product offers, ratings, reviews, SKU or placeholder photography", () => {
     const data = JSON.parse(
       serializeJsonLd(
-        productData(product, "zh", "https://example.test/zh/product/"),
+        productData(
+          { ...product, material: { en: "TODO_MATERIAL", zh: "" } },
+          "zh",
+          "https://example.test/zh/product/",
+        ),
       ),
     );
     expect(data.name).toBe(rawProduct.title.zh);

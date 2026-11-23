@@ -43,31 +43,106 @@
       "name": { "en": "3830", "zh": "3830" },
       "baseDiameterMm": 38,
       "heightMm": 30,
-      "topDiameterMm": 50
+      "topDiameterMm": 50,
+      "shape": "round",
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.1 g",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 30 packs",
+            "zh": "100 只 × 30 条"
+          },
+          "packSize": "5 × 5 × 30 cm",
+          "cartonWeight": "3.9 kg",
+          "cartonSpec": "32 × 28 × 27"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "4435", "zh": "4435" },
       "baseDiameterMm": 44,
       "heightMm": 35,
-      "topDiameterMm": 60
+      "topDiameterMm": 58,
+      "shape": "round",
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 30 packs",
+            "zh": "100 只 × 30 条"
+          },
+          "packSize": "6 × 6 × 31.5 cm",
+          "cartonWeight": "5 kg",
+          "cartonSpec": "36 × 32 × 31"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "5039", "zh": "5039" },
       "baseDiameterMm": 50,
       "heightMm": 39,
-      "topDiameterMm": 70
+      "topDiameterMm": 68,
+      "shape": "round",
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.9 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "93.6 g",
+          "packSize": "7 × 7 × 16 cm",
+          "cartonWeight": "6.3 kg",
+          "cartonSpec": "43 × 33 × 35"
+        }
+      ],
+      "hasLid": true
     },
     {
       "name": { "en": "6040", "zh": "6040" },
       "baseDiameterMm": 60,
       "heightMm": 40,
-      "topDiameterMm": 80
+      "topDiameterMm": 80,
+      "shape": "round",
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "112 g",
+          "packSize": "8 × 8 × 16 cm",
+          "cartonWeight": "7.4 kg",
+          "cartonSpec": "49 × 30 × 41"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Double-sided gold", "zh": "双面金" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
   "seoTitle": {
     "en": "Double-Sided Gold Round Rolled-Rim Cups",
     "zh": "双面金圆形卷口杯"

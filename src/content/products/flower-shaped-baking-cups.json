@@ -46,12 +46,10 @@
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
-  "sizes": [{ "name": { "en": "TODO_SIZE_NAME", "zh": "" } }],
-  "colors": [
-    { "en": "Purple", "zh": "紫色" },
-    { "en": "Green", "zh": "绿色" },
-    { "en": "Blue", "zh": "蓝色" }
+  "sizes": [
+    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "shape": "shaped" }
   ],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Flower-Shaped Baking Cups", "zh": "花朵杯" },

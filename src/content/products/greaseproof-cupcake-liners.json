@@ -29,65 +29,87 @@
     {
       "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round"
     },
     {
       "name": { "en": "6.5 cm blank", "zh": "6.5 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round"
     },
     {
       "name": { "en": "7 cm blank", "zh": "7 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round"
     },
     {
       "name": { "en": "7.5 cm blank", "zh": "7.5 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round"
     },
     {
       "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 22.5
+      "heightMm": 22.5,
+      "shape": "round"
     },
     {
       "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round"
     },
     {
       "name": { "en": "10 cm blank", "zh": "10 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 27.5
+      "heightMm": 27.5,
+      "shape": "round"
     },
     {
       "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round"
     },
     {
       "name": { "en": "11 cm blank", "zh": "11 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round"
     },
     {
       "name": { "en": "11.5 cm blank", "zh": "11.5 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 32.5
+      "heightMm": 32.5,
+      "shape": "round"
     },
     {
       "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round"
     },
     {
       "name": { "en": "13 cm blank", "zh": "13 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Black", "zh": "黑色", "swatch": "#28252a" },
+    { "en": "Yellow", "zh": "黄色", "swatch": "#d9b631" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

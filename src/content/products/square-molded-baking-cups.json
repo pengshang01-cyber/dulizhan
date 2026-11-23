@@ -29,18 +29,35 @@
     {
       "name": { "en": "48×48×49 mm", "zh": "48×48×49 mm" },
       "heightMm": 49,
-      "specification": { "en": "48×48×49 mm", "zh": "48×48×49 mm" }
+      "shape": "rectangular",
+      "length": 48,
+      "width": 48,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 条"
+          },
+          "packWeight": "326 g",
+          "packSize": "6.5 × 6.5 × 38.5 cm",
+          "cartonWeight": "17.65 kg",
+          "cartonSpec": "69 × 43 × 34 cm"
+        }
+      ]
     }
   ],
   "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "100 pcs/pack × 50 packs", "zh": "100 个/包 × 50 包" },
   "seoTitle": { "en": "Square Molded Baking Cups", "zh": "正方机制杯" },
   "seoDescription": {
     "en": "Square Molded Baking Cups in the muffin & molded baking cups range.",
     "zh": "正方机制杯，属于机制杯与马芬杯系列。"
   },
   "featured": false,
-  "order": 30
+  "order": 30,
+  "moreColorsOnRequest": true
 }

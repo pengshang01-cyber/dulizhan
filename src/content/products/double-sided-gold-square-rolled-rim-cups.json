@@ -35,16 +35,48 @@
     {
       "name": { "en": "65×65×35 mm", "zh": "65×65×35 mm" },
       "heightMm": 35,
-      "specification": {
-        "en": "Base 65×65 mm, height 35 mm",
-        "zh": "底部 65×65 mm，高度 35 mm"
+      "shape": "rectangular",
+      "baseLengthMm": 65,
+      "baseWidthMm": 65,
+      "topLengthMm": 85,
+      "topWidthMm": 85,
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "cartonSpec": "52 × 40 × 44"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 88,
+        "baseWidthMm": 88,
+        "heightMm": 25,
+        "material": { "en": "PET", "zh": "PET" },
+        "unitWeight": "3.3 g",
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 60 packs",
+              "zh": "50 只 × 60 条"
+            },
+            "cartonSpec": "55 × 41 × 46"
+          }
+        ]
       }
     }
   ],
-  "colors": [{ "en": "Double-sided gold", "zh": "双面金" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
   "seoTitle": {
     "en": "Double-Sided Gold Square Rolled-Rim Cups",
     "zh": "双面金正方形卷口杯"

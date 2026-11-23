@@ -25,8 +25,25 @@
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
-  "sizes": [{ "name": { "en": "Natural color", "zh": "本色" } }],
-  "colors": [{ "en": "Natural color", "zh": "本色" }],
+  "sizes": [
+    {
+      "name": { "en": "11 cm", "zh": "11 厘米" },
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / PET tub", "zh": "100 只 / PET 桶" },
+          "cartonLoading": {
+            "en": "100 pcs × 200 tubs",
+            "zh": "100 只 × 200 桶"
+          },
+          "packWeight": "43.1 g",
+          "packSize": "7.5 × 7.5 × 6.5 cm",
+          "cartonWeight": "9.65 kg"
+        }
+      ]
+    }
+  ],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Natural-Color Cupcake Liners", "zh": "本色蛋糕纸托" },

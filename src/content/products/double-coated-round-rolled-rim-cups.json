@@ -25,19 +25,22 @@
       "name": { "en": "38×30 mm · top Ø 50 mm", "zh": "38×30 mm · 口径 50 mm" },
       "baseDiameterMm": 38,
       "heightMm": 30,
-      "topDiameterMm": 50
+      "topDiameterMm": 50,
+      "shape": "round"
     },
     {
       "name": { "en": "44×35 mm · top Ø 58 mm", "zh": "44×35 mm · 口径 58 mm" },
       "baseDiameterMm": 44,
       "heightMm": 35,
-      "topDiameterMm": 58
+      "topDiameterMm": 58,
+      "shape": "round"
     },
     {
       "name": { "en": "50×39 mm · top Ø 68 mm", "zh": "50×39 mm · 口径 68 mm" },
       "baseDiameterMm": 50,
       "heightMm": 39,
-      "topDiameterMm": 68
+      "topDiameterMm": 68,
+      "shape": "round"
     }
   ],
   "colors": [],

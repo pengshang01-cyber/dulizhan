@@ -4,8 +4,8 @@
   "category": "tulip-shaped-baking-cups.json",
   "title": { "en": "Lotus Baking Cups", "zh": "莲花杯" },
   "summary": {
-    "en": "Lotus Baking Cups made from greaseproof paper.",
-    "zh": "莲花杯，材质为 防油纸。"
+    "en": "Lotus Baking Cups made from Silicone-coated paper / Greaseproof paper.",
+    "zh": "莲花杯，材质为 硅油纸 / 防油纸。"
   },
   "images": [
     {
@@ -30,42 +30,102 @@
       }
     }
   ],
-  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
-  "gsm": "40 / 50 / 60",
+  "material": {
+    "en": "Silicone-coated paper / Greaseproof paper",
+    "zh": "硅油纸 / 防油纸"
+  },
+  "gsm": "TODO_GSM",
   "sizes": [
     {
-      "name": { "en": "150 · 50×70 mm", "zh": "150 · 50×70 mm" },
+      "name": { "en": "150", "zh": "150" },
       "baseDiameterMm": 50,
-      "heightMm": 70,
-      "topDiameterMm": 95
+      "topDiameterMm": 95,
+      "shape": "shaped",
+      "lowHeightMm": 53,
+      "highHeightMm": 65,
+      "material": {
+        "en": "Silicone-coated paper / Greaseproof paper",
+        "zh": "硅油纸 / 防油纸"
+      },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 25 packs",
+            "zh": "200 只 × 25 条"
+          },
+          "packWeight": "175 g",
+          "packSize": "9 × 9 × 33 cm",
+          "cartonWeight": "5.4 kg",
+          "cartonSpec": "62 × 37 × 32 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "160 · 50×75 mm", "zh": "160 · 50×75 mm" },
       "baseDiameterMm": 50,
       "heightMm": 75,
-      "topDiameterMm": 100
+      "topDiameterMm": 100,
+      "shape": "shaped",
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs/pack × 25 packs",
+            "zh": "200 个/包 × 25 包"
+          }
+        }
+      ],
+      "paperWeight": "40 / 50 / 60"
     },
     {
       "name": { "en": "160 · 50×90 mm", "zh": "160 · 50×90 mm" },
       "baseDiameterMm": 50,
       "heightMm": 90,
-      "topDiameterMm": 110
+      "topDiameterMm": 110,
+      "shape": "shaped",
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs/pack × 25 packs",
+            "zh": "200 个/包 × 25 包"
+          }
+        }
+      ],
+      "paperWeight": "40 / 50 / 60"
     },
     {
       "name": { "en": "170 · 50×95 mm", "zh": "170 · 50×95 mm" },
       "baseDiameterMm": 50,
       "heightMm": 95,
-      "topDiameterMm": 115
+      "topDiameterMm": 115,
+      "shape": "shaped",
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs/pack × 25 packs",
+            "zh": "200 个/包 × 25 包"
+          }
+        }
+      ],
+      "paperWeight": "40 / 50 / 60"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Yellow", "zh": "黄色", "swatch": "#d9b631" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "200 pcs/pack × 25 packs", "zh": "200 个/包 × 25 包" },
   "seoTitle": { "en": "Lotus Baking Cups", "zh": "莲花杯" },
   "seoDescription": {
-    "en": "Lotus Baking Cups made from greaseproof paper.",
-    "zh": "莲花杯，材质为 防油纸。"
+    "en": "Lotus Baking Cups made from Silicone-coated paper / Greaseproof paper.",
+    "zh": "莲花杯，材质为 硅油纸 / 防油纸。"
   },
   "featured": false,
   "order": 101

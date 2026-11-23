@@ -4,8 +4,8 @@
   "category": "cake-boards.json",
   "title": { "en": "Round Gold Cake Cards", "zh": "圆形金卡垫" },
   "summary": {
-    "en": "Round Gold Cake Cards in the cake boards range.",
-    "zh": "圆形金卡垫，属于蛋糕底板系列。"
+    "en": "Round Gold Cake Cards made from Food-grade white card.",
+    "zh": "圆形金卡垫，材质为 食品级白卡。"
   },
   "images": [
     {
@@ -23,20 +23,61 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+  "gsm": 700,
   "sizes": [
-    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 90 },
-    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 80 }
+    {
+      "name": { "en": "TODO_SIZE_NAME", "zh": "" },
+      "shape": "round",
+      "diameterMm": 90,
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "19.65 kg",
+          "cartonSpec": "48 × 47 × 19"
+        }
+      ],
+      "hasLid": false
+    },
+    {
+      "name": { "en": "TODO_SIZE_NAME", "zh": "" },
+      "shape": "round",
+      "diameterMm": 80,
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "16.45 kg",
+          "cartonSpec": "51 × 35 × 19.5"
+        }
+      ],
+      "hasLid": false
+    }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "5,000 pcs/carton", "zh": "5,000 个/箱" },
   "seoTitle": { "en": "Round Gold Cake Cards", "zh": "圆形金卡垫" },
   "seoDescription": {
-    "en": "Round Gold Cake Cards in the cake boards range.",
-    "zh": "圆形金卡垫，属于蛋糕底板系列。"
+    "en": "Round Gold Cake Cards made from Food-grade white card.",
+    "zh": "圆形金卡垫，材质为 食品级白卡。"
   },
   "featured": false,
   "order": 111

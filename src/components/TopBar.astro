@@ -18,7 +18,7 @@ interface Props {
     <Container>
       <ul
         aria-label={t("site.highlights", locale)}
-        class="flex min-h-8 flex-wrap items-center justify-center gap-x-8 gap-y-2 py-2 text-center text-[0.625rem] leading-relaxed font-semibold tracking-[0.16em] uppercase sm:gap-x-12"
+        class="flex min-h-8 flex-wrap items-center justify-center gap-x-7 gap-y-2 py-2 text-center text-[0.8125rem] leading-snug font-semibold tracking-[0.12em] uppercase"
       >
         {items.map((item, index) => (
           <li class:list={[index > 0 && "hidden sm:block"]}>{item}</li>

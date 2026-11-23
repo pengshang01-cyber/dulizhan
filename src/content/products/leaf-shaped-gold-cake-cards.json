@@ -17,10 +17,14 @@
   "sizes": [
     {
       "name": { "en": "110×75 mm", "zh": "110×75 mm" },
-      "specification": { "en": "110×75 mm", "zh": "110×75 mm" }
+      "shape": "sheet",
+      "length": 110,
+      "width": 75,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": { "en": "5,000 pcs/carton", "zh": "5,000 个/箱" },

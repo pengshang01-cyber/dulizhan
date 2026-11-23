@@ -28,34 +28,41 @@
   "sizes": [
     {
       "name": { "en": "30 cm × 5 m", "zh": "30 cm × 5 m" },
-      "specification": {
-        "en": "Width × roll length 30 cm × 5 m",
-        "zh": "纸宽 × 卷长 30 cm × 5 m"
-      }
+      "shape": "roll",
+      "width": 30,
+      "widthUnit": "cm",
+      "length": 5,
+      "lengthUnit": "m"
     },
     {
       "name": { "en": "30 cm × 10 m", "zh": "30 cm × 10 m" },
-      "specification": {
-        "en": "Width × roll length 30 cm × 10 m",
-        "zh": "纸宽 × 卷长 30 cm × 10 m"
-      }
+      "shape": "roll",
+      "width": 30,
+      "widthUnit": "cm",
+      "length": 10,
+      "lengthUnit": "m"
     },
     {
       "name": { "en": "30 cm × 60 m", "zh": "30 cm × 60 m" },
-      "specification": {
-        "en": "Width × roll length 30 cm × 60 m",
-        "zh": "纸宽 × 卷长 30 cm × 60 m"
-      }
+      "shape": "roll",
+      "width": 30,
+      "widthUnit": "cm",
+      "length": 60,
+      "lengthUnit": "m"
     },
     {
       "name": { "en": "45 cm × 10 m", "zh": "45 cm × 10 m" },
-      "specification": {
-        "en": "Width × roll length 45 cm × 10 m",
-        "zh": "纸宽 × 卷长 45 cm × 10 m"
-      }
+      "shape": "roll",
+      "width": 45,
+      "widthUnit": "cm",
+      "length": 10,
+      "lengthUnit": "m"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

@@ -1,0 +1,49 @@
+{
+  "sku": "TODO_SKU_GOLD_SQUARE_DESSERT_TRAYS",
+  "slug": "gold-square-dessert-trays",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Gold Square Dessert Trays", "zh": "方形金托" },
+  "summary": {
+    "en": "Gold Square Dessert Trays made from Cupstock.",
+    "zh": "方形金托，材质为 口杯纸。"
+  },
+  "material": { "en": "Cupstock", "zh": "口杯纸" },
+  "gsm": 210,
+  "images": [
+    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+  ],
+  "sizes": [
+    {
+      "shape": "rectangular",
+      "baseLengthMm": 70,
+      "baseWidthMm": 70,
+      "heightMm": 27.5,
+      "material": { "en": "Cupstock", "zh": "口杯纸" },
+      "paperWeight": 210,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "70 × 70 mm", "zh": "70 × 70 mm" }
+    }
+  ],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Gold Square Dessert Trays", "zh": "方形金托" },
+  "seoDescription": {
+    "en": "Gold Square Dessert Trays made from Cupstock.",
+    "zh": "方形金托，材质为 口杯纸。"
+  },
+  "featured": false,
+  "order": 121
+}

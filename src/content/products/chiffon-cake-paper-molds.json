@@ -37,22 +37,25 @@
       "name": { "en": "4 in", "zh": "4 英寸" },
       "baseDiameterMm": 93,
       "heightMm": 60,
-      "topDiameterMm": 110
+      "topDiameterMm": 110,
+      "shape": "round"
     },
     {
       "name": { "en": "6 in", "zh": "6 英寸" },
       "baseDiameterMm": 145,
       "heightMm": 65,
-      "topDiameterMm": 165
+      "topDiameterMm": 165,
+      "shape": "round"
     },
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "baseDiameterMm": 180,
       "heightMm": 60,
-      "topDiameterMm": 205
+      "topDiameterMm": 205,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "White", "zh": "白色", "swatch": "#ffffff" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

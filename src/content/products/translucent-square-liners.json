@@ -29,12 +29,20 @@
     {
       "name": { "en": "45×45×25 mm", "zh": "45×45×25 mm" },
       "heightMm": 25,
-      "specification": { "en": "45×45×25 mm", "zh": "45×45×25 mm" }
+      "shape": "rectangular",
+      "length": 45,
+      "width": 45,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "60×60×30 mm", "zh": "60×60×30 mm" },
       "heightMm": 30,
-      "specification": { "en": "60×60×30 mm", "zh": "60×60×30 mm" }
+      "shape": "rectangular",
+      "length": 60,
+      "width": 60,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
   "colors": [],

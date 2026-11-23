@@ -4,8 +4,8 @@
   "category": "cake-boards.json",
   "title": { "en": "Square Gold Cake Cards", "zh": "正方形金卡垫" },
   "summary": {
-    "en": "Square Gold Cake Cards in the cake boards range.",
-    "zh": "正方形金卡垫，属于蛋糕底板系列。"
+    "en": "Square Gold Cake Cards made from Food-grade white card.",
+    "zh": "正方形金卡垫，材质为 食品级白卡。"
   },
   "images": [
     {
@@ -23,26 +23,67 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+  "gsm": 700,
   "sizes": [
     {
       "name": { "en": "90×82 mm", "zh": "90×82 mm" },
-      "specification": { "en": "90×82 mm", "zh": "90×82 mm" }
+      "shape": "sheet",
+      "length": 90,
+      "width": 82,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "23.65 kg",
+          "cartonSpec": "48 × 47 × 19"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "72×72 mm", "zh": "72×72 mm" },
-      "specification": { "en": "72×72 mm", "zh": "72×72 mm" }
+      "shape": "sheet",
+      "length": 72,
+      "width": 72,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "15.95 kg",
+          "cartonSpec": "43 × 37 × 19"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "5,000 pcs/carton", "zh": "5,000 个/箱" },
   "seoTitle": { "en": "Square Gold Cake Cards", "zh": "正方形金卡垫" },
   "seoDescription": {
-    "en": "Square Gold Cake Cards in the cake boards range.",
-    "zh": "正方形金卡垫，属于蛋糕底板系列。"
+    "en": "Square Gold Cake Cards made from Food-grade white card.",
+    "zh": "正方形金卡垫，材质为 食品级白卡。"
   },
   "featured": false,
   "order": 112

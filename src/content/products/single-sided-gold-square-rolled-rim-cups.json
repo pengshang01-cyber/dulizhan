@@ -35,18 +35,61 @@
     {
       "name": { "en": "65×65×35 mm", "zh": "65×65×35 mm" },
       "heightMm": 35,
-      "specification": {
-        "en": "Base 65×65 mm, top 85×85 mm, height 35 mm",
-        "zh": "底部 65×65 mm，顶部 85×85 mm，高度 35 mm"
+      "shape": "rectangular",
+      "baseLengthMm": 65,
+      "baseWidthMm": 65,
+      "topLengthMm": 85,
+      "topWidthMm": 85,
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.4 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "120 g",
+          "packSize": "8.5 × 8.5 × 19 cm",
+          "cartonWeight": "8.25 kg",
+          "cartonSpec": "52 × 40 × 44"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 88,
+        "baseWidthMm": 88,
+        "heightMm": 25,
+        "material": { "en": "PET", "zh": "PET" },
+        "unitWeight": "3.3 g",
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 60 packs",
+              "zh": "50 只 × 60 条"
+            },
+            "cartonSpec": "55 × 41 × 46"
+          }
+        ]
       }
     }
   ],
-  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "colors": [
+    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" }
+  ],
   "patterns": [{ "en": "Gold print", "zh": "金色印花" }],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "65×65×35 mm — 50 pcs/pack × 60 packs\n65×65×35 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 52 × 40 × 44 cm",
-    "zh": "65×65×35 mm — 包装 50 个/包 × 60 包\n65×65×35 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 52 × 40 × 44 cm"
+    "en": "65×65×35 mm — MOQ 2 cartons",
+    "zh": "65×65×35 mm — 起订量 2 箱"
   },
   "seoTitle": {
     "en": "Single-Sided Gold Square Rolled-Rim Cups",

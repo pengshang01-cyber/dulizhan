@@ -1,0 +1,23 @@
+---
+import { t, type Locale } from "../i18n/utils";
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+const { locale, class: classes } = Astro.props;
+---
+
+<dl class:list={["grid gap-4 sm:grid-cols-2", classes]}>
+  <div class="rounded-panel border border-line bg-white p-5 sm:p-6">
+    <dt class="text-base font-bold text-ink">{t("services.oem", locale)}</dt>
+    <dd class="mt-2 text-sm leading-relaxed text-ink-soft">
+      {t("services.oemDescription", locale)}
+    </dd>
+  </div>
+  <div class="rounded-panel border border-line bg-white p-5 sm:p-6">
+    <dt class="text-base font-bold text-ink">{t("services.odm", locale)}</dt>
+    <dd class="mt-2 text-sm leading-relaxed text-ink-soft">
+      {t("services.odmDescription", locale)}
+    </dd>
+  </div>
+</dl>

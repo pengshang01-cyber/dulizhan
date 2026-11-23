@@ -20,7 +20,8 @@
       "specification": {
         "en": "Series sizes 3–14 in, thickness 1–12 mm",
         "zh": "系列尺寸 3–14 英寸，厚度 1–12 mm"
-      }
+      },
+      "shape": "sheet"
     }
   ],
   "colors": [],

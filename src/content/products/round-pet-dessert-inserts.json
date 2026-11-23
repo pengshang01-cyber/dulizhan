@@ -29,40 +29,47 @@
     {
       "name": { "en": "50×30 mm", "zh": "50×30 mm" },
       "baseDiameterMm": 50,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round"
     },
     {
       "name": { "en": "57×57 mm", "zh": "57×57 mm" },
       "baseDiameterMm": 57,
-      "heightMm": 57
+      "heightMm": 57,
+      "shape": "round"
     },
     {
       "name": { "en": "57×60 mm", "zh": "57×60 mm" },
       "baseDiameterMm": 57,
-      "heightMm": 60
+      "heightMm": 60,
+      "shape": "round"
     },
     {
       "name": { "en": "60×25 mm", "zh": "60×25 mm" },
       "baseDiameterMm": 60,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round"
     },
     {
       "name": { "en": "60×30 mm", "zh": "60×30 mm" },
       "baseDiameterMm": 60,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round"
     },
     {
       "name": { "en": "75×47.5 mm", "zh": "75×47.5 mm" },
       "baseDiameterMm": 75,
-      "heightMm": 47.5
+      "heightMm": 47.5,
+      "shape": "round"
     },
     {
       "name": { "en": "75×62.5 mm", "zh": "75×62.5 mm" },
       "baseDiameterMm": 75,
-      "heightMm": 62.5
+      "heightMm": 62.5,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Clear", "zh": "透明", "swatch": "#edf3f3" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": {

@@ -24,10 +24,11 @@
     {
       "name": { "en": "80×40×40 mm", "zh": "80×40×40 mm" },
       "heightMm": 40,
-      "specification": {
-        "en": "Base 80×40 mm, top 110×65 mm, height 40 mm",
-        "zh": "底部 80×40 mm，顶部 110×65 mm，高度 40 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 80,
+      "baseWidthMm": 40,
+      "topLengthMm": 110,
+      "topWidthMm": 65
     }
   ],
   "colors": [],
@@ -46,5 +47,6 @@
     "zh": "金色印花长方形卷口杯，材质为 双面 PET 淋膜纸。"
   },
   "featured": false,
-  "order": 26
+  "order": 26,
+  "moreColorsOnRequest": true
 }

@@ -13,6 +13,7 @@ import CheckList from "../CheckList.astro";
 import Container from "../Container.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
+import FactoryTrust from "../FactoryTrust.astro";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { site } from "../../config/site";
@@ -47,18 +48,6 @@ const factoryImages = uploadedImages.length
       alt: t("about.factoryImageAlt", locale, { label }),
       placeholder: true,
     }));
-const productionSteps = [
-  t("pages.about.printing", locale),
-  t("pages.about.forming", locale),
-  t("pages.about.quality_check", locale),
-  t("pages.about.packing", locale),
-  t("pages.about.shipping", locale),
-];
-const certificates = site.certificates.flatMap(({ name, imagePath }) => {
-  const caption = confirmedLocalized(name, locale);
-  const image = caption && resolveSiteImage(imagePath);
-  return caption && image ? [{ name: caption, image }] : [];
-});
 const team = teamMembers.flatMap(({ name, role, image }) => {
   const member = confirmedLocalized(name, locale);
   const photo = member && resolveSiteImage(image);
@@ -118,6 +107,8 @@ interface Props {
     </Container>
   </section>
 
+  <FactoryTrust locale={locale} certificateId="about-certificates" />
+
   <section
     aria-labelledby="factory-images-title"
     class="bg-paper py-14 sm:py-20"
@@ -155,86 +146,6 @@ interface Props {
       </div>
     </Container>
   </section>
-
-  <section
-    aria-labelledby="production-title"
-    class="dark-surface py-14 sm:py-20"
-  >
-    <Container>
-      <SectionHeading
-        eyebrow={t("pages.about.from_print_to_shipment", locale)}
-        title={t("pages.about.the_production_process", locale)}
-        id="production-title"
-      />
-      <ol data-production-steps class="mt-9 grid gap-4 md:grid-cols-5">
-        {productionSteps.map((title, index) => (
-          <li class="flex items-center gap-5 rounded-panel border border-line bg-white p-5 text-ink md:block md:p-6">
-            <span
-              aria-hidden="true"
-              class="font-display text-4xl leading-none text-copper"
-            >
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <h3 class="font-display text-card-title font-normal md:mt-5">
-              {title}
-            </h3>
-          </li>
-        ))}
-      </ol>
-    </Container>
-  </section>
-
-  <section
-    aria-labelledby="quality-title"
-    class="border-b border-line py-14 sm:py-20"
-  >
-    <Container>
-      <SectionHeading
-        eyebrow={t("pages.about.materials_quality", locale)}
-        title={t("pages.about.food_grade_paper_clear_requirements", locale)}
-        id="quality-title"
-        description={t(
-          "pages.about.we_use_food_grade_grease_resistant_paper_tell",
-          locale,
-        )}
-      />
-    </Container>
-  </section>
-
-  {certificates.length > 0 && (
-    <section
-      id="about-certificates"
-      aria-labelledby="about-certificates-title"
-      class="bg-paper py-14 sm:py-20"
-    >
-      <Container>
-        <SectionHeading
-          eyebrow={t("pages.about.quality_documentation", locale)}
-          title={t("pages.about.factory_certificates", locale)}
-          id="about-certificates-title"
-        />
-        <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {certificates.map(({ name, image }) => (
-            <li>
-              <figure class="h-full rounded-panel border border-line bg-white p-5">
-                <Image
-                  src={image}
-                  alt={name}
-                  width={480}
-                  height={360}
-                  format="webp"
-                  loading="lazy"
-                  decoding="async"
-                  class="aspect-[4/3] w-full object-contain"
-                />
-                <figcaption class="mt-4 text-sm font-bold">{name}</figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </section>
-  )}
 
   {team.length > 0 && (
     <section

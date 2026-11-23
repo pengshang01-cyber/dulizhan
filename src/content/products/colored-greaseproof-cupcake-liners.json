@@ -1,0 +1,52 @@
+{
+  "sku": "TODO_SKU_COLORED_GREASEPROOF_CUPCAKE_LINERS",
+  "slug": "colored-greaseproof-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": {
+    "en": "Colored Greaseproof Cupcake Liners",
+    "zh": "彩色防油蛋糕纸托"
+  },
+  "summary": {
+    "en": "Colored Greaseproof Cupcake Liners made from Colored greaseproof paper.",
+    "zh": "彩色防油蛋糕纸托，材质为 彩色防油纸。"
+  },
+  "material": { "en": "Colored greaseproof paper", "zh": "彩色防油纸" },
+  "gsm": "TODO_GSM",
+  "images": [
+    {
+      "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    }
+  ],
+  "sizes": [
+    {
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / PET tub", "zh": "100 只 / PET 桶" },
+          "cartonLoading": {
+            "en": "100 pcs × 200 tubs",
+            "zh": "100 只 × 200 桶"
+          }
+        },
+        { "packaging": { "en": "300 pcs × 120 tubs", "zh": "300 只 × 120 桶" } }
+      ],
+      "name": {
+        "en": "11 cm · Six-color assortment",
+        "zh": "11 厘米 · 六色混装"
+      }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Colored Greaseproof Cupcake Liners",
+    "zh": "彩色防油蛋糕纸托"
+  },
+  "seoDescription": {
+    "en": "Colored Greaseproof Cupcake Liners made from Colored greaseproof paper.",
+    "zh": "彩色防油蛋糕纸托，材质为 彩色防油纸。"
+  },
+  "featured": false,
+  "order": 126
+}

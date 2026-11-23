@@ -5,6 +5,7 @@ import { format, resolveConfig } from "prettier";
 import readWorkbook, { type Row } from "read-excel-file/node";
 import {
   excludedShops,
+  imagePath,
   importCategories,
   productFamilies,
 } from "./product-import-groups.ts";
@@ -18,6 +19,7 @@ import {
   type Bilingual,
   type SourceRow,
 } from "./product-import-specs.ts";
+import { importSpecs2026 } from "./product-specs-2026.ts";
 
 const productHeaders = [
   "产品名称",
@@ -408,8 +410,6 @@ export function productEntry(group: Group, order: number) {
   };
 }
 
-const imagePath = (category: Group["category"]) =>
-  `../../assets/images/categories/${category[5]}-placeholder.png`;
 const quoteCsv = (value: number | string) =>
   '"' +
   String(value)
@@ -422,9 +422,28 @@ const tableText = (value: string) =>
 
 async function run() {
   const args = process.argv.slice(2);
-  if (args.length > 1 || (args.length === 1 && args[0] !== "--plan"))
-    throw new Error("用法：npm run import:products [-- --plan]");
+  if (
+    args.some((arg) => arg !== "--plan" && arg !== "--legacy") ||
+    new Set(args).size !== args.length
+  )
+    throw new Error("用法：npm run import:products [-- --plan] [-- --legacy]");
+  const planOnly = args.includes("--plan");
   const root = fileURLToPath(new URL("../", import.meta.url));
+  if (!args.includes("--legacy")) {
+    const { summary, changes, warnings, held } = await importSpecs2026(
+      root,
+      planOnly,
+    );
+    console.log(
+      JSON.stringify({
+        ...summary,
+        changes: changes.length,
+        warnings: warnings.length,
+        held,
+      }),
+    );
+    return;
+  }
   const workbook = await readWorkbook(
     resolve(root, "data-import/junbeili-products.xlsx"),
   );
@@ -502,7 +521,7 @@ async function run() {
     ),
   );
 
-  if (args[0] !== "--plan") {
+  if (!planOnly) {
     async function existingMedia(path: string): Promise<{
       image?: string;
       imageAlt?: unknown;

@@ -4,53 +4,96 @@
   "category": "tulip-shaped-baking-cups.json",
   "title": { "en": "Paper Dessert Cups", "zh": "纸质甜品杯" },
   "summary": {
-    "en": "Paper Dessert Cups made from PE-coated paper.",
-    "zh": "纸质甜品杯，材质为 PE 淋膜纸。"
+    "en": "Paper Dessert Cups made from PE-coated cupstock.",
+    "zh": "纸质甜品杯，材质为 PE 淋膜口杯纸。"
   },
   "images": [
     {
       "image": "../../assets/images/categories/tulip-baking-cups-placeholder.png"
     }
   ],
-  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
+  "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
   "gsm": 210,
   "sizes": [
     {
       "name": { "en": "65", "zh": "65" },
       "baseDiameterMm": 55,
       "heightMm": 40,
-      "topDiameterMm": 65
+      "topDiameterMm": 65,
+      "shape": "round"
     },
     {
       "name": { "en": "75", "zh": "75" },
       "baseDiameterMm": 60,
       "heightMm": 50,
-      "topDiameterMm": 75
+      "topDiameterMm": 75,
+      "shape": "round"
     },
     {
       "name": { "en": "85", "zh": "85" },
-      "baseDiameterMm": 70,
-      "heightMm": 55,
-      "topDiameterMm": 85
+      "baseDiameterMm": 75,
+      "heightMm": 50,
+      "topDiameterMm": 85,
+      "shape": "round",
+      "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+      "paperWeight": 210,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" },
+          "packWeight": "226 g",
+          "packSize": "17.5 × 20 × 8.5 cm",
+          "cartonWeight": "5.3 kg",
+          "cartonSpec": "43.5 × 35 × 41 cm"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "round",
+        "baseDiameterMm": 88,
+        "heightMm": 25,
+        "material": { "en": "PET", "zh": "PET" },
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 60 packs",
+              "zh": "50 只 × 60 条"
+            },
+            "packWeight": "145.3 g",
+            "packSize": "8.5 × 8.5 × 22 cm",
+            "cartonWeight": "3.5 kg",
+            "cartonSpec": "45 × 25 × 37 cm"
+          }
+        ]
+      }
     },
     {
       "name": { "en": "95", "zh": "95" },
       "baseDiameterMm": 80,
       "heightMm": 55,
-      "topDiameterMm": 95
+      "topDiameterMm": 95,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Yellow gingham", "zh": "黄格", "swatch": "#d1b84e" },
+    { "en": "Pink gingham", "zh": "粉格", "swatch": "#d78caa" },
+    { "en": "Blue gingham", "zh": "蓝格", "swatch": "#7fbccb" },
+    { "en": "Green gingham", "zh": "绿格", "swatch": "#8ebd75" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "65 — 50 pcs/pack × 40 packs\n75 — 50 pcs/pack × 40 packs\n85 — 50 pcs/pack × 20 packs\n95 — 50 pcs/pack × 20 packs",
-    "zh": "65 — 包装 50 个/包 × 40 包\n75 — 包装 50 个/包 × 40 包\n85 — 包装 50 个/包 × 20 包\n95 — 包装 50 个/包 × 20 包"
+    "en": "65 — 50 pcs/pack × 40 packs\n75 — 50 pcs/pack × 40 packs\n95 — 50 pcs/pack × 20 packs",
+    "zh": "65 — 包装 50 个/包 × 40 包\n75 — 包装 50 个/包 × 40 包\n95 — 包装 50 个/包 × 20 包"
   },
   "seoTitle": { "en": "Paper Dessert Cups", "zh": "纸质甜品杯" },
   "seoDescription": {
-    "en": "Paper Dessert Cups made from PE-coated paper.",
-    "zh": "纸质甜品杯，材质为 PE 淋膜纸。"
+    "en": "Paper Dessert Cups made from PE-coated cupstock.",
+    "zh": "纸质甜品杯，材质为 PE 淋膜口杯纸。"
   },
   "featured": false,
   "order": 48

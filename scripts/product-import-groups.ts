@@ -12,6 +12,9 @@ export const excludedShops = [
   "大圆盘大长方",
 ] as const;
 
+export const imagePath = (category: (typeof importCategories)[number]) =>
+  `../../assets/images/categories/${category[5]}-placeholder.png`;
+
 // 这些映射只用于导入，网站本身只读取内容集合。
 export const importCategories = [
   [

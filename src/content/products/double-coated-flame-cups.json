@@ -24,7 +24,8 @@
     {
       "name": { "en": "50×75 mm", "zh": "50×75 mm" },
       "baseDiameterMm": 50,
-      "heightMm": 75
+      "heightMm": 75,
+      "shape": "shaped"
     }
   ],
   "colors": [],

@@ -7,8 +7,8 @@
     "zh": "防油纸长方形卷口杯"
   },
   "summary": {
-    "en": "Greaseproof Rectangular Rolled-Rim Cups made from colored greaseproof paper.",
-    "zh": "防油纸长方形卷口杯，材质为 彩色防油纸。"
+    "en": "Greaseproof Rectangular Rolled-Rim Cups made from Greaseproof paper.",
+    "zh": "防油纸长方形卷口杯，材质为 防油纸。"
   },
   "images": [
     {
@@ -26,29 +26,73 @@
       }
     }
   ],
-  "material": { "en": "Colored greaseproof paper", "zh": "彩色防油纸" },
+  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": 80,
   "sizes": [
     {
       "name": { "en": "80×40×40 mm", "zh": "80×40×40 mm" },
       "heightMm": 40,
-      "specification": {
-        "en": "Base 80×40 mm, height 40 mm",
-        "zh": "底部 80×40 mm，高度 40 mm"
+      "shape": "rectangular",
+      "baseLengthMm": 80,
+      "baseWidthMm": 40,
+      "topLengthMm": 110,
+      "topWidthMm": 65,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "paperWeight": 80,
+      "unitWeight": "1.9 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "99.5 g",
+          "packSize": "11 × 6 × 20 cm",
+          "cartonWeight": "6.95 kg",
+          "cartonSpec": "57 × 37 × 42"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 110,
+        "baseWidthMm": 65,
+        "heightMm": 25,
+        "material": { "en": "PET", "zh": "PET" },
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 60 packs",
+              "zh": "50 只 × 60 条"
+            },
+            "packWeight": "165 g",
+            "packSize": "11.5 × 7 × 18 cm",
+            "cartonWeight": "10.9 kg",
+            "cartonSpec": "58 × 35 × 43"
+          }
+        ]
       }
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Yellow", "zh": "黄色", "swatch": "#d9b631" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Charcoal", "zh": "炭灰色", "swatch": "#4e5556" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
   "seoTitle": {
     "en": "Greaseproof Rectangular Rolled-Rim Cups",
     "zh": "防油纸长方形卷口杯"
   },
   "seoDescription": {
-    "en": "Greaseproof Rectangular Rolled-Rim Cups made from colored greaseproof paper.",
-    "zh": "防油纸长方形卷口杯，材质为 彩色防油纸。"
+    "en": "Greaseproof Rectangular Rolled-Rim Cups made from Greaseproof paper.",
+    "zh": "防油纸长方形卷口杯，材质为 防油纸。"
   },
   "featured": false,
   "order": 22

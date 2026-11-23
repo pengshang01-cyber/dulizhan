@@ -7,8 +7,8 @@
     "zh": "印花蛋糕纸托补充规格"
   },
   "summary": {
-    "en": "Printed Cupcake Liners — Additional Sizes in the cupcake liners range.",
-    "zh": "印花蛋糕纸托补充规格，属于蛋糕纸托系列。"
+    "en": "Printed Cupcake Liners — Additional Sizes made from Cake liner paper.",
+    "zh": "印花蛋糕纸托补充规格，材质为 蛋糕纸。"
   },
   "images": [
     {
@@ -26,23 +26,76 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+  "gsm": 40,
   "sizes": [
     {
       "name": { "en": "8.5 cm blank", "zh": "8.5 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "238 g",
+          "packSize": "5.5 × 5.5 × 33",
+          "cartonWeight": "12.7 kg",
+          "cartonSpec": "58 × 35 × 27"
+        }
+      ]
     },
     {
       "name": { "en": "9.5 cm blank", "zh": "9.5 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 27.5
+      "heightMm": 27.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 50 packs",
+            "zh": "1000 只 × 50 条"
+          },
+          "packWeight": "267 g",
+          "packSize": "6 × 6 × 36",
+          "cartonWeight": "14.1 kg",
+          "cartonSpec": "58 × 35.5 × 29"
+        }
+      ]
     },
     {
       "name": { "en": "12.5 cm blank", "zh": "12.5 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 37.5
+      "heightMm": 37.5,
+      "shape": "round",
+      "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 40 packs",
+            "zh": "1000 只 × 40 条"
+          }
+        }
+      ]
     }
   ],
   "colors": [],
@@ -53,9 +106,10 @@
     "zh": "印花蛋糕纸托补充规格"
   },
   "seoDescription": {
-    "en": "Printed Cupcake Liners — Additional Sizes in the cupcake liners range.",
-    "zh": "印花蛋糕纸托补充规格，属于蛋糕纸托系列。"
+    "en": "Printed Cupcake Liners — Additional Sizes made from Cake liner paper.",
+    "zh": "印花蛋糕纸托补充规格，材质为 蛋糕纸。"
   },
   "featured": false,
-  "order": 78
+  "order": 78,
+  "moreColorsOnRequest": true
 }

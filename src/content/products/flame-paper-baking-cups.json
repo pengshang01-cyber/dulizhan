@@ -26,12 +26,43 @@
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,
   "sizes": [
-    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 }
+    {
+      "name": { "en": "140", "zh": "140" },
+      "baseDiameterMm": 50,
+      "shape": "shaped",
+      "lowHeightMm": 47,
+      "highHeightMm": 73,
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "unitWeight": "2.1 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "108.5 g",
+          "packSize": "8.5 × 8.5 × 25 cm",
+          "cartonWeight": "7.5 kg",
+          "cartonSpec": "75 × 33 × 40"
+        }
+      ],
+      "hasLid": false
+    }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" },
+    { "en": "Yellow-green", "zh": "黄绿色", "swatch": "#aeb63a" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
+    { "en": "Magenta", "zh": "玫红色", "swatch": "#c44081" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
   "seoTitle": { "en": "Flame-Shaped Baking Cups", "zh": "火焰纸杯" },
   "seoDescription": {
     "en": "Flame-Shaped Baking Cups made from PET-coated paper.",

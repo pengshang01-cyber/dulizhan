@@ -20,15 +20,27 @@
   "sizes": [
     {
       "name": { "en": "18×18 cm", "zh": "18×18 cm" },
-      "specification": { "en": "18×18 cm", "zh": "18×18 cm" }
+      "shape": "sheet",
+      "length": 18,
+      "width": 18,
+      "lengthUnit": "cm",
+      "widthUnit": "cm"
     },
     {
       "name": { "en": "25×25 cm", "zh": "25×25 cm" },
-      "specification": { "en": "25×25 cm", "zh": "25×25 cm" }
+      "shape": "sheet",
+      "length": 25,
+      "width": 25,
+      "lengthUnit": "cm",
+      "widthUnit": "cm"
     },
     {
       "name": { "en": "30×30 cm", "zh": "30×30 cm" },
-      "specification": { "en": "30×30 cm", "zh": "30×30 cm" }
+      "shape": "sheet",
+      "length": 30,
+      "width": 30,
+      "lengthUnit": "cm",
+      "widthUnit": "cm"
     }
   ],
   "colors": [],

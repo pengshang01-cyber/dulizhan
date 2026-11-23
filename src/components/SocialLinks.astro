@@ -1,0 +1,44 @@
+---
+import { site, type SocialPlatform } from "../config/site";
+import { t, type Locale } from "../i18n/utils";
+import { configuredOrigin } from "../lib/indexing";
+import { confirmedText } from "../lib/placeholders";
+import BrandIcon from "./BrandIcon.astro";
+
+interface Props {
+  locale: Locale;
+  class?: string;
+  linkClass?: string;
+}
+const { locale, class: classes, linkClass } = Astro.props;
+const platforms = Object.keys(site.socialLinks) as SocialPlatform[];
+const socials = platforms.flatMap((platform) => {
+  const href = confirmedText(site.socialLinks[platform]);
+  return href && configuredOrigin(href) ? [{ platform, href }] : [];
+});
+---
+
+{socials.length > 0 && (
+  <ul
+    aria-label={t("site.socialMedia", locale)}
+    class:list={["flex flex-wrap gap-2", classes]}
+    data-social-links
+  >
+    {socials.map(({ platform, href }) => (
+      <li>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={t(`site.social.${platform}`, locale)}
+          class:list={[
+            "grid size-10 place-items-center rounded-control border hover:border-copper hover:text-copper",
+            linkClass,
+          ]}
+        >
+          <BrandIcon name={platform} class="size-4" />
+        </a>
+      </li>
+    ))}
+  </ul>
+)}

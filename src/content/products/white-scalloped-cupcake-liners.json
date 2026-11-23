@@ -19,28 +19,32 @@
       "name": { "en": "40×20 mm · top Ø 55 mm", "zh": "40×20 mm · 口径 55 mm" },
       "baseDiameterMm": 40,
       "heightMm": 20,
-      "topDiameterMm": 55
+      "topDiameterMm": 55,
+      "shape": "round"
     },
     {
       "name": { "en": "45×26 mm · top Ø 60 mm", "zh": "45×26 mm · 口径 60 mm" },
       "baseDiameterMm": 45,
       "heightMm": 26,
-      "topDiameterMm": 60
+      "topDiameterMm": 60,
+      "shape": "round"
     },
     {
       "name": { "en": "45×30 mm · top Ø 70 mm", "zh": "45×30 mm · 口径 70 mm" },
       "baseDiameterMm": 45,
       "heightMm": 30,
-      "topDiameterMm": 70
+      "topDiameterMm": 70,
+      "shape": "round"
     },
     {
       "name": { "en": "50×35 mm · top Ø 65 mm", "zh": "50×35 mm · 口径 65 mm" },
       "baseDiameterMm": 50,
       "heightMm": 35,
-      "topDiameterMm": 65
+      "topDiameterMm": 65,
+      "shape": "round"
     }
   ],
-  "colors": [{ "en": "White", "zh": "白色" }],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

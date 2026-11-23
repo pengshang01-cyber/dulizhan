@@ -4,8 +4,8 @@
   "category": "tulip-shaped-baking-cups.json",
   "title": { "en": "Mushroom Cup Lids", "zh": "蘑菇杯配套盖" },
   "summary": {
-    "en": "Mushroom Cup Lids in the tulip & shaped baking cups range.",
-    "zh": "蘑菇杯配套盖，属于造型纸杯系列。"
+    "en": "Mushroom Cup Lids made from PET.",
+    "zh": "蘑菇杯配套盖，材质为 PET。"
   },
   "images": [
     {
@@ -23,22 +23,35 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "material": { "en": "PET", "zh": "PET" },
   "gsm": "TODO_GSM",
   "sizes": [
     {
-      "name": { "en": "Ø 88 mm", "zh": "Ø 88 mm" },
+      "name": { "en": "Ø 88 mm", "zh": "直径 88 mm" },
       "heightMm": 25,
-      "specification": { "en": "Diameter 88 mm", "zh": "直径 88 mm" }
+      "shape": "round",
+      "diameterMm": 88,
+      "baseDiameterMm": 88,
+      "material": { "en": "PET", "zh": "PET" },
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "145.3 g",
+          "packSize": "8.5 × 8.5 × 22 cm",
+          "cartonWeight": "3.5 kg",
+          "cartonSpec": "45 × 25 × 37"
+        }
+      ]
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Clear", "zh": "透明", "swatch": "#edf3f3" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Mushroom Cup Lids", "zh": "蘑菇杯配套盖" },
   "seoDescription": {
-    "en": "Mushroom Cup Lids in the tulip & shaped baking cups range.",
-    "zh": "蘑菇杯配套盖，属于造型纸杯系列。"
+    "en": "Mushroom Cup Lids made from PET.",
+    "zh": "蘑菇杯配套盖，材质为 PET。"
   },
   "featured": false,
   "order": 103

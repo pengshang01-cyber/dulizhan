@@ -29,27 +29,75 @@
     {
       "name": { "en": "4435", "zh": "4435" },
       "baseDiameterMm": 44,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs/pack × 30 packs",
+            "zh": "100 个/包 × 30 包"
+          }
+        }
+      ]
     },
     {
       "name": { "en": "5040", "zh": "5040" },
       "baseDiameterMm": 50,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs/pack × 30 packs",
+            "zh": "100 个/包 × 30 包"
+          }
+        }
+      ]
     },
     {
       "name": { "en": "5045", "zh": "5045" },
       "baseDiameterMm": 50,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "shaped",
+      "topWideMm": 83,
+      "topNarrowMm": 68,
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "unitWeight": "2.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "213.5 g",
+          "packSize": "8 × 8 × 29.5 cm",
+          "cartonWeight": "6.8 kg",
+          "cartonSpec": "51 × 30 × 41"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Lavender", "zh": "浅紫色", "swatch": "#b5a1cb" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" },
+    { "en": "Yellow-green", "zh": "黄绿色", "swatch": "#aeb63a" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
+    { "en": "Magenta", "zh": "玫红色", "swatch": "#c44081" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" }
+  ],
   "patterns": [
     { "en": "Solid color", "zh": "纯色" },
     { "en": "Polka dots", "zh": "波点" },
     { "en": "Printed", "zh": "印花" }
   ],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "100 pcs/pack × 30 packs", "zh": "100 个/包 × 30 包" },
   "seoTitle": { "en": "PET-Coated Scalloped-Rim Cups", "zh": "PET 淋膜花边杯" },
   "seoDescription": {
     "en": "PET-Coated Scalloped-Rim Cups made from PET-coated paper.",
