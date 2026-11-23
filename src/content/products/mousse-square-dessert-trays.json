@@ -1,0 +1,49 @@
+{
+  "sku": "TODO_SKU_MOUSSE_SQUARE_DESSERT_TRAYS",
+  "slug": "mousse-square-dessert-trays",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Square Mousse Trays", "zh": "方形慕斯托" },
+  "summary": {
+    "en": "Square Mousse Trays made from PET-laminated cupstock.",
+    "zh": "方形慕斯托，材质为 口杯纸加 PET 覆膜。"
+  },
+  "material": { "en": "PET-laminated cupstock", "zh": "口杯纸加 PET 覆膜" },
+  "gsm": 210,
+  "images": [
+    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+  ],
+  "sizes": [
+    {
+      "shape": "rectangular",
+      "baseLengthMm": 70,
+      "baseWidthMm": 70,
+      "heightMm": 27.5,
+      "material": { "en": "PET-laminated cupstock", "zh": "口杯纸加 PET 覆膜" },
+      "paperWeight": 210,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "70 × 70 mm", "zh": "70 × 70 mm" }
+    }
+  ],
+  "colors": [{ "en": "Brown stripe", "zh": "棕色条纹", "swatch": "#825f4f" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Square Mousse Trays", "zh": "方形慕斯托" },
+  "seoDescription": {
+    "en": "Square Mousse Trays made from PET-laminated cupstock.",
+    "zh": "方形慕斯托，材质为 口杯纸加 PET 覆膜。"
+  },
+  "featured": false,
+  "order": 122
+}

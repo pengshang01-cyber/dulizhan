@@ -4,8 +4,8 @@
   "category": "cake-boards.json",
   "title": { "en": "Rectangular Gold Cake Cards", "zh": "长方形金卡垫" },
   "summary": {
-    "en": "Rectangular Gold Cake Cards in the cake boards range.",
-    "zh": "长方形金卡垫，属于蛋糕底板系列。"
+    "en": "Rectangular Gold Cake Cards made from Food-grade white card.",
+    "zh": "长方形金卡垫，材质为 食品级白卡。"
   },
   "images": [
     {
@@ -23,25 +23,67 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+  "gsm": 700,
   "sizes": [
     {
       "name": { "en": "100×60 mm", "zh": "100×60 mm" },
-      "specification": { "en": "100×60 mm", "zh": "100×60 mm" }
+      "shape": "sheet",
+      "length": 100,
+      "width": 60,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "17.90 kg",
+          "cartonSpec": "51 × 35 × 19.5"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "100×52 mm", "zh": "100×52 mm" },
-      "specification": { "en": "100×52 mm", "zh": "100×52 mm" }
+      "shape": "sheet",
+      "length": 100,
+      "width": 52,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "15.45 kg",
+          "cartonSpec": "43 × 37 × 19"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Rectangular Gold Cake Cards", "zh": "长方形金卡垫" },
   "seoDescription": {
-    "en": "Rectangular Gold Cake Cards in the cake boards range.",
-    "zh": "长方形金卡垫，属于蛋糕底板系列。"
+    "en": "Rectangular Gold Cake Cards made from Food-grade white card.",
+    "zh": "长方形金卡垫，材质为 食品级白卡。"
   },
   "featured": false,
   "order": 110

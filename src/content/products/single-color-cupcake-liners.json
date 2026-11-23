@@ -15,7 +15,7 @@
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [{ "name": { "en": "Single color", "zh": "单色" } }],
-  "colors": [{ "en": "Single color", "zh": "单色" }],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Single-Color Cupcake Liners", "zh": "单色蛋糕纸托" },

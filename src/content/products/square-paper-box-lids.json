@@ -4,8 +4,8 @@
   "category": "cake-boxes.json",
   "title": { "en": "Square Paper Box Lids", "zh": "正方形纸盒盖" },
   "summary": {
-    "en": "Square Paper Box Lids in the cake boxes & packaging range.",
-    "zh": "正方形纸盒盖，属于蛋糕盒与包装盒系列。"
+    "en": "Square Paper Box Lids made from PET.",
+    "zh": "正方形纸盒盖，材质为 PET。"
   },
   "images": [
     {
@@ -23,23 +23,51 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "material": { "en": "PET", "zh": "PET" },
   "gsm": "TODO_GSM",
   "sizes": [
     {
-      "name": { "en": "133×133×35 mm", "zh": "133×133×35 mm" },
+      "name": { "en": "Large", "zh": "大号" },
       "heightMm": 35,
-      "specification": { "en": "133×133×35 mm", "zh": "133×133×35 mm" }
+      "shape": "rectangular",
+      "baseLengthMm": 133,
+      "baseWidthMm": 133,
+      "material": { "en": "PET", "zh": "PET" },
+      "unitWeight": "8.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" },
+          "packWeight": "397 g",
+          "packSize": "13.5 × 13.5 × 20 cm",
+          "cartonWeight": "8.8 kg",
+          "cartonSpec": "68.5 × 36.5 × 29"
+        }
+      ]
     },
-    { "name": { "en": "Mini", "zh": "迷你" } }
+    {
+      "name": { "en": "Mini", "zh": "迷你" },
+      "shape": "rectangular",
+      "baseLengthMm": 88,
+      "baseWidthMm": 88,
+      "heightMm": 25,
+      "material": { "en": "PET", "zh": "PET" },
+      "unitWeight": "3.3 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" }
+        }
+      ]
+    }
   ],
-  "colors": [],
+  "colors": [{ "en": "Clear", "zh": "透明", "swatch": "#edf3f3" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Square Paper Box Lids", "zh": "正方形纸盒盖" },
   "seoDescription": {
-    "en": "Square Paper Box Lids in the cake boxes & packaging range.",
-    "zh": "正方形纸盒盖，属于蛋糕盒与包装盒系列。"
+    "en": "Square Paper Box Lids made from PET.",
+    "zh": "正方形纸盒盖，材质为 PET。"
   },
   "featured": false,
   "order": 94

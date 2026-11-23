@@ -34,16 +34,37 @@
   "gsm": 80,
   "sizes": [
     {
-      "name": { "en": "45×50 mm", "zh": "45×50 mm" },
+      "name": { "en": "45 × 50 mm", "zh": "45 × 50 mm" },
       "baseDiameterMm": 45,
       "heightMm": 50,
-      "topDiameterMm": 80
+      "shape": "shaped",
+      "topWideMm": 75,
+      "topNarrowMm": 55,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "paperWeight": 80,
+      "packages": [
+        {
+          "packaging": { "en": "30 pcs / OPP bag", "zh": "30 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "30 pcs × 100 packs",
+            "zh": "30 只 × 100 条"
+          },
+          "packWeight": "52.6 g",
+          "packSize": "8 × 8 × 16.5 cm",
+          "cartonWeight": "6.2 kg",
+          "cartonSpec": "75 × 35 × 37.5 cm"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "30 pcs/pack × 100 packs", "zh": "30 个/包 × 100 包" },
   "seoTitle": { "en": "Straw-Hat Baking Cups", "zh": "草帽纸杯" },
   "seoDescription": {
     "en": "Straw-Hat Baking Cups made from greaseproof paper.",

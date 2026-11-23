@@ -36,41 +36,45 @@
     {
       "name": { "en": "50×25 mm", "zh": "50×25 mm" },
       "baseDiameterMm": 50,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round"
     },
     {
       "name": { "en": "70×25 mm", "zh": "70×25 mm" },
       "baseDiameterMm": 70,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round"
     },
     {
       "name": { "en": "115×27.5 mm", "zh": "115×27.5 mm" },
       "baseDiameterMm": 115,
-      "heightMm": 27.5
+      "heightMm": 27.5,
+      "shape": "round"
     },
     {
       "name": { "en": "135×45 mm", "zh": "135×45 mm" },
       "baseDiameterMm": 135,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round"
     },
     {
       "name": { "en": "160×45 mm", "zh": "160×45 mm" },
       "baseDiameterMm": 160,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round"
     },
     {
       "name": { "en": "40×25 mm", "zh": "40×25 mm" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round"
     },
     {
       "name": { "en": "80×30 mm", "zh": "80×30 mm" },
       "baseDiameterMm": 80,
       "heightMm": 30,
-      "specification": {
-        "en": "Paper weight 110 g/m²",
-        "zh": "纸张克重 110 g/m²"
-      }
+      "shape": "round",
+      "paperWeight": 110
     }
   ],
   "colors": [],

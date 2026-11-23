@@ -10,6 +10,7 @@ import Container from "../Container.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
 import FaqAccordion from "../FaqAccordion.astro";
+import OemOdmDetails from "../OemOdmDetails.astro";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { site } from "../../config/site";
@@ -149,6 +150,11 @@ interface Props {
       </aside>
     </Container>
   </section>
+
+  <Container class="py-12">
+    <SectionHeading id="services-title" title={t("services.title", locale)} />
+    <OemOdmDetails locale={locale} class="mt-6" />
+  </Container>
 
   <section
     aria-labelledby="custom-options-title"

@@ -4,30 +4,50 @@
   "category": "cake-boards.json",
   "title": { "en": "Gold Cake Card Strips", "zh": "细长条金卡垫" },
   "summary": {
-    "en": "Gold Cake Card Strips in the cake boards range.",
-    "zh": "细长条金卡垫，属于蛋糕底板系列。"
+    "en": "Gold Cake Card Strips made from Food-grade white card.",
+    "zh": "细长条金卡垫，材质为 食品级白卡。"
   },
   "images": [
     {
       "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+  "gsm": 700,
   "sizes": [
     {
       "name": { "en": "130×40 mm", "zh": "130×40 mm" },
-      "specification": { "en": "130×40 mm", "zh": "130×40 mm" }
+      "shape": "sheet",
+      "length": 130,
+      "width": 40,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 包"
+          },
+          "cartonWeight": "15.85 kg",
+          "cartonSpec": "43 × 37 × 19"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "5,000 pcs/carton", "zh": "5,000 个/箱" },
   "seoTitle": { "en": "Gold Cake Card Strips", "zh": "细长条金卡垫" },
   "seoDescription": {
-    "en": "Gold Cake Card Strips in the cake boards range.",
-    "zh": "细长条金卡垫，属于蛋糕底板系列。"
+    "en": "Gold Cake Card Strips made from Food-grade white card.",
+    "zh": "细长条金卡垫，材质为 食品级白卡。"
   },
   "featured": false,
   "order": 113

@@ -32,15 +32,23 @@
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "heightMm": 45,
-      "specification": { "en": "205×140×45 mm", "zh": "205×140×45 mm" }
+      "shape": "rectangular",
+      "length": 205,
+      "width": 140,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "8.5 in", "zh": "8.5 英寸" },
       "heightMm": 45,
-      "specification": { "en": "220×140×45 mm", "zh": "220×140×45 mm" }
+      "shape": "rectangular",
+      "length": 220,
+      "width": 140,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },

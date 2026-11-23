@@ -29,53 +29,59 @@
     {
       "name": { "en": "No. 1", "zh": "1号" },
       "heightMm": 22,
-      "specification": {
-        "en": "Base 198×124 mm, top 248×174 mm, height 22 mm",
-        "zh": "底部 198×124 mm，顶部 248×174 mm，高度 22 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 198,
+      "baseWidthMm": 124,
+      "topLengthMm": 248,
+      "topWidthMm": 174
     },
     {
       "name": { "en": "No. 2", "zh": "2号" },
       "heightMm": 22,
-      "specification": {
-        "en": "Base 156×116 mm, top 203×163 mm, height 22 mm",
-        "zh": "底部 156×116 mm，顶部 203×163 mm，高度 22 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 156,
+      "baseWidthMm": 116,
+      "topLengthMm": 203,
+      "topWidthMm": 163
     },
     {
       "name": { "en": "No. 3", "zh": "3号" },
       "heightMm": 43,
-      "specification": {
-        "en": "Base 155×85 mm, top 209×139 mm, height 43 mm",
-        "zh": "底部 155×85 mm，顶部 209×139 mm，高度 43 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 155,
+      "baseWidthMm": 85,
+      "topLengthMm": 209,
+      "topWidthMm": 139
     },
     {
       "name": { "en": "No. 4", "zh": "4号" },
       "heightMm": 24,
-      "specification": {
-        "en": "Base 125×102 mm, top 170×148 mm, height 24 mm",
-        "zh": "底部 125×102 mm，顶部 170×148 mm，高度 24 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 125,
+      "baseWidthMm": 102,
+      "topLengthMm": 170,
+      "topWidthMm": 148
     },
     {
       "name": { "en": "No. 5", "zh": "5号" },
       "heightMm": 16,
-      "specification": {
-        "en": "Base 137×89 mm, top 170×122 mm, height 16 mm",
-        "zh": "底部 137×89 mm，顶部 170×122 mm，高度 16 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 137,
+      "baseWidthMm": 89,
+      "topLengthMm": 170,
+      "topWidthMm": 122
     },
     {
       "name": { "en": "No. 6", "zh": "6号" },
       "heightMm": 24,
-      "specification": {
-        "en": "Base 149×85 mm, top 205×141 mm, height 24 mm",
-        "zh": "底部 149×85 mm，顶部 205×141 mm，高度 24 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 149,
+      "baseWidthMm": 85,
+      "topLengthMm": 205,
+      "topWidthMm": 141
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": { "en": "50 pcs/pack × 12 packs", "zh": "50 个/包 × 12 包" },

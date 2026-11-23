@@ -4,8 +4,8 @@
   "category": "cake-boxes.json",
   "title": { "en": "Rectangular Paper Box Lids", "zh": "长方形纸盒盖" },
   "summary": {
-    "en": "Rectangular Paper Box Lids in the cake boxes & packaging range.",
-    "zh": "长方形纸盒盖，属于蛋糕盒与包装盒系列。"
+    "en": "Rectangular Paper Box Lids made from PET.",
+    "zh": "长方形纸盒盖，材质为 PET。"
   },
   "images": [
     {
@@ -23,27 +23,47 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "material": { "en": "PET", "zh": "PET" },
   "gsm": "TODO_GSM",
   "sizes": [
     {
-      "name": { "en": "195×89×25 mm", "zh": "195×89×25 mm" },
+      "name": { "en": "Medium", "zh": "中号" },
       "heightMm": 25,
-      "specification": { "en": "195×89×25 mm", "zh": "195×89×25 mm" }
+      "shape": "rectangular",
+      "baseLengthMm": 195,
+      "baseWidthMm": 89,
+      "material": { "en": "PET", "zh": "PET" },
+      "unitWeight": "7.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" }
+        }
+      ]
     },
     {
-      "name": { "en": "173×120×35 mm", "zh": "173×120×35 mm" },
+      "name": { "en": "Large", "zh": "大号" },
       "heightMm": 35,
-      "specification": { "en": "173×120×35 mm", "zh": "173×120×35 mm" }
+      "shape": "rectangular",
+      "baseLengthMm": 173,
+      "baseWidthMm": 120,
+      "material": { "en": "PET", "zh": "PET" },
+      "unitWeight": "9.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" }
+        }
+      ]
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Clear", "zh": "透明", "swatch": "#edf3f3" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Rectangular Paper Box Lids", "zh": "长方形纸盒盖" },
   "seoDescription": {
-    "en": "Rectangular Paper Box Lids in the cake boxes & packaging range.",
-    "zh": "长方形纸盒盖，属于蛋糕盒与包装盒系列。"
+    "en": "Rectangular Paper Box Lids made from PET.",
+    "zh": "长方形纸盒盖，材质为 PET。"
   },
   "featured": false,
   "order": 93

@@ -32,22 +32,44 @@
   },
   "gsm": 110,
   "sizes": [
-    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 },
     {
-      "name": { "en": "50×75 mm", "zh": "50×75 mm" },
+      "name": { "en": "140", "zh": "140" },
       "baseDiameterMm": 50,
-      "heightMm": 75
+      "shape": "shaped",
+      "lowHeightMm": 47,
+      "highHeightMm": 73,
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.1 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "109.5 g",
+          "packSize": "7.5 × 7.5 × 19 cm",
+          "cartonWeight": "7.5 kg",
+          "cartonSpec": "46 × 39 × 37"
+        }
+      ],
+      "hasLid": false
     }
   ],
   "colors": [
-    { "en": "Gold", "zh": "金色" },
-    { "en": "Single-sided gold", "zh": "单面金" }
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" }
   ],
   "patterns": [{ "en": "Printed", "zh": "印花" }],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "This option — 50 pcs/pack × 60 packs\n50×75 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 75 × 33 × 40 cm",
-    "zh": "此规格 — 包装 50 个/包 × 60 包\n50×75 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 75 × 33 × 40 cm"
+    "en": "This option — 50 pcs/pack × 60 packs\n140 — MOQ 2 cartons",
+    "zh": "此规格 — 包装 50 个/包 × 60 包\n140 — 起订量 2 箱"
   },
   "seoTitle": {
     "en": "Single-Sided Gold Flame Baking Cups",

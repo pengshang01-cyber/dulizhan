@@ -1,0 +1,61 @@
+{
+  "sku": "TODO_SKU_RAISED_MOLDED_BAKING_CUPS",
+  "slug": "raised-molded-baking-cups",
+  "category": "muffin-molded-cups.json",
+  "title": { "en": "Raised-Profile Molded Baking Cups", "zh": "立体机制杯" },
+  "summary": {
+    "en": "Raised-Profile Molded Baking Cups made from PE-coated cupstock.",
+    "zh": "立体机制杯，材质为 PE 淋膜口杯纸。"
+  },
+  "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+  "gsm": 160,
+  "images": [
+    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+  ],
+  "sizes": [
+    {
+      "shape": "round",
+      "baseDiameterMm": 50,
+      "heightMm": 45,
+      "topDiameterMm": 60,
+      "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+      "paperWeight": 160,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 96 packs", "zh": "50 只 × 96 条" },
+          "cartonSpec": "60 × 37 × 58"
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "Small", "zh": "小号" }
+    },
+    {
+      "shape": "round",
+      "baseDiameterMm": 61,
+      "heightMm": 55,
+      "topDiameterMm": 70,
+      "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+      "paperWeight": 160,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "Medium", "zh": "中号" }
+    }
+  ],
+  "colors": [],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": { "en": "Raised-Profile Molded Baking Cups", "zh": "立体机制杯" },
+  "seoDescription": {
+    "en": "Raised-Profile Molded Baking Cups made from PE-coated cupstock.",
+    "zh": "立体机制杯，材质为 PE 淋膜口杯纸。"
+  },
+  "featured": false,
+  "order": 120,
+  "moreColorsOnRequest": true
+}

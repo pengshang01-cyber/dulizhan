@@ -4,8 +4,8 @@
   "category": "rolled-rim-baking-cups.json",
   "title": { "en": "Large Round Rolled-Rim Trays", "zh": "大圆盘卷口杯" },
   "summary": {
-    "en": "Large Round Rolled-Rim Trays in the rolled-rim baking cups range.",
-    "zh": "大圆盘卷口杯，属于卷口杯系列。"
+    "en": "Large Round Rolled-Rim Trays made from PET-coated paper.",
+    "zh": "大圆盘卷口杯，材质为 PET 淋膜纸。"
   },
   "images": [
     {
@@ -23,22 +23,37 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 110,
   "sizes": [
     {
       "name": { "en": "155×35 mm", "zh": "155×35 mm" },
       "baseDiameterMm": 155,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "unitWeight": "4.7 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 24 packs", "zh": "50 只 × 24 条" },
+          "packWeight": "235 g",
+          "packSize": "17.5 × 17.5 × 17 cm",
+          "cartonWeight": "4.6 kg",
+          "cartonSpec": "70 × 31 × 40"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Large Round Rolled-Rim Trays", "zh": "大圆盘卷口杯" },
   "seoDescription": {
-    "en": "Large Round Rolled-Rim Trays in the rolled-rim baking cups range.",
-    "zh": "大圆盘卷口杯，属于卷口杯系列。"
+    "en": "Large Round Rolled-Rim Trays made from PET-coated paper.",
+    "zh": "大圆盘卷口杯，材质为 PET 淋膜纸。"
   },
   "featured": false,
   "order": 33

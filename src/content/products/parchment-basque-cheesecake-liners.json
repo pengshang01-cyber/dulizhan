@@ -7,7 +7,7 @@
     "zh": "硅油纸巴斯克纸托"
   },
   "summary": {
-    "en": "Parchment Basque Cheesecake Liners made from silicone-coated parchment paper.",
+    "en": "Parchment Basque Cheesecake Liners made from Silicone-coated paper.",
     "zh": "硅油纸巴斯克纸托，材质为 硅油纸。"
   },
   "images": [
@@ -33,68 +33,197 @@
       }
     }
   ],
-  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
   "gsm": 40,
   "sizes": [
     {
       "name": { "en": "2.5 in · Mini", "zh": "2.5 英寸迷你" },
       "baseDiameterMm": 58,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "topWideMm": 80,
+      "topNarrowMm": 70,
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "unitWeight": "0.4 g",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 50 packs",
+            "zh": "100 只 × 50 条"
+          },
+          "packWeight": "48.5 g",
+          "packSize": "8 × 8 × 18 cm",
+          "cartonWeight": "3.15 kg",
+          "cartonSpec": "40 × 40 × 40"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "3 in · Low edge", "zh": "3 英寸矮边" },
       "baseDiameterMm": 65,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round"
     },
     {
       "name": { "en": "3 in", "zh": "3 英寸" },
       "baseDiameterMm": 65,
-      "heightMm": 50
+      "heightMm": 50,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / thermoformed box",
+            "zh": "200 只 / 吸塑盒"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 50 boxes",
+            "zh": "200 只 × 50 盒"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "3.5 in", "zh": "3.5 英寸" },
-      "baseDiameterMm": 80,
-      "heightMm": 45
+      "baseDiameterMm": 85,
+      "heightMm": 45,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / thermoformed box",
+            "zh": "200 只 / 吸塑盒"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 50 boxes",
+            "zh": "200 只 × 50 盒"
+          },
+          "packWeight": "171 g",
+          "packSize": "11 × 11 × 11 cm",
+          "cartonWeight": "9.55 kg",
+          "cartonSpec": "67.5 × 35 × 33 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "4 in", "zh": "4 英寸" },
       "baseDiameterMm": 95,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "50 pcs / thermoformed box",
+            "zh": "50 只 / 吸塑盒"
+          },
+          "cartonLoading": { "en": "50 pcs × 60 boxes", "zh": "50 只 × 60 盒" },
+          "packWeight": "76 g",
+          "packSize": "16 × 16 × 7 cm",
+          "cartonWeight": "5.45 kg",
+          "cartonSpec": "44 × 32 × 46.5 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "4 in · Tall", "zh": "4 英寸加高" },
       "baseDiameterMm": 95,
-      "heightMm": 55
+      "heightMm": 55,
+      "shape": "round"
     },
     {
       "name": { "en": "5 in", "zh": "5 英寸" },
       "baseDiameterMm": 115,
-      "heightMm": 55
+      "heightMm": 55,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "50 pcs / thermoformed box",
+            "zh": "50 只 / 吸塑盒"
+          },
+          "cartonLoading": { "en": "50 pcs × 60 boxes", "zh": "50 只 × 60 盒" },
+          "packWeight": "104.5 g",
+          "packSize": "18.5 × 18.5 × 6.5 cm",
+          "cartonWeight": "10.6 kg",
+          "cartonSpec": "63 × 43 × 49.5 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "6 in", "zh": "6 英寸" },
       "baseDiameterMm": 135,
-      "heightMm": 65
+      "heightMm": 65,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "50 pcs / thermoformed box",
+            "zh": "50 只 / 吸塑盒"
+          },
+          "cartonLoading": { "en": "50 pcs × 60 boxes", "zh": "50 只 × 60 盒" },
+          "packWeight": "154 g",
+          "packSize": "22 × 22 × 8 cm",
+          "cartonWeight": "10.6 kg",
+          "cartonSpec": "63 × 43 × 49.5 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "baseDiameterMm": 185,
-      "heightMm": 75
+      "heightMm": 75,
+      "shape": "round",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": {
+            "en": "50 pcs / thermoformed box",
+            "zh": "50 只 / 吸塑盒"
+          },
+          "cartonLoading": { "en": "50 pcs × 30 boxes", "zh": "50 只 × 30 盒" },
+          "packWeight": "243 g",
+          "packSize": "27 × 27 × 9 cm",
+          "cartonWeight": "8.8 kg",
+          "cartonSpec": "75 × 50 × 37 cm"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "2.5 in · Mini — 100 pcs/pack × 50 packs\n3 in · Low edge — 200 pcs/pack × 50 packs\n3 in — 200 pcs/pack × 50 packs\n3.5 in — 200 pcs/pack × 50 packs\n4 in — 50 pcs/pack × 60 packs\n4 in · Tall — 50 pcs/pack × 60 packs\n5 in — 50 pcs/pack × 60 packs\n6 in — 50 pcs/pack × 60 packs\n8 in — 50 pcs/pack × 30 packs",
-    "zh": "2.5 英寸迷你 — 包装 100 个/包 × 50 包\n3 英寸矮边 — 包装 200 个/包 × 50 包\n3 英寸 — 包装 200 个/包 × 50 包\n3.5 英寸 — 包装 200 个/包 × 50 包\n4 英寸 — 包装 50 个/包 × 60 包\n4 英寸加高 — 包装 50 个/包 × 60 包\n5 英寸 — 包装 50 个/包 × 60 包\n6 英寸 — 包装 50 个/包 × 60 包\n8 英寸 — 包装 50 个/包 × 30 包"
+    "en": "3 in · Low edge — 200 pcs/pack × 50 packs\n4 in · Tall — 50 pcs/pack × 60 packs",
+    "zh": "3 英寸矮边 — 包装 200 个/包 × 50 包\n4 英寸加高 — 包装 50 个/包 × 60 包"
   },
   "seoTitle": {
     "en": "Parchment Basque Cheesecake Liners",
     "zh": "硅油纸巴斯克纸托"
   },
   "seoDescription": {
-    "en": "Parchment Basque Cheesecake Liners made from silicone-coated parchment paper.",
+    "en": "Parchment Basque Cheesecake Liners made from Silicone-coated paper.",
     "zh": "硅油纸巴斯克纸托，材质为 硅油纸。"
   },
   "featured": false,

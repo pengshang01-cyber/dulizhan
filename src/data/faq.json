@@ -132,6 +132,18 @@
     "featured": false
   },
   {
+    "topic": "Customization",
+    "q": {
+      "en": "What is the difference between OEM and ODM?",
+      "zh": "OEM 和 ODM 有什么区别？"
+    },
+    "a": {
+      "en": "OEM: We manufacture to your design, logo and dimensions. ODM: We offer cup shapes, patterns and packaging options for you to select and sell under your own brand.",
+      "zh": "OEM：我们按客户提供的设计、Logo 和尺寸生产。ODM：我们提供杯型、花色和包装方案，客户选款后贴牌。"
+    },
+    "featured": false
+  },
+  {
     "topic": "Quality & Safety",
     "q": {
       "en": "How can I check food-contact requirements?",

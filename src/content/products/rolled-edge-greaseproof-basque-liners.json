@@ -21,7 +21,8 @@
     {
       "name": { "en": "3.5 in", "zh": "3.5 英寸" },
       "baseDiameterMm": 85,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round"
     }
   ],
   "colors": [],

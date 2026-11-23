@@ -32,13 +32,37 @@
     {
       "name": { "en": "130×80×20 mm", "zh": "130×80×20 mm" },
       "heightMm": 20,
-      "specification": { "en": "130×80×20 mm", "zh": "130×80×20 mm" }
+      "shape": "shaped",
+      "length": 130,
+      "width": 80,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "300 pcs / shrink wrap",
+            "zh": "300 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "300 pcs × 10 packs",
+            "zh": "300 只 × 10 条"
+          },
+          "packWeight": "513 g",
+          "packSize": "15 × 9 × 27.5 cm",
+          "cartonWeight": "5.25 kg",
+          "cartonSpec": "49 × 30 × 29"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White with print", "zh": "白底印花", "swatch": "#f5f1eb" }
+  ],
   "patterns": [],
   "customizable": true,
-  "packaging": { "en": "3,000 / 4,000 pcs", "zh": "3,000 / 4,000 个" },
   "seoTitle": {
     "en": "PET-Coated Leaf-Shaped Baking Cups",
     "zh": "PET 淋膜树叶形纸杯"

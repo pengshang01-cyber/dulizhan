@@ -29,20 +29,32 @@
     {
       "name": { "en": "150×65×50 mm", "zh": "150×65×50 mm" },
       "heightMm": 50,
-      "specification": { "en": "150×65×50 mm", "zh": "150×65×50 mm" }
+      "shape": "rectangular",
+      "length": 150,
+      "width": 65,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "175×75×50 mm", "zh": "175×75×50 mm" },
       "heightMm": 50,
-      "specification": { "en": "175×75×50 mm", "zh": "175×75×50 mm" }
+      "shape": "rectangular",
+      "length": 175,
+      "width": 75,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "200×65×52 mm", "zh": "200×65×52 mm" },
       "heightMm": 52,
-      "specification": { "en": "200×65×52 mm", "zh": "200×65×52 mm" }
+      "shape": "rectangular",
+      "length": 200,
+      "width": 65,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

@@ -4,8 +4,8 @@
   "category": "cake-boxes.json",
   "title": { "en": "Mini Rectangular Paper Cake Boxes", "zh": "迷你长方纸盒" },
   "summary": {
-    "en": "Mini Rectangular Paper Cake Boxes in the cake boxes & packaging range.",
-    "zh": "迷你长方纸盒，属于蛋糕盒与包装盒系列。"
+    "en": "Mini Rectangular Paper Cake Boxes made from Bamboo-pulp PE-coated paper / Kraft PE-coated paper.",
+    "zh": "迷你长方纸盒，材质为 竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸。"
   },
   "images": [
     {
@@ -23,19 +23,38 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": {
+    "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+    "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+  },
+  "gsm": 230,
   "sizes": [
     {
       "name": { "en": "Mini", "zh": "迷你" },
       "heightMm": 40,
-      "specification": {
-        "en": "Base 80×40 mm, top 110×65 mm, height 40 mm",
-        "zh": "底部 80×40 mm，顶部 110×65 mm，高度 40 mm"
-      }
+      "shape": "rectangular",
+      "baseLengthMm": 80,
+      "baseWidthMm": 40,
+      "topLengthMm": 110,
+      "topWidthMm": 65,
+      "material": {
+        "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+        "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+      },
+      "paperWeight": 230,
+      "unitWeight": "4.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "cartonWeight": "14.2 kg",
+          "cartonSpec": "55 × 45 × 41.5"
+        }
+      ],
+      "hasLid": true
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": {
@@ -43,8 +62,8 @@
     "zh": "迷你长方纸盒"
   },
   "seoDescription": {
-    "en": "Mini Rectangular Paper Cake Boxes in the cake boxes & packaging range.",
-    "zh": "迷你长方纸盒，属于蛋糕盒与包装盒系列。"
+    "en": "Mini Rectangular Paper Cake Boxes made from Bamboo-pulp PE-coated paper / Kraft PE-coated paper.",
+    "zh": "迷你长方纸盒，材质为 竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸。"
   },
   "featured": false,
   "order": 92

@@ -29,7 +29,11 @@
     {
       "name": { "en": "72×35×25 mm", "zh": "72×35×25 mm" },
       "heightMm": 25,
-      "specification": { "en": "72×35×25 mm", "zh": "72×35×25 mm" }
+      "shape": "shaped",
+      "length": 72,
+      "width": 35,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
   "colors": [],

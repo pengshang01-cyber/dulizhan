@@ -4,8 +4,8 @@
   "category": "tulip-shaped-baking-cups.json",
   "title": { "en": "Rounded Tulip Baking Cups", "zh": "圆角郁金香纸杯" },
   "summary": {
-    "en": "Rounded Tulip Baking Cups in the tulip & shaped baking cups range.",
-    "zh": "圆角郁金香纸杯，属于造型纸杯系列。"
+    "en": "Rounded Tulip Baking Cups made from Silicone-coated paper / Greaseproof paper.",
+    "zh": "圆角郁金香纸杯，材质为 硅油纸 / 防油纸。"
   },
   "images": [
     {
@@ -23,14 +23,34 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": {
+    "en": "Silicone-coated paper / Greaseproof paper",
+    "zh": "硅油纸 / 防油纸"
+  },
+  "gsm": 40,
   "sizes": [
     {
-      "name": { "en": "150 · 50×70 mm", "zh": "150 · 50×70 mm" },
+      "name": { "en": "150", "zh": "150" },
       "baseDiameterMm": 50,
-      "heightMm": 70,
-      "topDiameterMm": 75
+      "topDiameterMm": 75,
+      "shape": "shaped",
+      "lowHeightMm": 55,
+      "highHeightMm": 70,
+      "material": {
+        "en": "Silicone-coated paper / Greaseproof paper",
+        "zh": "硅油纸 / 防油纸"
+      },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false
     }
   ],
   "colors": [],
@@ -38,8 +58,8 @@
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Rounded Tulip Baking Cups", "zh": "圆角郁金香纸杯" },
   "seoDescription": {
-    "en": "Rounded Tulip Baking Cups in the tulip & shaped baking cups range.",
-    "zh": "圆角郁金香纸杯，属于造型纸杯系列。"
+    "en": "Rounded Tulip Baking Cups made from Silicone-coated paper / Greaseproof paper.",
+    "zh": "圆角郁金香纸杯，材质为 硅油纸 / 防油纸。"
   },
   "featured": false,
   "order": 108

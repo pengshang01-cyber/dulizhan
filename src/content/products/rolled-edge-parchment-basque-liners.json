@@ -7,7 +7,7 @@
     "zh": "硅油纸翻边巴斯克纸托"
   },
   "summary": {
-    "en": "Rolled-Edge Parchment Basque Liners made from silicone-coated parchment paper.",
+    "en": "Rolled-Edge Parchment Basque Liners made from Silicone-coated paper.",
     "zh": "硅油纸翻边巴斯克纸托，材质为 硅油纸。"
   },
   "images": [
@@ -26,25 +26,41 @@
       }
     }
   ],
-  "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
+  "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
   "gsm": 40,
   "sizes": [
     {
       "name": { "en": "3.5 in", "zh": "3.5 英寸" },
       "baseDiameterMm": 85,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round",
+      "topDiameterMm": 85,
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 20 packs",
+            "zh": "100 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "100 pcs/pack × 20 packs", "zh": "100 个/包 × 20 包" },
   "seoTitle": {
     "en": "Rolled-Edge Parchment Basque Liners",
     "zh": "硅油纸翻边巴斯克纸托"
   },
   "seoDescription": {
-    "en": "Rolled-Edge Parchment Basque Liners made from silicone-coated parchment paper.",
+    "en": "Rolled-Edge Parchment Basque Liners made from Silicone-coated paper.",
     "zh": "硅油纸翻边巴斯克纸托，材质为 硅油纸。"
   },
   "featured": false,

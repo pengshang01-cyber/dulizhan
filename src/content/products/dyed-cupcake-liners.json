@@ -15,7 +15,7 @@
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [{ "name": { "en": "Dyed", "zh": "染色" } }],
-  "colors": [{ "en": "Dyed", "zh": "染色" }],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Dyed Cupcake Liners", "zh": "染色蛋糕纸托" },

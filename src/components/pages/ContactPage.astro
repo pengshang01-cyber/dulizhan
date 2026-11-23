@@ -12,6 +12,7 @@ import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
 import InquiryForm from "../InquiryForm.astro";
 import SectionHeading from "../SectionHeading.astro";
+import SocialLinks from "../SocialLinks.astro";
 import { getWhatsAppHref, site } from "../../config/site";
 import { confirmedText } from "../../lib/placeholders";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -114,8 +115,8 @@ const mapUrl = address
               <Image
                 src={wechatQr}
                 alt={t("contact.wechatQr", locale)}
-                width={240}
-                format="webp"
+                width={320}
+                format="png"
                 loading="lazy"
                 class="mt-4 h-auto w-48 max-w-full"
               />
@@ -124,6 +125,11 @@ const mapUrl = address
         ))}
       </div>
     )}
+    <SocialLinks
+      locale={locale}
+      class="mt-6"
+      linkClass="border-line bg-white text-ink-soft"
+    />
   </Container>
 
   <section

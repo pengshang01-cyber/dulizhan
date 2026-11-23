@@ -4,8 +4,8 @@
   "category": "cake-boxes.json",
   "title": { "en": "Square Coated Paper Cake Boxes", "zh": "正方形淋膜纸盒" },
   "summary": {
-    "en": "Square Coated Paper Cake Boxes made from PE-coated paper.",
-    "zh": "正方形淋膜纸盒，材质为 PE 淋膜纸。"
+    "en": "Square Coated Paper Cake Boxes made from Bamboo-pulp PE-coated paper / Kraft PE-coated paper.",
+    "zh": "正方形淋膜纸盒，材质为 竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸。"
   },
   "images": [
     {
@@ -23,40 +23,111 @@
       }
     }
   ],
-  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
-  "gsm": "230–300",
+  "material": {
+    "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+    "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+  },
+  "gsm": 230,
   "sizes": [
     {
       "name": { "en": "Mini", "zh": "迷你" },
       "heightMm": 35,
-      "specification": {
-        "en": "Base 65×65 mm, top 85×85 mm, height 35 mm",
-        "zh": "底部 65×65 mm，顶部 85×85 mm，高度 35 mm"
+      "shape": "rectangular",
+      "baseLengthMm": 65,
+      "baseWidthMm": 65,
+      "topLengthMm": 85,
+      "topWidthMm": 85,
+      "material": {
+        "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+        "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+      },
+      "paperWeight": 230,
+      "unitWeight": "4.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "cartonWeight": "15.65 kg",
+          "cartonSpec": "52 × 42 × 44"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 88,
+        "baseWidthMm": 88,
+        "heightMm": 25,
+        "material": { "en": "PET", "zh": "PET" },
+        "unitWeight": "3.3 g",
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 60 packs",
+              "zh": "50 只 × 60 条"
+            }
+          }
+        ]
       }
     },
     {
-      "name": { "en": "95×95×50 mm", "zh": "95×95×50 mm" },
+      "name": { "en": "Large", "zh": "大号" },
       "heightMm": 50,
-      "specification": {
-        "en": "Base 95×95 mm, top 125×125 mm, height 50 mm",
-        "zh": "底部 95×95 mm，顶部 125×125 mm，高度 50 mm"
+      "shape": "rectangular",
+      "baseLengthMm": 95,
+      "baseWidthMm": 95,
+      "topLengthMm": 130,
+      "topWidthMm": 130,
+      "material": {
+        "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+        "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+      },
+      "paperWeight": 230,
+      "unitWeight": "8.7 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" },
+          "packWeight": "611 g",
+          "packSize": "16.5 × 12 × 19.5 cm",
+          "cartonWeight": "10.45 kg",
+          "cartonSpec": "66 × 48 × 27"
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 133,
+        "baseWidthMm": 133,
+        "heightMm": 35,
+        "material": { "en": "PET", "zh": "PET" },
+        "unitWeight": "8.5 g",
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 20 packs",
+              "zh": "50 只 × 20 条"
+            },
+            "packWeight": "397 g",
+            "packSize": "13.5 × 13.5 × 20 cm",
+            "cartonWeight": "8.8 kg",
+            "cartonSpec": "68.5 × 36.5 × 29"
+          }
+        ]
       }
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packagingDetails": {
-    "en": "Mini — 50 pcs/pack × 60 packs\n95×95×50 mm — 50 pcs/pack × 20 packs",
-    "zh": "迷你 — 包装 50 个/包 × 60 包\n95×95×50 mm — 包装 50 个/包 × 20 包"
-  },
   "seoTitle": {
     "en": "Square Coated Paper Cake Boxes",
     "zh": "正方形淋膜纸盒"
   },
   "seoDescription": {
-    "en": "Square Coated Paper Cake Boxes made from PE-coated paper.",
-    "zh": "正方形淋膜纸盒，材质为 PE 淋膜纸。"
+    "en": "Square Coated Paper Cake Boxes made from Bamboo-pulp PE-coated paper / Kraft PE-coated paper.",
+    "zh": "正方形淋膜纸盒，材质为 竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸。"
   },
   "featured": false,
   "order": 90

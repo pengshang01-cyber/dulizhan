@@ -7,8 +7,8 @@
     "zh": "单面金花边杯"
   },
   "summary": {
-    "en": "Single-Sided Gold Scalloped-Rim Cups in the tulip & shaped baking cups range.",
-    "zh": "单面金花边杯，属于造型纸杯系列。"
+    "en": "Single-Sided Gold Scalloped-Rim Cups made from Single-sided gold PET-coated paper.",
+    "zh": "单面金花边杯，材质为 单面金 PET 淋膜纸。"
   },
   "images": [
     {
@@ -33,16 +33,39 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": {
+    "en": "Single-sided gold PET-coated paper",
+    "zh": "单面金 PET 淋膜纸"
+  },
+  "gsm": 110,
   "sizes": [
     {
       "name": { "en": "5045", "zh": "5045" },
       "baseDiameterMm": 50,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "shaped",
+      "topWideMm": 83,
+      "topNarrowMm": 68,
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "213.5 g",
+          "packSize": "8 × 8 × 29.5 cm",
+          "cartonWeight": "6.8 kg",
+          "cartonSpec": "51 × 30 × 41"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "colors": [{ "en": "Gold interior", "zh": "金色内壁", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": {
@@ -50,8 +73,8 @@
     "zh": "单面金花边杯"
   },
   "seoDescription": {
-    "en": "Single-Sided Gold Scalloped-Rim Cups in the tulip & shaped baking cups range.",
-    "zh": "单面金花边杯，属于造型纸杯系列。"
+    "en": "Single-Sided Gold Scalloped-Rim Cups made from Single-sided gold PET-coated paper.",
+    "zh": "单面金花边杯，材质为 单面金 PET 淋膜纸。"
   },
   "featured": false,
   "order": 98

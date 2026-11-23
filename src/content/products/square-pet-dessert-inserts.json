@@ -29,15 +29,23 @@
     {
       "name": { "en": "60×60×30 mm", "zh": "60×60×30 mm" },
       "heightMm": 30,
-      "specification": { "en": "60×60×30 mm", "zh": "60×60×30 mm" }
+      "shape": "rectangular",
+      "length": 60,
+      "width": 60,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "60×60×35 mm", "zh": "60×60×35 mm" },
       "heightMm": 35,
-      "specification": { "en": "60×60×35 mm", "zh": "60×60×35 mm" }
+      "shape": "rectangular",
+      "length": 60,
+      "width": 60,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Clear", "zh": "透明", "swatch": "#edf3f3" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": {

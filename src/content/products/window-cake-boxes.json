@@ -36,30 +36,53 @@
     {
       "name": { "en": "1-count", "zh": "1 粒装" },
       "heightMm": 65,
-      "specification": { "en": "100×100×65 mm", "zh": "100×100×65 mm" }
+      "shape": "rectangular",
+      "length": 100,
+      "width": 100,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "2-count", "zh": "2 粒装" },
       "heightMm": 75,
-      "specification": { "en": "160×90×75 mm", "zh": "160×90×75 mm" }
+      "shape": "rectangular",
+      "length": 160,
+      "width": 90,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "4-count", "zh": "4 粒装" },
       "heightMm": 75,
-      "specification": { "en": "160×160×75 mm", "zh": "160×160×75 mm" }
+      "shape": "rectangular",
+      "length": 160,
+      "width": 160,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "6-count", "zh": "6 粒装" },
       "heightMm": 75,
-      "specification": { "en": "240×160×75 mm", "zh": "240×160×75 mm" }
+      "shape": "rectangular",
+      "length": 240,
+      "width": 160,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     },
     {
       "name": { "en": "12-count", "zh": "12 粒装" },
       "heightMm": 90,
-      "specification": { "en": "320×250×90 mm", "zh": "320×250×90 mm" }
+      "shape": "rectangular",
+      "length": 320,
+      "width": 250,
+      "lengthUnit": "mm",
+      "widthUnit": "mm"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": { "en": "100 pcs", "zh": "100 个" },

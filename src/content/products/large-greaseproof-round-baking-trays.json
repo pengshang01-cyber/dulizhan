@@ -7,8 +7,8 @@
     "zh": "大号防油纸圆盘"
   },
   "summary": {
-    "en": "Large Greaseproof Round Baking Trays made from greaseproof paper.",
-    "zh": "大号防油纸圆盘，材质为 防油纸。"
+    "en": "Large Greaseproof Round Baking Trays made from Imported natural greaseproof paper.",
+    "zh": "大号防油纸圆盘，材质为 进口本色防油纸。"
   },
   "images": [
     {
@@ -26,27 +26,49 @@
       }
     }
   ],
-  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "material": {
+    "en": "Imported natural greaseproof paper",
+    "zh": "进口本色防油纸"
+  },
   "gsm": 100,
   "sizes": [
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "baseDiameterMm": 190,
       "heightMm": 55,
-      "topDiameterMm": 230
+      "topDiameterMm": 230,
+      "shape": "round",
+      "material": {
+        "en": "Imported natural greaseproof paper",
+        "zh": "进口本色防油纸"
+      },
+      "paperWeight": 100,
+      "packages": [
+        {
+          "packaging": {
+            "en": "10 pcs / resealable bag",
+            "zh": "10 只 / 自封袋"
+          },
+          "cartonLoading": { "en": "10 pcs × 60 bags", "zh": "10 只 × 60 袋" },
+          "packWeight": "87 g",
+          "packSize": "23 × 23 × 8 cm",
+          "cartonWeight": "6.65 kg",
+          "cartonSpec": "85 × 47 × 47"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "10 pcs/pack × 60 packs", "zh": "10 个/包 × 60 包" },
   "seoTitle": {
     "en": "Large Greaseproof Round Baking Trays",
     "zh": "大号防油纸圆盘"
   },
   "seoDescription": {
-    "en": "Large Greaseproof Round Baking Trays made from greaseproof paper.",
-    "zh": "大号防油纸圆盘，材质为 防油纸。"
+    "en": "Large Greaseproof Round Baking Trays made from Imported natural greaseproof paper.",
+    "zh": "大号防油纸圆盘，材质为 进口本色防油纸。"
   },
   "featured": false,
   "order": 118

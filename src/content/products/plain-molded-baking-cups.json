@@ -4,40 +4,65 @@
   "category": "muffin-molded-cups.json",
   "title": { "en": "Plain Molded Baking Cups", "zh": "普通机制杯" },
   "summary": {
-    "en": "Plain Molded Baking Cups made from PE-coated paper.",
-    "zh": "普通机制杯，材质为 PE 淋膜纸。"
+    "en": "Plain Molded Baking Cups made from PE-coated cupstock.",
+    "zh": "普通机制杯，材质为 PE 淋膜口杯纸。"
   },
   "images": [
     { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
   ],
-  "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
-  "gsm": 170,
+  "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+  "gsm": 160,
   "sizes": [
     {
       "name": { "en": "Small", "zh": "小号" },
       "baseDiameterMm": 50,
       "heightMm": 45,
-      "topDiameterMm": 60
+      "topDiameterMm": 60,
+      "shape": "round",
+      "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+      "paperWeight": 160,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 96 packs", "zh": "50 只 × 96 条" },
+          "packWeight": "94 g",
+          "packSize": "6 × 6 × 28 cm",
+          "cartonWeight": "10.4 kg",
+          "cartonSpec": "71 × 31 × 44"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "Medium", "zh": "中号" },
       "baseDiameterMm": 61,
       "heightMm": 55,
-      "topDiameterMm": 70
+      "topDiameterMm": 70,
+      "shape": "round",
+      "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
+      "paperWeight": 160,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "131 g",
+          "packSize": "7 × 7 × 28 cm",
+          "cartonWeight": "8.9 kg",
+          "cartonSpec": "70 × 31 × 40"
+        }
+      ],
+      "hasLid": false
     }
   ],
   "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packagingDetails": {
-    "en": "Small — 50 pcs/pack × 96 packs\nMedium — 50 pcs/pack × 60 packs",
-    "zh": "小号 — 包装 50 个/包 × 96 包\n中号 — 包装 50 个/包 × 60 包"
-  },
   "seoTitle": { "en": "Plain Molded Baking Cups", "zh": "普通机制杯" },
   "seoDescription": {
-    "en": "Plain Molded Baking Cups made from PE-coated paper.",
-    "zh": "普通机制杯，材质为 PE 淋膜纸。"
+    "en": "Plain Molded Baking Cups made from PE-coated cupstock.",
+    "zh": "普通机制杯，材质为 PE 淋膜口杯纸。"
   },
   "featured": false,
-  "order": 45
+  "order": 45,
+  "moreColorsOnRequest": true
 }

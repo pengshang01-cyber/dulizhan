@@ -30,10 +30,11 @@
       "name": { "en": "4 in", "zh": "4 英寸" },
       "baseDiameterMm": 80,
       "heightMm": 50,
-      "topDiameterMm": 100
+      "topDiameterMm": 100,
+      "shape": "round"
     }
   ],
-  "colors": [{ "en": "White", "zh": "白色" }],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Coated Basque Baking Cups", "zh": "巴斯克淋膜纸杯" },

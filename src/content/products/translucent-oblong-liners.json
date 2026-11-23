@@ -13,18 +13,32 @@
     }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
-  "gsm": "24 / 31 / 40",
+  "gsm": 24,
   "sizes": [
     {
-      "name": { "en": "72×35×25 mm", "zh": "72×35×25 mm" },
+      "name": { "en": "70 × 35 mm", "zh": "70 × 35 mm" },
       "heightMm": 25,
-      "specification": { "en": "72×35×25 mm", "zh": "72×35×25 mm" }
+      "shape": "rectangular",
+      "baseLengthMm": 70,
+      "baseWidthMm": 35,
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": { "en": "20 packs", "zh": "20 条" }
+        },
+        { "cartonLoading": { "en": "50 packs", "zh": "50 条" } }
+      ],
+      "hasLid": false
     }
   ],
   "colors": [],
   "patterns": [],
   "customizable": true,
-  "packaging": { "en": "1000 pcs/pack × 50 packs", "zh": "1000 个/包 × 50 包" },
   "seoTitle": { "en": "Oblong Translucent Cake Liners", "zh": "半透明磨堡杯" },
   "seoDescription": {
     "en": "Oblong Translucent Cake Liners made from translucent paper.",

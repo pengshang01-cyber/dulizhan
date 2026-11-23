@@ -4,30 +4,45 @@
   "category": "cake-boards.json",
   "title": { "en": "Triangular White Cake Cards", "zh": "三角形白卡垫" },
   "summary": {
-    "en": "Triangular White Cake Cards made from paperboard.",
-    "zh": "三角形白卡垫，材质为 卡纸。"
+    "en": "Triangular White Cake Cards made from Food-grade white card.",
+    "zh": "三角形白卡垫，材质为 食品级白卡。"
   },
   "images": [
     {
       "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
     }
   ],
-  "material": { "en": "Paperboard", "zh": "卡纸" },
+  "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
   "gsm": 700,
   "sizes": [
     {
       "name": { "en": "118×78 mm", "zh": "118×78 mm" },
-      "specification": { "en": "118×78 mm", "zh": "118×78 mm" }
+      "shape": "sheet",
+      "length": 118,
+      "width": 78,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
+      "paperWeight": 700,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / shrink wrap", "zh": "50 只 / 收缩膜" },
+          "cartonLoading": {
+            "en": "50 pcs × 100 packs",
+            "zh": "50 只 × 100 包"
+          }
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "White", "zh": "白色" }],
+  "colors": [{ "en": "White", "zh": "白色", "swatch": "#ffffff" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "500 pcs/pack × 100 packs", "zh": "500 个/包 × 100 包" },
   "seoTitle": { "en": "Triangular White Cake Cards", "zh": "三角形白卡垫" },
   "seoDescription": {
-    "en": "Triangular White Cake Cards made from paperboard.",
-    "zh": "三角形白卡垫，材质为 卡纸。"
+    "en": "Triangular White Cake Cards made from Food-grade white card.",
+    "zh": "三角形白卡垫，材质为 食品级白卡。"
   },
   "featured": false,
   "order": 65

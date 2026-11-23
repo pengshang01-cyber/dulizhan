@@ -32,15 +32,17 @@
     {
       "name": { "en": "6 in", "zh": "6 英寸" },
       "baseDiameterMm": 160,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round"
     },
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "baseDiameterMm": 200,
-      "heightMm": 45
+      "heightMm": 45,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Silver", "zh": "银色", "swatch": "#c0c5ca" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

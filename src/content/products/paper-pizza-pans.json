@@ -29,34 +29,201 @@
     {
       "name": { "en": "4 in", "zh": "4 英寸" },
       "baseDiameterMm": 115,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "433 g",
+          "packSize": "14 × 14 × 20 cm",
+          "cartonWeight": "9.5 kg",
+          "cartonSpec": "67 × 43 × 29"
+        },
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          },
+          "packWeight": "215 g",
+          "packSize": "14 × 14 × 10.5 cm",
+          "cartonWeight": "9.5 kg",
+          "cartonSpec": "67 × 43 × 29"
+        },
+        {
+          "packaging": { "en": "50 pcs / shrink wrap", "zh": "50 只 / 收缩膜" },
+          "cartonLoading": { "en": "50 pcs × 80 packs", "zh": "50 只 × 80 条" },
+          "packWeight": "103 g",
+          "packSize": "14 × 14 × 6.5 cm",
+          "cartonWeight": "9.5 kg",
+          "cartonSpec": "67 × 43 × 29"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "6 in", "zh": "6 英寸" },
       "baseDiameterMm": 140,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "525 g",
+          "packSize": "15 × 15 × 16 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "76 × 40 × 31"
+        },
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          },
+          "packWeight": "261 g",
+          "packSize": "15 × 15 × 9 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "76 × 40 × 31"
+        },
+        {
+          "packaging": { "en": "50 pcs / shrink wrap", "zh": "50 只 / 收缩膜" },
+          "cartonLoading": { "en": "50 pcs × 80 packs", "zh": "50 只 × 80 条" },
+          "packWeight": "128 g",
+          "packSize": "15 × 15 × 5.5 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "76 × 40 × 31"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "7 in", "zh": "7 英寸" },
       "baseDiameterMm": 160,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "710 g",
+          "packSize": "16.5 × 16.5 × 16 cm",
+          "cartonWeight": "8.2 kg",
+          "cartonSpec": "67.5 × 35 × 33 cm"
+        },
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          },
+          "packWeight": "355 g",
+          "packSize": "16.5 × 16.5 × 9 cm",
+          "cartonWeight": "8.2 kg",
+          "cartonSpec": "67.5 × 35 × 33 cm"
+        },
+        {
+          "packaging": { "en": "50 pcs / shrink wrap", "zh": "50 只 / 收缩膜" },
+          "cartonLoading": { "en": "50 pcs × 80 packs", "zh": "50 只 × 80 条" },
+          "packWeight": "170 g",
+          "packSize": "16.5 × 16.5 × 5.5 cm",
+          "cartonWeight": "8.2 kg",
+          "cartonSpec": "67.5 × 35 × 33 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "8 in", "zh": "8 英寸" },
       "baseDiameterMm": 200,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "1070 g",
+          "packSize": "22.5 × 22.5 × 12.5 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "75 × 44 × 31"
+        },
+        {
+          "packaging": {
+            "en": "100 pcs / shrink wrap",
+            "zh": "100 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "100 pcs × 40 packs",
+            "zh": "100 只 × 40 条"
+          },
+          "packWeight": "530 g",
+          "packSize": "22.5 × 22.5 × 7.5 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "75 × 44 × 31"
+        },
+        {
+          "packaging": { "en": "50 pcs / shrink wrap", "zh": "50 只 / 收缩膜" },
+          "cartonLoading": { "en": "50 pcs × 80 packs", "zh": "50 只 × 80 条" },
+          "packWeight": "265 g",
+          "packSize": "22.5 × 22.5 × 5 cm",
+          "cartonWeight": "11.4 kg",
+          "cartonSpec": "75 × 44 × 31"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [{ "en": "Natural color", "zh": "本色" }],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White with print", "zh": "白底印花", "swatch": "#f5f1eb" }
+  ],
   "patterns": [
     { "en": "Plain", "zh": "素色" },
     { "en": "Printed", "zh": "印花" }
   ],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packagingDetails": {
-    "en": "4 in — 200 pcs/pack × 20 packs\n6 in — 200 pcs/pack × 20 packs\n7 in — 200 pcs/pack × 10 packs\n8 in — 200 pcs/pack × 10 packs",
-    "zh": "4 英寸 — 包装 200 个/包 × 20 包\n6 英寸 — 包装 200 个/包 × 20 包\n7 英寸 — 包装 200 个/包 × 10 包\n8 英寸 — 包装 200 个/包 × 10 包"
-  },
   "seoTitle": { "en": "Paper Pizza Pans", "zh": "纸质披萨盘" },
   "seoDescription": {
     "en": "Paper Pizza Pans made from PET-coated paper.",

@@ -1,0 +1,45 @@
+{
+  "sku": "TODO_SKU_GOLD_TUB_PACKED_CUPCAKE_LINERS",
+  "slug": "gold-tub-packed-cupcake-liners",
+  "category": "cupcake-liners.json",
+  "title": { "en": "Gold Tub-Packed Cupcake Liners", "zh": "金色桶装蛋糕纸托" },
+  "summary": {
+    "en": "Gold Tub-Packed Cupcake Liners for wholesale inquiries.",
+    "zh": "金色桶装蛋糕纸托，欢迎咨询批发。"
+  },
+  "material": { "en": "TODO_MATERIAL", "zh": "" },
+  "gsm": "TODO_GSM",
+  "images": [
+    {
+      "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    }
+  ],
+  "sizes": [
+    {
+      "shape": "round",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / PET tub", "zh": "100 只 / PET 桶" },
+          "cartonLoading": {
+            "en": "100 pcs × 200 tubs",
+            "zh": "100 只 × 200 桶"
+          }
+        }
+      ],
+      "name": { "en": "11 cm", "zh": "11 厘米" }
+    }
+  ],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
+  "patterns": [],
+  "customizable": "TODO_CUSTOMIZABLE",
+  "seoTitle": {
+    "en": "Gold Tub-Packed Cupcake Liners",
+    "zh": "金色桶装蛋糕纸托"
+  },
+  "seoDescription": {
+    "en": "Gold Tub-Packed Cupcake Liners for wholesale inquiries.",
+    "zh": "金色桶装蛋糕纸托，欢迎咨询批发。"
+  },
+  "featured": false,
+  "order": 123
+}

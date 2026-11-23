@@ -24,55 +24,106 @@
     }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
-  "gsm": "24 / 31 / 40",
+  "gsm": "TODO_GSM",
   "sizes": [
     {
       "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round",
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "20 packs", "zh": "20 条" } },
+        { "cartonLoading": { "en": "200 packs", "zh": "200 条" } }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 22.5
+      "heightMm": 22.5,
+      "shape": "round",
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "10 packs", "zh": "10 条" } },
+        { "cartonLoading": { "en": "100 packs", "zh": "100 条" } }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "10 packs", "zh": "10 条" } },
+        { "cartonLoading": { "en": "100 packs", "zh": "100 条" } }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "10 packs", "zh": "10 条" } },
+        { "cartonLoading": { "en": "60 packs", "zh": "60 条" } }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "11 cm blank", "zh": "11 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "paperWeight": "24 / 31 / 40"
     },
     {
       "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "material": { "en": "Translucent paper", "zh": "半透明纸" },
+      "paperWeight": 24,
+      "packages": [
+        { "cartonLoading": { "en": "10 packs", "zh": "10 条" } },
+        { "cartonLoading": { "en": "45 packs", "zh": "45 条" } }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "13 cm blank", "zh": "13 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round",
+      "paperWeight": "24 / 31 / 40"
     },
     {
       "name": { "en": "14 cm blank", "zh": "14 cm 展开规格" },
       "baseDiameterMm": 80,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "paperWeight": "24 / 31 / 40"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Yellow", "zh": "黄色", "swatch": "#d9b631" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" }
+  ],
   "patterns": [],
   "customizable": true,
   "packagingDetails": {
-    "en": "6 cm blank — 1000 pcs/pack × 100 packs\n8 cm blank — 500 pcs/pack × 100 packs\n9 cm blank — 500 pcs/pack × 10 packs\n10.5 cm blank — 300 pcs/pack × 60 packs\n11 cm blank — 1000 pcs/pack × 50 packs\n12 cm blank — 300 pcs/pack × 45 packs\n13 cm blank — 1000 pcs/pack × 50 packs\n14 cm blank — 1000 pcs/pack × 10 packs",
-    "zh": "6 cm 展开规格 — 包装 1000 个/包 × 100 包\n8 cm 展开规格 — 包装 500 个/包 × 100 包\n9 cm 展开规格 — 包装 500 个/包 × 10 包\n10.5 cm 展开规格 — 包装 300 个/包 × 60 包\n11 cm 展开规格 — 包装 1000 个/包 × 50 包\n12 cm 展开规格 — 包装 300 个/包 × 45 包\n13 cm 展开规格 — 包装 1000 个/包 × 50 包\n14 cm 展开规格 — 包装 1000 个/包 × 10 包"
+    "en": "11 cm blank — 1000 pcs/pack × 50 packs\n13 cm blank — 1000 pcs/pack × 50 packs\n14 cm blank — 1000 pcs/pack × 10 packs",
+    "zh": "11 cm 展开规格 — 包装 1000 个/包 × 50 包\n13 cm 展开规格 — 包装 1000 个/包 × 50 包\n14 cm 展开规格 — 包装 1000 个/包 × 10 包"
   },
   "seoTitle": { "en": "Translucent Cupcake Liners", "zh": "半透明纸托" },
   "seoDescription": {

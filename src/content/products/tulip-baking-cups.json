@@ -4,8 +4,8 @@
   "category": "tulip-shaped-baking-cups.json",
   "title": { "en": "Tulip Baking Cups", "zh": "郁金香纸杯" },
   "summary": {
-    "en": "Tulip Baking Cups in the tulip & shaped baking cups range.",
-    "zh": "郁金香纸杯，属于造型纸杯系列。"
+    "en": "Tulip Baking Cups made from Silicone-coated paper.",
+    "zh": "郁金香纸杯，材质为 硅油纸。"
   },
   "images": [
     {
@@ -23,14 +23,140 @@
       }
     }
   ],
-  "material": { "en": "TODO_MATERIAL", "zh": "" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+  "gsm": 40,
   "sizes": [
     {
-      "name": { "en": "170 · 60×90 mm", "zh": "170 · 60×90 mm" },
+      "name": { "en": "170", "zh": "170" },
       "baseDiameterMm": 60,
-      "heightMm": 90,
-      "topDiameterMm": 100
+      "topDiameterMm": 100,
+      "shape": "shaped",
+      "lowHeightMm": 60,
+      "highHeightMm": 90,
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false
+    },
+    {
+      "shape": "shaped",
+      "baseDiameterMm": 35,
+      "lowHeightMm": 40,
+      "highHeightMm": 60,
+      "topDiameterMm": 65,
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 50 packs",
+            "zh": "200 只 × 50 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "110", "zh": "110" }
+    },
+    {
+      "shape": "shaped",
+      "baseDiameterMm": 50,
+      "lowHeightMm": 50,
+      "highHeightMm": 80,
+      "topDiameterMm": 80,
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "183.6 g",
+          "packSize": "8 × 8 × 27.5 cm",
+          "cartonWeight": "4.15 kg",
+          "cartonSpec": "38 × 36 × 28 cm"
+        },
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 15 packs",
+            "zh": "200 只 × 15 条"
+          },
+          "packWeight": "183.6 g",
+          "packSize": "8 × 8 × 27.5 cm",
+          "cartonWeight": "3.25 kg",
+          "cartonSpec": "38 × 36 × 21 cm"
+        },
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "47 g",
+          "packSize": "8 × 8 × 14 cm",
+          "cartonWeight": "3.45 kg",
+          "cartonSpec": "46 × 33 × 35 cm"
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "150", "zh": "150" }
+    },
+    {
+      "shape": "shaped",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "unitWeight": "0.8 g",
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "160", "zh": "160" }
+    },
+    {
+      "shape": "shaped",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "165", "zh": "165" }
+    },
+    {
+      "shape": "shaped",
+      "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "175", "zh": "175" }
     }
   ],
   "colors": [],
@@ -38,8 +164,8 @@
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Tulip Baking Cups", "zh": "郁金香纸杯" },
   "seoDescription": {
-    "en": "Tulip Baking Cups in the tulip & shaped baking cups range.",
-    "zh": "郁金香纸杯，属于造型纸杯系列。"
+    "en": "Tulip Baking Cups made from Silicone-coated paper.",
+    "zh": "郁金香纸杯，材质为 硅油纸。"
   },
   "featured": false,
   "order": 107

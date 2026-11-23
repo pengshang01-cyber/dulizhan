@@ -39,23 +39,86 @@
     {
       "name": { "en": "60×60×30 mm", "zh": "60×60×30 mm" },
       "heightMm": 30,
-      "specification": { "en": "60×60×30 mm", "zh": "60×60×30 mm" }
+      "shape": "rectangular",
+      "length": 60,
+      "width": 60,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 50 packs",
+            "zh": "200 只 × 50 条"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "80×80×30 mm", "zh": "80×80×30 mm" },
       "heightMm": 30,
-      "specification": { "en": "80×80×30 mm", "zh": "80×80×30 mm" }
+      "shape": "rectangular",
+      "length": 80,
+      "width": 80,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "300 pcs / shrink wrap",
+            "zh": "300 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "300 pcs × 10 packs",
+            "zh": "300 只 × 10 条"
+          },
+          "packWeight": "572 g",
+          "packSize": "9.5 × 9.5 × 28.5 cm",
+          "cartonWeight": "6.15 kg",
+          "cartonSpec": "51 × 32 × 24"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "45×45×25 mm", "zh": "45×45×25 mm" },
       "heightMm": 25,
-      "specification": { "en": "45×45×25 mm", "zh": "45×45×25 mm" }
+      "shape": "rectangular",
+      "length": 45,
+      "width": 45,
+      "lengthUnit": "mm",
+      "widthUnit": "mm",
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 110,
+      "packages": [
+        {
+          "packaging": {
+            "en": "200 pcs / shrink wrap",
+            "zh": "200 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "200 pcs × 50 packs",
+            "zh": "200 只 × 50 条"
+          }
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White with print", "zh": "白底印花", "swatch": "#f5f1eb" }
+  ],
   "patterns": [],
   "customizable": true,
-  "packaging": { "en": "3,000 / 4,000 pcs", "zh": "3,000 / 4,000 个" },
   "seoTitle": {
     "en": "PET-Coated Square Baking Cups",
     "zh": "PET 淋膜正方形纸杯"

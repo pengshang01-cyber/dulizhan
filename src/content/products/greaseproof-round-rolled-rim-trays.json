@@ -34,23 +34,19 @@
       "baseDiameterMm": 90,
       "heightMm": 25,
       "topDiameterMm": 111,
-      "specification": {
-        "en": "Paper weight 80 / 100 / 120 g/m²",
-        "zh": "纸张克重 80 / 100 / 120 g/m²"
-      }
+      "shape": "round",
+      "paperWeight": "80 / 100 / 120"
     },
     {
       "name": { "en": "150×35 mm", "zh": "150×35 mm" },
       "baseDiameterMm": 150,
       "heightMm": 35,
       "topDiameterMm": 175,
-      "specification": {
-        "en": "Paper weight 80 / 100 / 120 g/m²",
-        "zh": "纸张克重 80 / 100 / 120 g/m²"
-      }
+      "shape": "round",
+      "paperWeight": "80 / 100 / 120"
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

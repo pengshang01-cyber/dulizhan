@@ -32,12 +32,34 @@
   },
   "gsm": 110,
   "sizes": [
-    { "name": { "en": "TODO_SIZE_NAME", "zh": "" }, "baseDiameterMm": 50 }
+    {
+      "name": { "en": "140", "zh": "140" },
+      "baseDiameterMm": 50,
+      "shape": "shaped",
+      "lowHeightMm": 47,
+      "highHeightMm": 73,
+      "material": {
+        "en": "Double-sided gold PET-coated paper",
+        "zh": "双面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "2.1 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "116 g",
+          "packSize": "7.5 × 7.5 × 19 cm",
+          "cartonWeight": "7.95 kg",
+          "cartonSpec": "46 × 39 × 37"
+        }
+      ],
+      "hasLid": false
+    }
   ],
-  "colors": [{ "en": "Gold", "zh": "金色" }],
+  "colors": [{ "en": "Gold", "zh": "金色", "swatch": "#c6a244" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "50 pcs/pack × 60 packs", "zh": "50 个/包 × 60 包" },
   "seoTitle": {
     "en": "Double-Sided Gold Flame Baking Cups",
     "zh": "双面金火焰杯"

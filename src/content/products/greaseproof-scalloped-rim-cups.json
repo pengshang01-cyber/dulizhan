@@ -19,10 +19,15 @@
       "name": { "en": "50×45 mm", "zh": "50×45 mm" },
       "baseDiameterMm": 50,
       "heightMm": 45,
-      "topDiameterMm": 85
+      "topDiameterMm": 85,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packaging": { "en": "100 pcs/pack × 30 packs", "zh": "100 个/包 × 30 包" },

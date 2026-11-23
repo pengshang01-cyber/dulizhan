@@ -27,67 +27,181 @@
   "gsm": "TODO_GSM",
   "sizes": [
     {
-      "name": { "en": "110 · 35×60 mm", "zh": "110 · 35×60 mm" },
+      "name": { "en": "110", "zh": "110" },
       "baseDiameterMm": 35,
-      "heightMm": 60,
       "topDiameterMm": 65,
-      "specification": {
-        "en": "Paper weight 40 / 50 / 60 g/m²",
-        "zh": "纸张克重 40 / 50 / 60 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": 40,
+      "lowHeightMm": 40,
+      "highHeightMm": 60,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 50 packs",
+            "zh": "200 只 × 50 条"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "140 · 50×70 mm", "zh": "140 · 50×70 mm" },
       "baseDiameterMm": 50,
       "heightMm": 70,
-      "specification": {
-        "en": "Paper weight 40 / 50 / 60 g/m²",
-        "zh": "纸张克重 40 / 50 / 60 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": "40 / 50 / 60"
     },
     {
-      "name": { "en": "150 · 50×80 mm", "zh": "150 · 50×80 mm" },
+      "name": { "en": "150", "zh": "150" },
       "baseDiameterMm": 50,
-      "heightMm": 80,
-      "specification": {
-        "en": "Paper weight 40 g/m²",
-        "zh": "纸张克重 40 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": 40,
+      "lowHeightMm": 50,
+      "highHeightMm": 80,
+      "topDiameterMm": 80,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          },
+          "packWeight": "183.6 g",
+          "packSize": "8 × 8 × 27.5 cm",
+          "cartonWeight": "4.15 kg",
+          "cartonSpec": "38 × 36 × 28 cm"
+        },
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 15 packs",
+            "zh": "200 只 × 15 条"
+          },
+          "packWeight": "183.6 g",
+          "packSize": "8 × 8 × 27.5 cm",
+          "cartonWeight": "3.25 kg",
+          "cartonSpec": "38 × 36 × 21 cm"
+        },
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "47 g",
+          "packSize": "8 × 8 × 14 cm",
+          "cartonWeight": "3.45 kg",
+          "cartonSpec": "46 × 33 × 35 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
-      "name": { "en": "160 · 50×85 mm", "zh": "160 · 50×85 mm" },
+      "name": { "en": "160", "zh": "160" },
       "baseDiameterMm": 50,
       "heightMm": 85,
-      "specification": {
-        "en": "Paper weight 40 / 50 / 60 g/m²",
-        "zh": "纸张克重 40 / 50 / 60 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": 40,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "unitWeight": "0.8 g",
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "175 · 50×100 mm", "zh": "175 · 50×100 mm" },
       "baseDiameterMm": 50,
       "heightMm": 100,
-      "specification": {
-        "en": "Paper weight 40 / 50 / 60 g/m²",
-        "zh": "纸张克重 40 / 50 / 60 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": "40 / 50 / 60"
     },
     {
       "name": { "en": "175 · 60×95 mm", "zh": "175 · 60×95 mm" },
       "baseDiameterMm": 60,
       "heightMm": 95,
-      "specification": {
-        "en": "Paper weight 40 / 50 / 60 g/m²",
-        "zh": "纸张克重 40 / 50 / 60 g/m²"
-      }
+      "shape": "shaped",
+      "paperWeight": "40 / 50 / 60"
+    },
+    {
+      "shape": "shaped",
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "165", "zh": "165" }
+    },
+    {
+      "shape": "shaped",
+      "baseDiameterMm": 60,
+      "lowHeightMm": 60,
+      "highHeightMm": 90,
+      "topDiameterMm": 100,
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "170", "zh": "170" }
+    },
+    {
+      "shape": "shaped",
+      "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+      "paperWeight": 40,
+      "packages": [
+        {
+          "packaging": { "en": "200 pcs / OPP bag", "zh": "200 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "200 pcs × 20 packs",
+            "zh": "200 只 × 20 条"
+          }
+        }
+      ],
+      "hasLid": false,
+      "name": { "en": "175", "zh": "175" }
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Dark brown", "zh": "深棕色", "swatch": "#4b352d" },
+    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Turquoise", "zh": "蓝绿色", "swatch": "#4fb5b7" },
+    { "en": "Yellow", "zh": "黄色", "swatch": "#d9b631" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Orange", "zh": "橙色", "swatch": "#d78232" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "110 · 35×60 mm — 200 pcs/pack × 50 packs\n140 · 50×70 mm — 200 pcs/pack × 20 packs\n150 · 50×80 mm (quoted specification) — 200 pcs/pack × 20 packs · MOQ 2 cartons · Carton 38 × 36 × 28 cm\n160 · 50×85 mm — 200 pcs/pack × 20 packs\n175 · 50×100 mm — 200 pcs/pack × 20 packs\n175 · 60×95 mm — 200 pcs/pack × 20 packs",
-    "zh": "110 · 35×60 mm — 包装 200 个/包 × 50 包\n140 · 50×70 mm — 包装 200 个/包 × 20 包\n150 · 50×80 mm（该规格报价） — 包装 200 个/包 × 20 包 · 起订量 2 箱 · 外箱 38 × 36 × 28 cm\n160 · 50×85 mm — 包装 200 个/包 × 20 包\n175 · 50×100 mm — 包装 200 个/包 × 20 包\n175 · 60×95 mm — 包装 200 个/包 × 20 包"
+    "en": "140 · 50×70 mm — 200 pcs/pack × 20 packs\n150 — MOQ 2 cartons\n175 · 50×100 mm — 200 pcs/pack × 20 packs\n175 · 60×95 mm — 200 pcs/pack × 20 packs",
+    "zh": "140 · 50×70 mm — 包装 200 个/包 × 20 包\n150 — 起订量 2 箱\n175 · 50×100 mm — 包装 200 个/包 × 20 包\n175 · 60×95 mm — 包装 200 个/包 × 20 包"
   },
   "seoTitle": { "en": "Greaseproof Tulip Baking Cups", "zh": "防油纸郁金香杯" },
   "seoDescription": {

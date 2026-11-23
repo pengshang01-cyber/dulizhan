@@ -4,8 +4,8 @@
   "category": "cake-boxes.json",
   "title": { "en": "Rectangular Paper Trays with Lids", "zh": "长方形纸塑盒" },
   "summary": {
-    "en": "Rectangular Paper Trays with Lids made from food-grade white paperboard.",
-    "zh": "长方形纸塑盒，材质为 食品级白卡。"
+    "en": "Rectangular Paper Trays with Lids made from PET-coated paper.",
+    "zh": "长方形纸塑盒，材质为 PET 淋膜纸。"
   },
   "images": [
     {
@@ -30,21 +30,51 @@
       }
     }
   ],
-  "material": { "en": "Food-grade white paperboard", "zh": "食品级白卡" },
-  "gsm": "TODO_GSM",
+  "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+  "gsm": 230,
   "sizes": [
     {
-      "name": { "en": "175×70 mm", "zh": "175×70 mm" },
-      "specification": {
-        "en": "Base 175×70 mm, top 190×85 mm",
-        "zh": "底部 175×70 mm，顶部 190×85 mm"
+      "name": { "en": "175 × 70 mm", "zh": "175 × 70 mm" },
+      "shape": "rectangular",
+      "baseLengthMm": 175,
+      "baseWidthMm": 70,
+      "topLengthMm": 190,
+      "topWidthMm": 85,
+      "heightMm": 35,
+      "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
+      "paperWeight": 230,
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 20 packs", "zh": "50 只 × 20 条" }
+        }
+      ],
+      "hasLid": true,
+      "lid": {
+        "shape": "rectangular",
+        "baseLengthMm": 190,
+        "baseWidthMm": 85,
+        "heightMm": 35,
+        "material": { "en": "PET", "zh": "PET" },
+        "packages": [
+          {
+            "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+            "cartonLoading": {
+              "en": "50 pcs × 20 packs",
+              "zh": "50 只 × 20 条"
+            }
+          }
+        ]
       }
     }
   ],
   "colors": [
-    { "en": "White", "zh": "白色" },
-    { "en": "Kraft color", "zh": "牛皮色" },
-    { "en": "Assorted colors", "zh": "彩色" }
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" },
+    { "en": "Green gingham", "zh": "绿格", "swatch": "#8ebd75" },
+    { "en": "Pink gingham", "zh": "粉格", "swatch": "#d78caa" },
+    { "en": "Blue gingham", "zh": "蓝格", "swatch": "#7fbccb" },
+    { "en": "Yellow gingham", "zh": "黄格", "swatch": "#d1b84e" }
   ],
   "patterns": [
     { "en": "Solid color", "zh": "纯色" },
@@ -52,14 +82,13 @@
     { "en": "Printed", "zh": "印花" }
   ],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packaging": { "en": "1,000 pcs/carton", "zh": "1,000 个/箱" },
   "seoTitle": {
     "en": "Rectangular Paper Trays with Lids",
     "zh": "长方形纸塑盒"
   },
   "seoDescription": {
-    "en": "Rectangular Paper Trays with Lids made from food-grade white paperboard.",
-    "zh": "长方形纸塑盒，材质为 食品级白卡。"
+    "en": "Rectangular Paper Trays with Lids made from PET-coated paper.",
+    "zh": "长方形纸塑盒，材质为 PET 淋膜纸。"
   },
   "featured": false,
   "order": 74

@@ -346,5 +346,28 @@
     "name": "m10-detail-flower",
     "path": "/zh/products/tulip-shaped-baking-cups/flower-shaped-baking-cups/",
     "milestones": ["M10"]
+  },
+  { "name": "m11-home", "path": "/", "milestones": ["M11"] },
+  { "name": "m11-about", "path": "/zh/about/", "milestones": ["M11"] },
+  { "name": "m11-contact", "path": "/zh/contact/", "milestones": ["M11"] },
+  {
+    "name": "m11-shape-rectangle",
+    "path": "/products/cake-boxes/rectangular-coated-paper-boxes/",
+    "milestones": ["M11"]
+  },
+  {
+    "name": "m11-shape-square",
+    "path": "/zh/products/cake-boxes/square-paper-trays-with-lids/",
+    "milestones": ["M11"]
+  },
+  {
+    "name": "m11-colors-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M11"]
+  },
+  {
+    "name": "m11-colors-tulip",
+    "path": "/zh/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
+    "milestones": ["M11"]
   }
 ]

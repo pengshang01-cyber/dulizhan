@@ -4,7 +4,7 @@
   "category": "cupcake-liners.json",
   "title": { "en": "Foil-Laminated Cupcake Liners", "zh": "铝箔复合纸托" },
   "summary": {
-    "en": "Foil-Laminated Cupcake Liners made from foil-laminated paper.",
+    "en": "Foil-Laminated Cupcake Liners made from Aluminum foil composite paper.",
     "zh": "铝箔复合纸托，材质为 铝箔复合纸。"
   },
   "images": [
@@ -30,80 +30,220 @@
       }
     }
   ],
-  "material": { "en": "Foil-laminated paper", "zh": "铝箔复合纸" },
+  "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
   "gsm": 60,
   "sizes": [
     {
       "name": { "en": "6 cm blank", "zh": "6 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 17.5
+      "heightMm": 17.5,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "6.5 cm blank", "zh": "6.5 cm 展开规格" },
       "baseDiameterMm": 25,
-      "heightMm": 20
+      "heightMm": 20,
+      "shape": "round"
     },
     {
       "name": { "en": "7 cm blank", "zh": "7 cm 展开规格" },
       "baseDiameterMm": 30,
-      "heightMm": 17.5
+      "heightMm": 20,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "7.5 cm blank", "zh": "7.5 cm 展开规格" },
-      "baseDiameterMm": 30,
-      "heightMm": 20
+      "baseDiameterMm": 35,
+      "heightMm": 20,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "8 cm blank", "zh": "8 cm 展开规格" },
       "baseDiameterMm": 35,
-      "heightMm": 22.5
+      "heightMm": 22.5,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "9 cm blank", "zh": "9 cm 展开规格" },
       "baseDiameterMm": 40,
-      "heightMm": 25
+      "heightMm": 25,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "10 cm blank", "zh": "10 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 27.5
+      "heightMm": 27.5,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "10.5 cm blank", "zh": "10.5 cm 展开规格" },
       "baseDiameterMm": 45,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "11 cm blank", "zh": "11 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 30
+      "heightMm": 30,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          },
+          "cartonLoading": {
+            "en": "1000 pcs × 30 packs",
+            "zh": "1000 只 × 30 条"
+          },
+          "packWeight": "505 g",
+          "packSize": "7 × 7 × 30.5 cm",
+          "cartonWeight": "16 kg",
+          "cartonSpec": "44 × 35 × 37 cm"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "11.5 cm blank", "zh": "11.5 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 32.5
+      "heightMm": 32.5,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "12 cm blank", "zh": "12 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 35
+      "heightMm": 35,
+      "shape": "round",
+      "material": { "en": "Aluminum foil composite paper", "zh": "铝箔复合纸" },
+      "paperWeight": 60,
+      "packages": [
+        {
+          "packaging": {
+            "en": "1000 pcs / shrink wrap",
+            "zh": "1000 只 / 收缩膜"
+          }
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "13 cm blank", "zh": "13 cm 展开规格" },
       "baseDiameterMm": 50,
-      "heightMm": 40
+      "heightMm": 40,
+      "shape": "round"
     }
   ],
-  "colors": [],
+  "colors": [
+    { "en": "Gold", "zh": "金色", "swatch": "#c6a244" },
+    { "en": "Silver", "zh": "银色", "swatch": "#c0c5ca" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" },
+    { "en": "Magenta", "zh": "玫红色", "swatch": "#c44081" },
+    { "en": "Deep blue", "zh": "深蓝色", "swatch": "#285797" },
+    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
+    { "en": "Black", "zh": "黑色", "swatch": "#28252a" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "6 cm blank — 1000 pcs/pack × 100 packs\n6.5 cm blank — 1000 pcs/pack × 50 packs\n7 cm blank — 1000 pcs/pack × 50 packs\n7.5 cm blank — 1000 pcs/pack × 50 packs\n8 cm blank — 1000 pcs/pack × 50 packs\n9 cm blank — 1000 pcs/pack × 50 packs\n10 cm blank — 1000 pcs/pack × 30 packs\n10.5 cm blank — 1000 pcs/pack × 30 packs\n11 cm blank (quoted specification) — 1000 pcs/pack × 30 packs · MOQ 2 cartons · Carton 44 × 35 × 37 cm\n11.5 cm blank — 1000 pcs/pack × 30 packs\n12 cm blank — 1000 pcs/pack × 30 packs\n13 cm blank — 1000 pcs/pack × 30 packs",
-    "zh": "6 cm 展开规格 — 包装 1000 个/包 × 100 包\n6.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n7 cm 展开规格 — 包装 1000 个/包 × 50 包\n7.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n8 cm 展开规格 — 包装 1000 个/包 × 50 包\n9 cm 展开规格 — 包装 1000 个/包 × 50 包\n10 cm 展开规格 — 包装 1000 个/包 × 30 包\n10.5 cm 展开规格 — 包装 1000 个/包 × 30 包\n11 cm 展开规格（该规格报价） — 包装 1000 个/包 × 30 包 · 起订量 2 箱 · 外箱 44 × 35 × 37 cm\n11.5 cm 展开规格 — 包装 1000 个/包 × 30 包\n12 cm 展开规格 — 包装 1000 个/包 × 30 包\n13 cm 展开规格 — 包装 1000 个/包 × 30 包"
+    "en": "6.5 cm blank — 1000 pcs/pack × 50 packs\n11 cm blank — MOQ 2 cartons\n13 cm blank — 1000 pcs/pack × 30 packs",
+    "zh": "6.5 cm 展开规格 — 包装 1000 个/包 × 50 包\n11 cm 展开规格 — 起订量 2 箱\n13 cm 展开规格 — 包装 1000 个/包 × 30 包"
   },
   "seoTitle": { "en": "Foil-Laminated Cupcake Liners", "zh": "铝箔复合纸托" },
   "seoDescription": {
-    "en": "Foil-Laminated Cupcake Liners made from foil-laminated paper.",
+    "en": "Foil-Laminated Cupcake Liners made from Aluminum foil composite paper.",
     "zh": "铝箔复合纸托，材质为 铝箔复合纸。"
   },
   "featured": false,

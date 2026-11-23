@@ -187,7 +187,7 @@ content:
           message: 请填写正数、范围、多个克重选项或 TODO_ 占位值。
       - name: sizes
         label: 尺寸规格
-        description: 至少填写一组；直径和高度单位为毫米。非圆形或纸片规格可填写双语规格说明。
+        description: 至少一组。先选形状，再填对应尺寸。纸片与纸卷保留原单位，盖子和包装按规格单独填写。
         type: object
         list:
           min: 1
@@ -212,40 +212,263 @@ content:
                 description: 选填；中文留空时回退显示英文。
                 type: string
                 default: ""
-          - name: baseDiameterMm
+          - &m11-shape
+            name: shape
+            label: 规格形状
+            description: 选择这一规格的形状，按下方对应栏位填写确认的尺寸。
+            type: select
+            options:
+              values:
+                - name: round
+                  label: 圆形
+                - name: rectangular
+                  label: 方形或长方形
+                - name: sheet
+                  label: 纸片、垫纸或底板
+                - name: roll
+                  label: 纸卷
+                - name: shaped
+                  label: 异形杯或盘
+          - &m11-diameterMm
+            name: diameterMm
+            label: 直径（mm）
+            description: 圆形平片、圆盖直径等。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-baseDiameterMm
+            name: baseDiameterMm
             label: 底部直径（mm）
-            description: 圆形底径以正数填写；方形、纸片等可留空，在规格说明填长宽。
+            description: 圆形杯底部直径。 只填正数或留空。
             type: string
             pattern:
               regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
-              message: 请填写大于 0 的数字或 TODO_ 占位值。
-          - name: heightMm
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-topDiameterMm
+            name: topDiameterMm
+            label: 口径（mm）
+            description: 圆形杯的杯口直径。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-baseLengthMm
+            name: baseLengthMm
+            label: 底部长（mm）
+            description: 方形、长方形杯盒的底部长。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-baseWidthMm
+            name: baseWidthMm
+            label: 底部宽（mm）
+            description: 方形、长方形杯盒的底部宽。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-topLengthMm
+            name: topLengthMm
+            label: 顶部长（mm）
+            description: 方形、长方形杯盒的顶部长。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-topWidthMm
+            name: topWidthMm
+            label: 顶部宽（mm）
+            description: 方形、长方形杯盒的顶部宽。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-heightMm
+            name: heightMm
             label: 高度（mm）
-            description: 已确认高度填正数，不写单位；无高度或未确认时可留空。
+            description: 平片或没有高度时留空。 只填正数或留空。
             type: string
             pattern:
               regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
-              message: 请填写大于 0 的数字或 TODO_ 占位值。
-          - name: topDiameterMm
-            label: 顶部直径（mm，可选）
-            description: 只填正数，不写单位；未确认时填写 TODO_ 开头的占位值。
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-length
+            name: length
+            label: 长／卷长
+            description: 片材的长或纸卷长度，与长度单位配合填写。 只填正数或留空。
             type: string
             pattern:
               regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
-              message: 请填写大于 0 的数字或 TODO_ 占位值。
-          - name: specification
-            label: 规格说明
-            description: 可选；用于底部、顶部的长宽、纸片尺寸或该规格克重。填写时先填英文。
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-width
+            name: width
+            label: 宽／卷宽
+            description: 片材或纸卷的宽，与宽度单位配合填写。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-lowHeightMm
+            name: lowHeightMm
+            label: 低边高度（mm）
+            description: 郁金香、莲花等有高低边时填写。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-highHeightMm
+            name: highHeightMm
+            label: 高边高度（mm）
+            description: 郁金香、火焰等有高低边时填写。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-topWideMm
+            name: topWideMm
+            label: 杯口宽处（mm）
+            description: 花边杯等不规则杯口的宽处。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-topNarrowMm
+            name: topNarrowMm
+            label: 杯口窄处（mm）
+            description: 花边杯等不规则杯口的窄处。 只填正数或留空。
+            type: string
+            pattern:
+              regex: ^(?:|TODO_.+|(?=.*[1-9])(?:\d+(?:\.\d+)?|\.\d+))$
+              message: 请填写大于 0 的数值，未确认可留空。
+          - &m11-lengthUnit
+            name: lengthUnit
+            label: 长度单位
+            description: 按资料原单位选择。
+            type: select
+            options:
+              values: [mm, cm, m]
+          - &m11-widthUnit
+            name: widthUnit
+            label: 宽度单位
+            description: 按资料原单位选择。
+            type: select
+            options:
+              values: [mm, cm, m]
+          - &m11-sizeMaterial
+            name: material
+            label: 该规格材质
+            description: 仅此规格适用时填写，英文必填。
             type: object
             fields:
               - name: en
-                label: 规格说明（英文）
-                description: 例如 Base 65×65 mm, top 85×85 mm, height 35 mm。
+                label: 该规格材质（英文）
                 type: string
+                required: true
               - name: zh
-                label: 规格说明（中文）
-                description: 例如底部 65×65 mm，顶部 85×85 mm，高度 35 mm。
+                label: 该规格材质（中文）
                 type: string
+          - &m11-sizePaperWeight
+            name: paperWeight
+            label: 该规格纸张克重（g/m²）
+            description: 仅此规格适用时填写，不写单位，支持正数、范围或已确认的多个值。
+            type: string
+          - &m11-unitWeight
+            name: unitWeight
+            label: 单个重量
+            description: 填数值并保留资料中的单位，例如 4.5 g。
+            type: string
+          - &m11-sizeNote
+            name: specification
+            label: 补充说明
+            description: 只填无法用结构化尺寸表示的已确认信息，例如厚度范围。
+            type: object
+            fields:
+              - name: en
+                label: 补充说明（英文）
+                type: string
+                required: true
+              - name: zh
+                label: 补充说明（中文）
+                type: string
+          - &m11-packages
+            name: packages
+            label: 包装与装箱选项
+            description: 同一规格有多种包装时逐个新增选项，填写对应的外箱信息。
+            type: object
+            list: true
+            fields:
+              - name: packaging
+                label: 包装方式
+                description: 填每包装数量及袋型，例如 50 只 / OPP 袋。
+                type: object
+                fields:
+                  - name: en
+                    label: 包装方式（英文）
+                    type: string
+                    required: true
+                  - name: zh
+                    label: 包装方式（中文）
+                    type: string
+              - name: cartonLoading
+                label: 装箱方式
+                description: 填每包数量及每箱包数，例如 50 只 × 60 条。
+                type: object
+                fields:
+                  - name: en
+                    label: 装箱方式（英文）
+                    type: string
+                    required: true
+                  - name: zh
+                    label: 装箱方式（中文）
+                    type: string
+              - name: packWeight
+                label: 单包重量
+                description: 有单位才填写，例如 183 g。
+                type: string
+              - name: packSize
+                label: 单包尺寸
+                description: 长 × 宽 × 高，保留资料原单位。
+                type: string
+              - name: cartonWeight
+                label: 单件重量
+                description: 有单位才填写，例如 7 kg。
+                type: string
+              - name: cartonSpec
+                label: 外箱规格
+                description: 填该包装选项对应的箱规，沿用资料原单位。
+                type: string
+          - name: hasLid
+            label: 有配套盖子
+            description: 只有工厂确认该规格有配套盖子时打开。
+            type: boolean
+          - name: lid
+            label: 配套盖子规格
+            description: 只填这一规格的盖子尺寸和包装，缺资料时留空。
+            type: object
+            fields:
+              - *m11-shape
+              - *m11-diameterMm
+              - *m11-baseDiameterMm
+              - *m11-topDiameterMm
+              - *m11-baseLengthMm
+              - *m11-baseWidthMm
+              - *m11-topLengthMm
+              - *m11-topWidthMm
+              - *m11-heightMm
+              - *m11-length
+              - *m11-width
+              - *m11-lowHeightMm
+              - *m11-highHeightMm
+              - *m11-topWideMm
+              - *m11-topNarrowMm
+              - *m11-lengthUnit
+              - *m11-widthUnit
+              - *m11-sizeMaterial
+              - *m11-sizePaperWeight
+              - *m11-unitWeight
+              - *m11-sizeNote
+              - *m11-packages
       - name: colors
         label: 颜色
         description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
@@ -266,6 +489,15 @@ content:
             description: 选填；中文留空时回退显示英文。
             type: string
             default: ""
+          - name: swatch
+            label: 色块
+            description: 选填经核对的示意颜色，使用 6 位十六进制颜色码，例如 #c6a244。
+            type: string
+            pattern: "^#[0-9A-Fa-f]{6}$"
+      - name: moreColorsOnRequest
+        label: 显示更多花色可咨询
+        description: 印花杯、机制杯可开启该提示，保留已确认的文字说明。
+        type: boolean
       - name: patterns
         label: 图案
         description: 可新增或删除；每项英文必填，中文选填；没有内容时可留空列表。
@@ -763,7 +995,7 @@ content:
         default: ""
       - name: logo
         label: 网站 Logo
-        description: 可选；建议透明 PNG，至少 512 × 512。用于页头和搜索引擎 Organization.logo；留空时显示原有图标与文字。
+        description: 可选；建议清晰的透明 PNG，保留原比例。用于页头、页脚和搜索引擎 Organization.logo；留空时显示图标与文字。
         type: image
         options:
           media: site
@@ -819,6 +1051,102 @@ content:
                 label: 图片说明（中文）
                 type: string
                 default: ""
+      - name: factoryProfile
+        label: 工厂信任资料
+        description: 选填。首页和关于页仅显示已填写、可公开的内容。
+        type: object
+        fields:
+          - name: areaSqM
+            label: 工厂面积（平方米）
+            description: 只填写已确认的正数。
+            type: number
+            options:
+              min: 0
+          - name: employeeCount
+            label: 员工人数
+            description: 只填写已确认的正数。
+            type: number
+            options:
+              min: 0
+          - name: productionLineCount
+            label: 生产线数量
+            description: 只填写已确认的正数。
+            type: number
+            options:
+              min: 0
+          - name: exportRegions
+            label: 主要出口地区
+            description: 逐项添加已确认的地区，中英文可分别填写。
+            type: object
+            list: true
+            fields:
+              - name: en
+                label: 主要出口地区（英文）
+                type: string
+                required: true
+              - name: zh
+                label: 主要出口地区（中文）
+                type: string
+          - name: qualityControl
+            label: 质检说明
+            description: 写明实际质检步骤与记录，未确认时留空。
+            type: object
+            fields:
+              - name: en
+                label: 质检说明（英文）
+                type: text
+                required: true
+              - name: zh
+                label: 质检说明（中文）
+                type: text
+          - name: tradeShowPhotos
+            label: 展会照片
+            description: 仅上传真实、允许公开的图片。
+            type: object
+            list: true
+            fields:
+              - name: image
+                label: 图片
+                type: image
+                required: true
+                options:
+                  media: site
+              - name: caption
+                label: 图片说明
+                description: 填写展会或客户的已确认名称。
+                type: object
+                fields:
+                  - name: en
+                    label: 图片说明（英文）
+                    type: string
+                    required: true
+                  - name: zh
+                    label: 图片说明（中文）
+                    type: string
+          - name: clientLogos
+            label: 合作客户 Logo
+            description: 仅上传真实、允许公开的图片。
+            type: object
+            list: true
+            fields:
+              - name: image
+                label: 图片
+                type: image
+                required: true
+                options:
+                  media: site
+              - name: caption
+                label: 图片说明
+                description: 填写展会或客户的已确认名称。
+                type: object
+                fields:
+                  - name: en
+                    label: 图片说明（英文）
+                    type: string
+                    required: true
+                  - name: zh
+                    label: 图片说明（中文）
+                    type: string
       - name: factoryVideoPoster
         label: 工厂视频封面
         description: 可选；建议 1280 × 720，比例 16:9。仅配置有效 YouTube 视频 ID 后显示；不上传时沿用视频自带缩略图。
@@ -1095,7 +1423,7 @@ content:
               media: site
       - name: socialLinks
         label: 社交平台链接
-        description: 填写已确认的公开主页地址；无需展示的平台可留空或保留 TODO_ 占位。
+        description: 填写以 https:// 开头的工厂公开主页。页脚和联系页会显示已填写的平台图标。
         type: object
         required: true
         fields:

@@ -56,13 +56,15 @@ if (
 }
 
 const previewAddress =
-  milestone === "M10"
-    ? process.env.M10_PREVIEW_URL
-    : process.env.M9_PREVIEW_URL;
+  milestone === "M11"
+    ? process.env.M11_PREVIEW_URL
+    : milestone === "M10"
+      ? process.env.M10_PREVIEW_URL
+      : process.env.M9_PREVIEW_URL;
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10"].includes(milestone) ||
+  (!["M9", "M9.1", "M10", "M11"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -80,7 +82,7 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (["M6", "M7", "M7b", "M9", "M9.1", "M10"].includes(milestone))
+      if (["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11"].includes(milestone))
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -354,6 +356,81 @@ try {
               width,
               status: response?.status(),
               ...siteImages,
+            }),
+          );
+        }
+
+        if (milestone === "M11") {
+          const layout = await page.evaluate(() => {
+            const logo = document.querySelector("[data-site-logo]");
+            const nav = document.querySelector("header > div > nav a");
+            const announcement = document.querySelector("[data-top-bar] li");
+            const tagline = document.querySelector("[data-site-tagline]");
+            return {
+              lang: document.documentElement.lang,
+              overflow: document.documentElement.scrollWidth > innerWidth + 1,
+              logoHeight: logo?.getBoundingClientRect().height,
+              footerLogo: Boolean(document.querySelector("[data-footer-logo]")),
+              navFont: nav && getComputedStyle(nav).fontSize,
+              taglineFont: tagline && getComputedStyle(tagline).fontSize,
+              announcementFont:
+                announcement && getComputedStyle(announcement).fontSize,
+              trustSteps: document.querySelectorAll(
+                "[data-production-steps] li",
+              ).length,
+              trustOptional: document.querySelectorAll(
+                "[data-factory-profile], [data-factory-gallery], [data-quality-control], [data-certificates]",
+              ).length,
+              sizeColumns: document.querySelectorAll(
+                "[data-size-table] th[scope=col]",
+              ).length,
+              lidRows: document.querySelectorAll("[data-lid-table] tbody tr")
+                .length,
+              colorOptions: document.querySelectorAll(
+                "[data-color-options] li span[style]",
+              ).length,
+              qr: Boolean(document.querySelector("[data-wechat-card] img")),
+            };
+          });
+          if (
+            new URL(page.url()).origin !== origin ||
+            layout.lang !== (route.path.startsWith("/zh/") ? "zh-CN" : "en") ||
+            layout.overflow ||
+            !layout.footerLogo ||
+            layout.announcementFont !== "13px" ||
+            !layout.logoHeight ||
+            (isMobile
+              ? layout.logoHeight < 40 || layout.logoHeight > 44
+              : layout.logoHeight < 56 ||
+                layout.logoHeight > 64 ||
+                layout.navFont !== "16px" ||
+                layout.taglineFont !== "13px") ||
+            (["m11-home", "m11-about"].includes(route.name) &&
+              (layout.trustSteps !== 6 || layout.trustOptional)) ||
+            (route.name.startsWith("m11-shape") &&
+              (layout.sizeColumns < 4 || !layout.lidRows)) ||
+            (route.name.startsWith("m11-colors") && layout.colorOptions < 6) ||
+            (route.name === "m11-contact" && !layout.qr)
+          )
+            throw new Error(
+              `M11 资料或布局验收失败：${route.path} / ${width} ${JSON.stringify(layout)}`,
+            );
+          if (route.name === "m11-contact") {
+            await page.locator("[data-wechat-open]").click();
+            await page
+              .locator("[data-wechat-dialog][open] [data-wechat-qr]")
+              .waitFor({ state: "visible" });
+            await page.keyboard.press("Escape");
+            await page
+              .locator("[data-wechat-dialog][open]")
+              .waitFor({ state: "hidden" });
+          }
+          console.log(
+            JSON.stringify({
+              url: page.url(),
+              width,
+              status: response?.status(),
+              ...layout,
             }),
           );
         }

@@ -29,53 +29,59 @@
     {
       "name": { "en": "No. 1", "zh": "1号" },
       "heightMm": 19,
-      "specification": {
-        "en": "Base 73×47 mm, top 100×75 mm, height 19 mm",
-        "zh": "底部 73×47 mm，顶部 100×75 mm，高度 19 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 73,
+      "baseWidthMm": 47,
+      "topLengthMm": 100,
+      "topWidthMm": 75
     },
     {
       "name": { "en": "No. 2", "zh": "2号" },
       "heightMm": 23,
-      "specification": {
-        "en": "Base 85×52 mm, top 130×85 mm, height 23 mm",
-        "zh": "底部 85×52 mm，顶部 130×85 mm，高度 23 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 85,
+      "baseWidthMm": 52,
+      "topLengthMm": 130,
+      "topWidthMm": 85
     },
     {
       "name": { "en": "No. 3", "zh": "3号" },
       "heightMm": 25,
-      "specification": {
-        "en": "Base 100×61 mm, top 150×100 mm, height 25 mm",
-        "zh": "底部 100×61 mm，顶部 150×100 mm，高度 25 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 100,
+      "baseWidthMm": 61,
+      "topLengthMm": 150,
+      "topWidthMm": 100
     },
     {
       "name": { "en": "No. 4", "zh": "4号" },
       "heightMm": 30,
-      "specification": {
-        "en": "Base 138×88 mm, top 155×105 mm, height 30 mm",
-        "zh": "底部 138×88 mm，顶部 155×105 mm，高度 30 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 138,
+      "baseWidthMm": 88,
+      "topLengthMm": 155,
+      "topWidthMm": 105
     },
     {
       "name": { "en": "No. 5", "zh": "5号" },
       "heightMm": 35,
-      "specification": {
-        "en": "Base 138×88 mm, top 205×125 mm, height 35 mm",
-        "zh": "底部 138×88 mm，顶部 205×125 mm，高度 35 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 138,
+      "baseWidthMm": 88,
+      "topLengthMm": 205,
+      "topWidthMm": 125
     },
     {
       "name": { "en": "No. 6", "zh": "6号" },
       "heightMm": 50,
-      "specification": {
-        "en": "Base 168×95 mm, top 225×135 mm, height 50 mm",
-        "zh": "底部 168×95 mm，顶部 225×135 mm，高度 50 mm"
-      }
+      "shape": "shaped",
+      "baseLengthMm": 168,
+      "baseWidthMm": 95,
+      "topLengthMm": 225,
+      "topWidthMm": 135
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {

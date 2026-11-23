@@ -15,7 +15,7 @@
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [{ "name": { "en": "Four colors", "zh": "四色" } }],
-  "colors": [{ "en": "Four colors", "zh": "四色" }],
+  "colors": [],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": { "en": "Four-Color Cupcake Liners", "zh": "四色蛋糕纸托" },

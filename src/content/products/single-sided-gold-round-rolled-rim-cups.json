@@ -43,45 +43,137 @@
       "name": { "en": "3830", "zh": "3830" },
       "baseDiameterMm": 38,
       "heightMm": 30,
-      "topDiameterMm": 50
+      "topDiameterMm": 50,
+      "shape": "round",
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "0.8 g",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 30 packs",
+            "zh": "100 只 × 30 条"
+          },
+          "packWeight": "106.4 g",
+          "packSize": "5 × 5 × 30 cm",
+          "cartonWeight": "3.65 kg",
+          "cartonSpec": "32 × 32 × 29"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "4435", "zh": "4435" },
       "baseDiameterMm": 44,
       "heightMm": 35,
-      "topDiameterMm": 60
+      "topDiameterMm": 58,
+      "shape": "round",
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.2 g",
+      "packages": [
+        {
+          "packaging": { "en": "100 pcs / OPP bag", "zh": "100 只 / OPP 袋" },
+          "cartonLoading": {
+            "en": "100 pcs × 30 packs",
+            "zh": "100 只 × 30 条"
+          },
+          "packWeight": "129 g",
+          "packSize": "6 × 6 × 31.5 cm",
+          "cartonWeight": "4.45 kg",
+          "cartonSpec": "36 × 32 × 31"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "5039", "zh": "5039" },
       "baseDiameterMm": 50,
       "heightMm": 39,
-      "topDiameterMm": 70
+      "topDiameterMm": 68,
+      "shape": "round",
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.5 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "89.5 g",
+          "packSize": "7 × 7 × 16 cm",
+          "cartonWeight": "6.1 kg",
+          "cartonSpec": "43 × 33 × 35"
+        }
+      ],
+      "hasLid": true
     },
     {
       "name": { "en": "6040", "zh": "6040" },
       "baseDiameterMm": 60,
       "heightMm": 40,
-      "topDiameterMm": 80
+      "topDiameterMm": 80,
+      "shape": "round",
+      "material": {
+        "en": "Single-sided gold PET-coated paper",
+        "zh": "单面金 PET 淋膜纸"
+      },
+      "paperWeight": 110,
+      "unitWeight": "1.9 g",
+      "packages": [
+        {
+          "packaging": { "en": "50 pcs / OPP bag", "zh": "50 只 / OPP 袋" },
+          "cartonLoading": { "en": "50 pcs × 60 packs", "zh": "50 只 × 60 条" },
+          "packWeight": "102 g",
+          "packSize": "8 × 8 × 16 cm",
+          "cartonWeight": "6.8 kg",
+          "cartonSpec": "49 × 30 × 41"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "44×35 mm · top Ø 58 mm", "zh": "44×35 mm · 口径 58 mm" },
       "baseDiameterMm": 44,
       "heightMm": 35,
-      "topDiameterMm": 58
+      "topDiameterMm": 58,
+      "shape": "round"
     },
     {
       "name": { "en": "50×39 mm · top Ø 68 mm", "zh": "50×39 mm · 口径 68 mm" },
       "baseDiameterMm": 50,
       "heightMm": 39,
-      "topDiameterMm": 68
+      "topDiameterMm": 68,
+      "shape": "round"
     }
   ],
-  "colors": [{ "en": "Single-sided gold", "zh": "单面金" }],
+  "colors": [
+    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" },
+    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
+    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" },
+    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
+    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
+    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
+    { "en": "Lavender", "zh": "浅紫色", "swatch": "#b5a1cb" },
+    { "en": "Turquoise", "zh": "蓝绿色", "swatch": "#4fb5b7" },
+    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
+    { "en": "Deep blue", "zh": "深蓝色", "swatch": "#285797" },
+    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "packagingDetails": {
-    "en": "3830 (quoted specification) — 50 pcs/pack × 60 packs · MOQ 2 cartons · Carton 32 × 28 × 27 cm\n4435 — 50 pcs/pack × 60 packs\n5039 — 50 pcs/pack × 60 packs\n6040 — 50 pcs/pack × 60 packs\n44×35 mm · top Ø 58 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 36 × 32 × 31 cm\n50×39 mm · top Ø 68 mm (quoted specification) — 50 pcs/pack, 60 packs/carton · MOQ 2 cartons · Carton 43 × 33 × 35 cm",
-    "zh": "3830（该规格报价） — 包装 50 个/包 × 60 包 · 起订量 2 箱 · 外箱 32 × 28 × 27 cm\n4435 — 包装 50 个/包 × 60 包\n5039 — 包装 50 个/包 × 60 包\n6040 — 包装 50 个/包 × 60 包\n44×35 mm · 口径 58 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 36 × 32 × 31 cm\n50×39 mm · 口径 68 mm（该规格报价） — 包装 50 个/包，60 包/箱 · 起订量 2 箱 · 外箱 43 × 33 × 35 cm"
+    "en": "3830 — MOQ 2 cartons\n4435 — MOQ 2 cartons\n5039 — MOQ 2 cartons",
+    "zh": "3830 — 起订量 2 箱\n4435 — 起订量 2 箱\n5039 — 起订量 2 箱"
   },
   "seoTitle": {
     "en": "Single-Sided Gold Round Rolled-Rim Cups",

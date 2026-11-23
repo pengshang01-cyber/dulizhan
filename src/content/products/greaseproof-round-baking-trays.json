@@ -4,8 +4,8 @@
   "category": "basque-cheesecake-liners.json",
   "title": { "en": "Greaseproof Round Baking Trays", "zh": "防油纸大圆盘" },
   "summary": {
-    "en": "Greaseproof Round Baking Trays made from greaseproof paper.",
-    "zh": "防油纸大圆盘，材质为 防油纸。"
+    "en": "Greaseproof Round Baking Trays made from Imported natural greaseproof paper.",
+    "zh": "防油纸大圆盘，材质为 进口本色防油纸。"
   },
   "images": [
     {
@@ -23,33 +23,75 @@
       }
     }
   ],
-  "material": { "en": "Greaseproof paper", "zh": "防油纸" },
+  "material": {
+    "en": "Imported natural greaseproof paper",
+    "zh": "进口本色防油纸"
+  },
   "gsm": 100,
   "sizes": [
     {
       "name": { "en": "4 in", "zh": "4 英寸" },
       "baseDiameterMm": 80,
       "heightMm": 50,
-      "topDiameterMm": 100
+      "topDiameterMm": 100,
+      "shape": "round",
+      "material": {
+        "en": "Imported natural greaseproof paper",
+        "zh": "进口本色防油纸"
+      },
+      "paperWeight": 100,
+      "packages": [
+        {
+          "packaging": {
+            "en": "10 pcs / resealable bag",
+            "zh": "10 只 / 自封袋"
+          },
+          "cartonLoading": {
+            "en": "10 pcs × 100 bags",
+            "zh": "10 只 × 100 袋"
+          },
+          "packWeight": "33.5 g",
+          "packSize": "12.5 × 12.5 × 7.5 cm",
+          "cartonWeight": "4.2 kg",
+          "cartonSpec": "60 × 30 × 48"
+        }
+      ],
+      "hasLid": false
     },
     {
       "name": { "en": "6 in", "zh": "6 英寸" },
-      "baseDiameterMm": 160,
+      "baseDiameterMm": 165,
       "heightMm": 55,
-      "topDiameterMm": 195
+      "topDiameterMm": 195,
+      "shape": "round",
+      "material": {
+        "en": "Imported natural greaseproof paper",
+        "zh": "进口本色防油纸"
+      },
+      "paperWeight": 100,
+      "packages": [
+        {
+          "packaging": {
+            "en": "10 pcs / resealable bag",
+            "zh": "10 只 / 自封袋"
+          },
+          "cartonLoading": { "en": "10 pcs × 60 bags", "zh": "10 只 × 60 袋" },
+          "packWeight": "76 g",
+          "packSize": "21 × 21 × 8 cm",
+          "cartonWeight": "5.8 kg",
+          "cartonSpec": "77 × 43 × 42"
+        }
+      ],
+      "hasLid": false
     }
   ],
-  "colors": [],
+  "colors": [{ "en": "Natural kraft", "zh": "本色", "swatch": "#be9b70" }],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
-  "packagingDetails": {
-    "en": "4 in — 10 pcs/pack × 100 packs\n6 in — 10 pcs/pack × 60 packs",
-    "zh": "4 英寸 — 包装 10 个/包 × 100 包\n6 英寸 — 包装 10 个/包 × 60 包"
-  },
   "seoTitle": { "en": "Greaseproof Round Baking Trays", "zh": "防油纸大圆盘" },
   "seoDescription": {
-    "en": "Greaseproof Round Baking Trays made from greaseproof paper.",
-    "zh": "防油纸大圆盘，材质为 防油纸。"
+    "en": "Greaseproof Round Baking Trays made from Imported natural greaseproof paper.",
+    "zh": "防油纸大圆盘，材质为 进口本色防油纸。"
   },
   "featured": false,
   "order": 117
