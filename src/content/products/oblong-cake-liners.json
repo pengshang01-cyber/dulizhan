@@ -8,7 +8,20 @@
     "zh": "磨堡纸托，材质为 蛋糕纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/oblong-cake-liners-01.webp",
+      "alt": {
+        "en": "Oblong Paper Cake Liners — white oblong liner at an angle",
+        "zh": "磨堡纸托，白色长方形蛋糕纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/oblong-cake-liners-02.webp",
+      "alt": {
+        "en": "Oblong Paper Cake Liners — oblong opening from above",
+        "zh": "磨堡纸托，长条形开口俯视"
+      }
+    }
   ],
   "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
   "gsm": 40,

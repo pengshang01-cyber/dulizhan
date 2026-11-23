@@ -8,7 +8,27 @@
     "zh": "八角纸碗，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/octagonal-paper-bowls-01.webp",
+      "alt": {
+        "en": "Octagonal Paper Bowls — kraft-colored octagonal bowl",
+        "zh": "八角纸碗，牛皮色八角纸碗"
+      }
+    },
+    {
+      "image": "../../assets/images/products/octagonal-paper-bowls-02.webp",
+      "alt": {
+        "en": "Octagonal Paper Bowls — octagonal opening from above",
+        "zh": "八角纸碗，八角形开口俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/octagonal-paper-bowls-03.webp",
+      "alt": {
+        "en": "Octagonal Paper Bowls — wide octagonal bowl at an angle",
+        "zh": "八角纸碗，宽口八角碗斜视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "260–300",

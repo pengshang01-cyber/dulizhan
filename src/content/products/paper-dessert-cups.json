@@ -8,7 +8,9 @@
     "zh": "纸质甜品杯，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": 210,

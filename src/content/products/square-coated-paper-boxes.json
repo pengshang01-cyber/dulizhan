@@ -8,7 +8,20 @@
     "zh": "正方形淋膜纸盒，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/square-coated-paper-boxes-01.webp",
+      "alt": {
+        "en": "Square Coated Paper Cake Boxes — small square coated paper box",
+        "zh": "正方形淋膜纸盒，小号方形淋膜纸盒"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-coated-paper-boxes-02.webp",
+      "alt": {
+        "en": "Square Coated Paper Cake Boxes — square opening from above",
+        "zh": "正方形淋膜纸盒，方形开口俯视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "230–300",

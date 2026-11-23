@@ -8,7 +8,27 @@
     "zh": "开窗蛋糕盒，材质为 卡纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/window-cake-boxes-01.webp",
+      "alt": {
+        "en": "Window Cake Boxes — kraft box with a square display window",
+        "zh": "开窗蛋糕盒，方形开窗牛皮纸蛋糕盒"
+      }
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-02.webp",
+      "alt": {
+        "en": "Window Cake Boxes — rectangular box with six openings",
+        "zh": "开窗蛋糕盒，六格长方开窗蛋糕盒"
+      }
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-03.webp",
+      "alt": {
+        "en": "Window Cake Boxes — two openings seen through a display window",
+        "zh": "开窗蛋糕盒，俯视双格展示窗口"
+      }
+    }
   ],
   "material": { "en": "Paperboard", "zh": "卡纸" },
   "gsm": "300–350",

@@ -8,7 +8,20 @@
     "zh": "半透明纸托，材质为 半透明纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/translucent-cupcake-liners-01.webp",
+      "alt": {
+        "en": "Translucent Cupcake Liners — translucent fluted liner at an angle",
+        "zh": "半透明纸托，半透明褶纹纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/translucent-cupcake-liners-02.webp",
+      "alt": {
+        "en": "Translucent Cupcake Liners — round translucent liner from above",
+        "zh": "半透明纸托，圆形半透明纸托俯视"
+      }
+    }
   ],
   "material": { "en": "Translucent paper", "zh": "半透明纸" },
   "gsm": "24 / 31 / 40",

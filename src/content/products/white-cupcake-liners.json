@@ -8,7 +8,20 @@
     "zh": "白色蛋糕纸托，属于蛋糕纸托系列。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/white-cupcake-liners-01.webp",
+      "alt": {
+        "en": "White Cupcake Liners — white liner with pleated walls",
+        "zh": "白色蛋糕纸托，白色褶纹蛋糕纸托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/white-cupcake-liners-02.webp",
+      "alt": {
+        "en": "White Cupcake Liners — white liner from above",
+        "zh": "白色蛋糕纸托，白色纸托俯视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

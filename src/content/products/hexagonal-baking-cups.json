@@ -7,7 +7,22 @@
     "en": "Hexagonal Baking Cups in the muffin & molded baking cups range.",
     "zh": "六角杯，属于机制杯与马芬杯系列。"
   },
-  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/hexagonal-baking-cups-01.webp",
+      "alt": {
+        "en": "Hexagonal Baking Cups — red polka-dot hexagonal cup",
+        "zh": "六角杯，红色波点六角杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/hexagonal-baking-cups-02.webp",
+      "alt": {
+        "en": "Hexagonal Baking Cups — red hexagonal cup from the front",
+        "zh": "六角杯，红色六角杯正视"
+      }
+    }
+  ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
   "sizes": [

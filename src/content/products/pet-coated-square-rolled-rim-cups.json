@@ -11,7 +11,20 @@
     "zh": "PET 淋膜正方形卷口杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Square Rolled-Rim Cups — white cup at an angle",
+        "zh": "PET 淋膜正方形卷口杯，白色方杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Square Rolled-Rim Cups — square opening from above",
+        "zh": "PET 淋膜正方形卷口杯，方形杯口俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

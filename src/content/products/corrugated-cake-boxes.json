@@ -8,7 +8,20 @@
     "zh": "长方形瓦楞纸盒，材质为 瓦楞纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/corrugated-cake-boxes-01.webp",
+      "alt": {
+        "en": "Corrugated Paper Cake Boxes — corrugated rectangular box with a printed exterior",
+        "zh": "长方形瓦楞纸盒，印花外壁长方瓦楞盒"
+      }
+    },
+    {
+      "image": "../../assets/images/products/corrugated-cake-boxes-02.webp",
+      "alt": {
+        "en": "Corrugated Paper Cake Boxes — open rectangular box from above",
+        "zh": "长方形瓦楞纸盒，长方形瓦楞盒内部俯视"
+      }
+    }
   ],
   "material": { "en": "Corrugated paperboard", "zh": "瓦楞纸" },
   "gsm": 240,

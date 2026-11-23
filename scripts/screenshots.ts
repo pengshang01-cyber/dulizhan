@@ -55,18 +55,20 @@ if (
   );
 }
 
-const externalPreview = process.env.M9_PREVIEW_URL
-  ? new URL(process.env.M9_PREVIEW_URL)
-  : undefined;
+const previewAddress =
+  milestone === "M10"
+    ? process.env.M10_PREVIEW_URL
+    : process.env.M9_PREVIEW_URL;
+const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1"].includes(milestone) ||
+  (!["M9", "M9.1", "M10"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
     externalPreview.password)
 )
-  throw new Error("M9_PREVIEW_URL 仅用于 M9 或 M9.1 的 HTTPS Workers 预览截图");
+  throw new Error("里程碑的线上截图仅接受 HTTPS Workers 预览地址");
 const server = externalPreview
   ? undefined
   : await preview({
@@ -78,7 +80,7 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (["M6", "M7", "M7b", "M9", "M9.1"].includes(milestone))
+      if (["M6", "M7", "M7b", "M9", "M9.1", "M10"].includes(milestone))
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -292,6 +294,66 @@ try {
               width,
               status: response?.status(),
               ...layout,
+            }),
+          );
+        }
+
+        if (milestone === "M10") {
+          const gallery = page.locator("[data-product-gallery]");
+          const siteImages = await page.evaluate(() => ({
+            overflow: document.documentElement.scrollWidth > innerWidth + 1,
+            primary: document
+              .querySelector(
+                "[data-home-hero], [data-gallery-panel]:not([hidden]) img",
+              )
+              ?.getAttribute("src"),
+            realCards: document.querySelectorAll(
+              "[data-product-card] img:not([src*='placeholder'])",
+            ).length,
+            factory: document.querySelectorAll(
+              "[data-about-gallery] img:not([src*='placeholder'])",
+            ).length,
+          }));
+          if (
+            new URL(page.url()).origin !== origin ||
+            siteImages.overflow ||
+            siteImages.primary?.includes("placeholder") ||
+            (route.name === "m10-home" &&
+              !siteImages.primary?.includes("factory-")) ||
+            (route.name === "m10-about" && siteImages.factory < 6) ||
+            ((route.name === "m10-products" ||
+              route.name.startsWith("m10-category")) &&
+              !siteImages.realCards)
+          )
+            throw new Error(`M10 图片或页面布局异常：${route.path} / ${width}`);
+          if (await gallery.count()) {
+            const panels = gallery.locator("[data-gallery-panel] img");
+            const firstAlt = await panels.first().getAttribute("alt");
+            const secondAlt = await panels.nth(1).getAttribute("alt");
+            const pictures = await panels.count();
+            if (
+              pictures < 2 ||
+              pictures > 5 ||
+              !firstAlt ||
+              !secondAlt ||
+              firstAlt === secondAlt
+            )
+              throw new Error("产品图库图片或替代文字无效：" + route.path);
+            await gallery.locator("[data-gallery-index='1']").click();
+            if (
+              !(await panels.nth(1).isVisible()) ||
+              (await panels.first().isVisible())
+            )
+              throw new Error("产品图库未切换：" + route.path);
+            await gallery.locator("[data-gallery-index='0']").click();
+            await page.evaluate(() => window.scrollTo(0, 0));
+          }
+          console.log(
+            JSON.stringify({
+              url: page.url(),
+              width,
+              status: response?.status(),
+              ...siteImages,
             }),
           );
         }

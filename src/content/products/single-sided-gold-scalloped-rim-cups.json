@@ -11,7 +11,27 @@
     "zh": "单面金花边杯，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/single-sided-gold-scalloped-rim-cups-01.webp",
+      "alt": {
+        "en": "Single-Sided Gold Scalloped-Rim Cups — scalloped gold rim with a white exterior",
+        "zh": "单面金花边杯，金色花边口和白色外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-scalloped-rim-cups-02.webp",
+      "alt": {
+        "en": "Single-Sided Gold Scalloped-Rim Cups — gold lining from above",
+        "zh": "单面金花边杯，金色内壁俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-scalloped-rim-cups-03.webp",
+      "alt": {
+        "en": "Single-Sided Gold Scalloped-Rim Cups — white cup base and scalloped rim",
+        "zh": "单面金花边杯，白色杯底与花边口"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

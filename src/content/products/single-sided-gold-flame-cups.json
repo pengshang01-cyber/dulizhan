@@ -11,7 +11,20 @@
     "zh": "单面金火焰杯，材质为 单面金 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/single-sided-gold-flame-cups-01.webp",
+      "alt": {
+        "en": "Single-Sided Gold Flame Baking Cups — printed walls and golden lining",
+        "zh": "单面金火焰杯，印花外壁和金色内壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-flame-cups-02.webp",
+      "alt": {
+        "en": "Single-Sided Gold Flame Baking Cups — gold lining from above",
+        "zh": "单面金火焰杯，金色内壁俯视"
+      }
+    }
   ],
   "material": {
     "en": "Single-sided gold PET-coated paper",

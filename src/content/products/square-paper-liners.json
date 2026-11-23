@@ -8,7 +8,20 @@
     "zh": "正方形纸托，材质为 蛋糕纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/square-paper-liners-01.webp",
+      "alt": {
+        "en": "Square Paper Cake Liners — white square liner at an angle",
+        "zh": "正方形纸托，白色方形纸托斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-paper-liners-02.webp",
+      "alt": {
+        "en": "Square Paper Cake Liners — square paper liner from above",
+        "zh": "正方形纸托，方形纸托俯视"
+      }
+    }
   ],
   "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },
   "gsm": 40,

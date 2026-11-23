@@ -8,7 +8,9 @@
     "zh": "光面花边蛋糕板，属于蛋糕底板系列。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

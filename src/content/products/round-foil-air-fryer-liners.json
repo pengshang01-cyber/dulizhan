@@ -10,7 +10,22 @@
     "en": "Round Foil-Laminated Air Fryer Liners made from foil-laminated paper.",
     "zh": "圆形铝箔空气炸锅纸，材质为 铝箔复合纸。"
   },
-  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/round-foil-air-fryer-liners-01.webp",
+      "alt": {
+        "en": "Round Foil-Laminated Air Fryer Liners — round liner with a silver interior",
+        "zh": "圆形铝箔空气炸锅纸，银色内壁的圆形铝箔炸锅纸"
+      }
+    },
+    {
+      "image": "../../assets/images/products/round-foil-air-fryer-liners-02.webp",
+      "alt": {
+        "en": "Round Foil-Laminated Air Fryer Liners — round silver interior from above",
+        "zh": "圆形铝箔空气炸锅纸，圆形银色内壁俯视"
+      }
+    }
+  ],
   "material": { "en": "Foil-laminated paper", "zh": "铝箔复合纸" },
   "gsm": 90,
   "sizes": [

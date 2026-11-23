@@ -11,7 +11,34 @@
     "zh": "防油纸圆形卷口杯，材质为 彩色防油纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-01.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Baking Cups — blue cup at an angle",
+        "zh": "防油纸圆形卷口杯，蓝色卷口杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-02.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Baking Cups — blue cup from above",
+        "zh": "防油纸圆形卷口杯，蓝色卷口杯俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-03.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Baking Cups — pink cup at an angle",
+        "zh": "防油纸圆形卷口杯，粉色卷口杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-04.webp",
+      "alt": {
+        "en": "Greaseproof Round Rolled-Rim Baking Cups — strawberry-topped cupcake in a red rolled-rim cup",
+        "zh": "防油纸圆形卷口杯，红色卷口杯盛放草莓奶油蛋糕"
+      }
+    }
   ],
   "material": { "en": "Colored greaseproof paper", "zh": "彩色防油纸" },
   "gsm": 80,

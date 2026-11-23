@@ -11,7 +11,20 @@
     "zh": "防油纸长方形卷口杯，材质为 彩色防油纸。"
   },
   "images": [
-    "../../assets/images/categories/rolled-rim-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/greaseproof-rectangular-rolled-rim-cups-01.webp",
+      "alt": {
+        "en": "Greaseproof Rectangular Rolled-Rim Cups — white rectangular cup at an angle",
+        "zh": "防油纸长方形卷口杯，白色长方杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-rectangular-rolled-rim-cups-02.webp",
+      "alt": {
+        "en": "Greaseproof Rectangular Rolled-Rim Cups — white pleated wall from the side",
+        "zh": "防油纸长方形卷口杯，白色折纹杯壁侧视"
+      }
+    }
   ],
   "material": { "en": "Colored greaseproof paper", "zh": "彩色防油纸" },
   "gsm": 80,

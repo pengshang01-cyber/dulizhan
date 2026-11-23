@@ -8,7 +8,20 @@
     "zh": "纸质披萨盘，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/paper-pizza-pans-01.webp",
+      "alt": {
+        "en": "Paper Pizza Pans — round pizza pan with a patterned side",
+        "zh": "纸质披萨盘，印花侧壁圆形披萨盘"
+      }
+    },
+    {
+      "image": "../../assets/images/products/paper-pizza-pans-02.webp",
+      "alt": {
+        "en": "Paper Pizza Pans — round pizza pan from above",
+        "zh": "纸质披萨盘，圆形披萨纸盘俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

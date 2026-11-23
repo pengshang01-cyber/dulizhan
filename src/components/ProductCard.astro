@@ -18,7 +18,8 @@ const { product } = Astro.props;
 const { data } = product;
 const { locale = "en" } = Astro.props;
 const category = await getProductCategory(data.category);
-const cover = data.images[0]!;
+const { image: cover, alt } = data.images[0]!;
+const placeholder = cover.src.includes("placeholder");
 const inquiryEntry = inquiryProduct(data, locale);
 const title = inquiryEntry.title;
 const badge = confirmedLocalized(data.badge, locale);
@@ -32,18 +33,22 @@ const size = sizeSummary(data.sizes, locale);
   <div class="relative border-b border-line bg-paper">
     <Image
       src={cover}
-      alt={t(
-        cover.src.includes("placeholder")
-          ? "products.imagePlaceholder"
-          : "products.image",
-        locale,
-        { title },
-      )}
+      alt={
+        confirmedLocalized(alt, locale) ??
+        t(
+          placeholder ? "products.imagePlaceholder" : "products.image",
+          locale,
+          { title },
+        )
+      }
       widths={[320, 640, 960]}
       sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)"
       format="webp"
       loading="lazy"
-      class="aspect-[5/4] w-full rounded-t-panel object-cover"
+      class:list={[
+        "aspect-[5/4] w-full rounded-t-panel",
+        placeholder ? "object-cover" : "bg-white object-contain",
+      ]}
     />
     {badge && (
       <span

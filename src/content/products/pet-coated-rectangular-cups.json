@@ -11,7 +11,20 @@
     "zh": "PET 淋膜长方形纸杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-rectangular-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Rectangular Baking Cups — patterned rectangular cup at an angle",
+        "zh": "PET 淋膜长方形纸杯，印花长方形淋膜杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-rectangular-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Rectangular Baking Cups — rectangular opening from above",
+        "zh": "PET 淋膜长方形纸杯，长方形杯口俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

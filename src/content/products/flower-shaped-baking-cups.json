@@ -8,7 +8,41 @@
     "zh": "花朵杯，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-01.webp",
+      "alt": {
+        "en": "Flower-Shaped Baking Cups — pink petal-shaped liner",
+        "zh": "花朵杯，粉色花瓣形纸杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-02.webp",
+      "alt": {
+        "en": "Flower-Shaped Baking Cups — pink liner from above",
+        "zh": "花朵杯，粉色花朵杯俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-03.webp",
+      "alt": {
+        "en": "Flower-Shaped Baking Cups — blue petal-shaped liner",
+        "zh": "花朵杯，蓝色花瓣形纸杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-04.webp",
+      "alt": {
+        "en": "Flower-Shaped Baking Cups — green petal-shaped liner",
+        "zh": "花朵杯，绿色花瓣形纸杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-05.webp",
+      "alt": {
+        "en": "Flower-Shaped Baking Cups — fruit-topped cupcake in a green flower-shaped liner",
+        "zh": "花朵杯，绿色花朵纸杯盛放水果奶油蛋糕"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

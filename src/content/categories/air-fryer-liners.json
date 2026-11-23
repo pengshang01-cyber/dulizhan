@@ -4,7 +4,11 @@
     "en": "Round, square and rectangular air fryer liners in silicone-coated and foil-laminated paper.",
     "zh": "圆形、方形及长方形空气炸锅用硅油纸与铝箔复合纸托。"
   },
-  "image": "../../assets/images/categories/foil-baking-cups-placeholder.png",
+  "image": "../../assets/images/categories/air-fryer-liners-cover.webp",
   "order": 10,
-  "showOnHome": false
+  "showOnHome": false,
+  "imageAlt": {
+    "en": "Round Parchment Air Fryer Liners — round liner with pleated walls",
+    "zh": "圆形硅油空气炸锅纸，折纹边缘的圆形空气炸锅纸"
+  }
 }

@@ -8,7 +8,20 @@
     "zh": "PET 淋膜花边杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Scalloped-Rim Cups — white scalloped cup at an angle",
+        "zh": "PET 淋膜花边杯，白色花边杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Scalloped-Rim Cups — white scalloped opening from above",
+        "zh": "PET 淋膜花边杯，白色花边杯俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

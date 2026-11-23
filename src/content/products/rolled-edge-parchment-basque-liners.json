@@ -11,7 +11,20 @@
     "zh": "硅油纸翻边巴斯克纸托，材质为 硅油纸。"
   },
   "images": [
-    "../../assets/images/categories/basque-cheesecake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/rolled-edge-parchment-basque-liners-01.webp",
+      "alt": {
+        "en": "Rolled-Edge Parchment Basque Liners — folded rim and white pleated wall",
+        "zh": "硅油纸翻边巴斯克纸托，翻边与白色褶皱杯壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/rolled-edge-parchment-basque-liners-02.webp",
+      "alt": {
+        "en": "Rolled-Edge Parchment Basque Liners — folded edge from above",
+        "zh": "硅油纸翻边巴斯克纸托，翻边开口俯视"
+      }
+    }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,

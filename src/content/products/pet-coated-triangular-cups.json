@@ -11,7 +11,20 @@
     "zh": "PET 淋膜三角形纸杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-triangular-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Triangular Baking Cups — printed triangular cup at an angle",
+        "zh": "PET 淋膜三角形纸杯，印花三角杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-triangular-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Triangular Baking Cups — triangular opening from above",
+        "zh": "PET 淋膜三角形纸杯，三角形杯口俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

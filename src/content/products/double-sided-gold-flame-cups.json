@@ -11,7 +11,20 @@
     "zh": "双面金火焰杯，材质为 双面金 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/double-sided-gold-flame-cups-01.webp",
+      "alt": {
+        "en": "Double-Sided Gold Flame Baking Cups — gold flame cup at an angle",
+        "zh": "双面金火焰杯，金色火焰杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-flame-cups-02.webp",
+      "alt": {
+        "en": "Double-Sided Gold Flame Baking Cups — gold lining and pointed corners from above",
+        "zh": "双面金火焰杯，金色内壁与尖角俯视"
+      }
+    }
   ],
   "material": {
     "en": "Double-sided gold PET-coated paper",

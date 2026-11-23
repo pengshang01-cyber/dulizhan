@@ -8,7 +8,27 @@
     "zh": "莲花杯，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-01.webp",
+      "alt": {
+        "en": "Lotus Baking Cups — natural-color liner with rounded petals",
+        "zh": "莲花杯，本色圆角莲花杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-02.webp",
+      "alt": {
+        "en": "Lotus Baking Cups — natural-color lotus liner from above",
+        "zh": "莲花杯，本色莲花杯俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-03.webp",
+      "alt": {
+        "en": "Lotus Baking Cups — white lotus liner at an angle",
+        "zh": "莲花杯，白色莲花杯斜视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": "40 / 50 / 60",

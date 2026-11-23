@@ -8,7 +8,20 @@
     "zh": "PET 淋膜蘑菇杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/mushroom-baking-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Mushroom Baking Cups — purple cup with a light rim",
+        "zh": "PET 淋膜蘑菇杯，浅色杯口紫色蘑菇杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/mushroom-baking-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Mushroom Baking Cups — yellow cup with a light rim",
+        "zh": "PET 淋膜蘑菇杯，浅色杯口黄色蘑菇杯"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": "TODO_GSM",

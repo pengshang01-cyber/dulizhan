@@ -8,7 +8,20 @@
     "zh": "甜品纸杯配套盖，属于造型纸杯系列。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/paper-dessert-cup-lids-01.webp",
+      "alt": {
+        "en": "Lids for Paper Dessert Cups — clear dessert cup lid at an angle",
+        "zh": "甜品纸杯配套盖，透明甜品杯盖斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/paper-dessert-cup-lids-02.webp",
+      "alt": {
+        "en": "Lids for Paper Dessert Cups — clear lid profile",
+        "zh": "甜品纸杯配套盖，透明杯盖侧视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

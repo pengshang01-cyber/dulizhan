@@ -8,7 +8,20 @@
     "zh": "本色蛋糕纸托，属于蛋糕纸托系列。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/natural-color-cupcake-liners-01.webp",
+      "alt": {
+        "en": "Natural-Color Cupcake Liners — natural-color liner shown from three angles",
+        "zh": "本色蛋糕纸托，本色纸托三视图"
+      }
+    },
+    {
+      "image": "../../assets/images/products/natural-color-cupcake-liners-02.webp",
+      "alt": {
+        "en": "Natural-Color Cupcake Liners — angled view of the natural-color fluted liner",
+        "zh": "本色蛋糕纸托，本色褶纹纸托斜视"
+      }
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

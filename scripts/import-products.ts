@@ -1,4 +1,4 @@
-import { access, mkdir, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { format, resolveConfig } from "prettier";
@@ -391,7 +391,7 @@ export function productEntry(group: Group, order: number) {
     category: category[0] + ".json",
     title,
     summary,
-    images: [imagePath(category)],
+    images: [{ image: imagePath(category) }],
     material,
     gsm: gsm ?? "TODO_GSM",
     sizes,
@@ -503,6 +503,18 @@ async function run() {
   );
 
   if (args[0] !== "--plan") {
+    async function existingMedia(path: string): Promise<{
+      image?: string;
+      imageAlt?: unknown;
+      images?: unknown[];
+    }> {
+      try {
+        return JSON.parse(await readFile(resolve(root, path), "utf8"));
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code === "ENOENT") return {};
+        throw error;
+      }
+    }
     async function json(path: string, value: unknown) {
       const filepath = resolve(root, path);
       await writeFile(
@@ -512,16 +524,25 @@ async function run() {
     }
     for (const [index, category] of importCategories.entries()) {
       const [id, en, zh, aboutEn, aboutZh] = category;
-      await json(`src/content/categories/${id}.json`, {
+      const path = `src/content/categories/${id}.json`;
+      const media = await existingMedia(path);
+      await json(path, {
         label: bilingual(en, zh),
         summary: bilingual(aboutEn, aboutZh),
-        image: imagePath(category),
+        image: media.image || imagePath(category),
+        imageAlt: media.imageAlt,
         order: index + 1,
         showOnHome: index < 6,
       });
     }
-    for (const entry of entries)
-      await json(`src/content/products/${entry.slug}.json`, entry);
+    for (const entry of entries) {
+      const path = `src/content/products/${entry.slug}.json`;
+      const media = await existingMedia(path);
+      await json(path, {
+        ...entry,
+        images: media.images?.length ? media.images : entry.images,
+      });
+    }
   }
   console.log(
     JSON.stringify(

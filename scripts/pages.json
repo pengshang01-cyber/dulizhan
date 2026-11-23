@@ -313,5 +313,38 @@
     "path": "/inquiry/",
     "inquiryProducts": ["pet-coated-round-rolled-rim-baking-cups"],
     "milestones": ["M9.1"]
+  },
+  { "name": "m10-home", "path": "/", "milestones": ["M10"] },
+  { "name": "m10-products", "path": "/products/", "milestones": ["M10"] },
+  { "name": "m10-about", "path": "/zh/about/", "milestones": ["M10"] },
+  {
+    "name": "m10-category-liners",
+    "path": "/products/cupcake-liners/",
+    "milestones": ["M10"]
+  },
+  {
+    "name": "m10-category-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/",
+    "milestones": ["M10"]
+  },
+  {
+    "name": "m10-category-shaped",
+    "path": "/zh/products/tulip-shaped-baking-cups/",
+    "milestones": ["M10"]
+  },
+  {
+    "name": "m10-detail-photo",
+    "path": "/products/rolled-rim-baking-cups/double-sided-gold-round-rolled-rim-cups/",
+    "milestones": ["M10"]
+  },
+  {
+    "name": "m10-detail-three-view",
+    "path": "/products/cupcake-liners/natural-color-cupcake-liners/",
+    "milestones": ["M10"]
+  },
+  {
+    "name": "m10-detail-flower",
+    "path": "/zh/products/tulip-shaped-baking-cups/flower-shaped-baking-cups/",
+    "milestones": ["M10"]
   }
 ]

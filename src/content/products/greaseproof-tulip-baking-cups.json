@@ -8,7 +8,20 @@
     "zh": "防油纸郁金香杯，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/greaseproof-tulip-baking-cups-01.webp",
+      "alt": {
+        "en": "Greaseproof Tulip Baking Cups — white tulip liner with pointed peaks",
+        "zh": "防油纸郁金香杯，白色尖角郁金香杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-tulip-baking-cups-02.webp",
+      "alt": {
+        "en": "Greaseproof Tulip Baking Cups — white liner from above",
+        "zh": "防油纸郁金香杯，白色纸杯俯视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": "TODO_GSM",

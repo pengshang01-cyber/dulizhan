@@ -10,7 +10,22 @@
     "en": "Round Parchment Air Fryer Liners made from silicone-coated parchment paper.",
     "zh": "圆形硅油空气炸锅纸，材质为 硅油纸。"
   },
-  "images": ["../../assets/images/categories/foil-baking-cups-placeholder.png"],
+  "images": [
+    {
+      "image": "../../assets/images/products/round-parchment-air-fryer-liners-01.webp",
+      "alt": {
+        "en": "Round Parchment Air Fryer Liners — round liner with pleated walls",
+        "zh": "圆形硅油空气炸锅纸，折纹边缘的圆形空气炸锅纸"
+      }
+    },
+    {
+      "image": "../../assets/images/products/round-parchment-air-fryer-liners-02.webp",
+      "alt": {
+        "en": "Round Parchment Air Fryer Liners — round interior from above",
+        "zh": "圆形硅油空气炸锅纸，圆形纸盘俯视"
+      }
+    }
+  ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },
   "gsm": 40,
   "sizes": [

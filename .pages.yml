@@ -134,13 +134,33 @@ content:
             default: ""
       - name: images
         label: 产品图片
-        description: 上传或选择多张真实产品图片；至少一张，第一张用作封面。
-        type: image
+        description: 第一张用作封面，只使用实拍或核对过的产品图；AI 场景图仅可放在后续位置。可拖动排序。
+        type: object
+        list:
+          min: 1
+          max: 5
         required: true
-        options:
-          media: products
-          multiple: true
-          unique: true
+        fields:
+          - name: image
+            label: 产品图片文件
+            description: 建议 1200 × 1200 的 WebP。核对照片中的规格、杯型和颜色工艺。
+            type: image
+            required: true
+            options:
+              media: products
+          - name: alt
+            label: 图片说明
+            description: 描述当前图片中的产品、视角或场景。修改图片时一起更新说明。
+            type: object
+            fields:
+              - name: en
+                label: 图片说明（英文）
+                type: string
+                required: true
+              - name: zh
+                label: 图片说明（中文）
+                type: string
+                default: ""
       - name: material
         label: 材质
         description: 英文必填；中文选填，留空时中文页面使用英文。
@@ -522,11 +542,24 @@ content:
             default: ""
       - name: image
         label: 分类封面
-        description: 从对应媒体目录上传或选择图片；缺少实拍时使用明确标注的占位图。
+        description: 选用能代表本分类的实拍或已核对的产品图，建议 1200 × 900。
         type: image
         required: true
         options:
           media: categories
+      - name: imageAlt
+        label: 分类封面说明
+        description: 填写画面中的品类、外形或颜色。
+        type: object
+        fields:
+          - name: en
+            label: 分类封面说明（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 分类封面说明（中文）
+            type: string
+            default: ""
       - *a1
       - name: showOnHome
         label: 显示在首页

@@ -8,7 +8,9 @@
     "zh": "瓦楞蛋糕板，材质为 瓦楞纸。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+    }
   ],
   "material": { "en": "Corrugated paperboard", "zh": "瓦楞纸" },
   "gsm": "TODO_GSM",

@@ -31,6 +31,7 @@ const categories = defineCollection({
       label: localizedText,
       summary: localizedText,
       image: image(),
+      imageAlt: optionalLocalizedText,
       order: z.number().int(),
       showOnHome: z.boolean(),
     }),
@@ -45,7 +46,14 @@ const products = defineCollection({
       title: localizedText,
       badge: optionalLocalizedText,
       summary: localizedText,
-      images: z.array(image()).min(1),
+      images: z
+        .array(
+          z.union([
+            z.object({ image: image(), alt: optionalLocalizedText }),
+            image().transform((image) => ({ image, alt: undefined })),
+          ]),
+        )
+        .min(1),
       material: localizedText,
       gsm: paperWeight,
       sizes: z

@@ -8,7 +8,9 @@
     "zh": "树叶形金卡垫，属于蛋糕底板系列。"
   },
   "images": [
-    "../../assets/images/categories/specialty-packaging-placeholder.png"
+    {
+      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",

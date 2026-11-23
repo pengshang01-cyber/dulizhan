@@ -8,7 +8,20 @@
     "zh": "防油蛋糕纸托，材质为 防油纸。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/products/greaseproof-cupcake-liners-01.webp",
+      "alt": {
+        "en": "Greaseproof Cupcake Liners — white fluted greaseproof liner",
+        "zh": "防油蛋糕纸托，白色折纹防油纸托"
+      }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-cupcake-liners-02.webp",
+      "alt": {
+        "en": "Greaseproof Cupcake Liners — white pleated opening from above",
+        "zh": "防油蛋糕纸托，白色褶纹开口俯视"
+      }
+    }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
   "gsm": "40 / 50 / 60",

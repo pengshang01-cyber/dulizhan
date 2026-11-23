@@ -8,7 +8,34 @@
     "zh": "PET 淋膜圆形纸杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-round-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Round Baking Cups — round cup with a printed outer wall",
+        "zh": "PET 淋膜圆形纸杯，印花外壁的圆形淋膜杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Round Baking Cups — round pleated opening from above",
+        "zh": "PET 淋膜圆形纸杯，圆形折纹杯口俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-cups-03.webp",
+      "alt": {
+        "en": "PET-Coated Round Baking Cups — printed round cup at an angle",
+        "zh": "PET 淋膜圆形纸杯，印花圆杯斜视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-cups-04.webp",
+      "alt": {
+        "en": "PET-Coated Round Baking Cups — cream puff in a shallow windmill-print paper cup",
+        "zh": "PET 淋膜圆形纸杯，风车印花浅纸杯盛放奶油泡芙"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

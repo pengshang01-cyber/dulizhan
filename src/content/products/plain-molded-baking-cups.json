@@ -7,7 +7,9 @@
     "en": "Plain Molded Baking Cups made from PE-coated paper.",
     "zh": "普通机制杯，材质为 PE 淋膜纸。"
   },
-  "images": ["../../assets/images/categories/muffin-cups-placeholder.png"],
+  "images": [
+    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+  ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": 170,
   "sizes": [

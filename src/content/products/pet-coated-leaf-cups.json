@@ -11,7 +11,20 @@
     "zh": "PET 淋膜树叶形纸杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/pet-coated-leaf-cups-01.webp",
+      "alt": {
+        "en": "PET-Coated Leaf-Shaped Baking Cups — leaf-shaped rim and patterned exterior",
+        "zh": "PET 淋膜树叶形纸杯，叶形杯口与印花外壁"
+      }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-leaf-cups-02.webp",
+      "alt": {
+        "en": "PET-Coated Leaf-Shaped Baking Cups — leaf-shaped opening from above",
+        "zh": "PET 淋膜树叶形纸杯，叶形杯口俯视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

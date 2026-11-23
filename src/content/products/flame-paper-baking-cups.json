@@ -8,7 +8,20 @@
     "zh": "火焰纸杯，材质为 PET 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+    {
+      "image": "../../assets/images/products/flame-paper-baking-cups-01.webp",
+      "alt": {
+        "en": "Flame-Shaped Baking Cups — pink cup with pointed folds",
+        "zh": "火焰纸杯，粉色纸杯尖角折边"
+      }
+    },
+    {
+      "image": "../../assets/images/products/flame-paper-baking-cups-02.webp",
+      "alt": {
+        "en": "Flame-Shaped Baking Cups — pink cup from the front",
+        "zh": "火焰纸杯，粉色火焰杯正视"
+      }
+    }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
   "gsm": 110,

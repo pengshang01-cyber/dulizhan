@@ -8,7 +8,27 @@
     "zh": "圆形纸碗，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/products/round-paper-bowls-01.webp",
+      "alt": {
+        "en": "Round Paper Bowls — natural-color round paper bowl",
+        "zh": "圆形纸碗，本色圆形纸碗"
+      }
+    },
+    {
+      "image": "../../assets/images/products/round-paper-bowls-02.webp",
+      "alt": {
+        "en": "Round Paper Bowls — white round paper bowl",
+        "zh": "圆形纸碗，白色圆形纸碗"
+      }
+    },
+    {
+      "image": "../../assets/images/products/round-paper-bowls-03.webp",
+      "alt": {
+        "en": "Round Paper Bowls — round bowl interior from above",
+        "zh": "圆形纸碗，圆形碗内侧俯视"
+      }
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "260–300",

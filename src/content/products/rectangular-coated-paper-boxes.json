@@ -11,7 +11,9 @@
     "zh": "长方形淋膜纸盒，材质为 PE 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    {
+      "image": "../../assets/images/categories/kraft-trays-boxes-placeholder.png"
+    }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },
   "gsm": "230–300",

@@ -8,7 +8,27 @@
     "zh": "圆形淋膜纸杯，材质为 淋膜纸。"
   },
   "images": [
-    "../../assets/images/categories/paper-baking-molds-placeholder.png"
+    {
+      "image": "../../assets/images/products/coated-round-cups-01.webp",
+      "alt": {
+        "en": "Coated Round Baking Cups — white pleated round cup",
+        "zh": "圆形淋膜纸杯，白色折纹圆杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/coated-round-cups-02.webp",
+      "alt": {
+        "en": "Coated Round Baking Cups — round opening from above",
+        "zh": "圆形淋膜纸杯，圆形开口俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/coated-round-cups-03.webp",
+      "alt": {
+        "en": "Coated Round Baking Cups — wide white round cup",
+        "zh": "圆形淋膜纸杯，宽口白色圆杯"
+      }
+    }
   ],
   "material": { "en": "Coated paper", "zh": "淋膜纸" },
   "gsm": "TODO_GSM",

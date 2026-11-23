@@ -8,7 +8,9 @@
     "zh": "纯色蛋糕纸托，属于蛋糕纸托系列。"
   },
   "images": [
-    "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    {
+      "image": "../../assets/images/categories/standard-cupcake-liners-placeholder.png"
+    }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },
   "gsm": "TODO_GSM",
