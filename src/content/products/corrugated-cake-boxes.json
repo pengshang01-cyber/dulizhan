@@ -21,6 +21,22 @@
         "en": "Corrugated Paper Cake Boxes — open rectangular box from above",
         "zh": "长方形瓦楞纸盒，长方形瓦楞盒内部俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/corrugated-cake-boxes-scene-01.webp",
+      "alt": {
+        "en": "A small loaf cake in a long brown floral-patterned paper box",
+        "zh": "带小花纹的棕色长纸盒里的条形蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/corrugated-cake-boxes-scene-02.webp",
+      "alt": {
+        "en": "Two glazed orange loaves in matching brown patterned boxes",
+        "zh": "同款棕色印花纸盒里的两份橙味条形蛋糕"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Corrugated paperboard", "zh": "瓦楞纸" },

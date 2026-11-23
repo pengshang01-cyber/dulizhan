@@ -31,6 +31,22 @@
         "en": "Parchment Basque Cheesecake Liners — wide white Basque liner",
         "zh": "硅油纸巴斯克纸托，宽口白色巴斯克纸托"
       }
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-scene-01.webp",
+      "alt": {
+        "en": "Small Basque cheesecake in a white pleated parchment liner",
+        "zh": "白色褶纹硅油纸托里的小份巴斯克芝士蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-scene-02.webp",
+      "alt": {
+        "en": "Several small Basque cheesecakes in white parchment liners on a bakery shelf",
+        "zh": "陈列架上放在白色硅油纸托里的多个巴斯克芝士蛋糕"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },

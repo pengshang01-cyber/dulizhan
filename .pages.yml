@@ -161,6 +161,16 @@ content:
                 label: 图片说明（中文）
                 type: string
                 default: ""
+          - name: scene
+            label: 使用场景类型
+            description: 实拍与普通产品图留空。经核对的场景图放在封面之后，并分别选择特写或陈列。
+            type: select
+            options:
+              values:
+                - name: closeup
+                  label: 使用中特写
+                - name: display
+                  label: 商业陈列
       - name: material
         label: 材质
         description: 英文必填；中文选填，留空时中文页面使用英文。
@@ -1525,6 +1535,24 @@ content:
     format: json
     list: true
     fields:
+      - name: icon
+        label: 流程图标
+        description: 按当前步骤选择对应图标。
+        type: select
+        options:
+          values:
+            - name: inquiry
+              label: 沟通需求
+            - name: mockup
+              label: 设计稿
+            - name: sample
+              label: 打样
+            - name: approval
+              label: 确认样品
+            - name: production
+              label: 量产
+            - name: delivery
+              label: 交付
       - name: title
         label: 步骤名称
         description: 英文必填；中文选填，留空时中文页面使用英文。
@@ -1557,6 +1585,56 @@ content:
             description: 选填；中文留空时回退显示英文。
             type: text
             default: ""
+  - name: design-examples
+    label: 定制设计示例
+    type: file
+    path: src/data/design-examples.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: 示例名称
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 示例名称（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 示例名称（中文）
+            type: string
+      - name: description
+        label: 示例说明
+        description: 写设计选项和用途，不称为客户案例。
+        type: object
+        required: true
+        fields:
+          - name: en
+            label: 示例说明（英文）
+            type: text
+            required: true
+          - name: zh
+            label: 示例说明（中文）
+            type: text
+      - name: image
+        label: 示例图
+        description: 建议 1200 × 900 WebP。按产品图片工作室的示意图规则验收后上传。
+        type: image
+        options:
+          media: site
+      - name: alt
+        label: 图片说明
+        description: 简短描述图中杯型、颜色、图案或包装选项。
+        type: object
+        fields:
+          - name: en
+            label: 图片说明（英文）
+            type: string
+            required: true
+          - name: zh
+            label: 图片说明（中文）
+            type: string
   - name: team
     label: 团队
     type: file

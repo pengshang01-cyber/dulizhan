@@ -10,7 +10,20 @@
   "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
   "gsm": 160,
   "images": [
-    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+    {
+      "image": "../../assets/images/products/foil-stamped-molded-baking-cups-01.webp",
+      "alt": {
+        "en": "White molded baking cup with a gold stamped star pattern",
+        "zh": "印有金色星星图案的白色机制杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/foil-stamped-molded-baking-cups-02.webp",
+      "alt": {
+        "en": "White molded baking cup with a gold stamped heart",
+        "zh": "烫金爱心图案的白色机制杯"
+      }
+    }
   ],
   "sizes": [
     {

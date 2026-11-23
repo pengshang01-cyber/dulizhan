@@ -9,7 +9,8 @@
   },
   "images": [
     {
-      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+      "image": "../../assets/images/products/leaf-shaped-gold-cake-cards-01.webp",
+      "alt": { "en": "Leaf-shaped gold cake card", "zh": "树叶形金色蛋糕卡垫" }
     }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },

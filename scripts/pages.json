@@ -369,5 +369,38 @@
     "name": "m11-colors-tulip",
     "path": "/zh/products/tulip-shaped-baking-cups/greaseproof-tulip-baking-cups/",
     "milestones": ["M11"]
+  },
+  { "name": "m12-home", "path": "/", "milestones": ["M12"] },
+  { "name": "m12-about", "path": "/zh/about/", "milestones": ["M12"] },
+  { "name": "m12-custom", "path": "/zh/custom/", "milestones": ["M12"] },
+  {
+    "name": "m12-category-liners",
+    "path": "/products/cupcake-liners/",
+    "milestones": ["M12"]
+  },
+  {
+    "name": "m12-category-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/",
+    "milestones": ["M12"]
+  },
+  {
+    "name": "m12-category-shaped",
+    "path": "/zh/products/tulip-shaped-baking-cups/",
+    "milestones": ["M12"]
+  },
+  {
+    "name": "m12-detail-gold",
+    "path": "/products/rolled-rim-baking-cups/double-sided-gold-round-rolled-rim-cups/",
+    "milestones": ["M12"]
+  },
+  {
+    "name": "m12-detail-square",
+    "path": "/zh/products/rolled-rim-baking-cups/pet-coated-square-rolled-rim-cups/",
+    "milestones": ["M12"]
+  },
+  {
+    "name": "m12-detail-flower",
+    "path": "/zh/products/tulip-shaped-baking-cups/flower-shaped-baking-cups/",
+    "milestones": ["M12"]
   }
 ]

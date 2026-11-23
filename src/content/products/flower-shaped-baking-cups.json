@@ -16,13 +16,6 @@
       }
     },
     {
-      "image": "../../assets/images/products/flower-shaped-baking-cups-02.webp",
-      "alt": {
-        "en": "Flower-Shaped Baking Cups — pink liner from above",
-        "zh": "花朵杯，粉色花朵杯俯视"
-      }
-    },
-    {
       "image": "../../assets/images/products/flower-shaped-baking-cups-03.webp",
       "alt": {
         "en": "Flower-Shaped Baking Cups — blue petal-shaped liner",
@@ -37,11 +30,20 @@
       }
     },
     {
-      "image": "../../assets/images/products/flower-shaped-baking-cups-05.webp",
+      "image": "../../assets/images/products/flower-shaped-baking-cups-scene-01.webp",
       "alt": {
         "en": "Flower-Shaped Baking Cups — fruit-topped cupcake in a green flower-shaped liner",
         "zh": "花朵杯，绿色花朵纸杯盛放水果奶油蛋糕"
-      }
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/flower-shaped-baking-cups-scene-02.webp",
+      "alt": {
+        "en": "Three cakes in pink flower-shaped paper cups on a bakery counter",
+        "zh": "烘焙柜台上用粉色花朵杯盛装的三个小蛋糕"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },

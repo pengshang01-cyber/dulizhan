@@ -1,0 +1,60 @@
+---
+import { confirmedLocalized, type Locale } from "../i18n/utils";
+import { customizationIcons, customizationSteps } from "../lib/content-data";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const steps = customizationSteps.flatMap(({ title, description, icon }) => {
+  const heading = confirmedLocalized(title, locale);
+  return heading
+    ? [
+        {
+          heading,
+          description: confirmedLocalized(description, locale),
+          icon: customizationIcons[icon ?? "inquiry"],
+        },
+      ]
+    : [];
+});
+---
+
+{steps.length > 0 && (
+  <ol
+    data-customization-steps
+    class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+  >
+    {steps.map(({ heading, description, icon }, index) => (
+      <li class="rounded-panel border border-line bg-white p-5 text-ink sm:p-6">
+        <div class="flex items-center gap-3">
+          <svg
+            aria-hidden="true"
+            class="size-11 shrink-0 rounded-control border border-copper p-2 text-copper-dark"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d={icon} />
+          </svg>
+          <span
+            aria-hidden="true"
+            class="font-display text-xl text-copper-dark"
+          >
+            {String(index + 1).padStart(2, "0")}
+          </span>
+        </div>
+        <h3 class="mt-4 font-display text-card-title font-normal">{heading}</h3>
+        {description && (
+          <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+            {description}
+          </p>
+        )}
+      </li>
+    ))}
+  </ol>
+)}

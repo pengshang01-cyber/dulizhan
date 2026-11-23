@@ -56,15 +56,13 @@ if (
 }
 
 const previewAddress =
-  milestone === "M11"
-    ? process.env.M11_PREVIEW_URL
-    : milestone === "M10"
-      ? process.env.M10_PREVIEW_URL
-      : process.env.M9_PREVIEW_URL;
+  milestone === "M9.1"
+    ? process.env.M9_PREVIEW_URL
+    : process.env[`${milestone}_PREVIEW_URL`];
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10", "M11"].includes(milestone) ||
+  (!["M9", "M9.1", "M10", "M11", "M12"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -82,7 +80,11 @@ try {
   const routes = pages
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
-      if (["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11"].includes(milestone))
+      if (
+        ["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11", "M12"].includes(
+          milestone,
+        )
+      )
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
         return m5Pages.has(name) || milestones?.includes("M5");
@@ -431,6 +433,72 @@ try {
               width,
               status: response?.status(),
               ...layout,
+            }),
+          );
+        }
+
+        if (milestone === "M12") {
+          const details = await page.evaluate(() => ({
+            lang: document.documentElement.lang,
+            overflow: document.documentElement.scrollWidth > innerWidth + 1,
+            hero: document
+              .querySelector("[data-home-hero]")
+              ?.getAttribute("src"),
+            factory: document.querySelectorAll(
+              "[data-about-gallery] img:not([src*='placeholder'])",
+            ).length,
+            examples: document.querySelectorAll("[data-design-example] img")
+              .length,
+            steps: document.querySelectorAll(
+              "[data-customization-steps] li svg",
+            ).length,
+            cards: document.querySelectorAll("[data-product-card] img").length,
+          }));
+          if (
+            new URL(page.url()).origin !== origin ||
+            details.lang !== (route.path.startsWith("/zh/") ? "zh-CN" : "en") ||
+            details.overflow ||
+            (route.name === "m12-home" &&
+              (!details.hero || details.hero.includes("placeholder"))) ||
+            (route.name === "m12-about" && details.factory < 6) ||
+            (route.name === "m12-custom" &&
+              (details.examples !== 6 || details.steps !== 6)) ||
+            (route.name.startsWith("m12-category") && !details.cards)
+          ) {
+            throw new Error(
+              `M12 页面或资料异常：${route.path} / ${width} ${JSON.stringify(details)}`,
+            );
+          }
+          if (route.name.startsWith("m12-detail")) {
+            const first = page.locator("[data-gallery-panel]").first();
+            const scene = page
+              .locator("[data-gallery-panel][data-scene='closeup']")
+              .first();
+            if (
+              (await first.getAttribute("data-scene")) ||
+              !(await scene.count())
+            )
+              throw new Error("M12 缺少独立的产品封面或场景图：" + route.path);
+            const index = await scene.evaluate((panel) =>
+              Array.from(panel.parentElement!.children).indexOf(panel),
+            );
+            const toggle = page.locator(`[data-gallery-index='${index}']`);
+            await toggle.click();
+            if (
+              (await first.isVisible()) ||
+              !(await scene.isVisible()) ||
+              !(await scene.locator("figcaption").innerText()) ||
+              (await toggle.getAttribute("aria-pressed")) !== "true"
+            )
+              throw new Error("M12 场景切换异常：" + route.path);
+            await page.evaluate(() => window.scrollTo(0, 0));
+          }
+          console.log(
+            JSON.stringify({
+              url: page.url(),
+              width,
+              status: response?.status(),
+              ...details,
             }),
           );
         }

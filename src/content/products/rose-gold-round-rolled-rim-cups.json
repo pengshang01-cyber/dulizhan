@@ -24,6 +24,22 @@
         "en": "Rose Gold Round Rolled-Rim Cups — printed pink base",
         "zh": "单面玫瑰金圆形卷口杯，粉色印花杯底"
       }
+    },
+    {
+      "image": "../../assets/images/products/rose-gold-round-rolled-rim-cups-scene-01.webp",
+      "alt": {
+        "en": "Raspberry mousse in a checkered cup with a rose-gold lining",
+        "zh": "玫瑰金内壁格纹杯里的覆盆子慕斯"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/rose-gold-round-rolled-rim-cups-scene-02.webp",
+      "alt": {
+        "en": "Three strawberry-topped cheesecakes in rose-gold-lined cups",
+        "zh": "三个玫瑰金内壁纸杯里的草莓芝士蛋糕"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },

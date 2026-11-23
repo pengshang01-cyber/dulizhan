@@ -28,6 +28,22 @@
         "en": "Straw-Hat Baking Cups — white cup at an angle",
         "zh": "草帽纸杯，白色草帽杯斜视"
       }
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-scene-01.webp",
+      "alt": {
+        "en": "Small muffin in a kraft straw-hat baking cup",
+        "zh": "牛皮色草帽纸杯里的小马芬"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-scene-02.webp",
+      "alt": {
+        "en": "Three fruit muffins in kraft straw-hat paper cups at a bakery counter",
+        "zh": "烘焙陈列台上的三个牛皮色草帽杯水果马芬"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
