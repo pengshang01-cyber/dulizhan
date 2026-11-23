@@ -92,3 +92,7 @@ PR #13 已合并，生产站采用 onload 加载器。用户按指引更新 TURN
 ## 2026-11-22 M10 产品图片挑选、处理与上线
 
 从 main adee147 创建 `m10-product-images`，按产品映射筛选图片并保留原图。91 款产品写入 207 张图库图片，同时更新 13 张分类封面、8 张车间实拍及机器可读的来源与处理清单。27 款保留原占位。六项检查、322 项测试、GitHub CI 和 Workers 构建通过，登记 18 张 PR 预览截图并复核禁止收录响应。[PR #18](https://github.com/pengshang01-cyber/dulizhan/pull/18) · [M10 审核报告](../reviews/M10.md)
+
+## 2026-11-23 M11 资料完善与页面调整
+
+从 main 097c6ad 创建 `m11-content-layout`。接入真实 Logo、微信二维码、OEM 与 ODM、工厂资料和社媒入口。按形状结构化 2026 工作簿规格，匹配 184 个编号，新增 9 款，现共 127 款。按双语图册核对色样，保留歧义清单，图册目录仅本地读取。六项检查、327 项测试、GitHub CI 和 Workers 预览通过，归档 14 张截图并验证禁收录。[PR #19](https://github.com/pengshang01-cyber/dulizhan/pull/19) · [M11 审核报告](../reviews/M11.md)
