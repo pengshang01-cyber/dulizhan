@@ -139,10 +139,24 @@
       }
     },
     {
+      "image": "../assets/images/site/factory-04.webp",
+      "caption": {
+        "en": "Production area with equipment and stainless-steel work surfaces",
+        "zh": "配有生产设备和不锈钢工作台的区域"
+      }
+    },
+    {
       "image": "../assets/images/site/factory-02.webp",
       "caption": {
         "en": "Rows of equipment on the green workshop floor",
         "zh": "绿色地面车间内成排的设备"
+      }
+    },
+    {
+      "image": "../assets/images/site/factory-07.webp",
+      "caption": {
+        "en": "Paper cup equipment beside the workshop windows",
+        "zh": "车间窗边的纸杯设备"
       }
     },
     {
@@ -153,10 +167,10 @@
       }
     },
     {
-      "image": "../assets/images/site/factory-04.webp",
+      "image": "../assets/images/site/factory-08.webp",
       "caption": {
-        "en": "Production area with equipment and stainless-steel work surfaces",
-        "zh": "配有生产设备和不锈钢工作台的区域"
+        "en": "A wide view of the production floor and equipment in the distance",
+        "zh": "车间地面与远处设备的宽幅视角"
       }
     },
     {
@@ -171,20 +185,6 @@
       "caption": {
         "en": "Interior of a machine with blue side panels",
         "zh": "蓝色操作门内的设备细节"
-      }
-    },
-    {
-      "image": "../assets/images/site/factory-07.webp",
-      "caption": {
-        "en": "Paper cup equipment beside the workshop windows",
-        "zh": "车间窗边的纸杯设备"
-      }
-    },
-    {
-      "image": "../assets/images/site/factory-08.webp",
-      "caption": {
-        "en": "A wide view of the production floor and equipment in the distance",
-        "zh": "车间地面与远处设备的宽幅视角"
       }
     }
   ],

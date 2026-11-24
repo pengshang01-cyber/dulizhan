@@ -1,42 +1,68 @@
 [
   {
+    "icon": "inquiry",
     "title": {
-      "en": "Send Design",
-      "zh": "提交设计需求"
+      "en": "Requirements",
+      "zh": "沟通需求"
     },
     "description": {
-      "en": "Share your artwork, cup dimensions, and order details.",
-      "zh": "请提供设计稿、纸杯尺寸及订单要求。"
+      "en": "Share the cup style, artwork, dimensions and intended use.",
+      "zh": "提供杯型、设计稿、尺寸和使用场景。"
     }
   },
   {
+    "icon": "mockup",
     "title": {
       "en": "Mockup",
-      "zh": "确认效果图"
+      "zh": "制作设计稿"
     },
     "description": {
-      "en": "We prepare a digital mockup of your design for your approval.",
-      "zh": "我们根据您的设计制作电子效果图，供您确认。"
+      "en": "We prepare a digital mockup of your design for review.",
+      "zh": "我们制作电子设计稿供您查看。"
     }
   },
   {
+    "icon": "sample",
     "title": {
-      "en": "Sample",
+      "en": "Sampling",
+      "zh": "打样"
+    },
+    "description": {
+      "en": "We prepare a sample so you can review the design and specifications.",
+      "zh": "我们安排打样，供您查看设计效果和规格。"
+    }
+  },
+  {
+    "icon": "approval",
+    "title": {
+      "en": "Approval",
       "zh": "确认样品"
     },
     "description": {
-      "en": "Review a sample and confirm the specifications.",
-      "zh": "查看样品并确认产品规格。"
+      "en": "Confirm the sample, final artwork and packing requirements.",
+      "zh": "确认样品、最终设计稿和包装要求。"
     }
   },
   {
+    "icon": "production",
     "title": {
       "en": "Mass Production",
-      "zh": "批量生产"
+      "zh": "量产"
     },
     "description": {
-      "en": "Confirm the approved design, quantity, and schedule.",
-      "zh": "确认最终设计、数量及生产安排。"
+      "en": "We produce the order to the approved specifications.",
+      "zh": "我们按确认的规格安排批量生产。"
+    }
+  },
+  {
+    "icon": "delivery",
+    "title": {
+      "en": "Delivery",
+      "zh": "交付"
+    },
+    "description": {
+      "en": "We pack the order and coordinate the agreed shipping arrangements.",
+      "zh": "我们打包订单，按双方确认的运输方式安排发货。"
     }
   }
 ]

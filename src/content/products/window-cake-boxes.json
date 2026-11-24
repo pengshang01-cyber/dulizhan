@@ -28,6 +28,22 @@
         "en": "Window Cake Boxes — two openings seen through a display window",
         "zh": "开窗蛋糕盒，俯视双格展示窗口"
       }
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-scene-01.webp",
+      "alt": {
+        "en": "A cupcake seen through the square window of a kraft cake box",
+        "zh": "从牛皮纸盒的方形透明窗看到一只蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-scene-02.webp",
+      "alt": {
+        "en": "Two kraft window boxes with small cupcakes on a bakery counter",
+        "zh": "柜台上两个盛放小蛋糕的牛皮纸开窗盒"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Paperboard", "zh": "卡纸" },

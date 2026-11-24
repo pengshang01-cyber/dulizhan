@@ -9,7 +9,11 @@
   },
   "images": [
     {
-      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+      "image": "../../assets/images/products/gold-cake-card-strips-01.webp",
+      "alt": {
+        "en": "Long narrow rectangular gold cake card",
+        "zh": "细长条形金色蛋糕卡垫"
+      }
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

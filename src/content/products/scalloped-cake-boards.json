@@ -9,7 +9,11 @@
   },
   "images": [
     {
-      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+      "image": "../../assets/images/products/scalloped-cake-boards-01.webp",
+      "alt": {
+        "en": "Round gold cake board with a scalloped edge",
+        "zh": "带花边的圆形金色蛋糕板"
+      }
     }
   ],
   "material": { "en": "TODO_MATERIAL", "zh": "" },

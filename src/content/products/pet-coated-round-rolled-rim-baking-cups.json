@@ -31,6 +31,22 @@
         "en": "PET-Coated Round Rolled-Rim Baking Cups — red polka-dot cup",
         "zh": "PET 淋膜圆形卷口杯，红色波点杯"
       }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-scene-01.webp",
+      "alt": {
+        "en": "Fruit-topped vanilla cupcake in a white round rolled-rim cup",
+        "zh": "白色圆形卷口杯里的水果香草蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-scene-02.webp",
+      "alt": {
+        "en": "Blueberry muffins in white rolled-rim cups in a bakery display",
+        "zh": "烘焙柜台中白色卷口杯里的蓝莓马芬"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

@@ -11,7 +11,7 @@ import Container from "../Container.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
 import FaqAccordion from "../FaqAccordion.astro";
-import { customizationSteps } from "../../lib/content-data";
+import CustomizationSteps from "../CustomizationSteps.astro";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
 import FactoryTrust from "../FactoryTrust.astro";
@@ -70,12 +70,6 @@ const benefits = [
 ];
 
 const videoId = confirmedText(site.youtubeVideoId);
-const steps = customizationSteps.flatMap(({ title, description }) => {
-  const heading = confirmedLocalized(title, locale);
-  return heading
-    ? [{ title: heading, description: confirmedLocalized(description, locale) }]
-    : [];
-});
 const featuredFaqs = getFaqs(locale).filter(({ featured }) => featured);
 interface Props {
   locale?: Locale;
@@ -192,28 +186,7 @@ interface Props {
           <span aria-hidden="true">→</span>
         </Button>
       </div>
-      {steps.length > 0 && (
-        <ol class="mt-9 grid gap-3 min-[340px]:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-          {steps.map(({ title, description }, index) => (
-            <li class="rounded-panel border border-line bg-white p-4 text-ink sm:p-6">
-              <span
-                aria-hidden="true"
-                class="font-display text-3xl leading-none text-copper"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <h3 class="mt-4 font-display text-xl leading-tight font-normal sm:text-card-title">
-                {title}
-              </h3>
-              {description && (
-                <p class="mt-3 text-sm leading-relaxed text-ink-soft">
-                  {description}
-                </p>
-              )}
-            </li>
-          ))}
-        </ol>
-      )}
+      <CustomizationSteps locale={locale} />
     </Container>
   </section>
 

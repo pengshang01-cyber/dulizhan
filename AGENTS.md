@@ -40,6 +40,7 @@
 10. 移动端优先：每个页面必须在 375px 宽度下不溢出、不横向滚动。
 11. **统计与隐私。** GA ID 只从 site.json 的 analytics.gaMeasurementId 读取；无有效 ID 时不渲染 Cookie 横幅或设置入口；未配置、未同意或存储异常时不加载 GA。事件只传语言等非个人信息；完成类事件必须在业务成功后发出。所有新页面遵循双语 SEO，JSON-LD 不允许 TODO 或编造资料，提交前执行 seo:check、links:check；内部链接和锚点必须可达。
 12. **上线前禁止收录。** `site.json` 的 `allowIndexing` 默认 false；构建统一生成 robots.txt 与 `_headers`，页面 meta 同步。M8 保持关闭，资料齐全后由工厂通过 CMS 开启；不得只修改其中一个输出来绕过开关。
+13. **处理任何产品图片前必须先读** [产品图片工作室](docs/skills/product-image-studio/SKILL.md)，按其中的保真、用途、逐图验收和出处记录要求执行。
 
 ## 4. 目录约定
 
@@ -50,6 +51,7 @@ src/
   data/site.json          # 网站设置唯一来源（双语内容）
   data/faq.json           # FAQ 唯一来源
   data/customization.json # 定制流程
+  data/design-examples.json # 定制示意，与经确认的客户案例分开
   data/cases.json         # 真实案例；空数组时隐藏
   data/team.json          # 真实团队；空数组时隐藏
   i18n/en.json            # 英文界面字典

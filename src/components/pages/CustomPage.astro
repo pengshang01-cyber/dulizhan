@@ -7,14 +7,14 @@ import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import CheckList from "../CheckList.astro";
 import Container from "../Container.astro";
+import CustomizationSteps from "../CustomizationSteps.astro";
 import DisplayHeading from "../DisplayHeading.astro";
 import Eyebrow from "../Eyebrow.astro";
-import FaqAccordion from "../FaqAccordion.astro";
 import OemOdmDetails from "../OemOdmDetails.astro";
 import QuoteButton from "../QuoteButton.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { site } from "../../config/site";
-import { customizationCases, customizationSteps } from "../../lib/content-data";
+import { customizationCases, designExamples } from "../../lib/content-data";
 import { confirmedLocalized } from "../../i18n/utils";
 import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -76,18 +76,21 @@ const policies = [
     value: confirmedLocalized(value, locale),
   }))
   .filter(({ value }) => value);
-const process = customizationSteps.flatMap(({ title, description }, index) => {
-  const heading = confirmedLocalized(title, locale);
-  const answer = confirmedLocalized(description, locale);
-  return heading && answer
-    ? [
-        {
-          question: `${String(index + 1).padStart(2, "0")} / ${heading}`,
-          answer,
-        },
-      ]
-    : [];
-});
+const examples = designExamples.flatMap(
+  ({ title, description, image, alt }) => {
+    const heading = confirmedLocalized(title, locale);
+    return heading
+      ? [
+          {
+            heading,
+            description: confirmedLocalized(description, locale),
+            image: resolveSiteImage(image),
+            alt: confirmedLocalized(alt, locale) ?? heading,
+          },
+        ]
+      : [];
+  },
+);
 const cases = customizationCases.flatMap(
   ({ title, summary, image, imageAlt }) => {
     const heading = confirmedLocalized(title, locale);
@@ -191,11 +194,60 @@ interface Props {
     </Container>
   </section>
 
+  {examples.length > 0 && (
+    <section
+      id="custom-design-examples"
+      aria-labelledby="design-examples-title"
+      class="py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.custom.design_example", locale)}
+          title={t("pages.custom.design_examples_title", locale)}
+          id="design-examples-title"
+        />
+        <ul class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {examples.map(({ heading, description, image, alt }) => (
+            <li
+              data-design-example
+              class="overflow-hidden rounded-panel border border-line bg-white"
+            >
+              {image && (
+                <Image
+                  src={image}
+                  alt={alt}
+                  widths={[384, 768, 1200]}
+                  sizes="(min-width: 64rem) 30vw, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+                  format="webp"
+                  loading="lazy"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              )}
+              <div class="p-6">
+                <p class="text-xs font-bold tracking-[0.12em] text-copper-dark uppercase">
+                  {t("pages.custom.design_example", locale)}
+                </p>
+                <h3 class="mt-2 font-display text-card-title font-normal">
+                  {heading}
+                </h3>
+                {description && (
+                  <p class="mt-2 text-sm leading-relaxed text-ink-soft">
+                    {description}
+                  </p>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
+  )}
+
   <section
     aria-labelledby="custom-process-title"
     class="dark-surface py-14 sm:py-20"
   >
-    <Container class="grid items-start gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+    <Container>
       <SectionHeading
         eyebrow={t("pages.custom.from_artwork_to_order", locale)}
         title={t("pages.custom.the_custom_process", locale)}
@@ -205,11 +257,7 @@ interface Props {
           locale,
         )}
       />
-      {process.length > 0 && (
-        <div class="text-ink">
-          <FaqAccordion items={process} firstOpen />
-        </div>
-      )}
+      <CustomizationSteps locale={locale} />
     </Container>
   </section>
 

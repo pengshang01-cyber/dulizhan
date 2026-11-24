@@ -49,11 +49,35 @@ const products = defineCollection({
       images: z
         .array(
           z.union([
-            z.object({ image: image(), alt: optionalLocalizedText }),
-            image().transform((image) => ({ image, alt: undefined })),
+            z.object({
+              image: image(),
+              alt: optionalLocalizedText,
+              scene: z.preprocess(
+                (value) => (value === "" || value === null ? undefined : value),
+                z.enum(["closeup", "display"]).optional(),
+              ),
+            }),
+            image().transform((image) => ({
+              image,
+              alt: undefined,
+              scene: undefined,
+            })),
           ]),
         )
-        .min(1),
+        .min(1)
+        .refine(([cover]) => !cover?.scene, {
+          path: [0, "scene"],
+          message: "使用场景图只能作为辅图",
+        })
+        .refine(
+          (images) => {
+            const scenes = images.flatMap(({ scene }) =>
+              scene ? [scene] : [],
+            );
+            return new Set(scenes).size === scenes.length;
+          },
+          { message: "使用中特写和商业陈列各最多一张" },
+        ),
       material: localizedText,
       gsm: paperWeight,
       sizes: z.array(productSizeFields).min(1),

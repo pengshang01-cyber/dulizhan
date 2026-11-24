@@ -8,7 +8,7 @@
 
 本部分由 npm run todo:report 自动生成，重新运行会更新此区域，保留下方人工上线检查项。示例格式仅供填写参考，**不是已经确认的工厂资料**。
 
-扫描 147 个 JSON 文件；308 个待补文字 / 参数字段；38 处占位图片引用；2 个空图片位；0 个示例产品。
+扫描 148 个 JSON 文件；308 个待补文字 / 参数字段；30 处占位图片引用；2 个空图片位；0 个示例产品。
 
 中文栏通常选填，留空回退英文；博客中文正文例外，留空不生成中文文章。无产品分类当前隐藏，其封面可在启用该类前补齐。
 
@@ -17,6 +17,10 @@
 未发现 TODO 文字。此项为可选内容，没有真实资料时继续留空并隐藏。
 
 ### 定制服务内容（src/data/customization.json）
+
+未发现 TODO 文字；请在正式上线前核对现有内容。
+
+### design-examples.json（src/data/design-examples.json）
 
 未发现 TODO 文字；请在正式上线前核对现有内容。
 
@@ -1053,26 +1057,18 @@
 | 产品 → 双面淋膜火焰纸杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 双面淋膜圆形卷口杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 染色蛋糕纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 烫金机制杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 四色蛋糕纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 细长条金卡垫 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 金色印花长方形卷口杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 金色印花正方形卷口杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/rolled-rim-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 方形金托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 金色桶装蛋糕纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 防油纸花边杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 树叶形金卡垫 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 方形慕斯托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 玛芬卷口杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 纸质甜品杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/tulip-baking-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 普通机制杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 立体机制杯 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/muffin-cups-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 长方形淋膜纸盒 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/kraft-trays-boxes-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 长方形防油纸片 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 长方形三明治包装纸 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 翻边巴斯克纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 防油纸翻边巴斯克纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/basque-cheesecake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
-| 产品 → 光面花边蛋糕板 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/specialty-packaging-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 单色蛋糕纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 纯色蛋糕纸托 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/standard-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |
 | 产品 → 正方形防油纸片 → 产品图片 → 第 1 项 → 图片 | ../../assets/images/categories/greaseproof-cupcake-liners-placeholder.png | 真实产品主图 / 细节；建议 1600 × 1200，保持同组比例 |

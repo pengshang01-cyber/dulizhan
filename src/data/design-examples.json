@@ -1,0 +1,74 @@
+[
+  {
+    "title": { "en": "Logo Printing", "zh": "品牌标志印刷" },
+    "description": {
+      "en": "Compare a one-color wordmark with an all-over print on the same cup shape.",
+      "zh": "同一杯型可选择单色品牌标志，也可做满版印花。"
+    },
+    "alt": {
+      "en": "Two white rolled-rim cups with a fictional wordmark and a full-coverage wheat print",
+      "zh": "两只白色卷口杯，分别使用虚构品牌字标和满版麦穗印花"
+    },
+    "image": "../assets/images/site/custom-logo-01.webp"
+  },
+  {
+    "title": { "en": "Custom Colors", "zh": "定制颜色" },
+    "description": {
+      "en": "Choose a solid color to suit your brand and packaging.",
+      "zh": "按品牌配色和包装风格选择纸杯专色。"
+    },
+    "alt": {
+      "en": "Three matching rolled-rim cups in ochre, burgundy and green",
+      "zh": "同一卷口杯型的赭黄、酒红和墨绿配色示意"
+    },
+    "image": "../assets/images/site/custom-color-01.webp"
+  },
+  {
+    "title": { "en": "Custom Sizes", "zh": "尺寸定制" },
+    "description": {
+      "en": "Compare sizes in the same cup style for different portions.",
+      "zh": "用同一杯型对比不同尺寸，为不同份量选款。"
+    },
+    "alt": {
+      "en": "Three white rolled-rim paper cups in decreasing sizes",
+      "zh": "三只不同尺寸的白色卷口纸杯"
+    },
+    "image": "../assets/images/site/custom-size-01.webp"
+  },
+  {
+    "title": { "en": "Custom Packaging", "zh": "包装定制" },
+    "description": {
+      "en": "Compare a display carton and a clear bag for the same cup.",
+      "zh": "同一杯型可比较展示盒和透明袋两种包装方案。"
+    },
+    "alt": {
+      "en": "White square cups in a kraft display carton and a clear unbranded bag",
+      "zh": "白色方杯的牛皮纸展示盒和无品牌透明袋包装示意"
+    },
+    "image": "../assets/images/site/custom-packaging-01.webp"
+  },
+  {
+    "title": { "en": "Seasonal Prints", "zh": "节日主题印花" },
+    "description": {
+      "en": "Use a seasonal print to distinguish a holiday collection.",
+      "zh": "用节日主题印花区分季节限定系列。"
+    },
+    "alt": {
+      "en": "Rolled-rim cups with pine sprigs, hearts and spring egg patterns",
+      "zh": "带松枝、爱心和彩蛋图案的卷口杯设计示意"
+    },
+    "image": "../assets/images/site/custom-holiday-01.webp"
+  },
+  {
+    "title": { "en": "ODM Cup Development", "zh": "ODM 新款开发" },
+    "description": {
+      "en": "Review a proposed cup shape with a sketch and sample before choosing a design.",
+      "zh": "结合杯型设计稿和样品选款，再确认设计。"
+    },
+    "alt": {
+      "en": "A white square rolled-rim cup beside a line drawing of the same shape",
+      "zh": "白色方形卷口杯与同款杯型的线稿示意"
+    },
+    "image": "../assets/images/site/custom-odm-01.webp"
+  }
+]

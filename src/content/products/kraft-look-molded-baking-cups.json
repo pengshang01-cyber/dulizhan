@@ -21,6 +21,22 @@
         "en": "Kraft-Look Molded Baking Cups — round opening and scalloped rim",
         "zh": "牛皮色机制杯，圆形杯口与波浪边"
       }
+    },
+    {
+      "image": "../../assets/images/products/kraft-look-molded-baking-cups-scene-01.webp",
+      "alt": {
+        "en": "Banana cake in a kraft-look paper cup with a scalloped rim",
+        "zh": "波纹杯口牛皮色机制杯里的香蕉蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/kraft-look-molded-baking-cups-scene-02.webp",
+      "alt": {
+        "en": "Oat muffins in scalloped kraft-look cups on a bakery counter",
+        "zh": "柜台上用波纹牛皮色机制杯盛装的燕麦马芬"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },

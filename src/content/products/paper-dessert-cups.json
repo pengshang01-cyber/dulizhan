@@ -9,7 +9,18 @@
   },
   "images": [
     {
-      "image": "../../assets/images/categories/tulip-baking-cups-placeholder.png"
+      "image": "../../assets/images/products/paper-dessert-cups-01.webp",
+      "alt": {
+        "en": "Plain white paper dessert cup with a round opening",
+        "zh": "白色圆形纸质甜品杯"
+      }
+    },
+    {
+      "image": "../../assets/images/products/paper-dessert-cups-02.webp",
+      "alt": {
+        "en": "Round paper dessert cup with a pink gingham print",
+        "zh": "粉格印花圆形纸质甜品杯"
+      }
     }
   ],
   "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },

@@ -28,6 +28,22 @@
         "en": "Octagonal Paper Bowls — wide octagonal bowl at an angle",
         "zh": "八角纸碗，宽口八角碗斜视"
       }
+    },
+    {
+      "image": "../../assets/images/products/octagonal-paper-bowls-scene-01.webp",
+      "alt": {
+        "en": "Salad in an octagonal kraft bowl",
+        "zh": "八角牛皮纸碗里的沙拉"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/octagonal-paper-bowls-scene-02.webp",
+      "alt": {
+        "en": "Two octagonal kraft bowls of salad on a deli counter",
+        "zh": "轻食柜台上的两份八角牛皮纸碗沙拉"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },

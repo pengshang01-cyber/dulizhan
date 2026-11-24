@@ -10,7 +10,13 @@
   "material": { "en": "PET-laminated cupstock", "zh": "口杯纸加 PET 覆膜" },
   "gsm": 210,
   "images": [
-    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+    {
+      "image": "../../assets/images/products/mousse-square-dessert-trays-01.webp",
+      "alt": {
+        "en": "Brown-striped square mousse tray with a scalloped rim",
+        "zh": "带波纹杯沿的棕色条纹方形慕斯托"
+      }
+    }
   ],
   "sizes": [
     {

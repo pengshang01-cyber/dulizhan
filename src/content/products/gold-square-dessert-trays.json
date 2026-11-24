@@ -10,7 +10,13 @@
   "material": { "en": "Cupstock", "zh": "口杯纸" },
   "gsm": 210,
   "images": [
-    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+    {
+      "image": "../../assets/images/products/gold-square-dessert-trays-01.webp",
+      "alt": {
+        "en": "Gold square dessert tray with a white interior",
+        "zh": "白色内壁的方形金托"
+      }
+    }
   ],
   "sizes": [
     {

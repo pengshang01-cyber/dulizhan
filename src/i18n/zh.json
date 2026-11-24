@@ -858,5 +858,9 @@
   "products.packWeight": "单包重量",
   "products.packSize": "单包尺寸",
   "products.cartonWeight": "单件重量",
-  "products.moreColorsOnRequest": "更多花色可咨询"
+  "products.moreColorsOnRequest": "更多花色可咨询",
+  "pages.custom.design_example": "设计示例",
+  "pages.custom.design_examples_title": "六种纸杯与包装定制示例",
+  "products.sceneLabel.closeup": "使用场景 · 应用特写",
+  "products.sceneLabel.display": "使用场景 · 商业陈列"
 }

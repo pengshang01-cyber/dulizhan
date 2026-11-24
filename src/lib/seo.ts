@@ -84,8 +84,9 @@ export function productData(
     description: confirmedLocalized(data.summary, locale),
     sku: confirmedText(data.sku),
     material: confirmedLocalized(data.material, locale),
-    // 明显 Placeholder 图片不是产品实拍，不把它当作产品图提交给搜索引擎。
+    // 产品结构化数据仅引用已核对产品图。
     image: data.images
+      .filter(({ scene }) => !scene)
       .map(({ image }) => image)
       .filter(({ src }) => !/placeholder/i.test(src))
       .map(({ src }) => new URL(src, url).href),
