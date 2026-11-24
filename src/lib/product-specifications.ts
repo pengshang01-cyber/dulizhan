@@ -50,6 +50,40 @@ type Dimensions = Omit<Size, "name" | "hasLid" | "lid">;
 const measurement = (value: number | string | undefined, unit = "mm") =>
   typeof value === "number" ? `${value} ${unit}` : confirmedText(value);
 
+export function formatCartonDimensions(value: string | undefined) {
+  const raw = confirmedText(value);
+  if (!raw) return;
+  const dimensions =
+    /^(\d+(?:[.,]\d+)?)\s*[*×x]\s*(\d+(?:[.,]\d+)?)\s*[*×x]\s*(\d+(?:[.,]\d+)?)\s*(mm|cm|m|毫米|厘米|米)?$/i.exec(
+      raw,
+    );
+  if (!dimensions) return;
+  // 工厂箱规字段的缺省单位为厘米，显式单位按原值换算。
+  const unit = dimensions[4]?.toLowerCase();
+  const factor =
+    unit === "mm" || unit === "毫米"
+      ? 0.1
+      : unit === "m" || unit === "米"
+        ? 100
+        : 1;
+  const sides = dimensions
+    .slice(1, 4)
+    .map((side) =>
+      Number((Number(side.replace(",", ".")) * factor).toPrecision(12)),
+    );
+  if (sides.every((side) => Number.isFinite(side) && side > 0))
+    return sides.join(" × ") + " cm";
+}
+
+export function formatWeight(value: string | undefined) {
+  const raw = confirmedText(value);
+  if (!raw) return;
+  const match = /^(\d+(?:[.,]\d+)?)\s*(kg|g|千克|公斤|克)$/i.exec(raw);
+  if (!match || Number(match[1].replace(",", ".")) <= 0) return;
+  const unit = /^(?:kg|公斤|千克)$/i.test(match[2]) ? "kg" : "g";
+  return match[1].replace(",", ".") + " " + unit;
+}
+
 function pair(length?: number | string, width?: number | string, unit = "mm") {
   if (typeof length === "number" && typeof width === "number")
     return `${length} × ${width} ${unit}`;
@@ -92,7 +126,7 @@ function dimensionCells(size: Dimensions, locale: Locale) {
     topNarrow: !sheet && !roll ? measurement(size.topNarrowMm) : undefined,
     material: confirmedLocalized(size.material, locale),
     paperWeight: weight && t("products.weightValue", locale, { value: weight }),
-    unitWeight: confirmedText(size.unitWeight),
+    unitWeight: formatWeight(size.unitWeight),
     specification: confirmedLocalized(size.specification, locale),
   };
 }
@@ -144,7 +178,7 @@ export function productSpecifications(
       ["products.packaging", confirmedLocalized(product.packaging, locale)],
       [
         "products.cartonSpecification",
-        confirmedLocalized(product.cartonSpec, locale),
+        formatCartonDimensions(confirmedLocalized(product.cartonSpec, locale)),
       ],
       [
         "products.leadTime",
@@ -207,10 +241,10 @@ export function productSpecifications(
       name,
       packaging: confirmedLocalized(pack.packaging, locale),
       cartonLoading: confirmedLocalized(pack.cartonLoading, locale),
-      packWeight: confirmedText(pack.packWeight),
+      packWeight: formatWeight(pack.packWeight),
       packSize: confirmedText(pack.packSize),
-      cartonWeight: confirmedText(pack.cartonWeight),
-      cartonSpec: confirmedText(pack.cartonSpec),
+      cartonWeight: formatWeight(pack.cartonWeight),
+      cartonSpec: formatCartonDimensions(pack.cartonSpec),
     }));
   });
   return {

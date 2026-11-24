@@ -33,20 +33,12 @@
       }
     },
     {
-      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-scene-01.webp",
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-3830-size-comparison.webp",
       "alt": {
-        "en": "Lemon cupcake in a dusty blue rolled-rim cup",
-        "zh": "灰蓝色圆形卷口杯里的柠檬蛋糕"
+        "en": "3830 greaseproof cup rim compared with an egg (5.7 cm)",
+        "zh": "3830 防油纸卷口杯杯口与长 5.7 cm 的鸡蛋对比"
       },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-scene-02.webp",
-      "alt": {
-        "en": "Three chocolate muffins in dusty blue rolled-rim cups on a display tray",
-        "zh": "陈列托盘上灰蓝色圆形卷口杯里的三个巧克力马芬"
-      },
-      "scene": "display"
+      "sizeComparison": true
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },

@@ -21,22 +21,6 @@
         "en": "Printed Cupcake Liners — strawberry print on the liner base",
         "zh": "印花蛋糕纸托，草莓印花纸托底部"
       }
-    },
-    {
-      "image": "../../assets/images/products/printed-cupcake-liners-scene-01.webp",
-      "alt": {
-        "en": "Vanilla cupcake in a white strawberry-print liner",
-        "zh": "白底草莓印花纸托里的香草蛋糕"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/printed-cupcake-liners-scene-02.webp",
-      "alt": {
-        "en": "Rows of small cakes in strawberry-print liners in a bakery case",
-        "zh": "陈列柜里装在草莓印花纸托中的一排小蛋糕"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "Cake liner paper", "zh": "蛋糕纸" },

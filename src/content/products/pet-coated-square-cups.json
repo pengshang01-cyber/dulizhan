@@ -31,22 +31,6 @@
         "en": "PET-Coated Square Baking Cups — larger square cup with the same print",
         "zh": "PET 淋膜正方形纸杯，同款印花大方杯"
       }
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-square-cups-scene-01.webp",
-      "alt": {
-        "en": "A brownie in a square paper cup with a tan windmill print",
-        "zh": "方形风车印花纸杯里的布朗尼"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-square-cups-scene-02.webp",
-      "alt": {
-        "en": "Berry cheesecake portions in three square windmill-print paper cups",
-        "zh": "三只方形风车印花纸杯里的莓果芝士蛋糕"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

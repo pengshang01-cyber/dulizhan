@@ -861,6 +861,8 @@
   "products.moreColorsOnRequest": "更多花色可咨询",
   "pages.custom.design_example": "设计示例",
   "pages.custom.design_examples_title": "六种纸杯与包装定制示例",
-  "products.sceneLabel.closeup": "使用场景 · 应用特写",
-  "products.sceneLabel.display": "使用场景 · 商业陈列"
+  "products.sceneLabel.closeup": "应用特写",
+  "products.sceneLabel.display": "陈列",
+  "products.illustrativeImage": "效果示意图",
+  "products.sizeComparison": "尺寸对比图"
 }

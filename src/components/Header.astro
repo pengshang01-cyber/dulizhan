@@ -18,55 +18,36 @@ const logoImage = resolveSiteImage(site.logo);
 const brand =
   confirmedLocalized(site.shortName, locale) ??
   confirmedLocalized(site.companyName, locale);
-const tagline = confirmedLocalized(site.tagline, locale);
 const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
 ---
 
 <header class="sticky top-0 z-30 border-b border-line bg-cream/95 backdrop-blur-md">
-  <Container class="flex min-h-18 items-center justify-between gap-2.5 py-3 lg:gap-4">
-    <a href={localePath("/", locale)} class="flex min-w-0 items-center gap-2.5">
+  <Container class="flex min-h-18 items-center justify-between gap-2.5 py-3">
+    <a
+      href={localePath("/", locale)}
+      class="flex min-w-0 shrink-0 items-center gap-2.5"
+    >
       <span class="sr-only">{t("nav.home", locale)}</span>
       {logoImage ? (
         <Image
           src={logoImage}
           alt=""
-          width={120}
+          width={256}
           format="png"
           loading="eager"
           data-site-logo
-          class="h-11 w-auto shrink-0 object-contain lg:h-15"
+          class="h-12 w-auto shrink-0 object-contain lg:h-18"
         />
       ) : (
         <span class="brand-mark hidden sm:grid" aria-hidden="true"></span>
       )}
-      {(brand || tagline) && (
-        <span
-          class:list={["min-w-0 wrap-anywhere", logoImage && "hidden xl:block"]}
-        >
-          {brand && (
-            <span
-              class:list={[
-                "block text-base leading-tight font-bold",
-                logoImage && "sr-only",
-              ]}
-            >
-              {brand}
-            </span>
-          )}
-          {tagline && (
-            <span
-              data-site-tagline
-              class="hidden max-w-48 text-[0.8125rem] leading-snug font-semibold text-ink-soft xl:block"
-            >
-              {tagline}
-            </span>
-          )}
-        </span>
+      {!logoImage && brand && (
+        <span class="block text-base leading-tight font-bold">{brand}</span>
       )}
     </a>
 
-    <nav aria-label={t("nav.main", locale)} class="hidden shrink-0 xl:block">
-      <ul class="flex items-center gap-0.5 xl:gap-1">
+    <nav aria-label={t("nav.main", locale)} class="hidden shrink-0 lg:block">
+      <ul class="flex items-center gap-1">
         {navigation.map(({ key, href }) => (
           <li>
             <a
@@ -76,7 +57,7 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
                   ? "page"
                   : undefined
               }
-              class="inline-flex min-h-10 items-center border-b border-transparent px-2 text-base font-semibold whitespace-nowrap text-ink-soft transition-colors hover:text-copper aria-[current=page]:border-copper aria-[current=page]:text-copper"
+              class="inline-flex min-h-10 items-center border-b border-transparent px-1 text-[1.0625rem] font-semibold whitespace-nowrap text-ink-soft transition-colors hover:text-copper aria-[current=page]:border-copper aria-[current=page]:text-copper xl:px-2"
             >
               {t(key, locale)}
             </a>
@@ -93,7 +74,7 @@ const current = unlocalizedPath(Astro.url.pathname).replace(/\/?$/, "/");
       />
       <InquiryLink locale={locale} />
       <QuoteButton locale={locale} class="shrink-0" />
-      <details class="group xl:hidden" data-mobile-menu>
+      <details class="group lg:hidden" data-mobile-menu>
         <summary class="grid size-11 cursor-pointer list-none place-items-center rounded-control border border-line text-ink hover:bg-paper group-open:bg-paper [&::-webkit-details-marker]:hidden">
           <span class="sr-only">{t("nav.menu", locale)}</span>
           <span aria-hidden="true" class="relative block h-3.5 w-4.5">
