@@ -62,7 +62,7 @@ const previewAddress =
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10", "M11", "M12", "M13"].includes(milestone) ||
+  (!["M9", "M9.1", "M10", "M11", "M12", "M13", "M14"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -81,9 +81,18 @@ try {
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
       if (
-        ["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11", "M12", "M13"].includes(
-          milestone,
-        )
+        [
+          "M6",
+          "M7",
+          "M7b",
+          "M9",
+          "M9.1",
+          "M10",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+        ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
       if (milestone === "M5") {
@@ -507,6 +516,30 @@ try {
         }
 
         await m13?.verifyM13Page(page, route.name, width);
+
+        if (milestone === "M14") {
+          const gallery = page.locator("[data-product-gallery]");
+          const comparison = gallery
+            .locator("[data-gallery-panel][data-size-comparison]")
+            .first();
+          if (
+            (await gallery
+              .locator("[data-gallery-panel][data-scene]")
+              .count()) ||
+            !(await comparison.count()) ||
+            (await page.evaluate(
+              () => document.documentElement.scrollWidth > innerWidth + 1,
+            ))
+          ) {
+            throw new Error("M14 产品图库或视口检查失败 " + route.path);
+          }
+          const index = await comparison.evaluate((panel) =>
+            [...panel.parentElement!.children].indexOf(panel),
+          );
+          await gallery.locator(`[data-gallery-index="${index}"]`).click();
+          await comparison.waitFor({ state: "visible" });
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
 
         if (
           ["M5", "M6", "M7", "M7b"].includes(milestone) &&

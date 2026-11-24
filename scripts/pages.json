@@ -433,5 +433,20 @@
     "name": "m13-carton",
     "path": "/zh/products/rolled-rim-baking-cups/double-sided-gold-round-rolled-rim-cups/",
     "milestones": ["M13"]
+  },
+  {
+    "name": "m14-pet-round",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M14"]
+  },
+  {
+    "name": "m14-pet-square",
+    "path": "/zh/products/rolled-rim-baking-cups/pet-coated-square-rolled-rim-cups/",
+    "milestones": ["M14"]
+  },
+  {
+    "name": "m14-window-box",
+    "path": "/products/cake-boxes/window-cake-boxes/",
+    "milestones": ["M14"]
   }
 ]

@@ -32,22 +32,6 @@
         "zh": "口部 85 × 85 mm 方杯与长 5.7 cm 的鸡蛋对比"
       },
       "sizeComparison": true
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-65x65x35-scene-01.webp",
-      "alt": {
-        "en": "Square PET-coated cup beside a chocolate brownie and an egg",
-        "zh": "PET 淋膜方形卷口杯旁的巧克力布朗尼和鸡蛋"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-65x65x35-scene-02.webp",
-      "alt": {
-        "en": "Two square PET-coated cups displayed with a brownie and an egg",
-        "zh": "两只 PET 淋膜方形卷口杯与布朗尼和鸡蛋陈列"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
