@@ -28,22 +28,6 @@
         "en": "Chiffon Cake Paper Molds — natural-color paper mold at an angle",
         "zh": "纸质戚风蛋糕模，本色戚风纸模斜视"
       }
-    },
-    {
-      "image": "../../assets/images/products/chiffon-cake-paper-molds-scene-01.webp",
-      "alt": {
-        "en": "Round chiffon cake inside a pale kraft paper mold",
-        "zh": "浅牛皮色纸模里的圆形戚风蛋糕"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/chiffon-cake-paper-molds-scene-02.webp",
-      "alt": {
-        "en": "Two chiffon cakes in pleated kraft molds on a bakery worktop",
-        "zh": "烘焙工作台上两个装在褶纹牛皮纸模中的戚风蛋糕"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "PE-coated paper", "zh": "PE 淋膜纸" },

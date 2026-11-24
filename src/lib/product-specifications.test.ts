@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { productSpecifications } from "./product-specifications";
+import {
+  formatCartonDimensions,
+  formatWeight,
+  productSpecifications,
+} from "./product-specifications";
 
 const product = {
   material: { en: "   " },
@@ -81,7 +85,7 @@ describe("public product specifications", () => {
     expect(result.packages[0]).toMatchObject({
       name: "中号",
       cartonLoading: "50 只 × 20 条",
-      cartonSpec: "56 × 45.5 × 39.5",
+      cartonSpec: "56 × 45.5 × 39.5 cm",
     });
     expect(result.columns.map(([field]) => field)).not.toContain("base");
   });
@@ -149,5 +153,27 @@ describe("public product specifications", () => {
       specification: "底部 65×65 mm",
     });
     expect(JSON.stringify(result)).not.toContain("TODO");
+  });
+});
+
+describe("carton dimensions and shipment weights", () => {
+  it.each([
+    ["32*32*29", "32 × 32 × 29 cm"],
+    ["56 × 45,5 × 39.5 cm", "56 × 45.5 × 39.5 cm"],
+    ["550 x 410 x 460 mm", "55 × 41 × 46 cm"],
+    ["0.52×0.4×0.44米", "52 × 40 × 44 cm"],
+    ["62*38.5*32.5kg", undefined],
+  ])("formats carton dimensions %s", (input, expected) => {
+    expect(formatCartonDimensions(input)).toBe(expected);
+  });
+
+  it.each([
+    ["3.65KG", "3.65 kg"],
+    ["110克", "110 g"],
+    ["7 公斤", "7 kg"],
+    ["114.8", undefined],
+    ["TODO_WEIGHT", undefined],
+  ])("keeps the verified unit for %s", (input, expected) => {
+    expect(formatWeight(input)).toBe(expected);
   });
 });

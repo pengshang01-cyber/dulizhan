@@ -861,6 +861,8 @@
   "products.moreColorsOnRequest": "More patterns/colors available on request",
   "pages.custom.design_example": "Design example",
   "pages.custom.design_examples_title": "Six Ways to Customize Your Packaging",
-  "products.sceneLabel.closeup": "Application scene · In-use close-up",
-  "products.sceneLabel.display": "Application scene · Commercial display"
+  "products.sceneLabel.closeup": "In-use close-up",
+  "products.sceneLabel.display": "Commercial display",
+  "products.illustrativeImage": "Illustrative image",
+  "products.sizeComparison": "Size comparison"
 }

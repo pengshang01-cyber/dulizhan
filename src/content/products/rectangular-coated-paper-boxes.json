@@ -17,22 +17,6 @@
         "en": "Natural rectangular coated paper box with its clear lid",
         "zh": "本色长方形淋膜纸盒与透明盖"
       }
-    },
-    {
-      "image": "../../assets/images/products/rectangular-coated-paper-boxes-scene-01.webp",
-      "alt": {
-        "en": "Sponge cake slices in a rectangular kraft box under a clear lid",
-        "zh": "长方形牛皮纸盒透明盖下的海绵蛋糕片"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/rectangular-coated-paper-boxes-scene-02.webp",
-      "alt": {
-        "en": "Two clear-lidded kraft boxes carrying assorted pastries",
-        "zh": "两只带透明盖的牛皮纸盒盛着什锦糕点"
-      },
-      "scene": "display"
     }
   ],
   "material": {

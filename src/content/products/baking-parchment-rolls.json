@@ -21,22 +21,6 @@
         "en": "Baking Parchment Rolls — paper roll in profile",
         "zh": "硅油纸卷，硅油纸卷侧视"
       }
-    },
-    {
-      "image": "../../assets/images/products/baking-parchment-rolls-scene-01.webp",
-      "alt": {
-        "en": "White parchment unrolling next to cookie dough on a tray",
-        "zh": "烤盘旁展开的白色硅油纸与曲奇面团"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/baking-parchment-rolls-scene-02.webp",
-      "alt": {
-        "en": "White parchment rolls and a lined tray of unbaked croissants",
-        "zh": "白色硅油纸卷和铺纸烤盘里的可颂面团"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },

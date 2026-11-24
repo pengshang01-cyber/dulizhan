@@ -24,22 +24,6 @@
         "en": "Round Parchment Air Fryer Liners — round interior from above",
         "zh": "圆形硅油空气炸锅纸，圆形纸盘俯视"
       }
-    },
-    {
-      "image": "../../assets/images/products/round-parchment-air-fryer-liners-scene-01.webp",
-      "alt": {
-        "en": "Roasted potato wedges in a round parchment liner inside an air fryer basket",
-        "zh": "空气炸锅内的圆形硅油纸衬和烤薯角"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/round-parchment-air-fryer-liners-scene-02.webp",
-      "alt": {
-        "en": "An air fryer basket lined with round parchment beside a stack of fresh liners",
-        "zh": "操作台上铺有圆形硅油纸衬的炸篮与一叠备用纸衬"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "Silicone-coated parchment paper", "zh": "硅油纸" },

@@ -62,7 +62,7 @@ const previewAddress =
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10", "M11", "M12"].includes(milestone) ||
+  (!["M9", "M9.1", "M10", "M11", "M12", "M13"].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -81,7 +81,7 @@ try {
     .filter(({ name, milestones }) => {
       if (milestones && !milestones.includes(milestone)) return false;
       if (
-        ["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11", "M12"].includes(
+        ["M6", "M7", "M7b", "M9", "M9.1", "M10", "M11", "M12", "M13"].includes(
           milestone,
         )
       )
@@ -132,6 +132,9 @@ try {
   const browser = await chromium.launch();
   try {
     await mkdir(destination, { recursive: true });
+    const m13 =
+      milestone === "M13" ? await import("./m13-preview.ts") : undefined;
+    await m13?.verifyM13TabletHeader(browser, origin);
     for (const { name: size, width, height, isMobile } of sizes) {
       for (const route of routes) {
         const page = await browser.newPage({
@@ -502,6 +505,8 @@ try {
             }),
           );
         }
+
+        await m13?.verifyM13Page(page, route.name, width);
 
         if (
           ["M5", "M6", "M7", "M7b"].includes(milestone) &&

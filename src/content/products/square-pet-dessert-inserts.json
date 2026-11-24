@@ -21,22 +21,6 @@
         "en": "Square PET Dessert Inserts — clear square opening from above",
         "zh": "方形 PET 塑料托，透明方形托开口俯视"
       }
-    },
-    {
-      "image": "../../assets/images/products/square-pet-dessert-inserts-scene-01.webp",
-      "alt": {
-        "en": "Layered mousse in a transparent fluted square insert",
-        "zh": "透明方形褶纹 PET 托里的分层慕斯"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/square-pet-dessert-inserts-scene-02.webp",
-      "alt": {
-        "en": "Two pink berry desserts in square transparent inserts in a pastry display",
-        "zh": "糕点陈列柜里盛放粉色莓果甜品的两个透明方形托"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "PET", "zh": "PET" },

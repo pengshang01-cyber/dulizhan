@@ -1,0 +1,7 @@
+图片文件,产品,规格,构图,产品量测尺寸,参照物,参照物测量轴,参照物长度(mm),参照物像素(px),产品像素(px),换算尺寸(mm),规格尺寸(mm),偏差%,结果,重试次数
+"src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-scene-01.webp","pet-coated-round-rolled-rim-baking-cups","3830","近景","口径","鸡蛋","x","57","348","305","49.957","50","-0.086","通过","1"
+"src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-scene-02.webp","pet-coated-round-rolled-rim-baking-cups","3830","陈列","口径","鸡蛋","x","57","217","190 / 190 / 190","49.908 / 49.908 / 49.908","50","-0.184 / -0.184 / -0.184","通过","1"
+"src/assets/images/products/pet-coated-square-rolled-rim-cups-65x65x35-scene-01.webp","pet-coated-square-rolled-rim-cups","65x65x35","近景","口部名义对角线","鸡蛋","x","57","208","439","120.303","120.2082","0.079","通过","1"
+"src/assets/images/products/pet-coated-square-rolled-rim-cups-65x65x35-scene-02.webp","pet-coated-square-rolled-rim-cups","65x65x35","陈列","口部名义对角线","鸡蛋","x","57","148","311 / 311","119.777 / 119.777","120.2082","-0.359 / -0.359","通过","1"
+"src/assets/images/products/window-cake-boxes-1-count-scene-01.webp","window-cake-boxes","1-count","近景","盒盖宽","餐叉","y","190","912","480","100","100","0","通过","1"
+"src/assets/images/products/window-cake-boxes-1-count-scene-02.webp","window-cake-boxes","1-count","陈列","盒盖宽","餐叉","y","190","636","335 / 335","100.079 / 100.079","100","0.079 / 0.079","通过","1"

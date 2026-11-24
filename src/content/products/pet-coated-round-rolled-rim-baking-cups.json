@@ -33,18 +33,34 @@
       }
     },
     {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-scene-01.webp",
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-size-comparison.webp",
       "alt": {
-        "en": "Fruit-topped vanilla cupcake in a white round rolled-rim cup",
-        "zh": "白色圆形卷口杯里的水果香草蛋糕"
+        "en": "3830 cup rim compared with an egg (5.7 cm)",
+        "zh": "3830 卷口杯杯口与长 5.7 cm 的鸡蛋对比"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-8928-size-comparison.webp",
+      "alt": {
+        "en": "8928 cup rim compared with an egg (5.7 cm)",
+        "zh": "8928 卷口杯杯口与长 5.7 cm 的鸡蛋对比"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-scene-01.webp",
+      "alt": {
+        "en": "Yellow polka-dot 3830 cup, a bite-size vanilla cake and an egg",
+        "zh": "黄色波点 3830 卷口杯、一口大小的香草蛋糕和鸡蛋"
       },
       "scene": "closeup"
     },
     {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-scene-02.webp",
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-scene-02.webp",
       "alt": {
-        "en": "Blueberry muffins in white rolled-rim cups in a bakery display",
-        "zh": "烘焙柜台中白色卷口杯里的蓝莓马芬"
+        "en": "Three 3830 cups beside a mini vanilla cake and an egg on a wooden counter",
+        "zh": "木质台面上的三个 3830 卷口杯、迷你香草蛋糕和鸡蛋"
       },
       "scene": "display"
     }

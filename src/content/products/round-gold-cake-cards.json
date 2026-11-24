@@ -21,22 +21,6 @@
         "en": "Round Gold Cake Cards — small round gold cake card with tab",
         "zh": "圆形金卡垫，带手柄的小圆形金卡垫"
       }
-    },
-    {
-      "image": "../../assets/images/products/round-gold-cake-cards-scene-01.webp",
-      "alt": {
-        "en": "Raspberry tart on a round gold card with a tab",
-        "zh": "带圆耳金卡上的覆盆子挞"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/round-gold-cake-cards-scene-02.webp",
-      "alt": {
-        "en": "Individual mousse cakes on round gold cards in a pastry display",
-        "zh": "糕点柜中放在圆形金卡上的小份慕斯蛋糕"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

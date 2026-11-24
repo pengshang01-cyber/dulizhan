@@ -134,16 +134,16 @@ content:
             default: ""
       - name: images
         label: 产品图片
-        description: 第一张用作封面，只使用实拍或核对过的产品图；AI 场景图仅可放在后续位置。可拖动排序。
+        description: 第一张用作封面，只使用实拍或核对过的产品图。尺寸对比图和验收通过的成品展示只放在后续位置。
         type: object
         list:
           min: 1
-          max: 5
+          max: 12
         required: true
         fields:
           - name: image
             label: 产品图片文件
-            description: 建议 1200 × 1200 的 WebP。核对照片中的规格、杯型和颜色工艺。
+            description: 建议 1200 × 1200 的 WebP；尺寸对比图用 1200 × 900。核对规格、杯型和颜色工艺。
             type: image
             required: true
             options:
@@ -161,9 +161,13 @@ content:
                 label: 图片说明（中文）
                 type: string
                 default: ""
+          - name: sizeComparison
+            label: 尺寸对比图
+            description: 仅在已核对刻度、参照物和规格的尺寸图打开。作为辅图放在产品图之后。
+            type: boolean
           - name: scene
-            label: 使用场景类型
-            description: 实拍与普通产品图留空。经核对的场景图放在封面之后，并分别选择特写或陈列。
+            label: 成品展示图类型
+            description: 普通产品图及尺寸对比图留空。展示图须先按技能检查参照比例，再选择特写或陈列。
             type: select
             options:
               values:
@@ -446,7 +450,7 @@ content:
                 type: string
               - name: cartonSpec
                 label: 外箱规格
-                description: 填该包装选项对应的箱规，沿用资料原单位。
+                description: 填该包装选项对应的长 × 宽 × 高，带 cm，例如 52 × 40 × 44 cm。未确认时留空。
                 type: string
           - name: hasLid
             label: 有配套盖子
@@ -572,7 +576,7 @@ content:
             default: ""
       - name: cartonSpec
         label: 外箱规格
-        description: 填写全产品通用的外箱规格；具体规格的外箱信息填在包装详情。
+        description: 以 cm 填写全产品通用的外箱规格。具体规格的外箱信息填在包装详情。
         type: object
         fields:
           - name: en

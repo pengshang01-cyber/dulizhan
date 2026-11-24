@@ -402,5 +402,36 @@
     "name": "m12-detail-flower",
     "path": "/zh/products/tulip-shaped-baking-cups/flower-shaped-baking-cups/",
     "milestones": ["M12"]
+  },
+  { "name": "m13-home", "path": "/", "milestones": ["M13"] },
+  {
+    "name": "m13-pet-round",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M13"]
+  },
+  {
+    "name": "m13-greaseproof-round",
+    "path": "/zh/products/rolled-rim-baking-cups/greaseproof-round-rolled-rim-baking-cups/",
+    "milestones": ["M13"]
+  },
+  {
+    "name": "m13-pet-square",
+    "path": "/zh/products/rolled-rim-baking-cups/pet-coated-square-rolled-rim-cups/",
+    "milestones": ["M13"]
+  },
+  {
+    "name": "m13-window-box",
+    "path": "/products/cake-boxes/window-cake-boxes/",
+    "milestones": ["M13"]
+  },
+  {
+    "name": "m13-air-fryer",
+    "path": "/products/air-fryer-liners/round-parchment-air-fryer-liners/",
+    "milestones": ["M13"]
+  },
+  {
+    "name": "m13-carton",
+    "path": "/zh/products/rolled-rim-baking-cups/double-sided-gold-round-rolled-rim-cups/",
+    "milestones": ["M13"]
   }
 ]
