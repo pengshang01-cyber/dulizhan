@@ -11,5 +11,5 @@
 - M11 已合并。184 个规格编号完成匹配，新增 9 款产品，85 款展示确认色样。[PR #19](https://github.com/pengshang01-cyber/dulizhan/pull/19) · [M11 审核报告](../reviews/M11.md)
 - M12 已合并。实拍精修、图册补图、六组定制示例及工厂图库的审核证据已归档。28 款缺产品图，首页缺工厂外景。[PR #20](https://github.com/pengshang01-cyber/dulizhan/pull/20) · [M12 审核报告](../reviews/M12.md)
 - M13 已合并。五张尺寸对比图保留。工厂反馈原六张成品展示的构图和光影需要重做。[PR #21](https://github.com/pengshang01-cyber/dulizhan/pull/21) · [M13 审核报告](../reviews/M13.md)
-- M14 撤下前轮六张展示图，重排三张茶匙锚定图，提交三款共六张装食物的候选。最大锚定偏差 0.068%，候选最大 11.09%。生成候选待工厂审核。[M14 审核报告](../reviews/M14.md)
+- M14 提交审核。预览已撤下前轮六张展示图，保留五张原尺寸对比图。三张茶匙锚定图最大偏差 0.068%，六张装食物的候选最大偏差 11.09%。六项本地检查及 Workers 预览通过，候选待工厂审核。[PR #22](https://github.com/pengshang01-cyber/dulizhan/pull/22) · [M14 审核报告](../reviews/M14.md)
 - 工厂继续按 M12 缺图名单补实拍，核对规格和缺型号项。资料齐全后按 `docs/LAUNCH.md` 操作，当前收录开关为 `false`。
