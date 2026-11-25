@@ -55,6 +55,7 @@
     "en": "Raised-Profile Molded Baking Cups made from PE-coated cupstock.",
     "zh": "立体机制杯，材质为 PE 淋膜口杯纸。"
   },
+  "draft": true,
   "featured": false,
   "order": 120,
   "moreColorsOnRequest": true

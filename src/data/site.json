@@ -124,13 +124,20 @@
     "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
   },
   "logo": "../assets/images/site/junbeili-logo.png",
-  "ogImage": "../assets/images/site/junbeili-share.jpg",
-  "homeHeroImage": "../assets/images/site/factory-01.webp",
+  "ogImage": "../assets/images/site/factory-exterior-share.webp",
+  "homeHeroImage": "../assets/images/site/factory-exterior.webp",
   "homeHeroAlt": {
-    "en": "Overhead view of the workshop and its rows of production equipment",
-    "zh": "从上方拍摄的车间设备全景"
+    "en": "Junbeili factory buildings in Foshan, Guangdong",
+    "zh": "俊焙利佛山工厂外景"
   },
   "aboutGallery": [
+    {
+      "image": "../assets/images/site/factory-exterior.webp",
+      "caption": {
+        "en": "Junbeili factory buildings in Foshan, Guangdong",
+        "zh": "俊焙利佛山工厂外景"
+      }
+    },
     {
       "image": "../assets/images/site/factory-01.webp",
       "caption": {

@@ -4,7 +4,6 @@ import type { Locale } from "../../i18n/utils";
 const { locale = "en" } = Astro.props;
 import { t } from "../../i18n/utils";
 import { Image } from "astro:assets";
-import heroPlaceholder from "../../assets/images/home/hero-placeholder.png";
 import Button from "../Button.astro";
 import CheckList from "../CheckList.astro";
 import Container from "../Container.astro";
@@ -25,10 +24,7 @@ import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const heroImage = resolveSiteImage(site.homeHeroImage);
-const heroAlt = heroImage
-  ? (confirmedLocalized(site.homeHeroAlt, locale) ??
-    t("pages.index.cupcake_liners_baking_cups", locale))
-  : t("pages.index.hero_product_image_placeholder", locale);
+const heroAlt = confirmedLocalized(site.homeHeroAlt, locale) ?? "";
 
 const intro = t(
   "pages.index.bulk_orders_and_custom_printing_for_bakeries_packaging",
@@ -78,7 +74,12 @@ interface Props {
 
 <BaseLayout locale={locale}>
   <section id="home-hero" aria-labelledby="hero-title">
-    <Container class="grid items-center gap-8 py-10 sm:gap-12 sm:py-16 lg:grid-cols-[1.1fr_1fr] lg:gap-14 lg:py-20">
+    <Container
+      class:list={[
+        "grid items-center gap-6 py-8 sm:gap-12 sm:py-16 lg:gap-14 lg:py-20",
+        heroImage && "lg:grid-cols-[1.1fr_1fr]",
+      ]}
+    >
       <div class="min-w-0">
         <Eyebrow class="mb-5">
           {t("pages.index.wholesale_baking_essentials", locale)}
@@ -105,19 +106,21 @@ interface Props {
           class="mt-6 text-ink-soft sm:flex sm:flex-wrap sm:gap-x-6"
         />
       </div>
-      <div class="rounded-panel border border-line bg-paper p-2 shadow-panel sm:p-3">
-        <Image
-          src={heroImage ?? heroPlaceholder}
-          alt={heroAlt}
-          data-home-hero
-          widths={[384, 648, 960, 1200]}
-          sizes="(min-width: 80rem) 35rem, (min-width: 64rem) 46vw, calc(100vw - 2.5rem)"
-          format="webp"
-          loading="eager"
-          fetchpriority="high"
-          class="aspect-[4/3] w-full rounded-control object-cover"
-        />
-      </div>
+      {heroImage && (
+        <div class="min-w-0 rounded-panel border border-line bg-paper p-2 shadow-panel sm:p-3">
+          <Image
+            src={heroImage}
+            alt={heroAlt}
+            data-home-hero
+            widths={[384, 648, 960, 1200]}
+            sizes="(min-width: 80rem) 35rem, (min-width: 64rem) 46vw, calc(100vw - 2.5rem)"
+            format="webp"
+            loading="eager"
+            fetchpriority="high"
+            class="block h-auto w-full rounded-control"
+          />
+        </div>
+      )}
     </Container>
   </section>
 

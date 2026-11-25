@@ -4,10 +4,13 @@
 
 ## 1. 核对资料和询盘链路
 
-1. 打开[上线资料清单](LAUNCH-CHECKLIST.md)，照表在 Pages CMS 填写公司名称、公开联系方式、起订量、交期等已确认资料，并更换首页、产品、车间和分享占位图。每次补完一批，可请维护同事在项目目录运行 `npm run todo:report`，查看刷新后还缺什么。
-2. 在 CMS 的“产品”中核对 M9 导入的真实产品，按 [产品图片清单](import/images-needed.md) 上传实拍，并补齐缺少的规格和型号。核对隐私政策里的主体名称、联系方式和数据用途，再请维护同事移除模板提醒。
-3. 在 Cloudflare Turnstile 核对询盘组件已授权主机名 `junbeili.com`，其 Site key 对应 Workers Builds 的 `PUBLIC_TURNSTILE_SITE_KEY`，同一组件的 Secret key 对应生产 Worker 的 `TURNSTILE_SECRET_KEY`。
-4. 在 Resend 核对发件域名 `junbeili.com` 显示 **Verified**。生产 Worker 的 `INQUIRY_FROM_EMAIL` 和 `INQUIRY_TO_EMAIL` 均为 `sales@junbeili.com`。在 Cloudflare 的 **Email → Email Routing** 核对这个地址转发到已验证的工厂邮箱。详情见 [README 的询盘表单配置](../README.md#询盘表单配置)。
+- [x] 已填写公司资料、网站 Logo、公开联系方式、微信二维码和正式域名。
+- [x] M17 已准备工厂实拍首页主图、关于页首图和分享图。公开目录收录 102 款有图产品，25 款缺图产品在后台暂时隐藏。部署后可按原网址检查。详见 [M17 审核报告](reviews/M17.md)。
+- [x] M17 的 Workers 预览已核对双语页面和 Turnstile 控件渲染。正式站的真实收件按下方步骤验收。
+- [ ] 工厂核对隐私政策的主体名称、联系方式和数据用途，确认后请维护同事移除模板提示。中英文两版都要核对。
+- [ ] 在 Cloudflare Turnstile 核对询盘组件已授权主机名 `junbeili.com`。对应组件的 Site key 填在 Workers Builds 的 `PUBLIC_TURNSTILE_SITE_KEY`，Secret key 填在生产 Worker 的 `TURNSTILE_SECRET_KEY`。
+- [ ] 在 Resend 核对发件域名 `junbeili.com` 显示 **Verified**。生产 Worker 的 `INQUIRY_FROM_EMAIL` 和 `INQUIRY_TO_EMAIL` 均为 `sales@junbeili.com`。在 Cloudflare 的 **Email → Email Routing** 核对这个地址转发到已验证的工厂邮箱。用正式站的两种语言各试一封并确认收到邮件，再按第 2 节开放收录。 [询盘配置说明](../README.md#询盘表单配置)
+- [ ] 有新资料时按 [上线资料清单](LAUNCH-CHECKLIST.md) 补充已确认的规格、证书、视频或社媒链接。隐藏的产品可逐款补实拍后关闭隐藏开关。 [CMS 产品恢复说明](CMS.md#暂时隐藏和重新上线产品)
 
 ## 2. 在 CMS 开启收录
 

@@ -94,8 +94,9 @@ export async function verifyBlogPreview(destination: URL) {
       ),
     ),
   );
-  const article = JSON.parse(before.get(first)!);
-  const another = JSON.parse(before.get(second)!);
+  const cover = "../../assets/images/site/factory-01.webp";
+  const article = { ...JSON.parse(before.get(first)!), cover };
+  const another = { ...JSON.parse(before.get(second)!), cover };
   const outDir = new URL(".astro/m7-published/", root);
   // 仅一篇双语示例取消草稿；另外一篇继续隐藏。
   await fixtureBuild({ [first]: json({ ...article, draft: false }) }, outDir);
@@ -222,11 +223,24 @@ export async function verifyBlogPreview(destination: URL) {
         zh: "",
       },
       bodyEn:
-        "## Test section\n\n![Placeholder](../../assets/images/blog/blog-cover-placeholder.png)\n\n[Products](/products/)",
+        "## Test section\n\n![Workshop equipment](../../assets/images/blog/m7-fixture-workshop.webp)\n\n[Products](/products/)",
       bodyZh: "",
     });
   }
-  await fixtureBuild(fixture, pagingDir);
+  const fixtureImage = new URL(
+    "src/assets/images/blog/m7-fixture-workshop.webp",
+    root,
+  );
+  await writeFile(
+    fixtureImage,
+    await readFile(new URL("src/assets/images/site/factory-01.webp", root)),
+    { flag: "wx" },
+  );
+  try {
+    await fixtureBuild(fixture, pagingDir);
+  } finally {
+    await unlink(fixtureImage);
+  }
   const paginationSeo = await checkSeo(fileURLToPath(pagingDir));
   const paginationLinks = await checkLinks(fileURLToPath(pagingDir));
   assert.deepEqual(paginationSeo.errors, []);

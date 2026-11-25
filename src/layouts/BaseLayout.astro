@@ -4,6 +4,7 @@ import { localeFromPath, localePath, unlocalizedPath } from "../i18n/routing";
 import { site } from "../config/site";
 import { getImage } from "astro:assets";
 import { resolveSiteImage } from "../lib/site-images";
+import { getProducts } from "../lib/products";
 import {
   configuredOrigin,
   organizationData,
@@ -63,12 +64,7 @@ const logoSource = resolveSiteImage(site.logo);
 const logo = logoSource
   ? await getImage({ src: logoSource, width: 256, format: "png" })
   : undefined;
-const organization = organizationData(
-  locale,
-  site,
-  logo && new URL(logo.src, origin).href,
-);
-const shareSource = !og?.image && resolveSiteImage(site.ogImage);
+const shareSource = resolveSiteImage(site.ogImage);
 const defaultShareImage = shareSource
   ? await getImage({
       src: shareSource,
@@ -78,14 +74,25 @@ const defaultShareImage = shareSource
       format: "webp",
     })
   : undefined;
-const shareImage = new URL(
-  og?.image ?? defaultShareImage?.src ?? "/og-default.jpg",
-  origin,
-).href;
+const defaultShareUrl =
+  defaultShareImage && new URL(defaultShareImage.src, origin).href;
+const shareImage = og?.image ? new URL(og.image, origin).href : defaultShareUrl;
+const organization = organizationData(
+  locale,
+  site,
+  logo && new URL(logo.src, origin).href,
+  defaultShareUrl,
+);
+const publishedSlugs = (await getProducts())
+  .map(({ data }) => data.slug)
+  .join(" ");
 ---
 
 <!doctype html>
-<html lang={locale === "zh" ? "zh-CN" : "en"}>
+<html
+  lang={locale === "zh" ? "zh-CN" : "en"}
+  data-inquiry-slugs={publishedSlugs}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -104,7 +111,7 @@ const shareImage = new URL(
       property="og:description"
       content={og?.description ?? pageDescription}
     />
-    <meta property="og:image" content={shareImage} />
+    {shareImage && <meta property="og:image" content={shareImage} />}
     <meta property="og:url" content={canonicalUrl} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={og?.title ?? pageTitle} />
@@ -112,7 +119,7 @@ const shareImage = new URL(
       name="twitter:description"
       content={og?.description ?? pageDescription}
     />
-    <meta name="twitter:image" content={shareImage} />
+    {shareImage && <meta name="twitter:image" content={shareImage} />}
     <JsonLd data={organization} />
     <JsonLd data={structuredData} />
     {(noindex || blockIndexing) && (

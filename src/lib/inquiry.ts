@@ -17,6 +17,7 @@ export const INQUIRY_CHANGE_EVENT = "inquiry:change";
 let items: InquiryItem[] = [];
 let initialized = false;
 let storage: Storage | null = null;
+let publishedSlugs: Set<string> | undefined;
 
 export function readInquiryProduct(value: unknown): InquiryProduct | undefined {
   if (!value || typeof value !== "object") return;
@@ -61,7 +62,8 @@ function normalize(value: unknown): InquiryItem[] {
   const result: InquiryItem[] = [];
   for (const candidate of value) {
     const product = readInquiryProduct(candidate);
-    if (!product) continue;
+    if (!product || (publishedSlugs && !publishedSlugs.has(product.slug)))
+      continue;
     // 保留旧版本的正整数数量；缺少字段和显式 null 都归一为待商议。
     const quantity =
       (candidate as InquiryProduct & { quantity?: unknown }).quantity ?? null;
@@ -80,6 +82,13 @@ function normalize(value: unknown): InquiryItem[] {
 function initialize(): void {
   if (initialized || typeof window === "undefined") return;
   initialized = true;
+  // 以当前页面的已发布目录为准，过滤旧清单与浏览器返回缓存中的下架条目。
+  const slugs =
+    typeof document === "undefined"
+      ? undefined
+      : document.documentElement.dataset.inquirySlugs;
+  if (slugs !== undefined)
+    publishedSlugs = new Set(slugs ? slugs.split(" ") : []);
   // localStorage 属性访问也可能抛错；读取失败后只保留当前页面内存。
   try {
     storage = window.localStorage;
@@ -136,6 +145,7 @@ export function addItem(product: InquiryProduct): boolean {
   if (
     typeof window === "undefined" ||
     !normalized ||
+    (publishedSlugs && !publishedSlugs.has(normalized.slug)) ||
     items.some(({ slug }) => slug === product.slug)
   ) {
     return false;

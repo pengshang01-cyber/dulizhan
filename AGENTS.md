@@ -86,14 +86,14 @@ docs/
   reviews/M<编号>/        # 本里程碑的截图
 ```
 
-分类、产品通过 Astro Content Collections 读取并校验。CMS 引用字段保存 `<id>.json`，schema 统一转换为 id；没有产品的分类不展示、不生成页面。首页只展示 showOnHome 且有产品的分类，最多 6 个。上传图片路径相对 JSON 文件，按 `.pages.yml` 与 `docs/CMS.md` 维护，不用外部图片冒充实拍。
+分类、产品通过 Astro Content Collections 读取并校验。CMS 引用字段保存 `<id>.json`，schema 统一转换为 id。暂时隐藏的产品资料保留；没有已发布产品的分类不展示、不生成页面。首页只展示 showOnHome 且有已发布产品的分类，最多 6 个。上传图片路径相对 JSON 文件，按 `.pages.yml` 与 `docs/CMS.md` 维护。
 
 工作记录一律放在 `docs/notes/`，文件名使用英文，内容可以用中文；根目录不再放历史事件、当前状态或项目关键决策文件。开始任务时读取 `docs/notes/status.md`、`docs/notes/decisions.md`；历史只按需检索，不重写历史。
 
 ## 5. 截图规则（审核用）
 
 - Lighthouse 原始 HTML / JSON 报告保留在已忽略的 `docs/reviews/<里程碑>/lighthouse/`，不要提交；审核报告只记录分数表、环境和必要结论。
-- 网站设置中的 logo、ogImage、homeHeroImage / homeHeroAlt、aboutGallery、factoryVideoPoster 是对应页面图片的唯一编辑来源；空值使用既有回退，上传统一放 src/assets/images/site，由 astro:assets 输出。图库顺序遵循数据，说明使用双语结构。
+- 网站设置中的 logo、ogImage、homeHeroImage / homeHeroAlt、aboutGallery、factoryVideoPoster 是对应页面图片的唯一编辑来源。首页主图、工厂图库及默认分享图缺资料时省略。上传统一放 src/assets/images/site，由 astro:assets 输出。图库顺序遵循数据，说明使用双语结构。
 
 能运行 Playwright 时，每个里程碑对本次新增 / 改动的页面截图，存到 `docs/reviews/M<编号>/`：
 
@@ -115,6 +115,6 @@ docs/
 - Eyebrow 小号大写、字距约 `0.2em`；小字用 copper-dark 保证 paper 背景下对比度，左侧 24px 细线用 copper；深色区块内文字用 cream 保持可读性。CheckList 使用 copper 细边框方框和勾号。
 - Header 为 cream 半透明吸顶样式，当前导航为 copper 文字及细下划线；手机导航保持独立的 `Mobile` 标签。TopBar 从 `site.topBarItems` 读取，隐藏 TODO 项，手机仅显示第一条有效项。
 - StatsBar 从 `site.stats` 数组读取，白底、衬线数字、大写标签、竖线分隔，手机两列；缺标签或数值的指标从公开页面省略。
-- 产品实拍未提供时继续使用带 `Placeholder` 字样的新配色本地占位图，不复制参考站图片，不用 AI 产品图冒充实拍。所有页面保持 375px 下无横向溢出。
+- 待补产品实拍时在 CMS 开启“暂时隐藏”。公开页面使用已核对的图片，`seo:check` 拦截占位图，内部样式指南可用于检查占位。所有页面保持 375px 下无横向溢出。
 
 博客每页九篇，按发布日期倒序；相关文章引用产品 slug。正文使用构建时 Markdown 渲染，不增加客户端渲染框架；封面与正文图必须经 astro:assets，首屏主图 eager / high，其他 lazy，并保留宽高。英文字体只引入使用的字重与 Latin 子集。调整数据后可运行 todo:report，禁止手改或删掉自动区域标记来掩盖待补资料。

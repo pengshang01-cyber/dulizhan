@@ -522,7 +522,8 @@ async function run() {
   );
 
   if (!planOnly) {
-    async function existingMedia(path: string): Promise<{
+    async function existingContent(path: string): Promise<{
+      draft?: boolean;
       image?: string;
       imageAlt?: unknown;
       images?: unknown[];
@@ -544,7 +545,7 @@ async function run() {
     for (const [index, category] of importCategories.entries()) {
       const [id, en, zh, aboutEn, aboutZh] = category;
       const path = `src/content/categories/${id}.json`;
-      const media = await existingMedia(path);
+      const media = await existingContent(path);
       await json(path, {
         label: bilingual(en, zh),
         summary: bilingual(aboutEn, aboutZh),
@@ -556,10 +557,11 @@ async function run() {
     }
     for (const entry of entries) {
       const path = `src/content/products/${entry.slug}.json`;
-      const media = await existingMedia(path);
+      const { draft, images } = await existingContent(path);
       await json(path, {
         ...entry,
-        images: media.images?.length ? media.images : entry.images,
+        images: images?.length ? images : entry.images,
+        draft,
       });
     }
   }

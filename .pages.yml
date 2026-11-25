@@ -719,6 +719,11 @@ content:
             description: 选填；中文留空时回退显示英文。
             type: text
             default: ""
+      - name: draft
+        label: 暂时隐藏（不在网站显示）
+        description: 缺真实产品图时打开。补齐产品图并移除占位图后，关闭开关、保存并等构建通过即可重新上线。
+        type: boolean
+        default: false
       - name: featured
         label: 精选产品
         description: 勾选后标记为精选；是否展示由对应页面决定。
@@ -1015,19 +1020,19 @@ content:
           media: site
       - name: ogImage
         label: 默认分享图
-        description: 建议 1200 × 630；用于没有专属分享图的页面。留空时使用默认占位分享图。
+        description: 建议 1200 × 630；用于没有专属分享图的页面及 Organization 图片。留空时不展示默认分享图。
         type: image
         options:
           media: site
       - name: homeHeroImage
         label: 首页主图
-        description: 建议 1600 × 1200，比例 4:3；上传真实主打产品或产品组合。留空时显示现有 Placeholder。
+        description: 上传真实厂房外景，建议长边 1920 像素、横构图，保留两栋厂房与招牌。留空时隐藏主图。
         type: image
         options:
           media: site
       - name: homeHeroAlt
         label: 首页主图说明
-        description: 简短描述图中真实内容，供读屏和图片无法显示时使用；填写中文时也请填写英文，中文留空回退英文。整组留空时使用页面通用说明。
+        description: 简短描述图中真实内容，供读屏和图片无法显示时使用；填写中文时也请填写英文，中文留空回退英文。
         type: object
         fields:
           - name: en
@@ -1040,7 +1045,7 @@ content:
             default: ""
       - name: aboutGallery
         label: 关于我们车间与设备照片
-        description: 可添加、删除、拖动排序；显示顺序与此处一致。建议 1600 × 1067，比例 3:2。删除全部条目后恢复原有四张占位图。
+        description: 第一张放完整厂房外景，其余按展示顺序排列。车间照片建议 1600 × 1067。列表为空时隐藏图片区。
         type: object
         list: true
         fields:

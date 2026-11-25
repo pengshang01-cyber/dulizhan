@@ -5,6 +5,8 @@ import { configuredOrigin, permanentlyNoindex } from "./src/lib/seo";
 import { site } from "./src/config/site";
 import { localized404 } from "./scripts/static-404";
 import { indexingIntegration } from "./scripts/indexing";
+import { fileURLToPath } from "node:url";
+import { checkSeo } from "./scripts/seo-check";
 
 const siteUrl = configuredOrigin(site.domain);
 
@@ -32,6 +34,20 @@ export default defineConfig({
       : []),
     indexingIntegration(site.allowIndexing, site.domain),
     localized404(),
+    {
+      name: "public-image-check",
+      hooks: {
+        "astro:build:done": async ({ dir }) => {
+          const { publicPlaceholderImages } = await checkSeo(
+            fileURLToPath(dir),
+          );
+          if (publicPlaceholderImages.length)
+            throw new Error(
+              "公开页面引用了占位图：\n" + publicPlaceholderImages.join("\n"),
+            );
+        },
+      },
+    },
   ],
   vite: { plugins: [tailwindcss()] },
 });

@@ -27,6 +27,8 @@ function text(node: Node): string {
 const attr = (node: Element, key: string) =>
   node.attrs.find(({ name }) => name === key)?.value ?? "";
 const normalized = (value: string) => value.trim().replace(/\s+/g, " ");
+const placeholderImagePath =
+  /(?:[^/\s"'<>()?,#]*placeholder[^/\s"'<>()?,#]*\.(?:avif|gif|jpe?g|png|svg|webp)|og-default\.jpg)(?=$|[\s"'<>()?,#])/i;
 function routeFor(file: string) {
   const path = "/" + file.replaceAll("\\", "/");
   return path.endsWith("/index.html") ? path.slice(0, -10) : path;
@@ -64,13 +66,15 @@ export async function checkSeo(directory: string) {
   let jsonLdCount = 0;
   let alternateCount = 0;
   let publicPlaceholderPages = 0;
+  const publicPlaceholderImages: string[] = [];
   for (const file of htmlFiles) {
     const route = routeFor(relative(directory, file));
     const html = await readFile(file, "utf8");
     const document = parse(html);
     const nodes = elements(document);
+    const publicPage = !/^\/(?:zh\/)?style-?guide$/.test(routeKey(route));
     if (
-      !/^\/(?:zh\/)?style-?guide$/.test(routeKey(route)) &&
+      publicPage &&
       (hasPlaceholder(html) ||
         hasPlaceholder(text(document)) ||
         nodes.some(({ attrs }) =>
@@ -79,6 +83,25 @@ export async function checkSeo(directory: string) {
     ) {
       publicPlaceholderPages++;
       errors.push(`${route}: 公开 HTML 含未填写的占位`);
+    }
+    if (
+      publicPage &&
+      nodes.some(
+        (node) =>
+          (node.tagName === "img" &&
+            /\bplaceholder\b|占位图/i.test(attr(node, "alt"))) ||
+          node.attrs.some(
+            ({ name, value }) =>
+              name !== "placeholder" && placeholderImagePath.test(value),
+          ) ||
+          (((node.tagName === "script" &&
+            attr(node, "type") === "application/ld+json") ||
+            node.tagName === "style") &&
+            placeholderImagePath.test(text(node))),
+      )
+    ) {
+      publicPlaceholderImages.push(route);
+      errors.push(`${route}: 公开 HTML 引用了占位图`);
     }
     const language = attr(
       nodes.find((node) => node.tagName === "html")!,
@@ -219,6 +242,7 @@ export async function checkSeo(directory: string) {
     noindexPages: noindex.size,
     sitemapPages,
     publicPlaceholderPages,
+    publicPlaceholderImages,
     errors,
     warnings,
   };
@@ -238,6 +262,9 @@ if (
     `Indexing: ${result.noindexPages} noindex pages; ${result.sitemapPages} sitemap page URLs`,
   );
   console.log(`Public placeholders: ${result.publicPlaceholderPages} pages`);
+  console.log(
+    `Public placeholder images: ${result.publicPlaceholderImages.length} pages`,
+  );
   console.log(
     `Result: ${result.errors.length} errors, ${result.warnings.length} warnings`,
   );
