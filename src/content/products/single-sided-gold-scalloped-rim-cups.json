@@ -89,7 +89,28 @@
       "hasLid": false
     }
   ],
-  "colors": [{ "en": "Gold interior", "zh": "金色内壁", "swatch": "#c6a244" }],
+  "colors": [
+    {
+      "en": "Gold interior",
+      "zh": "金色内壁",
+      "swatch": "#c6a244"
+    },
+    {
+      "en": "White exterior",
+      "zh": "白色外壁",
+      "swatch": "#ffffff"
+    },
+    {
+      "en": "Red exterior",
+      "zh": "红色外壁",
+      "swatch": "#c33938"
+    },
+    {
+      "en": "Pink exterior",
+      "zh": "粉色外壁",
+      "swatch": "#d591a8"
+    }
+  ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
   "seoTitle": {

@@ -47,7 +47,7 @@ No text, no logo, no watermark, no props.
 ### A.3 验收清单（逐张做，结果写入 manifest）
 把原图和精修结果并排放在一张对比图上检查：
 - [ ] 形状、杯口、褶数、比例与原图一致
-- [ ] 颜色与原图一致（对比时不要只看缩略图，要放大看）
+- [ ] 对照原图和已确认色样放大检查，实物颜色准确，绿幕偏色已按 A.5 中和
 - [ ] 印花图案、金银光泽没有变化、没有变形或糊掉
 - [ ] 没有多出或缺少产品，数量一致
 - [ ] 背景干净、阴影自然、没有残留文字或杂物
@@ -55,16 +55,23 @@ No text, no logo, no watermark, no props.
 任一项不通过 → 重试（最多 2 次）→ 仍不通过则按 A.4 处理。
 
 ### A.4 退回方案（不使用生成模型）
-用 sharp / Pillow 做：裁切居中、补白边成正方形、色阶与白平衡校正、轻微锐化、背景提亮。产品像素保持原样。
+用 sharp / Pillow 做：裁切居中、补白边成正方形、色阶与白平衡校正、轻微锐化、背景提亮。保留实拍的轮廓、褶纹、印花和光泽。
+
+### A.5 绿幕反光处理（必做）
+
+1. 原图背景为绿色，或实物有绿色偏色时，先对产品区域作传统去溢色（despill）。用通道或局部白平衡校正中和反光，重点检查杯口、内壁、褶纹阴影、金属反光及外轮廓一圈。保持原像素位置、印花细节和反光层次，全程使用原照，禁止用生成模型重绘产品来去绿。
+2. 逐图核对 SKU、材质、工艺和款式。产品上的绿色只有在工厂确认的图册或规格表中能找到该款绿色或绿色印花时才可保留，记录所依据的页面、行号或色样。其余绿色按反光处理。去绿后无法辨认的外壁原色或印花列入审核报告，待补可核实原照。
+3. 放大检查颜色和质感。金色应与确认的金箔色一致，白色应为中性白。单面金分开校正金色内壁和实际外壁色。双面金里外均校正到金箔反光。检查去绿后是否残留青边、灰斑或异常色块，保留确定的实物原色。
+4. 全站排查时在产品蒙版内统计绿色疑似像素占比，另按实拍、尺寸对比和场景逐图复核。统计用于找疑点，实物色样和目视核对决定是否修复。记录原图、清理后的图和核对结论。
 
 ## B. 成品展示图（尺寸受控）
 
-先锁定实物尺寸和外观，再生成装着食物的自然画面。逐图检查尺寸、产品保真与摄影质感，合格后交工厂审核。
+先锁定实物尺寸和外观，再生成装着食物的自然画面。尺寸对比、锚定图和成品展示只能使用通过 A.5 核对的实拍作为参考。新图保持实拍的形状、开口方向和摆放姿态。逐图检查尺寸、产品保真与摄影质感，合格后交工厂审核。
 
 ### B.0 第一步：用代码制作尺寸锚定图
 
 1. 尺寸以 `data-import/product-specs-2026.xlsx` 和网站产品数据为准，图册用来核对形状与视角。每款有一张已核实规格的尺寸对比图即可，已有核实对比图可以保留。缺对应实拍的规格以尺寸表为准，禁止缩放其他规格照片代替。为试点的明确规格重排锚定图。
-2. 使用相应规格的精修实拍，沿产品轮廓抠取并等比缩放。按同一像素/毫米比例放置产品与参照物。选择照片中可量的直径、边长、对角线或高度，避免从透视照片反推隐藏尺寸。
+2. 使用对应规格且通过 A.5 去绿核对的精修实拍，沿完整产品轮廓抠取并等比缩放。以能核实杯口和支撑面的姿态展示，保留原实拍方向。按同一像素/毫米比例放置产品与参照物。选择照片中可量的直径、边长、对角线或高度，避免从透视照片反推隐藏尺寸。
 3. 选择 B.3 中会在成图自然出现的参照物。道具可由模型生成单品图，再用代码按标称毫米数排版。鸡蛋只用于锚定或尺寸对比。
 4. 在白色或浅暖灰底上把产品与道具并排，标明产品规格、量测轴及厘米刻度。输出 1600×1200 PNG 工作图与 1200×900 WebP。
 5. 在工作图和输出图的对应像素轴复核产品、参照物及其比例。最大绝对误差须 ≤3%。
@@ -74,7 +81,7 @@ No text, no logo, no watermark, no props.
 
 **做法 2：以尺寸锚定图和精修实拍图为参考整图生成**
 
-1. 同时输入 B.0 的对应规格锚定图和精修实拍。用锚定图控制参照物比例，用实拍约束轮廓、杯口、褶纹、颜色、印花和材质。
+1. 同时输入 B.0 的对应规格锚定图和通过 A.5 去绿核对的精修实拍。用锚定图控制参照物比例，用实拍约束轮廓、开口方向、摆放姿态、杯口、褶纹、颜色、印花和材质。
 2. 近景展示一件装着食物的产品。陈列在烘焙柜台或托盘上布置多件同款，每件都装着食物。按 B.2 选择食物，杯或盒要实际承装食物。
 3. 将同款参照物自然纳入构图。注明产品的真实尺寸、参照物标称尺寸、可比较的深度和测量轴，并写明 “true-to-life scale”。
 4. 生成后按 B.4 验收尺寸、产品身份和画面。
@@ -82,7 +89,7 @@ No text, no logo, no watermark, no props.
 ```
 Make a polished bakery editorial photograph of the exact filled product.
 Image 1 is the scale reference with a 14 cm teaspoon. Image 2 is the product appearance reference.
-Preserve shape, rim, pleats, color, print and finish. Product dimensions: {cm}. Match the reference ratio at comparable depth for true-to-life scale.
+Preserve the exact silhouette, rim, pleats, opening direction, upright posture, print and finish in the corrected product photo. Use the verified material and colors, including the correct inside and outside of each cup. Product dimensions: {cm}. Match the reference ratio at comparable depth for true-to-life scale.
 Show {one item in close-up or a group on a tray}, each holding {size-appropriate food}. Place the fully visible teaspoon naturally on the surface.
 Give the product visual priority with refined food styling, soft daylight, consistent contact shadows and a gently softened background. No scales, text, logos or recognizable faces.
 ```
@@ -120,7 +127,7 @@ Give the product visual priority with refined food styling, soft daylight, consi
 2. 最大绝对偏差 ≤15%，且以下画面检查全部通过，才可交审核。任一项失败则作废，单张最多重试 3 次。
 3. `data-import/scene-scale-check.csv` 逐图记录产品和参照物的量测轴、参照物标称值、各自像素长度、换算尺寸、规格值、偏差及结果。manifest 同步记录来源、提示词、轮次和验收。
 
-- **产品保真**：杯型、杯口、褶纹、颜色、印花、材质和包装开窗与实拍一致。
+- **产品保真**：杯型、开口方向、摆放姿态、杯口、褶纹、颜色、印花、材质和包装开窗与通过 A.5 核对的实拍一致。放大核对杯沿与内外壁，核实绿色的实物依据。
 - **承装效果**：食物大小符合规格，位于杯或盒内。陈列的各件均装着食物。
 - **摄影质感**：产品为视觉中心，构图有主次。用自然光、浅景深及精致可口的食物呈现烘焙店商品摄影质感，并让产品测量轴与参照物清晰可见。窗光、阴影、反光、透视和承托面统一，参照物自然融入画面。
 - **画面检查**：放大看轮廓与接触阴影，排除测量板、贴图感、异常餐具、文字、品牌与可识别人脸。

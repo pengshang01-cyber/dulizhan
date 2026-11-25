@@ -470,6 +470,11 @@
     "milestones": ["M15"]
   },
   {
+    "name": "m15-detail-boat",
+    "path": "/zh/products/pet-coated-baking-cups/pet-coated-boat-cups/",
+    "milestones": ["M15"]
+  },
+  {
     "name": "m15-category-rolled-rim",
     "path": "/products/rolled-rim-baking-cups/",
     "milestones": ["M15"]

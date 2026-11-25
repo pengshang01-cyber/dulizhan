@@ -9,13 +9,6 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/mushroom-baking-cups-m15-photo.webp",
-      "alt": {
-        "en": "PET-Coated Mushroom Baking Cups in size Large",
-        "zh": "PET 淋膜蘑菇杯（Large 原照）"
-      }
-    },
-    {
       "image": "../../assets/images/products/mushroom-baking-cups-01.webp",
       "alt": {
         "en": "PET-Coated Mushroom Baking Cups — purple cup with a light rim",
@@ -28,30 +21,6 @@
         "en": "PET-Coated Mushroom Baking Cups — yellow cup with a light rim",
         "zh": "PET 淋膜蘑菇杯，浅色杯口黄色蘑菇杯"
       }
-    },
-    {
-      "image": "../../assets/images/products/mushroom-baking-cups-large-m15-size-comparison.webp",
-      "alt": {
-        "en": "Large configuration next to a 5.7 cm egg",
-        "zh": "Large 规格与 5.7 厘米鸡蛋对照"
-      },
-      "sizeComparison": true
-    },
-    {
-      "image": "../../assets/images/products/mushroom-baking-cups-m15-scene-01.webp",
-      "alt": {
-        "en": "A small chocolate lava cake in PET-Coated Mushroom Baking Cups beside a teaspoon",
-        "zh": "PET 淋膜蘑菇杯盛放巧克力熔岩小蛋糕，旁边是茶匙"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/mushroom-baking-cups-m15-scene-02.webp",
-      "alt": {
-        "en": "A small chocolate lava cake in PET-Coated Mushroom Baking Cups on a bakery tray",
-        "zh": "PET 淋膜蘑菇杯盛放巧克力熔岩小蛋糕，烘焙陈列"
-      },
-      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
