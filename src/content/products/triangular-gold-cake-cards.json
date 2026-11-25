@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/triangular-gold-cake-cards-01.webp",
+      "image": "../../assets/images/products/triangular-gold-cake-cards-m16-photo.webp",
       "alt": {
-        "en": "Triangular Gold Cake Cards — large triangular gold cake card",
-        "zh": "三角形金卡垫，大三角金卡垫"
+        "en": "Triangular gold cake card with a single tab, viewed from above",
+        "zh": "上方俯拍的三角形金卡垫，边缘带拉耳"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Triangular Gold Cake Cards — small triangular gold cake card",
         "zh": "三角形金卡垫，小三角金卡垫"
       }
+    },
+    {
+      "image": "../../assets/images/products/triangular-gold-cake-cards-118-x-78-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "118 × 78 mm shown beside a fork (19 cm)",
+        "zh": "118 × 78 mm 规格与餐叉（19 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/triangular-gold-cake-cards-m16-scene-01.webp",
+      "alt": {
+        "en": "Triangular Gold Cake Cards serving a tiny whole triangular apricot mousse cake about 79 × 49 mm contained entirely inside the card perimeter",
+        "zh": "三角形金卡垫展示杏桃三角慕斯蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/triangular-gold-cake-cards-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Triangular Gold Cake Cards on a bakery counter",
+        "zh": "两份杏桃三角慕斯蛋糕使用三角形金卡垫陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/mini-rectangular-paper-boxes-01.webp",
+      "image": "../../assets/images/products/mini-rectangular-paper-boxes-m16-photo.webp",
       "alt": {
-        "en": "Mini Rectangular Paper Cake Boxes — mini rectangular coated paper box",
-        "zh": "迷你长方纸盒，迷你长方纸盒"
+        "en": "Open mini rectangular paper box, viewed from above",
+        "zh": "俯视开口朝上的迷你长方形纸盒"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Mini Rectangular Paper Cake Boxes — mini rectangular opening from above",
         "zh": "迷你长方纸盒，迷你长方开口俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/mini-rectangular-paper-boxes-mini-110-x-65-x-40-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "Mini · 110 × 65 × 40 mm shown beside an egg (5.7 cm)",
+        "zh": "迷你 · 110 × 65 × 40 mm 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/mini-rectangular-paper-boxes-m16-scene-01.webp",
+      "alt": {
+        "en": "Mini Rectangular Paper Cake Boxes serving a small whole rectangular 62 × 30 mm lemon-poppyseed cake",
+        "zh": "迷你长方纸盒展示柠檬罂粟籽小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/mini-rectangular-paper-boxes-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Mini Rectangular Paper Cake Boxes on a bakery counter",
+        "zh": "两份柠檬罂粟籽小蛋糕使用迷你长方纸盒陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": {

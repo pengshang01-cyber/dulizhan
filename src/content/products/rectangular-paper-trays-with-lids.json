@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/rectangular-paper-trays-with-lids-01.webp",
+      "image": "../../assets/images/products/rectangular-paper-trays-with-lids-m16-photo.webp",
       "alt": {
-        "en": "Rectangular Paper Trays with Lids — kraft-colored rectangular paper tray",
-        "zh": "长方形纸塑盒，牛皮色长方纸塑盒"
+        "en": "Pink gingham rectangular paper tray with fitted transparent lid",
+        "zh": "配透明盖的粉白格长方形纸塑盒"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Rectangular Paper Trays with Lids — clear lid for the rectangular tray",
         "zh": "长方形纸塑盒，长方纸塑盒配用的透明盖"
       }
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-trays-with-lids-190-x-85-mm-top-pink-gingham-m16-size-comparison.webp",
+      "alt": {
+        "en": "190 × 85 mm top · pink gingham shown beside an egg (5.7 cm)",
+        "zh": "190 × 85 mm 盒口 · 粉白格 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-trays-with-lids-m16-scene-01.webp",
+      "alt": {
+        "en": "Rectangular Paper Trays with Lids serving a whole 153 × 54 mm raspberry and vanilla roll cake under the authentic fitted transparent lid",
+        "zh": "长方形纸塑盒展示覆盆子香草蛋糕卷"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-trays-with-lids-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Rectangular Paper Trays with Lids on a bakery counter",
+        "zh": "两份覆盆子香草蛋糕卷使用长方形纸塑盒陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

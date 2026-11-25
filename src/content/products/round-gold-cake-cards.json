@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/round-gold-cake-cards-01.webp",
+      "image": "../../assets/images/products/round-gold-cake-cards-m16-photo.webp",
       "alt": {
-        "en": "Round Gold Cake Cards — large round gold cake card with tab",
-        "zh": "圆形金卡垫，带手柄的大圆形金卡垫"
+        "en": "Round gold cake card with a tab, viewed from above",
+        "zh": "有圆形拉耳的金色圆形蛋糕底卡俯拍"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Round Gold Cake Cards — small round gold cake card with tab",
         "zh": "圆形金卡垫，带手柄的小圆形金卡垫"
       }
+    },
+    {
+      "image": "../../assets/images/products/round-gold-cake-cards-90-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "Ø 90 mm shown beside a fork (19 cm)",
+        "zh": "Ø 90 mm 规格与餐叉（19 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/round-gold-cake-cards-m16-scene-01.webp",
+      "alt": {
+        "en": "Round Gold Cake Cards serving one whole 66 mm round pistachio and raspberry entremet",
+        "zh": "圆形金卡垫展示开心果覆盆子小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/round-gold-cake-cards-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Round Gold Cake Cards on a bakery counter",
+        "zh": "两份开心果覆盆子小蛋糕使用圆形金卡垫陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

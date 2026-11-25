@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/square-gold-cake-cards-01.webp",
+      "image": "../../assets/images/products/square-gold-cake-cards-m16-photo.webp",
       "alt": {
-        "en": "Square Gold Cake Cards — large square gold cake card",
-        "zh": "正方形金卡垫，大正方金卡垫"
+        "en": "Gold near-square cake card with a side tab, viewed from above",
+        "zh": "上方俯拍的金色方形蛋糕底卡，边缘带小拉耳"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Square Gold Cake Cards — small square gold cake card",
         "zh": "正方形金卡垫，小正方金卡垫"
       }
+    },
+    {
+      "image": "../../assets/images/products/square-gold-cake-cards-90-x-82-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "90 × 82 mm shown beside a fork (19 cm)",
+        "zh": "90 × 82 mm 规格与餐叉（19 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/square-gold-cake-cards-m16-scene-01.webp",
+      "alt": {
+        "en": "Square Gold Cake Cards serving one whole 65 mm square pistachio mousse cake",
+        "zh": "正方形金卡垫展示开心果慕斯小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/square-gold-cake-cards-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Square Gold Cake Cards on a bakery counter",
+        "zh": "两份开心果慕斯小蛋糕使用正方形金卡垫陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

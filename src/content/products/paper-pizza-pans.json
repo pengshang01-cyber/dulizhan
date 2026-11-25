@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/paper-pizza-pans-01.webp",
+      "image": "../../assets/images/products/paper-pizza-pans-m16-photo.webp",
       "alt": {
-        "en": "Paper Pizza Pans — round pizza pan with a patterned side",
-        "zh": "纸质披萨盘，印花侧壁圆形披萨盘"
+        "en": "Shallow fluted paper pizza pan, open side up",
+        "zh": "开口朝上的浅褶纹纸质披萨盘"
       }
     },
     {
@@ -21,6 +21,22 @@
         "en": "Paper Pizza Pans — round pizza pan from above",
         "zh": "纸质披萨盘，圆形披萨纸盘俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/paper-pizza-pans-6-in-140-mm-base-20-mm-wall-m16-size-comparison.webp",
+      "alt": {
+        "en": "6 in · Ø 140 mm base, 20 mm wall shown beside an egg (5.7 cm)",
+        "zh": "6 英寸 · Ø 140 mm 底径，20 mm 高 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/paper-pizza-pans-m16-scene-01.webp",
+      "alt": {
+        "en": "Paper Pizza Pans serving one whole 115–120 mm miniature Margherita pizza",
+        "zh": "纸质披萨盘展示迷你玛格丽特披萨"
+      },
+      "scene": "closeup"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
