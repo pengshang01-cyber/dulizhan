@@ -6,6 +6,7 @@
 
 - [x] 已填写公司资料、网站 Logo、公开联系方式、微信二维码和正式域名。
 - [x] M17 已准备工厂实拍首页主图、关于页首图和分享图。公开目录收录 102 款有图产品，25 款缺图产品在后台暂时隐藏。部署后可按原网址检查。详见 [M17 审核报告](reviews/M17.md)。
+- [x] M17 的 Workers 预览已核对双语页面和 Turnstile 控件渲染。正式站的真实收件按下方步骤验收。
 - [ ] 工厂核对隐私政策的主体名称、联系方式和数据用途，确认后请维护同事移除模板提示。中英文两版都要核对。
 - [ ] 在 Cloudflare Turnstile 核对询盘组件已授权主机名 `junbeili.com`。对应组件的 Site key 填在 Workers Builds 的 `PUBLIC_TURNSTILE_SITE_KEY`，Secret key 填在生产 Worker 的 `TURNSTILE_SECRET_KEY`。
 - [ ] 在 Resend 核对发件域名 `junbeili.com` 显示 **Verified**。生产 Worker 的 `INQUIRY_FROM_EMAIL` 和 `INQUIRY_TO_EMAIL` 均为 `sales@junbeili.com`。在 Cloudflare 的 **Email → Email Routing** 核对这个地址转发到已验证的工厂邮箱。用正式站的两种语言各试一封并确认收到邮件，再按第 2 节开放收录。 [询盘配置说明](../README.md#询盘表单配置)
