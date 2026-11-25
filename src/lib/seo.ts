@@ -54,6 +54,7 @@ export function organizationData(
   locale: Locale,
   config: SiteConfig = site,
   logo?: string,
+  image?: string,
 ): StructuredData {
   const origin = configuredOrigin(config.domain);
   return {
@@ -62,6 +63,7 @@ export function organizationData(
     ...(origin && { "@id": origin + "/#organization", url: origin + "/" }),
     name: confirmedLocalized(config.companyName, locale),
     logo: config.logo && confirmedText(config.logo) ? logo : undefined,
+    image,
     email: confirmedText(config.email),
     telephone: confirmedText(config.phone),
     address: confirmedLocalized(config.factoryAddress, locale),

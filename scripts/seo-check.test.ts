@@ -55,11 +55,34 @@ describe("built HTML SEO check", () => {
         )
         .replace("Home &amp; products", "Style guide")
         .replace("About our products", "Internal styles")
-        .replace("<h1>Home</h1>", "<h1>Style guide</h1><p>[TODO: Model]</p>"),
+        .replace(
+          "<h1>Home</h1>",
+          '<h1>Style guide</h1><p>[TODO: Model]</p><img src="/image-placeholder.webp">',
+        ),
     );
     const result = await checkSeo(dir);
     expect(result.publicPlaceholderPages).toBe(0);
+    expect(result.publicPlaceholderImages).toEqual([]);
     expect(result.errors).toEqual([]);
+  });
+  it.each([
+    '<img src="/_astro/cup-placeholder.hash.webp">',
+    '<picture><source srcset="/real.webp 1x, /hero-placeholder.png 2x"></picture>',
+    '<meta property="og:image" content="https://example.test/og-default.jpg">',
+    '<script type="application/ld+json">{"image":"/product-placeholder.avif"}</script>',
+    '<video poster="/warehouse-placeholder.jpg"></video>',
+    '<img src="/photo.webp" alt="Placeholder product image">',
+  ])("rejects a public placeholder image reference: %s", async (markup) => {
+    const dir = await fixture(valid.replace("</body>", markup + "</body>"));
+    const result = await checkSeo(dir);
+    expect(result.publicPlaceholderImages).toEqual(["/"]);
+    expect(result.errors).toContain("/: 公开 HTML 引用了占位图");
+  });
+  it("keeps ordinary form hints and real images valid", async () => {
+    const markup =
+      '<input placeholder="e.g. 500"><img src="/factory-exterior.webp" alt="Factory buildings">';
+    const dir = await fixture(valid.replace("</body>", markup + "</body>"));
+    expect((await checkSeo(dir)).errors).toEqual([]);
   });
   it("detects missing and duplicate required elements", async () => {
     const dir = await fixture(

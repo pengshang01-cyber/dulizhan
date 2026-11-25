@@ -110,6 +110,7 @@ const products = defineCollection({
       customOptions: optionalLocalizedText,
       packagingDetails: optionalLocalizedText,
       applications: optionalLocalizedText,
+      draft: z.boolean().default(false),
       featured: z.boolean(),
       order: z.number().int(),
     }),

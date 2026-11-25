@@ -77,12 +77,15 @@ describe("truthful bilingual SEO", () => {
       },
     };
     const logo = new URL("/_astro/fixture-logo.webp", site.domain).href;
+    const image = new URL("/_astro/factory-exterior-share.webp", site.domain)
+      .href;
     const data = JSON.parse(
-      serializeJsonLd(organizationData("en", config, logo)),
+      serializeJsonLd(organizationData("en", config, logo, image)),
     );
     expect(data).toMatchObject({
       "@id": site.domain + "/#organization",
       logo,
+      image,
       sameAs: [
         "https://www.youtube.com/@example-factory",
         "https://www.linkedin.com/company/example-factory/",

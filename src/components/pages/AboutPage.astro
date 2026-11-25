@@ -4,10 +4,6 @@ import type { Locale } from "../../i18n/utils";
 const { locale = "en" } = Astro.props;
 import { t } from "../../i18n/utils";
 import { Image } from "astro:assets";
-import formingImage from "../../assets/images/factory/forming-equipment-placeholder.png";
-import packingImage from "../../assets/images/factory/packing-area-placeholder.png";
-import printingImage from "../../assets/images/factory/printing-workshop-placeholder.png";
-import qualityImage from "../../assets/images/factory/quality-check-placeholder.png";
 import Button from "../Button.astro";
 import CheckList from "../CheckList.astro";
 import Container from "../Container.astro";
@@ -23,31 +19,12 @@ import { resolveSiteImage } from "../../lib/site-images";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const company = confirmedLocalized(site.companyName, locale);
-const placeholderImages = [
-  { image: printingImage, label: t("pages.about.printing_workshop", locale) },
-  { image: formingImage, label: t("pages.about.forming_equipment", locale) },
-  { image: qualityImage, label: t("pages.about.quality_check_area", locale) },
-  { image: packingImage, label: t("pages.about.packing_area", locale) },
-];
-const uploadedImages = site.aboutGallery
-  .map(({ image, caption }) => ({
-    image: resolveSiteImage(image),
-    label: confirmedLocalized(caption, locale),
-  }))
-  .filter((item) => item.image);
-const factoryImages = uploadedImages.length
-  ? uploadedImages.map(({ image, label }) => ({
-      image: image!,
-      label,
-      alt: label ?? "",
-      placeholder: false,
-    }))
-  : placeholderImages.map(({ image, label }) => ({
-      image,
-      label,
-      alt: t("about.factoryImageAlt", locale, { label }),
-      placeholder: true,
-    }));
+const factoryImages = site.aboutGallery.flatMap(({ image, caption }) => {
+  const photo = resolveSiteImage(image);
+  return photo
+    ? [{ image: photo, label: confirmedLocalized(caption, locale) }]
+    : [];
+});
 const team = teamMembers.flatMap(({ name, role, image }) => {
   const member = confirmedLocalized(name, locale);
   const photo = member && resolveSiteImage(image);
@@ -109,43 +86,52 @@ interface Props {
 
   <FactoryTrust locale={locale} certificateId="about-certificates" />
 
-  <section
-    aria-labelledby="factory-images-title"
-    class="bg-paper py-14 sm:py-20"
-  >
-    <Container>
-      <SectionHeading
-        eyebrow={t("pages.about.a_look_inside", locale)}
-        title={t("pages.about.workshop_equipment", locale)}
-        id="factory-images-title"
-      />
-      <div data-about-gallery class="mt-8 grid gap-5 sm:grid-cols-2">
-        {factoryImages.map(({ image, label, alt, placeholder }) => (
-          <figure class="overflow-hidden rounded-panel border border-line bg-white">
-            <Image
-              src={image}
-              alt={alt}
-              widths={[384, 648, 960]}
-              sizes="(min-width: 80rem) 35rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
-              format="webp"
-              loading="lazy"
-              class="aspect-[3/2] w-full object-cover"
-            />
-            {label && (
-              <figcaption class="border-t border-line p-5">
-                <span class="font-display text-card-title">{label}</span>
-                {placeholder && (
-                  <span class="mt-2 block text-xs tracking-[0.1em] text-muted uppercase">
-                    {t("pages.about.placeholder_image", locale)}
-                  </span>
-                )}
-              </figcaption>
-            )}
-          </figure>
-        ))}
-      </div>
-    </Container>
-  </section>
+  {factoryImages.length > 0 && (
+    <section
+      aria-labelledby="factory-images-title"
+      class="bg-paper py-14 sm:py-20"
+    >
+      <Container>
+        <SectionHeading
+          eyebrow={t("pages.about.a_look_inside", locale)}
+          title={t("pages.about.workshop_equipment", locale)}
+          id="factory-images-title"
+        />
+        <div data-about-gallery class="mt-8 grid gap-5 sm:grid-cols-2">
+          {factoryImages.map(({ image, label }, index) => (
+            <figure
+              class:list={[
+                "overflow-hidden rounded-panel border border-line bg-white",
+                index === 0 && "sm:col-span-2",
+              ]}
+            >
+              <Image
+                src={image}
+                alt={label ?? ""}
+                widths={index === 0 ? [384, 648, 960, 1280] : [384, 648, 960]}
+                sizes={
+                  index === 0
+                    ? "(min-width: 80rem) 72rem, calc(100vw - 2.5rem)"
+                    : "(min-width: 80rem) 35rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+                }
+                format="webp"
+                loading="lazy"
+                class:list={[
+                  "block w-full",
+                  index === 0 ? "h-auto" : "aspect-[3/2] object-cover",
+                ]}
+              />
+              {label && (
+                <figcaption class="border-t border-line p-5">
+                  <span class="font-display text-card-title">{label}</span>
+                </figcaption>
+              )}
+            </figure>
+          ))}
+        </div>
+      </Container>
+    </section>
+  )}
 
   {team.length > 0 && (
     <section

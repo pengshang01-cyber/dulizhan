@@ -62,9 +62,18 @@ const previewAddress =
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10", "M11", "M12", "M13", "M14", "M15", "M16"].includes(
-    milestone,
-  ) ||
+  (![
+    "M9",
+    "M9.1",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M17",
+  ].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -96,6 +105,7 @@ try {
           "M14",
           "M15",
           "M16",
+          "M17",
         ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
@@ -545,7 +555,7 @@ try {
           await page.evaluate(() => window.scrollTo(0, 0));
         }
 
-        if (milestone === "M15" || milestone === "M16") {
+        if (["M15", "M16", "M17"].includes(milestone)) {
           if (
             response?.status() !== 200 ||
             (externalPreview &&

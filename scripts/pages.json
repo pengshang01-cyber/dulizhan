@@ -548,5 +548,25 @@
     "name": "m16-detail-bowls",
     "path": "/zh/products/paper-bowls-trays/octagonal-paper-bowls/",
     "milestones": ["M16"]
+  },
+  {
+    "name": "m17-home",
+    "path": "/",
+    "milestones": ["M17"]
+  },
+  {
+    "name": "m17-about-zh",
+    "path": "/zh/about/",
+    "milestones": ["M17"]
+  },
+  {
+    "name": "m17-liners-zh",
+    "path": "/zh/products/cupcake-liners/",
+    "milestones": ["M17"]
+  },
+  {
+    "name": "m17-wrapping-paper",
+    "path": "/products/baking-wrapping-paper/",
+    "milestones": ["M17"]
   }
 ]

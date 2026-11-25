@@ -22,7 +22,9 @@ export async function getCategories(): Promise<ProductCategory[]> {
     .sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
 }
 
-export async function getProducts(): Promise<Product[]> {
+export async function getProducts({
+  includeDrafts = false,
+}: { includeDrafts?: boolean } = {}): Promise<Product[]> {
   const products = await getCollection("products");
   const categories = new Set((await getCategories()).map(({ id }) => id));
   const slugs = new Set<string>();
@@ -36,13 +38,15 @@ export async function getProducts(): Promise<Product[]> {
     slugs.add(data.slug);
     skus.add(data.sku);
   }
-  return products.sort(
-    (a, b) =>
-      a.data.order - b.data.order ||
-      String(localized(a.data.title, "en")).localeCompare(
-        String(localized(b.data.title, "en")),
-      ),
-  );
+  return products
+    .filter(({ data }) => includeDrafts || !data.draft)
+    .sort(
+      (a, b) =>
+        a.data.order - b.data.order ||
+        String(localized(a.data.title, "en")).localeCompare(
+          String(localized(b.data.title, "en")),
+        ),
+    );
 }
 
 export async function getVisibleCategories(): Promise<ProductCategory[]> {

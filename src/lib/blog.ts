@@ -5,7 +5,9 @@ import { visibleBlogPosts } from "./blog-rules";
 export type BlogPost = CollectionEntry<"blog">;
 export async function getBlogPosts(locale: Locale): Promise<BlogPost[]> {
   const posts = await getCollection("blog");
-  const products = new Set((await getProducts()).map(({ data }) => data.slug));
+  const products = new Set(
+    (await getProducts({ includeDrafts: true })).map(({ data }) => data.slug),
+  );
   for (const post of posts) {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.id))
       throw new Error("文章文件名必须是小写字母数字与连字符：" + post.id);

@@ -69,6 +69,36 @@ describe("inquiry list", () => {
     expect(nextPage.getItems()).toEqual([{ ...first, quantity: 12 }]);
   });
 
+  it("excludes unlisted products from saved items, add actions and restored pages", async () => {
+    vi.stubGlobal("document", {
+      documentElement: { dataset: { inquirySlugs: first.slug } },
+    });
+    const saved = [
+      { ...second, quantity: 23 },
+      { ...first, quantity: 12 },
+    ];
+    storage.setItem(key, JSON.stringify(saved));
+    const store = await import("./inquiry");
+    expect(store.getItems()).toEqual([saved[1]]);
+    expect(store.addItem(second)).toBe(false);
+    expect(store.setQuantity(second.slug, 50)).toBe(false);
+    storage.setItem(key, JSON.stringify([saved[0]]));
+    browser.dispatchEvent(
+      Object.assign(new Event("pageshow"), { persisted: true }),
+    );
+    expect(store.getItems()).toEqual([]);
+  });
+
+  it("honors an explicitly empty published catalog", async () => {
+    vi.stubGlobal("document", {
+      documentElement: { dataset: { inquirySlugs: "" } },
+    });
+    storage.setItem(key, JSON.stringify([{ ...first, quantity: null }]));
+    const store = await import("./inquiry");
+    expect(store.getItems()).toEqual([]);
+    expect(store.addItem(first)).toBe(false);
+  });
+
   it.each([0, -1, 1.5, NaN, Infinity, Number.MAX_SAFE_INTEGER + 1])(
     "rejects invalid quantity %s without changing persisted data",
     async (quantity) => {
