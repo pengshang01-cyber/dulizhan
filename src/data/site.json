@@ -26,103 +26,6 @@
     }
   ],
   "domain": "https://junbeili.com",
-  "allowIndexing": false,
-  "email": "sales@junbeili.com",
-  "phone": "+86 189 8862 4435",
-  "whatsappNumber": "+8618988624435",
-  "whatsappPrefillMessage": {
-    "en": "Hi, I'd like to get a quote for your baking cups.",
-    "zh": "你好，我想询问纸杯价格"
-  },
-  "factoryAddress": {
-    "en": "No. 1, Shang'an Industrial Zone 2, Danzao Town, Nanhai District, Foshan, Guangdong, China",
-    "zh": "广东省佛山市南海区丹灶镇上安工业二区一号"
-  },
-  "stockMoq": {
-    "en": "Varies by product, please contact us",
-    "zh": "因产品而异，欢迎咨询"
-  },
-  "customMoq": {
-    "en": "Varies by product, please contact us",
-    "zh": "因产品而异，欢迎咨询"
-  },
-  "sampleLeadTime": {
-    "en": "3–7 working days",
-    "zh": "3–7 个工作日"
-  },
-  "productionLeadTime": {
-    "en": "15–25 working days",
-    "zh": "15–25 个工作日"
-  },
-  "sampleCost": {
-    "en": "Negotiable, please contact us",
-    "zh": "可协商，欢迎咨询"
-  },
-  "paymentTerms": {
-    "en": "30% deposit, 70% balance before shipment",
-    "zh": "30% 定金，70% 发货前付清"
-  },
-  "shippingMethods": {
-    "en": "Sea freight, air freight and express (DHL / FedEx)",
-    "zh": "海运、空运、快递（DHL / FedEx）"
-  },
-  "stats": [
-    {
-      "value": 2002,
-      "label": {
-        "en": "Founded",
-        "zh": "成立年份"
-      }
-    },
-    {
-      "value": "8,000,000",
-      "label": {
-        "en": "Daily Capacity (pcs/day)",
-        "zh": "日产能（个/日）"
-      }
-    },
-    {
-      "value": "30+",
-      "label": {
-        "en": "Export Countries",
-        "zh": "出口国家"
-      }
-    },
-    {
-      "value": "2,000+",
-      "label": {
-        "en": "Colors & Patterns",
-        "zh": "花色款式"
-      }
-    }
-  ],
-  "youtubeVideoId": "TODO_YOUTUBE_VIDEO_ID",
-  "certificates": [
-    {
-      "name": {
-        "en": "TODO_CERTIFICATE_NAME",
-        "zh": ""
-      },
-      "imagePath": ""
-    }
-  ],
-  "socialLinks": {
-    "youtube": "TODO_YOUTUBE_URL",
-    "tiktok": "TODO_TIKTOK_URL",
-    "instagram": "TODO_INSTAGRAM_URL",
-    "facebook": "TODO_FACEBOOK_URL",
-    "pinterest": "TODO_PINTEREST_URL",
-    "linkedin": "TODO_LINKEDIN_URL"
-  },
-  "wechatId": "18988624435",
-  "wechatQr": "../assets/images/site/wechat-qr.png",
-  "replyTime": {
-    "en": "Within 12 hours",
-    "zh": "12 小时内"
-  },
-  "analytics": {
-    "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
-  },
   "logo": "../assets/images/site/junbeili-logo.png",
   "ogImage": "../assets/images/site/factory-exterior-share.webp",
   "homeHeroImage": "../assets/images/site/factory-exterior.webp",
@@ -195,10 +98,99 @@
       }
     }
   ],
-  "factoryVideoPoster": "",
-  "factoryProfile": {
-    "exportRegions": [],
-    "tradeShowPhotos": [],
-    "clientLogos": []
+  "analytics": {
+    "gaMeasurementId": "TODO_GA_MEASUREMENT_ID"
+  },
+  "allowIndexing": true,
+  "email": "sales@junbeili.com",
+  "phone": "+86 189 8862 4435",
+  "whatsappNumber": "+8618988624435",
+  "whatsappPrefillMessage": {
+    "en": "Hi, I'd like to get a quote for your baking cups.",
+    "zh": "你好，我想询问纸杯价格"
+  },
+  "wechatId": "18988624435",
+  "wechatQr": "../assets/images/site/wechat-qr.png",
+  "factoryAddress": {
+    "en": "No. 1, Shang'an Industrial Zone 2, Danzao Town, Nanhai District, Foshan, Guangdong, China",
+    "zh": "广东省佛山市南海区丹灶镇上安工业二区一号"
+  },
+  "stockMoq": {
+    "en": "Varies by product, please contact us",
+    "zh": "因产品而异，欢迎咨询"
+  },
+  "customMoq": {
+    "en": "Varies by product, please contact us",
+    "zh": "因产品而异，欢迎咨询"
+  },
+  "replyTime": {
+    "en": "Within 12 hours",
+    "zh": "12 小时内"
+  },
+  "sampleLeadTime": {
+    "en": "3–7 working days",
+    "zh": "3–7 个工作日"
+  },
+  "productionLeadTime": {
+    "en": "15–25 working days",
+    "zh": "15–25 个工作日"
+  },
+  "sampleCost": {
+    "en": "Negotiable, please contact us",
+    "zh": "可协商，欢迎咨询"
+  },
+  "paymentTerms": {
+    "en": "30% deposit, 70% balance before shipment",
+    "zh": "30% 定金，70% 发货前付清"
+  },
+  "shippingMethods": {
+    "en": "Sea freight, air freight and express (DHL / FedEx)",
+    "zh": "海运、空运、快递（DHL / FedEx）"
+  },
+  "stats": [
+    {
+      "value": "2002",
+      "label": {
+        "en": "Founded",
+        "zh": "成立年份"
+      }
+    },
+    {
+      "value": "8,000,000",
+      "label": {
+        "en": "Daily Capacity (pcs/day)",
+        "zh": "日产能（个/日）"
+      }
+    },
+    {
+      "value": "30+",
+      "label": {
+        "en": "Export Countries",
+        "zh": "出口国家"
+      }
+    },
+    {
+      "value": "2,000+",
+      "label": {
+        "en": "Colors & Patterns",
+        "zh": "花色款式"
+      }
+    }
+  ],
+  "youtubeVideoId": "TODO_YOUTUBE_VIDEO_ID",
+  "certificates": [
+    {
+      "name": {
+        "en": "TODO_CERTIFICATE_NAME"
+      }
+    }
+  ],
+  "socialLinks": {
+    "youtube": "TODO_YOUTUBE_URL",
+    "tiktok": "TODO_TIKTOK_URL",
+    "instagram": "TODO_INSTAGRAM_URL",
+    "facebook": "TODO_FACEBOOK_URL",
+    "pinterest": "TODO_PINTEREST_URL",
+    "linkedin": "TODO_LINKEDIN_URL"
   }
 }
