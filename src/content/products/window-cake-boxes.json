@@ -36,6 +36,22 @@
         "zh": "100 mm 单粒开窗盒盖与长 19 cm 的餐叉对比"
       },
       "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-m14-scene-01.webp",
+      "alt": {
+        "en": "A cupcake inside a kraft window box beside a teaspoon",
+        "zh": "牛皮纸开窗盒内盛有一枚纸杯蛋糕，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/window-cake-boxes-m14-scene-02.webp",
+      "alt": {
+        "en": "Two kraft window boxes each holding a decorated cupcake",
+        "zh": "两个牛皮纸开窗盒分别盛有裱花纸杯蛋糕"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Paperboard", "zh": "卡纸" },

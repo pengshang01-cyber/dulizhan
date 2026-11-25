@@ -24,6 +24,22 @@
         "en": "Single-Sided Gold Flame Baking Cups — gold lining from above",
         "zh": "单面金火焰杯，金色内壁俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-flame-cups-140-m15-size-comparison.webp",
+      "alt": {
+        "en": "140 configuration next to a 5.7 cm egg",
+        "zh": "140 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-flame-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Bite-size chocolate ganache tart in Single-Sided Gold Flame Baking Cups beside a small espresso cup",
+        "zh": "单面金火焰杯盛放巧克力甘纳许小挞，旁边是浓缩咖啡杯"
+      },
+      "scene": "closeup"
     }
   ],
   "material": {

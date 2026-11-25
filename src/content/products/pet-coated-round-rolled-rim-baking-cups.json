@@ -47,6 +47,22 @@
         "zh": "8928 卷口杯杯口与长 5.7 cm 的鸡蛋对比"
       },
       "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-01.webp",
+      "alt": {
+        "en": "Polka-dot cup with a strawberry-topped cupcake beside a teaspoon",
+        "zh": "波点卷口杯中盛放草莓纸杯蛋糕，旁边放着茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-02.webp",
+      "alt": {
+        "en": "Three polka-dot cups with berry cupcakes on a metal tray",
+        "zh": "金属托盘上摆放三只盛有莓果纸杯蛋糕的波点杯"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

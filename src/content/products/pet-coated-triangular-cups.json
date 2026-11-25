@@ -12,6 +12,13 @@
   },
   "images": [
     {
+      "image": "../../assets/images/products/pet-coated-triangular-cups-m15-photo.webp",
+      "alt": {
+        "en": "PET-Coated Triangular Baking Cups in size 125×75×30 mm",
+        "zh": "PET 淋膜三角形纸杯（125×75×30 mm 原照）"
+      }
+    },
+    {
       "image": "../../assets/images/products/pet-coated-triangular-cups-01.webp",
       "alt": {
         "en": "PET-Coated Triangular Baking Cups — printed triangular cup at an angle",
@@ -24,6 +31,22 @@
         "en": "PET-Coated Triangular Baking Cups — triangular opening from above",
         "zh": "PET 淋膜三角形纸杯，三角形杯口俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-triangular-cups-125x75x30-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "125×75×30 mm configuration next to a 5.7 cm egg",
+        "zh": "125×75×30 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-triangular-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Lemon tart with piped meringue in PET-Coated Triangular Baking Cups beside a teaspoon",
+        "zh": "PET 淋膜三角形纸杯盛放柠檬蛋挞，旁边是茶匙"
+      },
+      "scene": "closeup"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

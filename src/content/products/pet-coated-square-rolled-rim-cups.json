@@ -32,6 +32,22 @@
         "zh": "口部 85 × 85 mm 方杯与长 5.7 cm 的鸡蛋对比"
       },
       "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-m14-scene-01.webp",
+      "alt": {
+        "en": "White square cup holding a chocolate-chip muffin beside a teaspoon",
+        "zh": "白色方杯中盛有巧克力豆玛芬，旁边放着茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-square-rolled-rim-cups-m14-scene-02.webp",
+      "alt": {
+        "en": "Two square cups holding chocolate-chip muffins on a tray",
+        "zh": "托盘上摆放两只盛有巧克力豆玛芬的方杯"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

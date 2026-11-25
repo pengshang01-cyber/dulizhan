@@ -24,6 +24,14 @@
         "en": "Rolled-Edge Parchment Basque Liners — folded edge from above",
         "zh": "硅油纸翻边巴斯克纸托，翻边开口俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/rolled-edge-parchment-basque-liners-3-5-in-m15-size-comparison.webp",
+      "alt": {
+        "en": "3.5 in configuration next to a 5.7 cm egg",
+        "zh": "3.5 in 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
     }
   ],
   "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },

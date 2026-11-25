@@ -31,6 +31,30 @@
         "en": "Single-Sided Gold Round Rolled-Rim Cups — white exterior and gold interior",
         "zh": "单面金圆形卷口杯，白色外壁与金色内壁"
       }
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-3830-m15-size-comparison.webp",
+      "alt": {
+        "en": "3830 configuration next to a 5.7 cm egg",
+        "zh": "3830 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A bite-size hazelnut dark chocolate ganache dome in Single-Sided Gold Round Rolled-Rim Cups beside a teaspoon",
+        "zh": "单面金圆形卷口杯盛放榛子黑巧甘纳许，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/single-sided-gold-round-rolled-rim-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A bite-size hazelnut dark chocolate ganache dome in Single-Sided Gold Round Rolled-Rim Cups on a bakery tray",
+        "zh": "单面金圆形卷口杯盛放榛子黑巧甘纳许，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": {

@@ -448,5 +448,65 @@
     "name": "m14-window-box",
     "path": "/products/cake-boxes/window-cake-boxes/",
     "milestones": ["M14"]
+  },
+  {
+    "name": "m15-category-liners",
+    "path": "/products/cupcake-liners/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-liners",
+    "path": "/products/cupcake-liners/printed-cupcake-liners/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-category-pet",
+    "path": "/zh/products/pet-coated-baking-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-pet",
+    "path": "/zh/products/pet-coated-baking-cups/pet-coated-leaf-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-category-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-rolled-rim",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-category-shaped",
+    "path": "/zh/products/tulip-shaped-baking-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-shaped",
+    "path": "/zh/products/tulip-shaped-baking-cups/pet-coated-scalloped-rim-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-category-molded",
+    "path": "/products/muffin-molded-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-molded",
+    "path": "/products/muffin-molded-cups/plain-molded-baking-cups/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-category-basque",
+    "path": "/zh/products/basque-cheesecake-liners/",
+    "milestones": ["M15"]
+  },
+  {
+    "name": "m15-detail-basque",
+    "path": "/zh/products/basque-cheesecake-liners/greaseproof-round-baking-trays/",
+    "milestones": ["M15"]
   }
 ]

@@ -9,6 +9,13 @@
   },
   "images": [
     {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-m15-photo.webp",
+      "alt": {
+        "en": "PET-Coated Scalloped-Rim Cups in size 5045",
+        "zh": "PET 淋膜花边杯（5045 原照）"
+      }
+    },
+    {
       "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-01.webp",
       "alt": {
         "en": "PET-Coated Scalloped-Rim Cups — white scalloped cup at an angle",
@@ -21,6 +28,30 @@
         "en": "PET-Coated Scalloped-Rim Cups — white scalloped opening from above",
         "zh": "PET 淋膜花边杯，白色花边杯俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-5045-m15-size-comparison.webp",
+      "alt": {
+        "en": "5045 configuration next to a 5.7 cm egg",
+        "zh": "5045 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A short raspberry custard tart in PET-Coated Scalloped-Rim Cups beside a teaspoon",
+        "zh": "PET 淋膜花边杯盛放覆盆子卡仕达挞，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/pet-coated-scalloped-rim-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A short raspberry custard tart in PET-Coated Scalloped-Rim Cups on a bakery tray",
+        "zh": "PET 淋膜花边杯盛放覆盆子卡仕达挞，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

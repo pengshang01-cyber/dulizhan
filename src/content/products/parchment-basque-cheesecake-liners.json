@@ -31,6 +31,22 @@
         "en": "Parchment Basque Cheesecake Liners — wide white Basque liner",
         "zh": "硅油纸巴斯克纸托，宽口白色巴斯克纸托"
       }
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-2-5-in-mini-m15-size-comparison.webp",
+      "alt": {
+        "en": "2.5 in · Mini configuration next to a 5.7 cm egg",
+        "zh": "2.5 in · Mini 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/parchment-basque-cheesecake-liners-m15-scene-02.webp",
+      "alt": {
+        "en": "A bite-size burnt Basque cheesecake in Parchment Basque Cheesecake Liners on a bakery tray",
+        "zh": "硅油纸巴斯克纸托盛放一口巴斯克芝士蛋糕，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Silicone-coated paper", "zh": "硅油纸" },

@@ -21,6 +21,14 @@
         "en": "Flame-Shaped Baking Cups — pink cup from the front",
         "zh": "火焰纸杯，粉色火焰杯正视"
       }
+    },
+    {
+      "image": "../../assets/images/products/flame-paper-baking-cups-140-m15-size-comparison.webp",
+      "alt": {
+        "en": "140 configuration next to a 5.7 cm egg",
+        "zh": "140 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

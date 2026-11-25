@@ -24,6 +24,30 @@
         "en": "Double-Sided Gold Rectangular Rolled-Rim Cups — gold outer wall from the side",
         "zh": "双面金长方形卷口杯，金色外壁侧视"
       }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "80×40×40 mm configuration next to a 5.7 cm egg",
+        "zh": "80×40×40 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Chocolate orange mousse bar in Double-Sided Gold Rectangular Rolled-Rim Cups beside a teaspoon",
+        "zh": "双面金长方形卷口杯盛放橙香巧克力慕斯条，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "Chocolate orange mousse bar in Double-Sided Gold Rectangular Rolled-Rim Cups on a bakery tray",
+        "zh": "双面金长方形卷口杯盛放橙香巧克力慕斯条，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": {

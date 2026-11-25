@@ -21,6 +21,22 @@
         "en": "Greaseproof Round Baking Trays — round baking tray interior",
         "zh": "防油纸大圆盘，圆盘内侧俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-baking-trays-4-in-m15-size-comparison.webp",
+      "alt": {
+        "en": "4 in configuration next to a 5.7 cm egg",
+        "zh": "4 in 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-baking-trays-m15-scene-01.webp",
+      "alt": {
+        "en": "A mini burnt Basque cheesecake in Greaseproof Round Baking Trays beside a teaspoon",
+        "zh": "防油纸大圆盘盛放迷你巴斯克焦香芝士蛋糕，旁边是茶匙"
+      },
+      "scene": "closeup"
     }
   ],
   "material": {

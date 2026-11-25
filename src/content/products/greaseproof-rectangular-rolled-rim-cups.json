@@ -24,6 +24,30 @@
         "en": "Greaseproof Rectangular Rolled-Rim Cups — white pleated wall from the side",
         "zh": "防油纸长方形卷口杯，白色折纹杯壁侧视"
       }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "80×40×40 mm configuration next to a 5.7 cm egg",
+        "zh": "80×40×40 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-rectangular-rolled-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A plum and almond financier loaf in Greaseproof Rectangular Rolled-Rim Cups beside a teaspoon",
+        "zh": "防油纸长方形卷口杯盛放李子杏仁费南雪，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-rectangular-rolled-rim-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A plum and almond financier loaf in Greaseproof Rectangular Rolled-Rim Cups on a bakery tray",
+        "zh": "防油纸长方形卷口杯盛放李子杏仁费南雪，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },
