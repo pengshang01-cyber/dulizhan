@@ -9,6 +9,13 @@
   },
   "images": [
     {
+      "image": "../../assets/images/products/lotus-baking-cups-m15-photo.webp",
+      "alt": {
+        "en": "Lotus Baking Cups in size 150",
+        "zh": "莲花杯（150 原照）"
+      }
+    },
+    {
       "image": "../../assets/images/products/lotus-baking-cups-01.webp",
       "alt": {
         "en": "Lotus Baking Cups — natural-color liner with rounded petals",
@@ -28,6 +35,30 @@
         "en": "Lotus Baking Cups — white lotus liner at an angle",
         "zh": "莲花杯，白色莲花杯斜视"
       }
+    },
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-150-m15-size-comparison.webp",
+      "alt": {
+        "en": "150 configuration next to a 5.7 cm egg",
+        "zh": "150 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A pear almond muffin in Lotus Baking Cups beside a teaspoon",
+        "zh": "莲花杯盛放梨子杏仁玛芬，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/lotus-baking-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A pear almond muffin in Lotus Baking Cups on a bakery tray",
+        "zh": "莲花杯盛放梨子杏仁玛芬，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": {

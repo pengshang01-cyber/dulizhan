@@ -8,7 +8,37 @@
     "zh": "普通机制杯，材质为 PE 淋膜口杯纸。"
   },
   "images": [
-    { "image": "../../assets/images/categories/muffin-cups-placeholder.png" }
+    {
+      "image": "../../assets/images/products/plain-molded-baking-cups-m15-photo.webp",
+      "alt": {
+        "en": "Plain Molded Baking Cups in size Small",
+        "zh": "普通机制杯（Small 原照）"
+      }
+    },
+    {
+      "image": "../../assets/images/products/plain-molded-baking-cups-small-m15-size-comparison.webp",
+      "alt": {
+        "en": "Small configuration next to a 5.7 cm egg",
+        "zh": "Small 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/plain-molded-baking-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A blueberry muffin in Plain Molded Baking Cups beside a teaspoon",
+        "zh": "普通机制杯盛放蓝莓玛芬，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/plain-molded-baking-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A blueberry muffin in Plain Molded Baking Cups on a bakery tray",
+        "zh": "普通机制杯盛放蓝莓玛芬，烘焙陈列"
+      },
+      "scene": "display"
+    }
   ],
   "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },
   "gsm": 160,

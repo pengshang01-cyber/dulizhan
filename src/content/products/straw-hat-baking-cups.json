@@ -28,6 +28,30 @@
         "en": "Straw-Hat Baking Cups — white cup at an angle",
         "zh": "草帽纸杯，白色草帽杯斜视"
       }
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-45-x-50-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "45 × 50 mm configuration next to a 5.7 cm egg",
+        "zh": "45 × 50 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A neat mini vanilla custard tart in Straw-Hat Baking Cups beside a teaspoon",
+        "zh": "草帽纸杯盛放迷你香草卡仕达挞，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/straw-hat-baking-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "A neat mini vanilla custard tart in Straw-Hat Baking Cups on a bakery tray",
+        "zh": "草帽纸杯盛放迷你香草卡仕达挞，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },

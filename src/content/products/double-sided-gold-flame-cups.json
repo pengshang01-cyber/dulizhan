@@ -24,6 +24,14 @@
         "en": "Double-Sided Gold Flame Baking Cups — gold lining and pointed corners from above",
         "zh": "双面金火焰杯，金色内壁与尖角俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-flame-cups-140-m15-size-comparison.webp",
+      "alt": {
+        "en": "140 configuration next to a 5.7 cm egg",
+        "zh": "140 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
     }
   ],
   "material": {

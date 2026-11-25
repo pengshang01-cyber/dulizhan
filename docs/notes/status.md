@@ -1,6 +1,6 @@
 # 当前状态
 
-更新：2026-11-24
+更新：2026-11-25
 
 - M8 已通过 PR #15 合并，正式域名为 `https://junbeili.com`。
 - M9 已通过 PR #16 合并，M9.1 已通过 PR #17 合并。[M9 PR](https://github.com/pengshang01-cyber/dulizhan/pull/16) · [M9.1 PR](https://github.com/pengshang01-cyber/dulizhan/pull/17)
@@ -11,6 +11,8 @@
 - M11 已合并。184 个规格编号完成匹配，新增 9 款产品，85 款展示确认色样。[PR #19](https://github.com/pengshang01-cyber/dulizhan/pull/19) · [M11 审核报告](../reviews/M11.md)
 - M12 已合并。实拍精修、图册补图、六组定制示例及工厂图库的审核证据已归档。28 款缺产品图，首页缺工厂外景。[PR #20](https://github.com/pengshang01-cyber/dulizhan/pull/20) · [M12 审核报告](../reviews/M12.md)
 - M13 已合并。五张尺寸对比图保留。工厂反馈原六张成品展示的构图和光影需要重做。[PR #21](https://github.com/pengshang01-cyber/dulizhan/pull/21) · [M13 审核报告](../reviews/M13.md)
-- M14 提交审核。六张无使用引用的旧展示图文件已删除，保留五张原尺寸对比图。三张茶匙锚定图最大偏差 0.068%，六张装食物的候选最大偏差 11.09%。六项检查、GitHub CI 和 Workers 预览通过，补充后的六张预览截图已归档。候选待工厂审核。[PR #22](https://github.com/pengshang01-cyber/dulizhan/pull/22) · [M14 审核报告](../reviews/M14.md)
+- M14 已通过 PR #22 合并。六张无使用引用的旧展示图文件已删除，保留五张原尺寸对比图。三张茶匙锚定图最大偏差 0.068%，六张装食物的候选最大偏差 11.09%。六项检查、GitHub CI 和 Workers 预览通过，补充后的六张预览截图已归档。试点六张图已获工厂审核。[PR #22](https://github.com/pengshang01-cyber/dulizhan/pull/22) · [M14 审核报告](../reviews/M14.md)
 - 圆杯添加双语波点图案并以图库已有波点图作首图。工厂确认五个缺独立照片的规格以尺寸表为准，关闭 M13 补拍待确认项。
+- M15 核查六类 88 款，新增 28 张尺寸对比图与 38 张成品示意，复用 M14 的 6 张已审核图。杯类 15 款有近景和陈列，12 款有一张通过。24 张 Workers 双视口截图已归档。 [M15 审核报告](../reviews/M15.md) · [M15 PR](https://github.com/pengshang01-cyber/dulizhan/pull/23)
+- M15 审核轮已逐查 322 个图片文件。13 张传统去绿、1 张换同规格实拍、26 张重排尺寸对比、33 张重生成场景，16 张旧图撤下。船型杯待一张开口朝上且完整的同规格原照。详见 [M15 审核报告](../reviews/M15.md)。
 - 工厂继续按 M12 缺图名单补实拍，核对规格和缺型号项。资料齐全后按 `docs/LAUNCH.md` 操作，当前收录开关为 `false`。

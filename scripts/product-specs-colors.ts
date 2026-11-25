@@ -487,11 +487,29 @@ const selections = [
 export type CatalogColor = ReturnType<typeof color>;
 export function confirmedColors(slug: string) {
   const evidence = selections.filter(({ slugs }) => slugs.includes(slug));
+  const keys = new Set(evidence.flatMap(({ colors }) => colors));
+  const sources = evidence.map(({ source }) => source);
+
+  if (slug.startsWith("single-sided-gold-")) {
+    keys.delete("goldInterior");
+    return {
+      colors: [
+        palette.goldInterior,
+        ...Array.from(
+          new Set<Color>(["white", "red", "pink", ...keys]),
+          (key) => {
+            const { en, zh, swatch } = palette[key];
+            return color(`${en} exterior`, `${zh}外壁`, swatch);
+          },
+        ),
+      ],
+      sources: [...sources, "2026-11-25 工厂确认单面金系列可选白、红、粉外壁"],
+    };
+  }
+
   return {
-    colors: [...new Set(evidence.flatMap(({ colors }) => colors))].map(
-      (key) => palette[key],
-    ),
-    sources: evidence.map(({ source }) => source),
+    colors: [...keys].map((key) => palette[key]),
+    sources,
   };
 }
 

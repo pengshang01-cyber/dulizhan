@@ -12,6 +12,13 @@
   },
   "images": [
     {
+      "image": "../../assets/images/products/greaseproof-square-rolled-rim-cups-m15-photo.webp",
+      "alt": {
+        "en": "Greaseproof Square Rolled-Rim Cups in size 65×65×35 mm",
+        "zh": "防油纸正方形卷口杯（65×65×35 mm 原照）"
+      }
+    },
+    {
       "image": "../../assets/images/products/greaseproof-square-rolled-rim-cups-01.webp",
       "alt": {
         "en": "Greaseproof Square Rolled-Rim Cups — red square cup at an angle",
@@ -24,6 +31,22 @@
         "en": "Greaseproof Square Rolled-Rim Cups — red cup from the side",
         "zh": "防油纸正方形卷口杯，红色杯壁侧视"
       }
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-square-rolled-rim-cups-65x65x35-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "65×65×35 mm configuration next to a 5.7 cm egg",
+        "zh": "65×65×35 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-square-rolled-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "A small raspberry blondie in Greaseproof Square Rolled-Rim Cups beside a teaspoon",
+        "zh": "防油纸正方形卷口杯盛放覆盆子白巧布朗尼，旁边是茶匙"
+      },
+      "scene": "closeup"
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },

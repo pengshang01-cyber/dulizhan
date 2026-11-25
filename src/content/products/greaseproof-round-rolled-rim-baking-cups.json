@@ -39,6 +39,22 @@
         "zh": "3830 防油纸卷口杯杯口与长 5.7 cm 的鸡蛋对比"
       },
       "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Mini lemon curd cupcake in Greaseproof Round Rolled-Rim Baking Cups beside a teaspoon",
+        "zh": "防油纸圆形卷口杯盛放迷你柠檬纸杯蛋糕，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/greaseproof-round-rolled-rim-baking-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "Mini lemon curd cupcake in Greaseproof Round Rolled-Rim Baking Cups on a bakery tray",
+        "zh": "防油纸圆形卷口杯盛放迷你柠檬纸杯蛋糕，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Greaseproof paper", "zh": "防油纸" },

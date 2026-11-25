@@ -24,6 +24,22 @@
         "en": "Double-Sided Gold Square Rolled-Rim Cups — gold cup from the side",
         "zh": "双面金正方形卷口杯，金色杯壁侧视"
       }
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-square-rolled-rim-cups-65x65x35-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "65×65×35 mm configuration next to a 5.7 cm egg",
+        "zh": "65×65×35 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/double-sided-gold-square-rolled-rim-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Dark chocolate mousse with a small raspberry in Double-Sided Gold Square Rolled-Rim Cups beside a teaspoon",
+        "zh": "双面金正方形卷口杯盛放覆盆子黑巧慕斯，旁边是茶匙"
+      },
+      "scene": "closeup"
     }
   ],
   "material": {

@@ -62,7 +62,9 @@ const previewAddress =
 const externalPreview = previewAddress ? new URL(previewAddress) : undefined;
 if (
   externalPreview &&
-  (!["M9", "M9.1", "M10", "M11", "M12", "M13", "M14"].includes(milestone) ||
+  (!["M9", "M9.1", "M10", "M11", "M12", "M13", "M14", "M15"].includes(
+    milestone,
+  ) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
     externalPreview.username ||
@@ -92,6 +94,7 @@ try {
           "M12",
           "M13",
           "M14",
+          "M15",
         ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
@@ -539,6 +542,57 @@ try {
           await gallery.locator(`[data-gallery-index="${index}"]`).click();
           await comparison.waitFor({ state: "visible" });
           await page.evaluate(() => window.scrollTo(0, 0));
+        }
+
+        if (milestone === "M15") {
+          if (
+            response?.status() !== 200 ||
+            (externalPreview &&
+              !response.headers()["x-robots-tag"]?.includes("noindex")) ||
+            (await page.evaluate(
+              () => document.documentElement.scrollWidth > innerWidth + 1,
+            ))
+          ) {
+            throw new Error(`M15 预览检查失败：${route.path} / ${width}`);
+          }
+          if (route.name.startsWith("m15-detail")) {
+            const gallery = page.locator("[data-product-gallery]");
+            const panels = gallery.locator("[data-gallery-panel]");
+            const order = await panels.evaluateAll((items) =>
+              items.map((item) =>
+                item.hasAttribute("data-scene")
+                  ? 2
+                  : item.hasAttribute("data-size-comparison")
+                    ? 1
+                    : 0,
+              ),
+            );
+            if (
+              order[0] !== 0 ||
+              order.some((role, i) => role < order[i - 1]!)
+            ) {
+              throw new Error(`M15 图库顺序异常：${route.path}`);
+            }
+            const comparison = order.indexOf(1);
+            const scene = order.indexOf(2);
+            for (const index of [comparison, scene]) {
+              if (index < 0) continue;
+              const button = gallery.locator(`[data-gallery-index="${index}"]`);
+              await button.click();
+              const selected = panels.nth(index);
+              await selected.waitFor({ state: "visible" });
+              const label = await selected.locator("figcaption").innerText();
+              if (
+                !(index === scene
+                  ? /Illustrative image|效果示意图/.test(label)
+                  : /Size comparison|尺寸对比图/.test(label)) ||
+                (await button.getAttribute("aria-pressed")) !== "true"
+              ) {
+                throw new Error(`M15 图库标注异常：${route.path}`);
+              }
+            }
+            await page.evaluate(() => window.scrollTo(0, 0));
+          }
         }
 
         if (

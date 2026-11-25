@@ -9,6 +9,13 @@
   },
   "images": [
     {
+      "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-m15-photo.webp",
+      "alt": {
+        "en": "Large Rectangular Rolled-Rim Trays in size 157×56×56 mm",
+        "zh": "大长方卷口杯（157×56×56 mm 原照）"
+      }
+    },
+    {
       "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-01.webp",
       "alt": {
         "en": "Large Rectangular Rolled-Rim Trays — patterned rectangular tray at an angle",
@@ -21,6 +28,22 @@
         "en": "Large Rectangular Rolled-Rim Trays — rectangular tray opening from above",
         "zh": "大长方卷口杯，长方盘开口俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-157x56x56-mm-m15-size-comparison.webp",
+      "alt": {
+        "en": "157×56×56 mm configuration next to a 5.7 cm egg",
+        "zh": "157×56×56 mm 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/large-rectangular-rolled-rim-trays-m15-scene-01.webp",
+      "alt": {
+        "en": "A narrow glazed lemon loaf in Large Rectangular Rolled-Rim Trays beside a teaspoon",
+        "zh": "大长方卷口杯盛放柠檬磅蛋糕，旁边是茶匙"
+      },
+      "scene": "closeup"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

@@ -21,6 +21,30 @@
         "en": "Round paper dessert cup with a pink gingham print",
         "zh": "粉格印花圆形纸质甜品杯"
       }
+    },
+    {
+      "image": "../../assets/images/products/paper-dessert-cups-85-m15-size-comparison.webp",
+      "alt": {
+        "en": "85 configuration next to a 5.7 cm egg",
+        "zh": "85 规格与 5.7 厘米鸡蛋对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/paper-dessert-cups-m15-scene-01.webp",
+      "alt": {
+        "en": "Chocolate mousse with a raspberry under the clear lid in Paper Dessert Cups beside a teaspoon",
+        "zh": "纸质甜品杯盛放透明圆盖下的覆盆子巧克力慕斯，旁边是茶匙"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/paper-dessert-cups-m15-scene-02.webp",
+      "alt": {
+        "en": "Chocolate mousse with a raspberry under the clear lid in Paper Dessert Cups on a bakery tray",
+        "zh": "纸质甜品杯盛放透明圆盖下的覆盆子巧克力慕斯，烘焙陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PE-coated cupstock", "zh": "PE 淋膜口杯纸" },

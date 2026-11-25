@@ -1,0 +1,323 @@
+﻿序号,历史图片路径,产品或分类,角色,引用数,取样范围,取样像素,原绿色像素,原绿色占比%,修后绿色占比%,处理,目视颜色及依据
+1,src/assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-m15-scene-01.webp,double-sided-gold-rectangular-rolled-rim-cups,closeup,1,手标可见包装侧壁,76752,0,0,0,重新生成,实际内外箔金、开口长轴和褶纹可见，与茶匙方向一致。 实测最大绝对偏差 11.54%。
+2,src/assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-m15-scene-02.webp,double-sided-gold-rectangular-rolled-rim-cups,display,1,手标可见包装侧壁,85176,0,0,0,重新生成,两只开口朝上、内外皆金，托盘和器具可比较。金箔高光自然，无绿。 实测最大绝对偏差 9.04%。
+3,src/assets/images/products/double-sided-gold-square-rolled-rim-cups-m15-scene-01.webp,double-sided-gold-square-rolled-rim-cups,closeup,1,手标可见包装侧壁,41472,8,0.0193,0,重新生成,双面暖金、方形开口圆角及箔面保真。 实测最大绝对偏差 14.96%。
+4,src/assets/images/products/greaseproof-rectangular-rolled-rim-cups-m15-scene-01.webp,greaseproof-rectangular-rolled-rim-cups,closeup,1,手标可见包装侧壁,34560,10,0.0289,0.023,重新生成,无青色，防油纸、杯口和原侧壁纹理符合，食物处于杯内。 实测最大绝对偏差 8.95%。
+5,src/assets/images/products/greaseproof-rectangular-rolled-rim-cups-m15-scene-02.webp,greaseproof-rectangular-rolled-rim-cups,display,1,手标可见包装侧壁,90636,0,0,0.0104,重新生成,白色薄卷边完整，两只白纸相同，暴露长轴和茶匙接近平行，无偏绿。 实测最大绝对偏差 3.24%。
+6,src/assets/images/products/greaseproof-round-baking-trays-m15-scene-01.webp,greaseproof-round-baking-trays,closeup,1,手标可见包装侧壁,48384,0,0,0,重新生成,本色防油纸圆盘保留垂直褶纹，巴斯克承装真实，台面中性色。 实测最大绝对偏差 1.82%。
+7,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-m15-scene-01.webp,greaseproof-round-rolled-rim-baking-cups,closeup,1,手标可见包装侧壁,24444,8,0.0327,0.1202,重新生成,迷你款薄白卷口，纸色中性，口径和真实茶匙可以对比。 实测最大绝对偏差 0.03%。
+8,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-m15-scene-02.webp,greaseproof-round-rolled-rim-baking-cups,display,1,手标可见包装侧壁,38930,7,0.018,0.0162,重新生成,两只白杯并排，柠檬蛋糕自然落在内壁。绿色只在外部托盘，产品呈白色。 实测最大绝对偏差 11.04%。
+9,src/assets/images/products/greaseproof-square-rolled-rim-cups-m15-scene-01.webp,greaseproof-square-rolled-rim-cups,closeup,1,手标可见包装侧壁,69120,0,0,0,重新生成,真红色方杯里外一色，卷口圆角和原参照一致，糕点在杯内。 实测最大绝对偏差 14.95%。
+10,src/assets/images/products/large-rectangular-rolled-rim-trays-m15-scene-01.webp,large-rectangular-rolled-rim-trays,closeup,1,手标可见包装侧壁,83918,0,0,0,重新生成,图册第32页的浅牛皮纸与深棕小印花。卷口盘正立、有短壁和长边，绿色斑点未出现。 实测最大绝对偏差 1.16%。
+11,src/assets/images/products/large-round-rolled-rim-trays-m15-scene-01.webp,large-round-rolled-rim-trays,closeup,1,手标可见包装侧壁,36792,2089,5.6779,0,重新生成,大圆卷口盘正放，近壁可量，中文图册32页暖棕牛皮纸及棕色小图案；开口盛放馅饼。 实测最大绝对偏差 11.59%。
+12,src/assets/images/products/lotus-baking-cups-m15-scene-01.webp,lotus-baking-cups,closeup,1,手标可见包装侧壁,41760,21170,50.6944,9.7402,重新生成,图册 LH-06 的真实绿色纸，重生成清理幕光后保留同样莲瓣开口和错落褶纹，内装费南雪。 实测最大绝对偏差 5.88%。
+13,src/assets/images/products/lotus-baking-cups-m15-scene-02.webp,lotus-baking-cups,display,1,手标可见包装侧壁,70800,44675,63.1003,49.0247,重新生成,中文图册20页 LH-06 绿色真实，两个实物口沿宽度近似，立边包住糕点。 实测最大绝对偏差 10.79%。
+14,src/assets/images/products/mushroom-baking-cups-m15-scene-01.webp,mushroom-baking-cups,closeup,1,手标可见包装侧壁,41472,37148,89.5737,,撤下,E11 蘑菇杯满杯深绿，反光与黑、绿在售色无法逐像素区分，缺这份规格样品的独立色样。
+15,src/assets/images/products/mushroom-baking-cups-m15-scene-02.webp,mushroom-baking-cups,display,1,手标可见包装侧壁,48552,26460,54.4983,,撤下,E11 蘑菇杯满杯深绿，反光与黑、绿在售色无法逐像素区分，缺这份规格样品的独立色样。
+16,src/assets/images/products/paper-dessert-cups-m15-scene-01.webp,paper-dessert-cups,closeup,1,手标可见包装侧壁,69264,0,0,0,重新生成,原白色锥形杯和清透盖形保真，奶油在杯内，白纸正色。 实测最大绝对偏差 10.04%。
+17,src/assets/images/products/paper-dessert-cups-m15-scene-02.webp,paper-dessert-cups,display,1,手标可见包装侧壁,105696,1,0.0009,0,重新生成,白纸外壁保持中性，透明盖保留，前侧完整，咖啡桌构图。 实测最大绝对偏差 12.19%。
+18,src/assets/images/products/parchment-basque-cheesecake-liners-m15-scene-02.webp,parchment-basque-cheesecake-liners,display,1,手标可见包装侧壁,52190,0,0,0,重新生成,两张原色浅棕烘焙纸围住巴斯克芝士蛋糕，边缘无颜色误判。 实测最大绝对偏差 14.07%。
+19,src/assets/images/products/pet-coated-boat-cups-m15-scene-01.webp,pet-coated-boat-cups,closeup,1,手标可见包装侧壁,86688,1205,1.39,,撤下,E13 的朝上杯被搭放杯遮住右端，完整开口的网店图含 OpenAI 内容凭证。中文图册第31页同款的两杯也重叠。
+20,src/assets/images/products/pet-coated-boat-cups-m15-scene-02.webp,pet-coated-boat-cups,display,1,手标可见包装侧壁,100668,8083,8.0294,,撤下,E13 的朝上杯被搭放杯遮住右端，完整开口的网店图含 OpenAI 内容凭证。中文图册第31页同款的两杯也重叠。
+21,src/assets/images/products/pet-coated-leaf-cups-m15-scene-01.webp,pet-coated-leaf-cups,closeup,1,手标可见包装侧壁,54648,556,1.0174,0,重新生成,叶端两侧和白底褶纹清楚，染色反光不见，果点只在食物。 实测最大绝对偏差 2.41%。
+22,src/assets/images/products/pet-coated-leaf-cups-m15-scene-02.webp,pet-coated-leaf-cups,display,1,手标可见包装侧壁,69288,18532,26.7463,0,重新生成,两艘树叶型白杯尖端完整，展开宽沿和褶纹一致，食品在朝上杯内。 实测最大绝对偏差 14.35%。
+23,src/assets/images/products/pet-coated-rectangular-rolled-rim-cups-m15-scene-01.webp,pet-coated-rectangular-rolled-rim-cups,closeup,1,手标可见包装侧壁,87984,3,0.0034,0,重新生成,正姿白色 PET 方长杯，无青反光。原薄卷口和纸纹仍可辨。 实测最大绝对偏差 13.46%。
+24,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-01.webp,pet-coated-round-rolled-rim-baking-cups,closeup,1,手标可见包装侧壁,20748,0,0,0,重新生成,3830 小杯的黄底白波点维持，白纸卷口和内壁无绿，承装真实。 实测最大绝对偏差 14.66%。
+25,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-02.webp,pet-coated-round-rolled-rim-baking-cups,display,1,手标可见包装侧壁,24678,0,0,0,重新生成,同款黄底波点两件开口与颜色准确，尺寸仍略大。 实测最大绝对偏差 13.95%。
+26,src/assets/images/products/pet-coated-scalloped-rim-cups-m15-scene-01.webp,pet-coated-scalloped-rim-cups,closeup,1,手标可见包装侧壁,43200,553,1.2801,0,重新生成,浅粉杯纸色，出沿及褶片符合原折沿。蓝色在台面，产品表面未见青绿。 实测最大绝对偏差 3.53%。
+27,src/assets/images/products/pet-coated-scalloped-rim-cups-m15-scene-02.webp,pet-coated-scalloped-rim-cups,display,1,手标可见包装侧壁,43344,0,0,0,重新生成,杯壁呈原照的暖浅粉，洁白卷唇与褶线保留，两份甜点均在杯内。 实测最大绝对偏差 9.38%。
+28,src/assets/images/products/pet-coated-square-cups-m15-scene-01.webp,pet-coated-square-cups,closeup,1,手标可见包装侧壁,26010,1596,6.1361,0,重新生成,开口朝上，同样风车印花与折缝。中性色光影，无绿。 实测最大绝对偏差 2.19%。
+29,src/assets/images/products/pet-coated-square-rolled-rim-cups-m14-scene-01.webp,pet-coated-square-rolled-rim-cups,closeup,1,手标可见包装侧壁,36828,0,0,,查验通过,M14 方形 PET 杯的 E89 原照已作中性白平衡。浅色纸、卷口和白内壁复核通过。
+30,src/assets/images/products/pet-coated-square-rolled-rim-cups-m14-scene-02.webp,pet-coated-square-rolled-rim-cups,display,1,手标可见包装侧壁,44287,2,0.0045,,查验通过,M14 方形 PET 杯的 E89 原照在制作前已去色幕。实拍和陈列产品均无绿色外壁。
+31,src/assets/images/products/pet-coated-triangular-cups-m15-scene-01.webp,pet-coated-triangular-cups,closeup,1,手标可见包装侧壁,21700,0,0,0.0221,重新生成,白底红褐风车印花，三个角、原褶边和开口可核，茶匙沿同类长轴。 实测最大绝对偏差 0.23%。
+32,src/assets/images/products/plain-molded-baking-cups-m15-scene-01.webp,plain-molded-baking-cups,closeup,1,手标可见包装侧壁,58752,42558,72.4367,0.0066,重新生成,实际奶油白纸、蓝灰色印线、三圆脸和 Sweet baby 字样保留，未新增绿色外壁。 实测最大绝对偏差 10.05%。
+33,src/assets/images/products/plain-molded-baking-cups-m15-scene-02.webp,plain-molded-baking-cups,display,1,手标可见包装侧壁,56640,21162,37.3623,0.408,重新生成,两杯相同白色花边、蓝灰印线和原字样，均横向复测。 实测最大绝对偏差 6.59%。
+34,src/assets/images/products/single-sided-gold-flame-cups-m15-scene-01.webp,single-sided-gold-flame-cups,closeup,1,手标可见包装侧壁,52897,51760,97.8505,,撤下,E100 单面金火焰杯外壁被深青反光覆盖，工厂确认该绿属于反光，未确认原照的外壁颜色。
+35,src/assets/images/products/single-sided-gold-rectangular-rolled-rim-cups-m15-scene-01.webp,single-sided-gold-rectangular-rolled-rim-cups,closeup,1,手标可见包装侧壁,102816,1041,1.0125,0.0176,重新生成,白壁与金内面颜色确认。使用两侧短边中点沿长轴投影复测。 实测最大绝对偏差 9.45%。
+36,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-m15-scene-01.webp,single-sided-gold-round-rolled-rim-cups,closeup,1,手标可见包装侧壁,21730,10282,47.3171,,撤下,E79 单面金圆杯外壁受色幕照明，原外壁的确切色没有同规格独立原照佐证。已确认的白、红、粉是产品系列的在售颜色。
+37,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-m15-scene-02.webp,single-sided-gold-round-rolled-rim-cups,display,1,手标可见包装侧壁,41318,8520,20.6206,,撤下,E79 单面金圆杯外壁受色幕照明，原外壁的确切色没有同规格独立原照佐证。已确认的白、红、粉是产品系列的在售颜色。
+38,src/assets/images/products/single-sided-gold-scalloped-rim-cups-m15-scene-01.webp,single-sided-gold-scalloped-rim-cups,closeup,1,手标可见包装侧壁,58032,2373,4.0891,0,重新生成,同一红纸外壁和纯金内壁、花形口缘，巧克力在杯内且纸纹清楚。 实测最大绝对偏差 9.84%。
+39,src/assets/images/products/single-sided-gold-scalloped-rim-cups-m15-scene-02.webp,single-sided-gold-scalloped-rim-cups,display,1,手标可见包装侧壁,52032,600,1.1531,0,重新生成,两个红外金内花边杯，红樱桃在糕点中央，杯口边无绿。 实测最大绝对偏差 14.61%。
+40,src/assets/images/products/single-sided-gold-square-rolled-rim-cups-m15-scene-01.webp,single-sided-gold-square-rolled-rim-cups,closeup,1,手标可见包装侧壁,70848,6,0.0085,0,重新生成,同款红外壁、金内壁和卷口，无绿。糕点放在立边里，方角和推折完整。 实测最大绝对偏差 9.79%。
+41,src/assets/images/products/straw-hat-baking-cups-m15-scene-01.webp,straw-hat-baking-cups,closeup,1,手标可见包装侧壁,58608,0,0,0,重新生成,纸白和全宽帽沿清楚，光影和正放姿态自然，柠檬塔位于浅杯中央。 实测最大绝对偏差 2.82%。
+42,src/assets/images/products/straw-hat-baking-cups-m15-scene-02.webp,straw-hat-baking-cups,display,1,手标可见包装侧壁,50880,0,0,0,重新生成,两件白草帽杯，贝形外翻宽边与褶纹一致，无青绿，茶匙可比。 实测最大绝对偏差 7.30%。
+43,src/assets/images/products/window-cake-boxes-m14-scene-01.webp,window-cake-boxes,closeup,1,手标可见包装侧壁,45160,0,0,,查验通过,M14 开窗盒参考中文 PDF 48 页，非绿幕，牛皮色与透明窗、食品颜色可区分。
+44,src/assets/images/products/window-cake-boxes-m14-scene-02.webp,window-cake-boxes,display,1,手标可见包装侧壁,58714,0,0,,查验通过,同中文 PDF 48 页的 M14 开窗纸盒，纸面本色。两件透明开窗复核通过。
+45,src/assets/images/products/double-sided-gold-flame-cups-140-m15-size-comparison.webp,double-sided-gold-flame-cups,comparison,1,左侧产品图层,81932,56737,69.2489,0.0061,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.0835%。
+46,src/assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp,double-sided-gold-rectangular-rolled-rim-cups,comparison,1,左侧产品图层,125829,42030,33.4025,0.1224,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1219%。
+47,src/assets/images/products/double-sided-gold-square-rolled-rim-cups-65x65x35-mm-m15-size-comparison.webp,double-sided-gold-square-rolled-rim-cups,comparison,1,左侧产品图层,139327,51064,36.6505,0.0905,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1512%。
+48,src/assets/images/products/flame-paper-baking-cups-140-m15-size-comparison.webp,flame-paper-baking-cups,comparison,1,左侧产品图层,86113,39985,46.4332,0.0795,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2795%。
+49,src/assets/images/products/greaseproof-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp,greaseproof-rectangular-rolled-rim-cups,comparison,1,左侧产品图层,127355,122254,95.9947,0.6378,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1403%。
+50,src/assets/images/products/greaseproof-round-baking-trays-4-in-m15-size-comparison.webp,greaseproof-round-baking-trays,comparison,1,左侧产品图层,141092,25981,18.4142,0,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2758%。
+51,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-3830-size-comparison.webp,greaseproof-round-rolled-rim-baking-cups,comparison,1,左侧产品图层,61964,26,0.042,,查验通过,M13 防油纸圆杯 E75 已对中性白校正并重新检查，纸材反光无绿。
+52,src/assets/images/products/greaseproof-square-rolled-rim-cups-65x65x35-mm-m15-size-comparison.webp,greaseproof-square-rolled-rim-cups,comparison,1,左侧产品图层,131179,923,0.7036,0.0267,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2166%。
+53,src/assets/images/products/large-greaseproof-round-baking-trays-8-in-m15-size-comparison.webp,large-greaseproof-round-baking-trays,comparison,1,左侧产品图层,203460,56292,27.6674,0,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2066%。
+54,src/assets/images/products/large-rectangular-rolled-rim-trays-157x56x56-mm-m15-size-comparison.webp,large-rectangular-rolled-rim-trays,comparison,1,左侧产品图层,81784,6186,7.5638,0,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.0533%。
+55,src/assets/images/products/large-round-rolled-rim-trays-155x35-mm-m15-size-comparison.webp,large-round-rolled-rim-trays,comparison,1,左侧产品图层,187617,22108,11.7836,0.0373,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.8414%。
+56,src/assets/images/products/lotus-baking-cups-150-m15-size-comparison.webp,lotus-baking-cups,comparison,1,左侧产品图层,111612,94958,85.0787,84.63,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1526%。 中文 PDF 20 页 LH-06 的实物绿色保留。
+57,src/assets/images/products/mushroom-baking-cups-large-m15-size-comparison.webp,mushroom-baking-cups,comparison,1,左侧产品图层,101264,99562,98.3192,,撤下,E11 蘑菇杯满杯深绿，反光与黑、绿在售色无法逐像素区分，缺这份规格样品的独立色样。
+58,src/assets/images/products/paper-dessert-cups-85-m15-size-comparison.webp,paper-dessert-cups,comparison,1,左侧产品图层,111095,65506,58.9639,0.0923,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.3839%。
+59,src/assets/images/products/parchment-basque-cheesecake-liners-2-5-in-mini-m15-size-comparison.webp,parchment-basque-cheesecake-liners,comparison,1,左侧产品图层,93056,73506,78.9911,0,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.0882%。
+60,src/assets/images/products/pet-coated-boat-cups-142x50x25-mm-m15-size-comparison.webp,pet-coated-boat-cups,comparison,1,左侧产品图层,134498,56839,42.2601,,撤下,E13 的朝上杯被搭放杯遮住右端，完整开口的网店图含 OpenAI 内容凭证。中文图册第31页同款的两杯也重叠。
+61,src/assets/images/products/pet-coated-leaf-cups-130x80x20-mm-m15-size-comparison.webp,pet-coated-leaf-cups,comparison,1,左侧产品图层,144795,19157,13.2304,0.1636,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1203%。
+62,src/assets/images/products/pet-coated-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp,pet-coated-rectangular-rolled-rim-cups,comparison,1,左侧产品图层,134827,80286,59.5474,2.0024,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2280%。
+63,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-size-comparison.webp,pet-coated-round-rolled-rim-baking-cups,comparison,1,左侧产品图层,62017,2567,4.1392,0.212,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1905%。
+64,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-8928-size-comparison.webp,pet-coated-round-rolled-rim-baking-cups,comparison,1,左侧产品图层,162709,153230,94.1743,40.7681,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2325%。 E74 保留完整柠檬印花及深色底纹，白纸内壁按 A.5 清理。
+65,src/assets/images/products/pet-coated-scalloped-rim-cups-5045-m15-size-comparison.webp,pet-coated-scalloped-rim-cups,comparison,1,左侧产品图层,107702,2908,2.7,0.0642,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1729%。
+66,src/assets/images/products/pet-coated-square-cups-80x80x30-mm-m15-size-comparison.webp,pet-coated-square-cups,comparison,1,左侧产品图层,133729,21663,16.1992,0.2289,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.0776%。
+67,src/assets/images/products/pet-coated-square-rolled-rim-cups-65x65x35-size-comparison.webp,pet-coated-square-rolled-rim-cups,comparison,1,左侧产品图层,166180,465,0.2798,,查验通过,M13 E89 已对绿色纸幕做中性白平衡。杯身清楚，尺寸对比维持经核对结果。
+68,src/assets/images/products/pet-coated-triangular-cups-125x75x30-mm-m15-size-comparison.webp,pet-coated-triangular-cups,comparison,1,左侧产品图层,81459,49656,60.9583,1.6845,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.2115%。
+69,src/assets/images/products/plain-molded-baking-cups-small-m15-size-comparison.webp,plain-molded-baking-cups,comparison,1,左侧产品图层,76525,33195,43.378,2.3172,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1245%。
+70,src/assets/images/products/rolled-edge-parchment-basque-liners-3-5-in-m15-size-comparison.webp,rolled-edge-parchment-basque-liners,comparison,1,左侧产品图层,148488,57988,39.0523,0,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.4557%。
+71,src/assets/images/products/single-sided-gold-flame-cups-140-m15-size-comparison.webp,single-sided-gold-flame-cups,comparison,1,左侧产品图层,82859,51404,62.0379,,撤下,E100 单面金火焰杯外壁被深青反光覆盖，工厂确认该绿属于反光，未确认原照的外壁颜色。
+72,src/assets/images/products/single-sided-gold-rectangular-rolled-rim-cups-80x40x40-mm-m15-size-comparison.webp,single-sided-gold-rectangular-rolled-rim-cups,comparison,1,左侧产品图层,126451,42437,33.56,0.2552,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.3474%。
+73,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-3830-m15-size-comparison.webp,single-sided-gold-round-rolled-rim-cups,comparison,1,左侧产品图层,51819,23306,44.9758,,撤下,E79 单面金圆杯外壁受色幕照明，原外壁的确切色没有同规格独立原照佐证。已确认的白、红、粉是产品系列的在售颜色。
+74,src/assets/images/products/single-sided-gold-scalloped-rim-cups-5045-m15-size-comparison.webp,single-sided-gold-scalloped-rim-cups,comparison,1,左侧产品图层,117711,12797,10.8715,0.1071,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1679%。
+75,src/assets/images/products/single-sided-gold-square-rolled-rim-cups-65x65x35-mm-m15-size-comparison.webp,single-sided-gold-square-rolled-rim-cups,comparison,1,左侧产品图层,134633,12952,9.6202,0.2116,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1579%。
+76,src/assets/images/products/straw-hat-baking-cups-45-x-50-mm-m15-size-comparison.webp,straw-hat-baking-cups,comparison,1,左侧产品图层,93031,92122,99.0229,0.0033,重排尺寸图,使用同一原照的去绿产品图层重排，最大绝对误差 0.1643%。
+77,src/assets/images/products/window-cake-boxes-1-count-size-comparison.webp,window-cake-boxes,comparison,1,左侧产品图层,73736,479,0.6496,,查验通过,中文 PDF 48 页纸盒为牛皮色，复核绿幕筛查无异常。
+78,src/assets/images/categories/air-fryer-liners-cover.webp,air-fryer-liners,category,1,纸品／包装前景,965346,47,0.0049,,查验通过,按原图目视核对，实物表面无绿色反光。
+79,src/assets/images/products/baking-parchment-rolls-01.webp,baking-parchment-rolls,cover,1,纸品／包装前景,907188,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+80,src/assets/images/products/baking-parchment-rolls-02.webp,baking-parchment-rolls,product,1,纸品／包装前景,520801,13,0.0025,,查验通过,按原图目视核对，实物表面无绿色反光。
+81,src/assets/images/categories/baking-wrapping-paper-cover.webp,baking-wrapping-paper,category,1,纸品／包装前景,906701,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+82,src/assets/images/categories/basque-cheesecake-liners-cover.webp,basque-cheesecake-liners,category,1,纸品／包装前景,952215,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+83,src/assets/images/products/boat-shaped-paper-liners-01.webp,boat-shaped-paper-liners,cover,1,纸品／包装前景,917876,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+84,src/assets/images/products/boat-shaped-paper-liners-02.webp,boat-shaped-paper-liners,product,1,纸品／包装前景,851292,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+85,src/assets/images/products/boat-shaped-paper-trays-01.webp,boat-shaped-paper-trays,cover,1,纸品／包装前景,605010,11,0.0018,,查验通过,按原图目视核对，实物表面无绿色反光。
+86,src/assets/images/products/boat-shaped-paper-trays-02.webp,boat-shaped-paper-trays,product,1,纸品／包装前景,757648,33,0.0044,,查验通过,按原图目视核对，实物表面无绿色反光。
+87,src/assets/images/categories/cake-boards-cover.webp,cake-boards,category,1,目视圈定主体表面,101088,0,0,,查验通过,绿偏像素来自金卡外的背景，金色板面与中文 PDF 51 页的金卡一致。
+88,src/assets/images/categories/cake-boxes-cover.webp,cake-boxes,category,1,纸品／包装前景,935527,92,0.0098,,查验通过,按原图目视核对，实物表面无绿色反光。
+89,src/assets/images/products/chiffon-cake-paper-molds-01.webp,chiffon-cake-paper-molds,cover,1,目视圈定主体表面,204336,0,0,,查验通过,纸模呈棕色，浅蓝色是背景。
+90,src/assets/images/products/chiffon-cake-paper-molds-02.webp,chiffon-cake-paper-molds,product,1,纸品／包装前景,374256,501,0.1339,,查验通过,按原图目视核对，实物表面无绿色反光。
+91,src/assets/images/products/chiffon-cake-paper-molds-03.webp,chiffon-cake-paper-molds,product,1,纸品／包装前景,716592,51,0.0071,,查验通过,按原图目视核对，实物表面无绿色反光。
+92,src/assets/images/products/coated-basque-baking-cups-01.webp,coated-basque-baking-cups,cover,1,纸品／包装前景,946754,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+93,src/assets/images/products/coated-basque-baking-cups-02.webp,coated-basque-baking-cups,product,1,纸品／包装前景,965441,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+94,src/assets/images/products/coated-boat-cups-01.webp,coated-boat-cups,cover,1,纸品／包装前景,957082,63,0.0066,,查验通过,按原图目视核对，实物表面无绿色反光。
+95,src/assets/images/products/coated-boat-cups-02.webp,coated-boat-cups,product,1,纸品／包装前景,970254,20,0.0021,,查验通过,按原图目视核对，实物表面无绿色反光。
+96,src/assets/images/products/coated-round-cups-01.webp,coated-round-cups,cover,1,纸品／包装前景,916364,6,0.0007,,查验通过,按原图目视核对，实物表面无绿色反光。
+97,src/assets/images/products/coated-round-cups-02.webp,coated-round-cups,product,1,纸品／包装前景,948113,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+98,src/assets/images/products/coated-round-cups-03.webp,coated-round-cups,product,1,纸品／包装前景,937899,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+99,src/assets/images/categories/standard-cupcake-liners-placeholder.png,colored-greaseproof-cupcake-liners,cover,11,占位,0,0,,,查验通过,图库占位图，无产品像素。
+100,src/assets/images/categories/specialty-packaging-placeholder.png,corrugated-cake-boards,cover,3,占位,0,0,,,查验通过,图库占位图，无产品像素。
+101,src/assets/images/products/corrugated-cake-boxes-01.webp,corrugated-cake-boxes,cover,1,纸品／包装前景,891471,14,0.0016,,查验通过,按原图目视核对，实物表面无绿色反光。
+102,src/assets/images/products/corrugated-cake-boxes-02.webp,corrugated-cake-boxes,product,1,纸品／包装前景,975419,19,0.0019,,查验通过,按原图目视核对，实物表面无绿色反光。
+103,src/assets/images/categories/cupcake-liners-cover.webp,cupcake-liners,category,1,纸品／包装前景,144405,54,0.0374,,查验通过,按原图目视核对，实物表面无绿色反光。
+104,src/assets/images/categories/tulip-baking-cups-placeholder.png,double-coated-flame-cups,cover,2,占位,0,0,,,查验通过,图库占位图，无产品像素。
+105,src/assets/images/categories/rolled-rim-baking-cups-placeholder.png,double-coated-round-rolled-rim-cups,cover,3,占位,0,0,,,查验通过,图库占位图，无产品像素。
+106,src/assets/images/products/double-sided-gold-flame-cups-01.webp,double-sided-gold-flame-cups,cover,1,纸品／包装前景,555906,655,0.1178,,查验通过,按原图目视核对，实物表面无绿色反光。
+107,src/assets/images/products/double-sided-gold-flame-cups-02.webp,double-sided-gold-flame-cups,product,1,纸品／包装前景,531398,469,0.0883,,查验通过,按原图目视核对，实物表面无绿色反光。
+108,src/assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-01.webp,double-sided-gold-rectangular-rolled-rim-cups,cover,1,纸品／包装前景,957076,400,0.0418,,查验通过,按原图目视核对，实物表面无绿色反光。
+109,src/assets/images/products/double-sided-gold-rectangular-rolled-rim-cups-02.webp,double-sided-gold-rectangular-rolled-rim-cups,product,1,纸品／包装前景,901591,51,0.0057,,查验通过,按原图目视核对，实物表面无绿色反光。
+110,src/assets/images/products/double-sided-gold-round-rolled-rim-cups-01.webp,double-sided-gold-round-rolled-rim-cups,cover,1,纸品／包装前景,579986,96,0.0166,,查验通过,按原图目视核对，实物表面无绿色反光。
+111,src/assets/images/products/double-sided-gold-round-rolled-rim-cups-02.webp,double-sided-gold-round-rolled-rim-cups,product,1,纸品／包装前景,688350,75,0.0109,,查验通过,按原图目视核对，实物表面无绿色反光。
+112,src/assets/images/products/double-sided-gold-round-rolled-rim-cups-03.webp,double-sided-gold-round-rolled-rim-cups,product,1,纸品／包装前景,724610,375,0.0518,,查验通过,按原图目视核对，实物表面无绿色反光。
+113,src/assets/images/products/double-sided-gold-square-rolled-rim-cups-01.webp,double-sided-gold-square-rolled-rim-cups,cover,1,纸品／包装前景,960616,483,0.0503,,查验通过,按原图目视核对，实物表面无绿色反光。
+114,src/assets/images/products/double-sided-gold-square-rolled-rim-cups-02.webp,double-sided-gold-square-rolled-rim-cups,product,1,纸品／包装前景,915822,70,0.0076,,查验通过,按原图目视核对，实物表面无绿色反光。
+115,src/assets/images/products/flame-paper-baking-cups-01.webp,flame-paper-baking-cups,cover,1,纸品／包装前景,785880,2882,0.3667,,查验通过,按原图目视核对，实物表面无绿色反光。
+116,src/assets/images/products/flame-paper-baking-cups-02.webp,flame-paper-baking-cups,product,1,目视圈定主体表面,141120,18,0.0128,,查验通过,杯体为粉色，灰色棚景带冷色。
+117,src/assets/images/products/flower-shaped-baking-cups-01.webp,flower-shaped-baking-cups,cover,1,目视圈定主体表面,109296,6,0.0055,,查验通过,花朵杯呈粉色，局部冷色在灰背景。
+118,src/assets/images/products/flower-shaped-baking-cups-03.webp,flower-shaped-baking-cups,product,1,目视圈定主体表面,164160,82888,50.4922,,色样核对,灰背景实拍，实际杯体为蓝色。阈值把蓝绿色阴影一并标记。
+119,src/assets/images/products/flower-shaped-baking-cups-04.webp,flower-shaped-baking-cups,product,1,目视圈定主体表面,164160,98776,60.1706,,撤下,花朵杯绿色来自灰背景照片，未找到该绿色款在图册或规格表中的对应记录，暂从图库撤下。
+120,src/assets/images/products/foil-laminated-cupcake-liners-01.webp,foil-laminated-cupcake-liners,cover,1,纸品／包装前景,961190,187,0.0195,,查验通过,按原图目视核对，实物表面无绿色反光。
+121,src/assets/images/products/foil-laminated-cupcake-liners-02.webp,foil-laminated-cupcake-liners,product,1,纸品／包装前景,923667,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+122,src/assets/images/products/foil-laminated-cupcake-liners-03.webp,foil-laminated-cupcake-liners,product,1,纸品／包装前景,996831,190,0.0191,,查验通过,按原图目视核对，实物表面无绿色反光。
+123,src/assets/images/products/foil-stamped-molded-baking-cups-01.webp,foil-stamped-molded-baking-cups,cover,1,目视圈定主体表面,310464,8017,2.5823,1.1157,传统去绿,中文 PDF 37 页 T2 烫金机制杯。只对白纸区校正偏色。
+124,src/assets/images/products/foil-stamped-molded-baking-cups-02.webp,foil-stamped-molded-baking-cups,product,1,目视圈定主体表面,304704,148373,48.6941,1.1828,传统去绿,中文 PDF 37 页 T2 烫金机制杯。只对白纸区校正偏色。
+125,src/assets/images/products/gold-cake-card-strips-01.webp,gold-cake-card-strips,cover,1,纸品／包装前景,224035,5,0.0022,,查验通过,按原图目视核对，实物表面无绿色反光。
+126,src/assets/images/products/gold-square-dessert-trays-01.webp,gold-square-dessert-trays,cover,1,纸品／包装前景,199060,520,0.2612,,查验通过,按原图目视核对，实物表面无绿色反光。
+127,src/assets/images/products/greaseproof-cupcake-liners-01.webp,greaseproof-cupcake-liners,cover,1,纸品／包装前景,937350,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+128,src/assets/images/products/greaseproof-cupcake-liners-02.webp,greaseproof-cupcake-liners,product,1,纸品／包装前景,866809,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+129,src/assets/images/products/greaseproof-muffin-cups-01.webp,greaseproof-muffin-cups,cover,1,纸品／包装前景,845101,27,0.0032,,查验通过,按原图目视核对，实物表面无绿色反光。
+130,src/assets/images/products/greaseproof-muffin-cups-02.webp,greaseproof-muffin-cups,product,1,纸品／包装前景,910929,98,0.0108,,查验通过,按原图目视核对，实物表面无绿色反光。
+131,src/assets/images/products/greaseproof-rectangular-rolled-rim-cups-01.webp,greaseproof-rectangular-rolled-rim-cups,cover,1,纸品／包装前景,912323,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+132,src/assets/images/products/greaseproof-rectangular-rolled-rim-cups-02.webp,greaseproof-rectangular-rolled-rim-cups,product,1,纸品／包装前景,912605,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+133,src/assets/images/products/greaseproof-round-baking-trays-01.webp,greaseproof-round-baking-trays,cover,1,纸品／包装前景,923467,54,0.0058,,查验通过,按原图目视核对，实物表面无绿色反光。
+134,src/assets/images/products/greaseproof-round-baking-trays-02.webp,greaseproof-round-baking-trays,product,1,纸品／包装前景,943488,44,0.0047,,查验通过,按原图目视核对，实物表面无绿色反光。
+135,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-01.webp,greaseproof-round-rolled-rim-baking-cups,cover,1,目视圈定主体表面,129456,111549,86.1675,,色样核对,中文 PDF 16 页 FYJB-05 的蓝色纸杯，非白纸受绿光照。
+136,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-02.webp,greaseproof-round-rolled-rim-baking-cups,product,1,目视圈定主体表面,202176,174046,86.0864,,色样核对,与 135 同款蓝色纸杯的俯视图，中文 PDF 16 页 FYJB-05。
+137,src/assets/images/products/greaseproof-round-rolled-rim-baking-cups-03.webp,greaseproof-round-rolled-rim-baking-cups,product,1,纸品／包装前景,554555,13,0.0023,,查验通过,按原图目视核对，实物表面无绿色反光。
+138,src/assets/images/products/greaseproof-round-rolled-rim-trays-01.webp,greaseproof-round-rolled-rim-trays,cover,1,纸品／包装前景,963828,36,0.0037,,查验通过,按原图目视核对，实物表面无绿色反光。
+139,src/assets/images/products/greaseproof-round-rolled-rim-trays-02.webp,greaseproof-round-rolled-rim-trays,product,1,纸品／包装前景,973037,21,0.0022,,查验通过,按原图目视核对，实物表面无绿色反光。
+140,src/assets/images/products/greaseproof-square-rolled-rim-cups-01.webp,greaseproof-square-rolled-rim-cups,product,1,纸品／包装前景,965880,283,0.0293,,查验通过,按原图目视核对，实物表面无绿色反光。
+141,src/assets/images/products/greaseproof-square-rolled-rim-cups-02.webp,greaseproof-square-rolled-rim-cups,product,1,纸品／包装前景,933831,68,0.0073,,查验通过,按原图目视核对，实物表面无绿色反光。
+142,src/assets/images/products/greaseproof-square-rolled-rim-cups-m15-photo.webp,greaseproof-square-rolled-rim-cups,cover,1,纸品／包装前景,474790,5220,1.0994,0.0651,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E90。从同一原照副本校正反光，保留原杯型与印花。
+143,src/assets/images/products/greaseproof-tulip-baking-cups-01.webp,greaseproof-tulip-baking-cups,cover,1,纸品／包装前景,600111,929,0.1548,,查验通过,按原图目视核对，实物表面无绿色反光。
+144,src/assets/images/products/greaseproof-tulip-baking-cups-02.webp,greaseproof-tulip-baking-cups,product,1,纸品／包装前景,292862,13,0.0044,,查验通过,按原图目视核对，实物表面无绿色反光。
+145,src/assets/images/products/hexagonal-baking-cups-01.webp,hexagonal-baking-cups,cover,1,目视圈定主体表面,174096,21,0.0121,,查验通过,红色波点纸杯。筛查命中在背景，白内面没有持续绿幕色。
+146,src/assets/images/products/hexagonal-baking-cups-02.webp,hexagonal-baking-cups,product,1,目视圈定主体表面,174096,44,0.0253,,查验通过,红色波点纸杯。筛查命中在背景，白内面没有持续绿幕色。
+147,src/assets/images/products/kraft-look-molded-baking-cups-01.webp,kraft-look-molded-baking-cups,cover,1,纸品／包装前景,966655,70,0.0072,,查验通过,按原图目视核对，实物表面无绿色反光。
+148,src/assets/images/products/kraft-look-molded-baking-cups-02.webp,kraft-look-molded-baking-cups,product,1,纸品／包装前景,956931,156,0.0163,,查验通过,按原图目视核对，实物表面无绿色反光。
+149,src/assets/images/products/large-greaseproof-round-baking-trays-01.webp,large-greaseproof-round-baking-trays,cover,1,纸品／包装前景,908701,45,0.005,,查验通过,按原图目视核对，实物表面无绿色反光。
+150,src/assets/images/products/large-greaseproof-round-baking-trays-02.webp,large-greaseproof-round-baking-trays,product,1,纸品／包装前景,936608,62,0.0066,,查验通过,按原图目视核对，实物表面无绿色反光。
+151,src/assets/images/products/large-rectangular-rolled-rim-trays-01.webp,large-rectangular-rolled-rim-trays,product,1,纸品／包装前景,955474,26,0.0027,,查验通过,按原图目视核对，实物表面无绿色反光。
+152,src/assets/images/products/large-rectangular-rolled-rim-trays-02.webp,large-rectangular-rolled-rim-trays,product,1,纸品／包装前景,978245,12,0.0012,,查验通过,按原图目视核对，实物表面无绿色反光。
+153,src/assets/images/products/large-rectangular-rolled-rim-trays-m15-photo.webp,large-rectangular-rolled-rim-trays,cover,1,纸品／包装前景,369776,31500,8.5187,0.0011,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E88。从同一原照副本校正反光，保留原杯型与印花。
+154,src/assets/images/products/large-round-rolled-rim-trays-01.webp,large-round-rolled-rim-trays,product,1,纸品／包装前景,963116,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+155,src/assets/images/products/large-round-rolled-rim-trays-02.webp,large-round-rolled-rim-trays,product,1,纸品／包装前景,974695,19,0.0019,,查验通过,按原图目视核对，实物表面无绿色反光。
+156,src/assets/images/products/large-round-rolled-rim-trays-m15-photo.webp,large-round-rolled-rim-trays,cover,1,纸品／包装前景,429134,51956,12.1072,0.045,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E87。从同一原照副本校正反光，保留原杯型与印花。
+157,src/assets/images/products/leaf-shaped-gold-cake-cards-01.webp,leaf-shaped-gold-cake-cards,cover,1,目视圈定主体表面,78336,0,0,,查验通过,金卡外轮廓及白背景抗锯齿个别像素，金纸色正常。
+158,src/assets/images/products/lotus-baking-cups-01.webp,lotus-baking-cups,product,1,纸品／包装前景,601345,171,0.0284,,查验通过,按原图目视核对，实物表面无绿色反光。
+159,src/assets/images/products/lotus-baking-cups-02.webp,lotus-baking-cups,product,1,纸品／包装前景,559793,45,0.008,,查验通过,按原图目视核对，实物表面无绿色反光。
+160,src/assets/images/products/lotus-baking-cups-03.webp,lotus-baking-cups,product,1,纸品／包装前景,408035,475,0.1164,,查验通过,按原图目视核对，实物表面无绿色反光。
+161,src/assets/images/products/lotus-baking-cups-m15-photo.webp,lotus-baking-cups,cover,1,纸品／包装前景,552898,470840,85.1586,,色样核对,中文 PDF 20 页 LH-06 的绿色莲花杯，规格表 E128；实物绿色用同一杯体轮廓保留。
+162,src/assets/images/products/metallic-molded-baking-cups-01.webp,metallic-molded-baking-cups,cover,1,纸品／包装前景,966233,48,0.005,,查验通过,按原图目视核对，实物表面无绿色反光。
+163,src/assets/images/products/metallic-molded-baking-cups-02.webp,metallic-molded-baking-cups,product,1,纸品／包装前景,933135,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+164,src/assets/images/products/mini-rectangular-paper-boxes-01.webp,mini-rectangular-paper-boxes,cover,1,纸品／包装前景,952620,21,0.0022,,查验通过,按原图目视核对，实物表面无绿色反光。
+165,src/assets/images/products/mini-rectangular-paper-boxes-02.webp,mini-rectangular-paper-boxes,product,1,纸品／包装前景,975118,18,0.0018,,查验通过,按原图目视核对，实物表面无绿色反光。
+166,src/assets/images/products/mousse-square-dessert-trays-01.webp,mousse-square-dessert-trays,cover,1,纸品／包装前景,450800,386,0.0856,,查验通过,按原图目视核对，实物表面无绿色反光。
+167,src/assets/images/categories/muffin-molded-cups-cover.webp,muffin-molded-cups,category,1,纸品／包装前景,845059,48,0.0057,,查验通过,按原图目视核对，实物表面无绿色反光。
+168,src/assets/images/categories/muffin-cups-placeholder.png,muffin-rolled-rim-baking-cups,cover,2,占位,0,0,,,查验通过,图库占位图，无产品像素。
+169,src/assets/images/products/mushroom-baking-cups-01.webp,mushroom-baking-cups,product,1,纸品／包装前景,941073,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+170,src/assets/images/products/mushroom-baking-cups-02.webp,mushroom-baking-cups,product,1,纸品／包装前景,941066,1,0.0001,,查验通过,按原图目视核对，实物表面无绿色反光。
+171,src/assets/images/products/mushroom-baking-cups-m15-photo.webp,mushroom-baking-cups,cover,1,纸品／包装前景,510340,505460,99.0438,,撤下,E11 深绿反光遮住实拍。中文 PDF 5 同系列既有黑色也有绿色，无法认定这张照片的原色。
+172,src/assets/images/products/mushroom-cup-lids-01.webp,mushroom-cup-lids,cover,1,纸品／包装前景,926239,1,0.0001,,查验通过,按原图目视核对，实物表面无绿色反光。
+173,src/assets/images/products/mushroom-cup-lids-02.webp,mushroom-cup-lids,product,1,纸品／包装前景,907278,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+174,src/assets/images/products/natural-color-cupcake-liners-01.webp,natural-color-cupcake-liners,cover,1,纸品／包装前景,254029,54,0.0213,,查验通过,按原图目视核对，实物表面无绿色反光。
+175,src/assets/images/products/natural-color-cupcake-liners-02.webp,natural-color-cupcake-liners,product,1,纸品／包装前景,950283,40,0.0042,,查验通过,按原图目视核对，实物表面无绿色反光。
+176,src/assets/images/products/oblong-cake-liners-01.webp,oblong-cake-liners,cover,1,纸品／包装前景,915417,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+177,src/assets/images/products/oblong-cake-liners-02.webp,oblong-cake-liners,product,1,纸品／包装前景,833829,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+178,src/assets/images/products/octagonal-paper-bowls-01.webp,octagonal-paper-bowls,cover,1,纸品／包装前景,953595,83,0.0087,,查验通过,按原图目视核对，实物表面无绿色反光。
+179,src/assets/images/products/octagonal-paper-bowls-02.webp,octagonal-paper-bowls,product,1,纸品／包装前景,959146,4,0.0004,,查验通过,按原图目视核对，实物表面无绿色反光。
+180,src/assets/images/products/octagonal-paper-bowls-03.webp,octagonal-paper-bowls,product,1,纸品／包装前景,810931,39,0.0048,,查验通过,按原图目视核对，实物表面无绿色反光。
+181,src/assets/images/categories/paper-baking-molds-cover.webp,paper-baking-molds,category,1,目视圈定主体表面,113832,5,0.0044,,查验通过,纸模呈棕色，浅蓝色是分类封面背景。
+182,src/assets/images/products/paper-barbecue-trays-01.webp,paper-barbecue-trays,cover,1,纸品／包装前景,943101,53,0.0056,,查验通过,按原图目视核对，实物表面无绿色反光。
+183,src/assets/images/products/paper-barbecue-trays-02.webp,paper-barbecue-trays,product,1,纸品／包装前景,972671,43,0.0044,,查验通过,按原图目视核对，实物表面无绿色反光。
+184,src/assets/images/categories/paper-bowls-trays-cover.webp,paper-bowls-trays,category,1,纸品／包装前景,950883,89,0.0094,,查验通过,按原图目视核对，实物表面无绿色反光。
+185,src/assets/images/products/paper-dessert-cup-lids-01.webp,paper-dessert-cup-lids,cover,1,纸品／包装前景,927360,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+186,src/assets/images/products/paper-dessert-cup-lids-02.webp,paper-dessert-cup-lids,product,1,纸品／包装前景,903595,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+187,src/assets/images/products/paper-dessert-cups-01.webp,paper-dessert-cups,cover,1,纸品／包装前景,589651,33,0.0056,,查验通过,按原图目视核对，实物表面无绿色反光。
+188,src/assets/images/products/paper-dessert-cups-02.webp,paper-dessert-cups,product,1,目视圈定主体表面,55872,0,0,0,传统去绿,中文 PDF 43 页纸甜品杯。只对白纸区校正偏色。
+189,src/assets/images/products/paper-pizza-pans-01.webp,paper-pizza-pans,cover,1,纸品／包装前景,949450,147,0.0155,,查验通过,按原图目视核对，实物表面无绿色反光。
+190,src/assets/images/products/paper-pizza-pans-02.webp,paper-pizza-pans,product,1,纸品／包装前景,978500,8,0.0008,,查验通过,按原图目视核对，实物表面无绿色反光。
+191,src/assets/images/products/parchment-basque-cheesecake-liners-01.webp,parchment-basque-cheesecake-liners,cover,1,纸品／包装前景,952291,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+192,src/assets/images/products/parchment-basque-cheesecake-liners-02.webp,parchment-basque-cheesecake-liners,product,1,纸品／包装前景,951017,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+193,src/assets/images/products/parchment-basque-cheesecake-liners-03.webp,parchment-basque-cheesecake-liners,product,1,纸品／包装前景,962194,6,0.0006,,查验通过,按原图目视核对，实物表面无绿色反光。
+194,src/assets/images/categories/pet-coated-baking-cups-cover.webp,pet-coated-baking-cups,category,1,纸品／包装前景,947648,19,0.002,,查验通过,按原图目视核对，实物表面无绿色反光。
+195,src/assets/images/products/pet-coated-boat-cups-01.webp,pet-coated-boat-cups,cover,1,纸品／包装前景,956435,29,0.003,0.0041,换用校色实拍,旧首图的四视图原文件带生成凭证。换为同规格 E13 实拍的去绿版，保留朝上杯和倒扣杯、红棕风车与原褶边。
+196,src/assets/images/products/pet-coated-boat-cups-02.webp,pet-coated-boat-cups,product,1,纸品／包装前景,752517,224,0.0298,,撤下,旧辅图来自 72×35×25 mm 四视图，原文件带生成凭证。它不能证明 142×50×25 mm 船型杯开口与姿态。
+197,src/assets/images/products/pet-coated-leaf-cups-01.webp,pet-coated-leaf-cups,product,1,纸品／包装前景,965150,8,0.0008,,查验通过,按原图目视核对，实物表面无绿色反光。
+198,src/assets/images/products/pet-coated-leaf-cups-02.webp,pet-coated-leaf-cups,product,1,纸品／包装前景,980081,28,0.0029,,查验通过,按原图目视核对，实物表面无绿色反光。
+199,src/assets/images/products/pet-coated-leaf-cups-m15-photo.webp,pet-coated-leaf-cups,cover,1,纸品／包装前景,353196,35423,10.0293,0.0291,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E51。从同一原照副本校正反光，保留原杯型与印花。
+200,src/assets/images/products/pet-coated-rectangular-cups-01.webp,pet-coated-rectangular-cups,cover,1,纸品／包装前景,736647,148,0.0201,,查验通过,按原图目视核对，实物表面无绿色反光。
+201,src/assets/images/products/pet-coated-rectangular-cups-02.webp,pet-coated-rectangular-cups,product,1,纸品／包装前景,723697,257,0.0355,,查验通过,按原图目视核对，实物表面无绿色反光。
+202,src/assets/images/products/pet-coated-rectangular-rolled-rim-cups-01.webp,pet-coated-rectangular-rolled-rim-cups,cover,1,纸品／包装前景,935039,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+203,src/assets/images/products/pet-coated-rectangular-rolled-rim-cups-02.webp,pet-coated-rectangular-rolled-rim-cups,product,1,纸品／包装前景,931339,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+204,src/assets/images/products/pet-coated-round-cups-01.webp,pet-coated-round-cups,cover,1,纸品／包装前景,966111,61,0.0063,,查验通过,按原图目视核对，实物表面无绿色反光。
+205,src/assets/images/products/pet-coated-round-cups-02.webp,pet-coated-round-cups,product,1,纸品／包装前景,976277,90,0.0092,,查验通过,按原图目视核对，实物表面无绿色反光。
+206,src/assets/images/products/pet-coated-round-cups-03.webp,pet-coated-round-cups,product,1,纸品／包装前景,965409,4,0.0004,,查验通过,按原图目视核对，实物表面无绿色反光。
+207,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-01.webp,pet-coated-round-rolled-rim-baking-cups,product,1,纸品／包装前景,839459,26,0.0031,,查验通过,按原图目视核对，实物表面无绿色反光。
+208,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-02.webp,pet-coated-round-rolled-rim-baking-cups,cover,1,纸品／包装前景,944276,195417,20.6949,,色样核对,中文 PDF 12 页彩色圆形卷口杯包含蓝绿色波点工艺。白色内壁为中性白。
+209,src/assets/images/products/pet-coated-round-rolled-rim-baking-cups-03.webp,pet-coated-round-rolled-rim-baking-cups,product,1,纸品／包装前景,936415,182,0.0194,,查验通过,按原图目视核对，实物表面无绿色反光。
+210,src/assets/images/products/pet-coated-scalloped-rim-cups-01.webp,pet-coated-scalloped-rim-cups,product,1,纸品／包装前景,955251,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+211,src/assets/images/products/pet-coated-scalloped-rim-cups-02.webp,pet-coated-scalloped-rim-cups,product,1,纸品／包装前景,848278,8,0.0009,,查验通过,按原图目视核对，实物表面无绿色反光。
+212,src/assets/images/products/pet-coated-scalloped-rim-cups-m15-photo.webp,pet-coated-scalloped-rim-cups,cover,1,纸品／包装前景,503842,15746,3.1252,0.0243,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E102。从同一原照副本校正反光，保留原杯型与印花。
+213,src/assets/images/products/pet-coated-square-cups-01.webp,pet-coated-square-cups,product,1,纸品／包装前景,946965,16,0.0017,,查验通过,按原图目视核对，实物表面无绿色反光。
+214,src/assets/images/products/pet-coated-square-cups-02.webp,pet-coated-square-cups,product,1,纸品／包装前景,958652,3,0.0003,,查验通过,按原图目视核对，实物表面无绿色反光。
+215,src/assets/images/products/pet-coated-square-cups-03.webp,pet-coated-square-cups,product,1,纸品／包装前景,963742,49,0.0051,,查验通过,按原图目视核对，实物表面无绿色反光。
+216,src/assets/images/products/pet-coated-square-cups-m15-photo.webp,pet-coated-square-cups,cover,1,纸品／包装前景,527343,52874,10.0265,0.1647,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E52。从同一原照副本校正反光，保留原杯型与印花。
+217,src/assets/images/products/pet-coated-square-rolled-rim-cups-01.webp,pet-coated-square-rolled-rim-cups,cover,1,纸品／包装前景,934197,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+218,src/assets/images/products/pet-coated-square-rolled-rim-cups-02.webp,pet-coated-square-rolled-rim-cups,product,1,纸品／包装前景,935656,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+219,src/assets/images/products/pet-coated-triangular-cups-01.webp,pet-coated-triangular-cups,product,1,纸品／包装前景,928947,12,0.0013,,查验通过,按原图目视核对，实物表面无绿色反光。
+220,src/assets/images/products/pet-coated-triangular-cups-02.webp,pet-coated-triangular-cups,product,1,纸品／包装前景,947970,27,0.0028,,查验通过,按原图目视核对，实物表面无绿色反光。
+221,src/assets/images/products/pet-coated-triangular-cups-m15-photo.webp,pet-coated-triangular-cups,cover,1,纸品／包装前景,733249,235206,32.0772,1.2822,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E50。从同一原照副本校正反光，保留原杯型与印花。
+222,src/assets/images/categories/pet-dessert-inserts-cover.webp,pet-dessert-inserts,category,1,纸品／包装前景,929745,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+223,src/assets/images/products/plain-cupcake-liners-01.webp,plain-cupcake-liners,cover,1,纸品／包装前景,910709,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+224,src/assets/images/products/plain-cupcake-liners-02.webp,plain-cupcake-liners,product,1,纸品／包装前景,930232,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+225,src/assets/images/products/plain-molded-baking-cups-m15-photo.webp,plain-molded-baking-cups,cover,1,纸品／包装前景,623896,270859,43.4141,2.6827,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E60。从同一原照副本校正反光，保留原杯型与印花。
+226,src/assets/images/products/printed-cupcake-liners-01.webp,printed-cupcake-liners,cover,1,纸品／包装前景,960447,13463,1.4017,,色样核对,中文 PDF 28 页印花纸托的草莓果叶图案。
+227,src/assets/images/products/printed-cupcake-liners-02.webp,printed-cupcake-liners,product,1,纸品／包装前景,970990,40685,4.1901,,色样核对,中文 PDF 28 页印花纸托的草莓果叶图案。
+228,src/assets/images/products/printed-liner-extra-sizes-01.webp,printed-liner-extra-sizes,cover,1,纸品／包装前景,959040,18578,1.9371,,色样核对,中文 PDF 28 页印花纸托的草莓果叶图案。
+229,src/assets/images/products/printed-liner-extra-sizes-02.webp,printed-liner-extra-sizes,product,1,纸品／包装前景,975875,12370,1.2676,,色样核对,中文 PDF 28 页印花纸托的草莓果叶图案。
+230,src/assets/images/products/rectangular-baking-parchment-sheets-01.webp,rectangular-baking-parchment-sheets,cover,1,纸品／包装前景,951073,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+231,src/assets/images/products/rectangular-baking-parchment-sheets-02.webp,rectangular-baking-parchment-sheets,product,1,纸品／包装前景,971629,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+232,src/assets/images/products/rectangular-coated-paper-boxes-01.webp,rectangular-coated-paper-boxes,cover,1,纸品／包装前景,419558,55,0.0131,,查验通过,按原图目视核对，实物表面无绿色反光。
+233,src/assets/images/products/rectangular-gold-cake-cards-01.webp,rectangular-gold-cake-cards,cover,1,目视圈定主体表面,60480,0,0,,查验通过,绿偏仅在长方金卡的背景纸。
+234,src/assets/images/products/rectangular-gold-cake-cards-02.webp,rectangular-gold-cake-cards,product,1,目视圈定主体表面,60480,0,0,,查验通过,绿偏仅在长方金卡的背景纸。
+235,src/assets/images/categories/greaseproof-cupcake-liners-placeholder.png,rectangular-greaseproof-paper-sheets,cover,4,占位,0,0,,,查验通过,图库占位图，无产品像素。
+236,src/assets/images/products/rectangular-molded-baking-cups-01.webp,rectangular-molded-baking-cups,cover,1,纸品／包装前景,965073,5,0.0005,,查验通过,按原图目视核对，实物表面无绿色反光。
+237,src/assets/images/products/rectangular-molded-baking-cups-02.webp,rectangular-molded-baking-cups,product,1,纸品／包装前景,1010941,95217,9.4187,,色样核对,中文 PDF 54 页长方机制杯的蓝／绿条纹配色。
+238,src/assets/images/products/rectangular-molded-baking-cups-03.webp,rectangular-molded-baking-cups,product,1,纸品／包装前景,963765,30753,3.1909,,色样核对,中文 PDF 54 页 MS-01 一组的白底多色花卉。
+239,src/assets/images/products/rectangular-paper-box-lids-01.webp,rectangular-paper-box-lids,cover,1,纸品／包装前景,950295,41,0.0043,,查验通过,按原图目视核对，实物表面无绿色反光。
+240,src/assets/images/products/rectangular-paper-box-lids-02.webp,rectangular-paper-box-lids,product,1,纸品／包装前景,924822,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+241,src/assets/images/products/rectangular-paper-trays-with-lids-01.webp,rectangular-paper-trays-with-lids,cover,1,纸品／包装前景,962422,58,0.006,,查验通过,按原图目视核对，实物表面无绿色反光。
+242,src/assets/images/products/rectangular-paper-trays-with-lids-02.webp,rectangular-paper-trays-with-lids,product,1,纸品／包装前景,960738,62353,6.4901,,撤下,长方纸塑盒的花卉印刷可见绿色，中文 PDF 45 核实了绿格和分色包装，尚无本花卉版的对应证据。
+243,src/assets/images/products/rectangular-paper-trays-with-lids-03.webp,rectangular-paper-trays-with-lids,product,1,纸品／包装前景,950415,3,0.0003,,查验通过,按原图目视核对，实物表面无绿色反光。
+244,src/assets/images/products/rectangular-parchment-air-fryer-liners-01.webp,rectangular-parchment-air-fryer-liners,cover,1,纸品／包装前景,1021136,29,0.0028,,查验通过,按原图目视核对，实物表面无绿色反光。
+245,src/assets/images/products/rectangular-parchment-air-fryer-liners-02.webp,rectangular-parchment-air-fryer-liners,product,1,纸品／包装前景,973807,411,0.0422,,查验通过,按原图目视核对，实物表面无绿色反光。
+246,src/assets/images/categories/basque-cheesecake-liners-placeholder.png,rolled-edge-basque-liners,cover,2,占位,0,0,,,查验通过,图库占位图，无产品像素。
+247,src/assets/images/products/rolled-edge-parchment-basque-liners-01.webp,rolled-edge-parchment-basque-liners,cover,1,纸品／包装前景,954473,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+248,src/assets/images/products/rolled-edge-parchment-basque-liners-02.webp,rolled-edge-parchment-basque-liners,product,1,纸品／包装前景,960274,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+249,src/assets/images/categories/rolled-rim-baking-cups-cover.webp,rolled-rim-baking-cups,category,1,纸品／包装前景,326476,92,0.0282,,查验通过,按原图目视核对，实物表面无绿色反光。
+250,src/assets/images/products/rose-gold-round-rolled-rim-cups-01.webp,rose-gold-round-rolled-rim-cups,cover,1,纸品／包装前景,551593,655,0.1187,,查验通过,按原图目视核对，实物表面无绿色反光。
+251,src/assets/images/products/rose-gold-round-rolled-rim-cups-02.webp,rose-gold-round-rolled-rim-cups,product,1,目视圈定主体表面,138240,4068,2.9427,,查验通过,玫瑰金杯有粉色外壁，灰背景轻微冷色。
+252,src/assets/images/products/round-foil-air-fryer-liners-01.webp,round-foil-air-fryer-liners,cover,1,纸品／包装前景,892819,173,0.0194,,查验通过,按原图目视核对，实物表面无绿色反光。
+253,src/assets/images/products/round-foil-air-fryer-liners-02.webp,round-foil-air-fryer-liners,product,1,纸品／包装前景,939095,130,0.0138,,查验通过,按原图目视核对，实物表面无绿色反光。
+254,src/assets/images/products/round-gold-cake-cards-01.webp,round-gold-cake-cards,cover,1,目视圈定主体表面,134784,0,0,,查验通过,绿偏仅在圆形金卡的背景纸。
+255,src/assets/images/products/round-gold-cake-cards-02.webp,round-gold-cake-cards,product,1,目视圈定主体表面,131328,0,0,,查验通过,绿偏仅在圆形金卡的背景纸。
+256,src/assets/images/products/round-paper-bowls-01.webp,round-paper-bowls,cover,1,纸品／包装前景,965682,6,0.0006,,查验通过,按原图目视核对，实物表面无绿色反光。
+257,src/assets/images/products/round-paper-bowls-02.webp,round-paper-bowls,product,1,纸品／包装前景,937756,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+258,src/assets/images/products/round-paper-bowls-03.webp,round-paper-bowls,product,1,纸品／包装前景,979458,48,0.0049,,查验通过,按原图目视核对，实物表面无绿色反光。
+259,src/assets/images/products/round-parchment-air-fryer-liners-01.webp,round-parchment-air-fryer-liners,cover,1,纸品／包装前景,966297,31,0.0032,,查验通过,按原图目视核对，实物表面无绿色反光。
+260,src/assets/images/products/round-parchment-air-fryer-liners-02.webp,round-parchment-air-fryer-liners,product,1,纸品／包装前景,957941,30,0.0031,,查验通过,按原图目视核对，实物表面无绿色反光。
+261,src/assets/images/products/round-pet-dessert-inserts-01.webp,round-pet-dessert-inserts,cover,1,纸品／包装前景,929976,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+262,src/assets/images/products/round-pet-dessert-inserts-02.webp,round-pet-dessert-inserts,product,1,纸品／包装前景,952933,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+263,src/assets/images/products/rounded-tulip-baking-cups-01.webp,rounded-tulip-baking-cups,cover,1,纸品／包装前景,299600,21,0.007,,查验通过,按原图目视核对，实物表面无绿色反光。
+264,src/assets/images/products/rounded-tulip-baking-cups-02.webp,rounded-tulip-baking-cups,product,1,纸品／包装前景,271014,128,0.0472,,查验通过,按原图目视核对，实物表面无绿色反光。
+265,src/assets/images/products/scalloped-cake-boards-01.webp,scalloped-cake-boards,cover,1,纸品／包装前景,607958,13,0.0021,,查验通过,按原图目视核对，实物表面无绿色反光。
+266,src/assets/images/products/single-sided-gold-flame-cups-01.webp,single-sided-gold-flame-cups,cover,1,纸品／包装前景,347256,23641,6.8079,,色样核对,工厂灰背景原照有离散多色印花，杯内箔面为金，未见绿幕或整面外壁偏色。
+267,src/assets/images/products/single-sided-gold-flame-cups-02.webp,single-sided-gold-flame-cups,product,1,纸品／包装前景,582681,989,0.1697,,查验通过,按原图目视核对，实物表面无绿色反光。
+268,src/assets/images/products/single-sided-gold-rectangular-rolled-rim-cups-01.webp,single-sided-gold-rectangular-rolled-rim-cups,product,1,纸品／包装前景,957480,179,0.0187,,查验通过,按原图目视核对，实物表面无绿色反光。
+269,src/assets/images/products/single-sided-gold-rectangular-rolled-rim-cups-02.webp,single-sided-gold-rectangular-rolled-rim-cups,product,1,纸品／包装前景,969528,71,0.0073,,查验通过,按原图目视核对，实物表面无绿色反光。
+270,src/assets/images/products/single-sided-gold-rectangular-rolled-rim-cups-m15-photo.webp,single-sided-gold-rectangular-rolled-rim-cups,cover,1,纸品／包装前景,429946,146194,34.0029,0.1537,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E96。从同一原照副本校正反光，保留原杯型与印花。
+271,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-01.webp,single-sided-gold-round-rolled-rim-cups,cover,1,纸品／包装前景,516288,64553,12.5033,,色样核对,中文 PDF 9 页 DMJ-17 的单面金绿格印花，灰背景原照可区分纸面印刷和金箔反光。
+272,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-02.webp,single-sided-gold-round-rolled-rim-cups,product,1,纸品／包装前景,599129,173,0.0289,,查验通过,按原图目视核对，实物表面无绿色反光。
+273,src/assets/images/products/single-sided-gold-round-rolled-rim-cups-03.webp,single-sided-gold-round-rolled-rim-cups,product,1,纸品／包装前景,963010,167,0.0173,,查验通过,按原图目视核对，实物表面无绿色反光。
+274,src/assets/images/products/single-sided-gold-scalloped-rim-cups-01.webp,single-sided-gold-scalloped-rim-cups,cover,1,纸品／包装前景,440411,340,0.0772,,查验通过,按原图目视核对，实物表面无绿色反光。
+275,src/assets/images/products/single-sided-gold-scalloped-rim-cups-02.webp,single-sided-gold-scalloped-rim-cups,product,1,纸品／包装前景,863035,1016,0.1177,,查验通过,按原图目视核对，实物表面无绿色反光。
+276,src/assets/images/products/single-sided-gold-scalloped-rim-cups-03.webp,single-sided-gold-scalloped-rim-cups,product,1,纸品／包装前景,502446,305,0.0607,,查验通过,按原图目视核对，实物表面无绿色反光。
+277,src/assets/images/products/single-sided-gold-square-rolled-rim-cups-01.webp,single-sided-gold-square-rolled-rim-cups,product,1,纸品／包装前景,960518,273,0.0284,,查验通过,按原图目视核对，实物表面无绿色反光。
+278,src/assets/images/products/single-sided-gold-square-rolled-rim-cups-02.webp,single-sided-gold-square-rolled-rim-cups,product,1,纸品／包装前景,976700,436,0.0446,,查验通过,按原图目视核对，实物表面无绿色反光。
+279,src/assets/images/products/single-sided-gold-square-rolled-rim-cups-m15-photo.webp,single-sided-gold-square-rolled-rim-cups,cover,1,纸品／包装前景,461664,47141,10.2111,0.1167,传统去绿,data-import/product-specs-2026.xlsx · Sheet1!E91。从同一原照副本校正反光，保留原杯型与印花。
+280,src/assets/images/products/square-baking-parchment-sheets-01.webp,square-baking-parchment-sheets,cover,1,纸品／包装前景,952792,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+281,src/assets/images/products/square-baking-parchment-sheets-02.webp,square-baking-parchment-sheets,product,1,纸品／包装前景,973960,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+282,src/assets/images/products/square-coated-paper-boxes-01.webp,square-coated-paper-boxes,cover,1,纸品／包装前景,963640,27,0.0028,,查验通过,按原图目视核对，实物表面无绿色反光。
+283,src/assets/images/products/square-coated-paper-boxes-02.webp,square-coated-paper-boxes,product,1,纸品／包装前景,975400,22,0.0023,,查验通过,按原图目视核对，实物表面无绿色反光。
+284,src/assets/images/products/square-foil-air-fryer-liners-01.webp,square-foil-air-fryer-liners,cover,1,纸品／包装前景,961001,69,0.0072,,查验通过,按原图目视核对，实物表面无绿色反光。
+285,src/assets/images/products/square-foil-air-fryer-liners-02.webp,square-foil-air-fryer-liners,product,1,纸品／包装前景,945313,240,0.0254,,查验通过,按原图目视核对，实物表面无绿色反光。
+286,src/assets/images/products/square-gold-cake-cards-01.webp,square-gold-cake-cards,cover,1,目视圈定主体表面,99792,0,0,,查验通过,绿偏仅在正方金卡的背景纸。
+287,src/assets/images/products/square-gold-cake-cards-02.webp,square-gold-cake-cards,product,1,目视圈定主体表面,103680,0,0,,查验通过,绿偏仅在正方金卡的背景纸。
+288,src/assets/images/products/square-molded-baking-cups-01.webp,square-molded-baking-cups,cover,1,纸品／包装前景,476028,162655,34.1692,,色样核对,中文 PDF 52 页方形机制杯的蓝色与多彩印花样杯。
+289,src/assets/images/products/square-molded-baking-cups-02.webp,square-molded-baking-cups,product,1,纸品／包装前景,1412638,849,0.0601,,查验通过,按原图目视核对，实物表面无绿色反光。
+290,src/assets/images/products/square-paper-box-lids-01.webp,square-paper-box-lids,cover,1,纸品／包装前景,945852,15,0.0016,,查验通过,按原图目视核对，实物表面无绿色反光。
+291,src/assets/images/products/square-paper-box-lids-02.webp,square-paper-box-lids,product,1,纸品／包装前景,969369,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+292,src/assets/images/products/square-paper-liners-01.webp,square-paper-liners,cover,1,纸品／包装前景,924454,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+293,src/assets/images/products/square-paper-liners-02.webp,square-paper-liners,product,1,纸品／包装前景,969580,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+294,src/assets/images/products/square-paper-trays-with-lids-01.webp,square-paper-trays-with-lids,cover,1,纸品／包装前景,966085,15,0.0016,,查验通过,按原图目视核对，实物表面无绿色反光。
+295,src/assets/images/products/square-paper-trays-with-lids-02.webp,square-paper-trays-with-lids,product,1,纸品／包装前景,899787,60056,6.6745,,撤下,方形纸塑盒的花卉印刷可见绿色，中文 PDF 44 核实了绿格和分色包装，尚无本花卉版的对应证据。
+296,src/assets/images/products/square-paper-trays-with-lids-03.webp,square-paper-trays-with-lids,product,1,纸品／包装前景,927080,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+297,src/assets/images/products/square-parchment-air-fryer-liners-01.webp,square-parchment-air-fryer-liners,cover,1,纸品／包装前景,1062744,57,0.0054,,查验通过,按原图目视核对，实物表面无绿色反光。
+298,src/assets/images/products/square-parchment-air-fryer-liners-02.webp,square-parchment-air-fryer-liners,product,1,纸品／包装前景,979269,39,0.004,,查验通过,按原图目视核对，实物表面无绿色反光。
+299,src/assets/images/products/square-pet-dessert-inserts-01.webp,square-pet-dessert-inserts,cover,1,纸品／包装前景,926215,1,0.0001,,查验通过,按原图目视核对，实物表面无绿色反光。
+300,src/assets/images/products/square-pet-dessert-inserts-02.webp,square-pet-dessert-inserts,product,1,纸品／包装前景,937656,9,0.001,,查验通过,按原图目视核对，实物表面无绿色反光。
+301,src/assets/images/products/star-fluted-pudding-cups-01.webp,star-fluted-pudding-cups,cover,1,纸品／包装前景,653328,1619,0.2478,,查验通过,按原图目视核对，实物表面无绿色反光。
+302,src/assets/images/products/star-fluted-pudding-cups-02.webp,star-fluted-pudding-cups,product,1,目视圈定主体表面,155520,0,0,,查验通过,浅粉星纹杯，绿偏仅在棚景灰背景。
+303,src/assets/images/products/star-fluted-pudding-cups-03.webp,star-fluted-pudding-cups,product,1,纸品／包装前景,840787,9,0.0011,,查验通过,按原图目视核对，实物表面无绿色反光。
+304,src/assets/images/products/straw-hat-baking-cups-01.webp,straw-hat-baking-cups,cover,1,纸品／包装前景,488170,260,0.0533,,查验通过,按原图目视核对，实物表面无绿色反光。
+305,src/assets/images/products/straw-hat-baking-cups-02.webp,straw-hat-baking-cups,product,1,纸品／包装前景,675582,65,0.0096,,查验通过,按原图目视核对，实物表面无绿色反光。
+306,src/assets/images/products/straw-hat-baking-cups-03.webp,straw-hat-baking-cups,product,1,纸品／包装前景,940028,28,0.003,,查验通过,按原图目视核对，实物表面无绿色反光。
+307,src/assets/images/products/translucent-chiffon-liners-01.webp,translucent-chiffon-liners,cover,1,纸品／包装前景,927491,97,0.0105,,查验通过,按原图目视核对，实物表面无绿色反光。
+308,src/assets/images/products/translucent-chiffon-liners-02.webp,translucent-chiffon-liners,product,1,纸品／包装前景,840417,80,0.0095,,查验通过,按原图目视核对，实物表面无绿色反光。
+309,src/assets/images/products/translucent-cupcake-liners-01.webp,translucent-cupcake-liners,cover,1,纸品／包装前景,955637,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+310,src/assets/images/products/translucent-cupcake-liners-02.webp,translucent-cupcake-liners,product,1,纸品／包装前景,933674,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+311,src/assets/images/products/translucent-square-liners-01.webp,translucent-square-liners,cover,1,纸品／包装前景,967477,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+312,src/assets/images/products/translucent-square-liners-02.webp,translucent-square-liners,product,1,纸品／包装前景,969572,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+313,src/assets/images/products/triangular-gold-cake-cards-01.webp,triangular-gold-cake-cards,cover,1,目视圈定主体表面,16416,0,0,,查验通过,绿偏仅在三角金卡的背景纸。
+314,src/assets/images/products/triangular-gold-cake-cards-02.webp,triangular-gold-cake-cards,product,1,目视圈定主体表面,22176,0,0,,查验通过,绿偏仅在三角金卡的背景纸。
+315,src/assets/images/products/tulip-baking-cups-01.webp,tulip-baking-cups,cover,1,纸品／包装前景,1332233,290,0.0218,,查验通过,按原图目视核对，实物表面无绿色反光。
+316,src/assets/images/products/tulip-baking-cups-02.webp,tulip-baking-cups,product,1,纸品／包装前景,1201452,130,0.0108,,查验通过,按原图目视核对，实物表面无绿色反光。
+317,src/assets/images/categories/tulip-shaped-baking-cups-cover.webp,tulip-shaped-baking-cups,category,1,纸品／包装前景,810003,2122,0.262,,查验通过,按原图目视核对，实物表面无绿色反光。
+318,src/assets/images/products/white-cupcake-liners-01.webp,white-cupcake-liners,cover,1,纸品／包装前景,931573,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+319,src/assets/images/products/white-cupcake-liners-02.webp,white-cupcake-liners,product,1,纸品／包装前景,942034,0,0,,查验通过,按原图目视核对，实物表面无绿色反光。
+320,src/assets/images/products/window-cake-boxes-01.webp,window-cake-boxes,cover,1,纸品／包装前景,936296,99,0.0106,,查验通过,按原图目视核对，实物表面无绿色反光。
+321,src/assets/images/products/window-cake-boxes-02.webp,window-cake-boxes,product,1,纸品／包装前景,959814,74,0.0077,,查验通过,按原图目视核对，实物表面无绿色反光。
+322,src/assets/images/products/window-cake-boxes-03.webp,window-cake-boxes,product,1,纸品／包装前景,975711,291,0.0298,,查验通过,按原图目视核对，实物表面无绿色反光。

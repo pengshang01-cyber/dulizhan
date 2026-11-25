@@ -157,17 +157,66 @@
     }
   ],
   "colors": [
-    { "en": "Brown", "zh": "棕色", "swatch": "#78584b" },
-    { "en": "Red", "zh": "红色", "swatch": "#c33938" },
-    { "en": "Mint green", "zh": "薄荷绿", "swatch": "#71b9a6" },
-    { "en": "White", "zh": "白色", "swatch": "#ffffff" },
-    { "en": "Pink", "zh": "粉色", "swatch": "#d591a8" },
-    { "en": "Blue", "zh": "蓝色", "swatch": "#438eae" },
-    { "en": "Lavender", "zh": "浅紫色", "swatch": "#b5a1cb" },
-    { "en": "Turquoise", "zh": "蓝绿色", "swatch": "#4fb5b7" },
-    { "en": "Purple", "zh": "紫色", "swatch": "#8d5eaa" },
-    { "en": "Deep blue", "zh": "深蓝色", "swatch": "#285797" },
-    { "en": "Green", "zh": "绿色", "swatch": "#6a9a4b" }
+    {
+      "en": "Gold interior",
+      "zh": "金色内壁",
+      "swatch": "#c6a244"
+    },
+    {
+      "en": "White exterior",
+      "zh": "白色外壁",
+      "swatch": "#ffffff"
+    },
+    {
+      "en": "Red exterior",
+      "zh": "红色外壁",
+      "swatch": "#c33938"
+    },
+    {
+      "en": "Pink exterior",
+      "zh": "粉色外壁",
+      "swatch": "#d591a8"
+    },
+    {
+      "en": "Brown exterior",
+      "zh": "棕色外壁",
+      "swatch": "#78584b"
+    },
+    {
+      "en": "Mint green exterior",
+      "zh": "薄荷绿外壁",
+      "swatch": "#71b9a6"
+    },
+    {
+      "en": "Blue exterior",
+      "zh": "蓝色外壁",
+      "swatch": "#438eae"
+    },
+    {
+      "en": "Lavender exterior",
+      "zh": "浅紫色外壁",
+      "swatch": "#b5a1cb"
+    },
+    {
+      "en": "Turquoise exterior",
+      "zh": "蓝绿色外壁",
+      "swatch": "#4fb5b7"
+    },
+    {
+      "en": "Purple exterior",
+      "zh": "紫色外壁",
+      "swatch": "#8d5eaa"
+    },
+    {
+      "en": "Deep blue exterior",
+      "zh": "深蓝色外壁",
+      "swatch": "#285797"
+    },
+    {
+      "en": "Green exterior",
+      "zh": "绿色外壁",
+      "swatch": "#6a9a4b"
+    }
   ],
   "patterns": [],
   "customizable": "TODO_CUSTOMIZABLE",
