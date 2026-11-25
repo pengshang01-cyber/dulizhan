@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/rectangular-paper-box-lids-01.webp",
+      "image": "../../assets/images/products/rectangular-paper-box-lids-m16-photo.webp",
       "alt": {
-        "en": "Rectangular Paper Box Lids — clear rectangular box lid at an angle",
-        "zh": "长方形纸盒盖，透明长方纸盒盖斜视"
+        "en": "Transparent rectangular paper-box lid, top side up",
+        "zh": "顶面朝上的透明长方形纸盒盖"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Rectangular Paper Box Lids — clear rectangular box lid in profile",
         "zh": "长方形纸盒盖，透明长方纸盒盖侧视"
       }
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-box-lids-medium-195-x-89-x-25-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "Medium · 195 × 89 × 25 mm shown beside an egg (5.7 cm)",
+        "zh": "中号 · 195 × 89 × 25 mm 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-box-lids-m16-scene-01.webp",
+      "alt": {
+        "en": "Rectangular Paper Box Lids serving a whole 145 × 50 mm lemon-glazed tea cake in its fitted kraft base, enclosed by the clear lid",
+        "zh": "长方形纸盒盖展示柠檬糖霜茶点蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/rectangular-paper-box-lids-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Rectangular Paper Box Lids on a bakery counter",
+        "zh": "两份柠檬糖霜茶点蛋糕使用长方形纸盒盖陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET", "zh": "PET" },

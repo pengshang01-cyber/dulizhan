@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/square-paper-box-lids-01.webp",
+      "image": "../../assets/images/products/square-paper-box-lids-m16-photo.webp",
       "alt": {
-        "en": "Square Paper Box Lids — clear square box lid at an angle",
-        "zh": "正方形纸盒盖，透明正方纸盒盖斜视"
+        "en": "Transparent mini square paper-box lid, top side up",
+        "zh": "顶面朝上的透明迷你正方形纸盒盖"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Square Paper Box Lids — clear square lid from above",
         "zh": "正方形纸盒盖，透明方形盒盖俯视"
       }
+    },
+    {
+      "image": "../../assets/images/products/square-paper-box-lids-mini-88-x-88-x-25-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "Mini · 88 × 88 × 25 mm shown beside an egg (5.7 cm)",
+        "zh": "迷你 · 88 × 88 × 25 mm 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/square-paper-box-lids-m16-scene-01.webp",
+      "alt": {
+        "en": "Square Paper Box Lids serving a 53 mm square berry mousse cake on a fitted cream paper tray under the original 88 mm clear lid",
+        "zh": "正方形纸盒盖展示莓果慕斯小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/square-paper-box-lids-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Square Paper Box Lids on a bakery counter",
+        "zh": "两份莓果慕斯小蛋糕使用正方形纸盒盖陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET", "zh": "PET" },

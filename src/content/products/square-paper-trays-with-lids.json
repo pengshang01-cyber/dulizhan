@@ -9,10 +9,10 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/square-paper-trays-with-lids-01.webp",
+      "image": "../../assets/images/products/square-paper-trays-with-lids-m16-photo.webp",
       "alt": {
-        "en": "Square Paper Trays with Lids — kraft-colored square paper tray",
-        "zh": "方形纸塑盒，牛皮色方形纸塑盒"
+        "en": "Green gingham square paper tray with its transparent lid",
+        "zh": "配透明盖的绿白格方形纸塑盒"
       }
     },
     {
@@ -21,6 +21,30 @@
         "en": "Square Paper Trays with Lids — clear lid for the square tray",
         "zh": "方形纸塑盒，方形纸塑盒配用的透明盖"
       }
+    },
+    {
+      "image": "../../assets/images/products/square-paper-trays-with-lids-135-x-125-mm-top-green-gingham-m16-size-comparison.webp",
+      "alt": {
+        "en": "135 × 125 mm top · green gingham shown beside an egg (5.7 cm)",
+        "zh": "135 × 125 mm 盒口 · 绿白格 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/square-paper-trays-with-lids-m16-scene-01.webp",
+      "alt": {
+        "en": "Square Paper Trays with Lids serving one fully enclosed 85 × 75 mm small whole white chocolate and strawberry cake under the original clear cover",
+        "zh": "方形纸塑盒展示白巧克力草莓小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/square-paper-trays-with-lids-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Square Paper Trays with Lids on a bakery counter",
+        "zh": "两份白巧克力草莓小蛋糕使用方形纸塑盒陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },

@@ -12,11 +12,35 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/rectangular-coated-paper-boxes-01.webp",
+      "image": "../../assets/images/products/rectangular-coated-paper-boxes-m16-photo.webp",
       "alt": {
-        "en": "Natural rectangular coated paper box with its clear lid",
-        "zh": "本色长方形淋膜纸盒与透明盖"
+        "en": "Medium kraft laminated rectangular paper box with an open rolled rim",
+        "zh": "中号牛皮色长方形淋膜纸盒，开口朝上"
       }
+    },
+    {
+      "image": "../../assets/images/products/rectangular-coated-paper-boxes-medium-188-x-85-x-60-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "Medium · 188 × 85 × 60 mm shown beside an egg (5.7 cm)",
+        "zh": "中号 · 188 × 85 × 60 mm 规格与鸡蛋（5.7 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/rectangular-coated-paper-boxes-m16-scene-01.webp",
+      "alt": {
+        "en": "Rectangular Coated Paper Cake Boxes serving a whole 145 × 48 mm chocolate-hazelnut loaf cake",
+        "zh": "长方形淋膜纸盒展示巧克力榛子磅蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/rectangular-coated-paper-boxes-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Rectangular Coated Paper Cake Boxes on a bakery counter",
+        "zh": "两份巧克力榛子磅蛋糕使用长方形淋膜纸盒陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": {

@@ -9,7 +9,35 @@
   },
   "images": [
     {
-      "image": "../../assets/images/categories/specialty-packaging-placeholder.png"
+      "image": "../../assets/images/products/square-white-cake-cards-m16-photo.webp",
+      "alt": {
+        "en": "Square white cake card with its original corner decoration",
+        "zh": "留有原版角部装饰的正方形白卡垫"
+      }
+    },
+    {
+      "image": "../../assets/images/products/square-white-cake-cards-90-x-90-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "90 × 90 mm shown beside a fork (19 cm)",
+        "zh": "90 × 90 mm 规格与餐叉（19 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/square-white-cake-cards-m16-scene-01.webp",
+      "alt": {
+        "en": "Square White Cake Cards serving a whole 76 mm square lemon-and-blueberry mousse cake",
+        "zh": "正方形白卡垫展示柠檬蓝莓慕斯小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/square-white-cake-cards-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Square White Cake Cards on a bakery counter",
+        "zh": "两份柠檬蓝莓慕斯小蛋糕使用正方形白卡垫陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },

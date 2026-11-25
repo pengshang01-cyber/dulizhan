@@ -513,5 +513,40 @@
     "name": "m15-detail-basque",
     "path": "/zh/products/basque-cheesecake-liners/greaseproof-round-baking-trays/",
     "milestones": ["M15"]
+  },
+  {
+    "name": "m16-detail-molds",
+    "path": "/products/paper-baking-molds/paper-pizza-pans/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-inserts",
+    "path": "/zh/products/pet-dessert-inserts/round-pet-dessert-inserts/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-paper",
+    "path": "/products/baking-wrapping-paper/baking-parchment-rolls/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-air-fryer",
+    "path": "/zh/products/air-fryer-liners/round-parchment-air-fryer-liners/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-boards",
+    "path": "/products/cake-boards/round-gold-cake-cards/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-boxes",
+    "path": "/zh/products/cake-boxes/square-coated-paper-boxes/",
+    "milestones": ["M16"]
+  },
+  {
+    "name": "m16-detail-bowls",
+    "path": "/zh/products/paper-bowls-trays/octagonal-paper-bowls/",
+    "milestones": ["M16"]
   }
 ]

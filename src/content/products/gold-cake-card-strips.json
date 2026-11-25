@@ -9,11 +9,35 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/gold-cake-card-strips-01.webp",
+      "image": "../../assets/images/products/gold-cake-card-strips-m16-photo.webp",
       "alt": {
-        "en": "Long narrow rectangular gold cake card",
-        "zh": "细长条形金色蛋糕卡垫"
+        "en": "Slim gold cake card with its small tab, viewed from above",
+        "zh": "细长条金卡垫俯拍，可见短边与拉耳"
       }
+    },
+    {
+      "image": "../../assets/images/products/gold-cake-card-strips-130-x-40-mm-m16-size-comparison.webp",
+      "alt": {
+        "en": "130 × 40 mm shown beside a fork (19 cm)",
+        "zh": "130 × 40 mm 规格与餐叉（19 厘米）对照"
+      },
+      "sizeComparison": true
+    },
+    {
+      "image": "../../assets/images/products/gold-cake-card-strips-m16-scene-01.webp",
+      "alt": {
+        "en": "Gold Cake Card Strips serving one whole slim 93 × 28 mm lemon and vanilla éclair-shaped mini cake",
+        "zh": "细长条金卡垫展示柠檬香草长条小蛋糕"
+      },
+      "scene": "closeup"
+    },
+    {
+      "image": "../../assets/images/products/gold-cake-card-strips-m16-scene-02.webp",
+      "alt": {
+        "en": "Two servings in Gold Cake Card Strips on a bakery counter",
+        "zh": "两份柠檬香草长条小蛋糕使用细长条金卡垫陈列"
+      },
+      "scene": "display"
     }
   ],
   "material": { "en": "Food-grade white card", "zh": "食品级白卡" },
