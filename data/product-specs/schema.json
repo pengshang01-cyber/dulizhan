@@ -1,0 +1,968 @@
+{
+  "title": "Junbeili product technical data",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string", "const": "./schema.json" },
+    "version": { "type": "number", "const": 1 },
+    "slug": { "$ref": "#/$defs/__schema0" },
+    "shape": {
+      "type": "string",
+      "enum": [
+        "round-rolled-rim",
+        "square-rolled-rim",
+        "rectangular-rolled-rim",
+        "paper-liner",
+        "box",
+        "sheet",
+        "board",
+        "complex"
+      ]
+    },
+    "photographedVariant": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "verified" },
+            "value": { "$ref": "#/$defs/__schema0" },
+            "source": { "$ref": "#/$defs/__schema0" }
+          },
+          "required": ["status", "value", "source"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "missing" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "pending" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "variants": {
+      "minItems": 1,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema2" }
+    },
+    "colors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "$ref": "#/$defs/__schema3" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "code": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "$ref": "#/$defs/__schema1" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "hex": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": ["name", "code", "hex"],
+        "additionalProperties": false
+      }
+    },
+    "printAreas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "part": {
+            "type": "string",
+            "enum": ["body", "base", "interior", "lid"]
+          },
+          "available": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "type": "boolean" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "maxColors": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "$ref": "#/$defs/__schema9" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "bleedMm": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "$ref": "#/$defs/__schema8" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "safeMarginMm": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "verified" },
+                  "value": { "$ref": "#/$defs/__schema8" },
+                  "source": { "$ref": "#/$defs/__schema0" }
+                },
+                "required": ["status", "value", "source"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "missing" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": { "type": "string", "const": "pending" },
+                  "value": { "type": "null" },
+                  "note": { "$ref": "#/$defs/__schema1" }
+                },
+                "required": ["status", "value"],
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "required": [
+          "part",
+          "available",
+          "maxColors",
+          "bleedMm",
+          "safeMarginMm"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "photos": {
+      "minItems": 12,
+      "maxItems": 12,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema11" }
+    },
+    "rotation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "verified" },
+            "value": {
+              "minItems": 24,
+              "maxItems": 24,
+              "type": "array",
+              "items": { "$ref": "#/$defs/__schema12" }
+            },
+            "source": { "$ref": "#/$defs/__schema0" }
+          },
+          "required": ["status", "value", "source"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "missing" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "pending" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "sources": {
+      "minItems": 1,
+      "type": "array",
+      "items": { "$ref": "#/$defs/__schema13" }
+    }
+  },
+  "required": [
+    "$schema",
+    "version",
+    "slug",
+    "shape",
+    "photographedVariant",
+    "variants",
+    "colors",
+    "printAreas",
+    "photos",
+    "rotation",
+    "sources"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "__schema1": { "type": "string", "minLength": 1 },
+    "__schema2": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/$defs/__schema0" },
+        "label": { "$ref": "#/$defs/__schema3" },
+        "body": { "$ref": "#/$defs/__schema4" },
+        "hasLid": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "type": "boolean" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "lid": {
+          "anyOf": [{ "$ref": "#/$defs/__schema4" }, { "type": "null" }]
+        }
+      },
+      "required": ["id", "label", "body", "hasLid", "lid"],
+      "additionalProperties": false
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
+        "en": { "$ref": "#/$defs/__schema1" },
+        "zh": { "$ref": "#/$defs/__schema1" }
+      },
+      "required": ["en"],
+      "additionalProperties": false
+    },
+    "__schema4": {
+      "type": "object",
+      "properties": {
+        "geometry": {
+          "type": "object",
+          "properties": {
+            "baseDiameterMm": { "$ref": "#/$defs/__schema5" },
+            "topDiameterMm": { "$ref": "#/$defs/__schema5" },
+            "baseLengthMm": { "$ref": "#/$defs/__schema5" },
+            "baseWidthMm": { "$ref": "#/$defs/__schema5" },
+            "topLengthMm": { "$ref": "#/$defs/__schema5" },
+            "topWidthMm": { "$ref": "#/$defs/__schema5" },
+            "heightMm": { "$ref": "#/$defs/__schema5" },
+            "lengthMm": { "$ref": "#/$defs/__schema5" },
+            "widthMm": { "$ref": "#/$defs/__schema5" },
+            "baseCornerRadiusMm": { "$ref": "#/$defs/__schema7" },
+            "topCornerRadiusMm": { "$ref": "#/$defs/__schema7" }
+          },
+          "additionalProperties": false
+        },
+        "pleatCount": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "$ref": "#/$defs/__schema9" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "rimWidthMm": { "$ref": "#/$defs/__schema5" },
+        "rimThicknessMm": { "$ref": "#/$defs/__schema5" },
+        "paperThicknessMm": { "$ref": "#/$defs/__schema5" },
+        "grammageGsm": { "$ref": "#/$defs/__schema5" },
+        "unitWeightG": { "$ref": "#/$defs/__schema5" },
+        "material": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "$ref": "#/$defs/__schema3" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "coating": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "$ref": "#/$defs/__schema3" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "packaging": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/__schema10" }
+                },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "geometry",
+        "pleatCount",
+        "rimWidthMm",
+        "rimThicknessMm",
+        "paperThicknessMm",
+        "grammageGsm",
+        "unitWeightG",
+        "material",
+        "coating",
+        "packaging"
+      ],
+      "additionalProperties": false
+    },
+    "__schema5": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "verified" },
+            "value": { "$ref": "#/$defs/__schema6" },
+            "source": { "$ref": "#/$defs/__schema0" }
+          },
+          "required": ["status", "value", "source"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "missing" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "pending" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "__schema6": { "type": "number", "exclusiveMinimum": 0 },
+    "__schema7": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "verified" },
+            "value": { "$ref": "#/$defs/__schema8" },
+            "source": { "$ref": "#/$defs/__schema0" }
+          },
+          "required": ["status", "value", "source"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "missing" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "status": { "type": "string", "const": "pending" },
+            "value": { "type": "null" },
+            "note": { "$ref": "#/$defs/__schema1" }
+          },
+          "required": ["status", "value"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "__schema8": { "type": "number", "minimum": 0 },
+    "__schema9": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "__schema10": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "$ref": "#/$defs/__schema3" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "cartonLoading": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": { "$ref": "#/$defs/__schema3" },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "carton": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": {
+                  "type": "object",
+                  "properties": {
+                    "sides": {
+                      "type": "array",
+                      "prefixItems": [
+                        { "$ref": "#/$defs/__schema6" },
+                        { "$ref": "#/$defs/__schema6" },
+                        { "$ref": "#/$defs/__schema6" }
+                      ],
+                      "items": false,
+                      "minItems": 3,
+                      "maxItems": 3
+                    },
+                    "unit": {
+                      "oneOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "status": { "type": "string", "const": "verified" },
+                            "value": {
+                              "type": "string",
+                              "enum": ["mm", "cm", "m"]
+                            },
+                            "source": { "$ref": "#/$defs/__schema0" }
+                          },
+                          "required": ["status", "value", "source"],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "status": { "type": "string", "const": "missing" },
+                            "value": { "type": "null" },
+                            "note": { "$ref": "#/$defs/__schema1" }
+                          },
+                          "required": ["status", "value"],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "status": { "type": "string", "const": "pending" },
+                            "value": { "type": "null" },
+                            "note": { "$ref": "#/$defs/__schema1" }
+                          },
+                          "required": ["status", "value"],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "required": ["sides", "unit"],
+                  "additionalProperties": false
+                },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": ["method", "cartonLoading", "carton"],
+      "additionalProperties": false
+    },
+    "__schema11": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string",
+          "enum": [
+            "10",
+            "11",
+            "12",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09"
+          ]
+        },
+        "angle": {
+          "type": "string",
+          "enum": [
+            "front",
+            "side",
+            "top",
+            "bottom",
+            "three-quarter",
+            "interior",
+            "detail",
+            "scale",
+            "stack",
+            "packaging",
+            "color-range",
+            "rotation"
+          ]
+        },
+        "files": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "verified" },
+                "value": {
+                  "minItems": 1,
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/__schema1" }
+                },
+                "source": { "$ref": "#/$defs/__schema0" }
+              },
+              "required": ["status", "value", "source"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "missing" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "status": { "type": "string", "const": "pending" },
+                "value": { "type": "null" },
+                "note": { "$ref": "#/$defs/__schema1" }
+              },
+              "required": ["status", "value"],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": ["number", "angle", "files"],
+      "additionalProperties": false
+    },
+    "__schema12": {
+      "type": "string",
+      "pattern": "^\\/product-media\\/[a-z0-9-]+\\/rotation\\/\\d{2}\\.webp$"
+    },
+    "__schema13": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/$defs/__schema0" },
+        "kind": {
+          "type": "string",
+          "enum": ["measurement", "spec-sheet", "catalog", "site", "photo"]
+        },
+        "reference": { "$ref": "#/$defs/__schema1" }
+      },
+      "required": ["id", "kind", "reference"],
+      "additionalProperties": false
+    }
+  }
+}

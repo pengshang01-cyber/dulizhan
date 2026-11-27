@@ -53,6 +53,7 @@ const products = defineCollection({
               image: image(),
               alt: optionalLocalizedText,
               sizeComparison: z.boolean().nullish(),
+              technicalDrawing: z.boolean().nullish(),
               scene: z.preprocess(
                 (value) => (value === "" || value === null ? undefined : value),
                 z.enum(["closeup", "display"]).optional(),
@@ -62,20 +63,30 @@ const products = defineCollection({
               image,
               alt: undefined,
               sizeComparison: undefined,
+              technicalDrawing: undefined,
               scene: undefined,
             })),
           ]),
         )
         .min(1)
-        .refine(([cover]) => !cover?.scene && !cover?.sizeComparison, {
-          path: [0, "image"],
-          message: "成品展示图和尺寸对比图只能作为辅图",
-        })
+        .refine(
+          ([cover]) =>
+            !cover?.scene && !cover?.sizeComparison && !cover?.technicalDrawing,
+          {
+            path: [0, "image"],
+            message: "成品展示图、尺寸对比图和三视图只能作为辅图",
+          },
+        )
         .refine(
           (images) =>
-            images.every((item) => !item.scene || !item.sizeComparison),
+            images.every(
+              (item) =>
+                [item.scene, item.sizeComparison, item.technicalDrawing].filter(
+                  Boolean,
+                ).length <= 1,
+            ),
           {
-            message: "同一张图只能标记为成品展示或尺寸对比",
+            message: "同一张图只能标记一种技术或示意用途",
           },
         )
         .refine(

@@ -1,0 +1,132 @@
+---
+import { t, type Locale } from "../i18n/utils";
+
+interface Props {
+  frames: string[];
+  locale: Locale;
+  product: string;
+  rotating: boolean;
+}
+const { frames, locale, product, rotating } = Astro.props;
+const label = t(rotating ? "technical.rotation" : "technical.angles", locale, {
+  product,
+});
+---
+
+<section
+  data-product-rotation
+  data-frames={JSON.stringify(frames)}
+  data-label={label}
+  data-error={t("technical.frameError", locale)}
+  class="mt-6 min-w-0 rounded-panel border border-line bg-white p-4"
+>
+  <button
+    type="button"
+    data-open-rotation
+    class="w-full rounded-control bg-coffee px-4 py-3 text-sm font-bold text-white"
+  >
+    {t(rotating ? "technical.openRotation" : "technical.openAngles", locale)}
+  </button>
+  <div data-rotation-view hidden>
+    <p id="rotation-help" class="mb-3 text-sm text-ink-soft">
+      {t(rotating ? "technical.rotateHelp" : "technical.angleHelp", locale)}
+    </p>
+    <div
+      data-rotation-stage
+      role="group"
+      aria-label={label}
+      aria-describedby="rotation-help"
+      tabindex="0"
+      class="relative aspect-square w-full touch-pan-y cursor-grab overflow-hidden rounded-control bg-paper active:cursor-grabbing"
+    ></div>
+    <div class="mt-3 flex flex-wrap items-center justify-between gap-2">
+      <button
+        type="button"
+        data-turn="prev"
+        class="rounded-control border border-line px-3 py-2 text-sm"
+      >
+        {t("technical.previousFrame", locale)}
+      </button>
+      <p
+        data-rotation-status
+        aria-live="polite"
+        class="text-sm text-ink-soft"
+      ></p>
+      <button
+        type="button"
+        data-turn="next"
+        class="rounded-control border border-line px-3 py-2 text-sm"
+      >
+        {t("technical.nextFrame", locale)}
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>(
+    "[data-product-rotation]",
+  )) {
+    const load = root.querySelector<HTMLButtonElement>("[data-open-rotation]")!;
+    const view = root.querySelector<HTMLElement>("[data-rotation-view]")!;
+    const stage = root.querySelector<HTMLElement>("[data-rotation-stage]")!;
+    const status = root.querySelector<HTMLElement>("[data-rotation-status]")!;
+    load.addEventListener(
+      "click",
+      () => {
+        const frames: string[] = JSON.parse(root.dataset.frames ?? "[]");
+        if (frames.length < 2) return;
+        const image = new Image(720, 720);
+        image.alt = root.dataset.label ?? "";
+        image.draggable = false;
+        image.className = "h-full w-full object-contain";
+        stage.append(image);
+        load.hidden = true;
+        view.hidden = false;
+        let index = 0;
+        let pointer: number | undefined;
+        let lastX = 0;
+        const show = (change: number) => {
+          index =
+            (index + (change % frames.length) + frames.length) % frames.length;
+          image.src = frames[index]!;
+          status.textContent = index + 1 + " / " + frames.length;
+        };
+        image.addEventListener("error", () => {
+          status.textContent = root.dataset.error ?? "";
+        });
+        for (const button of root.querySelectorAll<HTMLButtonElement>(
+          "[data-turn]",
+        ))
+          button.addEventListener("click", () =>
+            show(button.dataset.turn === "prev" ? -1 : 1),
+          );
+        stage.addEventListener("keydown", (event) => {
+          if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+          event.preventDefault();
+          show(event.key === "ArrowLeft" ? -1 : 1);
+        });
+        stage.addEventListener("pointerdown", (event) => {
+          if (pointer !== undefined || event.button !== 0) return;
+          pointer = event.pointerId;
+          lastX = event.clientX;
+          stage.setPointerCapture(pointer);
+        });
+        stage.addEventListener("pointermove", (event) => {
+          if (event.pointerId !== pointer) return;
+          const distance = event.clientX - lastX;
+          const step = Math.trunc(distance / 14);
+          if (!step) return;
+          lastX += step * 14;
+          show(-step);
+        });
+        stage.addEventListener("lostpointercapture", () => {
+          pointer = undefined;
+        });
+        show(0);
+        stage.focus();
+      },
+      { once: true },
+    );
+  }
+</script>

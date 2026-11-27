@@ -1,6 +1,7 @@
 ---
 import { localePath } from "../../i18n/routing";
 import type { Locale } from "../../i18n/utils";
+import { getImage } from "astro:assets";
 import FaqAccordion from "../FaqAccordion.astro";
 import AddToInquiryButton from "../AddToInquiryButton.astro";
 import Breadcrumbs from "../Breadcrumbs.astro";
@@ -11,11 +12,20 @@ import InquiryForm from "../InquiryForm.astro";
 import ProductCard from "../ProductCard.astro";
 import ProductGallery from "../ProductGallery.astro";
 import ProductSpecTable from "../ProductSpecTable.astro";
+import ProductTechnicalDetails from "../ProductTechnicalDetails.astro";
+import ProductRotation from "../ProductRotation.astro";
 import SectionHeading from "../SectionHeading.astro";
 import { productMeta, productData, configuredOrigin } from "../../lib/seo";
 import { site } from "../../config/site";
 import { confirmedLocalized, t } from "../../i18n/utils";
 import { productSpecifications } from "../../lib/product-specifications";
+import {
+  publicTechnicalSpec,
+  technicalPhotoViews,
+  technicalProperties,
+  technicalSpec,
+} from "../../lib/product-technical";
+import { verifiedValue } from "../../lib/product-technical-schema";
 import {
   getProductCategory,
   inquiryProduct,
@@ -35,6 +45,19 @@ const category = await getProductCategory(data.category);
 const categoryLabel = confirmedLocalized(category.label, locale) ?? category.id;
 const inquiryEntry = inquiryProduct(data, locale);
 const title = inquiryEntry.title;
+const technical = technicalSpec(data.slug);
+const rotation = verifiedValue(technical?.rotation);
+const frames =
+  rotation ??
+  (technical
+    ? await Promise.all(
+        technicalPhotoViews(technical).map(
+          async (src) =>
+            (await getImage({ src, width: 720, format: "webp", quality: 80 }))
+              .src,
+        ),
+      )
+    : []);
 const summary = confirmedLocalized(data.summary, locale);
 const {
   rows: specificationRows,
@@ -89,14 +112,18 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
 <BaseLayout
   locale={locale}
   {...productMeta(data, locale)}
-  structuredData={productData(
-    data,
-    locale,
-    new URL(
-      Astro.url.pathname,
-      configuredOrigin(site.domain) ?? Astro.url.origin,
-    ).href,
-  )}
+  structuredData={{
+    ...productData(
+      data,
+      locale,
+      new URL(
+        Astro.url.pathname,
+        configuredOrigin(site.domain) ?? Astro.url.origin,
+      ).href,
+    ),
+    ...(technical &&
+      technicalProperties(publicTechnicalSpec(technical), locale)),
+  }}
 >
   <Container class="py-8 sm:py-12">
     <Breadcrumbs
@@ -113,7 +140,17 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
       class="mt-8 grid items-start gap-8 lg:grid-cols-2 lg:gap-12"
       aria-labelledby="product-title"
     >
-      <ProductGallery locale={locale} images={data.images} title={title} />
+      <div class="min-w-0">
+        <ProductGallery locale={locale} images={data.images} title={title} />
+        {frames.length >= 2 && (
+          <ProductRotation
+            frames={frames}
+            locale={locale}
+            product={title}
+            rotating={Boolean(rotation)}
+          />
+        )}
+      </div>
       <div class="min-w-0 lg:py-3">
         <Eyebrow>{categoryLabel}</Eyebrow>
         <h1
@@ -212,6 +249,8 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
         />
       </section>
     )}
+
+    {technical && <ProductTechnicalDetails spec={technical} locale={locale} />}
 
     {(colors.length > 0 ||
       patterns.length > 0 ||

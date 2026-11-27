@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 import { navigation, site } from "../config/site";
 import { localized, t } from "../i18n/utils";
-import { getVisibleCategories } from "../lib/products";
+import { getProducts, getVisibleCategories } from "../lib/products";
+import { technicalSpec } from "../lib/product-technical";
 import { confirmedText, configuredOrigin } from "../lib/seo";
 
 function inline(text: string) {
@@ -27,6 +28,13 @@ export const GET: APIRoute = async () => {
     return contact ? [`- ${t(key, "en")}: ${inline(contact)}`] : [];
   });
   const categories = await getVisibleCategories();
+  const technicalLinks = (await getProducts()).flatMap(({ data }) => {
+    const spec = technicalSpec(data.slug);
+    const title = confirmedText(localized(data.title, "en"));
+    return spec && title
+      ? [link(title, "/data/product-specs/" + spec.slug + ".json")]
+      : [];
+  });
   const lines = [
     `# ${inline(name)}`,
     "",
@@ -50,6 +58,16 @@ export const GET: APIRoute = async () => {
       : []),
     ...(contacts.length
       ? ["", `## ${t("nav.contact", "en")}`, "", ...contacts]
+      : []),
+    ...(technicalLinks.length
+      ? [
+          "",
+          `## ${t("technical.dataLinks", "en")}`,
+          "",
+          t("technical.dataDescription", "en"),
+          "",
+          ...technicalLinks,
+        ]
       : []),
   ];
   return new Response(lines.join("\n") + "\n", {

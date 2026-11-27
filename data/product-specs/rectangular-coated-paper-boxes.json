@@ -1,0 +1,778 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "slug": "rectangular-coated-paper-boxes",
+  "shape": "box",
+  "photographedVariant": {
+    "status": "verified",
+    "value": "medium",
+    "source": "factory-measurements-2026-11-27"
+  },
+  "variants": [
+    {
+      "id": "medium",
+      "label": {
+        "en": "Medium",
+        "zh": "中号"
+      },
+      "body": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 166,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 57,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topLengthMm": {
+            "status": "verified",
+            "value": 187,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topWidthMm": {
+            "status": "verified",
+            "value": 87,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 60,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "missing",
+          "value": null
+        },
+        "rimThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "verified",
+          "value": 230,
+          "source": "workbook-4"
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 12.1,
+          "source": "workbook-4"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+            "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+          },
+          "source": "workbook-4"
+        },
+        "coating": {
+          "status": "verified",
+          "value": {
+            "en": "PE",
+            "zh": "PE"
+          },
+          "source": "workbook-4"
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-4"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 20 packs",
+                  "zh": "50 只 × 20 条"
+                },
+                "source": "workbook-4"
+              },
+              "carton": {
+                "status": "verified",
+                "value": {
+                  "sides": [56, 45.5, 39.5],
+                  "unit": {
+                    "status": "missing",
+                    "value": null,
+                    "note": "规格表箱规单元格未写单位"
+                  }
+                },
+                "source": "workbook-4"
+              }
+            }
+          ],
+          "source": "workbook-4"
+        }
+      },
+      "hasLid": {
+        "status": "verified",
+        "value": true,
+        "source": "workbook-4"
+      },
+      "lid": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 195,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 90,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topLengthMm": {
+            "status": "verified",
+            "value": 175,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topWidthMm": {
+            "status": "verified",
+            "value": 70,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 20,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "missing",
+          "value": null
+        },
+        "rimThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "missing",
+          "value": null
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 7.2,
+          "source": "workbook-5"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "PET",
+            "zh": "PET"
+          },
+          "source": "workbook-5"
+        },
+        "coating": {
+          "status": "missing",
+          "value": null
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-5"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 20 packs",
+                  "zh": "50 只 × 20 条"
+                },
+                "source": "workbook-5"
+              },
+              "carton": {
+                "status": "missing",
+                "value": null
+              }
+            }
+          ],
+          "source": "workbook-5"
+        }
+      }
+    },
+    {
+      "id": "large",
+      "label": {
+        "en": "Large",
+        "zh": "大号"
+      },
+      "body": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 128,
+            "source": "workbook-6"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 78,
+            "source": "workbook-6"
+          },
+          "topLengthMm": {
+            "status": "verified",
+            "value": 166,
+            "source": "workbook-6"
+          },
+          "topWidthMm": {
+            "status": "verified",
+            "value": 119,
+            "source": "workbook-6"
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 61,
+            "source": "workbook-6"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "missing",
+          "value": null
+        },
+        "rimThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "verified",
+          "value": 230,
+          "source": "workbook-6"
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 15.5,
+          "source": "workbook-6"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
+            "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
+          },
+          "source": "workbook-6"
+        },
+        "coating": {
+          "status": "verified",
+          "value": {
+            "en": "PE",
+            "zh": "PE"
+          },
+          "source": "workbook-6"
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-6"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 20 packs",
+                  "zh": "50 只 × 20 条"
+                },
+                "source": "workbook-6"
+              },
+              "carton": {
+                "status": "verified",
+                "value": {
+                  "sides": [56, 45.5, 39],
+                  "unit": {
+                    "status": "missing",
+                    "value": null,
+                    "note": "规格表箱规单元格未写单位"
+                  }
+                },
+                "source": "workbook-6"
+              }
+            }
+          ],
+          "source": "workbook-6"
+        }
+      },
+      "hasLid": {
+        "status": "verified",
+        "value": true,
+        "source": "workbook-6"
+      },
+      "lid": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 173,
+            "source": "workbook-7"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 120,
+            "source": "workbook-7"
+          },
+          "topLengthMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topWidthMm": {
+            "status": "missing",
+            "value": null
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 35,
+            "source": "workbook-7"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "missing",
+          "value": null
+        },
+        "rimThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "missing",
+          "value": null
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 9.2,
+          "source": "workbook-7"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "PET",
+            "zh": "PET"
+          },
+          "source": "workbook-7"
+        },
+        "coating": {
+          "status": "missing",
+          "value": null
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-7"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 20 packs",
+                  "zh": "50 只 × 20 条"
+                },
+                "source": "workbook-7"
+              },
+              "carton": {
+                "status": "missing",
+                "value": null
+              }
+            }
+          ],
+          "source": "workbook-7"
+        }
+      }
+    }
+  ],
+  "colors": [
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Natural kraft",
+          "zh": "本色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    }
+  ],
+  "printAreas": [
+    {
+      "part": "body",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "base",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "interior",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "lid",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    }
+  ],
+  "photos": [
+    {
+      "number": "01",
+      "angle": "front",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/01-front.webp"
+        ],
+        "source": "photo-01"
+      }
+    },
+    {
+      "number": "02",
+      "angle": "side",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/02-side.webp"
+        ],
+        "source": "photo-02"
+      }
+    },
+    {
+      "number": "03",
+      "angle": "top",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/03-top.webp"
+        ],
+        "source": "photo-03"
+      }
+    },
+    {
+      "number": "04",
+      "angle": "bottom",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/04-bottom.webp"
+        ],
+        "source": "photo-04"
+      }
+    },
+    {
+      "number": "05",
+      "angle": "three-quarter",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/05-three-quarter.webp"
+        ],
+        "source": "photo-05"
+      }
+    },
+    {
+      "number": "06",
+      "angle": "interior",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/06-interior.webp"
+        ],
+        "source": "photo-06"
+      }
+    },
+    {
+      "number": "07",
+      "angle": "detail",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/07-detail.webp"
+        ],
+        "source": "photo-07"
+      }
+    },
+    {
+      "number": "08",
+      "angle": "scale",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/08-scale.webp"
+        ],
+        "source": "photo-08"
+      }
+    },
+    {
+      "number": "09",
+      "angle": "stack",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/rectangular-coated-paper-boxes/09-stack.webp"
+        ],
+        "source": "photo-09"
+      }
+    },
+    {
+      "number": "10",
+      "angle": "packaging",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "11",
+      "angle": "color-range",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "12",
+      "angle": "rotation",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "现有实拍无可核实的完整、有序一圈帧列或视频"
+      }
+    }
+  ],
+  "rotation": {
+    "status": "missing",
+    "value": null,
+    "note": "工厂确认没有原视频或有编号的完整一圈帧，改用现有多角度实拍"
+  },
+  "sources": [
+    {
+      "id": "factory-measurements-2026-11-27",
+      "kind": "measurement",
+      "reference": "工厂现场实测，2026-11-27，项目对话逐项确认"
+    },
+    {
+      "id": "workbook-4",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 5（序号 4）"
+    },
+    {
+      "id": "workbook-5",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 6（序号 5）"
+    },
+    {
+      "id": "workbook-6",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 7（序号 6）"
+    },
+    {
+      "id": "workbook-7",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 8（序号 7）"
+    },
+    {
+      "id": "published-colors",
+      "kind": "site",
+      "reference": "src/content/products/rectangular-coated-paper-boxes.json · main fc3c940 的颜色名称"
+    },
+    {
+      "id": "photo-01",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/1955fd0a09cf5948024c630b13b636aa.jpg"
+    },
+    {
+      "id": "photo-02",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/d119937f02c835f19bad341d1a110a20.jpg"
+    },
+    {
+      "id": "photo-03",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/d6212a095fb57dd70c6eab15abd8f45a.jpg"
+    },
+    {
+      "id": "photo-04",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/5d551f74fe4848f552d5806ce6fe5edb.jpg"
+    },
+    {
+      "id": "photo-05",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/872094e85a638f1060420049dc1adbe4.jpg"
+    },
+    {
+      "id": "photo-06",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/401bf84206f350db18851fe1b650b4f8.jpg"
+    },
+    {
+      "id": "photo-07",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/7c96b9ead4294d9003934f247982cfba.jpg"
+    },
+    {
+      "id": "photo-08",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/2e81cda9b4aa013fdc21a3efd5f7db3b.jpg"
+    },
+    {
+      "id": "photo-09",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/c3671d6bf4226a7be3a1eb10680e782a.jpg"
+    }
+  ]
+}

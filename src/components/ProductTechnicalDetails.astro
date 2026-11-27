@@ -1,0 +1,117 @@
+---
+import { Image } from "astro:assets";
+import { confirmedLocalized, t, type Locale } from "../i18n/utils";
+import {
+  publicTechnicalSpec,
+  technicalDrawings,
+} from "../lib/product-technical";
+import type { ProductTechnicalSpec } from "../lib/product-technical-schema";
+import SectionHeading from "./SectionHeading.astro";
+
+interface Props {
+  spec: ProductTechnicalSpec;
+  locale: Locale;
+}
+const { spec, locale } = Astro.props;
+const { variants } = publicTechnicalSpec(spec);
+const drawings = technicalDrawings(spec);
+---
+
+<section
+  data-technical-specifications
+  class="mt-14 border-t border-line pt-10 sm:mt-20"
+  aria-labelledby="technical-specifications-title"
+>
+  <SectionHeading
+    title={t("technical.title", locale)}
+    id="technical-specifications-title"
+  />
+  <a
+    class="mt-4 inline-block font-semibold text-copper-dark underline"
+    href={"/data/product-specs/" + spec.slug + ".json"}
+  >
+    {t("technical.downloadData", locale)}
+  </a>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2">
+    {variants.flatMap(({ id, label, body, lid }) =>
+      (
+        [
+          ["body", body],
+          ["lid", lid],
+        ] as const
+      ).map(
+        ([part, values]) =>
+          values && (
+            <div class="min-w-0 rounded-panel border border-line bg-white p-5">
+              <h3 class="font-display text-card-title">
+                {confirmedLocalized(label, locale) ?? id} ·{" "}
+                {t("technical." + part, locale)}
+              </h3>
+              <dl class="mt-4 grid grid-cols-[1fr_auto] gap-x-3 gap-y-2 text-sm">
+                {[
+                  ...Object.entries(values.geometryMm).map(([key, n]) => [
+                    key,
+                    n + " mm",
+                  ]),
+                  ...(
+                    [
+                      ["pleatCount", values.pleatCount, ""],
+                      ["rimWidth", values.rimWidthMm, " mm"],
+                      ["rimThickness", values.rimThicknessMm, " mm"],
+                      ["paperThickness", values.paperThicknessMm, " mm"],
+                      ["grammage", values.grammageGsm, " g/m²"],
+                      ["unitWeight", values.unitWeightG, " g"],
+                    ] as const
+                  ).flatMap(([key, value, unit]) =>
+                    value === undefined ? [] : [[key, value + unit]],
+                  ),
+                ].map(([key, value]) => (
+                  <>
+                    <dt class="text-ink-soft">
+                      {t("technical.fields." + key, locale)}
+                    </dt>
+                    <dd class="text-right font-semibold">{value}</dd>
+                  </>
+                ))}
+              </dl>
+            </div>
+          ),
+      ),
+    )}
+  </div>
+  {drawings.length > 0 && (
+    <div class="mt-8 grid gap-5 sm:grid-cols-2">
+      {drawings.map(({ image, part, label, href }) => {
+        const caption = [
+          t("technical.drawing", locale),
+          confirmedLocalized(label, locale),
+          t("technical." + part, locale),
+        ]
+          .filter(Boolean)
+          .join(" · ");
+        return (
+          <figure
+            data-technical-drawing
+            class="overflow-hidden rounded-panel border border-line bg-white"
+          >
+            <Image
+              src={image}
+              widths={[512, 800, 1600]}
+              sizes="(min-width: 40rem) 48vw, calc(100vw - 2.5rem)"
+              alt={caption}
+              format="webp"
+              loading="lazy"
+              class="block h-auto w-full"
+            />
+            <figcaption class="flex flex-wrap items-center justify-between gap-2 border-t border-line p-4 text-sm">
+              <span>{caption}</span>
+              <a href={href} class="text-copper-dark underline">
+                {t("technical.downloadDrawing", locale)}
+              </a>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+  )}
+</section>

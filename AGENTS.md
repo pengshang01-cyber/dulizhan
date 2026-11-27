@@ -90,6 +90,8 @@ docs/
 
 工作记录一律放在 `docs/notes/`，文件名使用英文，内容可以用中文；根目录不再放历史事件、当前状态或项目关键决策文件。开始任务时读取 `docs/notes/status.md`、`docs/notes/decisions.md`；历史只按需检索，不重写历史。
 
+M18 试点的核实规格与来源单独保存在 `data/product-specs/<slug>.json`。维护时从同一来源同步对应的商品规格，其他商品仍用 content collection。公开 JSON 只提取已核实资料，印刷参数与来源路径留在内部。详见 [产品标准资料](docs/PRODUCT-DATA.md)。
+
 ## 5. 截图规则（审核用）
 
 - Lighthouse 原始 HTML / JSON 报告保留在已忽略的 `docs/reviews/<里程碑>/lighthouse/`，不要提交；审核报告只记录分数表、环境和必要结论。

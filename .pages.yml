@@ -165,6 +165,10 @@ content:
             label: 尺寸对比图
             description: 仅在已核对刻度、参照物和规格的尺寸图打开。作为辅图放在产品图之后。
             type: boolean
+          - name: technicalDrawing
+            label: 三视图
+            description: 仅用于核实过的技术图，放在实拍、尺寸对比和效果示意之后。
+            type: boolean
           - name: scene
             label: 成品展示图类型
             description: 普通产品图及尺寸对比图留空。展示图须先按技能检查参照比例，再选择特写或陈列。

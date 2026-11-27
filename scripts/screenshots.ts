@@ -73,6 +73,7 @@ if (
     "M15",
     "M16",
     "M17",
+    "M18",
   ].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
@@ -106,6 +107,7 @@ try {
           "M15",
           "M16",
           "M17",
+          "M18",
         ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
@@ -552,6 +554,37 @@ try {
           );
           await gallery.locator(`[data-gallery-index="${index}"]`).click();
           await comparison.waitFor({ state: "visible" });
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
+
+        if (milestone === "M18") {
+          if (
+            response?.status() !== 200 ||
+            (await page.evaluate(
+              () => document.documentElement.scrollWidth > innerWidth + 1,
+            ))
+          )
+            throw new Error("M18 预览页面异常：" + route.path);
+          const details = page.locator("[data-technical-specifications]");
+          await details.getByRole("heading", { level: 2 }).waitFor();
+          if ((await details.locator("[data-technical-drawing]").count()) === 0)
+            throw new Error("未找到产品技术图：" + route.path);
+          const photoViews = page.locator("[data-product-rotation]");
+          const drag = photoViews.locator("[data-rotation-stage]");
+          if (await drag.locator("img").count())
+            throw new Error("查看器提前加载图片");
+          await photoViews.locator("[data-open-rotation]").click();
+          const rendered = drag.locator("img");
+          await rendered.evaluate((element: HTMLImageElement) =>
+            element.decode(),
+          );
+          const src = await rendered.getAttribute("src");
+          await drag.press("ArrowRight");
+          await rendered.evaluate((element: HTMLImageElement) =>
+            element.decode(),
+          );
+          if ((await rendered.getAttribute("src")) === src)
+            throw new Error("多角度查看未切换：" + route.path);
           await page.evaluate(() => window.scrollTo(0, 0));
         }
 

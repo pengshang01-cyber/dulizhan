@@ -1,0 +1,530 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "slug": "pet-coated-square-rolled-rim-cups",
+  "shape": "square-rolled-rim",
+  "photographedVariant": {
+    "status": "verified",
+    "value": "65x65x35",
+    "source": "factory-measurements-2026-11-27"
+  },
+  "variants": [
+    {
+      "id": "65x65x35",
+      "label": {
+        "en": "65×65×35 mm",
+        "zh": "65×65×35 mm"
+      },
+      "body": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 65,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 65,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topLengthMm": {
+            "status": "verified",
+            "value": 85,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topWidthMm": {
+            "status": "verified",
+            "value": 85,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 35,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "verified",
+          "value": 2,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "rimThicknessMm": {
+          "status": "verified",
+          "value": 2,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "verified",
+          "value": 110,
+          "source": "workbook-67"
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 2.3,
+          "source": "workbook-67"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "PET-coated paper",
+            "zh": "PET 淋膜纸"
+          },
+          "source": "workbook-67"
+        },
+        "coating": {
+          "status": "verified",
+          "value": {
+            "en": "PET",
+            "zh": "PET"
+          },
+          "source": "workbook-67"
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-67"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 60 packs",
+                  "zh": "50 只 × 60 条"
+                },
+                "source": "workbook-67"
+              },
+              "carton": {
+                "status": "verified",
+                "value": {
+                  "sides": [52, 40, 44],
+                  "unit": {
+                    "status": "missing",
+                    "value": null,
+                    "note": "规格表箱规单元格未写单位"
+                  }
+                },
+                "source": "workbook-67"
+              }
+            }
+          ],
+          "source": "workbook-67"
+        }
+      },
+      "hasLid": {
+        "status": "verified",
+        "value": true,
+        "source": "workbook-67"
+      },
+      "lid": {
+        "geometry": {
+          "baseLengthMm": {
+            "status": "verified",
+            "value": 88,
+            "source": "workbook-71"
+          },
+          "baseWidthMm": {
+            "status": "verified",
+            "value": 88,
+            "source": "workbook-71"
+          },
+          "topLengthMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topWidthMm": {
+            "status": "missing",
+            "value": null
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 25,
+            "source": "workbook-71"
+          },
+          "baseCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          },
+          "topCornerRadiusMm": {
+            "status": "missing",
+            "value": null
+          }
+        },
+        "pleatCount": {
+          "status": "missing",
+          "value": null
+        },
+        "rimWidthMm": {
+          "status": "missing",
+          "value": null
+        },
+        "rimThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "missing",
+          "value": null
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 3.3,
+          "source": "workbook-71"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "PET",
+            "zh": "PET"
+          },
+          "source": "workbook-71"
+        },
+        "coating": {
+          "status": "missing",
+          "value": null
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-71"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 60 packs",
+                  "zh": "50 只 × 60 条"
+                },
+                "source": "workbook-71"
+              },
+              "carton": {
+                "status": "verified",
+                "value": {
+                  "sides": [55, 41, 46],
+                  "unit": {
+                    "status": "missing",
+                    "value": null,
+                    "note": "规格表箱规单元格未写单位"
+                  }
+                },
+                "source": "workbook-71"
+              }
+            }
+          ],
+          "source": "workbook-71"
+        }
+      }
+    }
+  ],
+  "colors": [
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Natural kraft",
+          "zh": "本色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    }
+  ],
+  "printAreas": [
+    {
+      "part": "body",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "base",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "interior",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    }
+  ],
+  "photos": [
+    {
+      "number": "01",
+      "angle": "front",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/01-front.webp"
+        ],
+        "source": "photo-01"
+      }
+    },
+    {
+      "number": "02",
+      "angle": "side",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/02-side.webp"
+        ],
+        "source": "photo-02"
+      }
+    },
+    {
+      "number": "03",
+      "angle": "top",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/03-top.webp"
+        ],
+        "source": "photo-03"
+      }
+    },
+    {
+      "number": "04",
+      "angle": "bottom",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/04-bottom.webp"
+        ],
+        "source": "photo-04"
+      }
+    },
+    {
+      "number": "05",
+      "angle": "three-quarter",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/05-three-quarter.webp"
+        ],
+        "source": "photo-05"
+      }
+    },
+    {
+      "number": "06",
+      "angle": "interior",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/06-interior.webp"
+        ],
+        "source": "photo-06"
+      }
+    },
+    {
+      "number": "07",
+      "angle": "detail",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/07-detail.webp"
+        ],
+        "source": "photo-07"
+      }
+    },
+    {
+      "number": "08",
+      "angle": "scale",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/08-scale.webp"
+        ],
+        "source": "photo-08"
+      }
+    },
+    {
+      "number": "09",
+      "angle": "stack",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/09-stack.webp"
+        ],
+        "source": "photo-09"
+      }
+    },
+    {
+      "number": "10",
+      "angle": "packaging",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "11",
+      "angle": "color-range",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "12",
+      "angle": "rotation",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "现有实拍无可核实的完整、有序一圈帧列或视频"
+      }
+    }
+  ],
+  "rotation": {
+    "status": "missing",
+    "value": null,
+    "note": "工厂确认没有原视频或有编号的完整一圈帧，改用现有多角度实拍"
+  },
+  "sources": [
+    {
+      "id": "factory-measurements-2026-11-27",
+      "kind": "measurement",
+      "reference": "工厂现场实测，2026-11-27，项目对话逐项确认"
+    },
+    {
+      "id": "workbook-67",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 89（序号 67）"
+    },
+    {
+      "id": "workbook-71",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 93（序号 71）"
+    },
+    {
+      "id": "published-colors",
+      "kind": "site",
+      "reference": "src/content/products/pet-coated-square-rolled-rim-cups.json · main fc3c940 的颜色名称"
+    },
+    {
+      "id": "photo-01",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/2909d60721314b83aa76225fd6316f9a.jpg"
+    },
+    {
+      "id": "photo-02",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/8e5d9a6f42b93bf4acaf2d1b6d69b9bf.jpg"
+    },
+    {
+      "id": "photo-03",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/1c2206a871d3793e884bbf95ab765dbd.jpg"
+    },
+    {
+      "id": "photo-04",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/ca8368994bc398f8f016fa73f5125654.jpg"
+    },
+    {
+      "id": "photo-05",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/1ab9b4abe78ef9f3dbb4f74af958a82f.jpg"
+    },
+    {
+      "id": "photo-06",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/bb247d10362c4956013450ff6a68c0da.jpg"
+    },
+    {
+      "id": "photo-07",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/4b4acc99f22e9bb65b6fb07c4db7df2a.jpg"
+    },
+    {
+      "id": "photo-08",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/ebe4bd8a35c05de2bc238929209583e7.jpg"
+    },
+    {
+      "id": "photo-09",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/cb69f72e554a787b69371338d30cdbca.jpg"
+    }
+  ]
+}
