@@ -17,4 +17,4 @@
 - M15 审核轮已逐查 322 个图片文件。13 张传统去绿、1 张换同规格实拍、26 张重排尺寸对比、33 张重生成场景，16 张旧图撤下。船型杯待一张开口朝上且完整的同规格原照。详见 [M15 审核报告](../reviews/M15.md)。
 - M15 已合并。M16 在七类中核对 39 款，新增 16 张尺寸对比和 31 张效果示意。22 款缺可绑定规格且姿态完整的原照。单面金圆杯保留绿白格并统一主图背景。[M16 审核报告](../reviews/M16.md) · [PR #24](https://github.com/pengshang01-cyber/dulizhan/pull/24) · 已归档七类双视口 Workers 截图。
 - M16 通过 PR #24 合并。M17 从 `17e36ba` 建立 `m17-launch-ready`，接入工厂外景，暂时隐藏 25 款缺图产品。六项检查、Workers 双语预览及 Turnstile 渲染已验收，归档 8 张截图。收录开关仍为 `false`。 [PR #25](https://github.com/pengshang01-cyber/dulizhan/pull/25) · [M17 审核报告](../reviews/M17.md)
-- PR #25 已合并。工厂通过 Pages CMS 在 `fc3c940` 开启收录，当前为 `true`。M18 三款试点已记录实测、结构化数据与绘图，等待 Workers PR 预览验收。 [M18 审核报告](../reviews/M18.md)
+- PR #25 已合并。工厂通过 Pages CMS 在 `fc3c940` 开启收录，当前为 `true`。M18 已交付三款实测数据、四套技术视图和实拍多角度查看，验收六张 Workers 预览截图。 [PR #26](https://github.com/pengshang01-cyber/dulizhan/pull/26) · [M18 审核报告](../reviews/M18.md)
