@@ -1,7 +1,7 @@
 """按毫米构造压纸的中性展开位置、折回的实物截面，以及卷纸的两侧表面。"""
 import math
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 TAU = 2 * math.pi
 
@@ -92,6 +92,9 @@ class Station:
     crimp: float = 0
     lean: float = 0
     sharp: bool = False
+    lip_crimp: float = 0
+    gather: float = 0
+    bend_weight: float = 0
 
 
 # 第一列沿未折叠纸张递增；第二列在折峰后倒退，随后再前进，形成真的 Z 形叠层。
@@ -107,45 +110,72 @@ CREASE = (
 
 def stations(shape, count, seed=5039):
     rng = random.Random(seed)
+    origin = 0.0
+    spans = []
     if shape == "round-rolled-rim":
         if not count:
             raise ValueError("圆杯需要核实的褶数")
-        raw = [rng.uniform(-.057, .057) for _ in range(count)]
-        mean = sum(raw) / count
-        widths = [(1 + r - mean) / count for r in raw]
-        spans, start = [], 0.0
+        # 相邻纸面的宽窄有连续变化，实际折峰之间的节距在工厂给定的 ±15% 内。
+        widths = [1 + .079 * math.sin(TAU * (3 * i / count + .13)) +
+                  .018 * math.sin(TAU * (i / count + .03)) + rng.uniform(-.010, .010)
+                  for i in range(count)]
+        start = 0
+        full_turn = sum(widths)
         for width in widths:
-            spans.append((start, start + width))
-            start += width
+            end = start + width / full_turn
+            spans.append((start, end))
+            start = end
+    elif shape == "square-rolled-rim":
+        if not count or count % 4:
+            raise ValueError("方杯须核实每角的褶数")
+        per_corner = count // 4
+        # 参数边界穿过每个圆角的中心。一个完整的圆角横跨相邻两面的各半段圆弧。
+        # 展开一圈后才在 UV 接缝处切开，直边不含任何压褶。
+        origin = 1 / 16
+        for k in range(1, 5):
+            start = k / 4 - .060
+            width = .120 / per_corner
+            spans.extend((start + i * width, start + (i + 1) * width) for i in range(per_corner))
     else:
-        spans = []
-        for face in range(4):
-            # 07 号方杯的角部有多层窄折，平边保留较宽的完整面。
-            local = ((.035, .211), (.750, .846), (.850, .995)) if shape == "square-rolled-rim" else (
-                ((.210, .300), (.705, .795)) if face % 2 else ())
-            for a, b in local:
-                spans.append(((face + a) / 4, (face + b) / 4))
+        for face in (1, 3):
+            spans.extend(((face + a) / 4, (face + b) / 4) for a, b in ((.210, .300), (.705, .795)))
     result = []
     def plain(a, b):
         n = math.ceil((b - a) * 160 - 1e-8)
         for i in range(n):
             result.append(Station(mix(a, b, i / n)))
-    start = 0
+    start = origin
     for a, b in spans:
         plain(start, a)
         width = b - a
         amp = rng.uniform(.92, 1.08)
         slant = rng.uniform(-.020, .020) * width
         for q, t, rad, crimp in CREASE:
+            lip_crimp = math.exp(-((q - .68) / .205)**2) * math.sin(math.pi * q)
+            # 折峰和折谷进入卷管时压在一起。沿管的参数仍单调，不会翻出三角形纸片。
+            if q <= .59:
+                mouth = q * .64 / .59
+            elif q <= .74:
+                mouth = .64 + (q - .59) * .035 / .15
+            else:
+                mouth = .675 + (q - .74) * .325 / .26
             result.append(Station(mix(a, b, q), (t - q) * width, rad * amp, crimp * amp,
-                                  slant * math.sin(math.pi * q), q in (.625, .718)))
+                                  slant * math.sin(math.pi * q), q in (.625, .718), lip_crimp, (mouth - q) * width, math.sin(math.pi * q)**2))
         start = b
-    plain(start, 1)
-    # 展开面的接缝必须有顶点，即便此处不在折纹上。
+    plain(start, origin + 1)
+    result = sorted((replace(s, q=s.q % 1) for s in result), key=lambda s:s.q)
     if shape != "round-rolled-rim":
-        for q in (0, .25, .5, .75):
-            if all(abs(s.q - q) > 1e-8 for s in result):
-                result.append(Station(q))
+        for seam in (0, .25, .5, .75):
+            if any(abs(s.q - seam) < 1e-9 for s in result):
+                continue
+            # 纸板展开面需要独立 UV 接缝。插值当前折面，接缝本身不制造额外的棱。
+            hi = next((i for i, s in enumerate(result) if s.q > seam), 0)
+            left, right = result[hi - 1], result[hi]
+            t = ((seam - left.q) % 1) / ((right.q - left.q) % 1)
+            def value(key):
+                return mix(getattr(left, key), getattr(right, key), t)
+            result.insert(hi, Station(seam, value("shift"), value("relief"), value("crimp"),
+                                      value("lean"), False, value("lip_crimp"), value("gather"), value("bend_weight")))
     return sorted(result, key=lambda s:s.q)
 
 
@@ -179,21 +209,35 @@ class Form:
         self.patches = []
 
     def wall_point(self, s, f, inset=0):
-        # 在靠底处收起返折；到卷管下沿出现压肩，外壁折峰过渡到管口局部挤压。
+        if not self.box:
+            grow = .27 + .73 * smooth(f / .78)
+            # 折线随纸面弯曲，近底贴平。最后约 3 mm 将叠纸连续收进管底的同一条接线。
+            phase = TAU * (s.q * 5 + .18)
+            bend = (.0023 * math.sin(phase + 2.1 * f) + .0010 * math.sin(TAU * (11 * s.q + .41) - 6.2 * f))
+            if self.round:
+                bend *= .76
+            angular = (s.shift * grow + (s.lean + bend * s.bend_weight) * math.sin(math.pi * f))
+            join = smooth((f - .89) / .11)
+            u = s.q + angular * (1 - join) + s.gather * join
+            relief = s.relief * (1.58 if self.round else 1.48) * grow
+            wall_inset = .80 * self.rw * f - relief
+            initial = self.d.xy(f, u, wall_inset + inset)
+            contact = self.lip_point(s, -132, back=inset > 0)
+            z = f * (self.d.height - 1.12 * self.rh)
+            return (mix(initial[0], contact[0], join), mix(initial[1], contact[1], join),
+                    mix(z, contact[2] - .16, join))
+        # 长方纸盒两道接缝和盒口压线沿用已核对的盒身。
         z = f * (self.d.height - self.rh * 1.25)
-        strength = .055 + .945 * smooth(f / .70)
-        if self.box:
-            strength = .19 + .81 * smooth(f / .40)
-        # 07 和手持照里，有些折脊近底处呈一个短折角，上段仍保持平的叠压面。
+        strength = .19 + .81 * smooth(f / .40)
         crease_phase = math.sin(TAU * (7 * s.q + .21))
         kink = .0016 * crease_phase * math.exp(-((f - .22 - .035 * crease_phase) / .067)**2)
-        angle = s.q + (s.shift * strength + s.lean * math.sin(f * math.pi) + kink * s.crimp) * (1 if not self.box else .70)
-        depth = (1.45 if self.round else 1.13 if not self.box else 1.16)
+        angle = s.q + (s.shift * strength + s.lean * math.sin(f * math.pi) + kink * s.crimp) * .70
+        depth = 1.16
         bow = math.sin(TAU * (s.q * 3 + .12)) * math.sin(f * math.pi) * .10
         # 卷边下面可见一条有断续的压线；侧光下宽纸面仍保持平整。
         collar = .874 + .018 * math.sin(TAU * (4 * s.q + .14)) + .013 * crease_phase
         continuity = .52 + .32 * math.cos(TAU * (3 * s.q + .02)) + .15 * crease_phase
-        shoulder = (.44 if self.round else .17) * math.exp(-((f - collar) / .025)**2) * (1 - .62 * s.crimp) * continuity
+        shoulder = .17 * math.exp(-((f - collar) / .025)**2) * (1 - .62 * s.crimp) * continuity
         upper_roll = .21 * math.exp(-((f - collar - .036) / .030)**2) * continuity
         dent = .19 * crease_phase * math.exp(-((f - .22) / .058)**2) * s.crimp
         inner = inset + (self.rw * .44) * f - s.relief * depth * strength + shoulder - upper_roll - bow + dent
@@ -203,6 +247,21 @@ class Form:
     def lip_point(self, s, degree, back=False):
         d = self.d
         a = math.radians(degree)
+        if not self.box:
+            # 圆截面绕满一圈后将纸尾收入管内；起点从管底偏内侧接住侧壁。
+            # 压褶留下宽缓的局部压痕，管的外包仍为实测宽厚。
+            travel = (degree + 132) / 474
+            roll = 1 - .31 * smooth((travel - .78) / .22)
+            if back:
+                roll -= self.skin / (self.rw / 2)
+            crimp = s.lip_crimp
+            wave = .110 * math.sin(TAU * (3 * s.q + .12)) + .060 * math.sin(TAU * (7 * s.q + .46)) + .135 * crimp
+            oval = .060 * math.sin(TAU * (2 * s.q + .19)) + .080 * crimp
+            radius = self.rw * .502
+            half_h = self.rh * .504
+            inset = self.rw / 2 - oval - radius * roll * math.cos(a)
+            x, y = d.xy(1, s.q + s.gather, inset)
+            return x, y, d.height - half_h + wave + half_h * roll * math.sin(a) * (1 - .025 * crimp)
         travel = (degree + 108) / 448
         # 一整圈以上的卷纸，末端回收入管；返回的一层是同一条纸的另一面。
         roll = 1 - .34 * smooth((travel - .54) / .46) - (self.skin / max(self.rw / 2, .2) if back else 0)
@@ -268,8 +327,12 @@ class Form:
     def body(self):
         d = self.d
         levels = (0, .025, .085, .16, .21, .26, .32, .45, .62, .78, .824, .845, .865, .884, .903, .925, .954, .976, 1)
+        if not self.box:
+            levels = (0, .035, .095, .16, .24, .34, .45, .57, .67, .76, .83, .865, .89, .914, .94, .964, .984, 1)
         outer = [self.row(lambda s:self.wall_point(s, f)) for f in levels]
         curl_angles = sorted(set([-108 + 448 * i / 49 for i in range(50)] + [-90, 0, 90, 180, 270]))
+        if not self.box:
+            curl_angles = sorted(set([-132 + 474 * i / 40 for i in range(41)] + [-90, 0, 90, 180, 270]))
         outside = [self.row(lambda s:self.lip_point(s, a)) for a in curl_angles]
         inside = [self.row(lambda s:self.lip_point(s, a, True)) for a in reversed(curl_angles)]
         inner = [self.row(lambda s:self.wall_point(s, f, self.skin)) for f in reversed(levels[1:])]
@@ -282,28 +345,19 @@ class Form:
         self.strip("Foot", "PaperExterior", [underside, outer[0]])
         self.strip("Exterior", "PaperExterior", [*outer, outside[0]], "wall")
         self.strip("Rim", "RolledEdge", outside + inside)
+        if not self.box:
+            # 内壁折向平底时有连续弧面，反光条在此自然转弯。过渡半径仅用于外观。
+            bend = min(self.rw * .62, inner[-1][0][2] - self.skin * 2.4)
+            floor_z = self.skin * 2.4
+            for degrees in (12, 32, 52, 70, 84):
+                arc = math.radians(degrees)
+                inset = self.skin + bend * (1 - math.cos(arc))
+                height = floor_z + bend * (1 - math.sin(arc))
+                inner.append(self.row(lambda s:(*d.xy(0, s.q, inset), height)))
+            floor = self.row(lambda s:(*d.xy(0, s.q, self.skin + bend), floor_z))
         self.strip("Interior", "PaperLining", [inside[-1], *inner, floor], "wall")
         self.disk("Floor", "PaperLining", floor, True)
         self.fit(outer[0], outside + inside)
-        return self.patches
-
-    def cover(self):
-        d = self.d
-        self.st = [Station(i / 192) for i in range(192)]
-        skin = min(d.top) * .0034
-        def row(f, z, inset=0):
-            return self.row(lambda s:(*d.xy(f, s.q, inset), z))
-        # 图册中裙边、压合台阶、斜肩与平盖顶均可辨。闭合扣点的内侧细节缺照片。
-        profile = [(0, 0, 0), (0, .045, 0), (.012, .075, 0), (.025, .108, skin * 2),
-                 (.085, .14, skin * 2), (.13, .18, .15), (.77, .76, 0), (.93, .90, 0),
-                 (.977, .973, 0), (1, 1, 0)]
-        outer = [row(f, z * d.height, i) for f, z, i in profile]
-        inner = [row(f, max(0, z * d.height - skin), i + skin) for f, z, i in reversed(profile)]
-        self.strip("Skirt", "ClearPET", outer)
-        self.disk("Top", "ClearPET", outer[-1], True)
-        self.strip("InnerSkirt", "ClearPET", inner)
-        self.disk("Ceiling", "ClearPET", inner[0], False)
-        self.strip("SkirtEdge", "ClearPET", [inner[-1], outer[0]])
         return self.patches
 
     def fit(self, base, upper):

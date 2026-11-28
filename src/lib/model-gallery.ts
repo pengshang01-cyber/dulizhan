@@ -1,4 +1,4 @@
-import type { LidState, ModelStudio } from "./model-studio";
+import type { ModelStudio } from "./model-studio";
 
 export function setupModelGallery(root: HTMLElement) {
   const get = <T extends HTMLElement>(attribute: string) =>
@@ -8,8 +8,7 @@ export function setupModelGallery(root: HTMLElement) {
   const group = get("model-controls"),
     message = get("model-message");
   const variant = get<HTMLSelectElement>("model-variant"),
-    color = get<HTMLSelectElement>("model-color"),
-    lid = get<HTMLSelectElement>("model-lid");
+    color = get<HTMLSelectElement>("model-color");
   const auto = get<HTMLButtonElement>("model-auto"),
     quick = get<HTMLAnchorElement>("model-quicklook"),
     xr = get<HTMLButtonElement>("model-xr");
@@ -78,8 +77,6 @@ export function setupModelGallery(root: HTMLElement) {
   function options() {
     if (!studio) return;
     if (color?.value) studio.color(color.value);
-    get("model-lid-setting").hidden = !studio.hasLid;
-    if (studio.hasLid) studio.setLid(lid.value as LidState);
     void refreshAR();
   }
   async function open() {
@@ -155,7 +152,6 @@ export function setupModelGallery(root: HTMLElement) {
     root.setAttribute("aria-busy", "true");
     try {
       if (await studio.load(url)) {
-        lid.value = "closed";
         options();
         xr.hidden = arMode !== "xr";
       }
@@ -166,7 +162,6 @@ export function setupModelGallery(root: HTMLElement) {
     }
   });
   color?.addEventListener("change", options);
-  lid.addEventListener("change", options);
   xr.addEventListener("click", async () => {
     if (!studio || !placeInSpace) return;
     xr.disabled = true;

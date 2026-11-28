@@ -197,21 +197,6 @@ const media = [
           </select>
         </label>
       )}
-      <label
-        data-model-lid-setting
-        hidden
-        class="grid gap-1 text-xs font-semibold text-ink-soft"
-      >
-        {t("model.lid", locale)}
-        <select
-          data-model-lid
-          class="min-h-10 rounded-control border border-line bg-white px-2 text-sm text-ink"
-        >
-          {["closed", "open", "hidden"].map((state) => (
-            <option value={state}>{t("model.lid." + state, locale)}</option>
-          ))}
-        </select>
-      </label>
     </div>
     <a
       data-model-quicklook

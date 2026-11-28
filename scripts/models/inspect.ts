@@ -41,7 +41,17 @@ interface Document {
   materials: {
     name: string;
     normalTexture?: { texCoord: number };
-    pbrMetallicRoughness: { baseColorFactor?: number[] };
+    pbrMetallicRoughness: {
+      baseColorFactor?: number[];
+      roughnessFactor?: number;
+      metallicFactor?: number;
+    };
+    extensions?: {
+      KHR_materials_clearcoat?: {
+        clearcoatFactor?: number;
+        clearcoatRoughnessFactor?: number;
+      };
+    };
   }[];
 }
 type IndexArray = Uint16Array | Uint32Array;
@@ -157,7 +167,11 @@ export function edgeUses(surfaces: Surface[]) {
   return counts;
 }
 /** At a constant wall height follow the actual triangle edges, including backward Z-fold travel. */
-export function foldedSection(surface: Surface, height: number) {
+export function foldedSection(
+  surface: Surface,
+  height: number,
+  cornerCenter = 0,
+) {
   const { positions: p, indices } = surface;
   const levels = new Set<number>();
   for (let i = 1; i < p.length; i += 3) levels.add(p[i]);
@@ -165,7 +179,7 @@ export function foldedSection(surface: Surface, height: number) {
     (a, b) => Math.abs(a - height) - Math.abs(b - height),
   )[0];
   const graph = new Map<string, Set<string>>(),
-    angles = new Map<string, number>();
+    points = new Map<string, [number, number]>();
   for (let i = 0; i < indices.length; i += 3)
     for (let j = 0; j < 3; j++) {
       const a = indices[i + j] * 3,
@@ -178,40 +192,60 @@ export function foldedSection(surface: Surface, height: number) {
       if (!graph.has(bk)) graph.set(bk, new Set());
       graph.get(ak)!.add(bk);
       graph.get(bk)!.add(ak);
-      angles.set(ak, Math.atan2(p[a + 2], p[a]));
-      angles.set(bk, Math.atan2(p[b + 2], p[b]));
+      points.set(ak, [p[a], p[a + 2]]);
+      points.set(bk, [p[b], p[b + 2]]);
     }
   const first = graph.keys().next().value;
   if (!first || [...graph.values()].some((n) => n.size !== 2))
     throw Error("Incomplete wall section");
   const increments: number[] = [],
-    phases: number[] = [];
+    phases: number[] = [],
+    outline: [number, number][] = [];
   let current = first,
     last = "";
+  // 相对于当前圆角的圆心测量切向位移，平边沿其直线方向测量。
+  const outside = (v: number) =>
+    v - Math.max(-cornerCenter, Math.min(cornerCenter, v));
   do {
     const next = [...graph.get(current)!].find((k) => k !== last)!;
-    const delta = angles.get(next)! - angles.get(current)!;
-    increments.push(Math.atan2(Math.sin(delta), Math.cos(delta)));
-    phases.push(angles.get(current)!);
+    const [x, z] = points.get(current)!,
+      [nx, nz] = points.get(next)!;
+    const rx = outside((x + nx) / 2),
+      rz = outside((z + nz) / 2);
+    increments.push(((nz - z) * rx - (nx - x) * rz) / (rx * rx + rz * rz));
+    phases.push(Math.atan2(z, x));
+    outline.push([x, z]);
     last = current;
     current = next;
   } while (current !== first && increments.length <= graph.size);
   const direction = Math.sign(increments.reduce((a, b) => a + b, 0));
-  const crests = phases
-    .filter(
-      (_, i) =>
-        increments[i] * direction < 0 &&
-        increments[(i + phases.length - 1) % phases.length] * direction >= 0,
-    )
-    .sort((a, b) => a - b);
+  const backwards = increments.map((v) => v * direction < -1e-6);
+  const peaks = outline.flatMap((_, i) =>
+    backwards[i] && !backwards[(i + phases.length - 1) % phases.length]
+      ? [i]
+      : [],
+  );
+  const crests = peaks.map((i) => phases[i]).sort((a, b) => a - b);
   const pitches = crests.map(
     (p, i) =>
       (((crests[(i + 1) % crests.length] - p + 2 * Math.PI) % (2 * Math.PI)) *
         180) /
       Math.PI,
   );
+  const corners = [0, 0, 0, 0];
+  let flatFolds = 0;
+  if (cornerCenter) {
+    for (const index of peaks) {
+      const [x, z] = outline[index];
+      if (Math.abs(x) <= cornerCenter || Math.abs(z) <= cornerCenter)
+        flatFolds++;
+      else corners[(x < 0 ? 1 : 0) + (z < 0 ? 2 : 0)]++;
+    }
+  }
   return {
     heightMm: y * 1000,
+    corners,
+    flatFolds,
     folds: crests.length,
     minPitch: Math.min(...pitches),
     maxPitch: Math.max(...pitches),

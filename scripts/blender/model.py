@@ -9,7 +9,7 @@ import numpy as np
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from forming import Dimensions, Form, fact
+from forming import Form, fact
 
 
 def linear(c):
@@ -33,19 +33,21 @@ def configure():
 def make_materials(hexcolor, coated):
     rgb = tuple(linear(int(hexcolor[i:i + 2], 16) / 255) for i in (1, 3, 5))
     materials = {}
-    for name, rough, coat in (("PaperExterior", .37, .30), ("PaperLining", .29, .37), ("RolledEdge", .33, .33), ("ClearPET", .16, .70)):
+    # 涂膜样品的内壁有最清晰的条形高光，外侧仍能分辨纸面细纹。非 PET 盒身沿用原涂层。
+    settings = (("PaperExterior", .245, .68, .17), ("PaperLining", .165, .84, .105),
+                ("RolledEdge", .19, .76, .125)) if coated else (
+                ("PaperExterior", .44, .18, .24), ("PaperLining", .36, .222, .24),
+                ("RolledEdge", .40, .198, .24))
+    for name, rough, coat, coat_rough in settings:
         mat = bpy.data.materials.new(name)
         if not mat.node_tree:
             mat.use_nodes = True
         bs = mat.node_tree.nodes.get("Principled BSDF")
-        bs.inputs["Base Color"].default_value = (*rgb, 1) if name != "ClearPET" else (.92, .96, .99, 1)
-        bs.inputs["Roughness"].default_value = rough + (0 if coated or name == "ClearPET" else .07)
-        bs.inputs["Coat Weight"].default_value = coat * (1 if coated or name == "ClearPET" else .60)
-        bs.inputs["Coat Roughness"].default_value = .24 if name != "ClearPET" else .14
+        bs.inputs["Base Color"].default_value = (*rgb, 1)
+        bs.inputs["Roughness"].default_value = rough
+        bs.inputs["Coat Weight"].default_value = coat
+        bs.inputs["Coat Roughness"].default_value = coat_rough
         bs.inputs["IOR"].default_value = 1.53
-        if name == "ClearPET":
-            bs.inputs["Alpha"].default_value = .24
-            mat.surface_render_method = "BLENDED"
         # 表面本身包含里外两层，仅绘制相应的正面。
         mat.use_backface_culling = True
         materials[name] = mat
@@ -60,7 +62,7 @@ def object_for(patch, parent, mat):
     bpy.context.collection.objects.link(obj)
     obj.parent = parent
     obj["surface"] = patch.name
-    obj["uvLayout"] = "planar" if patch.name in ("Floor", "Underside", "Top", "Ceiling") else (
+    obj["uvLayout"] = "planar" if patch.name in ("Floor", "Underside") else (
         "unfolding-reference" if patch.name in ("Exterior", "Interior") else "rolled-band")
     obj.data.materials.append(mat)
     for poly in mesh.polygons:
@@ -94,7 +96,33 @@ def joined(objects):
     return bpy.context.view_layer.objects.active
 
 
-def detail_high(low, part, depth, amplitude, textures):
+def pressure_wrinkles(mesh):
+    """在高模壁面施加短而不规则的成形皱痕，再连同纤维烘焙；不改变低模及其尺寸。"""
+    n = len(mesh.vertices)
+    points = np.empty(n * 3, dtype=np.float32)
+    normals = np.empty_like(points)
+    mesh.vertices.foreach_get("co", points)
+    mesh.vertices.foreach_get("normal", normals)
+    pos = points.reshape(n, 3)
+    phase = np.arctan2(pos[:, 1], pos[:, 0])
+    radius = np.hypot(pos[:, 1], pos[:, 0])
+    height = pos[:, 2]
+    top = float(height.max())
+    delta = np.zeros(n, dtype=np.float32)
+    rng = np.random.default_rng(5039)
+    for _ in range(38):
+        angle = rng.uniform(-math.pi, math.pi)
+        z = top * rng.uniform(.09, .96)
+        along = ((phase - angle + math.pi) % (2 * math.pi) - math.pi) * radius
+        across = (height - z - rng.uniform(-.65, .65) * along) / rng.uniform(.00020, .00037)
+        falloff = (along / rng.uniform(.0014, .0032)) ** 2 + across ** 2
+        delta += rng.uniform(.000044, .000087) * (1 - across ** 2) * np.exp(-.5 * falloff)
+    pos += normals.reshape(n, 3) * delta[:, None]
+    mesh.vertices.foreach_set("co", points)
+    mesh.update()
+
+
+def detail_high(low, part, depth, amplitude, textures, cup):
     high = low.copy()
     high.data = low.data.copy()
     bpy.context.collection.objects.link(high)
@@ -123,6 +151,8 @@ def detail_high(low, part, depth, amplitude, textures):
         if weighted:
             mod.vertex_group = group.name
         bpy.ops.object.modifier_apply(modifier=mod.name)
+    if cup and part in ("Exterior", "Interior"):
+        pressure_wrinkles(high.data)
     return high
 
 
@@ -133,8 +163,6 @@ def bake(objects, materials, out, shape):
     image.generated_color = (.5, .5, 1, 1)
     targets = []
     for name, mat in materials.items():
-        if name == "ClearPET":
-            continue
         nodes = mat.node_tree.nodes
         target = nodes.new("ShaderNodeTexImage")
         target.image = image
@@ -159,7 +187,7 @@ def bake(objects, materials, out, shape):
         low.data.uv_layers[1].active_render = True
         part = original["surface"]
         depth = 1 if part == "Rim" else 3 if part in ("Exterior", "Interior", "Floor", "Underside") else 2
-        high = detail_high(low, part, depth, .00044 if shape != "box" else .00023, textures)
+        high = detail_high(low, part, depth, .00030 if shape != "box" else .00023, textures, shape != "box")
         lows.append(low)
         highs.append(high)
     low = joined(lows)
@@ -210,7 +238,8 @@ def bake(objects, materials, out, shape):
         uv.uv_map = "PaperDetail"
         normal = nodes.new("ShaderNodeNormalMap")
         normal.uv_map = "PaperDetail"
-        normal.inputs["Strength"].default_value = .74
+        normal.inputs["Strength"].default_value = (.74 if shape == "box" else
+            {"PaperExterior": .55, "PaperLining": .32, "RolledEdge": .22}[mat.name])
         links.new(uv.outputs["UV"], target.inputs["Vector"])
         links.new(target.outputs["Color"], normal.inputs["Color"])
         links.new(normal.outputs["Normal"], nodes.get("Principled BSDF").inputs["Normal"])
@@ -224,17 +253,9 @@ def create(spec, variant, out):
     sample = next(c for c in spec["colors"] if fact(c, "name") == appearance["sampleColor"])
     materials = make_materials(fact(sample, "hex") or sample["display"]["hex"], fact(variant["body"], "coating")["en"] == "PET")
     form = Form(variant["body"], appearance, spec["shape"])
-    parts = [("Body", form.body(), 0)]
-    if spec["shape"] == "box" and variant.get("lid") and Dimensions.read(variant["lid"], appearance, "lid"):
-        parts.append(("Lid", Form(variant["lid"], appearance, "lid").cover(), form.d.height * .001))
-    objects = []
-    for name, patches, elevation in parts:
-        parent = bpy.data.objects.new(name, None)
-        bpy.context.collection.objects.link(parent)
-        parent.location.z = elevation
-        objects.append(parent)
-        for patch in patches:
-            objects.append(object_for(patch, parent, materials[patch.material]))
+    parent = bpy.data.objects.new("Body", None)
+    bpy.context.collection.objects.link(parent)
+    objects = [parent, *(object_for(p, parent, materials[p.material]) for p in form.body())]
     output = out / spec["slug"]
     output.mkdir(parents=True, exist_ok=True)
     bake(objects, materials, output / (variant["id"] + "-normal.png"), spec["shape"])

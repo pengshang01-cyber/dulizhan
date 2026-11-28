@@ -560,8 +560,8 @@ try {
             .locator('[data-model-gallery][data-status="ready"]')
             .waitFor();
           await media.locator("[data-model-canvas]").press("ArrowRight");
-          if (route.name.includes("rectangular"))
-            await media.locator("[data-model-lid]").selectOption("open");
+          if (await media.locator("[data-model-lid]").count())
+            throw new Error("三维试点仍有配盖控件：" + route.path);
           await media.locator("[data-model-tab='1']").click();
           await media
             .locator("[data-model-panel]")

@@ -52,8 +52,9 @@
           }
         },
         "pleatCount": {
-          "status": "missing",
-          "value": null
+          "status": "verified",
+          "value": 20,
+          "source": "factory-corner-count-m19"
         },
         "rimWidthMm": {
           "status": "verified",
@@ -529,6 +530,11 @@
       "id": "photo-09",
       "kind": "photo",
       "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/cb69f72e554a787b69371338d30cdbca.jpg"
+    },
+    {
+      "id": "factory-corner-count-m19",
+      "kind": "measurement",
+      "reference": "工厂第二轮核对实物，四个圆角各五道压褶，四条直边平整。标准拍摄 01、05、07 号。"
     }
   ],
   "modelAppearance": {

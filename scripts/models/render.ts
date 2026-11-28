@@ -82,11 +82,7 @@ try {
         "/technical-" +
         id +
         "-";
-      for (const path of [
-        dir + "/three-quarter.webp",
-        art + "body.png",
-        ...(spec.shape === "box" ? [art + "lid.png"] : []),
-      ]) {
+      for (const path of [dir + "/three-quarter.webp", art + "body.png"]) {
         tiles.push(
           await sharp(path)
             .resize(360, 320, { fit: "contain", background: "white" })
@@ -101,7 +97,6 @@ try {
         "Underside",
         "Cleaned photograph",
         "Technical views",
-        "Lid drawing",
       ];
       const layers: Parameters<ReturnType<typeof sharp>["composite"]>[0] = [];
       for (const [i, input] of tiles.entries()) {

@@ -4,7 +4,6 @@ import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
 import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
-export type LidState = "closed" | "open" | "hidden";
 // 45° azimuth and 45° elevation. The catalogue poster uses the same reset pose.
 const initialView = new THREE.Vector3(1, Math.SQRT2, 1).normalize();
 const vertical = new THREE.Vector3(0, 1, 0);
@@ -41,7 +40,24 @@ export function createStudio(canvas: HTMLCanvasElement) {
   scene.background = new THREE.Color(0xf5f2ee);
   const pmrem = new THREE.PMREMGenerator(renderer),
     room = new RoomEnvironment();
-  const env = pmrem.fromScene(room, 0.045);
+  // 影棚条形柔光箱与低位反光板让卷管与内壁随旋转掠过高光。与背景一起预滤成一个环境贴图。
+  const stripGeometry = new THREE.PlaneGeometry();
+  const stripMaterial = new THREE.MeshBasicMaterial({
+    color: new THREE.Color(15.5, 15.0, 14.3),
+    side: THREE.DoubleSide,
+  });
+  for (const [x, y, z, w, h] of [
+    [-5.8, 11, -5.8, 3.0, 9.0],
+    [1.6, 15, 0.5, 2.8, 9.0],
+    [3.2, 0.8, 4.5, 1.3, 3.5],
+  ] as const) {
+    const strip = new THREE.Mesh(stripGeometry, stripMaterial);
+    strip.position.set(x, y, z);
+    strip.scale.set(w, h, 1);
+    strip.lookAt(0, 3.5, 0);
+    room.add(strip);
+  }
+  const env = pmrem.fromScene(room, 0.012);
   scene.environment = env.texture;
   scene.environmentIntensity = 0.58;
   room.dispose();
@@ -87,7 +103,7 @@ export function createStudio(canvas: HTMLCanvasElement) {
   // Arrow keys work only when the canvas has focus; leave letters free for the inquiry form.
   controls.keys.fill("");
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-  let model: THREE.Group | undefined, lid: THREE.Object3D | undefined;
+  let model: THREE.Group | undefined;
   let ticket = 0,
     frame = 0,
     engaged = false,
@@ -95,8 +111,7 @@ export function createStudio(canvas: HTMLCanvasElement) {
     active = true,
     disposed = false,
     previous = 0;
-  let height = 0.06,
-    focus = new THREE.Vector3(0, 0.03, 0),
+  let focus = new THREE.Vector3(0, 0.03, 0),
     distance = 0.33;
   const render = () => {
     if (!disposed && active && !renderer.xr.isPresenting) {
@@ -227,13 +242,9 @@ export function createStudio(canvas: HTMLCanvasElement) {
     }
     model = next;
     scene.add(model);
-    lid = model.getObjectByName("Lid");
-    const body = model.getObjectByName("Body") ?? model;
-    const bounds = new THREE.Box3().setFromObject(body);
+    const bounds = new THREE.Box3().setFromObject(model);
     const size = bounds.getSize(new THREE.Vector3());
-    height = size.y;
-    const full = new THREE.Box3().setFromObject(model);
-    const sphere = full.getBoundingSphere(new THREE.Sphere());
+    const sphere = bounds.getBoundingSphere(new THREE.Sphere());
     focus = sphere.center.clone();
     distance =
       (sphere.radius / Math.sin(THREE.MathUtils.degToRad(camera.fov / 2))) *
@@ -253,7 +264,7 @@ export function createStudio(canvas: HTMLCanvasElement) {
     });
     light.shadow.camera.updateProjectionMatrix();
     model.traverse((obj) => {
-      if (obj instanceof THREE.Mesh && obj.material.name !== "ClearPET") {
+      if (obj instanceof THREE.Mesh) {
         obj.castShadow = true;
         obj.receiveShadow = true;
       }
@@ -269,14 +280,6 @@ export function createStudio(canvas: HTMLCanvasElement) {
       if (obj instanceof THREE.Mesh && obj.material.name === "PaperExterior")
         obj.material.color.set(hex);
     });
-    invalidate();
-  }
-  function setLid(state: LidState) {
-    if (!lid) return;
-    lid.visible = state !== "hidden";
-    lid.position.y = height + (state === "open" ? height * 0.55 : 0);
-    lid.rotation.x = state === "open" ? -0.24 : 0;
-    model!.updateMatrixWorld(true);
     invalidate();
   }
   function setActive(value: boolean) {
@@ -315,7 +318,6 @@ export function createStudio(canvas: HTMLCanvasElement) {
     reset,
     zoom,
     color,
-    setLid,
     setView,
     render,
     dispose,
@@ -327,9 +329,6 @@ export function createStudio(canvas: HTMLCanvasElement) {
     },
     get model() {
       return model;
-    },
-    get hasLid() {
-      return Boolean(lid);
     },
   };
 }

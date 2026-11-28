@@ -21,6 +21,27 @@ def area(name, pos, target, width, height, power):
     return obj
 
 
+def reflection_card(origin, normal, width):
+    # 与摄影棚的条形柔光箱相同：在膜面里可见，背景保持透明，不给纸面增加泛白的漫射。
+    bpy.ops.mesh.primitive_plane_add(size=1, location=origin)
+    obj = bpy.context.object
+    obj.name = "Specular strip"
+    obj.rotation_euler = normal.to_track_quat("Z", "Y").to_euler()
+    obj.scale = (width * .25, width * 1.25, 1)
+    obj.visible_camera = obj.visible_shadow = obj.visible_diffuse = False
+    mat = bpy.data.materials.new("Studio reflection")
+    if not mat.node_tree:
+        mat.use_nodes = True
+    nodes = mat.node_tree.nodes
+    emission = nodes.new("ShaderNodeEmission")
+    emission.inputs["Color"].default_value = (1, .98, .94, 1)
+    emission.inputs["Strength"].default_value = 10
+    mat.node_tree.links.new(emission.outputs[0], nodes.get("Material Output").inputs["Surface"])
+    mat.cycles.emission_sampling = "NONE"
+    obj.data.materials.append(mat)
+    return obj
+
+
 def studio(path):
     bpy.ops.wm.read_factory_settings(use_empty=True)
     s = bpy.context.scene
@@ -32,8 +53,8 @@ def studio(path):
     s.world = bpy.data.worlds.new("Neutral sweep")
     s.world.use_nodes = True
     world = s.world.node_tree.nodes.get("Background")
-    world.inputs[0].default_value = (.84, .86, .88, 1)
-    world.inputs[1].default_value = .46
+    world.inputs[0].default_value = (.88, .86, .82, 1)
+    world.inputs[1].default_value = .35
     s.view_settings.view_transform = "AgX"
     s.render.resolution_x = 696
     s.render.resolution_y = 460
@@ -68,16 +89,10 @@ def render_views(path, shape, dim, out):
     if shape == "round-rolled-rim":
         views.extend([("rim", (4, -8), (.04, -.473, .946), .54 * w), ("fold", (5, -6), (.05, -.440, .60), .54 * w)])
     elif shape == "square-rolled-rim":
-        views.extend([("rim", (21, 12), (.31, -.39, .956), .66 * w), ("fold", (25, 8), (.34, -.37, .49), .61 * w)])
+        views.extend([("rim", (41, 16), (.39, -.39, .927), .45 * w), ("fold", (41, 11), (.365, -.365, .55), .46 * w)])
     else:
         views.extend([("rim", (24, 18), (.32, -.43, .958), .49 * w), ("fold", (24, 12), (.39, -.39, .48), .43 * w)])
-        if bpy.data.objects.get("Lid"):
-            views.append(("covered", (-30, 35), (0, 0, .61), 1.45 * w))
     for name, (az, el), (cx, cy, cz), width in views:
-        if name == "covered":
-            lid = bpy.data.objects["Lid"]
-            for ob in [lid, *lid.children_recursive]:
-                ob.hide_render = False
         a, e = map(math.radians, (az, el))
         direction = Vector((math.sin(a) * math.cos(e), -math.cos(a) * math.cos(e), math.sin(e)))
         right = Vector((math.cos(a), math.sin(a), 0))
@@ -95,6 +110,13 @@ def render_views(path, shape, dim, out):
             area("Strip", center + w * (direction * .66 - right * 1.52 + up * 1.16), center, .50 * w, 2.25 * w, 151 * w * w),
             area("White card", center + w * (direction * 1.42 + right * 1.43 + up * .33), center, 1.6 * w, 1.9 * w, 55 * w * w),
             area("Back edge", center + w * (-direction * .65 + right * .25 + up * 1.67), center, 1.65 * w, .62 * w, 120 * w * w)]
+        if name in ("three-quarter", "top", "rim", "fold"):
+            lights.append(area("Lining reflection", center + w * (-direction * .55 - right * 1.20 + up * .55),
+                               center, .24 * w, 2.7 * w, 98 * w * w))
+        if name in ("top", "three-quarter"):
+            mirror = Vector((-direction.x, -direction.y, direction.z)).normalized()
+            reflection = Vector((.12 * w, .05 * d, 0))
+            lights.append(reflection_card(reflection + mirror * w * 1.75, -mirror, w))
         if name == "bottom":
             lights.append(area("Bottom white card", center + w * direction * 1.45, center, 2 * w, 1.8 * w, 320 * w * w))
         s.render.filepath = str(out / (name + ".png"))
