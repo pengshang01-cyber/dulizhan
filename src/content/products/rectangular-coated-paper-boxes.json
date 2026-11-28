@@ -12,17 +12,52 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/rectangular-coated-paper-boxes-m16-photo.webp",
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/05-three-quarter.webp",
       "alt": {
-        "en": "Medium kraft laminated rectangular paper box with an open rolled rim",
-        "zh": "中号牛皮色长方形淋膜纸盒，开口朝上"
+        "en": "Medium rectangular coated paper box — three-quarter overhead view",
+        "zh": "中号长方形淋膜纸盒，斜俯视"
       }
     },
     {
-      "image": "../../assets/images/products/rectangular-coated-paper-boxes-medium-188-x-85-x-60-mm-m16-size-comparison.webp",
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/01-front.webp",
       "alt": {
-        "en": "Medium · 188 × 85 × 60 mm shown beside an egg (5.7 cm)",
-        "zh": "中号 · 188 × 85 × 60 mm 规格与鸡蛋（5.7 厘米）对照"
+        "en": "Medium rectangular coated paper box — front view",
+        "zh": "中号长方形淋膜纸盒，正面平视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/03-top.webp",
+      "alt": {
+        "en": "Medium rectangular coated paper box — top view",
+        "zh": "中号长方形淋膜纸盒，俯视"
+      }
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/06-interior.webp",
+      "alt": {
+        "en": "Medium rectangular coated paper box — interior view",
+        "zh": "中号长方形淋膜纸盒，内部"
+      }
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/07-detail.webp",
+      "alt": {
+        "en": "Medium rectangular coated paper box — rim and wall detail",
+        "zh": "中号长方形淋膜纸盒，卷边与侧壁细节"
+      }
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/09-stack.webp",
+      "alt": {
+        "en": "Medium rectangular coated paper box — stacked",
+        "zh": "中号长方形淋膜纸盒，叠放"
+      }
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/medium-size-comparison.webp",
+      "alt": {
+        "en": "Medium box top outside length of 187 mm with matching scale",
+        "zh": "中号长方盒 187 mm 上口外长与同比例标尺"
       },
       "sizeComparison": true
     },
@@ -41,6 +76,22 @@
         "zh": "两份巧克力榛子磅蛋糕使用长方形淋膜纸盒陈列"
       },
       "scene": "display"
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/technical-medium-body.png",
+      "alt": {
+        "en": "Medium rectangular coated paper box",
+        "zh": "中号长方形淋膜纸盒"
+      },
+      "technicalDrawing": true
+    },
+    {
+      "image": "../../assets/images/products/m18/rectangular-coated-paper-boxes/technical-medium-lid.png",
+      "alt": {
+        "en": "Companion lid for medium rectangular box",
+        "zh": "中号长方盒配套盖"
+      },
+      "technicalDrawing": true
     }
   ],
   "material": {
@@ -53,10 +104,10 @@
       "name": { "en": "Medium", "zh": "中号" },
       "heightMm": 60,
       "shape": "rectangular",
-      "baseLengthMm": 162,
-      "baseWidthMm": 58,
-      "topLengthMm": 188,
-      "topWidthMm": 85,
+      "baseLengthMm": 166,
+      "baseWidthMm": 57,
+      "topLengthMm": 187,
+      "topWidthMm": 87,
       "material": {
         "en": "Bamboo-pulp PE-coated paper / Kraft PE-coated paper",
         "zh": "竹浆 PE 淋膜纸 / 牛皮 PE 淋膜纸"
@@ -75,8 +126,10 @@
       "lid": {
         "shape": "rectangular",
         "baseLengthMm": 195,
-        "baseWidthMm": 89,
-        "heightMm": 25,
+        "baseWidthMm": 90,
+        "topLengthMm": 175,
+        "topWidthMm": 70,
+        "heightMm": 20,
         "material": { "en": "PET", "zh": "PET" },
         "unitWeight": "7.2 g",
         "packages": [

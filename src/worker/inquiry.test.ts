@@ -555,7 +555,9 @@ describe("Worker inquiry API", () => {
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ ok: true });
     expect(response.headers.get("Cache-Control")).toBe("no-store");
-    expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow");
+    expect(response.headers.get("X-Robots-Tag")).toBe(
+      site.allowIndexing ? null : "noindex, nofollow",
+    );
     expect(fetcher.mock.calls[0]?.[0]).toBe(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
     );

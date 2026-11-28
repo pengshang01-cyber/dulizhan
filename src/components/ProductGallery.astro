@@ -13,6 +13,14 @@ interface Props {
 const { images, title } = Astro.props;
 
 function galleryLabel(view: ProductData["images"][number]) {
+  if (view.technicalDrawing) {
+    return [
+      t("technical.drawing", locale),
+      confirmedLocalized(view.alt, locale),
+    ]
+      .filter(Boolean)
+      .join(" · ");
+  }
   if (view.scene) {
     return [
       t("products.illustrativeImage", locale),
@@ -37,6 +45,7 @@ function galleryLabel(view: ProductData["images"][number]) {
         data-gallery-panel
         data-scene={view.scene}
         data-size-comparison={view.sizeComparison || undefined}
+        data-technical-drawing={view.technicalDrawing || undefined}
         hidden={index !== 0}
       >
         <Image
@@ -58,7 +67,9 @@ function galleryLabel(view: ProductData["images"][number]) {
           fetchpriority={index === 0 ? "high" : "auto"}
           class:list={[
             "w-full object-contain",
-            view.sizeComparison ? "aspect-[4/3]" : "aspect-square",
+            view.sizeComparison || view.technicalDrawing
+              ? "aspect-[4/3]"
+              : "aspect-square",
           ]}
         />
         {galleryLabel(view) && (

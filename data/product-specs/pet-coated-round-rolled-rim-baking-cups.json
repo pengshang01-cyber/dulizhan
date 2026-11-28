@@ -1,0 +1,622 @@
+{
+  "$schema": "./schema.json",
+  "version": 1,
+  "slug": "pet-coated-round-rolled-rim-baking-cups",
+  "shape": "round-rolled-rim",
+  "photographedVariant": {
+    "status": "verified",
+    "value": "5039",
+    "source": "factory-measurements-2026-11-27"
+  },
+  "variants": [
+    {
+      "id": "5039",
+      "label": {
+        "en": "5039",
+        "zh": "5039"
+      },
+      "body": {
+        "geometry": {
+          "baseDiameterMm": {
+            "status": "verified",
+            "value": 50,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "topDiameterMm": {
+            "status": "verified",
+            "value": 69,
+            "source": "factory-measurements-2026-11-27"
+          },
+          "heightMm": {
+            "status": "verified",
+            "value": 39,
+            "source": "factory-measurements-2026-11-27"
+          }
+        },
+        "pleatCount": {
+          "status": "verified",
+          "value": 24,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "rimWidthMm": {
+          "status": "verified",
+          "value": 2,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "rimThicknessMm": {
+          "status": "verified",
+          "value": 2,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "paperThicknessMm": {
+          "status": "missing",
+          "value": null
+        },
+        "grammageGsm": {
+          "status": "verified",
+          "value": 110,
+          "source": "workbook-50"
+        },
+        "unitWeightG": {
+          "status": "verified",
+          "value": 1.5,
+          "source": "factory-measurements-2026-11-27"
+        },
+        "material": {
+          "status": "verified",
+          "value": {
+            "en": "PET-coated paper",
+            "zh": "PET 淋膜纸"
+          },
+          "source": "workbook-50"
+        },
+        "coating": {
+          "status": "verified",
+          "value": {
+            "en": "PET",
+            "zh": "PET"
+          },
+          "source": "workbook-50"
+        },
+        "packaging": {
+          "status": "verified",
+          "value": [
+            {
+              "method": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs / OPP bag",
+                  "zh": "50 只 / OPP 袋"
+                },
+                "source": "workbook-50"
+              },
+              "cartonLoading": {
+                "status": "verified",
+                "value": {
+                  "en": "50 pcs × 60 packs",
+                  "zh": "50 只 × 60 条"
+                },
+                "source": "workbook-50"
+              },
+              "carton": {
+                "status": "verified",
+                "value": {
+                  "sides": [43, 33, 35],
+                  "unit": {
+                    "status": "missing",
+                    "value": null,
+                    "note": "规格表箱规单元格未写单位"
+                  }
+                },
+                "source": "workbook-50"
+              }
+            }
+          ],
+          "source": "workbook-50"
+        }
+      },
+      "hasLid": {
+        "status": "verified",
+        "value": true,
+        "source": "workbook-50"
+      },
+      "lid": null
+    }
+  ],
+  "colors": [
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Lavender",
+          "zh": "浅紫色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Pink",
+          "zh": "粉色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Mint green",
+          "zh": "薄荷绿"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Magenta",
+          "zh": "玫红色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Orange",
+          "zh": "橙色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Yellow-green",
+          "zh": "黄绿色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Blue",
+          "zh": "蓝色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Green",
+          "zh": "绿色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Purple",
+          "zh": "紫色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Red",
+          "zh": "红色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Brown",
+          "zh": "棕色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "White",
+          "zh": "白色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    },
+    {
+      "name": {
+        "status": "verified",
+        "value": {
+          "en": "Natural kraft",
+          "zh": "本色"
+        },
+        "source": "published-colors"
+      },
+      "code": {
+        "status": "missing",
+        "value": null
+      },
+      "hex": {
+        "status": "missing",
+        "value": null,
+        "note": "网站色板用于视觉参考，未提供经核准的色值"
+      }
+    }
+  ],
+  "printAreas": [
+    {
+      "part": "body",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "base",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    },
+    {
+      "part": "interior",
+      "available": {
+        "status": "pending",
+        "value": null
+      },
+      "maxColors": {
+        "status": "pending",
+        "value": null
+      },
+      "bleedMm": {
+        "status": "pending",
+        "value": null
+      },
+      "safeMarginMm": {
+        "status": "pending",
+        "value": null
+      }
+    }
+  ],
+  "photos": [
+    {
+      "number": "01",
+      "angle": "front",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/01-front.webp"
+        ],
+        "source": "photo-01"
+      }
+    },
+    {
+      "number": "02",
+      "angle": "side",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "无单独按规定机位拍摄的圆杯平视侧照"
+      }
+    },
+    {
+      "number": "03",
+      "angle": "top",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/03-top.webp"
+        ],
+        "source": "photo-03"
+      }
+    },
+    {
+      "number": "04",
+      "angle": "bottom",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/04-bottom.webp"
+        ],
+        "source": "photo-04"
+      }
+    },
+    {
+      "number": "05",
+      "angle": "three-quarter",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/05-three-quarter.webp"
+        ],
+        "source": "photo-05"
+      }
+    },
+    {
+      "number": "06",
+      "angle": "interior",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/06-interior.webp"
+        ],
+        "source": "photo-06"
+      }
+    },
+    {
+      "number": "07",
+      "angle": "detail",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/07-detail.webp"
+        ],
+        "source": "photo-07"
+      }
+    },
+    {
+      "number": "08",
+      "angle": "scale",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/08-scale.webp"
+        ],
+        "source": "photo-08"
+      }
+    },
+    {
+      "number": "09",
+      "angle": "stack",
+      "files": {
+        "status": "verified",
+        "value": [
+          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/09-stack.webp"
+        ],
+        "source": "photo-09"
+      }
+    },
+    {
+      "number": "10",
+      "angle": "packaging",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "11",
+      "angle": "color-range",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "工厂本轮未拍摄该编号"
+      }
+    },
+    {
+      "number": "12",
+      "angle": "rotation",
+      "files": {
+        "status": "missing",
+        "value": null,
+        "note": "现有实拍无可核实的完整、有序一圈帧列或视频"
+      }
+    }
+  ],
+  "rotation": {
+    "status": "missing",
+    "value": null,
+    "note": "工厂确认没有原视频或有编号的完整一圈帧，改用现有多角度实拍"
+  },
+  "sources": [
+    {
+      "id": "factory-measurements-2026-11-27",
+      "kind": "measurement",
+      "reference": "工厂现场实测，2026-11-27，项目对话逐项确认"
+    },
+    {
+      "id": "workbook-50",
+      "kind": "spec-sheet",
+      "reference": "data-import/product-specs-2026.xlsx · Sheet1 行 72（序号 50）"
+    },
+    {
+      "id": "published-colors",
+      "kind": "site",
+      "reference": "src/content/products/pet-coated-round-rolled-rim-baking-cups.json · main fc3c940 的颜色名称"
+    },
+    {
+      "id": "photo-01",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/dda3fa182a7d27912107b3a937d1b640.jpg"
+    },
+    {
+      "id": "photo-03",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/b13c782c8f103a505baadf69a352b84f.jpg"
+    },
+    {
+      "id": "photo-04",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/3756c436a1947e4a785f4603a41b5293.jpg"
+    },
+    {
+      "id": "photo-05",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/8c3effda9ed8944d1c0a03cf0280aa01.jpg"
+    },
+    {
+      "id": "photo-06",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/09350db57bc4c0fae0c333b4efbe3dbf.jpg"
+    },
+    {
+      "id": "photo-07",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/e18fee0fb006d365ee11ca2d9ea2a982.jpg"
+    },
+    {
+      "id": "photo-08",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/3b4e59bd8b0d262eac0c0634ec97fcfb.jpg"
+    },
+    {
+      "id": "photo-09",
+      "kind": "photo",
+      "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/3ba83c82698dc2cba88a806d9c44835a.jpg"
+    }
+  ]
+}

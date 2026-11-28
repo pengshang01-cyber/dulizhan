@@ -568,5 +568,20 @@
     "name": "m17-wrapping-paper",
     "path": "/products/baking-wrapping-paper/",
     "milestones": ["M17"]
+  },
+  {
+    "name": "m18-round-5039",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M18"]
+  },
+  {
+    "name": "m18-square-zh",
+    "path": "/zh/products/rolled-rim-baking-cups/pet-coated-square-rolled-rim-cups/",
+    "milestones": ["M18"]
+  },
+  {
+    "name": "m18-rectangular-box",
+    "path": "/products/cake-boxes/rectangular-coated-paper-boxes/",
+    "milestones": ["M18"]
   }
 ]

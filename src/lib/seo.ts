@@ -88,7 +88,10 @@ export function productData(
     material: confirmedLocalized(data.material, locale),
     // 产品结构化数据仅引用已核对产品图。
     image: data.images
-      .filter(({ scene, sizeComparison }) => !scene && !sizeComparison)
+      .filter(
+        ({ scene, sizeComparison, technicalDrawing }) =>
+          !scene && !sizeComparison && !technicalDrawing,
+      )
       .map(({ image }) => image)
       .filter(({ src }) => !/placeholder/i.test(src))
       .map(({ src }) => new URL(src, url).href),

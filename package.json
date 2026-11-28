@@ -18,7 +18,8 @@
     "seo:check": "node --experimental-strip-types scripts/seo-check.ts",
     "links:check": "node --experimental-strip-types scripts/links-check.ts",
     "todo:report": "node --experimental-strip-types scripts/todo-report.ts",
-    "import:products": "node --experimental-strip-types scripts/import-products.ts"
+    "import:products": "node --experimental-strip-types scripts/import-products.ts",
+    "product:drawings": "node --experimental-strip-types scripts/build-product-technical-art.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",
