@@ -1,5 +1,17 @@
 # Cupcake Liners and Baking Cups
 
+## 重新生成试点产品的 3D 模型
+
+模型使用 Blender 后台建模和 Cycles CPU 法线烘焙。本次建模与复核使用 Blender 5.3.0。Windows 默认在 `Program Files\Blender Foundation` 中查找安装版本，其他安装位置可用 `BLENDER_PATH` 指定。macOS 和 Linux 也可使用 PATH 中的 `blender`。
+
+```powershell
+$env:BLENDER_PATH = 'C:\Program Files\Blender Foundation\Blender 5.3\blender.exe'
+npm run models:build
+npm test
+```
+
+输入是 `data/product-specs/` 中含 `modelAppearance` 的规格。脚本在 `.astro` 临时目录中烘焙、导出、压缩和检查全部模型，然后更新 `public/models/`。普通网站构建直接使用已提交的 GLB。更新列表封面和四视角核对图可运行 `node --experimental-strip-types scripts/models/render.ts`，需要本项目的 Playwright Chromium。[产品标准资料](docs/PRODUCT-DATA.md) · [M19 实拍与模型对照](docs/reviews/M19.md#blender-建模)
+
 ## Local development
 
 Use the Node.js version in `.node-version`.

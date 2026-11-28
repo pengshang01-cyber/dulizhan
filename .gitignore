@@ -11,3 +11,4 @@ dist/
 docs/reviews/**/lighthouse/
 .lighthouseci/
 data-import/local/
+scripts/blender/__pycache__/

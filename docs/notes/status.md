@@ -19,3 +19,4 @@
 - M16 通过 PR #24 合并。M17 从 `17e36ba` 建立 `m17-launch-ready`，接入工厂外景，暂时隐藏 25 款缺图产品。六项检查、Workers 双语预览及 Turnstile 渲染已验收，归档 8 张截图。收录开关仍为 `false`。 [PR #25](https://github.com/pengshang01-cyber/dulizhan/pull/25) · [M17 审核报告](../reviews/M17.md)
 - PR #25 已合并。工厂通过 Pages CMS 在 `fc3c940` 开启收录，当前为 `true`。M18 已交付三款实测数据、四套技术视图和实拍多角度查看，验收六张 Workers 预览截图。 [PR #26](https://github.com/pengshang01-cyber/dulizhan/pull/26) · [M18 审核报告](../reviews/M18.md)
 - M18 已合并。M19 的三款试点均可查看底部，四个压缩模型已在 Workers 预览核对，六张双视口截图归档。六项检查通过，实际空间比例留待 AR 真机复核。[M19 审核报告](../reviews/M19.md) · [PR #27](https://github.com/pengshang01-cyber/dulizhan/pull/27)
+- M19 工厂复审已提交 Blender 模型。5039 解码截面有 24 处叠折，网页底面补光已复核，三款均录到正下方。模型与对应实物的细部确认见[Blender 建模](../reviews/M19.md#blender-建模)。

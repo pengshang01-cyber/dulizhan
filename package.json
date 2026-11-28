@@ -20,7 +20,7 @@
     "todo:report": "node --experimental-strip-types scripts/todo-report.ts",
     "import:products": "node --experimental-strip-types scripts/import-products.ts",
     "product:drawings": "node --experimental-strip-types scripts/build-product-technical-art.ts",
-    "models:build": "node --experimental-strip-types scripts/models/build.ts"
+    "models:build": "node --experimental-strip-types scripts/blender/build.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",

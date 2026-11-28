@@ -46,14 +46,17 @@ export function createStudio(canvas: HTMLCanvasElement) {
   scene.environmentIntensity = 0.58;
   room.dispose();
   pmrem.dispose();
-  const ambient = new THREE.HemisphereLight(0xfffaf1, 0xab9488, 0.52);
+  const ambient = new THREE.HemisphereLight(0xfffaf3, 0xf9f7f3, 0.82);
   const light = new THREE.DirectionalLight(0xfff7eb, 2.05);
   light.castShadow = true;
   light.shadow.mapSize.set(1024, 1024);
   light.shadow.normalBias = 0.0001;
   const fill = new THREE.DirectionalLight(0xe7f1ff, 0.55);
   fill.position.set(2.4, 1.5, -2.8);
-  scene.add(ambient, light, light.target, fill);
+  // 模拟影棚下方白色反光板，转到底部时仍可分辨白纸与卷起的脚边。
+  const bounce = new THREE.DirectionalLight(0xfffcf7, 1.45);
+  bounce.position.set(-0.32, -2.8, 0.38);
+  scene.add(ambient, light, light.target, fill, bounce);
   const shadowCanvas = document.createElement("canvas");
   shadowCanvas.width = shadowCanvas.height = 128;
   const ctx = shadowCanvas.getContext("2d")!;
@@ -96,8 +99,13 @@ export function createStudio(canvas: HTMLCanvasElement) {
     focus = new THREE.Vector3(0, 0.03, 0),
     distance = 0.33;
   const render = () => {
-    if (!disposed && active && !renderer.xr.isPresenting)
+    if (!disposed && active && !renderer.xr.isPresenting) {
+      const below =
+        (controls.target.y - camera.position.y) /
+        camera.position.distanceTo(controls.target);
+      bounce.intensity = 1.15 + 4.3 * THREE.MathUtils.smoothstep(below, 0, 0.9);
       renderer.render(scene, camera);
+    }
   };
   function tick(time: number) {
     frame = 0;
