@@ -52,8 +52,9 @@
           }
         },
         "pleatCount": {
-          "status": "missing",
-          "value": null
+          "status": "verified",
+          "value": 20,
+          "source": "factory-corner-count-m19"
         },
         "rimWidthMm": {
           "status": "verified",
@@ -265,6 +266,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#cececc",
+        "reference": "标准实拍 05 精修，去背景主体算术平均"
       }
     }
   ],
@@ -378,7 +383,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/05-three-quarter.webp"
+          "src/assets/images/products/m19/pet-coated-square-rolled-rim-cups/three-quarter.webp"
         ],
         "source": "photo-05"
       }
@@ -422,7 +427,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/pet-coated-square-rolled-rim-cups/09-stack.webp"
+          "src/assets/images/products/m19/pet-coated-square-rolled-rim-cups/stack.webp"
         ],
         "source": "photo-09"
       }
@@ -525,6 +530,20 @@
       "id": "photo-09",
       "kind": "photo",
       "reference": "D:/独立站资料/标准拍摄/PET 淋膜正方形卷口杯（方杯）/cb69f72e554a787b69371338d30cdbca.jpg"
+    },
+    {
+      "id": "factory-corner-count-m19",
+      "kind": "measurement",
+      "reference": "工厂第二轮核对实物，四个圆角各五道压褶，四条直边平整。标准拍摄 01、05、07 号。"
     }
-  ]
+  ],
+  "modelAppearance": {
+    "sampleColor": {
+      "en": "Natural kraft",
+      "zh": "本色"
+    },
+    "note": "显示色来自照片，非色号。标准套图取去背景后的主体像素算术平均，图册色样取独立样杯的未印刷部位。 圆角轮廓比例参考 03 俯视与 04 仰视，仅供建模。",
+    "topCornerFraction": 0.23,
+    "baseCornerFraction": 0.18
+  }
 }

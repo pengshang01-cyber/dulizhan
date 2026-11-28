@@ -583,5 +583,20 @@
     "name": "m18-rectangular-box",
     "path": "/products/cake-boxes/rectangular-coated-paper-boxes/",
     "milestones": ["M18"]
+  },
+  {
+    "name": "m19-round-5039",
+    "path": "/products/rolled-rim-baking-cups/pet-coated-round-rolled-rim-baking-cups/",
+    "milestones": ["M19"]
+  },
+  {
+    "name": "m19-square-zh",
+    "path": "/zh/products/rolled-rim-baking-cups/pet-coated-square-rolled-rim-cups/",
+    "milestones": ["M19"]
+  },
+  {
+    "name": "m19-rectangular-box",
+    "path": "/products/cake-boxes/rectangular-coated-paper-boxes/",
+    "milestones": ["M19"]
   }
 ]

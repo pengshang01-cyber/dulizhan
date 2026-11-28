@@ -10,6 +10,7 @@ import {
   type Product,
 } from "../lib/products";
 import AddToInquiryButton from "./AddToInquiryButton.astro";
+import { modelPoster } from "../lib/product-model";
 interface Props {
   locale?: Locale;
   product: Product;
@@ -18,7 +19,9 @@ const { product } = Astro.props;
 const { data } = product;
 const { locale = "en" } = Astro.props;
 const category = await getProductCategory(data.category);
-const { image: cover, alt } = data.images[0]!;
+const { image, alt } = data.images[0]!;
+const poster = modelPoster(data.slug);
+const cover = poster ?? image;
 const placeholder = cover.src.includes("placeholder");
 const inquiryEntry = inquiryProduct(data, locale);
 const title = inquiryEntry.title;
@@ -34,12 +37,14 @@ const size = sizeSummary(data.sizes, locale);
     <Image
       src={cover}
       alt={
-        confirmedLocalized(alt, locale) ??
-        t(
-          placeholder ? "products.imagePlaceholder" : "products.image",
-          locale,
-          { title },
-        )
+        poster
+          ? t("model.poster", locale, { product: title })
+          : (confirmedLocalized(alt, locale) ??
+            t(
+              placeholder ? "products.imagePlaceholder" : "products.image",
+              locale,
+              { title },
+            ))
       }
       widths={[320, 640, 960]}
       sizes="(min-width: 80rem) 24rem, (min-width: 64rem) 31vw, (min-width: 640px) 46vw, calc(100vw - 2.5rem)"

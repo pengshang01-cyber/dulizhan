@@ -12,100 +12,26 @@
   },
   "images": [
     {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/05-three-quarter.webp",
+      "image": "../../assets/images/products/m19/pet-coated-round-rolled-rim-baking-cups/three-quarter.webp",
       "alt": {
-        "en": "5039 PET-coated rolled-rim cup — three-quarter overhead view",
-        "zh": "5039 PET 淋膜圆形卷口杯，斜俯视"
+        "en": "5039 PET-coated cup seen from above at an angle",
+        "zh": "5039 PET 淋膜卷口杯斜俯视"
       }
     },
     {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/01-front.webp",
+      "image": "../../assets/images/products/m19/pet-coated-round-rolled-rim-baking-cups/stack.webp",
       "alt": {
-        "en": "5039 PET-coated rolled-rim cup — front view",
-        "zh": "5039 PET 淋膜圆形卷口杯，正面平视"
+        "en": "Stack of 5039 PET-coated rolled-rim cups",
+        "zh": "5039 PET 淋膜卷口杯叠放"
       }
     },
     {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/03-top.webp",
+      "image": "../../assets/images/products/m19/pet-coated-round-rolled-rim-baking-cups/size-comparison-5039.webp",
       "alt": {
-        "en": "5039 PET-coated rolled-rim cup — top view",
-        "zh": "5039 PET 淋膜圆形卷口杯，俯视"
-      }
-    },
-    {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/06-interior.webp",
-      "alt": {
-        "en": "5039 PET-coated rolled-rim cup — interior view",
-        "zh": "5039 PET 淋膜圆形卷口杯，内部"
-      }
-    },
-    {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/07-detail.webp",
-      "alt": {
-        "en": "5039 PET-coated rolled-rim cup — rim and wall detail",
-        "zh": "5039 PET 淋膜圆形卷口杯，卷边与侧壁细节"
-      }
-    },
-    {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/09-stack.webp",
-      "alt": {
-        "en": "5039 PET-coated rolled-rim cup — stacked",
-        "zh": "5039 PET 淋膜圆形卷口杯，叠放"
-      }
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-02.webp",
-      "alt": {
-        "en": "PET-Coated Round Rolled-Rim Baking Cups — teal polka-dot cup",
-        "zh": "PET 淋膜圆形卷口杯，蓝绿色波点杯"
-      }
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-03.webp",
-      "alt": {
-        "en": "PET-Coated Round Rolled-Rim Baking Cups — red polka-dot cup",
-        "zh": "PET 淋膜圆形卷口杯，红色波点杯"
-      }
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-3830-size-comparison.webp",
-      "alt": {
-        "en": "3830 cup rim compared with an egg (5.7 cm)",
-        "zh": "3830 卷口杯杯口与长 5.7 cm 的鸡蛋对比"
+        "en": "5039 cup, 69 mm across the rim with a 50 mm scale",
+        "zh": "5039 杯口外径 69 毫米，附 50 毫米比例尺"
       },
       "sizeComparison": true
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-8928-size-comparison.webp",
-      "alt": {
-        "en": "8928 cup rim compared with an egg (5.7 cm)",
-        "zh": "8928 卷口杯杯口与长 5.7 cm 的鸡蛋对比"
-      },
-      "sizeComparison": true
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-01.webp",
-      "alt": {
-        "en": "Polka-dot cup with a strawberry-topped cupcake beside a teaspoon",
-        "zh": "波点卷口杯中盛放草莓纸杯蛋糕，旁边放着茶匙"
-      },
-      "scene": "closeup"
-    },
-    {
-      "image": "../../assets/images/products/pet-coated-round-rolled-rim-baking-cups-m14-scene-02.webp",
-      "alt": {
-        "en": "Three polka-dot cups with berry cupcakes on a metal tray",
-        "zh": "金属托盘上摆放三只盛有莓果纸杯蛋糕的波点杯"
-      },
-      "scene": "display"
-    },
-    {
-      "image": "../../assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/technical-5039-body.png",
-      "alt": {
-        "en": "5039 PET-coated rolled-rim cup",
-        "zh": "5039 PET 淋膜圆形卷口杯"
-      },
-      "technicalDrawing": true
     }
   ],
   "material": { "en": "PET-coated paper", "zh": "PET 淋膜纸" },
