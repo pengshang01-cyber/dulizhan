@@ -40,7 +40,40 @@ media:
     output: ../../assets/images/blog
     extensions: [jpg, jpeg, png, webp, avif]
     rename: safe
+settings:
+  content:
+    merge: true
 content:
+  - name: print-side-5039
+    label: 5039 圆纸片印刷设置
+    type: file
+    path: data/product-specs/pet-coated-round-rolled-rim-baking-cups.json
+    format: json
+    fields:
+      - name: blank
+        label: 原料纸片
+        type: object
+        fields:
+          - name: printSide
+            label: 印刷面
+            type: object
+            fields:
+              - name: value
+                label: 默认印刷面
+                type: select
+                required: true
+                options:
+                  values:
+                    - { value: outside, label: 外壁及杯底外侧 }
+                    - { value: inside, label: 内壁及杯底内侧 }
+              - name: status
+                label: 工厂核实状态
+                type: select
+                required: true
+                options:
+                  values:
+                    - { value: pending, label: 待工厂确认 }
+                    - { value: confirmed, label: 工厂已确认 }
   - name: products
     label: 产品
     type: collection

@@ -1,0 +1,473 @@
+---
+import { t, type Locale } from "../i18n/utils";
+import { localePath } from "../i18n/routing";
+import { modes, CUP } from "../lib/blank-design";
+import { sheetProfile } from "../lib/blank-profile";
+import { modelOptions } from "../lib/product-model";
+import type { ProductTechnicalSpec } from "../lib/product-technical-schema";
+import type { InquiryProduct } from "../lib/inquiry";
+const { spec, locale, entry } = Astro.props as {
+  spec: ProductTechnicalSpec;
+  locale: Locale;
+  entry: InquiryProduct;
+};
+const txt = (s: string) => t("customizer." + s, locale);
+const sheet = sheetProfile(spec),
+  colors = modelOptions(spec, locale).colors;
+const url = "/product-media/" + CUP + "/5039-blank-" + locale;
+const numbers = [
+  ["widthMm", 2, 143],
+  ["rotationDeg", -180, 180],
+  ["spacingMm", 0, 100],
+  ["offsetXmm", -143, 143],
+  ["offsetYmm", -143, 143],
+  ["diagonalDeg", 15, 60],
+  ["count", 1, 240],
+] as const;
+---
+
+<dialog
+  id="cup-customizer"
+  aria-labelledby="cup-config-title"
+  data-sheet={JSON.stringify(sheet)}
+  data-entry={JSON.stringify(entry)}
+  data-locale={locale}
+  data-unavailable={txt("unavailable")}
+  data-default-color={colors.find((c) => c.selected)?.hex}
+  data-model-url={"/models/" + CUP + "/5039.glb"}
+>
+  <header class="top">
+    <h2 id="cup-config-title">{txt("title")}</h2>
+    <button type="button" data-close autofocus>
+      {txt("close")} ×
+    </button>
+  </header>
+  <div class="desk">
+    <div class="previews">
+      <section class="preview">
+        <h3>{txt("model")}</h3>
+        <canvas data-formed tabindex="0" aria-label={txt("rotate")}></canvas>
+        <div class="view-tools">
+          <span>{txt("rotate")}</span>
+          <div class="row">
+            {(["front", "angle", "bottom"] as const).map((v) => (
+              <button type="button" data-pose={v}>
+                {txt(v)}
+              </button>
+            ))}
+            <button type="button" data-reset>
+              {txt("reset")}
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="preview flat">
+        <h3>{txt("sheet")}</h3>
+        <canvas
+          data-flat
+          width="900"
+          height="900"
+          aria-label={txt("guide")}
+        ></canvas>
+        <p>{txt("guide")}</p>
+      </section>
+      <p class="disclaimer">
+        <strong data-layout-summary></strong>
+        <br />
+        {txt("proof")}
+      </p>
+    </div>
+    <section class="controls" aria-label={txt("settings")}>
+      <fieldset>
+        <legend>{txt("choose")}</legend>
+        <label>
+          {txt("logo")}
+          <span class="file-choice">
+            {txt("chooseLogo")}
+            <input data-file="logo" type="file" accept=".png,.jpg,.jpeg,.svg" />
+          </span>
+        </label>
+        <div class="row">
+          <span data-name="logo"></span>
+          <button type="button" data-clear="logo" hidden>
+            {txt("clear")}
+          </button>
+          <button type="button" data-sample>
+            {txt("sample")}
+          </button>
+        </div>
+        <label>
+          {txt("production")}
+          <span class="file-choice">
+            {txt("chooseSource")}
+            <input data-file="production" type="file" accept=".pdf,.ai" />
+          </span>
+        </label>
+        <div class="row">
+          <span data-name="production"></span>
+          <button type="button" data-clear="production" hidden>
+            {txt("clear")}
+          </button>
+        </div>
+        <label class="tick">
+          <input data-key="removeWhite" type="checkbox" />
+          {txt("removeWhite")}
+        </label>
+      </fieldset>
+      <fieldset>
+        <legend>{txt("settings")}</legend>
+        <p data-side>
+          {txt(sheet.side === "outside" ? "sideOutside" : "sideInside")}
+          {sheet.sidePending && " · " + txt("pending")}
+        </p>
+        <label>
+          {txt("layout")}
+          <select data-key="layout">
+            {modes.map((m) => (
+              <option value={m}>{txt(m)}</option>
+            ))}
+          </select>
+        </label>
+        <div class="numbers">
+          {numbers.map(([k, min, max]) => (
+            <label data-for={k}>
+              {txt(k)}
+              <input
+                data-key={k}
+                min={min}
+                max={max}
+                step={k === "count" ? "1" : "any"}
+                type="number"
+              />
+            </label>
+          ))}
+        </div>
+        <label>
+          {txt("background")}
+          <select data-key="background">
+            {colors.map((c) => (
+              <option value={c.hex}>{c.label}</option>
+            ))}
+          </select>
+        </label>
+        <div class="numbers">
+          <label>
+            {txt("colorMode")}
+            <select data-key="colorMode">
+              <option value="original">{txt("original")}</option>
+              <option value="mono">{txt("mono")}</option>
+            </select>
+          </label>
+          <label data-for="ink">
+            {txt("ink")}
+            <input data-key="ink" type="color" />
+          </label>
+        </div>
+        <label class="tick">
+          <input data-key="compensate" type="checkbox" />
+          {txt("compensate")}
+        </label>
+        <p>{txt("compHelp")}</p>
+      </fieldset>
+      <div class="feedback" aria-live="polite">
+        <p data-count></p>
+        <p data-coverage></p>
+        <ul data-alerts></ul>
+      </div>
+      <div class="row">
+        <button type="button" data-export>
+          {txt("export")}
+        </button>
+        <button type="button" data-import-button>
+          {txt("import")}
+        </button>
+        <input data-import type="file" accept=".json" hidden />
+      </div>
+      <p>
+        {txt("templates")} ·{" "}
+        <a href={url + ".svg"} download>
+          SVG
+        </a>{" "}
+        /{" "}
+        <a href={url + ".pdf"} download>
+          PDF
+        </a>
+      </p>
+      <button class="primary" type="button" data-add>
+        {txt("add")}
+      </button>
+      <a data-next hidden href={localePath("/inquiry/", locale)}>
+        {txt("next")} →
+      </a>
+      <p data-message role="status"></p>
+    </section>
+  </div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>("#cup-customizer");
+  if (dialog) {
+    let loading: Promise<void> | undefined;
+    const close = () => dialog.close();
+    dialog.querySelector("[data-close]")?.addEventListener("click", close);
+    for (const button of document.querySelectorAll<HTMLButtonElement>(
+      "[data-customize-5039]",
+    ))
+      button.addEventListener("click", () => {
+        if (!dialog.open) dialog.showModal();
+        if (!loading)
+          loading = import("../lib/cup-customizer")
+            .then((m) => m.setup(dialog))
+            .catch(() => {
+              loading = undefined;
+              dialog.dataset.modelState = "unavailable";
+              const message = dialog.querySelector("[data-message]");
+              if (message)
+                message.textContent = dialog.dataset.unavailable ?? "";
+            });
+      });
+  }
+</script>
+<style>
+  dialog {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--color-cream);
+    color: var(--color-ink);
+    width: 100vw;
+    max-width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: auto;
+  }
+  dialog::backdrop {
+    background: #36291fa8;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 12px clamp(14px, 3vw, 42px);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-line);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .top h2 {
+    font: 400 clamp(22px, 3vw, 35px)/1.2 var(--font-display);
+    margin: 0;
+  }
+  .desk {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 34%);
+    height: calc(100% - 68px);
+  }
+  .previews {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    align-content: center;
+    align-items: start;
+    gap: 14px;
+    padding: clamp(12px, 2vw, 30px);
+    min-width: 0;
+  }
+  .preview {
+    min-width: 0;
+    background: white;
+    border: 1px solid var(--color-line);
+  }
+  .preview h3,
+  legend {
+    font-weight: 650;
+    font-size: 1rem;
+  }
+  .preview h3 {
+    padding: 12px 15px;
+  }
+  .preview canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    touch-action: none;
+  }
+  .preview [data-formed] {
+    background: #f5f2ee;
+  }
+  .preview p,
+  .view-tools,
+  .disclaimer,
+  .controls p,
+  .feedback {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+  }
+  .preview p,
+  .view-tools {
+    padding: 8px 12px;
+  }
+  .view-tools,
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .view-tools {
+    justify-content: space-between;
+  }
+  .disclaimer {
+    grid-column: 1/-1;
+  }
+  .controls {
+    overflow-y: auto;
+    padding: 20px clamp(16px, 2vw, 32px) 35px;
+    background: white;
+    border-left: 1px solid var(--color-line);
+    min-width: 0;
+  }
+  fieldset {
+    min-width: 0;
+    padding: 0 0 18px;
+    margin: 0 0 16px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  legend {
+    padding-bottom: 8px;
+  }
+  .controls label {
+    display: grid;
+    gap: 4px;
+    font-size: 0.83rem;
+    margin: 7px 0;
+  }
+  .controls input:not([type="checkbox"]),
+  .controls select {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    min-height: 36px;
+    border: 1px solid #cec4b5;
+    padding: 5px 7px;
+    border-radius: 2px;
+    background: #fff;
+  }
+  .controls .tick {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .file-choice {
+    position: relative;
+    border: 1px solid var(--color-line);
+    background: var(--color-cream);
+    border-radius: 2px;
+    padding: 8px 12px;
+    width: fit-content;
+    cursor: pointer;
+  }
+  .controls .file-choice input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .file-choice:focus-within {
+    outline: 2px solid var(--color-copper);
+    outline-offset: 2px;
+  }
+  .numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 10px;
+  }
+  .row span {
+    font-size: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+  button {
+    cursor: pointer;
+    border: 1px solid #c8bbab;
+    padding: 7px 11px;
+    border-radius: 2px;
+    background: white;
+    font-size: 0.86rem;
+  }
+  button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+  }
+  .primary {
+    background: var(--color-coffee);
+    color: white;
+    margin: 12px 8px 6px 0;
+  }
+  .feedback ul {
+    color: var(--color-copper-dark);
+    list-style: disc;
+    padding: 0 0 0 1.15rem;
+  }
+  .controls a {
+    text-decoration: underline;
+  }
+  .controls > .row,
+  .controls > p {
+    margin-top: 8px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  @media (max-width: 850px) {
+    .previews {
+      grid-template-columns: 1fr;
+      align-content: start;
+      overflow: auto;
+    }
+    .preview canvas {
+      max-height: 34vh;
+    }
+    .flat canvas {
+      object-fit: contain;
+    }
+  }
+  @media (max-width: 680px) {
+    .desk {
+      display: block;
+      height: auto;
+    }
+    .previews {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      overflow: visible;
+      padding: 10px;
+    }
+    .preview h3 {
+      font-size: 0.85rem;
+      padding: 8px;
+    }
+    .preview p,
+    .view-tools {
+      font-size: 0.72rem;
+      padding: 5px;
+    }
+    .view-tools button {
+      font-size: 0.75rem;
+      padding: 5px;
+    }
+    .controls {
+      overflow: visible;
+      border: 0;
+      border-top: 1px solid var(--color-line);
+    }
+    .top {
+      padding: 9px 12px;
+    }
+    .disclaimer {
+      font-size: 0.75rem;
+    }
+  }
+</style>

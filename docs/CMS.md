@@ -217,4 +217,8 @@ Pages CMS 使用官方 [Rich-text Markdown 编辑器](https://pagescms.org/docs/
 
 填写包装资料时，外箱规格用长 × 宽 × 高并带 `cm`。重量填写确认数值和 `kg` 或 `g`。缺单位时向资料提供人核实。
 
+### 更改 5039 圆纸片的印刷面
+
+在左侧打开 **5039 圆纸片印刷设置 → 原料纸片 → 印刷面**，选择“外侧”或“内侧”。外侧印在成型杯外壁与外底。收到工厂签样后，将核实状态改为已确认并保存。新设计使用保存后的默认面，已经导出的设计按其参数保留印刷面。[定制流程与邮件附件](CUSTOMIZER.md)
+
 维护人员核对路径：上传文件实际位于 src/assets/images/site/，CMS 写入 ../assets/images/site/文件名.png；双语数据的路径共用一份。该相对路径由网站在构建时解析为 Astro 图片，不要自行改成远程网址。参考 [Pages CMS 媒体配置](https://pagescms.org/docs/configuration/media/) 与 [图片字段](https://pagescms.org/docs/configuration/fields/image/)。

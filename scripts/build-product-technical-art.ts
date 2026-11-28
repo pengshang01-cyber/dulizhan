@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { z } from "astro/zod";
 import { format, resolveConfig } from "prettier";
 import sharp from "sharp";
+import { sheetProfile } from "../src/lib/blank-profile.ts";
+import { templateSvg } from "./blank-template.ts";
 import {
   parseProductTechnicalSpec,
   productTechnicalSchema,
@@ -29,6 +31,8 @@ await writeFile(
 );
 for (const filename of (await readdir(records)).sort()) {
   if (filename === "schema.json" || !filename.endsWith(".json")) continue;
+  const only = process.argv.find((a) => a.startsWith("--only="))?.slice(7);
+  if (only && filename !== only + ".json") continue;
   const spec = parseProductTechnicalSpec(
     JSON.parse(await readFile(resolve(records, filename), "utf8")),
   );
@@ -61,7 +65,9 @@ for (const filename of (await readdir(records)).sort()) {
         .toFile(resolve(images, path + ".png"));
     }
     if (name === "body") {
-      const draft = unfoldingReference(part, title);
+      const draft = spec.blank
+        ? templateSvg(sheetProfile(spec), "en")
+        : unfoldingReference(part, title);
       if (draft)
         await writeFile(
           resolve(artwork, "unfolding-reference.svg"),

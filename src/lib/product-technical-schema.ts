@@ -116,6 +116,28 @@ export const productTechnicalSchema = z.strictObject({
   version: z.literal(1),
   slug: id,
   shape,
+  blank: z
+    .strictObject({
+      variant: id,
+      shape: z.literal("circle"),
+      diameterMm: measurement,
+      sectorStartsTurns: z.array(z.number().min(0).lt(1)).min(1),
+      zonesMm: z.strictObject({
+        bottomEnd: positive,
+        wallEnd: positive,
+        rimEnd: positive,
+      }),
+      printSide: z.strictObject({
+        value: z.enum(["outside", "inside"]),
+        status: z.enum(["pending", "confirmed"]),
+      }),
+      margins: z.strictObject({
+        bleedMm: nonNegative,
+        safetyMm: nonNegative,
+        status: z.enum(["pending", "confirmed"]),
+      }),
+    })
+    .optional(),
   photographedVariant: fact(id),
   modelAppearance: z
     .strictObject({
@@ -187,6 +209,32 @@ export function parseProductTechnicalSpec(input: unknown) {
   const ids = new Set(spec.variants.map(({ id }) => id));
   const photographed = verifiedValue(spec.photographedVariant);
   const frames = verifiedValue(spec.rotation);
+  if (spec.blank) {
+    const b = spec.blank,
+      v = spec.variants.find((v) => v.id === b.variant);
+    const g = v?.body.geometry,
+      rb = (verifiedValue(g?.baseDiameterMm) ?? 0) / 2;
+    const rt = (verifiedValue(g?.topDiameterMm) ?? 0) / 2,
+      height = verifiedValue(g?.heightMm) ?? 0;
+    const outer = (verifiedValue(b.diameterMm) ?? 0) / 2;
+    if (
+      !v ||
+      b.sectorStartsTurns.length !== verifiedValue(v.body.pleatCount) ||
+      b.sectorStartsTurns[0] !== 0 ||
+      b.sectorStartsTurns.some((x, i, a) => i > 0 && x <= a[i - 1]!) ||
+      !rb ||
+      !rt ||
+      !height ||
+      spec.shape !== "round-rolled-rim" ||
+      Math.abs(b.zonesMm.bottomEnd - rb) > 0.001 ||
+      Math.abs(b.zonesMm.wallEnd - rb - Math.hypot(height, rt - rb)) > 0.001 ||
+      Math.abs(b.zonesMm.rimEnd - outer) > 0.001 ||
+      outer <= b.zonesMm.wallEnd ||
+      b.margins.safetyMm >= outer ||
+      b.margins.bleedMm > outer
+    )
+      throw new Error("原料纸片与规格分区不符：" + spec.slug);
+  }
   if (
     sources.size !== spec.sources.length ||
     ids.size !== spec.variants.length ||

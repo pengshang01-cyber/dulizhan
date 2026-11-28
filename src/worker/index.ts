@@ -1,6 +1,8 @@
 import site from "../data/site.json";
 import { INQUIRY_LIMITS, validateInquiryPayload } from "../lib/inquiry-payload";
 import { buildInquiryEmail } from "./email";
+import { readDesignForm, prepareDesign } from "./design-attachments";
+import { DesignFileError, type Files } from "../lib/design-files";
 
 export interface Env {
   ASSETS: { fetch(request: Request): Promise<Response> };
@@ -150,15 +152,25 @@ export async function handleRequest(
     return json({ ok: false, code: "method_not_allowed" }, 405, {
       Allow: "POST",
     });
-  if (
-    request.headers.get("content-type")?.split(";")[0]?.trim().toLowerCase() !==
-    "application/json"
-  )
+  const format = request.headers
+    .get("content-type")
+    ?.split(";")[0]
+    ?.trim()
+    .toLowerCase();
+  if (format !== "application/json" && format !== "multipart/form-data")
     return json({ ok: false, code: "unsupported_media_type" }, 415);
   let input: unknown;
+  let files: Files | undefined;
   try {
-    input = await readJson(request);
+    if (format === "multipart/form-data")
+      ({ input, files } = await readDesignForm(request));
+    else input = await readJson(request);
   } catch (error) {
+    if (error instanceof DesignFileError)
+      return json(
+        { ok: false, code: error.code },
+        error.code === "payload_too_large" ? 413 : 400,
+      );
     return error instanceof PayloadTooLarge
       ? json({ ok: false, code: "payload_too_large" }, 413)
       : json({ ok: false, code: "invalid_json" }, 400);
@@ -178,6 +190,18 @@ export async function handleRequest(
       { ok: false, code: "validation_error", fields: validated.fields },
       400,
     );
+  if (
+    !files &&
+    input &&
+    typeof input === "object" &&
+    "items" in input &&
+    Array.isArray(input.items) &&
+    input.items.some(
+      (item) => item && typeof item === "object" && item.designId,
+    )
+  ) {
+    return json({ ok: false, code: "missing_design" }, 400);
+  }
   const names = [
     "TURNSTILE_SECRET_KEY",
     "RESEND_API_KEY",
@@ -248,7 +272,24 @@ export async function handleRequest(
     console.warn("inquiry.turnstile_verification_failed", verification);
     return json({ ok: false, code: "verification_failed", verification }, 403);
   }
-  const email = buildInquiryEmail(data, dependencies.now?.() ?? new Date());
+  let custom: Awaited<ReturnType<typeof prepareDesign>> | undefined;
+  if (files) {
+    try {
+      custom = await prepareDesign(files, data);
+    } catch (error) {
+      const code =
+        error instanceof DesignFileError ? error.code : "invalid_design";
+      return json(
+        { ok: false, code },
+        code === "payload_too_large" ? 413 : 400,
+      );
+    }
+  }
+  const email = buildInquiryEmail(
+    data,
+    dependencies.now?.() ?? new Date(),
+    custom?.design,
+  );
   try {
     const { response, result } = await fetchJsonWithTimeout(
       fetcher,
@@ -264,6 +305,7 @@ export async function handleRequest(
           to: [env.INQUIRY_TO_EMAIL],
           reply_to: data.email,
           ...email,
+          ...(custom ? { attachments: custom.attachments } : {}),
         }),
       },
     );

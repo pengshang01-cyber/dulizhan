@@ -75,6 +75,7 @@ if (
     "M17",
     "M18",
     "M19",
+    "M20",
   ].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
@@ -110,6 +111,7 @@ try {
           "M17",
           "M18",
           "M19",
+          "M20",
         ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
@@ -157,12 +159,16 @@ try {
       },
     );
   const browser = await chromium.launch(
-    milestone === "M19"
+    milestone === "M19" || milestone === "M20"
       ? { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"] }
       : {},
   );
   try {
     await mkdir(destination, { recursive: true });
+    if (milestone === "M20") {
+      const { captureCustomizer } = await import("./customizer-review.ts");
+      await captureCustomizer(browser, origin, fileURLToPath(destination));
+    }
     const m13 =
       milestone === "M13" ? await import("./m13-preview.ts") : undefined;
     await m13?.verifyM13TabletHeader(browser, origin);

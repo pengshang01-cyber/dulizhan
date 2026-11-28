@@ -17,6 +17,8 @@ import { compressModel } from "./compress.ts";
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const work = join(root, ".astro", "model-studio-blender");
 const input = join(root, "data", "product-specs");
+const only = process.argv.find((a) => a.startsWith("--only="))?.slice(7);
+if (only && !/^[a-z0-9-]+$/.test(only)) throw new Error("产品标识无效");
 async function blenderExecutable() {
   if (process.env.BLENDER_PATH) return process.env.BLENDER_PATH;
   if (process.platform === "win32") {
@@ -66,6 +68,7 @@ try {
     input,
     "--output",
     stage,
+    ...(only ? ["--only", only] : []),
   ];
   console.log("Blender:", executable);
   const run = spawnSync(executable, args, {
@@ -81,6 +84,7 @@ try {
   const verified: { from: string; to: string }[] = [];
   for (const name of (await readdir(input)).sort()) {
     if (name === "schema.json" || !name.endsWith(".json")) continue;
+    if (only && name !== only + ".json") continue;
     const spec = parseProductTechnicalSpec(
       JSON.parse(await readFile(join(input, name), "utf8")),
     );
