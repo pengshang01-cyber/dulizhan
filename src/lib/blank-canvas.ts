@@ -174,16 +174,20 @@ export function drawArtwork(
     mc = mask.getContext("2d", { willReadFrequently: true })!;
   mc.drawImage(art, 0, 0, 150, 150);
   const pixels = mc.getImageData(0, 0, 150, 150).data;
+  let maxStretch = 1;
   function* points() {
     for (let i = 3; i < pixels.length; i += 4) {
       const a = pixels[i]!;
       if (!a) continue;
       const j = (i - 3) / 4;
-      yield {
-        x: (((j % 150) + 0.5) / 150 - 0.5) * D,
-        y: ((Math.floor(j / 150) + 0.5) / 150 - 0.5) * D,
-        weight: a / 255,
-      };
+      const x = (((j % 150) + 0.5) / 150 - 0.5) * D,
+        y = ((Math.floor(j / 150) + 0.5) / 150 - 0.5) * D;
+      if (p.compensate) {
+        const r = Math.hypot(x, y);
+        if (r > s.base && r <= s.wall)
+          maxStretch = Math.max(maxStretch, 1 / ratio(s, r));
+      }
+      yield { x, y, weight: a / 255 };
     }
   }
   const info = inkCoverage(s, points());
@@ -194,7 +198,7 @@ export function drawArtwork(
     )
   )
     info.unsafe = true;
-  return { coverage: info, count: marks.length };
+  return { coverage: info, count: marks.length, maxStretch };
 }
 export function flatProof(
   diagram: HTMLCanvasElement,

@@ -52,8 +52,9 @@ export async function setup(dialog: HTMLDialogElement) {
     frame = 0,
     lastSide = "",
     busy = false,
-    storageOk = true,
-    revision = 0;
+    storageOk = true;
+  const revisions = { logo: 0, production: 0 },
+    loadingFiles = new Set<"logo" | "production">();
   const name = (kind: "logo" | "production") => {
     get('[data-name="' + kind + '"]').textContent = design[kind]?.name ?? "";
     get('[data-clear="' + kind + '"]').hidden = !design[kind];
@@ -95,11 +96,16 @@ export async function setup(dialog: HTMLDialogElement) {
       cacheKey = key;
       ink = original ? prepareInk(original.original, design) : undefined;
     }
-    const { coverage, count } = drawArtwork(sheet, design, ink, art, flat);
+    const { coverage, count, maxStretch } = drawArtwork(
+      sheet,
+      design,
+      ink,
+      art,
+      flat,
+    );
     const dpi =
       original && !original.vector
-        ? ((original.nativeWidth * 25.4) / design.widthMm) *
-          (design.compensate ? sheet.mouth / sheet.wall : 1)
+        ? (original.nativeWidth * 25.4) / (design.widthMm * maxStretch)
         : null;
     const alerts = ink ? designAlerts(coverage, design.widthMm, dpi) : [];
     get("[data-alerts]").replaceChildren(
@@ -203,31 +209,40 @@ export async function setup(dialog: HTMLDialogElement) {
     e.addEventListener("change", () => {
       sync();
     });
-  let awaiting = { logo: false, production: false };
+  let awaiting = {
+    logo: !!design.logo && !logo,
+    production: !!design.production && !production,
+  };
   async function setFile(kind: "logo" | "production", f: File) {
-    const rev = ++revision;
-    await checkFile(f, kind);
-    const meta = { name: f.name, sha256: await digest(f) };
-    if (
-      awaiting[kind] &&
-      design[kind] &&
-      (design[kind]!.sha256 !== meta.sha256 || design[kind]!.name !== meta.name)
-    ) {
-      msg.textContent = copy("missing");
-      return;
+    const rev = ++revisions[kind];
+    loadingFiles.add(kind);
+    try {
+      await checkFile(f, kind);
+      const meta = { name: f.name, sha256: await digest(f) };
+      if (
+        awaiting[kind] &&
+        design[kind] &&
+        (design[kind]!.sha256 !== meta.sha256 ||
+          design[kind]!.name !== meta.name)
+      ) {
+        msg.textContent = copy("missing");
+        return;
+      }
+      const im = kind === "logo" ? await readLogo(f) : undefined;
+      if (rev !== revisions[kind]) return;
+      if (kind === "logo") {
+        logo = f;
+        original = im;
+      } else production = f;
+      design = { ...design, [kind]: meta };
+      awaiting[kind] = false;
+      cacheKey = "";
+      name(kind);
+      change();
+      msg.textContent = storageOk ? copy("ready") : copy("storage");
+    } finally {
+      if (rev === revisions[kind]) loadingFiles.delete(kind);
     }
-    const im = kind === "logo" ? await readLogo(f) : undefined;
-    if (rev !== revision) return;
-    if (kind === "logo") {
-      logo = f;
-      original = im;
-    } else production = f;
-    design = { ...design, [kind]: meta };
-    awaiting[kind] = false;
-    cacheKey = "";
-    name(kind);
-    change();
-    msg.textContent = storageOk ? copy("ready") : copy("storage");
   }
   for (const kind of ["logo", "production"] as const) {
     const input = get<HTMLInputElement>('[data-file="' + kind + '"]');
@@ -242,7 +257,8 @@ export async function setup(dialog: HTMLDialogElement) {
       input.value = "";
     });
     get('[data-clear="' + kind + '"]').addEventListener("click", () => {
-      revision++;
+      revisions[kind]++;
+      loadingFiles.delete(kind);
       if (kind === "logo") {
         logo = undefined;
         original = undefined;
@@ -255,18 +271,24 @@ export async function setup(dialog: HTMLDialogElement) {
     });
   }
   get("[data-sample]").addEventListener("click", async () => {
+    const rev = ++revisions.logo;
+    loadingFiles.add("logo");
     try {
       const res = await fetch("/product-media/" + CUP + "/5039-sample.svg");
       if (!res.ok) throw Error();
+      const sample = await res.blob();
+      if (rev !== revisions.logo) return;
       awaiting.logo = false;
       await setFile(
         "logo",
-        new File([await res.blob()], "pivoque-39.svg", {
+        new File([sample], "pivoque-39.svg", {
           type: "image/svg+xml",
         }),
       );
     } catch (e) {
       error(e);
+    } finally {
+      if (rev === revisions.logo) loadingFiles.delete("logo");
     }
   });
   const imp = get<HTMLInputElement>("[data-import]");
@@ -294,6 +316,9 @@ export async function setup(dialog: HTMLDialogElement) {
         design.production?.sha256 !== next.production?.sha256
       )
         production = undefined;
+      revisions.logo++;
+      revisions.production++;
+      loadingFiles.clear();
       design = next;
       awaiting = {
         logo: !!next.logo && !logo,
@@ -325,10 +350,13 @@ export async function setup(dialog: HTMLDialogElement) {
   function position(e: PointerEvent) {
     const r = flat.getBoundingClientRect(),
       width = 2 * sheet.radius + 10;
-    design.offsetXmm =
-      Math.round(((e.clientX - r.left) / r.width - 0.5) * width * 10) / 10;
-    design.offsetYmm =
-      Math.round(((e.clientY - r.top) / r.height - 0.5) * width * 10) / 10;
+    const offset = (fraction: number) =>
+      Math.max(
+        -143,
+        Math.min(143, Math.round((fraction - 0.5) * width * 10) / 10),
+      );
+    design.offsetXmm = offset((e.clientX - r.left) / r.width);
+    design.offsetYmm = offset((e.clientY - r.top) / r.height);
     sync();
     change();
   }
@@ -355,6 +383,10 @@ export async function setup(dialog: HTMLDialogElement) {
     });
   add.addEventListener("click", async () => {
     if (busy) return;
+    if (loadingFiles.size) {
+      msg.textContent = copy("readingFiles");
+      return;
+    }
     if (!model) {
       msg.textContent = copy("unavailable");
       return;
@@ -383,6 +415,7 @@ export async function setup(dialog: HTMLDialogElement) {
       if (logo) files.logo = logo;
       if (production) files.production = production;
       const proofs = model.capture();
+      const paper = flatProof(flat, copy("proofTitle"), copy("guide"));
       for (const [i, role] of (["front", "angle", "top"] as const).entries()) {
         files[role] = new File(
           [await toBlob(proofs[i]!, "image/jpeg")],
@@ -390,11 +423,9 @@ export async function setup(dialog: HTMLDialogElement) {
           { type: "image/jpeg" },
         );
       }
-      files.blank = new File(
-        [await toBlob(flatProof(flat, copy("proofTitle"), copy("guide")))],
-        proofNames.blank,
-        { type: "image/png" },
-      );
+      files.blank = new File([await toBlob(paper)], proofNames.blank, {
+        type: "image/png",
+      });
       checkBytes(files);
       const id = crypto.randomUUID();
       await saveQuote(id, files);
