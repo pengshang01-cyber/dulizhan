@@ -1,6 +1,6 @@
 # 当前状态
 
-更新：2026-11-25
+更新：2026-11-28
 
 - M8 已通过 PR #15 合并，正式域名为 `https://junbeili.com`。
 - M9 已通过 PR #16 合并，M9.1 已通过 PR #17 合并。[M9 PR](https://github.com/pengshang01-cyber/dulizhan/pull/16) · [M9.1 PR](https://github.com/pengshang01-cyber/dulizhan/pull/17)
@@ -18,3 +18,4 @@
 - M15 已合并。M16 在七类中核对 39 款，新增 16 张尺寸对比和 31 张效果示意。22 款缺可绑定规格且姿态完整的原照。单面金圆杯保留绿白格并统一主图背景。[M16 审核报告](../reviews/M16.md) · [PR #24](https://github.com/pengshang01-cyber/dulizhan/pull/24) · 已归档七类双视口 Workers 截图。
 - M16 通过 PR #24 合并。M17 从 `17e36ba` 建立 `m17-launch-ready`，接入工厂外景，暂时隐藏 25 款缺图产品。六项检查、Workers 双语预览及 Turnstile 渲染已验收，归档 8 张截图。收录开关仍为 `false`。 [PR #25](https://github.com/pengshang01-cyber/dulizhan/pull/25) · [M17 审核报告](../reviews/M17.md)
 - PR #25 已合并。工厂通过 Pages CMS 在 `fc3c940` 开启收录，当前为 `true`。M18 已交付三款实测数据、四套技术视图和实拍多角度查看，验收六张 Workers 预览截图。 [PR #26](https://github.com/pengshang01-cyber/dulizhan/pull/26) · [M18 审核报告](../reviews/M18.md)
+- M18 已合并。M19 在三款试点上接入四个压缩模型、两张实拍和一张对应尺寸图。六项本地检查通过，AR 已核对软件链路，实际空间比例留待真机复核。[M19 审核报告](../reviews/M19.md)

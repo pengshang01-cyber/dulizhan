@@ -53,10 +53,21 @@
         }
       ]
     },
+    "modelAppearance": {
+      "type": "object",
+      "properties": {
+        "sampleColor": { "$ref": "#/$defs/__schema2" },
+        "note": { "$ref": "#/$defs/__schema1" },
+        "topCornerFraction": { "type": "number", "minimum": 0, "maximum": 0.5 },
+        "baseCornerFraction": { "type": "number", "minimum": 0, "maximum": 0.5 }
+      },
+      "required": ["sampleColor", "note"],
+      "additionalProperties": false
+    },
     "variants": {
       "minItems": 1,
       "type": "array",
-      "items": { "$ref": "#/$defs/__schema2" }
+      "items": { "$ref": "#/$defs/__schema3" }
     },
     "colors": {
       "type": "array",
@@ -69,7 +80,7 @@
                 "type": "object",
                 "properties": {
                   "status": { "type": "string", "const": "verified" },
-                  "value": { "$ref": "#/$defs/__schema3" },
+                  "value": { "$ref": "#/$defs/__schema2" },
                   "source": { "$ref": "#/$defs/__schema0" }
                 },
                 "required": ["status", "value", "source"],
@@ -164,6 +175,15 @@
                 "additionalProperties": false
               }
             ]
+          },
+          "display": {
+            "type": "object",
+            "properties": {
+              "hex": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+              "reference": { "$ref": "#/$defs/__schema1" }
+            },
+            "required": ["hex", "reference"],
+            "additionalProperties": false
           }
         },
         "required": ["name", "code", "hex"],
@@ -397,8 +417,17 @@
     "__schema2": {
       "type": "object",
       "properties": {
+        "en": { "$ref": "#/$defs/__schema1" },
+        "zh": { "$ref": "#/$defs/__schema1" }
+      },
+      "required": ["en"],
+      "additionalProperties": false
+    },
+    "__schema3": {
+      "type": "object",
+      "properties": {
         "id": { "$ref": "#/$defs/__schema0" },
-        "label": { "$ref": "#/$defs/__schema3" },
+        "label": { "$ref": "#/$defs/__schema2" },
         "body": { "$ref": "#/$defs/__schema4" },
         "hasLid": {
           "oneOf": [
@@ -439,15 +468,6 @@
         }
       },
       "required": ["id", "label", "body", "hasLid", "lid"],
-      "additionalProperties": false
-    },
-    "__schema3": {
-      "type": "object",
-      "properties": {
-        "en": { "$ref": "#/$defs/__schema1" },
-        "zh": { "$ref": "#/$defs/__schema1" }
-      },
-      "required": ["en"],
       "additionalProperties": false
     },
     "__schema4": {
@@ -515,7 +535,7 @@
               "type": "object",
               "properties": {
                 "status": { "type": "string", "const": "verified" },
-                "value": { "$ref": "#/$defs/__schema3" },
+                "value": { "$ref": "#/$defs/__schema2" },
                 "source": { "$ref": "#/$defs/__schema0" }
               },
               "required": ["status", "value", "source"],
@@ -549,7 +569,7 @@
               "type": "object",
               "properties": {
                 "status": { "type": "string", "const": "verified" },
-                "value": { "$ref": "#/$defs/__schema3" },
+                "value": { "$ref": "#/$defs/__schema2" },
                 "source": { "$ref": "#/$defs/__schema0" }
               },
               "required": ["status", "value", "source"],
@@ -714,7 +734,7 @@
               "type": "object",
               "properties": {
                 "status": { "type": "string", "const": "verified" },
-                "value": { "$ref": "#/$defs/__schema3" },
+                "value": { "$ref": "#/$defs/__schema2" },
                 "source": { "$ref": "#/$defs/__schema0" }
               },
               "required": ["status", "value", "source"],
@@ -748,7 +768,7 @@
               "type": "object",
               "properties": {
                 "status": { "type": "string", "const": "verified" },
-                "value": { "$ref": "#/$defs/__schema3" },
+                "value": { "$ref": "#/$defs/__schema2" },
                 "source": { "$ref": "#/$defs/__schema0" }
               },
               "required": ["status", "value", "source"],

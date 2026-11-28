@@ -484,6 +484,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#d7c8b4",
+        "reference": "标准实拍 05 精修，去背景主体算术平均"
       }
     }
   ],
@@ -616,7 +620,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/rectangular-coated-paper-boxes/05-three-quarter.webp"
+          "src/assets/images/products/m19/rectangular-coated-paper-boxes/three-quarter.webp"
         ],
         "source": "photo-05"
       }
@@ -660,7 +664,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/rectangular-coated-paper-boxes/09-stack.webp"
+          "src/assets/images/products/m19/rectangular-coated-paper-boxes/stack.webp"
         ],
         "source": "photo-09"
       }
@@ -774,5 +778,14 @@
       "kind": "photo",
       "reference": "D:/独立站资料/标准拍摄/长方形淋膜纸盒/c3671d6bf4226a7be3a1eb10680e782a.jpg"
     }
-  ]
+  ],
+  "modelAppearance": {
+    "sampleColor": {
+      "en": "Natural kraft",
+      "zh": "本色"
+    },
+    "note": "显示色来自照片，非色号。标准套图取去背景后的主体像素算术平均，图册色样取独立样杯的未印刷部位。 圆角轮廓比例参考 03 俯视与 04 仰视，仅供建模。",
+    "topCornerFraction": 0.21,
+    "baseCornerFraction": 0.035
+  }
 }

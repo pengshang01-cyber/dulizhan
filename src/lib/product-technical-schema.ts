@@ -117,6 +117,15 @@ export const productTechnicalSchema = z.strictObject({
   slug: id,
   shape,
   photographedVariant: fact(id),
+  modelAppearance: z
+    .strictObject({
+      sampleColor: bilingual,
+      note: text,
+      // 这两个比例记录俯视照片的轮廓，只用于展示，不写入 geometry 的实测半径。
+      topCornerFraction: z.number().min(0).max(0.5).optional(),
+      baseCornerFraction: z.number().min(0).max(0.5).optional(),
+    })
+    .optional(),
   variants: z
     .array(
       z.strictObject({
@@ -133,6 +142,12 @@ export const productTechnicalSchema = z.strictObject({
       name: fact(bilingual),
       code: fact(text),
       hex: fact(z.string().regex(/^#[0-9a-fA-F]{6}$/)),
+      display: z
+        .strictObject({
+          hex: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+          reference: text,
+        })
+        .optional(),
     }),
   ),
   printAreas: z.array(

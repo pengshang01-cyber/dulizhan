@@ -19,7 +19,8 @@
     "links:check": "node --experimental-strip-types scripts/links-check.ts",
     "todo:report": "node --experimental-strip-types scripts/todo-report.ts",
     "import:products": "node --experimental-strip-types scripts/import-products.ts",
-    "product:drawings": "node --experimental-strip-types scripts/build-product-technical-art.ts"
+    "product:drawings": "node --experimental-strip-types scripts/build-product-technical-art.ts",
+    "models:build": "node --experimental-strip-types scripts/models/build.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.10",
@@ -29,14 +30,17 @@
     "@fortawesome/free-brands-svg-icons": "7.3.1",
     "@tailwindcss/vite": "4.3.5",
     "astro": "7.4.12",
-    "tailwindcss": "4.3.5"
+    "tailwindcss": "4.3.5",
+    "three": "0.187.0"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@eslint/js": "10.0.1",
     "@types/node": "24.19.2",
+    "@types/three": "0.187.0",
     "eslint": "10.15.0",
     "eslint-plugin-astro": "3.2.1",
+    "meshoptimizer": "1.3.0",
     "parse5": "8.1.1",
     "playwright": "1.65.1",
     "prettier": "3.10.1",

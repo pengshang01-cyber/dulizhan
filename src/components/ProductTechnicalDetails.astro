@@ -80,38 +80,45 @@ const drawings = technicalDrawings(spec);
     )}
   </div>
   {drawings.length > 0 && (
-    <div class="mt-8 grid gap-5 sm:grid-cols-2">
-      {drawings.map(({ image, part, label, href }) => {
-        const caption = [
-          t("technical.drawing", locale),
-          confirmedLocalized(label, locale),
-          t("technical." + part, locale),
-        ]
-          .filter(Boolean)
-          .join(" · ");
-        return (
-          <figure
-            data-technical-drawing
-            class="overflow-hidden rounded-panel border border-line bg-white"
-          >
-            <Image
-              src={image}
-              widths={[512, 800, 1600]}
-              sizes="(min-width: 40rem) 48vw, calc(100vw - 2.5rem)"
-              alt={caption}
-              format="webp"
-              loading="lazy"
-              class="block h-auto w-full"
-            />
-            <figcaption class="flex flex-wrap items-center justify-between gap-2 border-t border-line p-4 text-sm">
-              <span>{caption}</span>
-              <a href={href} class="text-copper-dark underline">
-                {t("technical.downloadDrawing", locale)}
+    <details class="mt-6 rounded-panel border border-line bg-white">
+      <summary class="cursor-pointer px-5 py-4 font-semibold text-coffee">
+        {t("model.drawings", locale)}
+      </summary>
+      <div class="grid gap-5 p-4 sm:grid-cols-2">
+        {drawings.map(({ image, part, label, href }) => {
+          const caption = [
+            t("technical.drawing", locale),
+            confirmedLocalized(label, locale),
+            t("technical." + part, locale),
+          ]
+            .filter(Boolean)
+            .join(" · ");
+          return (
+            <figure
+              data-technical-drawing
+              class="overflow-hidden rounded-panel border border-line bg-white"
+            >
+              <a href={href} aria-label={caption}>
+                <Image
+                  src={image}
+                  widths={[512, 800, 1600]}
+                  sizes="(min-width: 40rem) 48vw, calc(100vw - 2.5rem)"
+                  alt={caption}
+                  format="webp"
+                  loading="lazy"
+                  class="block h-auto w-full"
+                />
               </a>
-            </figcaption>
-          </figure>
-        );
-      })}
-    </div>
+              <figcaption class="flex flex-wrap items-center justify-between gap-2 border-t border-line p-4 text-sm">
+                <span>{caption}</span>
+                <a href={href} class="text-copper-dark underline">
+                  {t("technical.downloadDrawing", locale)}
+                </a>
+              </figcaption>
+            </figure>
+          );
+        })}
+      </div>
+    </details>
   )}
 </section>

@@ -15,21 +15,6 @@ const drawings = import.meta.glob<ImageMetadata>(
   "/src/assets/images/products/m18/*/technical-*.png",
   { eager: true, import: "default" },
 );
-const views = import.meta.glob<ImageMetadata>(
-  "/src/assets/images/products/m18/*/[0-9][0-9]-*.webp",
-  { eager: true, import: "default" },
-);
-
-export function technicalPhotoViews(spec: ProductTechnicalSpec) {
-  return ["01", "05", "02", "03", "06", "04"].flatMap((number) => {
-    const photo = spec.photos.find((photo) => photo.number === number);
-    const path = verifiedValue(photo?.files)?.[0];
-    if (!path || !photo) return [];
-    const image = views["/" + path];
-    if (!image) throw new Error("已核实视图找不到图片：" + path);
-    return [image];
-  });
-}
 
 export function technicalDrawings(spec: ProductTechnicalSpec) {
   return spec.variants.flatMap(({ id, label, lid }) =>

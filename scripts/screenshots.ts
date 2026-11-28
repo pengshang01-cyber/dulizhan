@@ -74,6 +74,7 @@ if (
     "M16",
     "M17",
     "M18",
+    "M19",
   ].includes(milestone) ||
     externalPreview.protocol !== "https:" ||
     !externalPreview.hostname.endsWith(".workers.dev") ||
@@ -108,6 +109,7 @@ try {
           "M16",
           "M17",
           "M18",
+          "M19",
         ].includes(milestone)
       )
         return Boolean(milestones?.includes(milestone));
@@ -154,7 +156,11 @@ try {
         };
       },
     );
-  const browser = await chromium.launch();
+  const browser = await chromium.launch(
+    milestone === "M19"
+      ? { args: ["--use-angle=swiftshader", "--enable-unsafe-swiftshader"] }
+      : {},
+  );
   try {
     await mkdir(destination, { recursive: true });
     const m13 =
@@ -532,6 +538,41 @@ try {
         }
 
         await m13?.verifyM13Page(page, route.name, width);
+
+        if (milestone === "M19") {
+          const media = page.locator("[data-model-gallery]");
+          if (
+            response?.status() !== 200 ||
+            (await media.locator("[data-model-tab]").count()) !== 4 ||
+            (await page.evaluate(
+              () =>
+                document.documentElement.scrollWidth > innerWidth + 1 ||
+                performance
+                  .getEntriesByType("resource")
+                  .some((e) => /\.glb(?:$|\?)/.test(e.name)),
+            ))
+          )
+            throw new Error(
+              "三维页面的初始请求、视口或图库数量异常：" + route.path,
+            );
+          await media.locator("[data-model-start]").click();
+          await page
+            .locator('[data-model-gallery][data-status="ready"]')
+            .waitFor();
+          await media.locator("[data-model-canvas]").press("ArrowRight");
+          if (route.name.includes("rectangular"))
+            await media.locator("[data-model-lid]").selectOption("open");
+          await media.locator("[data-model-tab='1']").click();
+          await media
+            .locator("[data-model-panel]")
+            .nth(1)
+            .waitFor({ state: "visible" });
+          await media.locator("[data-model-tab='0']").click();
+          await media
+            .locator("[data-model-canvas]")
+            .waitFor({ state: "visible" });
+          await page.evaluate(() => window.scrollTo(0, 0));
+        }
 
         if (milestone === "M14") {
           const gallery = page.locator("[data-product-gallery]");

@@ -141,6 +141,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#b6a5bf",
+        "reference": "中文图册 PDF 12，JK-01 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -160,6 +164,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#c6a2aa",
+        "reference": "中文图册 PDF 12，JK-02 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -179,6 +187,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#79c1ba",
+        "reference": "中文图册 PDF 12，JK-03 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -198,6 +210,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#dd6898",
+        "reference": "中文图册 PDF 12，JK-04 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -217,6 +233,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#e18060",
+        "reference": "中文图册 PDF 12，JK-05 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -236,6 +256,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#c5b44b",
+        "reference": "中文图册 PDF 12，JK-06 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -255,6 +279,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#41bad4",
+        "reference": "中文图册 PDF 12，JK-07 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -274,6 +302,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#709f4e",
+        "reference": "中文图册 PDF 12，JK-08 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -293,6 +325,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#8875b4",
+        "reference": "中文图册 PDF 12，JK-09 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -312,6 +348,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#e35e5f",
+        "reference": "中文图册 PDF 12，JK-10 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -331,6 +371,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#816b66",
+        "reference": "中文图册 PDF 12，JK-11 独立样杯外壁，避开白边、阴影及文字后取平均"
       }
     },
     {
@@ -350,6 +394,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#f0ece2",
+        "reference": "标准实拍 05 精修，去背景主体算术平均"
       }
     },
     {
@@ -369,6 +417,10 @@
         "status": "missing",
         "value": null,
         "note": "网站色板用于视觉参考，未提供经核准的色值"
+      },
+      "display": {
+        "hex": "#bd8f69",
+        "reference": "中文图册 PDF 32，圆形卷边杯的未印刷本色纸区域均值"
       }
     }
   ],
@@ -480,7 +532,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/05-three-quarter.webp"
+          "src/assets/images/products/m19/pet-coated-round-rolled-rim-baking-cups/three-quarter.webp"
         ],
         "source": "photo-05"
       }
@@ -524,7 +576,7 @@
       "files": {
         "status": "verified",
         "value": [
-          "src/assets/images/products/m18/pet-coated-round-rolled-rim-baking-cups/09-stack.webp"
+          "src/assets/images/products/m19/pet-coated-round-rolled-rim-baking-cups/stack.webp"
         ],
         "source": "photo-09"
       }
@@ -618,5 +670,12 @@
       "kind": "photo",
       "reference": "D:/独立站资料/标准拍摄/5039 PET 淋膜圆形卷口杯（圆杯）/3ba83c82698dc2cba88a806d9c44835a.jpg"
     }
-  ]
+  ],
+  "modelAppearance": {
+    "sampleColor": {
+      "en": "White",
+      "zh": "白色"
+    },
+    "note": "显示色来自照片，非色号。标准套图取去背景后的主体像素算术平均，图册色样取独立样杯的未印刷部位。"
+  }
 }
