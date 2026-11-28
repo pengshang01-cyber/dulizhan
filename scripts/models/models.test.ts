@@ -12,6 +12,40 @@ import {
   readModel,
   rimSection,
 } from "./inspect";
+import type { Surface } from "./inspect";
+
+// Away from the lip and foot, horizontal edges of the paper-detail atlas run along its U axis.
+// Compare their projected 3D directions with the tangent embedded in the delivered GLB.
+function alignedAtlasEdges(surface: Surface, middle: number) {
+  const { positions, normals, detail, tangents, indices } = surface;
+  let edges = 0,
+    aligned = 0;
+  for (let i = 0; i < indices.length; i += 3) {
+    for (let j = 0; j < 3; j++) {
+      const a = indices[i + j],
+        b = indices[i + ((j + 1) % 3)];
+      if (
+        Math.abs(positions[a * 3 + 1] - middle) > middle * 0.35 ||
+        detail[a * 2 + 1] !== detail[b * 2 + 1] ||
+        detail[b * 2] <= detail[a * 2] + 0.0005
+      )
+        continue;
+      const direction = [0, 1, 2].map(
+        (k) => positions[b * 3 + k] - positions[a * 3 + k],
+      );
+      const n = [0, 1, 2].map((k) => normals[a * 3 + k]);
+      const dot = direction.reduce((s, v, k) => s + v * n[k], 0);
+      const tangent = direction.map((v, k) => v - dot * n[k]);
+      const length = Math.hypot(...tangent);
+      if (length < 0.00002) continue;
+      const agreement =
+        tangent.reduce((s, v, k) => s + v * tangents[a * 4 + k], 0) / length;
+      edges++;
+      if (agreement > 0.98) aligned++;
+    }
+  }
+  return aligned / edges;
+}
 
 function matchMm(measured: number, expected: number) {
   expect(Math.abs(measured / expected - 1)).toBeLessThanOrEqual(0.01);
@@ -127,6 +161,9 @@ describe.each(products)("Blender 模型 %s", (slug) => {
           }
         }
         if (spec.shape === "round-rolled-rim") {
+          expect(
+            alignedAtlasEdges(s("Exterior"), upper.top * 0.0005),
+          ).toBeGreaterThan(0.85);
           const section = foldedSection(
             s("Exterior"),
             verifiedValue(g.heightMm)! * 0.00071,

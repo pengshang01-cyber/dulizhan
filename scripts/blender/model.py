@@ -73,8 +73,10 @@ def object_for(patch, parent, mat):
         layer = mesh.uv_layers.new(name=name)
         coords = [c for face in data for uv in face for c in uv]
         layer.uv.foreach_set("vector", coords)
-    mesh.uv_layers.active_index = 0
-    mesh.uv_layers[0].active_render = True
+    # glTF writes UV in layer order, but Blender calculates its exported tangent on the active layer.
+    # UV0 stays the print layout; tangent-space normals must use the basis of the baked UV1.
+    mesh.uv_layers.active_index = 1
+    mesh.uv_layers[1].active_render = True
     return obj
 
 
