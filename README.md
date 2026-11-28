@@ -10,7 +10,7 @@ npm run models:build
 npm test
 ```
 
-输入是 `data/product-specs/` 中含 `modelAppearance` 的规格。脚本在 `.astro` 临时目录中烘焙、导出、压缩和检查全部模型，然后更新 `public/models/`。普通网站构建直接使用已提交的 GLB。更新列表封面和四视角核对图可运行 `node --experimental-strip-types scripts/models/render.ts`，需要本项目的 Playwright Chromium。[产品标准资料](docs/PRODUCT-DATA.md) · [M19 实拍与模型对照](docs/reviews/M19.md#blender-建模)
+输入是 `data/product-specs/` 中含 `modelAppearance` 的规格。脚本在 `.astro` 临时目录中烘焙、导出、压缩和检查全部模型，然后更新 `public/models/`。普通网站构建直接使用已提交的 GLB。更新列表封面和四视角核对图可运行 `node --experimental-strip-types scripts/models/render.ts`，需要本项目的 Playwright Chromium。[产品标准资料](docs/PRODUCT-DATA.md) · [M19 实拍与模型对照](docs/reviews/M19.md#第二轮修改)
 
 ## Local development
 

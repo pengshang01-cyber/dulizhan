@@ -20,3 +20,5 @@
 - PR #25 已合并。工厂通过 Pages CMS 在 `fc3c940` 开启收录，当前为 `true`。M18 已交付三款实测数据、四套技术视图和实拍多角度查看，验收六张 Workers 预览截图。 [PR #26](https://github.com/pengshang01-cyber/dulizhan/pull/26) · [M18 审核报告](../reviews/M18.md)
 - M18 已合并。M19 的三款试点均可查看底部，四个压缩模型已在 Workers 预览核对，六张双视口截图归档。六项检查通过，实际空间比例留待 AR 真机复核。[M19 审核报告](../reviews/M19.md) · [PR #27](https://github.com/pengshang01-cyber/dulizhan/pull/27)
 - M19 工厂复审已提交 Blender 模型。5039 解码截面有 24 处叠折，网页底面补光已复核，三款均录到正下方。模型与对应实物的细部确认见[Blender 建模](../reviews/M19.md#blender-建模)。
+
+- M19 第二轮在原 PR 复核两款杯的 PET 膜高光、外凸圆管和实际叠褶。方杯每角五道已写入标准资料；长方盒三维展示仅有盒身。[第二轮修改](../reviews/M19.md#第二轮修改)
