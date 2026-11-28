@@ -1,6 +1,7 @@
 import { confirmedText } from "./placeholders";
 
 export interface InquiryProduct {
+  designId?: string;
   slug: string;
   sku?: string;
   title: string;
@@ -33,10 +34,16 @@ export function readInquiryProduct(value: unknown): InquiryProduct | undefined {
   )
     return;
   const model = confirmedText(sku);
+  const designId = (value as InquiryProduct).designId;
   return {
     slug,
     title: confirmedText(title) ?? slug,
     category,
+    ...(slug === "pet-coated-round-rolled-rim-baking-cups" &&
+    typeof designId === "string" &&
+    /^[a-f0-9-]{36}$/.test(designId)
+      ? { designId }
+      : {}),
     ...(model ? { sku: model } : {}),
   };
 }
@@ -142,6 +149,15 @@ export function getItems(): InquiryItem[] {
 export function addItem(product: InquiryProduct): boolean {
   initialize();
   const normalized = readInquiryProduct(product);
+  const existing = items.find((item) => item.slug === normalized?.slug);
+  if (normalized?.designId && existing) {
+    save(
+      items.map((item) =>
+        item === existing ? { ...item, designId: normalized.designId } : item,
+      ),
+    );
+    return true;
+  }
   if (
     typeof window === "undefined" ||
     !normalized ||

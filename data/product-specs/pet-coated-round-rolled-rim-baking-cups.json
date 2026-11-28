@@ -3,6 +3,25 @@
   "version": 1,
   "slug": "pet-coated-round-rolled-rim-baking-cups",
   "shape": "round-rolled-rim",
+  "blank": {
+    "variant": "5039",
+    "shape": "circle",
+    "sectorStartsTurns": [
+      0, 0.0438978312, 0.0894090211, 0.1334671908, 0.1755005568, 0.2155581004,
+      0.2547136444, 0.2946609132, 0.3373971558, 0.3823253314, 0.4276402495,
+      0.4715046197, 0.5133257692, 0.5523496216, 0.5904980055, 0.6294544657,
+      0.6705520974, 0.7136926677, 0.7581116565, 0.8015785293, 0.8424432328,
+      0.881250263, 0.9192065461, 0.9583420012
+    ],
+    "diameterMm": {
+      "status": "verified",
+      "value": 143,
+      "source": "factory-blank-5039"
+    },
+    "zonesMm": { "bottomEnd": 25, "wallEnd": 65.1403786728526, "rimEnd": 71.5 },
+    "printSide": { "value": "outside", "status": "pending" },
+    "margins": { "bleedMm": 3, "safetyMm": 3, "status": "pending" }
+  },
   "photographedVariant": {
     "status": "verified",
     "value": "5039",
@@ -615,6 +634,11 @@
     "note": "工厂确认没有原视频或有编号的完整一圈帧，改用现有多角度实拍"
   },
   "sources": [
+    {
+      "id": "factory-blank-5039",
+      "kind": "measurement",
+      "reference": "工厂确认：5039 杯由一张直径 143 mm 的圆纸片压制。"
+    },
     {
       "id": "factory-measurements-2026-11-27",
       "kind": "measurement",

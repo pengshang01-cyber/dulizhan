@@ -30,5 +30,6 @@ export function inquiryDisplayItem(
   return {
     ...(readInquiryProduct(current) ?? { slug, category, title: slug }),
     quantity: item.quantity,
+    ...(item.designId ? { designId: item.designId } : {}),
   };
 }

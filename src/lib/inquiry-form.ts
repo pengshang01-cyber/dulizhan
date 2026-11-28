@@ -176,6 +176,12 @@ export function initializeInquiryForms() {
                   ),
                 });
           row.append(link, quantity);
+          if (item.designId) {
+            const note = document.createElement("span");
+            note.className = "w-full text-copper";
+            note.textContent = t("customizer.designAttached", locale);
+            row.append(note);
+          }
           fragment.append(row);
         }
         list.replaceChildren(fragment);
@@ -192,6 +198,8 @@ export function initializeInquiryForms() {
           "delivery_failed",
           "network",
           "payload_too_large",
+          "invalid_design",
+          "missing_design",
         ];
         errorMessage.textContent = t(
           "form.error." + (known.includes(code) ? code : "generic"),
@@ -350,11 +358,21 @@ export function initializeInquiryForms() {
         submitLabel.textContent = t("form.submitting", locale);
         form.setAttribute("aria-busy", "true");
         try {
+          const designId = getItems().find((item) => item.designId)?.designId;
+          const uploads = designId
+            ? await import("./design-storage")
+            : undefined;
+          const requestBody =
+            uploads && designId
+              ? await uploads.inquiryBody(payload, designId)
+              : JSON.stringify(payload);
           const response = await fetch("/api/inquiry", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-            signal: AbortSignal.timeout(30000),
+            ...(typeof requestBody === "string"
+              ? { headers: { "Content-Type": "application/json" } }
+              : {}),
+            body: requestBody,
+            signal: AbortSignal.timeout(designId ? 120000 : 30000),
           });
           const body: {
             ok?: boolean;
@@ -368,6 +386,8 @@ export function initializeInquiryForms() {
             return;
           }
           clearItems();
+          if (uploads && designId)
+            await uploads.releaseQuote(designId).catch(() => {});
           form.dataset.track = "generate_lead";
           form.dispatchEvent(
             new CustomEvent("generate_lead", {
@@ -383,8 +403,12 @@ export function initializeInquiryForms() {
           );
           status.textContent = t("form.success", locale);
           window.location.assign(localePath("/thank-you/", locale));
-        } catch {
-          showError("network");
+        } catch (error) {
+          showError(
+            error instanceof Error && error.message === "missing_design"
+              ? "missing_design"
+              : "network",
+          );
           resetVerification();
         } finally {
           pending = false;

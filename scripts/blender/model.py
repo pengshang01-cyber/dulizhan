@@ -252,10 +252,19 @@ def create(spec, variant, out):
     appearance = spec["modelAppearance"]
     sample = next(c for c in spec["colors"] if fact(c, "name") == appearance["sampleColor"])
     materials = make_materials(fact(sample, "hex") or sample["display"]["hex"], fact(variant["body"], "coating")["en"] == "PET")
-    form = Form(variant["body"], appearance, spec["shape"])
+    blank = spec.get("blank")
+    if blank and blank["variant"] == variant["id"]:
+        from round_blank import BlankForm
+        form = BlankForm(variant["body"], appearance, spec["shape"], blank)
+    else:
+        form = Form(variant["body"], appearance, spec["shape"])
     parent = bpy.data.objects.new("Body", None)
     bpy.context.collection.objects.link(parent)
     objects = [parent, *(object_for(p, parent, materials[p.material]) for p in form.body())]
+    if blank and blank["variant"] == variant["id"]:
+        for obj in objects[1:]:
+            obj["uvLayout"] = "circular-paper-blank"
+        parent["blankDiameterMm"] = blank["diameterMm"]["value"]
     output = out / spec["slug"]
     output.mkdir(parents=True, exist_ok=True)
     bake(objects, materials, output / (variant["id"] + "-normal.png"), spec["shape"])

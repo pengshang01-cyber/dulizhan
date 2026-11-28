@@ -3,6 +3,8 @@ import { productHref } from "../i18n/routing";
 import { configuredOrigin } from "../lib/indexing";
 import type { InquiryPayload } from "../lib/inquiry-payload";
 import { confirmedText } from "../lib/placeholders";
+import type { Design } from "../lib/blank-design";
+import { designRows } from "./design-attachments";
 
 const labels = {
   en: {
@@ -75,7 +77,11 @@ export function escapeHtml(value: string): string {
   );
 }
 
-export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
+export function buildInquiryEmail(
+  data: InquiryPayload,
+  submittedAt: Date,
+  design?: Design,
+) {
   const copy = labels[data.locale];
   const origin = configuredOrigin(site.domain);
   const productUrl = (slug: string, category: string) =>
@@ -181,5 +187,23 @@ export function buildInquiryEmail(data: InquiryPayload, submittedAt: Date) {
     )
     .join("");
   const html = `<!doctype html><html lang="${data.locale === "zh" ? "zh-CN" : "en"}"><body style="font-family:Arial,sans-serif;color:#30271f"><h1>${copy.heading}</h1><table style="border-collapse:collapse;width:100%">${detailRows}</table><h2>${copy.items}</h2><table style="border-collapse:collapse;width:100%"><thead><tr>${itemHeaders.map((header) => cell(escapeHtml(header), "th")).join("")}</tr></thead><tbody>${itemRows}</tbody></table>${items.length ? "" : `<p>${copy.empty}</p>`}</body></html>`;
-  return { subject, html, text };
+  if (!design) return { subject, html, text };
+  const rows = designRows(design);
+  const table =
+    '<h2 lang="zh-CN">5039 定制参数</h2><table style="border-collapse:collapse">' +
+    rows
+      .map(
+        ([k, v]) =>
+          "<tr>" + cell(escapeHtml(k), "th") + cell(escapeHtml(v)) + "</tr>",
+      )
+      .join("") +
+    "</table>";
+  return {
+    subject,
+    html: html.replace("</body>", table + "</body>"),
+    text:
+      text +
+      "\n\n5039 定制参数\n" +
+      rows.map(([k, v]) => k + "：" + v).join("\n"),
+  };
 }

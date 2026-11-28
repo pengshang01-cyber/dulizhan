@@ -89,6 +89,9 @@ interface Props {
           <h2 class="font-display text-card-title font-normal wrap-anywhere">
             <a data-inquiry-product class="hover:text-copper"></a>
           </h2>
+          <p data-inquiry-design hidden class="mt-1 text-sm text-copper">
+            {t("customizer.designAttached", locale)}
+          </p>
         </div>
         <div class="min-w-0">
           <label
@@ -237,6 +240,10 @@ interface Props {
         "[data-inquiry-product]",
       );
       const sku = row.querySelector<HTMLElement>("[data-inquiry-sku]");
+      const designNote = row.querySelector<HTMLElement>(
+        "[data-inquiry-design]",
+      );
+      if (designNote) designNote.hidden = !item.designId;
       const input = row.querySelector<HTMLInputElement>(
         "[data-inquiry-quantity]",
       );

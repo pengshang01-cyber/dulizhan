@@ -13,6 +13,7 @@ import ProductGallery from "../ProductGallery.astro";
 import ProductSpecTable from "../ProductSpecTable.astro";
 import ProductTechnicalDetails from "../ProductTechnicalDetails.astro";
 import ProductModelGallery from "../ProductModelGallery.astro";
+import CupCustomizer from "../CupCustomizer.astro";
 import { modelPoster } from "../../lib/product-model";
 import SectionHeading from "../SectionHeading.astro";
 import { productMeta, productData, configuredOrigin } from "../../lib/seo";
@@ -44,6 +45,10 @@ const categoryLabel = confirmedLocalized(category.label, locale) ?? category.id;
 const inquiryEntry = inquiryProduct(data, locale);
 const title = inquiryEntry.title;
 const technical = technicalSpec(data.slug);
+const pilot =
+  technical?.blank?.variant === "5039" &&
+  data.slug === "pet-coated-round-rolled-rim-baking-cups";
+const template = "/product-media/" + data.slug + "/5039-blank-" + locale;
 const poster = modelPoster(data.slug);
 const summary = confirmedLocalized(data.summary, locale);
 const {
@@ -140,6 +145,27 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
         ) : (
           <ProductGallery locale={locale} images={data.images} title={title} />
         )}
+        {pilot && (
+          <div class="mt-4 flex flex-wrap items-center gap-3">
+            <Button
+              variant="secondary"
+              data-customize-5039
+              aria-haspopup="dialog"
+            >
+              {t("customizer.open", locale)}
+            </Button>
+            <span class="text-sm">
+              {t("customizer.templates", locale)} ·{" "}
+              <a class="underline" href={template + ".svg"} download>
+                SVG
+              </a>{" "}
+              /{" "}
+              <a class="underline" href={template + ".pdf"} download>
+                PDF
+              </a>
+            </span>
+          </div>
+        )}
       </div>
       <div class="min-w-0 lg:py-3">
         <Eyebrow>{categoryLabel}</Eyebrow>
@@ -186,6 +212,15 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
             product={inquiryEntry}
             class="min-h-12 px-5"
           />
+          {pilot && (
+            <Button
+              variant="secondary"
+              data-customize-5039
+              aria-haspopup="dialog"
+            >
+              {t("customizer.open", locale)}
+            </Button>
+          )}
         </div>
         <p class="mt-5 text-sm leading-relaxed text-ink-soft">
           {t("products.inquiryHelp", locale)}
@@ -193,6 +228,9 @@ const faqs = data.faqs.flatMap(({ q, a }) => {
       </div>
     </section>
 
+    {pilot && technical && (
+      <CupCustomizer spec={technical} locale={locale} entry={inquiryEntry} />
+    )}
     {(specificationRows.length > 0 ||
       sizes.length > 0 ||
       packages.length > 0 ||
